@@ -353,6 +353,60 @@ impl AMediaPlate {
             cdo
         }
     }
+    pub fn set_holdout_composite_enabled(&mut self, b_in_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::A_MEDIA_PLATE_SET_HOLDOUT_COMPOSITE_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::A_MEDIA_PLATE_SET_HOLDOUT_COMPOSITE_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_holdout_composite_enabled(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::A_MEDIA_PLATE_IS_HOLDOUT_COMPOSITE_ENABLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::A_MEDIA_PLATE_IS_HOLDOUT_COMPOSITE_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UMediaPlateAssetUserData {
@@ -412,6 +466,832 @@ impl UMediaPlateComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_play_only_when_visible(&mut self, b_in_play_only_when_visible: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_PLAY_ONLY_WHEN_VISIBLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_play_only_when_visible,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_PLAY_ONLY_WHEN_VISIBLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mesh_range(
+        &mut self,
+        in_mesh_range: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_MESH_RANGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_mesh_range,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_MESH_RANGE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_loop(&mut self, b_in_loop: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_LOOP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_in_loop, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_LOOP,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_letterbox_aspect_ratio(&mut self, aspect_ratio: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_LETTERBOX_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &aspect_ratio,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_LETTERBOX_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_aspect_ratio_auto(&mut self, b_in_is_aspect_ratio_auto: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_IS_ASPECT_RATIO_AUTO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_is_aspect_ratio_auto,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_IS_ASPECT_RATIO_AUTO,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enable_audio(&mut self, b_in_enable_audio: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_ENABLE_AUDIO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_enable_audio,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_ENABLE_AUDIO,
+                __buffer,
+            )
+        };
+    }
+    pub fn select_media_source_asset(
+        &mut self,
+        in_media_source: UPtr<crate::bindings::media_assets::UMediaSource>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SELECT_MEDIA_SOURCE_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_media_source,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::media_assets::UMediaSource>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SELECT_MEDIA_SOURCE_ASSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn select_media_playlist_asset(
+        &mut self,
+        in_media_playlist: UPtr<crate::bindings::media_assets::UMediaPlaylist>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SELECT_MEDIA_PLAYLIST_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_media_playlist,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::media_assets::UMediaPlaylist>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SELECT_MEDIA_PLAYLIST_ASSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn select_external_media(&mut self, in_file_path: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SELECT_EXTERNAL_MEDIA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_file_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SELECT_EXTERNAL_MEDIA,
+                __buffer,
+            )
+        };
+    }
+    pub fn seek(&mut self, time: &crate::bindings::core_u_object::FTimespan) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SEEK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                time,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTimespan>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SEEK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn rewind(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_REWIND,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_REWIND,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn previous(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_PREVIOUS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_PREVIOUS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn play(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_PLAY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_PLAY,
+                __buffer,
+            )
+        };
+    }
+    pub fn pause(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_PAUSE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_PAUSE,
+                __buffer,
+            )
+        };
+    }
+    pub fn open_latent(
+        &mut self,
+        in_world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        in_latent_info: crate::bindings::engine::FLatentActionInfo,
+        in_timeout: f32,
+        b_in_wait_for_texture: bool,
+        b_out_success: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<46>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_OPEN_LATENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_latent_info,
+                __buffer.add(8).cast::<crate::bindings::engine::FLatentActionInfo>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_timeout,
+                __buffer.add(40).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_wait_for_texture,
+                __buffer.add(44).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_success,
+                __buffer.add(45).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_OPEN_LATENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(45).cast::<bool>().swap(b_out_success);
+        }
+    }
+    pub fn open(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_OPEN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_OPEN,
+                __buffer,
+            )
+        };
+    }
+    pub fn next(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_NEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_NEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_media_plate_playing(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_IS_MEDIA_PLATE_PLAYING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_IS_MEDIA_PLATE_PLAYING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_event_state_change_allowed(
+        &self,
+        in_request_event_state: EMediaPlateEventState,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_IS_EVENT_STATE_CHANGE_ALLOWED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_request_event_state,
+                __buffer.add(0).cast::<EMediaPlateEventState>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_IS_EVENT_STATE_CHANGE_ALLOWED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_selected_media_source(
+        &self,
+    ) -> UPtr<crate::bindings::media_assets::UMediaSource> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_SELECTED_MEDIA_SOURCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_SELECTED_MEDIA_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::media_assets::UMediaSource>>()
+                .read()
+        }
+    }
+    pub fn get_mesh_range(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MESH_RANGE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MESH_RANGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_media_texture(
+        &mut self,
+        index: i32,
+    ) -> UPtr<crate::bindings::media_assets::UMediaTexture> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MEDIA_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MEDIA_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::media_assets::UMediaTexture>>()
+                .read()
+        }
+    }
+    pub fn get_media_playlist(
+        &self,
+    ) -> UPtr<crate::bindings::media_assets::UMediaPlaylist> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MEDIA_PLAYLIST,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MEDIA_PLAYLIST,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::media_assets::UMediaPlaylist>>()
+                .read()
+        }
+    }
+    pub fn get_media_player(
+        &mut self,
+    ) -> UPtr<crate::bindings::media_assets::UMediaPlayer> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MEDIA_PLAYER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MEDIA_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::media_assets::UMediaPlayer>>()
+                .read()
+        }
+    }
+    pub fn get_loop(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_LOOP,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_LOOP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_letterbox_aspect_ratio(&mut self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_LETTERBOX_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_LETTERBOX_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_is_aspect_ratio_auto(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_IS_ASPECT_RATIO_AUTO,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_IS_ASPECT_RATIO_AUTO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn close(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_CLOSE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_CLOSE,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(transparent)]

@@ -50,6 +50,53 @@ impl UDNAMeshVertexColorDataAsset {
             cdo
         }
     }
+    pub fn get_color_by_mesh_and_index(
+        &self,
+        in_mesh_name: FString,
+        in_vertex_id: i32,
+    ) -> crate::bindings::core_u_object::FLinearColor {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_dna::UDNA_MESH_VERTEX_COLOR_DATA_ASSET_GET_COLOR_BY_MESH_AND_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_mesh_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertex_id,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_dna::UDNA_MESH_VERTEX_COLOR_DATA_ASSET_GET_COLOR_BY_MESH_AND_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(20)
+                .cast::<crate::bindings::core_u_object::FLinearColor>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UMetaHumanInterchangeDnaTranslator {

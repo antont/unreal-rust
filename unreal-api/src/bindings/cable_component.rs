@@ -127,4 +127,190 @@ impl UCableComponent {
             cdo
         }
     }
+    pub fn set_attach_end_to_component(
+        &mut self,
+        component: UPtr<crate::bindings::engine::USceneComponent>,
+        socket_name: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cable_component::U_CABLE_COMPONENT_SET_ATTACH_END_TO_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USceneComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &socket_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cable_component::U_CABLE_COMPONENT_SET_ATTACH_END_TO_COMPONENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_attach_end_to(
+        &mut self,
+        actor: UPtr<crate::bindings::engine::AActor>,
+        component_property: FName,
+        socket_name: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cable_component::U_CABLE_COMPONENT_SET_ATTACH_END_TO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component_property,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &socket_name,
+                __buffer.add(20).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cable_component::U_CABLE_COMPONENT_SET_ATTACH_END_TO,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_cable_particle_locations(
+        &self,
+        locations: &mut TArray<crate::bindings::core_u_object::FVector>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cable_component::U_CABLE_COMPONENT_GET_CABLE_PARTICLE_LOCATIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                locations,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cable_component::U_CABLE_COMPONENT_GET_CABLE_PARTICLE_LOCATIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::core_u_object::FVector>>()
+                .swap(locations);
+        }
+    }
+    pub fn get_attached_component(
+        &self,
+    ) -> UPtr<crate::bindings::engine::USceneComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cable_component::U_CABLE_COMPONENT_GET_ATTACHED_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cable_component::U_CABLE_COMPONENT_GET_ATTACHED_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::USceneComponent>>()
+                .read()
+        }
+    }
+    pub fn get_attached_actor(&self) -> UPtr<crate::bindings::engine::AActor> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cable_component::U_CABLE_COMPONENT_GET_ATTACHED_ACTOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cable_component::U_CABLE_COMPONENT_GET_ATTACHED_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>().read() }
+    }
 }

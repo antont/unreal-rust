@@ -741,6 +741,242 @@ impl UDataflowEditorBlueprintLibrary {
             cdo
         }
     }
+    pub fn set_dataflow_node_property(
+        dataflow: UPtr<crate::bindings::dataflow_engine::UDataflow>,
+        node_name: FName,
+        property_name: FName,
+        propertyvalue: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_SET_DATAFLOW_NODE_PROPERTY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dataflow,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::dataflow_engine::UDataflow>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &property_name,
+                __buffer.add(20).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &propertyvalue,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::dataflow_editor::UDataflowEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_SET_DATAFLOW_NODE_PROPERTY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn connect_dataflow_nodes(
+        dataflow: UPtr<crate::bindings::dataflow_engine::UDataflow>,
+        from_node_name: FName,
+        output_name: FName,
+        to_node_name: FName,
+        input_name: FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_CONNECT_DATAFLOW_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dataflow,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::dataflow_engine::UDataflow>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &from_node_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &output_name,
+                __buffer.add(20).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &to_node_name,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(44).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::dataflow_editor::UDataflowEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_CONNECT_DATAFLOW_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<bool>().read() }
+    }
+    pub fn add_dataflow_node(
+        dataflow: UPtr<crate::bindings::dataflow_engine::UDataflow>,
+        node_type_name: FName,
+        base_name: FName,
+        location: crate::bindings::core_u_object::FVector2D,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<60>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_ADD_DATAFLOW_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dataflow,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::dataflow_engine::UDataflow>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_type_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_name,
+                __buffer.add(20).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &location,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::dataflow_editor::UDataflowEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_ADD_DATAFLOW_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<FName>().read() }
+    }
+    pub fn add_dataflow_from_clipboard_content(
+        dataflow: UPtr<crate::bindings::dataflow_engine::UDataflow>,
+        clipboard_content: FString,
+        location: crate::bindings::core_u_object::FVector2D,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_ADD_DATAFLOW_FROM_CLIPBOARD_CONTENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dataflow,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::dataflow_engine::UDataflow>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &clipboard_content,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &location,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::dataflow_editor::UDataflowEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_ADD_DATAFLOW_FROM_CLIPBOARD_CONTENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UDataflowEditorCollectionComponent {

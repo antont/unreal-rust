@@ -158,6 +158,61 @@ impl UAnimationGraph {
             cdo
         }
     }
+    pub fn get_graph_nodes_of_class(
+        &mut self,
+        node_class: TSubclassOf<UAnimGraphNode_Base>,
+        graph_nodes: &mut TArray<UPtr<UAnimGraphNode_Base>>,
+        b_include_child_classes: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph::U_ANIMATION_GRAPH_GET_GRAPH_NODES_OF_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_class,
+                __buffer.add(0).cast::<TSubclassOf<UAnimGraphNode_Base>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                graph_nodes,
+                __buffer.add(8).cast::<TArray<UPtr<UAnimGraphNode_Base>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_include_child_classes,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph::U_ANIMATION_GRAPH_GET_GRAPH_NODES_OF_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<TArray<UPtr<UAnimGraphNode_Base>>>()
+                .swap(graph_nodes);
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UAnimationBlendSpaceSampleGraph {
@@ -1989,6 +2044,353 @@ impl UAnimGraphNode_PoseDriver {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_source_bones(&mut self, bone_names: &TArray<FName>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_SOURCE_BONES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                bone_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_SOURCE_BONES,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_rbf_parameters(
+        &mut self,
+        parameters: crate::bindings::anim_graph_runtime::FRBFParams,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_RBF_PARAMETERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameters,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::anim_graph_runtime::FRBFParams>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_RBF_PARAMETERS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_pose_driver_source(
+        &mut self,
+        driver_source: crate::bindings::anim_graph_runtime::EPoseDriverSource,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &driver_source,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::anim_graph_runtime::EPoseDriverSource>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_SOURCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_pose_driver_output(
+        &mut self,
+        driver_output: crate::bindings::anim_graph_runtime::EPoseDriverOutput,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_OUTPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &driver_output,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::anim_graph_runtime::EPoseDriverOutput>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_OUTPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_driving_bones(&mut self, bone_names: &TArray<FName>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_DRIVING_BONES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                bone_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_DRIVING_BONES,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_source_bone_names(&mut self, bone_names: &mut TArray<FName>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_SOURCE_BONE_NAMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                bone_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_SOURCE_BONE_NAMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FName>>().swap(bone_names);
+        }
+    }
+    pub fn get_rbf_parameters(
+        &mut self,
+    ) -> crate::bindings::anim_graph_runtime::FRBFParams {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_RBF_PARAMETERS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_RBF_PARAMETERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::anim_graph_runtime::FRBFParams>()
+                .read()
+        }
+    }
+    pub fn get_pose_driver_source(
+        &mut self,
+    ) -> crate::bindings::anim_graph_runtime::EPoseDriverSource {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_SOURCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::anim_graph_runtime::EPoseDriverSource>()
+                .read()
+        }
+    }
+    pub fn get_pose_driver_output(
+        &mut self,
+    ) -> crate::bindings::anim_graph_runtime::EPoseDriverOutput {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_OUTPUT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_OUTPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::anim_graph_runtime::EPoseDriverOutput>()
+                .read()
+        }
+    }
+    pub fn get_driving_bone_names(&mut self, bone_names: &mut TArray<FName>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_DRIVING_BONE_NAMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                bone_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_DRIVING_BONE_NAMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FName>>().swap(bone_names);
+        }
+    }
+    pub fn copy_targets_from_pose_asset(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_COPY_TARGETS_FROM_POSE_ASSET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_COPY_TARGETS_FROM_POSE_ASSET,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]

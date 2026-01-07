@@ -2675,6 +2675,138 @@ impl UOptimusNode {
             cdo
         }
     }
+    pub fn set_graph_position(
+        &mut self,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_SET_GRAPH_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_SET_GRAPH_POSITION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_node_name(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_NODE_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_NODE_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_node_category(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_NODE_CATEGORY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_NODE_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_graph_position(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_GRAPH_POSITION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_GRAPH_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_display_name(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UOptimusNode_DataInterface {
@@ -3200,6 +3332,110 @@ impl UOptimusDeformer {
             cdo
         }
     }
+    pub fn get_variables(&self) -> TArray<UPtr<UOptimusVariableDescription>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_VARIABLES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_VARIABLES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<UPtr<UOptimusVariableDescription>>>().read()
+        }
+    }
+    pub fn get_resources(&self) -> TArray<UPtr<UOptimusResourceDescription>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_RESOURCES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_RESOURCES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<UPtr<UOptimusResourceDescription>>>().read()
+        }
+    }
+    pub fn get_primary_component_binding(&self) -> UPtr<UOptimusComponentSourceBinding> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_PRIMARY_COMPONENT_BINDING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_PRIMARY_COMPONENT_BINDING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UOptimusComponentSourceBinding>>().read() }
+    }
+    pub fn get_component_bindings(
+        &self,
+    ) -> TArray<UPtr<UOptimusComponentSourceBinding>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_COMPONENT_BINDINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_COMPONENT_BINDINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<UPtr<UOptimusComponentSourceBinding>>>().read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UOptimusDeformerDynamicInstanceManager {
@@ -3263,6 +3499,1211 @@ impl UOptimusDeformerInstance {
             cdo
         }
     }
+    pub fn set_vector_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &crate::bindings::core_u_object::FVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn set_vector_array_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &TArray<crate::bindings::core_u_object::FVector>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer
+                    .add(16)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_vector4_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &crate::bindings::core_u_object::FVector4,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR4_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector4>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR4_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn set_vector4_array_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &TArray<crate::bindings::core_u_object::FVector4>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR4_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer
+                    .add(16)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector4>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR4_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_vector2_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &crate::bindings::core_u_object::FVector2D,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR2_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR2_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_vector2_array_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &TArray<crate::bindings::core_u_object::FVector2D>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR2_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer
+                    .add(16)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector2D>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR2_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_transform_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &crate::bindings::core_u_object::FTransform,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<113>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_TRANSFORM_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_TRANSFORM_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(112).cast::<bool>().read() }
+    }
+    pub fn set_transform_array_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &TArray<crate::bindings::core_u_object::FTransform>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_TRANSFORM_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer
+                    .add(16)
+                    .cast::<TArray<crate::bindings::core_u_object::FTransform>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_TRANSFORM_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_rotator_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &crate::bindings::core_u_object::FRotator,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_ROTATOR_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_ROTATOR_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn set_rotator_array_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &TArray<crate::bindings::core_u_object::FRotator>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_ROTATOR_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer
+                    .add(16)
+                    .cast::<TArray<crate::bindings::core_u_object::FRotator>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_ROTATOR_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_quat_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &crate::bindings::core_u_object::FQuat,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_QUAT_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_QUAT_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn set_quat_array_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &TArray<crate::bindings::core_u_object::FQuat>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_QUAT_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<TArray<crate::bindings::core_u_object::FQuat>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_QUAT_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_name_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_NAME_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(in_value, __buffer.add(12).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_NAME_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn set_name_array_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &TArray<FName>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_NAME_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_NAME_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_linear_color_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &crate::bindings::core_u_object::FLinearColor,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_LINEAR_COLOR_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(12).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_LINEAR_COLOR_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn set_linear_color_array_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &TArray<crate::bindings::core_u_object::FLinearColor>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_LINEAR_COLOR_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer
+                    .add(16)
+                    .cast::<TArray<crate::bindings::core_u_object::FLinearColor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_LINEAR_COLOR_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_int_variable(&mut self, in_variable_name: FName, in_value: i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(12).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_int_array_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &TArray<i32>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<TArray<i32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_int4_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &crate::bindings::core_u_object::FIntVector4,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT4_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(12).cast::<crate::bindings::core_u_object::FIntVector4>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT4_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn set_int4_array_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &TArray<crate::bindings::core_u_object::FIntVector4>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT4_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer
+                    .add(16)
+                    .cast::<TArray<crate::bindings::core_u_object::FIntVector4>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT4_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_int3_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &crate::bindings::core_u_object::FIntVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT3_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(12).cast::<crate::bindings::core_u_object::FIntVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT3_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn set_int3_array_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &TArray<crate::bindings::core_u_object::FIntVector>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT3_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer
+                    .add(16)
+                    .cast::<TArray<crate::bindings::core_u_object::FIntVector>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT3_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_int2_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &crate::bindings::core_u_object::FIntPoint,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT2_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(12).cast::<crate::bindings::core_u_object::FIntPoint>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT2_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn set_int2_array_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &TArray<crate::bindings::core_u_object::FIntPoint>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT2_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer
+                    .add(16)
+                    .cast::<TArray<crate::bindings::core_u_object::FIntPoint>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT2_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_float_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: f64,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_FLOAT_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(16).cast::<f64>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_FLOAT_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn set_float_array_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &TArray<f64>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_FLOAT_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<TArray<f64>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_FLOAT_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_bool_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<14>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_BOOL_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(12).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_BOOL_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(13).cast::<bool>().read() }
+    }
+    pub fn set_bool_array_variable(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &TArray<bool>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_BOOL_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<TArray<bool>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_BOOL_ARRAY_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn enqueue_trigger_graph(&mut self, in_trigger_graph_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_ENQUEUE_TRIGGER_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_trigger_graph_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_ENQUEUE_TRIGGER_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UOptimusNodeGraph {
@@ -3286,6 +4727,1337 @@ impl UOptimusNodeGraph {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn rename_graph_direct(
+        &mut self,
+        in_graph: UPtr<UOptimusNodeGraph>,
+        in_new_name: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_RENAME_GRAPH_DIRECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_graph,
+                __buffer.add(0).cast::<UPtr<UOptimusNodeGraph>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_new_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_RENAME_GRAPH_DIRECT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn rename_graph(
+        &mut self,
+        in_graph: UPtr<UOptimusNodeGraph>,
+        in_new_name: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_RENAME_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_graph,
+                __buffer.add(0).cast::<UPtr<UOptimusNodeGraph>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_new_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_RENAME_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn remove_nodes(&mut self, in_nodes: &TArray<UPtr<UOptimusNode>>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_nodes,
+                __buffer.add(0).cast::<TArray<UPtr<UOptimusNode>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn remove_node(&mut self, in_node: UPtr<UOptimusNode>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<UOptimusNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn remove_link(
+        &mut self,
+        in_node_output_pin: UPtr<UOptimusNodePin>,
+        in_node_input_pin: UPtr<UOptimusNodePin>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_LINK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_output_pin,
+                __buffer.add(0).cast::<UPtr<UOptimusNodePin>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_input_pin,
+                __buffer.add(8).cast::<UPtr<UOptimusNodePin>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_LINK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn remove_all_links(&mut self, in_node_pin: UPtr<UOptimusNodePin>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_ALL_LINKS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_pin,
+                __buffer.add(0).cast::<UPtr<UOptimusNodePin>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_ALL_LINKS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn move_graph_direct(
+        &mut self,
+        in_graph: UPtr<UOptimusNodeGraph>,
+        in_insert_before: i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_MOVE_GRAPH_DIRECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_graph,
+                __buffer.add(0).cast::<UPtr<UOptimusNodeGraph>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_insert_before,
+                __buffer.add(8).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_MOVE_GRAPH_DIRECT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn is_sub_graph_reference(&self, in_node: UPtr<UOptimusNode>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_SUB_GRAPH_REFERENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<UOptimusNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_SUB_GRAPH_REFERENCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn is_kernel_function(&self, in_node: UPtr<UOptimusNode>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_KERNEL_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<UOptimusNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_KERNEL_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn is_function_reference(&self, in_node: UPtr<UOptimusNode>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_FUNCTION_REFERENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<UOptimusNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_FUNCTION_REFERENCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn is_function_graph(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_FUNCTION_GRAPH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_FUNCTION_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_execution_graph(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_EXECUTION_GRAPH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_EXECUTION_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_custom_kernel(&self, in_node: UPtr<UOptimusNode>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_CUSTOM_KERNEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<UOptimusNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_CUSTOM_KERNEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_graph_type(&self) -> EOptimusNodeGraphType {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_GET_GRAPH_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_GET_GRAPH_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EOptimusNodeGraphType>().read() }
+    }
+    pub fn get_graphs(&self) -> TArray<UPtr<UOptimusNodeGraph>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_GET_GRAPHS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_GET_GRAPHS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<UOptimusNodeGraph>>>().read() }
+    }
+    pub fn get_graph_index(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_GET_GRAPH_INDEX,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_GET_GRAPH_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn expand_collapsed_nodes(
+        &mut self,
+        in_graph_reference_node: UPtr<UOptimusNode>,
+    ) -> TArray<UPtr<UOptimusNode>> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_EXPAND_COLLAPSED_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_graph_reference_node,
+                __buffer.add(0).cast::<UPtr<UOptimusNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_EXPAND_COLLAPSED_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<UPtr<UOptimusNode>>>().read() }
+    }
+    pub fn duplicate_nodes(
+        &mut self,
+        in_nodes: &TArray<UPtr<UOptimusNode>>,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_DUPLICATE_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_nodes,
+                __buffer.add(0).cast::<TArray<UPtr<UOptimusNode>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_DUPLICATE_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn duplicate_node(
+        &mut self,
+        in_node: UPtr<UOptimusNode>,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+    ) -> UPtr<UOptimusNode> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_DUPLICATE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<UOptimusNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_DUPLICATE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
+    }
+    pub fn convert_to_sub_graph(
+        &mut self,
+        in_function_node: UPtr<UOptimusNode>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_TO_SUB_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_function_node,
+                __buffer.add(0).cast::<UPtr<UOptimusNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_TO_SUB_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn convert_to_function(
+        &mut self,
+        in_sub_graph_node: UPtr<UOptimusNode>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_TO_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_sub_graph_node,
+                __buffer.add(0).cast::<UPtr<UOptimusNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_TO_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn convert_function_to_custom_kernel(
+        &mut self,
+        in_kernel_function: UPtr<UOptimusNode>,
+    ) -> UPtr<UOptimusNode> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_FUNCTION_TO_CUSTOM_KERNEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_kernel_function,
+                __buffer.add(0).cast::<UPtr<UOptimusNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_FUNCTION_TO_CUSTOM_KERNEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UOptimusNode>>().read() }
+    }
+    pub fn convert_custom_kernel_to_function(
+        &mut self,
+        in_custom_kernel: UPtr<UOptimusNode>,
+    ) -> UPtr<UOptimusNode> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_CUSTOM_KERNEL_TO_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_custom_kernel,
+                __buffer.add(0).cast::<UPtr<UOptimusNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_CUSTOM_KERNEL_TO_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UOptimusNode>>().read() }
+    }
+    pub fn collapse_nodes_to_sub_graph(
+        &mut self,
+        in_nodes: &TArray<UPtr<UOptimusNode>>,
+    ) -> UPtr<UOptimusNode> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_COLLAPSE_NODES_TO_SUB_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_nodes,
+                __buffer.add(0).cast::<TArray<UPtr<UOptimusNode>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_COLLAPSE_NODES_TO_SUB_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UOptimusNode>>().read() }
+    }
+    pub fn collapse_nodes_to_function(
+        &mut self,
+        in_nodes: &TArray<UPtr<UOptimusNode>>,
+    ) -> UPtr<UOptimusNode> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_COLLAPSE_NODES_TO_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_nodes,
+                __buffer.add(0).cast::<TArray<UPtr<UOptimusNode>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_COLLAPSE_NODES_TO_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UOptimusNode>>().read() }
+    }
+    pub fn add_variable_get_node(
+        &mut self,
+        in_variable_desc: UPtr<UOptimusVariableDescription>,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+    ) -> UPtr<UOptimusNode> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_VARIABLE_GET_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_desc,
+                __buffer.add(0).cast::<UPtr<UOptimusVariableDescription>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_VARIABLE_GET_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
+    }
+    pub fn add_value_node(
+        &mut self,
+        in_data_type_ref: FOptimusDataTypeRef,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+    ) -> UPtr<UOptimusNode> {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_VALUE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_data_type_ref,
+                __buffer.add(0).cast::<FOptimusDataTypeRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(64).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_VALUE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(80).cast::<UPtr<UOptimusNode>>().read() }
+    }
+    pub fn add_resource_set_node(
+        &mut self,
+        in_resource_desc: UPtr<UOptimusResourceDescription>,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+    ) -> UPtr<UOptimusNode> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_SET_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_resource_desc,
+                __buffer.add(0).cast::<UPtr<UOptimusResourceDescription>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_SET_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
+    }
+    pub fn add_resource_node(
+        &mut self,
+        in_resource_desc: UPtr<UOptimusResourceDescription>,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+    ) -> UPtr<UOptimusNode> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_resource_desc,
+                __buffer.add(0).cast::<UPtr<UOptimusResourceDescription>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
+    }
+    pub fn add_resource_get_node(
+        &mut self,
+        in_resource_desc: UPtr<UOptimusResourceDescription>,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+    ) -> UPtr<UOptimusNode> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_GET_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_resource_desc,
+                __buffer.add(0).cast::<UPtr<UOptimusResourceDescription>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_GET_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
+    }
+    pub fn add_node(
+        &mut self,
+        in_node_class: TSubclassOf<UOptimusNode>,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+    ) -> UPtr<UOptimusNode> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_class,
+                __buffer.add(0).cast::<TSubclassOf<UOptimusNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
+    }
+    pub fn add_loop_terminal_nodes(
+        &mut self,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+    ) -> TArray<UPtr<UOptimusNode>> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_LOOP_TERMINAL_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_LOOP_TERMINAL_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<UPtr<UOptimusNode>>>().read() }
+    }
+    pub fn add_link(
+        &mut self,
+        in_node_output_pin: UPtr<UOptimusNodePin>,
+        in_node_input_pin: UPtr<UOptimusNodePin>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_LINK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_output_pin,
+                __buffer.add(0).cast::<UPtr<UOptimusNodePin>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_input_pin,
+                __buffer.add(8).cast::<UPtr<UOptimusNodePin>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_LINK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn add_function_reference_node(
+        &mut self,
+        in_function_graph: UPtr<UOptimusFunctionNodeGraph>,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+    ) -> UPtr<UOptimusNode> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_FUNCTION_REFERENCE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_function_graph,
+                __buffer.add(0).cast::<UPtr<UOptimusFunctionNodeGraph>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_FUNCTION_REFERENCE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
+    }
+    pub fn add_data_interface_node(
+        &mut self,
+        in_data_interface_class: TSubclassOf<UOptimusComputeDataInterface>,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+    ) -> UPtr<UOptimusNode> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_DATA_INTERFACE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_data_interface_class,
+                __buffer.add(0).cast::<TSubclassOf<UOptimusComputeDataInterface>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_DATA_INTERFACE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
+    }
+    pub fn add_component_binding_get_node(
+        &mut self,
+        in_component_binding: UPtr<UOptimusComponentSourceBinding>,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+    ) -> UPtr<UOptimusNode> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_COMPONENT_BINDING_GET_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_component_binding,
+                __buffer.add(0).cast::<UPtr<UOptimusComponentSourceBinding>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_COMPONENT_BINDING_GET_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
+    }
+    pub fn add_comment_node(
+        &mut self,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_size: &crate::bindings::core_u_object::FVector2D,
+        in_color: &crate::bindings::core_u_object::FLinearColor,
+    ) -> UPtr<UOptimusNode> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_COMMENT_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_size,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_color,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_COMMENT_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<UPtr<UOptimusNode>>().read() }
     }
 }
 #[repr(C, align(8))]

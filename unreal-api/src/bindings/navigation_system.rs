@@ -888,6 +888,224 @@ impl UNavigationPath {
             cdo
         }
     }
+    pub fn is_valid(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_IS_VALID,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_IS_VALID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_string_pulled(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_IS_STRING_PULLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_IS_STRING_PULLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_partial(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_IS_PARTIAL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_IS_PARTIAL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_path_length(&self) -> f64 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_GET_PATH_LENGTH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_GET_PATH_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f64>().read() }
+    }
+    pub fn get_path_cost(&self) -> f64 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_GET_PATH_COST,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_GET_PATH_COST,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f64>().read() }
+    }
+    pub fn get_debug_string(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_GET_DEBUG_STRING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_GET_DEBUG_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn enable_recalculation_on_invalidation(
+        &mut self,
+        do_recalculation: crate::bindings::engine::ENavigationOptionFlag,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_ENABLE_RECALCULATION_ON_INVALIDATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &do_recalculation,
+                __buffer.add(0).cast::<crate::bindings::engine::ENavigationOptionFlag>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_ENABLE_RECALCULATION_ON_INVALIDATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn enable_debug_drawing(
+        &mut self,
+        b_should_draw_debug_data: bool,
+        path_color: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_ENABLE_DEBUG_DRAWING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_should_draw_debug_data,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &path_color,
+                __buffer.add(4).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_PATH_ENABLE_DEBUG_DRAWING,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct UNavigationSystemV1 {
@@ -912,6 +1130,1040 @@ impl UNavigationSystemV1 {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn unregister_navigation_invoker(
+        &mut self,
+        invoker: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_UNREGISTER_NAVIGATION_INVOKER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &invoker,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_UNREGISTER_NAVIGATION_INVOKER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_max_simultaneous_tile_generation_jobs_count(
+        &mut self,
+        max_number_of_jobs: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_SET_MAX_SIMULTANEOUS_TILE_GENERATION_JOBS_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &max_number_of_jobs,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_SET_MAX_SIMULTANEOUS_TILE_GENERATION_JOBS_COUNT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_geometry_gathering_mode(
+        &mut self,
+        new_mode: crate::bindings::engine::ENavDataGatheringModeConfig,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_SET_GEOMETRY_GATHERING_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_mode,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::engine::ENavDataGatheringModeConfig>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_SET_GEOMETRY_GATHERING_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_max_simultaneous_tile_generation_jobs_count(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_RESET_MAX_SIMULTANEOUS_TILE_GENERATION_JOBS_COUNT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_RESET_MAX_SIMULTANEOUS_TILE_GENERATION_JOBS_COUNT,
+                __buffer,
+            )
+        };
+    }
+    pub fn register_navigation_invoker(
+        &mut self,
+        invoker: UPtr<crate::bindings::engine::AActor>,
+        tile_generation_radius: f32,
+        tile_removal_radius: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_REGISTER_NAVIGATION_INVOKER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &invoker,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tile_generation_radius,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tile_removal_radius,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_REGISTER_NAVIGATION_INVOKER,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_navigation_bounds_updated(
+        &mut self,
+        nav_volume: UPtr<ANavMeshBoundsVolume>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_ON_NAVIGATION_BOUNDS_UPDATED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &nav_volume,
+                __buffer.add(0).cast::<UPtr<ANavMeshBoundsVolume>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_ON_NAVIGATION_BOUNDS_UPDATED,
+                __buffer,
+            )
+        };
+    }
+    pub fn navigation_raycast(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        ray_start: &crate::bindings::core_u_object::FVector,
+        ray_end: &crate::bindings::core_u_object::FVector,
+        hit_location: &mut crate::bindings::core_u_object::FVector,
+        filter_class: TSubclassOf<UNavigationQueryFilter>,
+        querier: UPtr<crate::bindings::engine::AController>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_NAVIGATION_RAYCAST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                ray_start,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                ray_end,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                hit_location,
+                __buffer.add(56).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_class,
+                __buffer.add(80).cast::<TSubclassOf<UNavigationQueryFilter>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &querier,
+                __buffer.add(88).cast::<UPtr<crate::bindings::engine::AController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::navigation_system::UNavigationSystemV1::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_NAVIGATION_RAYCAST,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(56)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(hit_location);
+        }
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn k2_replace_area_in_octree_data(
+        &mut self,
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+        old_area: TSubclassOf<UNavArea>,
+        new_area: TSubclassOf<UNavArea>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_REPLACE_AREA_IN_OCTREE_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &old_area,
+                __buffer.add(8).cast::<TSubclassOf<UNavArea>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_area,
+                __buffer.add(16).cast::<TSubclassOf<UNavArea>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_REPLACE_AREA_IN_OCTREE_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn project_point_to_navigation(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        point: &crate::bindings::core_u_object::FVector,
+        projected_location: &mut crate::bindings::core_u_object::FVector,
+        nav_data: UPtr<ANavigationData>,
+        filter_class: TSubclassOf<UNavigationQueryFilter>,
+        query_extent: crate::bindings::core_u_object::FVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_PROJECT_POINT_TO_NAVIGATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                point,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                projected_location,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &nav_data,
+                __buffer.add(56).cast::<UPtr<ANavigationData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_class,
+                __buffer.add(64).cast::<TSubclassOf<UNavigationQueryFilter>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &query_extent,
+                __buffer.add(72).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::navigation_system::UNavigationSystemV1::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_PROJECT_POINT_TO_NAVIGATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(projected_location);
+        }
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn get_random_reachable_point_in_radius(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        origin: &crate::bindings::core_u_object::FVector,
+        random_location: &mut crate::bindings::core_u_object::FVector,
+        radius: f32,
+        nav_data: UPtr<ANavigationData>,
+        filter_class: TSubclassOf<UNavigationQueryFilter>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<81>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_REACHABLE_POINT_IN_RADIUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                origin,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                random_location,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius, __buffer.add(56).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &nav_data,
+                __buffer.add(64).cast::<UPtr<ANavigationData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_class,
+                __buffer.add(72).cast::<TSubclassOf<UNavigationQueryFilter>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::navigation_system::UNavigationSystemV1::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_REACHABLE_POINT_IN_RADIUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(random_location);
+        }
+        unsafe { __buffer.add(80).cast::<bool>().read() }
+    }
+    pub fn get_random_point_in_navigable_radius(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        origin: &crate::bindings::core_u_object::FVector,
+        random_location: &mut crate::bindings::core_u_object::FVector,
+        radius: f32,
+        nav_data: UPtr<ANavigationData>,
+        filter_class: TSubclassOf<UNavigationQueryFilter>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<81>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_POINT_IN_NAVIGABLE_RADIUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                origin,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                random_location,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius, __buffer.add(56).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &nav_data,
+                __buffer.add(64).cast::<UPtr<ANavigationData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_class,
+                __buffer.add(72).cast::<TSubclassOf<UNavigationQueryFilter>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::navigation_system::UNavigationSystemV1::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_POINT_IN_NAVIGABLE_RADIUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(random_location);
+        }
+        unsafe { __buffer.add(80).cast::<bool>().read() }
+    }
+    pub fn get_random_location_in_navigable_radius(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        origin: &crate::bindings::core_u_object::FVector,
+        random_location: &mut crate::bindings::core_u_object::FVector,
+        radius: f32,
+        nav_data: UPtr<ANavigationData>,
+        filter_class: TSubclassOf<UNavigationQueryFilter>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<81>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_LOCATION_IN_NAVIGABLE_RADIUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                origin,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                random_location,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius, __buffer.add(56).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &nav_data,
+                __buffer.add(64).cast::<UPtr<ANavigationData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_class,
+                __buffer.add(72).cast::<TSubclassOf<UNavigationQueryFilter>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::navigation_system::UNavigationSystemV1::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_LOCATION_IN_NAVIGABLE_RADIUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(random_location);
+        }
+        unsafe { __buffer.add(80).cast::<bool>().read() }
+    }
+    pub fn is_navigation_being_built_or_locked(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_IS_NAVIGATION_BEING_BUILT_OR_LOCKED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::navigation_system::UNavigationSystemV1::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_IS_NAVIGATION_BEING_BUILT_OR_LOCKED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn is_navigation_being_built(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_IS_NAVIGATION_BEING_BUILT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::navigation_system::UNavigationSystemV1::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_IS_NAVIGATION_BEING_BUILT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_path_length(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        path_start: &crate::bindings::core_u_object::FVector,
+        path_end: &crate::bindings::core_u_object::FVector,
+        path_length: &mut f64,
+        nav_data: UPtr<ANavigationData>,
+        filter_class: TSubclassOf<UNavigationQueryFilter>,
+    ) -> crate::bindings::engine::ENavigationQueryResult {
+        let mut __stack = crate::core_data::StackAlloc::<81>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_GET_PATH_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                path_start,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                path_end,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                path_length,
+                __buffer.add(56).cast::<f64>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &nav_data,
+                __buffer.add(64).cast::<UPtr<ANavigationData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_class,
+                __buffer.add(72).cast::<TSubclassOf<UNavigationQueryFilter>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::navigation_system::UNavigationSystemV1::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_GET_PATH_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(56).cast::<f64>().swap(path_length);
+        }
+        unsafe {
+            __buffer
+                .add(80)
+                .cast::<crate::bindings::engine::ENavigationQueryResult>()
+                .read()
+        }
+    }
+    pub fn get_path_cost(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        path_start: &crate::bindings::core_u_object::FVector,
+        path_end: &crate::bindings::core_u_object::FVector,
+        path_cost: &mut f64,
+        nav_data: UPtr<ANavigationData>,
+        filter_class: TSubclassOf<UNavigationQueryFilter>,
+    ) -> crate::bindings::engine::ENavigationQueryResult {
+        let mut __stack = crate::core_data::StackAlloc::<81>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_GET_PATH_COST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                path_start,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                path_end,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(path_cost, __buffer.add(56).cast::<f64>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &nav_data,
+                __buffer.add(64).cast::<UPtr<ANavigationData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_class,
+                __buffer.add(72).cast::<TSubclassOf<UNavigationQueryFilter>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::navigation_system::UNavigationSystemV1::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_GET_PATH_COST,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(56).cast::<f64>().swap(path_cost);
+        }
+        unsafe {
+            __buffer
+                .add(80)
+                .cast::<crate::bindings::engine::ENavigationQueryResult>()
+                .read()
+        }
+    }
+    pub fn get_navigation_system(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> UPtr<UNavigationSystemV1> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_GET_NAVIGATION_SYSTEM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::navigation_system::UNavigationSystemV1::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_GET_NAVIGATION_SYSTEM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UNavigationSystemV1>>().read() }
+    }
+    pub fn find_path_to_location_synchronously(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        path_start: &crate::bindings::core_u_object::FVector,
+        path_end: &crate::bindings::core_u_object::FVector,
+        pathfinding_context: UPtr<crate::bindings::engine::AActor>,
+        filter_class: TSubclassOf<UNavigationQueryFilter>,
+    ) -> UPtr<UNavigationPath> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_FIND_PATH_TO_LOCATION_SYNCHRONOUSLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                path_start,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                path_end,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &pathfinding_context,
+                __buffer.add(56).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_class,
+                __buffer.add(64).cast::<TSubclassOf<UNavigationQueryFilter>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::navigation_system::UNavigationSystemV1::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_FIND_PATH_TO_LOCATION_SYNCHRONOUSLY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(72).cast::<UPtr<UNavigationPath>>().read() }
+    }
+    pub fn find_path_to_actor_synchronously(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        path_start: &crate::bindings::core_u_object::FVector,
+        goal_actor: UPtr<crate::bindings::engine::AActor>,
+        tether_distance: f32,
+        pathfinding_context: UPtr<crate::bindings::engine::AActor>,
+        filter_class: TSubclassOf<UNavigationQueryFilter>,
+    ) -> UPtr<UNavigationPath> {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_FIND_PATH_TO_ACTOR_SYNCHRONOUSLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                path_start,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &goal_actor,
+                __buffer.add(32).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tether_distance,
+                __buffer.add(40).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &pathfinding_context,
+                __buffer.add(48).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_class,
+                __buffer.add(56).cast::<TSubclassOf<UNavigationQueryFilter>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::navigation_system::UNavigationSystemV1::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_FIND_PATH_TO_ACTOR_SYNCHRONOUSLY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<UPtr<UNavigationPath>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -971,7 +2223,6 @@ pub struct UNavLinkComponent {
     #[doc(hidden)]
     __padding_1512: [u8; 1512],
     pub links: TArray<crate::bindings::engine::FNavigationLink>,
-    __padding_end: [u8; 8],
 }
 impl UNavLinkComponent {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -1009,6 +2260,36 @@ impl UNavRelevantComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_navigation_relevancy(&mut self, b_relevant: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAV_RELEVANT_COMPONENT_SET_NAVIGATION_RELEVANCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_relevant,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAV_RELEVANT_COMPONENT_SET_NAVIGATION_RELEVANCY,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -1136,6 +2417,64 @@ impl ARecastNavMesh {
             cdo
         }
     }
+    pub fn k2_replace_area_in_tile_bounds(
+        &mut self,
+        bounds: crate::bindings::core_u_object::FBox,
+        old_area: TSubclassOf<UNavArea>,
+        new_area: TSubclassOf<UNavArea>,
+        replace_links: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<74>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::A_RECAST_NAV_MESH_K2_REPLACE_AREA_IN_TILE_BOUNDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &bounds,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FBox>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &old_area,
+                __buffer.add(56).cast::<TSubclassOf<UNavArea>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_area,
+                __buffer.add(64).cast::<TSubclassOf<UNavArea>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &replace_links,
+                __buffer.add(72).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::A_RECAST_NAV_MESH_K2_REPLACE_AREA_IN_TILE_BOUNDS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(73).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URecastNavMeshDataChunk {
@@ -1182,6 +2521,69 @@ impl UNavModifierComponent {
             cdo
         }
     }
+    pub fn set_area_class_to_replace(
+        &mut self,
+        new_area_class_to_replace: TSubclassOf<UNavArea>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAV_MODIFIER_COMPONENT_SET_AREA_CLASS_TO_REPLACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_area_class_to_replace,
+                __buffer.add(0).cast::<TSubclassOf<UNavArea>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAV_MODIFIER_COMPONENT_SET_AREA_CLASS_TO_REPLACE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_area_class(&mut self, new_area_class: TSubclassOf<UNavArea>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::U_NAV_MODIFIER_COMPONENT_SET_AREA_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_area_class,
+                __buffer.add(0).cast::<TSubclassOf<UNavArea>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::U_NAV_MODIFIER_COMPONENT_SET_AREA_CLASS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct ANavModifierVolume {
@@ -1207,6 +2609,69 @@ impl ANavModifierVolume {
             cdo
         }
     }
+    pub fn set_area_class_to_replace(
+        &mut self,
+        new_area_class_to_replace: TSubclassOf<UNavArea>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::A_NAV_MODIFIER_VOLUME_SET_AREA_CLASS_TO_REPLACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_area_class_to_replace,
+                __buffer.add(0).cast::<TSubclassOf<UNavArea>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::A_NAV_MODIFIER_VOLUME_SET_AREA_CLASS_TO_REPLACE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_area_class(&mut self, new_area_class: TSubclassOf<UNavArea>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::navigation_system::A_NAV_MODIFIER_VOLUME_SET_AREA_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_area_class,
+                __buffer.add(0).cast::<TSubclassOf<UNavArea>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::navigation_system::A_NAV_MODIFIER_VOLUME_SET_AREA_CLASS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct ANavSystemConfigOverride {
@@ -1215,7 +2680,6 @@ pub struct ANavSystemConfigOverride {
     pub navigation_system_config: UPtr<crate::bindings::engine::UNavigationSystemConfig>,
     pub override_policy: ENavSystemOverridePolicy,
     pub flags_1153: u8,
-    __padding_end: [u8; 6],
 }
 impl ANavSystemConfigOverride {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

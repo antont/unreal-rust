@@ -73,6 +73,32 @@ impl UBlueprintEditorToolMenuContext {
             cdo
         }
     }
+    pub fn get_blueprint_obj(&self) -> UPtr<crate::bindings::engine::UBlueprint> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::kismet::U_BLUEPRINT_EDITOR_TOOL_MENU_CONTEXT_GET_BLUEPRINT_OBJ,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::kismet::U_BLUEPRINT_EDITOR_TOOL_MENU_CONTEXT_GET_BLUEPRINT_OBJ,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::UBlueprint>>().read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct USSCSEditorMenuContext {
@@ -155,6 +181,175 @@ impl UJsonObjectGraphFunctionLibrary {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn write_package_to_temp_file(
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+        label: FString,
+        options: crate::bindings::json_object_graph::FJsonStringifyOptions,
+        out_filename: &mut FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::kismet::U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_WRITE_PACKAGE_TO_TEMP_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&label, __buffer.add(8).cast::<FString>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &options,
+                __buffer
+                    .add(24)
+                    .cast::<crate::bindings::json_object_graph::FJsonStringifyOptions>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_filename,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::kismet::UJsonObjectGraphFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::kismet::U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_WRITE_PACKAGE_TO_TEMP_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<FString>().swap(out_filename);
+        }
+    }
+    pub fn write_blueprint_class_to_temp_file(
+        bp: UPtr<crate::bindings::engine::UBlueprint>,
+        label: FString,
+        options: crate::bindings::json_object_graph::FJsonStringifyOptions,
+        out_filename: &mut FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::kismet::U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_WRITE_BLUEPRINT_CLASS_TO_TEMP_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &bp,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UBlueprint>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&label, __buffer.add(8).cast::<FString>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &options,
+                __buffer
+                    .add(24)
+                    .cast::<crate::bindings::json_object_graph::FJsonStringifyOptions>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_filename,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::kismet::UJsonObjectGraphFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::kismet::U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_WRITE_BLUEPRINT_CLASS_TO_TEMP_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<FString>().swap(out_filename);
+        }
+    }
+    pub fn stringify(
+        root_objects: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+        options: crate::bindings::json_object_graph::FJsonStringifyOptions,
+        result_string: &mut FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::kismet::U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_STRINGIFY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                root_objects,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &options,
+                __buffer
+                    .add(16)
+                    .cast::<crate::bindings::json_object_graph::FJsonStringifyOptions>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result_string,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::kismet::UJsonObjectGraphFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::kismet::U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_STRINGIFY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<FString>().swap(result_string);
         }
     }
 }

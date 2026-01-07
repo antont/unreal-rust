@@ -60,6 +60,84 @@ impl UGameMapsSettings {
             cdo
         }
     }
+    pub fn set_skip_assigning_gamepad_to_player1(&mut self, b_skip_first_player: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_settings::U_GAME_MAPS_SETTINGS_SET_SKIP_ASSIGNING_GAMEPAD_TO_PLAYER1,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_skip_first_player,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_settings::U_GAME_MAPS_SETTINGS_SET_SKIP_ASSIGNING_GAMEPAD_TO_PLAYER1,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_skip_assigning_gamepad_to_player1(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_settings::U_GAME_MAPS_SETTINGS_GET_SKIP_ASSIGNING_GAMEPAD_TO_PLAYER1,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_settings::U_GAME_MAPS_SETTINGS_GET_SKIP_ASSIGNING_GAMEPAD_TO_PLAYER1,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_game_maps_settings() -> UPtr<UGameMapsSettings> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_settings::U_GAME_MAPS_SETTINGS_GET_GAME_MAPS_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::engine_settings::UGameMapsSettings::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_settings::U_GAME_MAPS_SETTINGS_GET_GAME_MAPS_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UGameMapsSettings>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UGameNetworkManagerSettings {

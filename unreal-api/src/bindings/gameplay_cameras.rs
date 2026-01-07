@@ -1467,7 +1467,6 @@ pub struct FBlueprintCameraPose {
     __padding_127: [u8; 1],
     pub aspect_ratio_axis_constraint: crate::bindings::engine::EAspectRatioAxisConstraint,
     pub projection_mode: crate::bindings::engine::ECameraProjectionMode,
-    __padding_end: [u8; 7],
 }
 impl FBlueprintCameraPose {}
 #[repr(C, align(8))]
@@ -1476,7 +1475,6 @@ pub struct FCameraActorAttachmentInfo {
     pub socket_name: FName,
     pub bone_name: FName,
     pub weight: f32,
-    __padding_end: [u8; 4],
 }
 impl FCameraActorAttachmentInfo {}
 #[repr(C, align(8))]
@@ -1487,7 +1485,6 @@ pub struct FCameraActorTargetInfo {
     pub target_shape: ECameraTargetShape,
     pub target_size: f32,
     pub weight: f32,
-    __padding_end: [u8; 4],
 }
 impl FCameraActorTargetInfo {}
 #[repr(C, align(8))]
@@ -1539,6 +1536,37 @@ impl UCameraRigInstanceFunctions {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn is_valid(instance_id: FCameraRigInstanceID) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_INSTANCE_FUNCTIONS_IS_VALID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &instance_id,
+                __buffer.add(0).cast::<FCameraRigInstanceID>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UCameraRigInstanceFunctions::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_INSTANCE_FUNCTIONS_IS_VALID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
     }
 }
 pub struct IAssetReferenceCameraNode {}
@@ -2468,6 +2496,653 @@ impl UBlueprintCameraDirectorEvaluator {
             cdo
         }
     }
+    pub fn run_child_camera_director(
+        &mut self,
+        delta_time: f32,
+        child_slot_name: FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RUN_CHILD_CAMERA_DIRECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&delta_time, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &child_slot_name,
+                __buffer.add(4).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RUN_CHILD_CAMERA_DIRECTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn run_camera_director(
+        &mut self,
+        delta_time: f32,
+        evaluation_context_owner: UPtr<crate::bindings::core_u_object::UObject>,
+        params: &FBlueprintCameraDirectorEvaluationParams,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RUN_CAMERA_DIRECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&delta_time, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &evaluation_context_owner,
+                __buffer.add(8).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                params,
+                __buffer.add(16).cast::<FBlueprintCameraDirectorEvaluationParams>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RUN_CAMERA_DIRECTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn resolve_camera_rig_proxy(
+        &self,
+        camera_rig_proxy: UPtr<UCameraRigProxyAsset>,
+    ) -> UPtr<UCameraRigAsset> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RESOLVE_CAMERA_RIG_PROXY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig_proxy,
+                __buffer.add(0).cast::<UPtr<UCameraRigProxyAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RESOLVE_CAMERA_RIG_PROXY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UCameraRigAsset>>().read() }
+    }
+    pub fn remove_child_evaluation_context(
+        &mut self,
+        child_evaluation_context_owner: UPtr<crate::bindings::core_u_object::UObject>,
+        child_slot_name: FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_REMOVE_CHILD_EVALUATION_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &child_evaluation_context_owner,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &child_slot_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_REMOVE_CHILD_EVALUATION_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn get_initial_context_result(&self) -> FBlueprintCameraEvaluationDataRef {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_GET_INITIAL_CONTEXT_RESULT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_GET_INITIAL_CONTEXT_RESULT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>().read() }
+    }
+    pub fn get_conditional_context_result(
+        &self,
+        condition: ECameraEvaluationDataCondition,
+    ) -> FBlueprintCameraEvaluationDataRef {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_GET_CONDITIONAL_CONTEXT_RESULT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &condition,
+                __buffer.add(0).cast::<ECameraEvaluationDataCondition>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_GET_CONDITIONAL_CONTEXT_RESULT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FBlueprintCameraEvaluationDataRef>().read() }
+    }
+    pub fn find_evaluation_context_owner_actor(
+        &self,
+        actor_class: TSubclassOf<crate::bindings::engine::AActor>,
+    ) -> UPtr<crate::bindings::engine::AActor> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_FIND_EVALUATION_CONTEXT_OWNER_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor_class,
+                __buffer.add(0).cast::<TSubclassOf<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_FIND_EVALUATION_CONTEXT_OWNER_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>().read() }
+    }
+    pub fn deactivate_persistent_visual_camera_rig(
+        &mut self,
+        camera_rig_prefab: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig_prefab,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn deactivate_persistent_global_camera_rig(
+        &mut self,
+        camera_rig_prefab: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig_prefab,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn deactivate_persistent_base_camera_rig(
+        &mut self,
+        camera_rig_prefab: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig_prefab,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn deactivate_camera_director(
+        &mut self,
+        evaluation_context_owner: UPtr<crate::bindings::core_u_object::UObject>,
+        params: &FBlueprintCameraDirectorDeactivateParams,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_CAMERA_DIRECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &evaluation_context_owner,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                params,
+                __buffer.add(8).cast::<FBlueprintCameraDirectorDeactivateParams>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_CAMERA_DIRECTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_child_evaluation_context(
+        &mut self,
+        child_evaluation_context_owner: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ADD_CHILD_EVALUATION_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &child_evaluation_context_owner,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ADD_CHILD_EVALUATION_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FName>().read() }
+    }
+    pub fn activate_persistent_visual_camera_rig(
+        &mut self,
+        camera_rig_prefab: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig_prefab,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_persistent_global_camera_rig(
+        &mut self,
+        camera_rig_prefab: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig_prefab,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_persistent_base_camera_rig(
+        &mut self,
+        camera_rig_prefab: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig_prefab,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_camera_rig_via_proxy(
+        &mut self,
+        camera_rig_proxy: UPtr<UCameraRigProxyAsset>,
+        b_force_new_instance: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_RIG_VIA_PROXY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig_proxy,
+                __buffer.add(0).cast::<UPtr<UCameraRigProxyAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_force_new_instance,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_RIG_VIA_PROXY,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_camera_rig(
+        &mut self,
+        camera_rig: UPtr<UCameraRigAsset>,
+        b_force_new_instance: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_force_new_instance,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_camera_director(
+        &mut self,
+        evaluation_context_owner: UPtr<crate::bindings::core_u_object::UObject>,
+        params: &FBlueprintCameraDirectorActivateParams,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_DIRECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &evaluation_context_owner,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                params,
+                __buffer.add(8).cast::<FBlueprintCameraDirectorActivateParams>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_DIRECTOR,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UBlueprintCameraDirector {
@@ -2594,6 +3269,156 @@ impl UActivateCameraRigFunctions {
             cdo
         }
     }
+    pub fn activate_persistent_visual_camera_rig(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        camera_rig: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(16).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UActivateCameraRigFunctions::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_persistent_global_camera_rig(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        camera_rig: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(16).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UActivateCameraRigFunctions::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_persistent_base_camera_rig(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        camera_rig: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(16).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UActivateCameraRigFunctions::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UCameraComponentCameraNode {
@@ -2657,6 +3482,187 @@ impl UBlueprintCameraEvaluationDataFunctionLibrary {
             cdo
         }
     }
+    pub fn set_default_camera_rig_parameters(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        camera_rig: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_SET_DEFAULT_CAMERA_RIG_PARAMETERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(24).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraEvaluationDataFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_SET_DEFAULT_CAMERA_RIG_PARAMETERS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_camera_pose(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        camera_pose: &FBlueprintCameraPose,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<160>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_SET_CAMERA_POSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(24).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraEvaluationDataFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_SET_CAMERA_POSE,
+                __buffer,
+            )
+        };
+    }
+    pub fn make_camera_evaluation_data() -> FBlueprintCameraEvaluationDataRef {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_MAKE_CAMERA_EVALUATION_DATA,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraEvaluationDataFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_MAKE_CAMERA_EVALUATION_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>().read() }
+    }
+    pub fn get_camera_pose(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+    ) -> FBlueprintCameraPose {
+        let mut __stack = crate::core_data::StackAlloc::<160>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_GET_CAMERA_POSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraEvaluationDataFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_GET_CAMERA_POSE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FBlueprintCameraPose>().read() }
+    }
+    pub fn blend_camera_evaluation_data(
+        from_camera_data: &FBlueprintCameraEvaluationDataRef,
+        to_camera_data: &FBlueprintCameraEvaluationDataRef,
+        factor: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<52>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_BLEND_CAMERA_EVALUATION_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                from_camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                to_camera_data,
+                __buffer.add(24).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&factor, __buffer.add(48).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraEvaluationDataFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_BLEND_CAMERA_EVALUATION_DATA,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UBlueprintCameraVariableTableFunctionLibrary {
@@ -2678,6 +3684,801 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             cdo
         }
     }
+    pub fn set_vector4_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UVector4dCameraVariable>,
+        value: &crate::bindings::core_u_object::FVector4,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR4_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UVector4dCameraVariable>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector4>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR4_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_vector3_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UVector3dCameraVariable>,
+        value: &crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR3_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UVector3dCameraVariable>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR3_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_vector2_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UVector2dCameraVariable>,
+        value: &crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR2_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UVector2dCameraVariable>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR2_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_transform_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UTransform3dCameraVariable>,
+        value: &crate::bindings::core_u_object::FTransform,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_TRANSFORM_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UTransform3dCameraVariable>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_TRANSFORM_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_rotator_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<URotator3dCameraVariable>,
+        value: &crate::bindings::core_u_object::FRotator,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_ROTATOR_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<URotator3dCameraVariable>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_ROTATOR_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_integer32_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UInteger32CameraVariable>,
+        value: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_INTEGER32_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UInteger32CameraVariable>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(32).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_INTEGER32_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_float_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UFloatCameraVariable>,
+        value: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_FLOAT_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UFloatCameraVariable>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(32).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_FLOAT_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_double_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UDoubleCameraVariable>,
+        value: f64,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_DOUBLE_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UDoubleCameraVariable>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(32).cast::<f64>(), 1);
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_DOUBLE_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_boolean_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UBooleanCameraVariable>,
+        value: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_BOOLEAN_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UBooleanCameraVariable>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_BOOLEAN_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_vector4_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UVector4dCameraVariable>,
+    ) -> crate::bindings::core_u_object::FVector4 {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR4_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UVector4dCameraVariable>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR4_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FVector4>().read()
+        }
+    }
+    pub fn get_vector3_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UVector3dCameraVariable>,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR3_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UVector3dCameraVariable>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR3_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_vector2_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UVector2dCameraVariable>,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR2_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UVector2dCameraVariable>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR2_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_transform_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UTransform3dCameraVariable>,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_TRANSFORM_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UTransform3dCameraVariable>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_TRANSFORM_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_rotator_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<URotator3dCameraVariable>,
+    ) -> crate::bindings::core_u_object::FRotator {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_ROTATOR_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<URotator3dCameraVariable>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_ROTATOR_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FRotator>().read()
+        }
+    }
+    pub fn get_integer32_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UInteger32CameraVariable>,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_INTEGER32_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UInteger32CameraVariable>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_INTEGER32_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<i32>().read() }
+    }
+    pub fn get_float_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UFloatCameraVariable>,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_FLOAT_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UFloatCameraVariable>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_FLOAT_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<f32>().read() }
+    }
+    pub fn get_double_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UDoubleCameraVariable>,
+    ) -> f64 {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_DOUBLE_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UDoubleCameraVariable>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_DOUBLE_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<f64>().read() }
+    }
+    pub fn get_boolean_camera_variable(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        variable: UPtr<UBooleanCameraVariable>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_BOOLEAN_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable,
+                __buffer.add(24).cast::<UPtr<UBooleanCameraVariable>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraVariableTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_BOOLEAN_CAMERA_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UBlueprintCameraContextDataTableFunctionLibrary {
@@ -2697,6 +4498,579 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_struct_data(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        data_id: FCameraContextDataID,
+        data: &crate::bindings::core_u_object::FInstancedStruct,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_STRUCT_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data_id,
+                __buffer.add(24).cast::<FCameraContextDataID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                data,
+                __buffer
+                    .add(32)
+                    .cast::<crate::bindings::core_u_object::FInstancedStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraContextDataTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_STRUCT_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn set_string_data(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        data_id: FCameraContextDataID,
+        data: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_STRING_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data_id,
+                __buffer.add(24).cast::<FCameraContextDataID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&data, __buffer.add(32).cast::<FString>(), 1);
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraContextDataTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_STRING_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn set_object_data(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        data_id: FCameraContextDataID,
+        data: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_OBJECT_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data_id,
+                __buffer.add(24).cast::<FCameraContextDataID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data,
+                __buffer.add(32).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraContextDataTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_OBJECT_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn set_name_data(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        data_id: FCameraContextDataID,
+        data: &FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_NAME_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data_id,
+                __buffer.add(24).cast::<FCameraContextDataID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(data, __buffer.add(28).cast::<FName>(), 1);
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraContextDataTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_NAME_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn set_enum_data(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        data_id: FCameraContextDataID,
+        enum_type: UPtr<crate::bindings::core_u_object::UEnum>,
+        data: u8,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<42>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_ENUM_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data_id,
+                __buffer.add(24).cast::<FCameraContextDataID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &enum_type,
+                __buffer.add(32).cast::<UPtr<crate::bindings::core_u_object::UEnum>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&data, __buffer.add(40).cast::<u8>(), 1);
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraContextDataTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_ENUM_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(41).cast::<bool>().read() }
+    }
+    pub fn set_class_data(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        data_id: FCameraContextDataID,
+        data: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_CLASS_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data_id,
+                __buffer.add(24).cast::<FCameraContextDataID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data,
+                __buffer
+                    .add(32)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraContextDataTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_CLASS_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn get_struct_data(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        data_id: FCameraContextDataID,
+        data_struct_type: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+    ) -> crate::bindings::core_u_object::FInstancedStruct {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_STRUCT_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data_id,
+                __buffer.add(24).cast::<FCameraContextDataID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data_struct_type,
+                __buffer
+                    .add(32)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraContextDataTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_STRUCT_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(40)
+                .cast::<crate::bindings::core_u_object::FInstancedStruct>()
+                .read()
+        }
+    }
+    pub fn get_string_data(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        data_id: FCameraContextDataID,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_STRING_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data_id,
+                __buffer.add(24).cast::<FCameraContextDataID>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraContextDataTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_STRING_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FString>().read() }
+    }
+    pub fn get_object_data(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        data_id: FCameraContextDataID,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_OBJECT_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data_id,
+                __buffer.add(24).cast::<FCameraContextDataID>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraContextDataTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_OBJECT_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_name_data(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        data_id: FCameraContextDataID,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_NAME_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data_id,
+                __buffer.add(24).cast::<FCameraContextDataID>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraContextDataTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_NAME_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<FName>().read() }
+    }
+    pub fn get_enum_data(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        data_id: FCameraContextDataID,
+        enum_type: UPtr<crate::bindings::core_u_object::UEnum>,
+    ) -> u8 {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_ENUM_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data_id,
+                __buffer.add(24).cast::<FCameraContextDataID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &enum_type,
+                __buffer.add(32).cast::<UPtr<crate::bindings::core_u_object::UEnum>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraContextDataTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_ENUM_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<u8>().read() }
+    }
+    pub fn get_class_data(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        data_id: FCameraContextDataID,
+    ) -> TSubclassOf<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_CLASS_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data_id,
+                __buffer.add(24).cast::<FCameraContextDataID>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraContextDataTableFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_CLASS_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>()
+                .read()
         }
     }
 }
@@ -2720,6 +5094,732 @@ impl UBlueprintCameraPoseFunctionLibrary {
             cdo
         }
     }
+    pub fn set_transform(
+        camera_pose: &FBlueprintCameraPose,
+        transform: &crate::bindings::core_u_object::FTransform,
+    ) -> FBlueprintCameraPose {
+        let mut __stack = crate::core_data::StackAlloc::<376>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                transform,
+                __buffer.add(144).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(240).cast::<FBlueprintCameraPose>().read() }
+    }
+    pub fn set_target_distance(
+        camera_pose: &FBlueprintCameraPose,
+        target_distance: f64,
+    ) -> FBlueprintCameraPose {
+        let mut __stack = crate::core_data::StackAlloc::<280>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_TARGET_DISTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_distance,
+                __buffer.add(136).cast::<f64>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_TARGET_DISTANCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(144).cast::<FBlueprintCameraPose>().read() }
+    }
+    pub fn set_rotation(
+        camera_pose: &FBlueprintCameraPose,
+        rotation: &crate::bindings::core_u_object::FRotator,
+    ) -> FBlueprintCameraPose {
+        let mut __stack = crate::core_data::StackAlloc::<296>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                rotation,
+                __buffer.add(136).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(160).cast::<FBlueprintCameraPose>().read() }
+    }
+    pub fn set_location(
+        camera_pose: &FBlueprintCameraPose,
+        location: &crate::bindings::core_u_object::FVector,
+    ) -> FBlueprintCameraPose {
+        let mut __stack = crate::core_data::StackAlloc::<296>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                location,
+                __buffer.add(136).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(160).cast::<FBlueprintCameraPose>().read() }
+    }
+    pub fn set_focal_length(
+        camera_pose: &FBlueprintCameraPose,
+        focal_length: f32,
+    ) -> FBlueprintCameraPose {
+        let mut __stack = crate::core_data::StackAlloc::<280>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_FOCAL_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &focal_length,
+                __buffer.add(136).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_FOCAL_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(144).cast::<FBlueprintCameraPose>().read() }
+    }
+    pub fn set_field_of_view(
+        camera_pose: &FBlueprintCameraPose,
+        field_of_view: f32,
+    ) -> FBlueprintCameraPose {
+        let mut __stack = crate::core_data::StackAlloc::<280>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_FIELD_OF_VIEW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &field_of_view,
+                __buffer.add(136).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_FIELD_OF_VIEW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(144).cast::<FBlueprintCameraPose>().read() }
+    }
+    pub fn make_camera_pose_from_cine_camera_component(
+        camera_component: UPtr<crate::bindings::cinematic_camera::UCineCameraComponent>,
+    ) -> FBlueprintCameraPose {
+        let mut __stack = crate::core_data::StackAlloc::<144>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_MAKE_CAMERA_POSE_FROM_CINE_CAMERA_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_component,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::cinematic_camera::UCineCameraComponent>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_MAKE_CAMERA_POSE_FROM_CINE_CAMERA_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FBlueprintCameraPose>().read() }
+    }
+    pub fn make_camera_pose_from_camera_component(
+        camera_component: UPtr<crate::bindings::engine::UCameraComponent>,
+    ) -> FBlueprintCameraPose {
+        let mut __stack = crate::core_data::StackAlloc::<144>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_MAKE_CAMERA_POSE_FROM_CAMERA_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_component,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UCameraComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_MAKE_CAMERA_POSE_FROM_CAMERA_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FBlueprintCameraPose>().read() }
+    }
+    pub fn get_transform(
+        camera_pose: &FBlueprintCameraPose,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<240>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(144).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_target_distance(camera_pose: &FBlueprintCameraPose) -> f64 {
+        let mut __stack = crate::core_data::StackAlloc::<144>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET_DISTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET_DISTANCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(136).cast::<f64>().read() }
+    }
+    pub fn get_target_at_distance(
+        camera_pose: &FBlueprintCameraPose,
+        target_distance: f64,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<168>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET_AT_DISTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_distance,
+                __buffer.add(136).cast::<f64>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET_AT_DISTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(144).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_target(
+        camera_pose: &FBlueprintCameraPose,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<160>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(136).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_sensor_aspect_ratio(camera_pose: &FBlueprintCameraPose) -> f64 {
+        let mut __stack = crate::core_data::StackAlloc::<144>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_SENSOR_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_SENSOR_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(136).cast::<f64>().read() }
+    }
+    pub fn get_rotation(
+        camera_pose: &FBlueprintCameraPose,
+    ) -> crate::bindings::core_u_object::FRotator {
+        let mut __stack = crate::core_data::StackAlloc::<160>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(136).cast::<crate::bindings::core_u_object::FRotator>().read()
+        }
+    }
+    pub fn get_location(
+        camera_pose: &FBlueprintCameraPose,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<160>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(136).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_focal_length(camera_pose: &FBlueprintCameraPose) -> f64 {
+        let mut __stack = crate::core_data::StackAlloc::<144>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_FOCAL_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_FOCAL_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(136).cast::<f64>().read() }
+    }
+    pub fn get_field_of_view(camera_pose: &FBlueprintCameraPose) -> f64 {
+        let mut __stack = crate::core_data::StackAlloc::<144>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_FIELD_OF_VIEW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_FIELD_OF_VIEW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(136).cast::<f64>().read() }
+    }
+    pub fn get_effective_field_of_view(camera_pose: &FBlueprintCameraPose) -> f64 {
+        let mut __stack = crate::core_data::StackAlloc::<144>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_EFFECTIVE_FIELD_OF_VIEW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_EFFECTIVE_FIELD_OF_VIEW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(136).cast::<f64>().read() }
+    }
+    pub fn get_aim_ray(
+        camera_pose: &FBlueprintCameraPose,
+    ) -> crate::bindings::core_u_object::FRay {
+        let mut __stack = crate::core_data::StackAlloc::<184>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_AIM_RAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_AIM_RAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(136).cast::<crate::bindings::core_u_object::FRay>().read()
+        }
+    }
+    pub fn get_aim_dir(
+        camera_pose: &FBlueprintCameraPose,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<160>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_AIM_DIR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UBlueprintCameraPoseFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_AIM_DIR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(136).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UCameraRigParameterInterop {
@@ -2741,6 +5841,115 @@ impl UCameraRigParameterInterop {
             cdo
         }
     }
+    pub fn set_camera_parameter(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        camera_rig: UPtr<UCameraRigAsset>,
+        parameter_name: FName,
+        new_value: &i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_SET_CAMERA_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(24).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(new_value, __buffer.add(44).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UCameraRigParameterInterop::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_SET_CAMERA_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_camera_parameter(
+        camera_data: &FBlueprintCameraEvaluationDataRef,
+        camera_rig: UPtr<UCameraRigAsset>,
+        parameter_name: FName,
+        return_value: &mut i32,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_GET_CAMERA_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(24).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                return_value,
+                __buffer.add(44).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UCameraRigParameterInterop::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_GET_CAMERA_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(44).cast::<i32>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UCameraRigParameterInteropLibrary {
@@ -2760,6 +5969,184 @@ impl UCameraRigParameterInteropLibrary {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn make_literal_vector3f(
+        value: crate::bindings::core_u_object::FVector3f,
+    ) -> crate::bindings::core_u_object::FVector3f {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR3F,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector3f>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UCameraRigParameterInteropLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR3F,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<crate::bindings::core_u_object::FVector3f>().read()
+        }
+    }
+    pub fn make_literal_vector2_d(
+        value: crate::bindings::core_u_object::FVector2D,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UCameraRigParameterInteropLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn make_literal_vector(
+        value: crate::bindings::core_u_object::FVector,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UCameraRigParameterInteropLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn make_literal_rotator(
+        value: crate::bindings::core_u_object::FRotator,
+    ) -> crate::bindings::core_u_object::FRotator {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UCameraRigParameterInteropLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<crate::bindings::core_u_object::FRotator>().read()
+        }
+    }
+    pub fn make_literal_linear_color(
+        value: crate::bindings::core_u_object::FLinearColor,
+    ) -> crate::bindings::core_u_object::FLinearColor {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_LINEAR_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_cameras::UCameraRigParameterInteropLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_LINEAR_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::core_u_object::FLinearColor>()
+                .read()
         }
     }
 }
@@ -2827,6 +6214,30 @@ impl AGameplayCameraActor {
             cdo
         }
     }
+    pub fn get_camera_component(&self) -> UPtr<UGameplayCameraComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERA_ACTOR_GET_CAMERA_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERA_ACTOR_GET_CAMERA_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UGameplayCameraComponent>>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UGameplayCameraComponentBase {
@@ -2851,6 +6262,352 @@ impl UGameplayCameraComponentBase {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_output_camera_component(
+        &self,
+    ) -> UPtr<crate::bindings::cinematic_camera::UCineCameraComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_OUTPUT_CAMERA_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_OUTPUT_CAMERA_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::cinematic_camera::UCineCameraComponent>>()
+                .read()
+        }
+    }
+    pub fn get_initial_result(&self) -> FBlueprintCameraEvaluationDataRef {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_INITIAL_RESULT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_INITIAL_RESULT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>().read() }
+    }
+    pub fn get_evaluated_camera_rotation(
+        &self,
+    ) -> crate::bindings::core_u_object::FRotator {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_EVALUATED_CAMERA_ROTATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_EVALUATED_CAMERA_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FRotator>().read()
+        }
+    }
+    pub fn get_conditional_result(
+        &self,
+        condition: ECameraEvaluationDataCondition,
+    ) -> FBlueprintCameraEvaluationDataRef {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_CONDITIONAL_RESULT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &condition,
+                __buffer.add(0).cast::<ECameraEvaluationDataCondition>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_CONDITIONAL_RESULT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FBlueprintCameraEvaluationDataRef>().read() }
+    }
+    pub fn deactivate_camera(&mut self, b_immediately: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_DEACTIVATE_CAMERA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_immediately,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_DEACTIVATE_CAMERA,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_persistent_visual_camera_rig(
+        &mut self,
+        camera_rig: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_persistent_global_camera_rig(
+        &mut self,
+        camera_rig: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_persistent_base_camera_rig(
+        &mut self,
+        camera_rig: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_camera_for_player_index(
+        &mut self,
+        player_index: i32,
+        b_set_as_view_target: bool,
+        activation_mode: EGameplayCameraComponentActivationMode,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<6>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_CAMERA_FOR_PLAYER_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_set_as_view_target,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &activation_mode,
+                __buffer.add(5).cast::<EGameplayCameraComponentActivationMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_CAMERA_FOR_PLAYER_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_camera_for_player_controller(
+        &mut self,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        b_set_as_view_target: bool,
+        activation_mode: EGameplayCameraComponentActivationMode,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<10>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_CAMERA_FOR_PLAYER_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_set_as_view_target,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &activation_mode,
+                __buffer.add(9).cast::<EGameplayCameraComponentActivationMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_CAMERA_FOR_PLAYER_CONTROLLER,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(16))]
@@ -2903,6 +6660,59 @@ impl UGameplayCameraParameterSetterComponent {
             cdo
         }
     }
+    pub fn stop_parameter_setters(&mut self, b_immediately: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_STOP_PARAMETER_SETTERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_immediately,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_STOP_PARAMETER_SETTERS,
+                __buffer,
+            )
+        };
+    }
+    pub fn start_parameter_setters(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_START_PARAMETER_SETTERS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_START_PARAMETER_SETTERS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct AGameplayCameraRigActor {
@@ -2925,6 +6735,30 @@ impl AGameplayCameraRigActor {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_camera_rig_component(&self) -> UPtr<UGameplayCameraRigComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERA_RIG_ACTOR_GET_CAMERA_RIG_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERA_RIG_ACTOR_GET_CAMERA_RIG_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UGameplayCameraRigComponent>>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -2971,6 +6805,416 @@ impl AGameplayCamerasPlayerCameraManager {
             cdo
         }
     }
+    pub fn stop_camera_shake_asset(
+        &mut self,
+        in_instance_id: FCameraShakeInstanceID,
+        b_immediately: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<6>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STOP_CAMERA_SHAKE_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_instance_id,
+                __buffer.add(0).cast::<FCameraShakeInstanceID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_immediately,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STOP_CAMERA_SHAKE_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(5).cast::<bool>().read() }
+    }
+    pub fn stop_camera_modifier_rig(
+        &mut self,
+        instance_id: FCameraRigInstanceID,
+        b_immediately: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STOP_CAMERA_MODIFIER_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &instance_id,
+                __buffer.add(0).cast::<FCameraRigInstanceID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_immediately,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STOP_CAMERA_MODIFIER_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn steal_player_controller(
+        &mut self,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STEAL_PLAYER_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STEAL_PLAYER_CONTROLLER,
+                __buffer,
+            )
+        };
+    }
+    pub fn start_visual_camera_modifier_rig(
+        &mut self,
+        camera_rig: UPtr<UCameraRigAsset>,
+        order_key: i32,
+    ) -> FCameraRigInstanceID {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_VISUAL_CAMERA_MODIFIER_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&order_key, __buffer.add(8).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_VISUAL_CAMERA_MODIFIER_RIG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<FCameraRigInstanceID>().read() }
+    }
+    pub fn start_global_camera_modifier_rig(
+        &mut self,
+        camera_rig: UPtr<UCameraRigAsset>,
+        order_key: i32,
+    ) -> FCameraRigInstanceID {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_GLOBAL_CAMERA_MODIFIER_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&order_key, __buffer.add(8).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_GLOBAL_CAMERA_MODIFIER_RIG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<FCameraRigInstanceID>().read() }
+    }
+    pub fn start_camera_shake_asset(
+        &mut self,
+        camera_shake: UPtr<UCameraShakeAsset>,
+        shake_scale: f32,
+        play_space: crate::bindings::engine::ECameraShakePlaySpace,
+        user_play_space_rotation: crate::bindings::core_u_object::FRotator,
+    ) -> FCameraShakeInstanceID {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_CAMERA_SHAKE_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_shake,
+                __buffer.add(0).cast::<UPtr<UCameraShakeAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &shake_scale,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &play_space,
+                __buffer
+                    .add(12)
+                    .cast::<crate::bindings::engine::ECameraShakePlaySpace>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &user_play_space_rotation,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_CAMERA_SHAKE_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<FCameraShakeInstanceID>().read() }
+    }
+    pub fn release_player_controller(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_RELEASE_PLAYER_CONTROLLER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_RELEASE_PLAYER_CONTROLLER,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_camera_shake_asset_playing(
+        &self,
+        in_instance_id: FCameraShakeInstanceID,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_IS_CAMERA_SHAKE_ASSET_PLAYING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_instance_id,
+                __buffer.add(0).cast::<FCameraShakeInstanceID>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_IS_CAMERA_SHAKE_ASSET_PLAYING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn activate_persistent_visual_camera_rig(
+        &mut self,
+        camera_rig: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_persistent_global_camera_rig(
+        &mut self,
+        camera_rig: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_persistent_base_camera_rig(
+        &mut self,
+        camera_rig: UPtr<UCameraRigAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct AGameplayCameraSystemActor {
@@ -2994,6 +7238,30 @@ impl AGameplayCameraSystemActor {
             cdo
         }
     }
+    pub fn get_camera_system_component(&self) -> UPtr<UGameplayCameraSystemComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERA_SYSTEM_ACTOR_GET_CAMERA_SYSTEM_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERA_SYSTEM_ACTOR_GET_CAMERA_SYSTEM_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UGameplayCameraSystemComponent>>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UGameplayCameraSystemComponent {
@@ -3001,7 +7269,6 @@ pub struct UGameplayCameraSystemComponent {
     __padding_688: [u8; 688],
     pub auto_activate_for_player: crate::bindings::engine::EAutoReceiveInput,
     pub b_set_player_controller_rotation: bool,
-    __padding_end: [u8; 14],
 }
 impl UGameplayCameraSystemComponent {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -3018,6 +7285,257 @@ impl UGameplayCameraSystemComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn stop_camera_modifier_rig(
+        &mut self,
+        instance_id: FCameraRigInstanceID,
+        b_immediately: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_STOP_CAMERA_MODIFIER_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &instance_id,
+                __buffer.add(0).cast::<FCameraRigInstanceID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_immediately,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_STOP_CAMERA_MODIFIER_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn start_visual_camera_modifier_rig(
+        &mut self,
+        camera_rig: UPtr<UCameraRigAsset>,
+        order_key: i32,
+    ) -> FCameraRigInstanceID {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_START_VISUAL_CAMERA_MODIFIER_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&order_key, __buffer.add(8).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_START_VISUAL_CAMERA_MODIFIER_RIG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<FCameraRigInstanceID>().read() }
+    }
+    pub fn start_global_camera_modifier_rig(
+        &mut self,
+        camera_rig: UPtr<UCameraRigAsset>,
+        order_key: i32,
+    ) -> FCameraRigInstanceID {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_START_GLOBAL_CAMERA_MODIFIER_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rig,
+                __buffer.add(0).cast::<UPtr<UCameraRigAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&order_key, __buffer.add(8).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_START_GLOBAL_CAMERA_MODIFIER_RIG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<FCameraRigInstanceID>().read() }
+    }
+    pub fn is_camera_system_active_for_play_controller(
+        &self,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_IS_CAMERA_SYSTEM_ACTIVE_FOR_PLAY_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_IS_CAMERA_SYSTEM_ACTIVE_FOR_PLAY_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn deactivate_camera_system(
+        &mut self,
+        next_view_target: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_DEACTIVATE_CAMERA_SYSTEM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &next_view_target,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_DEACTIVATE_CAMERA_SYSTEM,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_camera_system_for_player_index(&mut self, player_index: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_ACTIVATE_CAMERA_SYSTEM_FOR_PLAYER_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_ACTIVATE_CAMERA_SYSTEM_FOR_PLAYER_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_camera_system_for_player_controller(
+        &mut self,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_ACTIVATE_CAMERA_SYSTEM_FOR_PLAYER_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_ACTIVATE_CAMERA_SYSTEM_FOR_PLAYER_CONTROLLER,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -3042,6 +7560,97 @@ impl UGameplayControlRotationComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn deactivate_control_rotation_management(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_DEACTIVATE_CONTROL_ROTATION_MANAGEMENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_DEACTIVATE_CONTROL_ROTATION_MANAGEMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_control_rotation_management_for_player_index(
+        &mut self,
+        player_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_ACTIVATE_CONTROL_ROTATION_MANAGEMENT_FOR_PLAYER_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_ACTIVATE_CONTROL_ROTATION_MANAGEMENT_FOR_PLAYER_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_control_rotation_management_for_player_controller(
+        &mut self,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_ACTIVATE_CONTROL_ROTATION_MANAGEMENT_FOR_PLAYER_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_ACTIVATE_CONTROL_ROTATION_MANAGEMENT_FOR_PLAYER_CONTROLLER,
+                __buffer,
+            )
+        };
     }
 }
 pub struct IGameplayCameraSystemHost {}
@@ -4230,6 +8839,212 @@ impl UBlueprintCameraNodeEvaluator {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_default_owning_camera_rig_parameters(
+        &self,
+        target_camera_data: FBlueprintCameraEvaluationDataRef,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_DEFAULT_OWNING_CAMERA_RIG_PARAMETERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_camera_data,
+                __buffer.add(0).cast::<FBlueprintCameraEvaluationDataRef>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_DEFAULT_OWNING_CAMERA_RIG_PARAMETERS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_current_camera_pose(&mut self, camera_pose: &FBlueprintCameraPose) {
+        let mut __stack = crate::core_data::StackAlloc::<136>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_CURRENT_CAMERA_POSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_CURRENT_CAMERA_POSE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_camera_pose(&mut self, in_camera_pose: &FBlueprintCameraPose) {
+        let mut __stack = crate::core_data::StackAlloc::<136>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_CAMERA_POSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_camera_pose,
+                __buffer.add(0).cast::<FBlueprintCameraPose>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_CAMERA_POSE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_player_controller(
+        &self,
+    ) -> UPtr<crate::bindings::engine::APlayerController> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_PLAYER_CONTROLLER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_PLAYER_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::APlayerController>>()
+                .read()
+        }
+    }
+    pub fn get_current_camera_pose(&self) -> FBlueprintCameraPose {
+        let mut __stack = crate::core_data::StackAlloc::<136>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_CURRENT_CAMERA_POSE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_CURRENT_CAMERA_POSE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FBlueprintCameraPose>().read() }
+    }
+    pub fn get_camera_pose(&self) -> FBlueprintCameraPose {
+        let mut __stack = crate::core_data::StackAlloc::<136>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_CAMERA_POSE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_CAMERA_POSE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FBlueprintCameraPose>().read() }
+    }
+    pub fn find_evaluation_context_owner_actor(
+        &self,
+        actor_class: TSubclassOf<crate::bindings::engine::AActor>,
+    ) -> UPtr<crate::bindings::engine::AActor> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_FIND_EVALUATION_CONTEXT_OWNER_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor_class,
+                __buffer.add(0).cast::<TSubclassOf<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_FIND_EVALUATION_CONTEXT_OWNER_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>().read() }
     }
 }
 #[repr(C, align(8))]

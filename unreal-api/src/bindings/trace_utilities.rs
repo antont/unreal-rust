@@ -159,4 +159,396 @@ impl UTraceUtilLibrary {
             cdo
         }
     }
+    pub fn trace_screenshot(name: FString, b_show_ui: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_SCREENSHOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&name, __buffer.add(0).cast::<FString>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_show_ui,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::trace_utilities::UTraceUtilLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_SCREENSHOT,
+                __buffer,
+            )
+        };
+    }
+    pub fn trace_mark_region_start(name: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_MARK_REGION_START,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&name, __buffer.add(0).cast::<FString>(), 1);
+        }
+        let __object_ptr = crate::bindings::trace_utilities::UTraceUtilLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_MARK_REGION_START,
+                __buffer,
+            )
+        };
+    }
+    pub fn trace_mark_region_end(name: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_MARK_REGION_END,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&name, __buffer.add(0).cast::<FString>(), 1);
+        }
+        let __object_ptr = crate::bindings::trace_utilities::UTraceUtilLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_MARK_REGION_END,
+                __buffer,
+            )
+        };
+    }
+    pub fn trace_bookmark(name: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_BOOKMARK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&name, __buffer.add(0).cast::<FString>(), 1);
+        }
+        let __object_ptr = crate::bindings::trace_utilities::UTraceUtilLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_BOOKMARK,
+                __buffer,
+            )
+        };
+    }
+    pub fn toggle_channel(channel_name: FString, enabled: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TOGGLE_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &channel_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&enabled, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::trace_utilities::UTraceUtilLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TOGGLE_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn stop_tracing() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_STOP_TRACING,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::trace_utilities::UTraceUtilLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_STOP_TRACING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn start_trace_to_file(file_name: FString, channels: &TArray<FString>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_START_TRACE_TO_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &file_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                channels,
+                __buffer.add(16).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::trace_utilities::UTraceUtilLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_START_TRACE_TO_FILE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn start_trace_send_to(target: FString, channels: &TArray<FString>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_START_TRACE_SEND_TO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&target, __buffer.add(0).cast::<FString>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                channels,
+                __buffer.add(16).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::trace_utilities::UTraceUtilLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_START_TRACE_SEND_TO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn resume_tracing() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_RESUME_TRACING,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::trace_utilities::UTraceUtilLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_RESUME_TRACING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn pause_tracing() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_PAUSE_TRACING,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::trace_utilities::UTraceUtilLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_PAUSE_TRACING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_tracing() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_IS_TRACING,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::trace_utilities::UTraceUtilLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_IS_TRACING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_channel_enabled(channel_name: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_IS_CHANNEL_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &channel_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::trace_utilities::UTraceUtilLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_IS_CHANNEL_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_enabled_channels() -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_GET_ENABLED_CHANNELS,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::trace_utilities::UTraceUtilLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_GET_ENABLED_CHANNELS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FString>>().read() }
+    }
+    pub fn get_all_channels() -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_GET_ALL_CHANNELS,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::trace_utilities::UTraceUtilLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_GET_ALL_CHANNELS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FString>>().read() }
+    }
 }

@@ -84,6 +84,54 @@ impl UWidgetPreview {
             cdo
         }
     }
+    pub fn get_widget_slot_names(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg_widget_preview::U_WIDGET_PREVIEW_GET_WIDGET_SLOT_NAMES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg_widget_preview::U_WIDGET_PREVIEW_GET_WIDGET_SLOT_NAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_available_widget_slot_names(&mut self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg_widget_preview::U_WIDGET_PREVIEW_GET_AVAILABLE_WIDGET_SLOT_NAMES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg_widget_preview::U_WIDGET_PREVIEW_GET_AVAILABLE_WIDGET_SLOT_NAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UWidgetPreviewEditor {

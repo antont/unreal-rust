@@ -84,6 +84,36 @@ impl UClothingSimulationInteractorNv {
             cdo
         }
     }
+    pub fn set_anim_drive_damper_stiffness(&mut self, in_stiffness: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_nv::U_CLOTHING_SIMULATION_INTERACTOR_NV_SET_ANIM_DRIVE_DAMPER_STIFFNESS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_stiffness,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_nv::U_CLOTHING_SIMULATION_INTERACTOR_NV_SET_ANIM_DRIVE_DAMPER_STIFFNESS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UClothPhysicalMeshDataNv_Legacy {

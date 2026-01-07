@@ -1393,6 +1393,29 @@ impl UInterchangeImportTestPlan {
             cdo
         }
     }
+    pub fn run_this_test(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_tests::U_INTERCHANGE_IMPORT_TEST_PLAN_RUN_THIS_TEST,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_tests::U_INTERCHANGE_IMPORT_TEST_PLAN_RUN_THIS_TEST,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeImportTestStepBase {
@@ -1476,5 +1499,42 @@ impl UInterchangeTestsBlueprintFunctionLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_pipeline_properties_as_json(
+        pipeline: UPtr<crate::bindings::interchange_core::UInterchangePipelineBase>,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_tests::U_INTERCHANGE_TESTS_BLUEPRINT_FUNCTION_LIBRARY_GET_PIPELINE_PROPERTIES_AS_JSON,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &pipeline,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::interchange_core::UInterchangePipelineBase>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_tests::UInterchangeTestsBlueprintFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_tests::U_INTERCHANGE_TESTS_BLUEPRINT_FUNCTION_LIBRARY_GET_PIPELINE_PROPERTIES_AS_JSON,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FString>().read() }
     }
 }

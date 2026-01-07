@@ -837,6 +837,162 @@ impl ULevelSequence {
             cdo
         }
     }
+    pub fn remove_meta_data_by_class(
+        &mut self,
+        in_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_REMOVE_META_DATA_BY_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_class,
+                __buffer
+                    .add(0)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_REMOVE_META_DATA_BY_CLASS,
+                __buffer,
+            )
+        };
+    }
+    pub fn find_or_add_meta_data_by_class(
+        &mut self,
+        in_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_FIND_OR_ADD_META_DATA_BY_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_class,
+                __buffer
+                    .add(0)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_FIND_OR_ADD_META_DATA_BY_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn find_meta_data_by_class(
+        &self,
+        in_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_FIND_META_DATA_BY_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_class,
+                __buffer
+                    .add(0)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_FIND_META_DATA_BY_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn copy_meta_data(
+        &mut self,
+        in_meta_data: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_COPY_META_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_meta_data,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_COPY_META_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct ULevelSequenceBurnInInitSettings {
@@ -883,6 +1039,39 @@ impl ULevelSequenceBurnInOptions {
             cdo
         }
     }
+    pub fn set_burn_in(
+        &mut self,
+        in_burn_in_class: crate::bindings::core_u_object::FSoftClassPath,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_BURN_IN_OPTIONS_SET_BURN_IN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_burn_in_class,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FSoftClassPath>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_BURN_IN_OPTIONS_SET_BURN_IN,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct ALevelSequenceActor {
@@ -917,6 +1106,570 @@ impl ALevelSequenceActor {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn show_burnin(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SHOW_BURNIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SHOW_BURNIN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_sequence(&mut self, in_sequence: UPtr<ULevelSequence>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_SEQUENCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_replicate_playback(&mut self, replicate_playback: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_REPLICATE_PLAYBACK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &replicate_playback,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_REPLICATE_PLAYBACK,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_binding_by_tag(
+        &mut self,
+        binding_tag: FName,
+        actors: &TArray<UPtr<crate::bindings::engine::AActor>>,
+        b_allow_bindings_from_asset: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_BINDING_BY_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &binding_tag,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors,
+                __buffer.add(16).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_allow_bindings_from_asset,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_BINDING_BY_TAG,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_binding(
+        &mut self,
+        binding: crate::bindings::movie_scene::FMovieSceneObjectBindingID,
+        actors: &TArray<UPtr<crate::bindings::engine::AActor>>,
+        b_allow_bindings_from_asset: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_BINDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &binding,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::movie_scene::FMovieSceneObjectBindingID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors,
+                __buffer.add(32).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_allow_bindings_from_asset,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_BINDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_bindings(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_RESET_BINDINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_RESET_BINDINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_binding(
+        &mut self,
+        binding: crate::bindings::movie_scene::FMovieSceneObjectBindingID,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_RESET_BINDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &binding,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::movie_scene::FMovieSceneObjectBindingID>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_RESET_BINDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_binding_by_tag(
+        &mut self,
+        tag: FName,
+        actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_REMOVE_BINDING_BY_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tag, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_REMOVE_BINDING_BY_TAG,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_binding(
+        &mut self,
+        binding: crate::bindings::movie_scene::FMovieSceneObjectBindingID,
+        actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_REMOVE_BINDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &binding,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::movie_scene::FMovieSceneObjectBindingID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(32).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_REMOVE_BINDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn hide_burnin(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_HIDE_BURNIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_HIDE_BURNIN,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_sequence_player(&self) -> UPtr<ULevelSequencePlayer> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_GET_SEQUENCE_PLAYER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_GET_SEQUENCE_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<ULevelSequencePlayer>>().read() }
+    }
+    pub fn get_sequence(&self) -> UPtr<ULevelSequence> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_GET_SEQUENCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_GET_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<ULevelSequence>>().read() }
+    }
+    pub fn find_named_bindings(
+        &self,
+        tag: FName,
+    ) -> TArray<crate::bindings::movie_scene::FMovieSceneObjectBindingID> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_FIND_NAMED_BINDINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tag, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_FIND_NAMED_BINDINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<
+                    TArray<crate::bindings::movie_scene::FMovieSceneObjectBindingID>,
+                >()
+                .read()
+        }
+    }
+    pub fn find_named_binding(
+        &self,
+        tag: FName,
+    ) -> crate::bindings::movie_scene::FMovieSceneObjectBindingID {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_FIND_NAMED_BINDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tag, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_FIND_NAMED_BINDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(12)
+                .cast::<crate::bindings::movie_scene::FMovieSceneObjectBindingID>()
+                .read()
+        }
+    }
+    pub fn add_binding_by_tag(
+        &mut self,
+        binding_tag: FName,
+        actor: UPtr<crate::bindings::engine::AActor>,
+        b_allow_bindings_from_asset: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_ADD_BINDING_BY_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &binding_tag,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_allow_bindings_from_asset,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_ADD_BINDING_BY_TAG,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_binding(
+        &mut self,
+        binding: crate::bindings::movie_scene::FMovieSceneObjectBindingID,
+        actor: UPtr<crate::bindings::engine::AActor>,
+        b_allow_bindings_from_asset: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_ADD_BINDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &binding,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::movie_scene::FMovieSceneObjectBindingID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(32).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_allow_bindings_from_asset,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_ADD_BINDING,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -1010,6 +1763,322 @@ impl ULevelSequenceDirector {
             cdo
         }
     }
+    pub fn get_sequence_custom_clock(
+        &self,
+    ) -> UPtr<crate::bindings::movie_scene::UMovieSceneClock> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_SEQUENCE_CUSTOM_CLOCK,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_SEQUENCE_CUSTOM_CLOCK,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::movie_scene::UMovieSceneClock>>()
+                .read()
+        }
+    }
+    pub fn get_sequence(
+        &mut self,
+    ) -> UPtr<crate::bindings::movie_scene::UMovieSceneSequence> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_SEQUENCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::movie_scene::UMovieSceneSequence>>()
+                .read()
+        }
+    }
+    pub fn get_root_sequence_time(
+        &self,
+    ) -> crate::bindings::core_u_object::FQualifiedFrameTime {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_ROOT_SEQUENCE_TIME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_ROOT_SEQUENCE_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FQualifiedFrameTime>()
+                .read()
+        }
+    }
+    pub fn get_root_sequence_custom_clock(
+        &self,
+    ) -> UPtr<crate::bindings::movie_scene::UMovieSceneClock> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_ROOT_SEQUENCE_CUSTOM_CLOCK,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_ROOT_SEQUENCE_CUSTOM_CLOCK,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::movie_scene::UMovieSceneClock>>()
+                .read()
+        }
+    }
+    pub fn get_current_time(
+        &self,
+    ) -> crate::bindings::core_u_object::FQualifiedFrameTime {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_CURRENT_TIME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_CURRENT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FQualifiedFrameTime>()
+                .read()
+        }
+    }
+    pub fn get_bound_objects(
+        &mut self,
+        object_binding: crate::bindings::movie_scene::FMovieSceneObjectBindingID,
+    ) -> TArray<UPtr<crate::bindings::core_u_object::UObject>> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object_binding,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::movie_scene::FMovieSceneObjectBindingID>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
+                .read()
+        }
+    }
+    pub fn get_bound_object(
+        &mut self,
+        object_binding: crate::bindings::movie_scene::FMovieSceneObjectBindingID,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object_binding,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::movie_scene::FMovieSceneObjectBindingID>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_bound_actors(
+        &mut self,
+        object_binding: crate::bindings::movie_scene::FMovieSceneObjectBindingID,
+    ) -> TArray<UPtr<crate::bindings::engine::AActor>> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object_binding,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::movie_scene::FMovieSceneObjectBindingID>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .read()
+        }
+    }
+    pub fn get_bound_actor(
+        &mut self,
+        object_binding: crate::bindings::movie_scene::FMovieSceneObjectBindingID,
+    ) -> UPtr<crate::bindings::engine::AActor> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object_binding,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::movie_scene::FMovieSceneObjectBindingID>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<UPtr<crate::bindings::engine::AActor>>().read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct ULegacyLevelSequenceDirectorBlueprint {
@@ -1051,6 +2120,101 @@ impl ULevelSequencePlayer {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_active_camera_component(
+        &self,
+    ) -> UPtr<crate::bindings::engine::UCameraComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_PLAYER_GET_ACTIVE_CAMERA_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_PLAYER_GET_ACTIVE_CAMERA_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UCameraComponent>>()
+                .read()
+        }
+    }
+    pub fn create_level_sequence_player(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        level_sequence: UPtr<ULevelSequence>,
+        settings: crate::bindings::movie_scene::FMovieSceneSequencePlaybackSettings,
+        out_actor: &mut UPtr<ALevelSequenceActor>,
+    ) -> UPtr<ULevelSequencePlayer> {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_PLAYER_CREATE_LEVEL_SEQUENCE_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &level_sequence,
+                __buffer.add(8).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &settings,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::movie_scene::FMovieSceneSequencePlaybackSettings,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_actor,
+                __buffer.add(56).cast::<UPtr<ALevelSequenceActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequencePlayer::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_PLAYER_CREATE_LEVEL_SEQUENCE_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(56).cast::<UPtr<ALevelSequenceActor>>().swap(out_actor);
+        }
+        unsafe { __buffer.add(64).cast::<UPtr<ULevelSequencePlayer>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -1094,6 +2258,1236 @@ impl ULevelSequenceShotMetaDataLibrary {
             cdo
         }
     }
+    pub fn set_is_sub_sequence(
+        in_level_sequence: UPtr<ULevelSequence>,
+        b_in_is_sub_sequence: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_SUB_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_is_sub_sequence,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_SUB_SEQUENCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_recorded(
+        in_level_sequence: UPtr<ULevelSequence>,
+        b_in_is_recorded: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_RECORDED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_is_recorded,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_RECORDED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_no_good(
+        in_level_sequence: UPtr<ULevelSequence>,
+        b_in_is_no_good: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_NO_GOOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_is_no_good,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_NO_GOOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_flagged(
+        in_level_sequence: UPtr<ULevelSequence>,
+        b_in_is_flagged: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_FLAGGED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_is_flagged,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_FLAGGED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_favorite_rating(
+        in_level_sequence: UPtr<ULevelSequence>,
+        in_favorite_rating: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_FAVORITE_RATING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_favorite_rating,
+                __buffer.add(8).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_FAVORITE_RATING,
+                __buffer,
+            )
+        };
+    }
+    pub fn has_is_sub_sequence_by_asset_data(
+        in_asset_data: &crate::bindings::core_u_object::FAssetData,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<153>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_SUB_SEQUENCE_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_asset_data,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_SUB_SEQUENCE_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(152).cast::<bool>().read() }
+    }
+    pub fn has_is_sub_sequence(in_level_sequence: UPtr<ULevelSequence>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_SUB_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_SUB_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn has_is_recorded_by_asset_data(
+        in_asset_data: &crate::bindings::core_u_object::FAssetData,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<153>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_RECORDED_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_asset_data,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_RECORDED_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(152).cast::<bool>().read() }
+    }
+    pub fn has_is_recorded(in_level_sequence: UPtr<ULevelSequence>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_RECORDED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_RECORDED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn has_is_no_good_by_asset_data(
+        in_asset_data: &crate::bindings::core_u_object::FAssetData,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<153>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_NO_GOOD_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_asset_data,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_NO_GOOD_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(152).cast::<bool>().read() }
+    }
+    pub fn has_is_no_good(in_level_sequence: UPtr<ULevelSequence>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_NO_GOOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_NO_GOOD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn has_is_flagged_by_asset_data(
+        in_asset_data: &crate::bindings::core_u_object::FAssetData,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<153>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_FLAGGED_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_asset_data,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_FLAGGED_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(152).cast::<bool>().read() }
+    }
+    pub fn has_is_flagged(in_level_sequence: UPtr<ULevelSequence>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_FLAGGED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_FLAGGED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn has_favorite_rating_by_asset_data(
+        in_asset_data: &crate::bindings::core_u_object::FAssetData,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<153>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_FAVORITE_RATING_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_asset_data,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_FAVORITE_RATING_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(152).cast::<bool>().read() }
+    }
+    pub fn has_favorite_rating(in_level_sequence: UPtr<ULevelSequence>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_FAVORITE_RATING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_FAVORITE_RATING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_is_sub_sequence_by_asset_data(
+        in_asset_data: &crate::bindings::core_u_object::FAssetData,
+        b_out_is_sub_sequence: &mut bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<154>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_asset_data,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_is_sub_sequence,
+                __buffer.add(152).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(152).cast::<bool>().swap(b_out_is_sub_sequence);
+        }
+        unsafe { __buffer.add(153).cast::<bool>().read() }
+    }
+    pub fn get_is_sub_sequence_asset_tag() -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE_ASSET_TAG,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE_ASSET_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_is_sub_sequence(
+        in_level_sequence: UPtr<ULevelSequence>,
+        b_out_is_sub_sequence: &mut bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<10>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_is_sub_sequence,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<bool>().swap(b_out_is_sub_sequence);
+        }
+        unsafe { __buffer.add(9).cast::<bool>().read() }
+    }
+    pub fn get_is_recorded_by_asset_data(
+        in_asset_data: &crate::bindings::core_u_object::FAssetData,
+        b_out_is_recorded: &mut bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<154>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_asset_data,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_is_recorded,
+                __buffer.add(152).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(152).cast::<bool>().swap(b_out_is_recorded);
+        }
+        unsafe { __buffer.add(153).cast::<bool>().read() }
+    }
+    pub fn get_is_recorded_asset_tag() -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED_ASSET_TAG,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED_ASSET_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_is_recorded(
+        in_level_sequence: UPtr<ULevelSequence>,
+        b_out_is_recorded: &mut bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<10>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_is_recorded,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<bool>().swap(b_out_is_recorded);
+        }
+        unsafe { __buffer.add(9).cast::<bool>().read() }
+    }
+    pub fn get_is_no_good_by_asset_data(
+        in_asset_data: &crate::bindings::core_u_object::FAssetData,
+        b_out_no_good: &mut bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<154>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_asset_data,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_no_good,
+                __buffer.add(152).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(152).cast::<bool>().swap(b_out_no_good);
+        }
+        unsafe { __buffer.add(153).cast::<bool>().read() }
+    }
+    pub fn get_is_no_good_asset_tag() -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD_ASSET_TAG,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD_ASSET_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_is_no_good(
+        in_level_sequence: UPtr<ULevelSequence>,
+        b_out_no_good: &mut bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<10>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_no_good,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<bool>().swap(b_out_no_good);
+        }
+        unsafe { __buffer.add(9).cast::<bool>().read() }
+    }
+    pub fn get_is_flagged_by_asset_data(
+        in_asset_data: &crate::bindings::core_u_object::FAssetData,
+        b_out_is_flagged: &mut bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<154>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_asset_data,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_is_flagged,
+                __buffer.add(152).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(152).cast::<bool>().swap(b_out_is_flagged);
+        }
+        unsafe { __buffer.add(153).cast::<bool>().read() }
+    }
+    pub fn get_is_flagged_asset_tag() -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED_ASSET_TAG,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED_ASSET_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_is_flagged(
+        in_level_sequence: UPtr<ULevelSequence>,
+        b_out_is_flagged: &mut bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<10>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_is_flagged,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<bool>().swap(b_out_is_flagged);
+        }
+        unsafe { __buffer.add(9).cast::<bool>().read() }
+    }
+    pub fn get_favorite_rating_by_asset_data(
+        in_asset_data: &crate::bindings::core_u_object::FAssetData,
+        out_favorite_rating: &mut i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<157>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_asset_data,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_favorite_rating,
+                __buffer.add(152).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING_BY_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(152).cast::<i32>().swap(out_favorite_rating);
+        }
+        unsafe { __buffer.add(156).cast::<bool>().read() }
+    }
+    pub fn get_favorite_rating_asset_tag() -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING_ASSET_TAG,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING_ASSET_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_favorite_rating(
+        in_level_sequence: UPtr<ULevelSequence>,
+        out_favorite_rating: &mut i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_favorite_rating,
+                __buffer.add(8).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<i32>().swap(out_favorite_rating);
+        }
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn clear_is_sub_sequence(in_level_sequence: UPtr<ULevelSequence>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_SUB_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_SUB_SEQUENCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_is_recorded(in_level_sequence: UPtr<ULevelSequence>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_RECORDED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_RECORDED,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_is_no_good(in_level_sequence: UPtr<ULevelSequence>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_NO_GOOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_NO_GOOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_is_flagged(in_level_sequence: UPtr<ULevelSequence>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_FLAGGED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_FLAGGED,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_favorite_rating(in_level_sequence: UPtr<ULevelSequence>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_FAVORITE_RATING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_sequence,
+                __buffer.add(0).cast::<UPtr<ULevelSequence>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::level_sequence::ULevelSequenceShotMetaDataLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_FAVORITE_RATING,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct ALevelSequenceMediaController {
@@ -1118,6 +3512,114 @@ impl ALevelSequenceMediaController {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn synchronize_to_server(&mut self, desync_threshold_seconds: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_SYNCHRONIZE_TO_SERVER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &desync_threshold_seconds,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_SYNCHRONIZE_TO_SERVER,
+                __buffer,
+            )
+        };
+    }
+    pub fn play(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_PLAY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_PLAY,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_sequence(&self) -> UPtr<ALevelSequenceActor> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_GET_SEQUENCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_GET_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<ALevelSequenceActor>>().read() }
+    }
+    pub fn get_media_component(
+        &self,
+    ) -> UPtr<crate::bindings::media_assets::UMediaComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_GET_MEDIA_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_GET_MEDIA_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::media_assets::UMediaComponent>>()
+                .read()
         }
     }
 }

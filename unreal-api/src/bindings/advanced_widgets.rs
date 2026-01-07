@@ -202,7 +202,6 @@ pub struct FColorGradingSpinBoxStyle {
     pub hovered_border_brush: crate::bindings::slate_core::FSlateBrush,
     pub selector_brush: crate::bindings::slate_core::FSlateBrush,
     pub selector_width: f32,
-    __padding_end: [u8; 12],
 }
 impl FColorGradingSpinBoxStyle {}
 #[repr(C, align(16))]
@@ -248,6 +247,578 @@ impl URadialSlider {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_value_tags(&mut self, in_value_tags: &TArray<f32>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_VALUE_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value_tags,
+                __buffer.add(0).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_VALUE_TAGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_value(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_use_vertical_drag(&mut self, in_use_vertical_drag: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_USE_VERTICAL_DRAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_use_vertical_drag,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_USE_VERTICAL_DRAG,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_step_size(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_STEP_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_STEP_SIZE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slider_range(
+        &mut self,
+        in_slider_range: &crate::bindings::engine::FRuntimeFloatCurve,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<136>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_RANGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_slider_range,
+                __buffer.add(0).cast::<crate::bindings::engine::FRuntimeFloatCurve>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_RANGE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slider_progress_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_PROGRESS_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_PROGRESS_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slider_handle_start_angle(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_HANDLE_START_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_HANDLE_START_ANGLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slider_handle_end_angle(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_HANDLE_END_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_HANDLE_END_ANGLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slider_handle_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_HANDLE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_HANDLE_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slider_bar_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_BAR_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_BAR_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_show_slider_handle(&mut self, in_show_slider_handle: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SHOW_SLIDER_HANDLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_show_slider_handle,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SHOW_SLIDER_HANDLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_show_slider_hand(&mut self, in_show_slider_hand: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SHOW_SLIDER_HAND,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_show_slider_hand,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SHOW_SLIDER_HAND,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_locked(&mut self, in_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_LOCKED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_LOCKED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hand_start_end_ratio(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_HAND_START_END_RATIO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_HAND_START_END_RATIO,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_custom_default_value(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_CUSTOM_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_CUSTOM_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_center_background_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_CENTER_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_CENTER_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_angular_offset(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_ANGULAR_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_ANGULAR_OFFSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_value(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_GET_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_GET_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_normalized_slider_handle_position(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_GET_NORMALIZED_SLIDER_HANDLE_POSITION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_GET_NORMALIZED_SLIDER_HANDLE_POSITION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_custom_default_value(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_GET_CUSTOM_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_GET_CUSTOM_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
     }
 }
 #[repr(C, align(8))]

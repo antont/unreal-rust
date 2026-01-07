@@ -1039,7 +1039,6 @@ pub struct FPlayerMappableKeyProfileCreationArgs {
     pub user_id: crate::bindings::core_u_object::FPlatformUserId,
     pub display_name: FText,
     pub flags_64: u8,
-    __padding_end: [u8; 7],
 }
 impl FPlayerMappableKeyProfileCreationArgs {}
 #[repr(C, align(8))]
@@ -1066,7 +1065,6 @@ pub struct FMapPlayerKeyArgs {
     __padding_72: [u8; 8],
     pub profile_id_string: FString,
     pub flags_88: u8,
-    __padding_end: [u8; 7],
 }
 impl FMapPlayerKeyArgs {}
 #[repr(C, align(8))]
@@ -1121,7 +1119,6 @@ impl FInputComboStepData {}
 pub struct FInputCancelAction {
     pub cancel_action: UPtr<UInputAction>,
     pub cancellation_states: u8,
-    __padding_end: [u8; 7],
 }
 impl FInputCancelAction {}
 #[repr(C, align(8))]
@@ -1201,6 +1198,40 @@ impl UEnhancedInputComponent {
             cdo
         }
     }
+    pub fn get_bound_action_value(
+        &self,
+        action: UPtr<UInputAction>,
+    ) -> FInputActionValue {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_COMPONENT_GET_BOUND_ACTION_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action,
+                __buffer.add(0).cast::<UPtr<UInputAction>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_COMPONENT_GET_BOUND_ACTION_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FInputActionValue>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UEnhancedInputDeveloperSettings {
@@ -1243,6 +1274,523 @@ impl UEnhancedInputLibrary {
             cdo
         }
     }
+    pub fn request_rebuild_control_mappings_using_context(
+        context: UPtr<UInputMappingContext>,
+        b_force_immediately: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_REQUEST_REBUILD_CONTROL_MAPPINGS_USING_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &context,
+                __buffer.add(0).cast::<UPtr<UInputMappingContext>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_force_immediately,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::enhanced_input::UEnhancedInputLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_REQUEST_REBUILD_CONTROL_MAPPINGS_USING_CONTEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn make_input_action_value_of_type(
+        x: f64,
+        y: f64,
+        z: f64,
+        value_type: EInputActionValueType,
+    ) -> FInputActionValue {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_MAKE_INPUT_ACTION_VALUE_OF_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&x, __buffer.add(0).cast::<f64>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&y, __buffer.add(8).cast::<f64>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&z, __buffer.add(16).cast::<f64>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value_type,
+                __buffer.add(24).cast::<EInputActionValueType>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::enhanced_input::UEnhancedInputLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_MAKE_INPUT_ACTION_VALUE_OF_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FInputActionValue>().read() }
+    }
+    pub fn is_action_key_mapping_player_mappable(
+        action_key_mapping: &FEnhancedActionKeyMapping,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<89>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_IS_ACTION_KEY_MAPPING_PLAYER_MAPPABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                action_key_mapping,
+                __buffer.add(0).cast::<FEnhancedActionKeyMapping>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::enhanced_input::UEnhancedInputLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_IS_ACTION_KEY_MAPPING_PLAYER_MAPPABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(88).cast::<bool>().read() }
+    }
+    pub fn get_player_mappable_key_settings(
+        action_key_mapping: &FEnhancedActionKeyMapping,
+    ) -> UPtr<UPlayerMappableKeySettings> {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_GET_PLAYER_MAPPABLE_KEY_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                action_key_mapping,
+                __buffer.add(0).cast::<FEnhancedActionKeyMapping>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::enhanced_input::UEnhancedInputLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_GET_PLAYER_MAPPABLE_KEY_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(88).cast::<UPtr<UPlayerMappableKeySettings>>().read() }
+    }
+    pub fn get_mapping_name(action_key_mapping: &FEnhancedActionKeyMapping) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<100>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_GET_MAPPING_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                action_key_mapping,
+                __buffer.add(0).cast::<FEnhancedActionKeyMapping>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::enhanced_input::UEnhancedInputLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_GET_MAPPING_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(88).cast::<FName>().read() }
+    }
+    pub fn get_bound_action_value(
+        actor: UPtr<crate::bindings::engine::AActor>,
+        action: UPtr<UInputAction>,
+    ) -> FInputActionValue {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_GET_BOUND_ACTION_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action,
+                __buffer.add(8).cast::<UPtr<UInputAction>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::enhanced_input::UEnhancedInputLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_GET_BOUND_ACTION_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FInputActionValue>().read() }
+    }
+    pub fn flush_player_input(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_FLUSH_PLAYER_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::enhanced_input::UEnhancedInputLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_FLUSH_PLAYER_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn conv_trigger_event_value_to_string(trigger_event: ETriggerEvent) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_TRIGGER_EVENT_VALUE_TO_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &trigger_event,
+                __buffer.add(0).cast::<ETriggerEvent>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::enhanced_input::UEnhancedInputLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_TRIGGER_EVENT_VALUE_TO_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FString>().read() }
+    }
+    pub fn conv_input_action_value_to_string(
+        action_value: FInputActionValue,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action_value,
+                __buffer.add(0).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::enhanced_input::UEnhancedInputLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FString>().read() }
+    }
+    pub fn conv_input_action_value_to_bool(in_value: FInputActionValue) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::enhanced_input::UEnhancedInputLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_BOOL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn conv_input_action_value_to_axis3_d(
+        action_value: FInputActionValue,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS3_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action_value,
+                __buffer.add(0).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::enhanced_input::UEnhancedInputLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS3_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn conv_input_action_value_to_axis2_d(
+        in_value: FInputActionValue,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::enhanced_input::UEnhancedInputLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn conv_input_action_value_to_axis1_d(in_value: FInputActionValue) -> f64 {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS1_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::enhanced_input::UEnhancedInputLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS1_D,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<f64>().read() }
+    }
+    pub fn break_input_action_value(
+        in_action_value: FInputActionValue,
+        x: &mut f64,
+        y: &mut f64,
+        z: &mut f64,
+        ty: &mut EInputActionValueType,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_BREAK_INPUT_ACTION_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_action_value,
+                __buffer.add(0).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(x, __buffer.add(32).cast::<f64>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(y, __buffer.add(40).cast::<f64>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(z, __buffer.add(48).cast::<f64>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                ty,
+                __buffer.add(56).cast::<EInputActionValueType>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::enhanced_input::UEnhancedInputLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_BREAK_INPUT_ACTION_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<f64>().swap(x);
+        }
+        unsafe {
+            __buffer.add(40).cast::<f64>().swap(y);
+        }
+        unsafe {
+            __buffer.add(48).cast::<f64>().swap(z);
+        }
+        unsafe {
+            __buffer.add(56).cast::<EInputActionValueType>().swap(ty);
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UEnhancedInputPlatformData {
@@ -1268,6 +1816,40 @@ impl UEnhancedInputPlatformData {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_context_redirect(
+        &self,
+        in_context: UPtr<UInputMappingContext>,
+    ) -> UPtr<UInputMappingContext> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_PLATFORM_DATA_GET_CONTEXT_REDIRECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_context,
+                __buffer.add(0).cast::<UPtr<UInputMappingContext>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_PLATFORM_DATA_GET_CONTEXT_REDIRECT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UInputMappingContext>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -1312,6 +1894,1165 @@ impl UEnhancedInputSubsystemInterface {
             cdo
         }
     }
+    pub fn update_value_of_continuous_input_injection_for_player_mapping(
+        &mut self,
+        mapping_name: FName,
+        raw_value: FInputActionValue,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_UPDATE_VALUE_OF_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mapping_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &raw_value,
+                __buffer.add(16).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_UPDATE_VALUE_OF_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING,
+                __buffer,
+            )
+        };
+    }
+    pub fn update_value_of_continuous_input_injection_for_action(
+        &mut self,
+        action: UPtr<UInputAction>,
+        raw_value: FInputActionValue,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_UPDATE_VALUE_OF_CONTINUOUS_INPUT_INJECTION_FOR_ACTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action,
+                __buffer.add(0).cast::<UPtr<UInputAction>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &raw_value,
+                __buffer.add(8).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_UPDATE_VALUE_OF_CONTINUOUS_INPUT_INJECTION_FOR_ACTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn stop_continuous_input_injection_for_player_mapping(
+        &mut self,
+        mapping_name: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_STOP_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mapping_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_STOP_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING,
+                __buffer,
+            )
+        };
+    }
+    pub fn stop_continuous_input_injection_for_action(
+        &mut self,
+        action: UPtr<UInputAction>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_STOP_CONTINUOUS_INPUT_INJECTION_FOR_ACTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action,
+                __buffer.add(0).cast::<UPtr<UInputAction>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_STOP_CONTINUOUS_INPUT_INJECTION_FOR_ACTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn start_continuous_input_injection_for_player_mapping(
+        &mut self,
+        mapping_name: FName,
+        raw_value: FInputActionValue,
+        modifiers: &TArray<UPtr<UInputModifier>>,
+        triggers: &TArray<UPtr<UInputTrigger>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_START_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mapping_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &raw_value,
+                __buffer.add(16).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modifiers,
+                __buffer.add(48).cast::<TArray<UPtr<UInputModifier>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                triggers,
+                __buffer.add(64).cast::<TArray<UPtr<UInputTrigger>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_START_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING,
+                __buffer,
+            )
+        };
+    }
+    pub fn start_continuous_input_injection_for_action(
+        &mut self,
+        action: UPtr<UInputAction>,
+        raw_value: FInputActionValue,
+        modifiers: &TArray<UPtr<UInputModifier>>,
+        triggers: &TArray<UPtr<UInputTrigger>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_START_CONTINUOUS_INPUT_INJECTION_FOR_ACTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action,
+                __buffer.add(0).cast::<UPtr<UInputAction>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &raw_value,
+                __buffer.add(8).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modifiers,
+                __buffer.add(40).cast::<TArray<UPtr<UInputModifier>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                triggers,
+                __buffer.add(56).cast::<TArray<UPtr<UInputTrigger>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_START_CONTINUOUS_INPUT_INJECTION_FOR_ACTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_input_mode(
+        &mut self,
+        new_mode: &crate::bindings::gameplay_tags::FGameplayTagContainer,
+        options: &FModifyContextOptions,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_SET_INPUT_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_mode,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                options,
+                __buffer.add(32).cast::<FModifyContextOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_SET_INPUT_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn request_rebuild_control_mappings(
+        &mut self,
+        options: &FModifyContextOptions,
+        rebuild_type: EInputMappingRebuildType,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REQUEST_REBUILD_CONTROL_MAPPINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                options,
+                __buffer.add(0).cast::<FModifyContextOptions>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rebuild_type,
+                __buffer.add(1).cast::<EInputMappingRebuildType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REQUEST_REBUILD_CONTROL_MAPPINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_tags_from_input_mode(
+        &mut self,
+        tags_to_remove: &crate::bindings::gameplay_tags::FGameplayTagContainer,
+        options: &FModifyContextOptions,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_TAGS_FROM_INPUT_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tags_to_remove,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                options,
+                __buffer.add(32).cast::<FModifyContextOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_TAGS_FROM_INPUT_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_tag_from_input_mode(
+        &mut self,
+        tag_to_remove: &crate::bindings::gameplay_tags::FGameplayTag,
+        options: &FModifyContextOptions,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_TAG_FROM_INPUT_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_to_remove,
+                __buffer.add(0).cast::<crate::bindings::gameplay_tags::FGameplayTag>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                options,
+                __buffer.add(12).cast::<FModifyContextOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_TAG_FROM_INPUT_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_mapping_context(
+        &mut self,
+        mapping_context: UPtr<UInputMappingContext>,
+        options: &FModifyContextOptions,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_MAPPING_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mapping_context,
+                __buffer.add(0).cast::<UPtr<UInputMappingContext>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                options,
+                __buffer.add(8).cast::<FModifyContextOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_MAPPING_CONTEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn query_map_key_in_context_set(
+        &mut self,
+        prioritized_active_contexts: &TArray<UPtr<UInputMappingContext>>,
+        input_context: UPtr<UInputMappingContext>,
+        action: UPtr<UInputAction>,
+        key: crate::bindings::input_core::FKey,
+        out_issues: &mut TArray<FMappingQueryIssue>,
+        blocking_issues: EMappingQueryIssue,
+    ) -> EMappingQueryResult {
+        let mut __stack = crate::core_data::StackAlloc::<82>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_MAP_KEY_IN_CONTEXT_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                prioritized_active_contexts,
+                __buffer.add(0).cast::<TArray<UPtr<UInputMappingContext>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_context,
+                __buffer.add(16).cast::<UPtr<UInputMappingContext>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action,
+                __buffer.add(24).cast::<UPtr<UInputAction>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &key,
+                __buffer.add(32).cast::<crate::bindings::input_core::FKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_issues,
+                __buffer.add(64).cast::<TArray<FMappingQueryIssue>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &blocking_issues,
+                __buffer.add(80).cast::<EMappingQueryIssue>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_MAP_KEY_IN_CONTEXT_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(64).cast::<TArray<FMappingQueryIssue>>().swap(out_issues);
+        }
+        unsafe { __buffer.add(81).cast::<EMappingQueryResult>().read() }
+    }
+    pub fn query_map_key_in_active_context_set(
+        &mut self,
+        input_context: UPtr<UInputMappingContext>,
+        action: UPtr<UInputAction>,
+        key: crate::bindings::input_core::FKey,
+        out_issues: &mut TArray<FMappingQueryIssue>,
+        blocking_issues: EMappingQueryIssue,
+    ) -> EMappingQueryResult {
+        let mut __stack = crate::core_data::StackAlloc::<66>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_MAP_KEY_IN_ACTIVE_CONTEXT_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_context,
+                __buffer.add(0).cast::<UPtr<UInputMappingContext>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action,
+                __buffer.add(8).cast::<UPtr<UInputAction>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &key,
+                __buffer.add(16).cast::<crate::bindings::input_core::FKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_issues,
+                __buffer.add(48).cast::<TArray<FMappingQueryIssue>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &blocking_issues,
+                __buffer.add(64).cast::<EMappingQueryIssue>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_MAP_KEY_IN_ACTIVE_CONTEXT_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(48).cast::<TArray<FMappingQueryIssue>>().swap(out_issues);
+        }
+        unsafe { __buffer.add(65).cast::<EMappingQueryResult>().read() }
+    }
+    pub fn query_keys_mapped_to_action(
+        &self,
+        action: UPtr<UInputAction>,
+    ) -> TArray<crate::bindings::input_core::FKey> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_KEYS_MAPPED_TO_ACTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action,
+                __buffer.add(0).cast::<UPtr<UInputAction>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_KEYS_MAPPED_TO_ACTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<TArray<crate::bindings::input_core::FKey>>().read()
+        }
+    }
+    pub fn inject_input_vector_for_player_mapping(
+        &mut self,
+        mapping_name: FName,
+        value: crate::bindings::core_u_object::FVector,
+        modifiers: &TArray<UPtr<UInputModifier>>,
+        triggers: &TArray<UPtr<UInputTrigger>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_VECTOR_FOR_PLAYER_MAPPING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mapping_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modifiers,
+                __buffer.add(40).cast::<TArray<UPtr<UInputModifier>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                triggers,
+                __buffer.add(56).cast::<TArray<UPtr<UInputTrigger>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_VECTOR_FOR_PLAYER_MAPPING,
+                __buffer,
+            )
+        };
+    }
+    pub fn inject_input_vector_for_action(
+        &mut self,
+        action: UPtr<UInputAction>,
+        value: crate::bindings::core_u_object::FVector,
+        modifiers: &TArray<UPtr<UInputModifier>>,
+        triggers: &TArray<UPtr<UInputTrigger>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_VECTOR_FOR_ACTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action,
+                __buffer.add(0).cast::<UPtr<UInputAction>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modifiers,
+                __buffer.add(32).cast::<TArray<UPtr<UInputModifier>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                triggers,
+                __buffer.add(48).cast::<TArray<UPtr<UInputTrigger>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_VECTOR_FOR_ACTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn inject_input_for_player_mapping(
+        &mut self,
+        mapping_name: FName,
+        raw_value: FInputActionValue,
+        modifiers: &TArray<UPtr<UInputModifier>>,
+        triggers: &TArray<UPtr<UInputTrigger>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_FOR_PLAYER_MAPPING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mapping_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &raw_value,
+                __buffer.add(16).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modifiers,
+                __buffer.add(48).cast::<TArray<UPtr<UInputModifier>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                triggers,
+                __buffer.add(64).cast::<TArray<UPtr<UInputTrigger>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_FOR_PLAYER_MAPPING,
+                __buffer,
+            )
+        };
+    }
+    pub fn inject_input_for_action(
+        &mut self,
+        action: UPtr<UInputAction>,
+        raw_value: FInputActionValue,
+        modifiers: &TArray<UPtr<UInputModifier>>,
+        triggers: &TArray<UPtr<UInputTrigger>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_FOR_ACTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action,
+                __buffer.add(0).cast::<UPtr<UInputAction>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &raw_value,
+                __buffer.add(8).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modifiers,
+                __buffer.add(40).cast::<TArray<UPtr<UInputModifier>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                triggers,
+                __buffer.add(56).cast::<TArray<UPtr<UInputTrigger>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_FOR_ACTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn has_mapping_context(
+        &self,
+        mapping_context: UPtr<UInputMappingContext>,
+        out_found_priority: &mut i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_HAS_MAPPING_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mapping_context,
+                __buffer.add(0).cast::<UPtr<UInputMappingContext>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_found_priority,
+                __buffer.add(8).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_HAS_MAPPING_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<i32>().swap(out_found_priority);
+        }
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn get_user_settings(&self) -> UPtr<UEnhancedInputUserSettings> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_USER_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_USER_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UEnhancedInputUserSettings>>().read() }
+    }
+    pub fn get_input_mode(
+        &self,
+    ) -> crate::bindings::gameplay_tags::FGameplayTagContainer {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_INPUT_MODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_INPUT_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>()
+                .read()
+        }
+    }
+    pub fn get_all_player_mappable_action_key_mappings(
+        &self,
+    ) -> TArray<FEnhancedActionKeyMapping> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_ALL_PLAYER_MAPPABLE_ACTION_KEY_MAPPINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_ALL_PLAYER_MAPPABLE_ACTION_KEY_MAPPINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FEnhancedActionKeyMapping>>().read() }
+    }
+    pub fn clear_all_mappings(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_CLEAR_ALL_MAPPINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_CLEAR_ALL_MAPPINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn append_tags_to_input_mode(
+        &mut self,
+        tags_to_add: &crate::bindings::gameplay_tags::FGameplayTagContainer,
+        options: &FModifyContextOptions,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_APPEND_TAGS_TO_INPUT_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tags_to_add,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                options,
+                __buffer.add(32).cast::<FModifyContextOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_APPEND_TAGS_TO_INPUT_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_tag_to_input_mode(
+        &mut self,
+        tag_to_add: &crate::bindings::gameplay_tags::FGameplayTag,
+        options: &FModifyContextOptions,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ADD_TAG_TO_INPUT_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_to_add,
+                __buffer.add(0).cast::<crate::bindings::gameplay_tags::FGameplayTag>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                options,
+                __buffer.add(12).cast::<FModifyContextOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ADD_TAG_TO_INPUT_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_mapping_context(
+        &mut self,
+        mapping_context: UPtr<UInputMappingContext>,
+        priority: i32,
+        options: &FModifyContextOptions,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ADD_MAPPING_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mapping_context,
+                __buffer.add(0).cast::<UPtr<UInputMappingContext>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&priority, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                options,
+                __buffer.add(12).cast::<FModifyContextOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ADD_MAPPING_CONTEXT,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UEnhancedInputLocalPlayerSubsystem {
@@ -1353,6 +3094,73 @@ impl UEnhancedInputWorldSubsystem {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn remove_actor_input_component(
+        &mut self,
+        actor: UPtr<crate::bindings::engine::AActor>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_WORLD_SUBSYSTEM_REMOVE_ACTOR_INPUT_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_WORLD_SUBSYSTEM_REMOVE_ACTOR_INPUT_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn add_actor_input_component(
+        &mut self,
+        actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_WORLD_SUBSYSTEM_ADD_ACTOR_INPUT_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_WORLD_SUBSYSTEM_ADD_ACTOR_INPUT_COMPONENT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -1458,6 +3266,142 @@ impl UInputMappingContext {
             cdo
         }
     }
+    pub fn unmap_key(
+        &mut self,
+        action: UPtr<UInputAction>,
+        key: crate::bindings::input_core::FKey,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_UNMAP_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action,
+                __buffer.add(0).cast::<UPtr<UInputAction>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &key,
+                __buffer.add(8).cast::<crate::bindings::input_core::FKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_UNMAP_KEY,
+                __buffer,
+            )
+        };
+    }
+    pub fn unmap_all_keys_from_action(&mut self, action: UPtr<UInputAction>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_UNMAP_ALL_KEYS_FROM_ACTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action,
+                __buffer.add(0).cast::<UPtr<UInputAction>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_UNMAP_ALL_KEYS_FROM_ACTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn unmap_all(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_UNMAP_ALL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_UNMAP_ALL,
+                __buffer,
+            )
+        };
+    }
+    pub fn map_key(
+        &mut self,
+        action: UPtr<UInputAction>,
+        to_key: crate::bindings::input_core::FKey,
+    ) -> FEnhancedActionKeyMapping {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_MAP_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action,
+                __buffer.add(0).cast::<UPtr<UInputAction>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &to_key,
+                __buffer.add(8).cast::<crate::bindings::input_core::FKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_MAP_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<FEnhancedActionKeyMapping>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInputModifier {
@@ -1478,6 +3422,56 @@ impl UInputModifier {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn modify_raw(
+        &self,
+        player_input: UPtr<UEnhancedPlayerInput>,
+        current_value: FInputActionValue,
+        delta_time: f32,
+    ) -> FInputActionValue {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_INPUT_MODIFIER_MODIFY_RAW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_input,
+                __buffer.add(0).cast::<UPtr<UEnhancedPlayerInput>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &current_value,
+                __buffer.add(8).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delta_time,
+                __buffer.add(40).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_INPUT_MODIFIER_MODIFY_RAW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<FInputActionValue>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -1513,7 +3507,6 @@ pub struct UInputModifierDeadZone {
     pub lower_threshold: f32,
     pub upper_threshold: f32,
     pub ty: EDeadZoneType,
-    __padding_end: [u8; 7],
 }
 impl UInputModifierDeadZone {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -1583,7 +3576,6 @@ pub struct UInputModifierNegate {
     pub b_x: bool,
     pub b_y: bool,
     pub b_z: bool,
-    __padding_end: [u8; 5],
 }
 impl UInputModifierNegate {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -1677,7 +3669,6 @@ pub struct UInputModifierFOVScaling {
     __padding_48: [u8; 48],
     pub fov_scale: f32,
     pub fov_scaling_type: EFOVScalingType,
-    __padding_end: [u8; 3],
 }
 impl UInputModifierFOVScaling {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -1722,7 +3713,6 @@ pub struct UInputModifierSwizzleAxis {
     #[doc(hidden)]
     __padding_48: [u8; 48],
     pub order: EInputAxisSwizzle,
-    __padding_end: [u8; 7],
 }
 impl UInputModifierSwizzleAxis {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -1765,6 +3755,111 @@ impl UInputTrigger {
             cdo
         }
     }
+    pub fn update_state(
+        &mut self,
+        player_input: UPtr<UEnhancedPlayerInput>,
+        modified_value: FInputActionValue,
+        delta_time: f32,
+    ) -> ETriggerState {
+        let mut __stack = crate::core_data::StackAlloc::<45>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_INPUT_TRIGGER_UPDATE_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_input,
+                __buffer.add(0).cast::<UPtr<UEnhancedPlayerInput>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &modified_value,
+                __buffer.add(8).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delta_time,
+                __buffer.add(40).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_INPUT_TRIGGER_UPDATE_STATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(44).cast::<ETriggerState>().read() }
+    }
+    pub fn is_actuated(&self, for_value: &FInputActionValue) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_INPUT_TRIGGER_IS_ACTUATED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                for_value,
+                __buffer.add(0).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_INPUT_TRIGGER_IS_ACTUATED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn get_trigger_type(&self) -> ETriggerType {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_INPUT_TRIGGER_GET_TRIGGER_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_INPUT_TRIGGER_GET_TRIGGER_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<ETriggerType>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInputTriggerTimedBase {
@@ -1772,7 +3867,6 @@ pub struct UInputTriggerTimedBase {
     __padding_88: [u8; 88],
     pub held_duration: f32,
     pub b_affected_by_time_dilation: bool,
-    __padding_end: [u8; 3],
 }
 impl UInputTriggerTimedBase {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -1860,7 +3954,6 @@ pub struct UInputTriggerHold {
     __padding_100: [u8; 100],
     pub hold_time_threshold: f32,
     pub b_is_one_shot: bool,
-    __padding_end: [u8; 7],
 }
 impl UInputTriggerHold {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -1884,7 +3977,6 @@ pub struct UInputTriggerHoldAndRelease {
     #[doc(hidden)]
     __padding_96: [u8; 96],
     pub hold_time_threshold: f32,
-    __padding_end: [u8; 4],
 }
 impl UInputTriggerHoldAndRelease {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -1908,7 +4000,6 @@ pub struct UInputTriggerTap {
     #[doc(hidden)]
     __padding_96: [u8; 96],
     pub tap_release_time_threshold: f32,
-    __padding_end: [u8; 4],
 }
 impl UInputTriggerTap {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -2076,6 +4167,243 @@ impl UPlayerMappableInputConfig {
             cdo
         }
     }
+    pub fn reset_to_default(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_deprecated(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_IS_DEPRECATED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_IS_DEPRECATED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_player_mappable_keys(&self) -> TArray<FEnhancedActionKeyMapping> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_PLAYER_MAPPABLE_KEYS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_PLAYER_MAPPABLE_KEYS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FEnhancedActionKeyMapping>>().read() }
+    }
+    pub fn get_metadata(&self) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_METADATA,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_mapping_contexts(&self) -> TMap<UPtr<UInputMappingContext>, i32> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_MAPPING_CONTEXTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_MAPPING_CONTEXTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TMap<UPtr<UInputMappingContext>, i32>>().read() }
+    }
+    pub fn get_mapping_by_name(&self, mapping_name: FName) -> FEnhancedActionKeyMapping {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_MAPPING_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mapping_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_MAPPING_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FEnhancedActionKeyMapping>().read() }
+    }
+    pub fn get_keys_bound_to_action(
+        &self,
+        in_action: UPtr<UInputAction>,
+    ) -> TArray<FEnhancedActionKeyMapping> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_KEYS_BOUND_TO_ACTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_action,
+                __buffer.add(0).cast::<UPtr<UInputAction>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_KEYS_BOUND_TO_ACTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<FEnhancedActionKeyMapping>>().read() }
+    }
+    pub fn get_display_name(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_config_name(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_CONFIG_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_CONFIG_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UPlayerMappableKeySettings {
@@ -2131,6 +4459,435 @@ impl UEnhancedPlayerMappableKeyProfile {
             cdo
         }
     }
+    pub fn to_string(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_TO_STRING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_TO_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn set_display_name(&mut self, new_display_name: &FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_SET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_display_name,
+                __buffer.add(0).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_SET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_to_default(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_mapping_to_default(&mut self, in_mapping_name: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_RESET_MAPPING_TO_DEFAULT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_mapping_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_RESET_MAPPING_TO_DEFAULT,
+                __buffer,
+            )
+        };
+    }
+    pub fn query_player_mapped_keys(
+        &self,
+        options: &FPlayerMappableKeyQueryOptions,
+        out_keys: &mut TArray<crate::bindings::input_core::FKey>,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<76>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_QUERY_PLAYER_MAPPED_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                options,
+                __buffer.add(0).cast::<FPlayerMappableKeyQueryOptions>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_keys,
+                __buffer.add(56).cast::<TArray<crate::bindings::input_core::FKey>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_QUERY_PLAYER_MAPPED_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(56)
+                .cast::<TArray<crate::bindings::input_core::FKey>>()
+                .swap(out_keys);
+        }
+        unsafe { __buffer.add(72).cast::<i32>().read() }
+    }
+    pub fn k2_find_key_mapping(
+        &self,
+        out_key_mapping: &mut FPlayerKeyMapping,
+        in_args: &FMapPlayerKeyArgs,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<304>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_K2_FIND_KEY_MAPPING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_key_mapping,
+                __buffer.add(0).cast::<FPlayerKeyMapping>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_args,
+                __buffer.add(208).cast::<FMapPlayerKeyArgs>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_K2_FIND_KEY_MAPPING,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FPlayerKeyMapping>().swap(out_key_mapping);
+        }
+    }
+    pub fn get_profile_id_string(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PROFILE_ID_STRING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PROFILE_ID_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_profile_display_name(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PROFILE_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PROFILE_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_player_mapping_rows(&self) -> TMap<FName, FKeyMappingRow> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PLAYER_MAPPING_ROWS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PLAYER_MAPPING_ROWS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TMap<FName, FKeyMappingRow>>().read() }
+    }
+    pub fn get_mapping_names_for_key(
+        &self,
+        in_key: &crate::bindings::input_core::FKey,
+        out_mapping_names: &mut TArray<FName>,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<52>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_MAPPING_NAMES_FOR_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_key,
+                __buffer.add(0).cast::<crate::bindings::input_core::FKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_mapping_names,
+                __buffer.add(32).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_MAPPING_NAMES_FOR_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<TArray<FName>>().swap(out_mapping_names);
+        }
+        unsafe { __buffer.add(48).cast::<i32>().read() }
+    }
+    pub fn get_mapped_keys_in_row(
+        &self,
+        mapping_name: FName,
+        out_keys: &mut TArray<crate::bindings::input_core::FKey>,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_MAPPED_KEYS_IN_ROW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mapping_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_keys,
+                __buffer.add(16).cast::<TArray<crate::bindings::input_core::FKey>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_MAPPED_KEYS_IN_ROW,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<crate::bindings::input_core::FKey>>()
+                .swap(out_keys);
+        }
+        unsafe { __buffer.add(32).cast::<i32>().read() }
+    }
+    pub fn dump_profile_to_log(&self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_DUMP_PROFILE_TO_LOG,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_DUMP_PROFILE_TO_LOG,
+                __buffer,
+            )
+        };
+    }
+    pub fn does_mapping_pass_query_options(
+        &self,
+        player_mapping: &FPlayerKeyMapping,
+        options: &FPlayerMappableKeyQueryOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<265>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_DOES_MAPPING_PASS_QUERY_OPTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                player_mapping,
+                __buffer.add(0).cast::<FPlayerKeyMapping>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                options,
+                __buffer.add(208).cast::<FPlayerMappableKeyQueryOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_DOES_MAPPING_PASS_QUERY_OPTIONS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(264).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UEnhancedInputUserSettings {
@@ -2151,6 +4908,674 @@ impl UEnhancedInputUserSettings {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn unregister_input_mapping_contexts(
+        &mut self,
+        mapping_contexts: &TSet<UPtr<UInputMappingContext>>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<81>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_UNREGISTER_INPUT_MAPPING_CONTEXTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mapping_contexts,
+                __buffer.add(0).cast::<TSet<UPtr<UInputMappingContext>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_UNREGISTER_INPUT_MAPPING_CONTEXTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(80).cast::<bool>().read() }
+    }
+    pub fn unregister_input_mapping_context(
+        &mut self,
+        imc: UPtr<UInputMappingContext>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_UNREGISTER_INPUT_MAPPING_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &imc,
+                __buffer.add(0).cast::<UPtr<UInputMappingContext>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_UNREGISTER_INPUT_MAPPING_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn un_map_player_key(
+        &mut self,
+        in_args: &FMapPlayerKeyArgs,
+        failure_reason: &mut crate::bindings::gameplay_tags::FGameplayTagContainer,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_UN_MAP_PLAYER_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_args,
+                __buffer.add(0).cast::<FMapPlayerKeyArgs>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                failure_reason,
+                __buffer
+                    .add(96)
+                    .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_UN_MAP_PLAYER_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(96)
+                .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>()
+                .swap(failure_reason);
+        }
+    }
+    pub fn set_active_key_profile(&mut self, in_profile_id: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_SET_ACTIVE_KEY_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_profile_id,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_SET_ACTIVE_KEY_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn save_settings(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_SAVE_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_SAVE_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_key_profile_to_default(
+        &mut self,
+        profile_id: &crate::bindings::gameplay_tags::FGameplayTag,
+        failure_reason: &mut crate::bindings::gameplay_tags::FGameplayTagContainer,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_RESET_KEY_PROFILE_TO_DEFAULT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                profile_id,
+                __buffer.add(0).cast::<crate::bindings::gameplay_tags::FGameplayTag>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                failure_reason,
+                __buffer
+                    .add(16)
+                    .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_RESET_KEY_PROFILE_TO_DEFAULT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>()
+                .swap(failure_reason);
+        }
+    }
+    pub fn reset_key_profile_id_to_default(
+        &mut self,
+        profile_id: FString,
+        failure_reason: &mut crate::bindings::gameplay_tags::FGameplayTagContainer,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_RESET_KEY_PROFILE_ID_TO_DEFAULT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &profile_id,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                failure_reason,
+                __buffer
+                    .add(16)
+                    .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_RESET_KEY_PROFILE_ID_TO_DEFAULT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>()
+                .swap(failure_reason);
+        }
+    }
+    pub fn reset_all_player_keys_in_row(
+        &mut self,
+        in_args: &FMapPlayerKeyArgs,
+        failure_reason: &mut crate::bindings::gameplay_tags::FGameplayTagContainer,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_RESET_ALL_PLAYER_KEYS_IN_ROW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_args,
+                __buffer.add(0).cast::<FMapPlayerKeyArgs>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                failure_reason,
+                __buffer
+                    .add(96)
+                    .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_RESET_ALL_PLAYER_KEYS_IN_ROW,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(96)
+                .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>()
+                .swap(failure_reason);
+        }
+    }
+    pub fn register_input_mapping_contexts(
+        &mut self,
+        mapping_contexts: &TSet<UPtr<UInputMappingContext>>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<81>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_REGISTER_INPUT_MAPPING_CONTEXTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mapping_contexts,
+                __buffer.add(0).cast::<TSet<UPtr<UInputMappingContext>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_REGISTER_INPUT_MAPPING_CONTEXTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(80).cast::<bool>().read() }
+    }
+    pub fn register_input_mapping_context(
+        &mut self,
+        imc: UPtr<UInputMappingContext>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_REGISTER_INPUT_MAPPING_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &imc,
+                __buffer.add(0).cast::<UPtr<UInputMappingContext>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_REGISTER_INPUT_MAPPING_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn map_player_key(
+        &mut self,
+        in_args: &FMapPlayerKeyArgs,
+        failure_reason: &mut crate::bindings::gameplay_tags::FGameplayTagContainer,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_MAP_PLAYER_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_args,
+                __buffer.add(0).cast::<FMapPlayerKeyArgs>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                failure_reason,
+                __buffer
+                    .add(96)
+                    .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_MAP_PLAYER_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(96)
+                .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>()
+                .swap(failure_reason);
+        }
+    }
+    pub fn is_mapping_context_registered(
+        &self,
+        imc: UPtr<UInputMappingContext>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_IS_MAPPING_CONTEXT_REGISTERED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &imc,
+                __buffer.add(0).cast::<UPtr<UInputMappingContext>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_IS_MAPPING_CONTEXT_REGISTERED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_key_profile_with_id(
+        &self,
+        profile_id: FString,
+    ) -> UPtr<UEnhancedPlayerMappableKeyProfile> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_GET_KEY_PROFILE_WITH_ID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &profile_id,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_GET_KEY_PROFILE_WITH_ID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<UPtr<UEnhancedPlayerMappableKeyProfile>>().read()
+        }
+    }
+    pub fn get_active_key_profile_id(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_GET_ACTIVE_KEY_PROFILE_ID,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_GET_ACTIVE_KEY_PROFILE_ID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_active_key_profile(&self) -> UPtr<UEnhancedPlayerMappableKeyProfile> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_GET_ACTIVE_KEY_PROFILE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_GET_ACTIVE_KEY_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<UEnhancedPlayerMappableKeyProfile>>().read()
+        }
+    }
+    pub fn find_mappings_in_row(&self, mapping_name: FName) -> TSet<FPlayerKeyMapping> {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_FIND_MAPPINGS_IN_ROW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mapping_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_FIND_MAPPINGS_IN_ROW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TSet<FPlayerKeyMapping>>().read() }
+    }
+    pub fn create_new_key_profile(
+        &mut self,
+        in_args: &FPlayerMappableKeyProfileCreationArgs,
+    ) -> UPtr<UEnhancedPlayerMappableKeyProfile> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_CREATE_NEW_KEY_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_args,
+                __buffer.add(0).cast::<FPlayerMappableKeyProfileCreationArgs>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_CREATE_NEW_KEY_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(72).cast::<UPtr<UEnhancedPlayerMappableKeyProfile>>().read()
+        }
+    }
+    pub fn async_save_settings(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_ASYNC_SAVE_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_ASYNC_SAVE_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_settings(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_APPLY_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_APPLY_SETTINGS,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]

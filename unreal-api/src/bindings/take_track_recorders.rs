@@ -138,7 +138,6 @@ pub struct UMovieSceneAnimationTrackRecorderEditorSettings {
     __padding_98: [u8; 2],
     pub b_remove_root_animation: bool,
     pub timecode_bone_method: crate::bindings::sequence_recorder::FTimecodeBoneMethod,
-    __padding_end: [u8; 4],
 }
 impl UMovieSceneAnimationTrackRecorderEditorSettings {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

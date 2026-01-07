@@ -354,7 +354,6 @@ pub struct FGrassVariety {
     #[doc(hidden)]
     __padding_744: [u8; 6],
     pub shadow_cache_invalidation_behavior: crate::bindings::engine::EShadowCacheInvalidationBehavior,
-    __padding_end: [u8; 7],
 }
 impl FGrassVariety {}
 #[repr(C, align(16))]
@@ -612,6 +611,578 @@ impl ALandscapeProxy {
             cdo
         }
     }
+    pub fn set_virtual_texture_render_pass_type(
+        &mut self,
+        in_type: crate::bindings::engine::ERuntimeVirtualTextureMainPassType,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_VIRTUAL_TEXTURE_RENDER_PASS_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_type,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::engine::ERuntimeVirtualTextureMainPassType,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_VIRTUAL_TEXTURE_RENDER_PASS_TYPE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_landscape_material_vector_parameter_value(
+        &mut self,
+        parameter_name: FName,
+        value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_VECTOR_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(12).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_VECTOR_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_landscape_material_texture_parameter_value(
+        &mut self,
+        parameter_name: FName,
+        value: UPtr<crate::bindings::engine::UTexture>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_TEXTURE_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(16).cast::<UPtr<crate::bindings::engine::UTexture>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_TEXTURE_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_landscape_material_scalar_parameter_value(
+        &mut self,
+        parameter_name: FName,
+        value: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_SCALAR_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(12).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_SCALAR_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn landscape_import_weightmap_from_render_target(
+        &mut self,
+        in_render_target: UPtr<crate::bindings::engine::UTextureRenderTarget2D>,
+        in_layer_name: FName,
+        in_edit_layer_index: i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_WEIGHTMAP_FROM_RENDER_TARGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_render_target,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UTextureRenderTarget2D>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_layer_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_edit_layer_index,
+                __buffer.add(20).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_WEIGHTMAP_FROM_RENDER_TARGET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn landscape_import_heightmap_from_render_target(
+        &mut self,
+        in_render_target: UPtr<crate::bindings::engine::UTextureRenderTarget2D>,
+        in_import_height_from_rg_channel: bool,
+        in_edit_layer_index: i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_HEIGHTMAP_FROM_RENDER_TARGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_render_target,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UTextureRenderTarget2D>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_import_height_from_rg_channel,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_edit_layer_index,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_HEIGHTMAP_FROM_RENDER_TARGET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn landscape_export_heightmap_to_render_target(
+        &mut self,
+        in_render_target: UPtr<crate::bindings::engine::UTextureRenderTarget2D>,
+        in_export_height_into_rg_channel: bool,
+        in_export_landscape_proxies: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<11>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_LANDSCAPE_EXPORT_HEIGHTMAP_TO_RENDER_TARGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_render_target,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UTextureRenderTarget2D>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_export_height_into_rg_channel,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_export_landscape_proxies,
+                __buffer.add(9).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_LANDSCAPE_EXPORT_HEIGHTMAP_TO_RENDER_TARGET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(10).cast::<bool>().read() }
+    }
+    pub fn get_landscape_actor(&mut self) -> UPtr<ALandscape> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_GET_LANDSCAPE_ACTOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_GET_LANDSCAPE_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<ALandscape>>().read() }
+    }
+    pub fn editor_set_landscape_material(
+        &mut self,
+        new_landscape_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_EDITOR_SET_LANDSCAPE_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_landscape_material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_EDITOR_SET_LANDSCAPE_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn editor_apply_spline(
+        &mut self,
+        in_spline_component: UPtr<crate::bindings::engine::USplineComponent>,
+        start_width: f32,
+        end_width: f32,
+        start_side_falloff: f32,
+        end_side_falloff: f32,
+        start_roll: f32,
+        end_roll: f32,
+        num_subdivisions: i32,
+        b_raise_heights: bool,
+        b_lower_heights: bool,
+        paint_layer: UPtr<ULandscapeLayerInfoObject>,
+        edit_layer_name: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<60>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_EDITOR_APPLY_SPLINE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_spline_component,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::USplineComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start_width,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&end_width, __buffer.add(12).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start_side_falloff,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &end_side_falloff,
+                __buffer.add(20).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start_roll,
+                __buffer.add(24).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&end_roll, __buffer.add(28).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &num_subdivisions,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_raise_heights,
+                __buffer.add(36).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_lower_heights,
+                __buffer.add(37).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &paint_layer,
+                __buffer.add(40).cast::<UPtr<ULandscapeLayerInfoObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &edit_layer_name,
+                __buffer.add(48).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_EDITOR_APPLY_SPLINE,
+                __buffer,
+            )
+        };
+    }
+    pub fn delete_unused_layers(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_DELETE_UNUSED_LAYERS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_DELETE_UNUSED_LAYERS,
+                __buffer,
+            )
+        };
+    }
+    pub fn change_lod_distance_factor(&mut self, in_lod_distance_factor: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_CHANGE_LOD_DISTANCE_FACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_lod_distance_factor,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_CHANGE_LOD_DISTANCE_FACTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn change_component_screen_size_to_use_sub_sections(
+        &mut self,
+        in_component_screen_size_to_use_sub_sections: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_CHANGE_COMPONENT_SCREEN_SIZE_TO_USE_SUB_SECTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_component_screen_size_to_use_sub_sections,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_PROXY_CHANGE_COMPONENT_SCREEN_SIZE_TO_USE_SUB_SECTIONS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct ULandscapeHeightfieldCollisionComponent {
@@ -632,6 +1203,30 @@ impl ULandscapeHeightfieldCollisionComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_render_component(&self) -> UPtr<ULandscapeComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::U_LANDSCAPE_HEIGHTFIELD_COLLISION_COMPONENT_GET_RENDER_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::U_LANDSCAPE_HEIGHTFIELD_COLLISION_COMPONENT_GET_RENDER_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<ULandscapeComponent>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -738,6 +1333,37 @@ impl ULandscapeSplinesComponent {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn get_spline_mesh_components(
+        &mut self,
+    ) -> TArray<UPtr<crate::bindings::engine::USplineMeshComponent>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::U_LANDSCAPE_SPLINES_COMPONENT_GET_SPLINE_MESH_COMPONENTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::U_LANDSCAPE_SPLINES_COMPONENT_GET_SPLINE_MESH_COMPONENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::engine::USplineMeshComponent>>>()
+                .read()
         }
     }
 }
@@ -895,6 +1521,235 @@ impl ALandscape {
             cdo
         }
     }
+    pub fn render_weightmaps(
+        &mut self,
+        in_world_transform: crate::bindings::core_u_object::FTransform,
+        in_extents: crate::bindings::core_u_object::FBox2D,
+        in_weightmap_layer_names: &TArray<FName>,
+        out_render_target: UPtr<crate::bindings::engine::UTextureRenderTarget>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<161>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_RENDER_WEIGHTMAPS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_world_transform,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_extents,
+                __buffer.add(96).cast::<crate::bindings::core_u_object::FBox2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_weightmap_layer_names,
+                __buffer.add(136).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &out_render_target,
+                __buffer
+                    .add(152)
+                    .cast::<UPtr<crate::bindings::engine::UTextureRenderTarget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_RENDER_WEIGHTMAPS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(160).cast::<bool>().read() }
+    }
+    pub fn render_weightmap(
+        &mut self,
+        in_world_transform: crate::bindings::core_u_object::FTransform,
+        in_extents: crate::bindings::core_u_object::FBox2D,
+        in_weightmap_layer_name: FName,
+        out_render_target: UPtr<crate::bindings::engine::UTextureRenderTarget2D>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<161>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_RENDER_WEIGHTMAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_world_transform,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_extents,
+                __buffer.add(96).cast::<crate::bindings::core_u_object::FBox2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_weightmap_layer_name,
+                __buffer.add(136).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &out_render_target,
+                __buffer
+                    .add(152)
+                    .cast::<UPtr<crate::bindings::engine::UTextureRenderTarget2D>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_RENDER_WEIGHTMAP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(160).cast::<bool>().read() }
+    }
+    pub fn render_heightmap(
+        &mut self,
+        in_world_transform: crate::bindings::core_u_object::FTransform,
+        in_extents: crate::bindings::core_u_object::FBox2D,
+        out_render_target: UPtr<crate::bindings::engine::UTextureRenderTarget2D>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<145>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_RENDER_HEIGHTMAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_world_transform,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_extents,
+                __buffer.add(96).cast::<crate::bindings::core_u_object::FBox2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &out_render_target,
+                __buffer
+                    .add(136)
+                    .cast::<UPtr<crate::bindings::engine::UTextureRenderTarget2D>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_RENDER_HEIGHTMAP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(144).cast::<bool>().read() }
+    }
+    pub fn get_target_layer_names(
+        &self,
+        b_in_include_visibility_layer: bool,
+    ) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_GET_TARGET_LAYER_NAMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_include_visibility_layer,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_GET_TARGET_LAYER_NAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<FName>>().read() }
+    }
+    pub fn force_layers_full_update(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_FORCE_LAYERS_FULL_UPDATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_FORCE_LAYERS_FULL_UPDATE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct ALandscapeBlueprintBrushBase {
@@ -923,6 +1778,36 @@ impl ALandscapeBlueprintBrushBase {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn request_landscape_update(&mut self, b_in_user_triggered: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_REQUEST_LANDSCAPE_UPDATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_user_triggered,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_REQUEST_LANDSCAPE_UPDATE,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -977,6 +1862,209 @@ impl ULandscapeComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_lod_bias(&mut self, in_lod_bias: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_SET_LOD_BIAS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_lod_bias,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_SET_LOD_BIAS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_forced_lod(&mut self, in_forced_lod: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_SET_FORCED_LOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_forced_lod,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_SET_FORCED_LOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_material_instance_dynamic(
+        &self,
+        in_index: i32,
+    ) -> UPtr<crate::bindings::engine::UMaterialInstanceDynamic> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_GET_MATERIAL_INSTANCE_DYNAMIC,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_GET_MATERIAL_INSTANCE_DYNAMIC,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInstanceDynamic>>()
+                .read()
+        }
+    }
+    pub fn get_grass_types_bp(&self) -> TArray<UPtr<ULandscapeGrassType>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_GET_GRASS_TYPES_BP,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_GET_GRASS_TYPES_BP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<ULandscapeGrassType>>>().read() }
+    }
+    pub fn editor_get_paint_layer_weight_by_name_at_location(
+        &mut self,
+        in_location: &crate::bindings::core_u_object::FVector,
+        in_paint_layer_name: FName,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_BY_NAME_AT_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_location,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_paint_layer_name,
+                __buffer.add(24).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_BY_NAME_AT_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(36).cast::<f32>().read() }
+    }
+    pub fn editor_get_paint_layer_weight_at_location(
+        &mut self,
+        in_location: &crate::bindings::core_u_object::FVector,
+        paint_layer: UPtr<ULandscapeLayerInfoObject>,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_AT_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_location,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &paint_layer,
+                __buffer.add(24).cast::<UPtr<ULandscapeLayerInfoObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_AT_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<f32>().read() }
     }
 }
 #[repr(C, align(8))]

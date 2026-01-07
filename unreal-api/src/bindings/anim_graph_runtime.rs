@@ -1125,7 +1125,6 @@ pub struct FAnimNode_RotationMultiplier {
     #[doc(hidden)]
     __padding_464: [u8; 464],
     pub multiplier: f32,
-    __padding_end: [u8; 4],
 }
 impl FAnimNode_RotationMultiplier {}
 #[repr(C, align(16))]
@@ -1188,7 +1187,6 @@ pub struct FAnimNode_ApplyAdditive {
     __padding_336: [u8; 4],
     pub alpha_input_type: crate::bindings::engine::EAnimAlphaInputType,
     pub b_alpha_bool_enabled: bool,
-    __padding_end: [u8; 6],
 }
 impl FAnimNode_ApplyAdditive {}
 #[repr(C, align(4))]
@@ -1236,7 +1234,6 @@ pub struct FAnimNode_BlendSpaceEvaluator {
     #[doc(hidden)]
     __padding_280: [u8; 280],
     pub normalized_time: f32,
-    __padding_end: [u8; 4],
 }
 impl FAnimNode_BlendSpaceEvaluator {}
 #[repr(C, align(8))]
@@ -1289,7 +1286,6 @@ pub struct FAnimNode_LayeredBoneBlend {
     pub b_root_space_rotation_blend: bool,
     pub b_mesh_space_scale_blend: bool,
     pub curve_blend_option: crate::bindings::engine::ECurveBlendOption,
-    __padding_end: [u8; 4],
 }
 impl FAnimNode_LayeredBoneBlend {}
 #[repr(C, align(8))]
@@ -1299,7 +1295,6 @@ pub struct FAnimNode_MakeDynamicAdditive {
     pub base: crate::bindings::engine::FPoseLink,
     pub additive: crate::bindings::engine::FPoseLink,
     pub b_mesh_space_additive: bool,
-    __padding_end: [u8; 7],
 }
 impl FAnimNode_MakeDynamicAdditive {}
 #[repr(C, align(8))]
@@ -1328,7 +1323,6 @@ pub struct FAnimNode_ModifyCurve {
     __padding_408: [u8; 152],
     pub alpha: f32,
     pub apply_mode: EModifyCurveApplyMode,
-    __padding_end: [u8; 3],
 }
 impl FAnimNode_ModifyCurve {}
 #[repr(C, align(8))]
@@ -1342,7 +1336,6 @@ pub struct FAnimNode_MultiWayBlend {
     pub alpha_scale_bias: crate::bindings::engine::FInputScaleBias,
     pub b_additive_node: bool,
     pub b_normalize_alpha: bool,
-    __padding_end: [u8; 6],
 }
 impl FAnimNode_MultiWayBlend {}
 #[repr(C, align(8))]
@@ -1425,7 +1418,6 @@ pub struct FAnimNode_RandomPlayer {
     __padding_236: [u8; 84],
     pub blend_weight: f32,
     pub b_shuffle_mode: bool,
-    __padding_end: [u8; 7],
 }
 impl FAnimNode_RandomPlayer {}
 #[repr(C, align(8))]
@@ -1457,7 +1449,6 @@ pub struct FAnimNode_RotationOffsetBlendSpace {
     __padding_456: [u8; 4],
     pub alpha_input_type: crate::bindings::engine::EAnimAlphaInputType,
     pub b_alpha_bool_enabled: bool,
-    __padding_end: [u8; 6],
 }
 impl FAnimNode_RotationOffsetBlendSpace {}
 #[repr(C, align(8))]
@@ -1475,7 +1466,6 @@ pub struct FAnimNode_RotationOffsetBlendSpaceGraph {
     __padding_432: [u8; 4],
     pub alpha_input_type: crate::bindings::engine::EAnimAlphaInputType,
     pub b_alpha_bool_enabled: bool,
-    __padding_end: [u8; 6],
 }
 impl FAnimNode_RotationOffsetBlendSpaceGraph {}
 #[repr(C, align(8))]
@@ -1521,7 +1511,6 @@ pub struct FAnimNode_TwoWayBlend {
     pub alpha_bool_blend: crate::bindings::engine::FInputAlphaBoolBlend,
     pub alpha_curve_name: FName,
     pub alpha_scale_bias_clamp: crate::bindings::engine::FInputScaleBiasClamp,
-    __padding_end: [u8; 4],
 }
 impl FAnimNode_TwoWayBlend {}
 #[repr(C, align(8))]
@@ -1600,7 +1589,6 @@ pub struct FAnimNode_CopyBone {
     pub b_copy_translation: bool,
     pub b_copy_rotation: bool,
     pub b_copy_scale: bool,
-    __padding_end: [u8; 5],
 }
 impl FAnimNode_CopyBone {}
 #[repr(C, align(8))]
@@ -1629,7 +1617,6 @@ pub struct FAnimNode_HandIKRetargeting {
     __padding_520: [u8; 520],
     pub per_axis_alpha: crate::bindings::core_u_object::FVector,
     pub hand_fk_weight: f32,
-    __padding_end: [u8; 4],
 }
 impl FAnimNode_HandIKRetargeting {}
 #[repr(C, align(8))]
@@ -1857,6 +1844,529 @@ impl UAnimationStateMachineLibrary {
             cdo
         }
     }
+    pub fn set_state(
+        update_context: &crate::bindings::engine::FAnimUpdateContext,
+        node: &FAnimationStateMachineReference,
+        target_state: FName,
+        duration: f32,
+        blend_type: crate::bindings::engine::ETransitionLogicType,
+        blend_profile: UPtr<crate::bindings::engine::UBlendProfile>,
+        alpha_blend_option: crate::bindings::engine::EAlphaBlendOption,
+        custom_blend_curve: UPtr<crate::bindings::engine::UCurveFloat>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_SET_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                update_context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimUpdateContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(16).cast::<FAnimationStateMachineReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_state,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&duration, __buffer.add(44).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &blend_type,
+                __buffer.add(48).cast::<crate::bindings::engine::ETransitionLogicType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &blend_profile,
+                __buffer.add(56).cast::<UPtr<crate::bindings::engine::UBlendProfile>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &alpha_blend_option,
+                __buffer.add(64).cast::<crate::bindings::engine::EAlphaBlendOption>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &custom_blend_curve,
+                __buffer.add(72).cast::<UPtr<crate::bindings::engine::UCurveFloat>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimationStateMachineLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_SET_STATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_state_blending_out(
+        update_context: &crate::bindings::engine::FAnimUpdateContext,
+        node: &FAnimationStateResultReference,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_OUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                update_context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimUpdateContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(16).cast::<FAnimationStateResultReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimationStateMachineLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_OUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn is_state_blending_in(
+        update_context: &crate::bindings::engine::FAnimUpdateContext,
+        node: &FAnimationStateResultReference,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_IN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                update_context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimUpdateContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(16).cast::<FAnimationStateResultReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimationStateMachineLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_IN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn get_state(
+        update_context: &crate::bindings::engine::FAnimUpdateContext,
+        node: &FAnimationStateMachineReference,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_GET_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                update_context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimUpdateContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(16).cast::<FAnimationStateMachineReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimationStateMachineLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_GET_STATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FName>().read() }
+    }
+    pub fn get_relevant_anim_time_remaining_fraction(
+        update_context: &crate::bindings::engine::FAnimUpdateContext,
+        node: &FAnimationStateResultReference,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING_FRACTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                update_context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimUpdateContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(16).cast::<FAnimationStateResultReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimationStateMachineLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING_FRACTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<f32>().read() }
+    }
+    pub fn get_relevant_anim_time_remaining(
+        update_context: &crate::bindings::engine::FAnimUpdateContext,
+        node: &FAnimationStateResultReference,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                update_context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimUpdateContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(16).cast::<FAnimationStateResultReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimationStateMachineLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<f32>().read() }
+    }
+    pub fn convert_to_animation_state_result_pure(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        animation_state: &mut FAnimationStateResultReference,
+        result: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                animation_state,
+                __buffer.add(16).cast::<FAnimationStateResultReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(result, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimationStateMachineLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<FAnimationStateResultReference>()
+                .swap(animation_state);
+        }
+        unsafe {
+            __buffer.add(32).cast::<bool>().swap(result);
+        }
+    }
+    pub fn convert_to_animation_state_result(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        animation_state: &mut FAnimationStateResultReference,
+        result: &mut crate::bindings::engine::EAnimNodeReferenceConversionResult,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                animation_state,
+                __buffer.add(16).cast::<FAnimationStateResultReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(32)
+                    .cast::<
+                        crate::bindings::engine::EAnimNodeReferenceConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimationStateMachineLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<FAnimationStateResultReference>()
+                .swap(animation_state);
+        }
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<crate::bindings::engine::EAnimNodeReferenceConversionResult>()
+                .swap(result);
+        }
+    }
+    pub fn convert_to_animation_state_machine_pure(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        animation_state: &mut FAnimationStateMachineReference,
+        result: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                animation_state,
+                __buffer.add(16).cast::<FAnimationStateMachineReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(result, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimationStateMachineLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<FAnimationStateMachineReference>()
+                .swap(animation_state);
+        }
+        unsafe {
+            __buffer.add(32).cast::<bool>().swap(result);
+        }
+    }
+    pub fn convert_to_animation_state_machine(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        animation_state: &mut FAnimationStateMachineReference,
+        result: &mut crate::bindings::engine::EAnimNodeReferenceConversionResult,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                animation_state,
+                __buffer.add(16).cast::<FAnimationStateMachineReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(32)
+                    .cast::<
+                        crate::bindings::engine::EAnimNodeReferenceConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimationStateMachineLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<FAnimationStateMachineReference>()
+                .swap(animation_state);
+        }
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<crate::bindings::engine::EAnimNodeReferenceConversionResult>()
+                .swap(result);
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UAnimExecutionContextLibrary {
@@ -1878,13 +2388,402 @@ impl UAnimExecutionContextLibrary {
             cdo
         }
     }
+    pub fn is_active(context: &crate::bindings::engine::FAnimExecutionContext) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_IS_ACTIVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimExecutionContext>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimExecutionContextLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_IS_ACTIVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_delta_time(context: &crate::bindings::engine::FAnimUpdateContext) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_DELTA_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimUpdateContext>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimExecutionContextLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_DELTA_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn get_current_weight(
+        context: &crate::bindings::engine::FAnimUpdateContext,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_CURRENT_WEIGHT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimUpdateContext>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimExecutionContextLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_CURRENT_WEIGHT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn get_anim_node_reference(
+        instance: UPtr<crate::bindings::engine::UAnimInstance>,
+        index: i32,
+    ) -> crate::bindings::engine::FAnimNodeReference {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_NODE_REFERENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &instance,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UAnimInstance>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(8).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimExecutionContextLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_NODE_REFERENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::engine::FAnimNodeReference>().read()
+        }
+    }
+    pub fn get_anim_instance(
+        context: &crate::bindings::engine::FAnimExecutionContext,
+    ) -> UPtr<crate::bindings::engine::UAnimInstance> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimExecutionContext>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimExecutionContextLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<UPtr<crate::bindings::engine::UAnimInstance>>()
+                .read()
+        }
+    }
+    pub fn convert_to_update_context(
+        context: &crate::bindings::engine::FAnimExecutionContext,
+        result: &mut crate::bindings::engine::EAnimExecutionContextConversionResult,
+    ) -> crate::bindings::engine::FAnimUpdateContext {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_UPDATE_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimExecutionContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimExecutionContextConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimExecutionContextLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_UPDATE_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimExecutionContextConversionResult>()
+                .swap(result);
+        }
+        unsafe {
+            __buffer.add(24).cast::<crate::bindings::engine::FAnimUpdateContext>().read()
+        }
+    }
+    pub fn convert_to_pose_context(
+        context: &crate::bindings::engine::FAnimExecutionContext,
+        result: &mut crate::bindings::engine::EAnimExecutionContextConversionResult,
+    ) -> crate::bindings::engine::FAnimPoseContext {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_POSE_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimExecutionContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimExecutionContextConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimExecutionContextLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_POSE_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimExecutionContextConversionResult>()
+                .swap(result);
+        }
+        unsafe {
+            __buffer.add(24).cast::<crate::bindings::engine::FAnimPoseContext>().read()
+        }
+    }
+    pub fn convert_to_initialization_context(
+        context: &crate::bindings::engine::FAnimExecutionContext,
+        result: &mut crate::bindings::engine::EAnimExecutionContextConversionResult,
+    ) -> crate::bindings::engine::FAnimInitializationContext {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_INITIALIZATION_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimExecutionContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimExecutionContextConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimExecutionContextLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_INITIALIZATION_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimExecutionContextConversionResult>()
+                .swap(result);
+        }
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<crate::bindings::engine::FAnimInitializationContext>()
+                .read()
+        }
+    }
+    pub fn convert_to_component_space_pose_context(
+        context: &crate::bindings::engine::FAnimExecutionContext,
+        result: &mut crate::bindings::engine::EAnimExecutionContextConversionResult,
+    ) -> crate::bindings::engine::FAnimComponentSpacePoseContext {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_COMPONENT_SPACE_POSE_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimExecutionContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimExecutionContextConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimExecutionContextLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_COMPONENT_SPACE_POSE_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimExecutionContextConversionResult>()
+                .swap(result);
+        }
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<crate::bindings::engine::FAnimComponentSpacePoseContext>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UAnimNotify_PlayMontageNotify {
     #[doc(hidden)]
     __padding_64: [u8; 64],
     pub notify_name: FName,
-    __padding_end: [u8; 4],
 }
 impl UAnimNotify_PlayMontageNotify {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -1908,7 +2807,6 @@ pub struct UAnimNotify_PlayMontageNotifyWindow {
     #[doc(hidden)]
     __padding_56: [u8; 56],
     pub notify_name: FName,
-    __padding_end: [u8; 4],
 }
 impl UAnimNotify_PlayMontageNotifyWindow {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -1968,6 +2866,87 @@ impl UBlendListBaseLibrary {
             cdo
         }
     }
+    pub fn reset_node(blend_list_base: &FBlendListBaseReference) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_LIST_BASE_LIBRARY_RESET_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_list_base,
+                __buffer.add(0).cast::<FBlendListBaseReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendListBaseLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_LIST_BASE_LIBRARY_RESET_NODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn convert_to_blend_list_base(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        result: &mut crate::bindings::engine::EAnimNodeReferenceConversionResult,
+    ) -> FBlendListBaseReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_LIST_BASE_LIBRARY_CONVERT_TO_BLEND_LIST_BASE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimNodeReferenceConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendListBaseLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_LIST_BASE_LIBRARY_CONVERT_TO_BLEND_LIST_BASE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimNodeReferenceConversionResult>()
+                .swap(result);
+        }
+        unsafe { __buffer.add(24).cast::<FBlendListBaseReference>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UBlendSpaceLibrary {
@@ -1988,6 +2967,217 @@ impl UBlendSpaceLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn snap_to_position(
+        blend_space: &FBlendSpaceReference,
+        new_position: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_SNAP_TO_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space,
+                __buffer.add(0).cast::<FBlendSpaceReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_position,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpaceLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_SNAP_TO_POSITION,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_position(
+        blend_space: &FBlendSpaceReference,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_GET_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space,
+                __buffer.add(0).cast::<FBlendSpaceReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpaceLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_GET_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_filtered_position(
+        blend_space: &FBlendSpaceReference,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_GET_FILTERED_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space,
+                __buffer.add(0).cast::<FBlendSpaceReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpaceLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_GET_FILTERED_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn convert_to_blend_space_pure(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        blend_space: &mut FBlendSpaceReference,
+        result: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space,
+                __buffer.add(16).cast::<FBlendSpaceReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(result, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpaceLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FBlendSpaceReference>().swap(blend_space);
+        }
+        unsafe {
+            __buffer.add(32).cast::<bool>().swap(result);
+        }
+    }
+    pub fn convert_to_blend_space(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        result: &mut crate::bindings::engine::EAnimNodeReferenceConversionResult,
+    ) -> FBlendSpaceReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimNodeReferenceConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpaceLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimNodeReferenceConversionResult>()
+                .swap(result);
+        }
+        unsafe { __buffer.add(24).cast::<FBlendSpaceReference>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -2010,6 +3200,555 @@ impl UBlendSpacePlayerLibrary {
             cdo
         }
     }
+    pub fn snap_to_position(
+        blend_space_player: &FBlendSpacePlayerReference,
+        new_position: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SNAP_TO_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space_player,
+                __buffer.add(0).cast::<FBlendSpacePlayerReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_position,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpacePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SNAP_TO_POSITION,
+                __buffer,
+            )
+        };
+    }
+    pub fn should_reset_play_time_when_blend_space_changes(
+        blend_space_player: &FBlendSpacePlayerReference,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SHOULD_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space_player,
+                __buffer.add(0).cast::<FBlendSpacePlayerReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpacePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SHOULD_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_reset_play_time_when_blend_space_changes(
+        blend_space_player: &FBlendSpacePlayerReference,
+        b_reset: bool,
+    ) -> FBlendSpacePlayerReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space_player,
+                __buffer.add(0).cast::<FBlendSpacePlayerReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_reset, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpacePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FBlendSpacePlayerReference>().read() }
+    }
+    pub fn set_play_rate(
+        blend_space_player: &FBlendSpacePlayerReference,
+        play_rate: f32,
+    ) -> FBlendSpacePlayerReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_PLAY_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space_player,
+                __buffer.add(0).cast::<FBlendSpacePlayerReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&play_rate, __buffer.add(16).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpacePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_PLAY_RATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FBlendSpacePlayerReference>().read() }
+    }
+    pub fn set_loop(
+        blend_space_player: &FBlendSpacePlayerReference,
+        b_loop: bool,
+    ) -> FBlendSpacePlayerReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_LOOP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space_player,
+                __buffer.add(0).cast::<FBlendSpacePlayerReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_loop, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpacePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_LOOP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FBlendSpacePlayerReference>().read() }
+    }
+    pub fn set_blend_space_with_inertial_blending(
+        update_context: &crate::bindings::engine::FAnimUpdateContext,
+        blend_space_player: &FBlendSpacePlayerReference,
+        blend_space: UPtr<crate::bindings::engine::UBlendSpace>,
+        blend_time: f32,
+    ) -> FBlendSpacePlayerReference {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE_WITH_INERTIAL_BLENDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                update_context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimUpdateContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space_player,
+                __buffer.add(16).cast::<FBlendSpacePlayerReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &blend_space,
+                __buffer.add(32).cast::<UPtr<crate::bindings::engine::UBlendSpace>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &blend_time,
+                __buffer.add(40).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpacePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE_WITH_INERTIAL_BLENDING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<FBlendSpacePlayerReference>().read() }
+    }
+    pub fn set_blend_space(
+        blend_space_player: &FBlendSpacePlayerReference,
+        blend_space: UPtr<crate::bindings::engine::UBlendSpace>,
+    ) -> FBlendSpacePlayerReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space_player,
+                __buffer.add(0).cast::<FBlendSpacePlayerReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &blend_space,
+                __buffer.add(16).cast::<UPtr<crate::bindings::engine::UBlendSpace>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpacePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FBlendSpacePlayerReference>().read() }
+    }
+    pub fn get_start_position(blend_space_player: &FBlendSpacePlayerReference) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_START_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space_player,
+                __buffer.add(0).cast::<FBlendSpacePlayerReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpacePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_START_POSITION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn get_position(
+        blend_space_player: &FBlendSpacePlayerReference,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space_player,
+                __buffer.add(0).cast::<FBlendSpacePlayerReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpacePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_play_rate(blend_space_player: &FBlendSpacePlayerReference) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_PLAY_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space_player,
+                __buffer.add(0).cast::<FBlendSpacePlayerReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpacePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_PLAY_RATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn get_loop(blend_space_player: &FBlendSpacePlayerReference) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_LOOP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space_player,
+                __buffer.add(0).cast::<FBlendSpacePlayerReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpacePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_LOOP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_blend_space(
+        blend_space_player: &FBlendSpacePlayerReference,
+    ) -> UPtr<crate::bindings::engine::UBlendSpace> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_BLEND_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space_player,
+                __buffer.add(0).cast::<FBlendSpacePlayerReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpacePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_BLEND_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<UPtr<crate::bindings::engine::UBlendSpace>>().read()
+        }
+    }
+    pub fn convert_to_blend_space_player_pure(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        blend_space_player: &mut FBlendSpacePlayerReference,
+        result: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blend_space_player,
+                __buffer.add(16).cast::<FBlendSpacePlayerReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(result, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpacePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<FBlendSpacePlayerReference>()
+                .swap(blend_space_player);
+        }
+        unsafe {
+            __buffer.add(32).cast::<bool>().swap(result);
+        }
+    }
+    pub fn convert_to_blend_space_player(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        result: &mut crate::bindings::engine::EAnimNodeReferenceConversionResult,
+    ) -> FBlendSpacePlayerReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimNodeReferenceConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UBlendSpacePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimNodeReferenceConversionResult>()
+                .swap(result);
+        }
+        unsafe { __buffer.add(24).cast::<FBlendSpacePlayerReference>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UAnimNodeRigidBodyLibrary {
@@ -2030,6 +3769,151 @@ impl UAnimNodeRigidBodyLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_override_physics_asset(
+        node: &FRigidBodyAnimNodeReference,
+        physics_asset: UPtr<crate::bindings::engine::UPhysicsAsset>,
+    ) -> FRigidBodyAnimNodeReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIM_NODE_RIGID_BODY_LIBRARY_SET_OVERRIDE_PHYSICS_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<FRigidBodyAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &physics_asset,
+                __buffer.add(16).cast::<UPtr<crate::bindings::engine::UPhysicsAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimNodeRigidBodyLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIM_NODE_RIGID_BODY_LIBRARY_SET_OVERRIDE_PHYSICS_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FRigidBodyAnimNodeReference>().read() }
+    }
+    pub fn convert_to_rigid_body_anim_node_pure(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        rigid_body_anim_node: &mut FRigidBodyAnimNodeReference,
+        result: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                rigid_body_anim_node,
+                __buffer.add(16).cast::<FRigidBodyAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(result, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimNodeRigidBodyLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<FRigidBodyAnimNodeReference>()
+                .swap(rigid_body_anim_node);
+        }
+        unsafe {
+            __buffer.add(32).cast::<bool>().swap(result);
+        }
+    }
+    pub fn convert_to_rigid_body_anim_node(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        result: &mut crate::bindings::engine::EAnimNodeReferenceConversionResult,
+    ) -> FRigidBodyAnimNodeReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimNodeReferenceConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UAnimNodeRigidBodyLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimNodeReferenceConversionResult>()
+                .swap(result);
+        }
+        unsafe { __buffer.add(24).cast::<FRigidBodyAnimNodeReference>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -2052,6 +3936,795 @@ impl UKismetAnimationLibrary {
             cdo
         }
     }
+    pub fn two_bone_ik(
+        root_pos: &crate::bindings::core_u_object::FVector,
+        joint_pos: &crate::bindings::core_u_object::FVector,
+        end_pos: &crate::bindings::core_u_object::FVector,
+        joint_target: &crate::bindings::core_u_object::FVector,
+        effector: &crate::bindings::core_u_object::FVector,
+        out_joint_pos: &mut crate::bindings::core_u_object::FVector,
+        out_end_pos: &mut crate::bindings::core_u_object::FVector,
+        b_allow_stretching: bool,
+        start_stretch_ratio: f32,
+        max_stretch_scale: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<180>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_TWO_BONE_IK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                root_pos,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                joint_pos,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                end_pos,
+                __buffer.add(48).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                joint_target,
+                __buffer.add(72).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                effector,
+                __buffer.add(96).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_joint_pos,
+                __buffer.add(120).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_end_pos,
+                __buffer.add(144).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_allow_stretching,
+                __buffer.add(168).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start_stretch_ratio,
+                __buffer.add(172).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &max_stretch_scale,
+                __buffer.add(176).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UKismetAnimationLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_TWO_BONE_IK,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(120)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(out_joint_pos);
+        }
+        unsafe {
+            __buffer
+                .add(144)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(out_end_pos);
+        }
+    }
+    pub fn k2_start_profiling_timer() {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_START_PROFILING_TIMER,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::anim_graph_runtime::UKismetAnimationLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_START_PROFILING_TIMER,
+                __buffer,
+            )
+        };
+    }
+    pub fn make_vector_from_perlin_noise(
+        x: f32,
+        y: f32,
+        z: f32,
+        range_out_min_x: f32,
+        range_out_max_x: f32,
+        range_out_min_y: f32,
+        range_out_max_y: f32,
+        range_out_min_z: f32,
+        range_out_max_z: f32,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_VECTOR_AND_REMAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&x, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&y, __buffer.add(4).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&z, __buffer.add(8).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &range_out_min_x,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &range_out_max_x,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &range_out_min_y,
+                __buffer.add(20).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &range_out_max_y,
+                __buffer.add(24).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &range_out_min_z,
+                __buffer.add(28).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &range_out_max_z,
+                __buffer.add(32).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UKismetAnimationLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_VECTOR_AND_REMAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(40).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn make_float_from_perlin_noise(
+        value: f32,
+        range_out_min: f32,
+        range_out_max: f32,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_AND_REMAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &range_out_min,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &range_out_max,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UKismetAnimationLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_AND_REMAP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<f32>().read() }
+    }
+    pub fn look_at(
+        current_transform: &crate::bindings::core_u_object::FTransform,
+        target_position: &crate::bindings::core_u_object::FVector,
+        look_at_vector: crate::bindings::core_u_object::FVector,
+        b_use_up_vector: bool,
+        up_vector: crate::bindings::core_u_object::FVector,
+        clamp_cone_in_degree: f32,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<288>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_LOOK_AT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                current_transform,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                target_position,
+                __buffer.add(96).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &look_at_vector,
+                __buffer.add(120).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_use_up_vector,
+                __buffer.add(144).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &up_vector,
+                __buffer.add(152).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &clamp_cone_in_degree,
+                __buffer.add(176).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UKismetAnimationLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_LOOK_AT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(192).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn k2_end_profiling_timer(b_log: bool, log_prefix: FString) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_END_PROFILING_TIMER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_log, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &log_prefix,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UKismetAnimationLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_END_PROFILING_TIMER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<f32>().read() }
+    }
+    pub fn distance_between_sockets(
+        component: UPtr<crate::bindings::engine::USkeletalMeshComponent>,
+        socket_or_bone_name_a: FName,
+        socket_space_a: crate::bindings::engine::ERelativeTransformSpace,
+        socket_or_bone_name_b: FName,
+        socket_space_b: crate::bindings::engine::ERelativeTransformSpace,
+        b_remap_range: bool,
+        in_range_min: f32,
+        in_range_max: f32,
+        out_range_min: f32,
+        out_range_max: f32,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<60>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_DISTANCE_BETWEEN_TWO_SOCKETS_AND_MAP_RANGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::USkeletalMeshComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &socket_or_bone_name_a,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &socket_space_a,
+                __buffer
+                    .add(20)
+                    .cast::<crate::bindings::engine::ERelativeTransformSpace>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &socket_or_bone_name_b,
+                __buffer.add(24).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &socket_space_b,
+                __buffer
+                    .add(36)
+                    .cast::<crate::bindings::engine::ERelativeTransformSpace>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_remap_range,
+                __buffer.add(37).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_range_min,
+                __buffer.add(40).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_range_max,
+                __buffer.add(44).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &out_range_min,
+                __buffer.add(48).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &out_range_max,
+                __buffer.add(52).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UKismetAnimationLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_DISTANCE_BETWEEN_TWO_SOCKETS_AND_MAP_RANGE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<f32>().read() }
+    }
+    pub fn direction_between_sockets(
+        component: UPtr<crate::bindings::engine::USkeletalMeshComponent>,
+        socket_or_bone_name_from: FName,
+        socket_or_bone_name_to: FName,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_DIRECTION_BETWEEN_SOCKETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::USkeletalMeshComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &socket_or_bone_name_from,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &socket_or_bone_name_to,
+                __buffer.add(20).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UKismetAnimationLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_DIRECTION_BETWEEN_SOCKETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn calculate_velocity_from_sockets(
+        delta_seconds: f32,
+        component: UPtr<crate::bindings::engine::USkeletalMeshComponent>,
+        socket_or_bone_name: FName,
+        reference_socket_or_bone: FName,
+        socket_space: crate::bindings::engine::ERelativeTransformSpace,
+        offset_in_bone_space: crate::bindings::core_u_object::FVector,
+        history: &mut FPositionHistory,
+        number_of_samples: i32,
+        velocity_min: f32,
+        velocity_max: f32,
+        easing_type: EEasingFuncType,
+        custom_curve: &crate::bindings::engine::FRuntimeFloatCurve,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<276>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_SOCKETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delta_seconds,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::USkeletalMeshComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &socket_or_bone_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &reference_socket_or_bone,
+                __buffer.add(28).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &socket_space,
+                __buffer
+                    .add(40)
+                    .cast::<crate::bindings::engine::ERelativeTransformSpace>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &offset_in_bone_space,
+                __buffer.add(48).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                history,
+                __buffer.add(72).cast::<FPositionHistory>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &number_of_samples,
+                __buffer.add(120).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &velocity_min,
+                __buffer.add(124).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &velocity_max,
+                __buffer.add(128).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &easing_type,
+                __buffer.add(132).cast::<EEasingFuncType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                custom_curve,
+                __buffer.add(136).cast::<crate::bindings::engine::FRuntimeFloatCurve>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UKismetAnimationLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_SOCKETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(72).cast::<FPositionHistory>().swap(history);
+        }
+        unsafe { __buffer.add(272).cast::<f32>().read() }
+    }
+    pub fn calculate_velocity_from_position_history(
+        delta_seconds: f32,
+        position: crate::bindings::core_u_object::FVector,
+        history: &mut FPositionHistory,
+        number_of_samples: i32,
+        velocity_min: f32,
+        velocity_max: f32,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_POSITION_HISTORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delta_seconds,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                history,
+                __buffer.add(32).cast::<FPositionHistory>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &number_of_samples,
+                __buffer.add(80).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &velocity_min,
+                __buffer.add(84).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &velocity_max,
+                __buffer.add(88).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UKismetAnimationLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_POSITION_HISTORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<FPositionHistory>().swap(history);
+        }
+        unsafe { __buffer.add(92).cast::<f32>().read() }
+    }
+    pub fn calculate_direction(
+        velocity: &crate::bindings::core_u_object::FVector,
+        base_rotation: &crate::bindings::core_u_object::FRotator,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<52>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_CALCULATE_DIRECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                velocity,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                base_rotation,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UKismetAnimationLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_CALCULATE_DIRECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<f32>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct ULayeredBoneBlendLibrary {
@@ -2071,6 +4744,198 @@ impl ULayeredBoneBlendLibrary {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_blend_mask(
+        update_context: &crate::bindings::engine::FAnimUpdateContext,
+        layered_bone_blend: &FLayeredBoneBlendReference,
+        pose_index: i32,
+        blend_mask_name: FName,
+    ) -> FLayeredBoneBlendReference {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_SET_BLEND_MASK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                update_context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimUpdateContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layered_bone_blend,
+                __buffer.add(16).cast::<FLayeredBoneBlendReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &pose_index,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &blend_mask_name,
+                __buffer.add(36).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::ULayeredBoneBlendLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_SET_BLEND_MASK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<FLayeredBoneBlendReference>().read() }
+    }
+    pub fn get_num_poses(layered_bone_blend: &FLayeredBoneBlendReference) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_GET_NUM_POSES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layered_bone_blend,
+                __buffer.add(0).cast::<FLayeredBoneBlendReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::ULayeredBoneBlendLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_GET_NUM_POSES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<i32>().read() }
+    }
+    pub fn convert_to_layered_bone_blend(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        result: &mut crate::bindings::engine::EAnimNodeReferenceConversionResult,
+    ) -> FLayeredBoneBlendReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BONE_BLEND,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimNodeReferenceConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::ULayeredBoneBlendLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BONE_BLEND,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimNodeReferenceConversionResult>()
+                .swap(result);
+        }
+        unsafe { __buffer.add(24).cast::<FLayeredBoneBlendReference>().read() }
+    }
+    pub fn convert_to_layered_blend_per_bone_pure(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        layered_bone_blend: &mut FLayeredBoneBlendReference,
+        result: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BLEND_PER_BONE_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layered_bone_blend,
+                __buffer.add(16).cast::<FLayeredBoneBlendReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(result, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::ULayeredBoneBlendLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BLEND_PER_BONE_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<FLayeredBoneBlendReference>()
+                .swap(layered_bone_blend);
+        }
+        unsafe {
+            __buffer.add(32).cast::<bool>().swap(result);
         }
     }
 }
@@ -2094,6 +4959,176 @@ impl ULinkedAnimGraphLibrary {
             cdo
         }
     }
+    pub fn has_linked_anim_instance(node: &FLinkedAnimGraphReference) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_HAS_LINKED_ANIM_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<FLinkedAnimGraphReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::ULinkedAnimGraphLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_HAS_LINKED_ANIM_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_linked_anim_instance(
+        node: &FLinkedAnimGraphReference,
+    ) -> UPtr<crate::bindings::engine::UAnimInstance> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_GET_LINKED_ANIM_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<FLinkedAnimGraphReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::ULinkedAnimGraphLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_GET_LINKED_ANIM_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<UPtr<crate::bindings::engine::UAnimInstance>>()
+                .read()
+        }
+    }
+    pub fn convert_to_linked_anim_graph_pure(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        linked_anim_graph: &mut FLinkedAnimGraphReference,
+        result: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                linked_anim_graph,
+                __buffer.add(16).cast::<FLinkedAnimGraphReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(result, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::ULinkedAnimGraphLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FLinkedAnimGraphReference>().swap(linked_anim_graph);
+        }
+        unsafe {
+            __buffer.add(32).cast::<bool>().swap(result);
+        }
+    }
+    pub fn convert_to_linked_anim_graph(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        result: &mut crate::bindings::engine::EAnimNodeReferenceConversionResult,
+    ) -> FLinkedAnimGraphReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimNodeReferenceConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::ULinkedAnimGraphLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimNodeReferenceConversionResult>()
+                .swap(result);
+        }
+        unsafe { __buffer.add(24).cast::<FLinkedAnimGraphReference>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UMirrorAnimLibrary {
@@ -2114,6 +5149,291 @@ impl UMirrorAnimLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_mirror_transition_blend_time(
+        mirror_node: &FMirrorAnimNodeReference,
+        in_blend_time: f32,
+    ) -> FMirrorAnimNodeReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_SET_MIRROR_TRANSITION_BLEND_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mirror_node,
+                __buffer.add(0).cast::<FMirrorAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_blend_time,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UMirrorAnimLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_SET_MIRROR_TRANSITION_BLEND_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FMirrorAnimNodeReference>().read() }
+    }
+    pub fn set_mirror(
+        mirror_node: &FMirrorAnimNodeReference,
+        b_in_mirror: bool,
+    ) -> FMirrorAnimNodeReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_SET_MIRROR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mirror_node,
+                __buffer.add(0).cast::<FMirrorAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_mirror,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UMirrorAnimLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_SET_MIRROR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FMirrorAnimNodeReference>().read() }
+    }
+    pub fn get_mirror_transition_blend_time(
+        mirror_node: &FMirrorAnimNodeReference,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_GET_MIRROR_TRANSITION_BLEND_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mirror_node,
+                __buffer.add(0).cast::<FMirrorAnimNodeReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UMirrorAnimLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_GET_MIRROR_TRANSITION_BLEND_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn get_mirror_data_table(
+        mirror_node: &FMirrorAnimNodeReference,
+    ) -> UPtr<crate::bindings::engine::UMirrorDataTable> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_GET_MIRROR_DATA_TABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mirror_node,
+                __buffer.add(0).cast::<FMirrorAnimNodeReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UMirrorAnimLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_GET_MIRROR_DATA_TABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<UPtr<crate::bindings::engine::UMirrorDataTable>>()
+                .read()
+        }
+    }
+    pub fn get_mirror(mirror_node: &FMirrorAnimNodeReference) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_GET_MIRROR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mirror_node,
+                __buffer.add(0).cast::<FMirrorAnimNodeReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UMirrorAnimLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_GET_MIRROR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn convert_to_mirror_node_pure(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        mirror_node: &mut FMirrorAnimNodeReference,
+        result: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mirror_node,
+                __buffer.add(16).cast::<FMirrorAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(result, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UMirrorAnimLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FMirrorAnimNodeReference>().swap(mirror_node);
+        }
+        unsafe {
+            __buffer.add(32).cast::<bool>().swap(result);
+        }
+    }
+    pub fn convert_to_mirror_node(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        result: &mut crate::bindings::engine::EAnimNodeReferenceConversionResult,
+    ) -> FMirrorAnimNodeReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimNodeReferenceConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UMirrorAnimLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimNodeReferenceConversionResult>()
+                .swap(result);
+        }
+        unsafe { __buffer.add(24).cast::<FMirrorAnimNodeReference>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -2136,6 +5456,293 @@ impl UModifyCurveAnimLibrary {
             cdo
         }
     }
+    pub fn set_curve_map(
+        modify_curve_node: &FModifyCurveAnimNodeReference,
+        in_curve_map: &TMap<FName, f32>,
+    ) -> FModifyCurveAnimNodeReference {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_SET_CURVE_MAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modify_curve_node,
+                __buffer.add(0).cast::<FModifyCurveAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_curve_map,
+                __buffer.add(16).cast::<TMap<FName, f32>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UModifyCurveAnimLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_SET_CURVE_MAP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(96).cast::<FModifyCurveAnimNodeReference>().read() }
+    }
+    pub fn set_apply_mode(
+        modify_curve_node: &FModifyCurveAnimNodeReference,
+        in_mode: EModifyCurveApplyMode,
+    ) -> FModifyCurveAnimNodeReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_SET_APPLY_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modify_curve_node,
+                __buffer.add(0).cast::<FModifyCurveAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_mode,
+                __buffer.add(16).cast::<EModifyCurveApplyMode>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UModifyCurveAnimLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_SET_APPLY_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FModifyCurveAnimNodeReference>().read() }
+    }
+    pub fn set_alpha(
+        modify_curve_node: &FModifyCurveAnimNodeReference,
+        in_alpha: f32,
+    ) -> FModifyCurveAnimNodeReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_SET_ALPHA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modify_curve_node,
+                __buffer.add(0).cast::<FModifyCurveAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_alpha, __buffer.add(16).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UModifyCurveAnimLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_SET_ALPHA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FModifyCurveAnimNodeReference>().read() }
+    }
+    pub fn get_apply_mode(
+        modify_curve_node: &FModifyCurveAnimNodeReference,
+    ) -> EModifyCurveApplyMode {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_GET_APPLY_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modify_curve_node,
+                __buffer.add(0).cast::<FModifyCurveAnimNodeReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UModifyCurveAnimLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_GET_APPLY_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<EModifyCurveApplyMode>().read() }
+    }
+    pub fn get_alpha(modify_curve_node: &FModifyCurveAnimNodeReference) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_GET_ALPHA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modify_curve_node,
+                __buffer.add(0).cast::<FModifyCurveAnimNodeReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UModifyCurveAnimLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_GET_ALPHA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn convert_to_modify_curve_node_pure(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        modify_curve_node: &mut FModifyCurveAnimNodeReference,
+        result: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modify_curve_node,
+                __buffer.add(16).cast::<FModifyCurveAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(result, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UModifyCurveAnimLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<FModifyCurveAnimNodeReference>()
+                .swap(modify_curve_node);
+        }
+        unsafe {
+            __buffer.add(32).cast::<bool>().swap(result);
+        }
+    }
+    pub fn convert_to_modify_curve_node(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        result: &mut crate::bindings::engine::EAnimNodeReferenceConversionResult,
+    ) -> FModifyCurveAnimNodeReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimNodeReferenceConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UModifyCurveAnimLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimNodeReferenceConversionResult>()
+                .swap(result);
+        }
+        unsafe { __buffer.add(24).cast::<FModifyCurveAnimNodeReference>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UPlayMontageCallbackProxy {
@@ -2156,6 +5763,79 @@ impl UPlayMontageCallbackProxy {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn create_proxy_object_for_play_montage(
+        in_skeletal_mesh_component: UPtr<
+            crate::bindings::engine::USkeletalMeshComponent,
+        >,
+        montage_to_play: UPtr<crate::bindings::engine::UAnimMontage>,
+        play_rate: f32,
+        starting_position: f32,
+        starting_section: FName,
+        b_should_stop_all_montages: bool,
+    ) -> UPtr<UPlayMontageCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_PLAY_MONTAGE_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_PLAY_MONTAGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_skeletal_mesh_component,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::USkeletalMeshComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &montage_to_play,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::UAnimMontage>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&play_rate, __buffer.add(16).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &starting_position,
+                __buffer.add(20).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &starting_section,
+                __buffer.add(24).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_should_stop_all_montages,
+                __buffer.add(36).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::UPlayMontageCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_PLAY_MONTAGE_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_PLAY_MONTAGE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<UPtr<UPlayMontageCallbackProxy>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -2178,6 +5858,402 @@ impl USequenceEvaluatorLibrary {
             cdo
         }
     }
+    pub fn set_sequence_with_inertial_blending(
+        update_context: &crate::bindings::engine::FAnimUpdateContext,
+        sequence_evaluator: &FSequenceEvaluatorReference,
+        sequence: UPtr<crate::bindings::engine::UAnimSequenceBase>,
+        blend_time: f32,
+    ) -> FSequenceEvaluatorReference {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                update_context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimUpdateContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_evaluator,
+                __buffer.add(16).cast::<FSequenceEvaluatorReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sequence,
+                __buffer
+                    .add(32)
+                    .cast::<UPtr<crate::bindings::engine::UAnimSequenceBase>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &blend_time,
+                __buffer.add(40).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequenceEvaluatorLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<FSequenceEvaluatorReference>().read() }
+    }
+    pub fn set_sequence(
+        sequence_evaluator: &FSequenceEvaluatorReference,
+        sequence: UPtr<crate::bindings::engine::UAnimSequenceBase>,
+    ) -> FSequenceEvaluatorReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_evaluator,
+                __buffer.add(0).cast::<FSequenceEvaluatorReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sequence,
+                __buffer
+                    .add(16)
+                    .cast::<UPtr<crate::bindings::engine::UAnimSequenceBase>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequenceEvaluatorLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FSequenceEvaluatorReference>().read() }
+    }
+    pub fn set_explicit_time(
+        sequence_evaluator: &FSequenceEvaluatorReference,
+        time: f32,
+    ) -> FSequenceEvaluatorReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_evaluator,
+                __buffer.add(0).cast::<FSequenceEvaluatorReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&time, __buffer.add(16).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequenceEvaluatorLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FSequenceEvaluatorReference>().read() }
+    }
+    pub fn set_explicit_frame(
+        sequence_evaluator: &FSequenceEvaluatorReference,
+        frame: i32,
+    ) -> FSequenceEvaluatorReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_evaluator,
+                __buffer.add(0).cast::<FSequenceEvaluatorReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&frame, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequenceEvaluatorLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_FRAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FSequenceEvaluatorReference>().read() }
+    }
+    pub fn get_sequence(
+        sequence_evaluator: &FSequenceEvaluatorReference,
+    ) -> UPtr<crate::bindings::engine::UAnimSequenceBase> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_GET_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_evaluator,
+                __buffer.add(0).cast::<FSequenceEvaluatorReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequenceEvaluatorLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_GET_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<UPtr<crate::bindings::engine::UAnimSequenceBase>>()
+                .read()
+        }
+    }
+    pub fn get_accumulated_time(
+        sequence_evaluator: &FSequenceEvaluatorReference,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_GET_ACCUMULATED_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_evaluator,
+                __buffer.add(0).cast::<FSequenceEvaluatorReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequenceEvaluatorLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_GET_ACCUMULATED_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn convert_to_sequence_evaluator_pure(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        sequence_evaluator: &mut FSequenceEvaluatorReference,
+        result: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_evaluator,
+                __buffer.add(16).cast::<FSequenceEvaluatorReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(result, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequenceEvaluatorLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<FSequenceEvaluatorReference>()
+                .swap(sequence_evaluator);
+        }
+        unsafe {
+            __buffer.add(32).cast::<bool>().swap(result);
+        }
+    }
+    pub fn convert_to_sequence_evaluator(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        result: &mut crate::bindings::engine::EAnimNodeReferenceConversionResult,
+    ) -> FSequenceEvaluatorReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimNodeReferenceConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequenceEvaluatorLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimNodeReferenceConversionResult>()
+                .swap(result);
+        }
+        unsafe { __buffer.add(24).cast::<FSequenceEvaluatorReference>().read() }
+    }
+    pub fn advance_time(
+        update_context: &crate::bindings::engine::FAnimUpdateContext,
+        sequence_evaluator: &FSequenceEvaluatorReference,
+        play_rate: f32,
+    ) -> FSequenceEvaluatorReference {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_ADVANCE_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                update_context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimUpdateContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_evaluator,
+                __buffer.add(16).cast::<FSequenceEvaluatorReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&play_rate, __buffer.add(32).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequenceEvaluatorLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_ADVANCE_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<FSequenceEvaluatorReference>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct USequencePlayerLibrary {
@@ -2198,6 +6274,572 @@ impl USequencePlayerLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_start_position(
+        sequence_player: &FSequencePlayerReference,
+        start_position: f32,
+    ) -> FSequencePlayerReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_START_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_player,
+                __buffer.add(0).cast::<FSequencePlayerReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start_position,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequencePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_START_POSITION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FSequencePlayerReference>().read() }
+    }
+    pub fn set_sequence_with_inertial_blending(
+        update_context: &crate::bindings::engine::FAnimUpdateContext,
+        sequence_player: &FSequencePlayerReference,
+        sequence: UPtr<crate::bindings::engine::UAnimSequenceBase>,
+        blend_time: f32,
+    ) -> FSequencePlayerReference {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                update_context,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimUpdateContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_player,
+                __buffer.add(16).cast::<FSequencePlayerReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sequence,
+                __buffer
+                    .add(32)
+                    .cast::<UPtr<crate::bindings::engine::UAnimSequenceBase>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &blend_time,
+                __buffer.add(40).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequencePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<FSequencePlayerReference>().read() }
+    }
+    pub fn set_sequence(
+        sequence_player: &FSequencePlayerReference,
+        sequence: UPtr<crate::bindings::engine::UAnimSequenceBase>,
+    ) -> FSequencePlayerReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_player,
+                __buffer.add(0).cast::<FSequencePlayerReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sequence,
+                __buffer
+                    .add(16)
+                    .cast::<UPtr<crate::bindings::engine::UAnimSequenceBase>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequencePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FSequencePlayerReference>().read() }
+    }
+    pub fn set_play_rate(
+        sequence_player: &FSequencePlayerReference,
+        play_rate: f32,
+    ) -> FSequencePlayerReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_PLAY_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_player,
+                __buffer.add(0).cast::<FSequencePlayerReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&play_rate, __buffer.add(16).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequencePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_PLAY_RATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FSequencePlayerReference>().read() }
+    }
+    pub fn set_accumulated_time(
+        sequence_player: &FSequencePlayerReference,
+        time: f32,
+    ) -> FSequencePlayerReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_ACCUMULATED_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_player,
+                __buffer.add(0).cast::<FSequencePlayerReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&time, __buffer.add(16).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequencePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_ACCUMULATED_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FSequencePlayerReference>().read() }
+    }
+    pub fn get_start_position(sequence_player: &FSequencePlayerReference) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_START_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_player,
+                __buffer.add(0).cast::<FSequencePlayerReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequencePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_START_POSITION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn get_sequence_pure(
+        sequence_player: &FSequencePlayerReference,
+    ) -> UPtr<crate::bindings::engine::UAnimSequenceBase> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_player,
+                __buffer.add(0).cast::<FSequencePlayerReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequencePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<UPtr<crate::bindings::engine::UAnimSequenceBase>>()
+                .read()
+        }
+    }
+    pub fn get_sequence(
+        sequence_player: &FSequencePlayerReference,
+        sequence_base: &mut UPtr<crate::bindings::engine::UAnimSequenceBase>,
+    ) -> FSequencePlayerReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_player,
+                __buffer.add(0).cast::<FSequencePlayerReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_base,
+                __buffer
+                    .add(16)
+                    .cast::<UPtr<crate::bindings::engine::UAnimSequenceBase>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequencePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<UPtr<crate::bindings::engine::UAnimSequenceBase>>()
+                .swap(sequence_base);
+        }
+        unsafe { __buffer.add(24).cast::<FSequencePlayerReference>().read() }
+    }
+    pub fn get_play_rate(sequence_player: &FSequencePlayerReference) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_PLAY_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_player,
+                __buffer.add(0).cast::<FSequencePlayerReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequencePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_PLAY_RATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn get_loop_animation(sequence_player: &FSequencePlayerReference) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_LOOP_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_player,
+                __buffer.add(0).cast::<FSequencePlayerReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequencePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_LOOP_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_accumulated_time(sequence_player: &FSequencePlayerReference) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_ACCUMULATED_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_player,
+                __buffer.add(0).cast::<FSequencePlayerReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequencePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_ACCUMULATED_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn convert_to_sequence_player_pure(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        sequence_player: &mut FSequencePlayerReference,
+        result: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_player,
+                __buffer.add(16).cast::<FSequencePlayerReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(result, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequencePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FSequencePlayerReference>().swap(sequence_player);
+        }
+        unsafe {
+            __buffer.add(32).cast::<bool>().swap(result);
+        }
+    }
+    pub fn convert_to_sequence_player(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        result: &mut crate::bindings::engine::EAnimNodeReferenceConversionResult,
+    ) -> FSequencePlayerReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimNodeReferenceConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequencePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimNodeReferenceConversionResult>()
+                .swap(result);
+        }
+        unsafe { __buffer.add(24).cast::<FSequencePlayerReference>().read() }
+    }
+    pub fn compute_play_rate_from_duration(
+        sequence_player: &FSequencePlayerReference,
+        duration: f32,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_COMPUTE_PLAY_RATE_FROM_DURATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sequence_player,
+                __buffer.add(0).cast::<FSequencePlayerReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&duration, __buffer.add(16).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USequencePlayerLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_COMPUTE_PLAY_RATE_FROM_DURATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<f32>().read() }
     }
 }
 pub struct ISequencerAnimationSupport {}
@@ -2241,6 +6883,175 @@ impl USkeletalControlLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_alpha(
+        skeletal_control: &FSkeletalControlReference,
+        alpha: f32,
+    ) -> FSkeletalControlReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_SET_ALPHA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                skeletal_control,
+                __buffer.add(0).cast::<FSkeletalControlReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&alpha, __buffer.add(16).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USkeletalControlLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_SET_ALPHA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FSkeletalControlReference>().read() }
+    }
+    pub fn get_alpha(skeletal_control: &FSkeletalControlReference) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_GET_ALPHA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                skeletal_control,
+                __buffer.add(0).cast::<FSkeletalControlReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USkeletalControlLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_GET_ALPHA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn convert_to_skeletal_control_pure(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        skeletal_control: &mut FSkeletalControlReference,
+        result: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                skeletal_control,
+                __buffer.add(16).cast::<FSkeletalControlReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(result, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USkeletalControlLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FSkeletalControlReference>().swap(skeletal_control);
+        }
+        unsafe {
+            __buffer.add(32).cast::<bool>().swap(result);
+        }
+    }
+    pub fn convert_to_skeletal_control(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        result: &mut crate::bindings::engine::EAnimNodeReferenceConversionResult,
+    ) -> FSkeletalControlReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimNodeReferenceConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::anim_graph_runtime::USkeletalControlLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimNodeReferenceConversionResult>()
+                .swap(result);
+        }
+        unsafe { __buffer.add(24).cast::<FSkeletalControlReference>().read() }
     }
 }
 #[repr(C, align(8))]

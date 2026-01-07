@@ -1206,6 +1206,41 @@ impl UOctreeDynamicMeshComponent {
             cdo
         }
     }
+    pub fn set_dynamic_mesh(
+        &mut self,
+        new_mesh: UPtr<crate::bindings::geometry_framework::UDynamicMesh>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::modeling_components::U_OCTREE_DYNAMIC_MESH_COMPONENT_SET_DYNAMIC_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_mesh,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::geometry_framework::UDynamicMesh>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::modeling_components::U_OCTREE_DYNAMIC_MESH_COMPONENT_SET_DYNAMIC_MESH,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct ULineSetComponent {
@@ -1226,6 +1261,134 @@ impl ULineSetComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_line_material(
+        &mut self,
+        in_line_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::modeling_components::U_LINE_SET_COMPONENT_SET_LINE_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_line_material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::modeling_components::U_LINE_SET_COMPONENT_SET_LINE_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::modeling_components::U_LINE_SET_COMPONENT_CLEAR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::modeling_components::U_LINE_SET_COMPONENT_CLEAR,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_lines(
+        &mut self,
+        in_start: &TArray<crate::bindings::core_u_object::FVector>,
+        in_end: &TArray<crate::bindings::core_u_object::FVector>,
+        in_color: &crate::bindings::core_u_object::FColor,
+        in_thickness: f32,
+        in_depth_bias: f32,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::modeling_components::U_LINE_SET_COMPONENT_ADD_LINES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_start,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_end,
+                __buffer
+                    .add(16)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_color,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FColor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_thickness,
+                __buffer.add(36).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_depth_bias,
+                __buffer.add(40).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::modeling_components::U_LINE_SET_COMPONENT_ADD_LINES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(44).cast::<i32>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -1331,6 +1494,120 @@ impl UPointSetComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_point_material(
+        &mut self,
+        in_point_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::modeling_components::U_POINT_SET_COMPONENT_SET_POINT_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_point_material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::modeling_components::U_POINT_SET_COMPONENT_SET_POINT_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::modeling_components::U_POINT_SET_COMPONENT_CLEAR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::modeling_components::U_POINT_SET_COMPONENT_CLEAR,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_points(
+        &mut self,
+        positions: &TArray<crate::bindings::core_u_object::FVector>,
+        in_color: &crate::bindings::core_u_object::FColor,
+        in_size: f32,
+        in_depth_bias: f32,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::modeling_components::U_POINT_SET_COMPONENT_ADD_POINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                positions,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_color,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FColor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_size, __buffer.add(20).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_depth_bias,
+                __buffer.add(24).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::modeling_components::U_POINT_SET_COMPONENT_ADD_POINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<i32>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -1835,6 +2112,176 @@ impl UModelingObjectsCreationAPI {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn create_texture_object(
+        &mut self,
+        create_tex_params: &FCreateTextureObjectParams,
+    ) -> FCreateTextureObjectResult {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_TEXTURE_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                create_tex_params,
+                __buffer.add(0).cast::<FCreateTextureObjectParams>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_TEXTURE_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<FCreateTextureObjectResult>().read() }
+    }
+    pub fn create_new_component_on_actor(
+        &mut self,
+        create_component_params: &FCreateComponentParams,
+    ) -> FCreateComponentResult {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_NEW_COMPONENT_ON_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                create_component_params,
+                __buffer.add(0).cast::<FCreateComponentParams>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_NEW_COMPONENT_ON_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<FCreateComponentResult>().read() }
+    }
+    pub fn create_new_actor(
+        &mut self,
+        create_actor_params: &FCreateActorParams,
+    ) -> FCreateActorResult {
+        let mut __stack = crate::core_data::StackAlloc::<160>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_NEW_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                create_actor_params,
+                __buffer.add(0).cast::<FCreateActorParams>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_NEW_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(144).cast::<FCreateActorResult>().read() }
+    }
+    pub fn create_mesh_object(
+        &mut self,
+        create_mesh_params: &FCreateMeshObjectParams,
+    ) -> FCreateMeshObjectResult {
+        let mut __stack = crate::core_data::StackAlloc::<1744>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_MESH_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                create_mesh_params,
+                __buffer.add(0).cast::<FCreateMeshObjectParams>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_MESH_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1712).cast::<FCreateMeshObjectResult>().read() }
+    }
+    pub fn create_material_object(
+        &mut self,
+        create_material_params: &FCreateMaterialObjectParams,
+    ) -> FCreateMaterialObjectResult {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_MATERIAL_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                create_material_params,
+                __buffer.add(0).cast::<FCreateMaterialObjectParams>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_MATERIAL_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<FCreateMaterialObjectResult>().read() }
     }
 }
 #[repr(C, align(8))]

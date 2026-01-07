@@ -71,7 +71,6 @@ pub struct UMaterialMergeOptions {
     #[doc(hidden)]
     __padding_49: [u8; 49],
     pub blend_mode: crate::bindings::engine::EBlendMode,
-    __padding_end: [u8; 6],
 }
 impl UMaterialMergeOptions {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

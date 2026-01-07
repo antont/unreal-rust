@@ -379,6 +379,63 @@ impl UConstantQAnalyzer {
             cdo
         }
     }
+    pub fn get_num_center_frequencies(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::U_CONSTANT_Q_ANALYZER_GET_NUM_CENTER_FREQUENCIES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::U_CONSTANT_Q_ANALYZER_GET_NUM_CENTER_FREQUENCIES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_center_frequencies(&mut self, out_center_frequencies: &mut TArray<f32>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::U_CONSTANT_Q_ANALYZER_GET_CENTER_FREQUENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_center_frequencies,
+                __buffer.add(0).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::U_CONSTANT_Q_ANALYZER_GET_CENTER_FREQUENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<f32>>().swap(out_center_frequencies);
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UConstantQNRTSettings {
@@ -435,6 +492,94 @@ impl UConstantQNRT {
             cdo
         }
     }
+    pub fn get_normalized_channel_constant_q_at_time(
+        &self,
+        in_seconds: f32,
+        in_channel: i32,
+        out_constant_q: &mut TArray<f32>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::U_CONSTANT_QNRT_GET_NORMALIZED_CHANNEL_CONSTANT_Q_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_seconds, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_channel, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_constant_q,
+                __buffer.add(8).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::U_CONSTANT_QNRT_GET_NORMALIZED_CHANNEL_CONSTANT_Q_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<TArray<f32>>().swap(out_constant_q);
+        }
+    }
+    pub fn get_channel_constant_q_at_time(
+        &self,
+        in_seconds: f32,
+        in_channel: i32,
+        out_constant_q: &mut TArray<f32>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::U_CONSTANT_QNRT_GET_CHANNEL_CONSTANT_Q_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_seconds, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_channel, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_constant_q,
+                __buffer.add(8).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::U_CONSTANT_QNRT_GET_CHANNEL_CONSTANT_Q_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<TArray<f32>>().swap(out_constant_q);
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct ULKFSSettings {
@@ -445,7 +590,6 @@ pub struct ULKFSSettings {
     pub short_term_loudness_duration: f32,
     pub integrated_loudness_analysis_period: f32,
     pub integrated_loudness_duration: f32,
-    __padding_end: [u8; 4],
 }
 impl ULKFSSettings {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -495,7 +639,6 @@ pub struct ULKFSNRTSettings {
     pub analysis_period: f32,
     pub analysis_window_duration: f32,
     pub short_term_loudness_duration: f32,
-    __padding_end: [u8; 4],
 }
 impl ULKFSNRTSettings {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -530,6 +673,332 @@ impl ULKFSNRT {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn get_loudness_data_for_channel_at_time(
+        &self,
+        in_seconds: f32,
+        in_channel: i32,
+    ) -> crate::bindings::audio_synesthesia_core::FLKFSNRTResults {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_seconds, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_channel, __buffer.add(4).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<crate::bindings::audio_synesthesia_core::FLKFSNRTResults>()
+                .read()
+        }
+    }
+    pub fn get_loudness_data_for_channel(
+        &self,
+        in_channel: i32,
+    ) -> TArray<crate::bindings::audio_synesthesia_core::FLKFSNRTResults> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_channel, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<
+                    TArray<crate::bindings::audio_synesthesia_core::FLKFSNRTResults>,
+                >()
+                .read()
+        }
+    }
+    pub fn get_loudness_data_at_time(
+        &self,
+        in_seconds: f32,
+    ) -> crate::bindings::audio_synesthesia_core::FLKFSNRTResults {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_seconds, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(4)
+                .cast::<crate::bindings::audio_synesthesia_core::FLKFSNRTResults>()
+                .read()
+        }
+    }
+    pub fn get_loudness_data(
+        &self,
+    ) -> TArray<crate::bindings::audio_synesthesia_core::FLKFSNRTResults> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<
+                    TArray<crate::bindings::audio_synesthesia_core::FLKFSNRTResults>,
+                >()
+                .read()
+        }
+    }
+    pub fn get_loudness_at_time(&self, in_seconds: f32, out_loudness: &mut f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_seconds, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_loudness,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(4).cast::<f32>().swap(out_loudness);
+        }
+    }
+    pub fn get_integrated_loudness_for_channel(&self, in_channel: i32) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_INTEGRATED_LOUDNESS_FOR_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_channel, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_INTEGRATED_LOUDNESS_FOR_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<f32>().read() }
+    }
+    pub fn get_integrated_loudness(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_INTEGRATED_LOUDNESS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_INTEGRATED_LOUDNESS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_gated_loudness_for_channel(&self, in_channel: i32) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_GATED_LOUDNESS_FOR_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_channel, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_GATED_LOUDNESS_FOR_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<f32>().read() }
+    }
+    pub fn get_gated_loudness(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_GATED_LOUDNESS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_GATED_LOUDNESS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_channel_loudness_at_time(
+        &self,
+        in_seconds: f32,
+        in_channel: i32,
+        out_loudness: &mut f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_CHANNEL_LOUDNESS_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_seconds, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_channel, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_loudness,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::ULKFSNRT_GET_CHANNEL_LOUDNESS_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<f32>().swap(out_loudness);
         }
     }
 }
@@ -594,7 +1063,6 @@ pub struct ULoudnessNRTSettings {
     pub maximum_frequency: f32,
     pub curve_type: ELoudnessNRTCurveTypeEnum,
     pub noise_floor_db: f32,
-    __padding_end: [u8; 4],
 }
 impl ULoudnessNRTSettings {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -633,6 +1101,170 @@ impl ULoudnessNRT {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn get_normalized_loudness_at_time(
+        &self,
+        in_seconds: f32,
+        out_loudness: &mut f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_NORMALIZED_LOUDNESS_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_seconds, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_loudness,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_NORMALIZED_LOUDNESS_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(4).cast::<f32>().swap(out_loudness);
+        }
+    }
+    pub fn get_normalized_channel_loudness_at_time(
+        &self,
+        in_seconds: f32,
+        in_channel: i32,
+        out_loudness: &mut f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_NORMALIZED_CHANNEL_LOUDNESS_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_seconds, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_channel, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_loudness,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_NORMALIZED_CHANNEL_LOUDNESS_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<f32>().swap(out_loudness);
+        }
+    }
+    pub fn get_loudness_at_time(&self, in_seconds: f32, out_loudness: &mut f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_LOUDNESS_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_seconds, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_loudness,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_LOUDNESS_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(4).cast::<f32>().swap(out_loudness);
+        }
+    }
+    pub fn get_channel_loudness_at_time(
+        &self,
+        in_seconds: f32,
+        in_channel: i32,
+        out_loudness: &mut f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_CHANNEL_LOUDNESS_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_seconds, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_channel, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_loudness,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_CHANNEL_LOUDNESS_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<f32>().swap(out_loudness);
         }
     }
 }
@@ -697,7 +1329,6 @@ pub struct UOnsetNRTSettings {
     pub sensitivity: f32,
     pub minimum_frequency: f32,
     pub maximum_frequency: f32,
-    __padding_end: [u8; 4],
 }
 impl UOnsetNRTSettings {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -736,6 +1367,140 @@ impl UOnsetNRT {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn get_normalized_channel_onsets_between_times(
+        &self,
+        in_start_seconds: f32,
+        in_end_seconds: f32,
+        in_channel: i32,
+        out_onset_timestamps: &mut TArray<f32>,
+        out_onset_strengths: &mut TArray<f32>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::U_ONSET_NRT_GET_NORMALIZED_CHANNEL_ONSETS_BETWEEN_TIMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_start_seconds,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_end_seconds,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_channel, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_onset_timestamps,
+                __buffer.add(16).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_onset_strengths,
+                __buffer.add(32).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::U_ONSET_NRT_GET_NORMALIZED_CHANNEL_ONSETS_BETWEEN_TIMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<TArray<f32>>().swap(out_onset_timestamps);
+        }
+        unsafe {
+            __buffer.add(32).cast::<TArray<f32>>().swap(out_onset_strengths);
+        }
+    }
+    pub fn get_channel_onsets_between_times(
+        &self,
+        in_start_seconds: f32,
+        in_end_seconds: f32,
+        in_channel: i32,
+        out_onset_timestamps: &mut TArray<f32>,
+        out_onset_strengths: &mut TArray<f32>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::U_ONSET_NRT_GET_CHANNEL_ONSETS_BETWEEN_TIMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_start_seconds,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_end_seconds,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_channel, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_onset_timestamps,
+                __buffer.add(16).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_onset_strengths,
+                __buffer.add(32).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::U_ONSET_NRT_GET_CHANNEL_ONSETS_BETWEEN_TIMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<TArray<f32>>().swap(out_onset_timestamps);
+        }
+        unsafe {
+            __buffer.add(32).cast::<TArray<f32>>().swap(out_onset_strengths);
         }
     }
 }
@@ -787,6 +1552,74 @@ impl USynesthesiaSpectrumAnalyzer {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn get_num_center_frequencies(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_NUM_CENTER_FREQUENCIES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_NUM_CENTER_FREQUENCIES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_center_frequencies(
+        &mut self,
+        in_sample_rate: f32,
+        out_center_frequencies: &mut TArray<f32>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_synesthesia::U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_CENTER_FREQUENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_sample_rate,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_center_frequencies,
+                __buffer.add(8).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_synesthesia::U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_CENTER_FREQUENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<TArray<f32>>().swap(out_center_frequencies);
         }
     }
 }

@@ -12,7 +12,6 @@ pub fn initialize() {}
 pub struct FInputChord {
     pub key: crate::bindings::input_core::FKey,
     pub flags_32: u8,
-    __padding_end: [u8; 7],
 }
 impl FInputChord {}
 #[repr(C, align(8))]

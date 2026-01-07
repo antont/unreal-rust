@@ -60,6 +60,93 @@ impl UAndroidFileServerBPLibrary {
             cdo
         }
     }
+    pub fn stop_file_server(b_usb: bool, b_network: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<3>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::android_file_server::U_ANDROID_FILE_SERVER_BP_LIBRARY_STOP_FILE_SERVER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_usb, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_network, __buffer.add(1).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::android_file_server::UAndroidFileServerBPLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::android_file_server::U_ANDROID_FILE_SERVER_BP_LIBRARY_STOP_FILE_SERVER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(2).cast::<bool>().read() }
+    }
+    pub fn start_file_server(b_usb: bool, b_network: bool, port: i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::android_file_server::U_ANDROID_FILE_SERVER_BP_LIBRARY_START_FILE_SERVER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_usb, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_network, __buffer.add(1).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&port, __buffer.add(4).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::android_file_server::UAndroidFileServerBPLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::android_file_server::U_ANDROID_FILE_SERVER_BP_LIBRARY_START_FILE_SERVER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn is_file_server_running() -> EAFSActiveType {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::android_file_server::U_ANDROID_FILE_SERVER_BP_LIBRARY_IS_FILE_SERVER_RUNNING,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::android_file_server::UAndroidFileServerBPLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::android_file_server::U_ANDROID_FILE_SERVER_BP_LIBRARY_IS_FILE_SERVER_RUNNING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EAFSActiveType>().read() }
+    }
 }
 #[repr(transparent)]
 pub struct EAFSActiveType(pub u8);

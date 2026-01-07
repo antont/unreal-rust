@@ -120,6 +120,143 @@ impl UEnhancedInputEditorSubsystem {
             cdo
         }
     }
+    pub fn stop_consuming_input(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_STOP_CONSUMING_INPUT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_STOP_CONSUMING_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn start_consuming_input(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_START_CONSUMING_INPUT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_START_CONSUMING_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn push_input_component(
+        &mut self,
+        in_input_component: UPtr<crate::bindings::engine::UInputComponent>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_PUSH_INPUT_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_component,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UInputComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_PUSH_INPUT_COMPONENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn pop_input_component(
+        &mut self,
+        in_input_component: UPtr<crate::bindings::engine::UInputComponent>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_POP_INPUT_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_component,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UInputComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_POP_INPUT_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn is_consuming_input(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_IS_CONSUMING_INPUT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_IS_CONSUMING_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInputMappingContext_Factory {

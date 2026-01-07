@@ -69,4 +69,167 @@ impl ULocalizableMessageLibrary {
             cdo
         }
     }
+    pub fn reset_localizable_message(
+        message: &mut crate::bindings::localizable_message::FLocalizableMessage,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_RESET_LOCALIZABLE_MESSAGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                message,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::localizable_message::FLocalizableMessage>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::localizable_message_blueprint::ULocalizableMessageLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_RESET_LOCALIZABLE_MESSAGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::localizable_message::FLocalizableMessage>()
+                .swap(message);
+        }
+    }
+    pub fn is_empty_localizable_message(
+        message: &crate::bindings::localizable_message::FLocalizableMessage,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_IS_EMPTY_LOCALIZABLE_MESSAGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                message,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::localizable_message::FLocalizableMessage>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::localizable_message_blueprint::ULocalizableMessageLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_IS_EMPTY_LOCALIZABLE_MESSAGE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn equal_equal_localizable_message(
+        a: &crate::bindings::localizable_message::FLocalizableMessage,
+        b: &crate::bindings::localizable_message::FLocalizableMessage,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_EQUAL_EQUAL_LOCALIZABLE_MESSAGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                a,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::localizable_message::FLocalizableMessage>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b,
+                __buffer
+                    .add(48)
+                    .cast::<crate::bindings::localizable_message::FLocalizableMessage>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::localizable_message_blueprint::ULocalizableMessageLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_EQUAL_EQUAL_LOCALIZABLE_MESSAGE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn conv_localizable_message_to_text(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        message: &crate::bindings::localizable_message::FLocalizableMessage,
+    ) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_CONV_LOCALIZABLE_MESSAGE_TO_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                message,
+                __buffer
+                    .add(8)
+                    .cast::<crate::bindings::localizable_message::FLocalizableMessage>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::localizable_message_blueprint::ULocalizableMessageLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_CONV_LOCALIZABLE_MESSAGE_TO_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<FText>().read() }
+    }
 }

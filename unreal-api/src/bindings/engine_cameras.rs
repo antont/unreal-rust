@@ -266,7 +266,6 @@ pub struct FFOscillator {
     #[doc(hidden)]
     __padding_9: [u8; 1],
     pub waveform: EOscillatorWaveform,
-    __padding_end: [u8; 2],
 }
 impl FFOscillator {}
 #[repr(C, align(4))]
@@ -294,7 +293,6 @@ pub struct FWaveOscillator {
     pub amplitude: f32,
     pub frequency: f32,
     pub initial_offset_type: EInitialWaveOscillatorOffsetType,
-    __padding_end: [u8; 3],
 }
 impl FWaveOscillator {}
 #[repr(C, align(8))]
@@ -317,6 +315,320 @@ impl UCameraAnimationCameraModifier {
             cdo
         }
     }
+    pub fn stop_camera_animation(
+        &mut self,
+        handle: &FCameraAnimationHandle,
+        b_immediate: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_CAMERA_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                handle,
+                __buffer.add(0).cast::<FCameraAnimationHandle>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_immediate,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_CAMERA_ANIMATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn stop_all_camera_animations_of(
+        &mut self,
+        sequence: UPtr<crate::bindings::template_sequence::UCameraAnimationSequence>,
+        b_immediate: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS_OF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sequence,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<
+                            crate::bindings::template_sequence::UCameraAnimationSequence,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_immediate,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS_OF,
+                __buffer,
+            )
+        };
+    }
+    pub fn stop_all_camera_animations(&mut self, b_immediate: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_immediate,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn play_camera_animation(
+        &mut self,
+        sequence: UPtr<crate::bindings::template_sequence::UCameraAnimationSequence>,
+        params: FCameraAnimationParams,
+    ) -> FCameraAnimationHandle {
+        let mut __stack = crate::core_data::StackAlloc::<84>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_PLAY_CAMERA_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sequence,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<
+                            crate::bindings::template_sequence::UCameraAnimationSequence,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &params,
+                __buffer.add(8).cast::<FCameraAnimationParams>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_PLAY_CAMERA_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(80).cast::<FCameraAnimationHandle>().read() }
+    }
+    pub fn is_camera_animation_active(&self, handle: &FCameraAnimationHandle) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_IS_CAMERA_ANIMATION_ACTIVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                handle,
+                __buffer.add(0).cast::<FCameraAnimationHandle>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_IS_CAMERA_ANIMATION_ACTIVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_camera_animation_camera_modifier_from_player_controller(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> UPtr<UCameraAnimationCameraModifier> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_PLAYER_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::engine_cameras::UCameraAnimationCameraModifier::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_PLAYER_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UCameraAnimationCameraModifier>>().read() }
+    }
+    pub fn get_camera_animation_camera_modifier_from_id(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        controller_id: i32,
+    ) -> UPtr<UCameraAnimationCameraModifier> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_ID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controller_id,
+                __buffer.add(8).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::engine_cameras::UCameraAnimationCameraModifier::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_ID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UCameraAnimationCameraModifier>>().read() }
+    }
+    pub fn get_camera_animation_camera_modifier(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_index: i32,
+    ) -> UPtr<UCameraAnimationCameraModifier> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_index,
+                __buffer.add(8).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::engine_cameras::UCameraAnimationCameraModifier::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UCameraAnimationCameraModifier>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UEngineCameraAnimationFunctionLibrary {
@@ -338,6 +650,112 @@ impl UEngineCameraAnimationFunctionLibrary {
             cdo
         }
     }
+    pub fn conv_camera_shake_play_space(
+        camera_animation_play_space: ECameraAnimationPlaySpace,
+    ) -> crate::bindings::engine::ECameraShakePlaySpace {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_SHAKE_PLAY_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_animation_play_space,
+                __buffer.add(0).cast::<ECameraAnimationPlaySpace>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::engine_cameras::UEngineCameraAnimationFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_SHAKE_PLAY_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(1)
+                .cast::<crate::bindings::engine::ECameraShakePlaySpace>()
+                .read()
+        }
+    }
+    pub fn conv_camera_animation_play_space(
+        camera_shake_play_space: crate::bindings::engine::ECameraShakePlaySpace,
+    ) -> ECameraAnimationPlaySpace {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_PLAY_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_shake_play_space,
+                __buffer.add(0).cast::<crate::bindings::engine::ECameraShakePlaySpace>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::engine_cameras::UEngineCameraAnimationFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_PLAY_SPACE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<ECameraAnimationPlaySpace>().read() }
+    }
+    pub fn conv_camera_animation_camera_modifier(
+        player_camera_manager: UPtr<crate::bindings::engine::APlayerCameraManager>,
+    ) -> UPtr<UCameraAnimationCameraModifier> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_CAMERA_MODIFIER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_camera_manager,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerCameraManager>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::engine_cameras::UEngineCameraAnimationFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_CAMERA_MODIFIER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UCameraAnimationCameraModifier>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UEngineCamerasSubsystem {
@@ -358,6 +776,259 @@ impl UEngineCamerasSubsystem {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn stop_camera_animation(
+        &mut self,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        handle: &FCameraAnimationHandle,
+        b_immediate: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_STOP_CAMERA_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                handle,
+                __buffer.add(8).cast::<FCameraAnimationHandle>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_immediate,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_STOP_CAMERA_ANIMATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn stop_all_camera_animations_of(
+        &mut self,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        sequence: UPtr<crate::bindings::template_sequence::UCameraAnimationSequence>,
+        b_immediate: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS_OF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sequence,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        UPtr<
+                            crate::bindings::template_sequence::UCameraAnimationSequence,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_immediate,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS_OF,
+                __buffer,
+            )
+        };
+    }
+    pub fn stop_all_camera_animations(
+        &mut self,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        b_immediate: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_immediate,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn play_camera_animation(
+        &mut self,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        sequence: UPtr<crate::bindings::template_sequence::UCameraAnimationSequence>,
+        params: FCameraAnimationParams,
+    ) -> FCameraAnimationHandle {
+        let mut __stack = crate::core_data::StackAlloc::<92>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_PLAY_CAMERA_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sequence,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        UPtr<
+                            crate::bindings::template_sequence::UCameraAnimationSequence,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &params,
+                __buffer.add(16).cast::<FCameraAnimationParams>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_PLAY_CAMERA_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(88).cast::<FCameraAnimationHandle>().read() }
+    }
+    pub fn is_camera_animation_active(
+        &self,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        handle: &FCameraAnimationHandle,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_IS_CAMERA_ANIMATION_ACTIVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                handle,
+                __buffer.add(8).cast::<FCameraAnimationHandle>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_IS_CAMERA_ANIMATION_ACTIVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -430,6 +1101,148 @@ impl ULegacyCameraShake {
             cdo
         }
     }
+    pub fn start_legacy_camera_shake_from_source(
+        player_camera_manager: UPtr<crate::bindings::engine::APlayerCameraManager>,
+        shake_class: TSubclassOf<ULegacyCameraShake>,
+        source_component: UPtr<crate::bindings::engine::UCameraShakeSourceComponent>,
+        scale: f32,
+        play_space: crate::bindings::engine::ECameraShakePlaySpace,
+        user_play_space_rot: crate::bindings::core_u_object::FRotator,
+    ) -> UPtr<ULegacyCameraShake> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE_FROM_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_camera_manager,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerCameraManager>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &shake_class,
+                __buffer.add(8).cast::<TSubclassOf<ULegacyCameraShake>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_component,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        UPtr<crate::bindings::engine::UCameraShakeSourceComponent>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&scale, __buffer.add(24).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &play_space,
+                __buffer
+                    .add(28)
+                    .cast::<crate::bindings::engine::ECameraShakePlaySpace>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &user_play_space_rot,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::engine_cameras::ULegacyCameraShake::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE_FROM_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<UPtr<ULegacyCameraShake>>().read() }
+    }
+    pub fn start_legacy_camera_shake(
+        player_camera_manager: UPtr<crate::bindings::engine::APlayerCameraManager>,
+        shake_class: TSubclassOf<ULegacyCameraShake>,
+        scale: f32,
+        play_space: crate::bindings::engine::ECameraShakePlaySpace,
+        user_play_space_rot: crate::bindings::core_u_object::FRotator,
+    ) -> UPtr<ULegacyCameraShake> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_camera_manager,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerCameraManager>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &shake_class,
+                __buffer.add(8).cast::<TSubclassOf<ULegacyCameraShake>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&scale, __buffer.add(16).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &play_space,
+                __buffer
+                    .add(20)
+                    .cast::<crate::bindings::engine::ECameraShakePlaySpace>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &user_play_space_rot,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::engine_cameras::ULegacyCameraShake::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<UPtr<ULegacyCameraShake>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct ULegacyCameraShakePattern {
@@ -471,6 +1284,41 @@ impl ULegacyCameraShakeFunctionLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn conv_legacy_camera_shake(
+        camera_shake: UPtr<crate::bindings::engine::UCameraShakeBase>,
+    ) -> UPtr<ULegacyCameraShake> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::U_LEGACY_CAMERA_SHAKE_FUNCTION_LIBRARY_CONV_LEGACY_CAMERA_SHAKE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_shake,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UCameraShakeBase>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::engine_cameras::ULegacyCameraShakeFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::U_LEGACY_CAMERA_SHAKE_FUNCTION_LIBRARY_CONV_LEGACY_CAMERA_SHAKE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<ULegacyCameraShake>>().read() }
     }
 }
 #[repr(C, align(8))]

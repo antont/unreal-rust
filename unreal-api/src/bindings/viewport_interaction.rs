@@ -367,7 +367,6 @@ pub fn initialize() {
 pub struct FViewportActionKeyInput {
     pub action_type: FName,
     pub event: crate::bindings::engine::EInputEvent,
-    __padding_end: [u8; 3],
 }
 impl FViewportActionKeyInput {}
 #[repr(C, align(8))]
@@ -410,6 +409,504 @@ impl UViewportInteractor {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_hit_result_gizmo_filter_mode(
+        &mut self,
+        new_filter: EHitResultGizmoFilterMode,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_SET_HIT_RESULT_GIZMO_FILTER_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_filter,
+                __buffer.add(0).cast::<EHitResultGizmoFilterMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_SET_HIT_RESULT_GIZMO_FILTER_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_dragging_mode(
+        &mut self,
+        new_dragging_mode: EViewportInteractionDraggingMode,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_SET_DRAGGING_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_dragging_mode,
+                __buffer.add(0).cast::<EViewportInteractionDraggingMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_SET_DRAGGING_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_can_carry(&mut self, b_in_can_carry: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_SET_CAN_CARRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_can_carry,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_SET_CAN_CARRY,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_hovering_over_gizmo(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_IS_HOVERING_OVER_GIZMO,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_IS_HOVERING_OVER_GIZMO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_world_interaction(&self) -> UPtr<UViewportWorldInteraction> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_WORLD_INTERACTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_WORLD_INTERACTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UViewportWorldInteraction>>().read() }
+    }
+    pub fn get_transform_and_forward_vector(
+        &self,
+        out_hand_transform: &mut crate::bindings::core_u_object::FTransform,
+        out_forward_vector: &mut crate::bindings::core_u_object::FVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<121>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_TRANSFORM_AND_FORWARD_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_hand_transform,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_forward_vector,
+                __buffer.add(96).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_TRANSFORM_AND_FORWARD_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FTransform>()
+                .swap(out_hand_transform);
+        }
+        unsafe {
+            __buffer
+                .add(96)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(out_forward_vector);
+        }
+        unsafe { __buffer.add(120).cast::<bool>().read() }
+    }
+    pub fn get_transform(&self) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_TRANSFORM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_room_space_transform(
+        &self,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_ROOM_SPACE_TRANSFORM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_ROOM_SPACE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_other_interactor(&self) -> UPtr<UViewportInteractor> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_OTHER_INTERACTOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_OTHER_INTERACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UViewportInteractor>>().read() }
+    }
+    pub fn get_last_transform(&self) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_LAST_TRANSFORM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_LAST_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_last_room_space_transform(
+        &self,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_LAST_ROOM_SPACE_TRANSFORM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_LAST_ROOM_SPACE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_laser_pointer(
+        &mut self,
+        laser_pointer_start: &mut crate::bindings::core_u_object::FVector,
+        laser_pointer_end: &mut crate::bindings::core_u_object::FVector,
+        b_even_if_blocked: bool,
+        laser_length_override: f32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_LASER_POINTER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                laser_pointer_start,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                laser_pointer_end,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_even_if_blocked,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &laser_length_override,
+                __buffer.add(52).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_LASER_POINTER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(laser_pointer_start);
+        }
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(laser_pointer_end);
+        }
+        unsafe { __buffer.add(56).cast::<bool>().read() }
+    }
+    pub fn get_hover_location(&mut self) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_HOVER_LOCATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_HOVER_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_hit_result_gizmo_filter_mode(&self) -> EHitResultGizmoFilterMode {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_HIT_RESULT_GIZMO_FILTER_MODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_HIT_RESULT_GIZMO_FILTER_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EHitResultGizmoFilterMode>().read() }
+    }
+    pub fn get_dragging_mode(&self) -> EViewportInteractionDraggingMode {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_DRAGGING_MODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_DRAGGING_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EViewportInteractionDraggingMode>().read() }
+    }
+    pub fn can_carry(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_CAN_CARRY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_CAN_CARRY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -936,6 +1433,358 @@ impl UViewportWorldInteraction {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_world_to_meters_scale(
+        &mut self,
+        new_world_to_meters_scale: f32,
+        b_compensate_room_world_scale: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_SET_WORLD_TO_METERS_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_world_to_meters_scale,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_compensate_room_world_scale,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_SET_WORLD_TO_METERS_SCALE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_room_transform_for_next_frame(
+        &mut self,
+        new_room_transform: &crate::bindings::core_u_object::FTransform,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_SET_ROOM_TRANSFORM_FOR_NEXT_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_room_transform,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_SET_ROOM_TRANSFORM_FOR_NEXT_FRAME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_head_transform(
+        &mut self,
+        new_head_transform: &crate::bindings::core_u_object::FTransform,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_SET_HEAD_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_head_transform,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_SET_HEAD_TRANSFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_interactor(&mut self, interactor: UPtr<UViewportInteractor>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_REMOVE_INTERACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interactor,
+                __buffer.add(0).cast::<UPtr<UViewportInteractor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_REMOVE_INTERACTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_world_scale_factor(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_WORLD_SCALE_FACTOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_WORLD_SCALE_FACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_transform_gizmo_actor(&mut self) -> UPtr<ABaseTransformGizmo> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_TRANSFORM_GIZMO_ACTOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_TRANSFORM_GIZMO_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<ABaseTransformGizmo>>().read() }
+    }
+    pub fn get_room_transform(&self) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_ROOM_TRANSFORM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_ROOM_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_room_space_head_transform(
+        &self,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_ROOM_SPACE_HEAD_TRANSFORM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_ROOM_SPACE_HEAD_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_interactors(&self) -> TArray<UPtr<UViewportInteractor>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_INTERACTORS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_INTERACTORS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<UViewportInteractor>>>().read() }
+    }
+    pub fn get_head_transform(&self) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_HEAD_TRANSFORM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_HEAD_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn add_interactor(&mut self, interactor: UPtr<UViewportInteractor>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_ADD_INTERACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interactor,
+                __buffer.add(0).cast::<UPtr<UViewportInteractor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_ADD_INTERACTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_actor_to_exclude_from_hit_tests(
+        &mut self,
+        actor_to_exclude_from_hit_tests: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_ADD_ACTOR_TO_EXCLUDE_FROM_HIT_TESTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor_to_exclude_from_hit_tests,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_ADD_ACTOR_TO_EXCLUDE_FROM_HIT_TESTS,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(transparent)]

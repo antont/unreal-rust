@@ -673,7 +673,6 @@ pub struct FPyTestStruct {
     #[doc(hidden)]
     __padding_342: [u8; 6],
     pub bool_mutable: bool,
-    __padding_end: [u8; 1],
 }
 impl FPyTestStruct {}
 #[repr(C, align(8))]
@@ -713,6 +712,33 @@ impl UPyTestInterface {
             cdo
         }
     }
+    pub fn func_interface(&self, in_value: i32) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_INTERFACE_FUNC_INTERFACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_INTERFACE_FUNC_INTERFACE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<i32>().read() }
+    }
 }
 pub struct IPyTestChildInterface {}
 #[repr(C, align(8))]
@@ -734,6 +760,33 @@ impl UPyTestChildInterface {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn func_interface_child(&self, in_value: i32) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_CHILD_INTERFACE_FUNC_INTERFACE_CHILD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_CHILD_INTERFACE_FUNC_INTERFACE_CHILD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<i32>().read() }
     }
 }
 pub struct IPyTestOtherInterface {}
@@ -757,6 +810,33 @@ impl UPyTestOtherInterface {
             cdo
         }
     }
+    pub fn func_interface_other(&self, in_value: i32) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OTHER_INTERFACE_FUNC_INTERFACE_OTHER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OTHER_INTERFACE_FUNC_INTERFACE_OTHER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<i32>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UEditorPythonScriptingLibrary {
@@ -777,6 +857,60 @@ impl UEditorPythonScriptingLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_keep_python_script_alive(b_new_keep_alive: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_EDITOR_PYTHON_SCRIPTING_LIBRARY_SET_KEEP_PYTHON_SCRIPT_ALIVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_new_keep_alive,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UEditorPythonScriptingLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_EDITOR_PYTHON_SCRIPTING_LIBRARY_SET_KEEP_PYTHON_SCRIPT_ALIVE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_keep_python_script_alive() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_EDITOR_PYTHON_SCRIPTING_LIBRARY_GET_KEEP_PYTHON_SCRIPT_ALIVE,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UEditorPythonScriptingLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_EDITOR_PYTHON_SCRIPTING_LIBRARY_GET_KEEP_PYTHON_SCRIPT_ALIVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -820,6 +954,324 @@ impl UPyTestStructLibrary {
             cdo
         }
     }
+    pub fn set_bool_mutable_via_ref(in_struct: &mut FPyTestStruct) {
+        let mut __stack = crate::core_data::StackAlloc::<344>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_SET_BOOL_MUTABLE_VIA_REF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_struct,
+                __buffer.add(0).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestStructLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_SET_BOOL_MUTABLE_VIA_REF,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FPyTestStruct>().swap(in_struct);
+        }
+    }
+    pub fn set_bool_mutable(in_struct: &FPyTestStruct) {
+        let mut __stack = crate::core_data::StackAlloc::<344>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_SET_BOOL_MUTABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_struct,
+                __buffer.add(0).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestStructLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_SET_BOOL_MUTABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn legacy_is_bool_set(in_struct: &FPyTestStruct) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<345>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_LEGACY_IS_BOOL_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_struct,
+                __buffer.add(0).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestStructLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_LEGACY_IS_BOOL_SET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(344).cast::<bool>().read() }
+    }
+    pub fn is_bool_set(in_struct: &FPyTestStruct) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<345>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_IS_BOOL_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_struct,
+                __buffer.add(0).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestStructLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_IS_BOOL_SET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(344).cast::<bool>().read() }
+    }
+    pub fn get_constant_value() -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_GET_CONSTANT_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestStructLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_GET_CONSTANT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn clear_bool_mutable_via_ref(in_struct: &mut FPyTestStruct) {
+        let mut __stack = crate::core_data::StackAlloc::<344>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_CLEAR_BOOL_MUTABLE_VIA_REF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_struct,
+                __buffer.add(0).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestStructLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_CLEAR_BOOL_MUTABLE_VIA_REF,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FPyTestStruct>().swap(in_struct);
+        }
+    }
+    pub fn clear_bool_mutable(in_struct: &FPyTestStruct) {
+        let mut __stack = crate::core_data::StackAlloc::<344>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_CLEAR_BOOL_MUTABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_struct,
+                __buffer.add(0).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestStructLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_CLEAR_BOOL_MUTABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_str(in_struct: &FPyTestStruct, in_value: FString) -> FPyTestStruct {
+        let mut __stack = crate::core_data::StackAlloc::<704>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_ADD_STR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_struct,
+                __buffer.add(0).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(344).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestStructLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_ADD_STR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(360).cast::<FPyTestStruct>().read() }
+    }
+    pub fn add_int(in_struct: &FPyTestStruct, in_value: i32) -> FPyTestStruct {
+        let mut __stack = crate::core_data::StackAlloc::<696>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_ADD_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_struct,
+                __buffer.add(0).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(344).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestStructLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_ADD_INT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(352).cast::<FPyTestStruct>().read() }
+    }
+    pub fn add_float(in_struct: &FPyTestStruct, in_value: f32) -> FPyTestStruct {
+        let mut __stack = crate::core_data::StackAlloc::<696>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_ADD_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_struct,
+                __buffer.add(0).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(344).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestStructLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_ADD_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(352).cast::<FPyTestStruct>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UPyTestObject {
@@ -860,6 +1312,533 @@ impl UPyTestObject {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn return_set() -> TSet<i32> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_SET,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestObject::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_SET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TSet<i32>>().read() }
+    }
+    pub fn return_map() -> TMap<i32, bool> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_MAP,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestObject::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_MAP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TMap<i32, bool>>().read() }
+    }
+    pub fn return_field_path() -> TFieldPath<FProperty> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_FIELD_PATH,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestObject::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_FIELD_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TFieldPath<FProperty>>().read() }
+    }
+    pub fn return_array() -> TArray<i32> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_ARRAY,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestObject::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<i32>>().read() }
+    }
+    pub fn multicast_delegate_property_callback(&self, in_str: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_MULTICAST_DELEGATE_PROPERTY_CALLBACK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_str, __buffer.add(0).cast::<FString>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_MULTICAST_DELEGATE_PROPERTY_CALLBACK,
+                __buffer,
+            )
+        };
+    }
+    pub fn legacy_func_taking_py_test_struct(&self, in_struct: &FPyTestStruct) {
+        let mut __stack = crate::core_data::StackAlloc::<344>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_LEGACY_FUNC_TAKING_PY_TEST_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_struct,
+                __buffer.add(0).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_LEGACY_FUNC_TAKING_PY_TEST_STRUCT,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_constant_value() -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_GET_CONSTANT_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestObject::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_GET_CONSTANT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn func_taking_py_test_struct_default(&mut self, in_struct: &FPyTestStruct) {
+        let mut __stack = crate::core_data::StackAlloc::<344>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_STRUCT_DEFAULT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_struct,
+                __buffer.add(0).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_STRUCT_DEFAULT,
+                __buffer,
+            )
+        };
+    }
+    pub fn func_taking_py_test_struct(&self, in_struct: &FPyTestStruct) {
+        let mut __stack = crate::core_data::StackAlloc::<344>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_struct,
+                __buffer.add(0).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_STRUCT,
+                __buffer,
+            )
+        };
+    }
+    pub fn func_taking_py_test_delegate(
+        &self,
+        in_delegate: &FFuncTakingPyTestDelegate_InDelegate,
+        in_value: i32,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_DELEGATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_delegate,
+                __buffer.add(0).cast::<FFuncTakingPyTestDelegate_InDelegate>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(32).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_DELEGATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(36).cast::<i32>().read() }
+    }
+    pub fn func_taking_py_test_child_struct(&self, in_struct: &FPyTestChildStruct) {
+        let mut __stack = crate::core_data::StackAlloc::<344>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_CHILD_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_struct,
+                __buffer.add(0).cast::<FPyTestChildStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_CHILD_STRUCT,
+                __buffer,
+            )
+        };
+    }
+    pub fn func_taking_field_path(&mut self, in_field_path: &TFieldPath<FProperty>) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_FIELD_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_field_path,
+                __buffer.add(0).cast::<TFieldPath<FProperty>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_FIELD_PATH,
+                __buffer,
+            )
+        };
+    }
+    pub fn emit_script_warning() {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_EMIT_SCRIPT_WARNING,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestObject::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_EMIT_SCRIPT_WARNING,
+                __buffer,
+            )
+        };
+    }
+    pub fn emit_script_error() {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_EMIT_SCRIPT_ERROR,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestObject::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_EMIT_SCRIPT_ERROR,
+                __buffer,
+            )
+        };
+    }
+    pub fn delegate_property_callback(&self, in_value: i32) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_DELEGATE_PROPERTY_CALLBACK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_DELEGATE_PROPERTY_CALLBACK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<i32>().read() }
+    }
+    pub fn call_func_blueprint_native_ref(&self, in_out_struct: &mut FPyTestStruct) {
+        let mut __stack = crate::core_data::StackAlloc::<344>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_NATIVE_REF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_out_struct,
+                __buffer.add(0).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_NATIVE_REF,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FPyTestStruct>().swap(in_out_struct);
+        }
+    }
+    pub fn call_func_blueprint_native(&self, in_value: i32) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_NATIVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_NATIVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<i32>().read() }
+    }
+    pub fn call_func_blueprint_implementable_packed_getter(
+        &self,
+        out_value: &mut i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_IMPLEMENTABLE_PACKED_GETTER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(out_value, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_IMPLEMENTABLE_PACKED_GETTER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(out_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn call_func_blueprint_implementable(&self, in_value: i32) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_IMPLEMENTABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_IMPLEMENTABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<i32>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -923,6 +1902,61 @@ impl UPyTestObjectLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn is_bool_set(in_obj: UPtr<UPyTestObject>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_LIBRARY_IS_BOOL_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_obj,
+                __buffer.add(0).cast::<UPtr<UPyTestObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestObjectLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_LIBRARY_IS_BOOL_SET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_other_constant_value() -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_LIBRARY_GET_OTHER_CONSTANT_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestObjectLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_LIBRARY_GET_OTHER_CONSTANT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -1008,6 +2042,720 @@ impl UPyTestTypeHint {
             cdo
         }
     }
+    pub fn get_string_const() -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_GET_STRING_CONST,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestTypeHint::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_GET_STRING_CONST,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_int_const() -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_GET_INT_CONST,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestTypeHint::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_GET_INT_CONST,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn check_tuple_return_type(in_out_string: &mut FString) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_TUPLE_RETURN_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_out_string,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestTypeHint::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_TUPLE_RETURN_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(in_out_string);
+        }
+        unsafe { __buffer.add(16).cast::<i32>().read() }
+    }
+    pub fn check_text_type_hints(&mut self, param1: &FText, param2: &FText) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_TEXT_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(param1, __buffer.add(0).cast::<FText>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(param2, __buffer.add(16).cast::<FText>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_TEXT_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FText>().read() }
+    }
+    pub fn check_struct_type_hints(
+        &mut self,
+        param1: &FPyTestStruct,
+        param2: &FPyTestStruct,
+    ) -> FPyTestStruct {
+        let mut __stack = crate::core_data::StackAlloc::<1032>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_STRUCT_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                param1,
+                __buffer.add(0).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                param2,
+                __buffer.add(344).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_STRUCT_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(688).cast::<FPyTestStruct>().read() }
+    }
+    pub fn check_string_type_hints(
+        &mut self,
+        param1: FString,
+        param2: FString,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_STRING_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&param1, __buffer.add(0).cast::<FString>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &param2,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_STRING_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FString>().read() }
+    }
+    pub fn check_static_function(
+        param1: bool,
+        param2: i32,
+        param3: f64,
+        param4: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_STATIC_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&param1, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&param2, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&param3, __buffer.add(8).cast::<f64>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &param4,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestTypeHint::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_STATIC_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn check_set_type_hints(
+        &mut self,
+        param1: &TSet<FString>,
+        param2: &TSet<FName>,
+        param3: &TSet<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) -> TSet<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<320>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_SET_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                param1,
+                __buffer.add(0).cast::<TSet<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                param2,
+                __buffer.add(80).cast::<TSet<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                param3,
+                __buffer
+                    .add(160)
+                    .cast::<TSet<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_SET_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(240).cast::<TSet<FName>>().read() }
+    }
+    pub fn check_object_type_hints(
+        &mut self,
+        param1: UPtr<UPyTestObject>,
+        param4: UPtr<UPyTestObject>,
+    ) -> UPtr<UPyTestObject> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_OBJECT_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &param1,
+                __buffer.add(0).cast::<UPtr<UPyTestObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &param4,
+                __buffer.add(8).cast::<UPtr<UPyTestObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_OBJECT_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UPyTestObject>>().read() }
+    }
+    pub fn check_name_type_hints(&mut self, param1: &FName, param2: &FName) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_NAME_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(param1, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(param2, __buffer.add(12).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_NAME_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FName>().read() }
+    }
+    pub fn check_map_type_hints(
+        &mut self,
+        param1: &TMap<i32, FString>,
+        param2: &TMap<i32, FName>,
+        param3: &TMap<i32, FText>,
+        param4: &TMap<i32, UPtr<crate::bindings::core_u_object::UObject>>,
+    ) -> TMap<FString, UPtr<crate::bindings::core_u_object::UObject>> {
+        let mut __stack = crate::core_data::StackAlloc::<400>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_MAP_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                param1,
+                __buffer.add(0).cast::<TMap<i32, FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                param2,
+                __buffer.add(80).cast::<TMap<i32, FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                param3,
+                __buffer.add(160).cast::<TMap<i32, FText>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                param4,
+                __buffer
+                    .add(240)
+                    .cast::<TMap<i32, UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_MAP_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(320)
+                .cast::<TMap<FString, UPtr<crate::bindings::core_u_object::UObject>>>()
+                .read()
+        }
+    }
+    pub fn check_integer_type_hints(
+        &mut self,
+        param1: u8,
+        param2: i32,
+        param3: i64,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_INTEGER_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&param1, __buffer.add(0).cast::<u8>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&param2, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&param3, __buffer.add(8).cast::<i64>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_INTEGER_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<i32>().read() }
+    }
+    pub fn check_float_type_hints(
+        &mut self,
+        param1: f32,
+        param2: f64,
+        param3: f32,
+        param4: f64,
+    ) -> f64 {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_FLOAT_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&param1, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&param2, __buffer.add(8).cast::<f64>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&param3, __buffer.add(16).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&param4, __buffer.add(24).cast::<f64>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_FLOAT_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<f64>().read() }
+    }
+    pub fn check_field_path_type_hints(
+        &mut self,
+        param1: TFieldPath<FProperty>,
+    ) -> TFieldPath<FProperty> {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_FIELD_PATH_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &param1,
+                __buffer.add(0).cast::<TFieldPath<FProperty>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_FIELD_PATH_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<TFieldPath<FProperty>>().read() }
+    }
+    pub fn check_enum_type_hints(
+        &mut self,
+        param1: EPyTestEnum,
+        param2: EPyTestEnum,
+    ) -> EPyTestEnum {
+        let mut __stack = crate::core_data::StackAlloc::<3>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_ENUM_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &param1,
+                __buffer.add(0).cast::<EPyTestEnum>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &param2,
+                __buffer.add(1).cast::<EPyTestEnum>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_ENUM_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(2).cast::<EPyTestEnum>().read() }
+    }
+    pub fn check_delegate_type_hints(
+        &mut self,
+        param1: &FCheckDelegateTypeHints_Param1,
+    ) -> FCheckDelegateTypeHints_ReturnValue {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_DELEGATE_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                param1,
+                __buffer.add(0).cast::<FCheckDelegateTypeHints_Param1>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_DELEGATE_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FCheckDelegateTypeHints_ReturnValue>().read() }
+    }
+    pub fn check_bool_type_hints(
+        &mut self,
+        b_param1: bool,
+        b_param2: bool,
+        b_param3: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_BOOL_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_param1, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_param2, __buffer.add(1).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_param3, __buffer.add(2).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_BOOL_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(3).cast::<bool>().read() }
+    }
+    pub fn check_array_type_hints(
+        &mut self,
+        param1: &TArray<FString>,
+        param2: &TArray<FName>,
+        param3: &TArray<FText>,
+        param4: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) -> TArray<FText> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_ARRAY_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                param1,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                param2,
+                __buffer.add(16).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                param3,
+                __buffer.add(32).cast::<TArray<FText>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                param4,
+                __buffer
+                    .add(48)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_ARRAY_TYPE_HINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<TArray<FText>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UPythonOnlineDocsCommandlet {
@@ -1070,6 +2818,253 @@ impl UPythonScriptLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn is_python_initialized() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_INITIALIZED,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPythonScriptLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_INITIALIZED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_python_configured() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_CONFIGURED,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPythonScriptLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_CONFIGURED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_python_available() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_AVAILABLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPythonScriptLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_AVAILABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn force_enable_python_at_runtime() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_FORCE_ENABLE_PYTHON_AT_RUNTIME,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPythonScriptLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_FORCE_ENABLE_PYTHON_AT_RUNTIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn execute_python_script(
+        python_script: FString,
+        python_inputs: &TArray<FString>,
+        python_outputs: &TArray<FString>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_SCRIPT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &python_script,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                python_inputs,
+                __buffer.add(16).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                python_outputs,
+                __buffer.add(32).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UPythonScriptLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_SCRIPT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn execute_python_command_ex(
+        python_command: FString,
+        command_result: &mut FString,
+        log_output: &mut TArray<FPythonLogOutputEntry>,
+        execution_mode: EPythonCommandExecutionMode,
+        file_execution_scope: EPythonFileExecutionScope,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<51>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_COMMAND_EX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &python_command,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                command_result,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                log_output,
+                __buffer.add(32).cast::<TArray<FPythonLogOutputEntry>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &execution_mode,
+                __buffer.add(48).cast::<EPythonCommandExecutionMode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &file_execution_scope,
+                __buffer.add(49).cast::<EPythonFileExecutionScope>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UPythonScriptLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_COMMAND_EX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FString>().swap(command_result);
+        }
+        unsafe {
+            __buffer.add(32).cast::<TArray<FPythonLogOutputEntry>>().swap(log_output);
+        }
+        unsafe { __buffer.add(50).cast::<bool>().read() }
+    }
+    pub fn execute_python_command(python_command: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_COMMAND,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &python_command,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::python_script_plugin::UPythonScriptLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_COMMAND,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]

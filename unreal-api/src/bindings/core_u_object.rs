@@ -37,7 +37,6 @@ pub struct FBox {
     pub min: FVector,
     pub max: FVector,
     pub is_valid: bool,
-    __padding_end: [u8; 7],
 }
 impl FBox {}
 #[repr(C, align(8))]
@@ -52,7 +51,6 @@ pub struct FBox2D {
     pub min: FVector2D,
     pub max: FVector2D,
     pub b_is_valid: bool,
-    __padding_end: [u8; 7],
 }
 impl FBox2D {}
 #[repr(C, align(8))]
@@ -192,7 +190,6 @@ pub struct FInterpCurvePointFloat {
     pub arrive_tangent: f32,
     pub leave_tangent: f32,
     pub interp_mode: EInterpCurveMode,
-    __padding_end: [u8; 3],
 }
 impl FInterpCurvePointFloat {}
 #[repr(C, align(8))]
@@ -209,7 +206,6 @@ pub struct FInterpCurvePointLinearColor {
     pub arrive_tangent: FLinearColor,
     pub leave_tangent: FLinearColor,
     pub interp_mode: EInterpCurveMode,
-    __padding_end: [u8; 3],
 }
 impl FInterpCurvePointLinearColor {}
 #[repr(C, align(4))]
@@ -227,7 +223,6 @@ pub struct FInterpCurvePointQuat {
     pub arrive_tangent: FQuat,
     pub leave_tangent: FQuat,
     pub interp_mode: EInterpCurveMode,
-    __padding_end: [u8; 15],
 }
 impl FInterpCurvePointQuat {}
 #[repr(C, align(16))]
@@ -245,7 +240,6 @@ pub struct FInterpCurvePointTwoVectors {
     pub arrive_tangent: FTwoVectors,
     pub leave_tangent: FTwoVectors,
     pub interp_mode: EInterpCurveMode,
-    __padding_end: [u8; 7],
 }
 impl FInterpCurvePointTwoVectors {}
 #[repr(C, align(8))]
@@ -261,7 +255,6 @@ pub struct FInterpCurvePointVector {
     pub arrive_tangent: FVector,
     pub leave_tangent: FVector,
     pub interp_mode: EInterpCurveMode,
-    __padding_end: [u8; 7],
 }
 impl FInterpCurvePointVector {}
 #[repr(C, align(8))]
@@ -271,7 +264,6 @@ pub struct FInterpCurvePointVector2D {
     pub arrive_tangent: FVector2D,
     pub leave_tangent: FVector2D,
     pub interp_mode: EInterpCurveMode,
-    __padding_end: [u8; 7],
 }
 impl FInterpCurvePointVector2D {}
 #[repr(C, align(8))]
@@ -385,7 +377,6 @@ impl FPackedRemoteObjectPathName {}
 pub struct FPlatformInputDeviceState {
     pub owning_platform_user: FPlatformUserId,
     pub connection_state: EInputDeviceConnectionState,
-    __padding_end: [u8; 3],
 }
 impl FPlatformInputDeviceState {}
 #[repr(C, align(4))]
@@ -499,7 +490,6 @@ pub struct FTimecode {
     pub frames: i32,
     pub subframe: f32,
     pub b_drop_frame_format: bool,
-    __padding_end: [u8; 3],
 }
 impl FTimecode {}
 #[repr(C, align(8))]
@@ -514,7 +504,6 @@ pub struct FTransform {
     #[doc(hidden)]
     __padding_64: [u8; 8],
     pub scale3_d: FVector,
-    __padding_end: [u8; 8],
 }
 impl FTransform {}
 #[repr(C, align(16))]

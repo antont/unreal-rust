@@ -228,7 +228,6 @@ pub struct UCurveEditorGaussianFilter {
     #[doc(hidden)]
     __padding_48: [u8; 48],
     pub gaussian_params: FGaussianParams,
-    __padding_end: [u8; 4],
 }
 impl UCurveEditorGaussianFilter {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -277,7 +276,6 @@ pub struct UCurveEditorSmartReduceFilter {
     #[doc(hidden)]
     __padding_48: [u8; 48],
     pub smart_reduce_params: FSmartReduceParams,
-    __padding_end: [u8; 4],
 }
 impl UCurveEditorSmartReduceFilter {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

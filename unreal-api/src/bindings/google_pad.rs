@@ -186,6 +186,502 @@ impl UGooglePADFunctionLibrary {
             cdo
         }
     }
+    pub fn show_confirmation_dialog() -> EGooglePADErrorCode {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CONFIRMATION_DIALOG,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CONFIRMATION_DIALOG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EGooglePADErrorCode>().read() }
+    }
+    pub fn show_cellular_data_confirmation() -> EGooglePADErrorCode {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CELLULAR_DATA_CONFIRMATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CELLULAR_DATA_CONFIRMATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EGooglePADErrorCode>().read() }
+    }
+    pub fn request_removal(name: FString) -> EGooglePADErrorCode {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_REMOVAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&name, __buffer.add(0).cast::<FString>(), 1);
+        }
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_REMOVAL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<EGooglePADErrorCode>().read() }
+    }
+    pub fn request_info(asset_packs: TArray<FString>) -> EGooglePADErrorCode {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_INFO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_packs,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_INFO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<EGooglePADErrorCode>().read() }
+    }
+    pub fn request_download(asset_packs: TArray<FString>) -> EGooglePADErrorCode {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_DOWNLOAD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_packs,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_DOWNLOAD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<EGooglePADErrorCode>().read() }
+    }
+    pub fn release_download_state(state: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_DOWNLOAD_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&state, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_DOWNLOAD_STATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn release_asset_pack_location(location: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_ASSET_PACK_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&location, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_ASSET_PACK_LOCATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_total_bytes_to_download(state: i32) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_TOTAL_BYTES_TO_DOWNLOAD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&state, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_TOTAL_BYTES_TO_DOWNLOAD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<i32>().read() }
+    }
+    pub fn get_storage_method(location: i32) -> EGooglePADStorageMethod {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_STORAGE_METHOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&location, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_STORAGE_METHOD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<EGooglePADStorageMethod>().read() }
+    }
+    pub fn get_show_confirmation_dialog_status(
+        status: &mut EGooglePADConfirmationDialogStatus,
+    ) -> EGooglePADErrorCode {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CONFIRMATION_DIALOG_STATUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                status,
+                __buffer.add(0).cast::<EGooglePADConfirmationDialogStatus>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CONFIRMATION_DIALOG_STATUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<EGooglePADConfirmationDialogStatus>().swap(status);
+        }
+        unsafe { __buffer.add(1).cast::<EGooglePADErrorCode>().read() }
+    }
+    pub fn get_show_cellular_data_confirmation_status(
+        status: &mut EGooglePADCellularDataConfirmStatus,
+    ) -> EGooglePADErrorCode {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CELLULAR_DATA_CONFIRMATION_STATUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                status,
+                __buffer.add(0).cast::<EGooglePADCellularDataConfirmStatus>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CELLULAR_DATA_CONFIRMATION_STATUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<EGooglePADCellularDataConfirmStatus>().swap(status);
+        }
+        unsafe { __buffer.add(1).cast::<EGooglePADErrorCode>().read() }
+    }
+    pub fn get_download_status(state: i32) -> EGooglePADDownloadStatus {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&state, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATUS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<EGooglePADDownloadStatus>().read() }
+    }
+    pub fn get_download_state(name: FString, state: &mut i32) -> EGooglePADErrorCode {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&name, __buffer.add(0).cast::<FString>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(state, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<i32>().swap(state);
+        }
+        unsafe { __buffer.add(20).cast::<EGooglePADErrorCode>().read() }
+    }
+    pub fn get_bytes_downloaded(state: i32) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_BYTES_DOWNLOADED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&state, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_BYTES_DOWNLOADED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<i32>().read() }
+    }
+    pub fn get_assets_path(location: i32) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSETS_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&location, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSETS_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FString>().read() }
+    }
+    pub fn get_asset_pack_location(
+        name: FString,
+        location: &mut i32,
+    ) -> EGooglePADErrorCode {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSET_PACK_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&name, __buffer.add(0).cast::<FString>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(location, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSET_PACK_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<i32>().swap(location);
+        }
+        unsafe { __buffer.add(20).cast::<EGooglePADErrorCode>().read() }
+    }
+    pub fn cancel_download(asset_packs: TArray<FString>) -> EGooglePADErrorCode {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_CANCEL_DOWNLOAD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_packs,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::google_pad::UGooglePADFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_CANCEL_DOWNLOAD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<EGooglePADErrorCode>().read() }
+    }
 }
 #[repr(transparent)]
 pub struct EGooglePADErrorCode(pub u8);

@@ -273,6 +273,93 @@ impl UComputeGraphComponent {
             cdo
         }
     }
+    pub fn queue_execute(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::compute_framework::U_COMPUTE_GRAPH_COMPONENT_QUEUE_EXECUTE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::compute_framework::U_COMPUTE_GRAPH_COMPONENT_QUEUE_EXECUTE,
+                __buffer,
+            )
+        };
+    }
+    pub fn destroy_data_providers(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::compute_framework::U_COMPUTE_GRAPH_COMPONENT_DESTROY_DATA_PROVIDERS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::compute_framework::U_COMPUTE_GRAPH_COMPONENT_DESTROY_DATA_PROVIDERS,
+                __buffer,
+            )
+        };
+    }
+    pub fn create_data_providers(
+        &mut self,
+        in_binding_index: i32,
+        in_binding_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::compute_framework::U_COMPUTE_GRAPH_COMPONENT_CREATE_DATA_PROVIDERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_binding_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_binding_object,
+                __buffer.add(8).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::compute_framework::U_COMPUTE_GRAPH_COMPONENT_CREATE_DATA_PROVIDERS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UComputeGraphFromText {
@@ -300,7 +387,6 @@ pub struct UComputeKernel {
     #[doc(hidden)]
     __padding_56: [u8; 56],
     pub kernel_flags: i32,
-    __padding_end: [u8; 4],
 }
 impl UComputeKernel {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

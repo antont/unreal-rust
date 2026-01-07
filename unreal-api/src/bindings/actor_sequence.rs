@@ -92,6 +92,98 @@ impl UActorSequenceComponent {
             cdo
         }
     }
+    pub fn stop_sequence(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_STOP_SEQUENCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_STOP_SEQUENCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn play_sequence_reverse(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_PLAY_SEQUENCE_REVERSE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_PLAY_SEQUENCE_REVERSE,
+                __buffer,
+            )
+        };
+    }
+    pub fn play_sequence(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_PLAY_SEQUENCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_PLAY_SEQUENCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn pause_sequence(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_PAUSE_SEQUENCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_PAUSE_SEQUENCE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UActorSequencePlayer {

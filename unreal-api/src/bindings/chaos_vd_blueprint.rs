@@ -78,4 +78,272 @@ impl UChaosVDRuntimeBlueprintLibrary {
             cdo
         }
     }
+    pub fn set_trace_relevancy_volume(
+        world_context: UPtr<crate::bindings::core_u_object::UObject>,
+        relevancy_volume: &crate::bindings::core_u_object::FBox,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_SET_TRACE_RELEVANCY_VOLUME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                relevancy_volume,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FBox>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::chaos_vd_blueprint::UChaosVDRuntimeBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_SET_TRACE_RELEVANCY_VOLUME,
+                __buffer,
+            )
+        };
+    }
+    pub fn record_debug_draw_vector(
+        world_context: UPtr<crate::bindings::core_u_object::UObject>,
+        in_start_location: &crate::bindings::core_u_object::FVector,
+        in_vector: &crate::bindings::core_u_object::FVector,
+        tag: FName,
+        color: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<84>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_start_location,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_vector,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tag, __buffer.add(56).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &color,
+                __buffer.add(68).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::chaos_vd_blueprint::UChaosVDRuntimeBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_VECTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn record_debug_draw_sphere(
+        world_context: UPtr<crate::bindings::core_u_object::UObject>,
+        in_center: &crate::bindings::core_u_object::FVector,
+        radius: f32,
+        tag: FName,
+        color: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_SPHERE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_center,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius, __buffer.add(32).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tag, __buffer.add(36).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &color,
+                __buffer.add(48).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::chaos_vd_blueprint::UChaosVDRuntimeBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_SPHERE,
+                __buffer,
+            )
+        };
+    }
+    pub fn record_debug_draw_line(
+        world_context: UPtr<crate::bindings::core_u_object::UObject>,
+        in_start_location: &crate::bindings::core_u_object::FVector,
+        in_end_location: &crate::bindings::core_u_object::FVector,
+        tag: FName,
+        color: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<84>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_LINE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_start_location,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_end_location,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tag, __buffer.add(56).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &color,
+                __buffer.add(68).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::chaos_vd_blueprint::UChaosVDRuntimeBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_LINE,
+                __buffer,
+            )
+        };
+    }
+    pub fn record_debug_draw_box(
+        world_context: UPtr<crate::bindings::core_u_object::UObject>,
+        in_box: &crate::bindings::core_u_object::FBox,
+        tag: FName,
+        color: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<92>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_BOX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_box,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FBox>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tag, __buffer.add(64).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &color,
+                __buffer.add(76).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::chaos_vd_blueprint::UChaosVDRuntimeBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_BOX,
+                __buffer,
+            )
+        };
+    }
 }

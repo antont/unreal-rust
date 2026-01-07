@@ -115,7 +115,6 @@ pub struct FRigUnit_GetLengthControlRigSpline {
     __padding_8: [u8; 8],
     pub spline: FControlRigSpline,
     pub length: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_GetLengthControlRigSpline {}
 #[repr(C, align(8))]
@@ -211,7 +210,6 @@ pub struct FRigUnit_ClosestParameterFromControlRigSpline {
     pub spline: FControlRigSpline,
     pub position: crate::bindings::core_u_object::FVector,
     pub u: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_ClosestParameterFromControlRigSpline {}
 #[repr(C, align(8))]

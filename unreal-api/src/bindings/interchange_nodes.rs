@@ -3267,7 +3267,6 @@ pub fn initialize() {
 pub struct FInterchangeAnimationPayLoadKey {
     pub unique_id: FString,
     pub ty: EInterchangeAnimationPayLoadType,
-    __padding_end: [u8; 7],
 }
 impl FInterchangeAnimationPayLoadKey {}
 #[repr(C, align(8))]
@@ -3304,6 +3303,266 @@ impl UInterchangePhysicalCameraNode {
             cdo
         }
     }
+    pub fn set_custom_sensor_width(&mut self, attribute_value: &f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_SENSOR_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_SENSOR_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_sensor_height(&mut self, attribute_value: &f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_SENSOR_HEIGHT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_SENSOR_HEIGHT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_focal_length(&mut self, attribute_value: &f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_FOCAL_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_FOCAL_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_enable_depth_of_field(&mut self, attribute_value: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_ENABLE_DEPTH_OF_FIELD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_ENABLE_DEPTH_OF_FIELD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_sensor_width(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_SENSOR_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_SENSOR_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_sensor_height(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_SENSOR_HEIGHT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_SENSOR_HEIGHT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_focal_length(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_FOCAL_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_FOCAL_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_enable_depth_of_field(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_ENABLE_DEPTH_OF_FIELD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_ENABLE_DEPTH_OF_FIELD,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeStandardCameraNode {
@@ -3325,6 +3584,405 @@ impl UInterchangeStandardCameraNode {
             cdo
         }
     }
+    pub fn set_custom_width(&mut self, attribute_value: &f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_projection_mode(
+        &mut self,
+        attribute_value: &EInterchangeCameraProjectionType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_PROJECTION_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EInterchangeCameraProjectionType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_PROJECTION_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_near_clip_plane(&mut self, attribute_value: &f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_NEAR_CLIP_PLANE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_NEAR_CLIP_PLANE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_field_of_view(&mut self, attribute_value: &f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_FIELD_OF_VIEW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_FIELD_OF_VIEW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_far_clip_plane(&mut self, attribute_value: &f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_FAR_CLIP_PLANE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_FAR_CLIP_PLANE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_aspect_ratio(&mut self, attribute_value: &f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_width(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_projection_mode(
+        &self,
+        attribute_value: &mut EInterchangeCameraProjectionType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_PROJECTION_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EInterchangeCameraProjectionType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_PROJECTION_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<EInterchangeCameraProjectionType>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_near_clip_plane(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_NEAR_CLIP_PLANE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_NEAR_CLIP_PLANE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_field_of_view(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_FIELD_OF_VIEW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_FIELD_OF_VIEW,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_far_clip_plane(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_FAR_CLIP_PLANE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_FAR_CLIP_PLANE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_aspect_ratio(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeShaderNode {
@@ -3345,6 +4003,221 @@ impl UInterchangeShaderNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_custom_shader_type(&mut self, attribute_value: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_SET_CUSTOM_SHADER_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_SET_CUSTOM_SHADER_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_shader_type(&self, attribute_value: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_GET_CUSTOM_SHADER_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_GET_CUSTOM_SHADER_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn add_string_input(
+        &mut self,
+        input_name: FString,
+        attribute_value: FString,
+        b_is_a_parameter: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<34>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_ADD_STRING_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_a_parameter,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_ADD_STRING_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(33).cast::<bool>().read() }
+    }
+    pub fn add_linear_color_input(
+        &mut self,
+        input_name: FString,
+        attribute_value: &crate::bindings::core_u_object::FLinearColor,
+        b_is_a_parameter: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<34>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_ADD_LINEAR_COLOR_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_a_parameter,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_ADD_LINEAR_COLOR_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(33).cast::<bool>().read() }
+    }
+    pub fn add_float_input(
+        &mut self,
+        input_name: FString,
+        attribute_value: &f32,
+        b_is_a_parameter: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<22>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_ADD_FLOAT_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_a_parameter,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_ADD_FLOAT_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(21).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3388,6 +4261,216 @@ impl UInterchangeDecalNode {
             cdo
         }
     }
+    pub fn set_custom_sort_order(&mut self, attribute_value: &i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_SORT_ORDER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_SORT_ORDER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_decal_size(
+        &mut self,
+        attribute_value: &crate::bindings::core_u_object::FVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_DECAL_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_DECAL_SIZE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn set_custom_decal_material_path_name(
+        &mut self,
+        attribute_value: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_DECAL_MATERIAL_PATH_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_DECAL_MATERIAL_PATH_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_sort_order(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_SORT_ORDER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_SORT_ORDER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_decal_size(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_DECAL_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_DECAL_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn get_custom_decal_material_path_name(
+        &self,
+        attribute_value: &mut FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_DECAL_MATERIAL_PATH_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_DECAL_MATERIAL_PATH_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeTextureNode {
@@ -3408,6 +4491,314 @@ impl UInterchangeTextureNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_pay_load_key(&mut self, payload_key: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_PAY_LOAD_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &payload_key,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_PAY_LOAD_KEY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_custom_srgb(&mut self, attribute_value: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_SRGB,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_SRGB,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_filter(
+        &mut self,
+        attribute_value: &EInterchangeTextureFilterMode,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_FILTER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EInterchangeTextureFilterMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_FILTER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_color_space(
+        &mut self,
+        attribute_value: &EInterchangeTextureColorSpace,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_COLOR_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EInterchangeTextureColorSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_COLOR_SPACE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_customb_flip_green_channel(&mut self, attribute_value: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOMB_FLIP_GREEN_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOMB_FLIP_GREEN_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_srgb(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_SRGB,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_SRGB,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_filter(
+        &self,
+        attribute_value: &mut EInterchangeTextureFilterMode,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_FILTER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EInterchangeTextureFilterMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_FILTER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<EInterchangeTextureFilterMode>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_color_space(
+        &self,
+        attribute_value: &mut EInterchangeTextureColorSpace,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_COLOR_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EInterchangeTextureColorSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_COLOR_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<EInterchangeTextureColorSpace>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_customb_flip_green_channel(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOMB_FLIP_GREEN_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOMB_FLIP_GREEN_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3535,6 +4926,239 @@ impl UInterchangeAnimationTrackSetNode {
             cdo
         }
     }
+    pub fn set_custom_frame_rate(&mut self, attribute_value: &f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_SET_CUSTOM_FRAME_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_SET_CUSTOM_FRAME_RATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn remove_custom_animation_track_uid(
+        &mut self,
+        animation_track_uid: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_REMOVE_CUSTOM_ANIMATION_TRACK_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &animation_track_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_REMOVE_CUSTOM_ANIMATION_TRACK_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_frame_rate(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_FRAME_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_FRAME_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_animation_track_uids(
+        &self,
+        out_animation_track_uids: &mut TArray<FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_animation_track_uids,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(out_animation_track_uids);
+        }
+    }
+    pub fn get_custom_animation_track_uid_count(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UID_COUNT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UID_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_custom_animation_track_uid(
+        &self,
+        index: i32,
+        out_animation_track_uid: &mut FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_animation_track_uid,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<FString>().swap(out_animation_track_uid);
+        }
+    }
+    pub fn add_custom_animation_track_uid(
+        &mut self,
+        animation_track_uid: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_ADD_CUSTOM_ANIMATION_TRACK_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &animation_track_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_ADD_CUSTOM_ANIMATION_TRACK_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeAnimationTrackBaseNode {
@@ -3555,6 +5179,71 @@ impl UInterchangeAnimationTrackBaseNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_custom_completion_mode(&mut self, attribute_value: &i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_BASE_NODE_SET_CUSTOM_COMPLETION_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_BASE_NODE_SET_CUSTOM_COMPLETION_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_completion_mode(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_BASE_NODE_GET_CUSTOM_COMPLETION_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_BASE_NODE_GET_CUSTOM_COMPLETION_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3577,6 +5266,272 @@ impl UInterchangeAnimationTrackSetInstanceNode {
             cdo
         }
     }
+    pub fn set_custom_track_set_dependency_uid(
+        &mut self,
+        attribute_value: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_TRACK_SET_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_TRACK_SET_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_custom_time_scale(&mut self, attribute_value: &f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_TIME_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_TIME_SCALE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_start_frame(&mut self, attribute_value: &i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_START_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_START_FRAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_duration(&mut self, attribute_value: &i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_DURATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_DURATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_track_set_dependency_uid(
+        &self,
+        attribute_value: &mut FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_TRACK_SET_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_TRACK_SET_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_time_scale(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_TIME_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_TIME_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_start_frame(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_START_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_START_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_duration(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_DURATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_DURATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeAnimationTrackNode {
@@ -3597,6 +5552,289 @@ impl UInterchangeAnimationTrackNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_custom_property_track(
+        &mut self,
+        property_track: EInterchangePropertyTracks,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_PROPERTY_TRACK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &property_track,
+                __buffer.add(0).cast::<EInterchangePropertyTracks>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_PROPERTY_TRACK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_frame_count(&mut self, attribute_value: &i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_FRAME_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_FRAME_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_animation_payload_key(
+        &mut self,
+        in_unique_id: FString,
+        in_type: &EInterchangeAnimationPayLoadType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_PAYLOAD_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_unique_id,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_type,
+                __buffer.add(16).cast::<EInterchangeAnimationPayLoadType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_PAYLOAD_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn set_custom_actor_dependency_uid(&mut self, dependency_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_ACTOR_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dependency_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_ACTOR_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_property_track(
+        &self,
+        property_track: &mut EInterchangePropertyTracks,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_PROPERTY_TRACK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                property_track,
+                __buffer.add(0).cast::<EInterchangePropertyTracks>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_PROPERTY_TRACK,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<EInterchangePropertyTracks>().swap(property_track);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_frame_count(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_FRAME_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_FRAME_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_animation_payload_key(
+        &self,
+        animation_pay_load_key: &mut FInterchangeAnimationPayLoadKey,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_PAYLOAD_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                animation_pay_load_key,
+                __buffer.add(0).cast::<FInterchangeAnimationPayLoadKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_PAYLOAD_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<FInterchangeAnimationPayLoadKey>()
+                .swap(animation_pay_load_key);
+        }
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn get_custom_actor_dependency_uid(&self, dependency_uid: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_ACTOR_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                dependency_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_ACTOR_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(dependency_uid);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3619,6 +5857,71 @@ impl UInterchangeTransformAnimationTrackNode {
             cdo
         }
     }
+    pub fn set_custom_used_channels(&mut self, attribute_value: &i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TRANSFORM_ANIMATION_TRACK_NODE_SET_CUSTOM_USED_CHANNELS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TRANSFORM_ANIMATION_TRACK_NODE_SET_CUSTOM_USED_CHANNELS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_used_channels(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TRANSFORM_ANIMATION_TRACK_NODE_GET_CUSTOM_USED_CHANNELS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TRANSFORM_ANIMATION_TRACK_NODE_GET_CUSTOM_USED_CHANNELS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeSkeletalAnimationTrackNode {
@@ -3639,6 +5942,605 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_custom_source_timeline_animation_stop_time(
+        &mut self,
+        stop_time: &f64,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SOURCE_TIMELINE_ANIMATION_STOP_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(stop_time, __buffer.add(0).cast::<f64>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SOURCE_TIMELINE_ANIMATION_STOP_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_custom_source_timeline_animation_start_time(
+        &mut self,
+        start_time: &f64,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SOURCE_TIMELINE_ANIMATION_START_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(start_time, __buffer.add(0).cast::<f64>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SOURCE_TIMELINE_ANIMATION_START_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_custom_skeleton_node_uid(&mut self, attribute_value: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SKELETON_NODE_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SKELETON_NODE_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_custom_animation_stop_time(&mut self, stop_time: &f64) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_STOP_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(stop_time, __buffer.add(0).cast::<f64>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_STOP_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_custom_animation_start_time(&mut self, start_time: &f64) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_START_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(start_time, __buffer.add(0).cast::<f64>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_START_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_custom_animation_sample_rate(&mut self, sample_rate: &f64) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_SAMPLE_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(sample_rate, __buffer.add(0).cast::<f64>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_SAMPLE_RATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_animation_payload_key_for_scene_node_uid(
+        &mut self,
+        scene_node_uid: FString,
+        in_unique_id: FString,
+        in_type: &EInterchangeAnimationPayLoadType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<34>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_ANIMATION_PAYLOAD_KEY_FOR_SCENE_NODE_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &scene_node_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_unique_id,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_type,
+                __buffer.add(32).cast::<EInterchangeAnimationPayLoadType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_ANIMATION_PAYLOAD_KEY_FOR_SCENE_NODE_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(33).cast::<bool>().read() }
+    }
+    pub fn set_animation_payload_key_for_morph_target_node_uid(
+        &mut self,
+        morph_target_node_uid: FString,
+        in_unique_id: FString,
+        in_type: &EInterchangeAnimationPayLoadType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<34>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_ANIMATION_PAYLOAD_KEY_FOR_MORPH_TARGET_NODE_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &morph_target_node_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_unique_id,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_type,
+                __buffer.add(32).cast::<EInterchangeAnimationPayLoadType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_ANIMATION_PAYLOAD_KEY_FOR_MORPH_TARGET_NODE_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(33).cast::<bool>().read() }
+    }
+    pub fn is_node_animated_with_baked_curve(&self, scene_node_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_IS_NODE_ANIMATED_WITH_BAKED_CURVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &scene_node_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_IS_NODE_ANIMATED_WITH_BAKED_CURVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_scene_node_animation_payload_keys(
+        &self,
+        out_scene_node_animation_payload_key_uids: &mut TMap<FString, FString>,
+        out_scene_node_animation_payload_key_types: &mut TMap<FString, u8>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<160>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_SCENE_NODE_ANIMATION_PAYLOAD_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_scene_node_animation_payload_key_uids,
+                __buffer.add(0).cast::<TMap<FString, FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_scene_node_animation_payload_key_types,
+                __buffer.add(80).cast::<TMap<FString, u8>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_SCENE_NODE_ANIMATION_PAYLOAD_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TMap<FString, FString>>()
+                .swap(out_scene_node_animation_payload_key_uids);
+        }
+        unsafe {
+            __buffer
+                .add(80)
+                .cast::<TMap<FString, u8>>()
+                .swap(out_scene_node_animation_payload_key_types);
+        }
+    }
+    pub fn get_morph_target_node_animation_payload_keys(
+        &self,
+        out_morph_target_node_animation_payload_key_uids: &mut TMap<FString, FString>,
+        out_morph_target_node_animation_payload_key_types: &mut TMap<FString, u8>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<160>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_MORPH_TARGET_NODE_ANIMATION_PAYLOAD_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_morph_target_node_animation_payload_key_uids,
+                __buffer.add(0).cast::<TMap<FString, FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_morph_target_node_animation_payload_key_types,
+                __buffer.add(80).cast::<TMap<FString, u8>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_MORPH_TARGET_NODE_ANIMATION_PAYLOAD_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TMap<FString, FString>>()
+                .swap(out_morph_target_node_animation_payload_key_uids);
+        }
+        unsafe {
+            __buffer
+                .add(80)
+                .cast::<TMap<FString, u8>>()
+                .swap(out_morph_target_node_animation_payload_key_types);
+        }
+    }
+    pub fn get_custom_source_timeline_animation_stop_time(
+        &self,
+        stop_time: &mut f64,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SOURCE_TIMELINE_ANIMATION_STOP_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(stop_time, __buffer.add(0).cast::<f64>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SOURCE_TIMELINE_ANIMATION_STOP_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f64>().swap(stop_time);
+        }
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_custom_source_timeline_animation_start_time(
+        &self,
+        start_time: &mut f64,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SOURCE_TIMELINE_ANIMATION_START_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(start_time, __buffer.add(0).cast::<f64>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SOURCE_TIMELINE_ANIMATION_START_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f64>().swap(start_time);
+        }
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_custom_skeleton_node_uid(&self, attribute_value: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SKELETON_NODE_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SKELETON_NODE_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_animation_stop_time(&self, stop_time: &mut f64) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_STOP_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(stop_time, __buffer.add(0).cast::<f64>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_STOP_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f64>().swap(stop_time);
+        }
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_custom_animation_start_time(&self, start_time: &mut f64) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_START_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(start_time, __buffer.add(0).cast::<f64>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_START_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f64>().swap(start_time);
+        }
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_custom_animation_sample_rate(&self, sample_rate: &mut f64) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_SAMPLE_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(sample_rate, __buffer.add(0).cast::<f64>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_SAMPLE_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f64>().swap(sample_rate);
+        }
+        unsafe { __buffer.add(8).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3682,6 +6584,381 @@ impl UInterchangeGroomNode {
             cdo
         }
     }
+    pub fn set_payload_key(
+        &mut self,
+        payload_key: FString,
+        pay_load_type: EInterchangeGroomPayLoadType,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_PAYLOAD_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &payload_key,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &pay_load_type,
+                __buffer.add(16).cast::<EInterchangeGroomPayLoadType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_PAYLOAD_KEY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_custom_start_frame(&mut self, attribute_value: &i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_START_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_START_FRAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_num_frames(&mut self, attribute_value: &i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_NUM_FRAMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_NUM_FRAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_groom_cache_attributes(
+        &mut self,
+        attribute_value: &EInterchangeGroomCacheAttributes,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_GROOM_CACHE_ATTRIBUTES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EInterchangeGroomCacheAttributes>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_GROOM_CACHE_ATTRIBUTES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_frame_rate(&mut self, attribute_value: &f64) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_FRAME_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f64>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_FRAME_RATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_custom_end_frame(&mut self, attribute_value: &i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_END_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_END_FRAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_start_frame(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_START_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_START_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_num_frames(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_NUM_FRAMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_NUM_FRAMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_groom_cache_attributes(
+        &self,
+        attribute_value: &mut EInterchangeGroomCacheAttributes,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_GROOM_CACHE_ATTRIBUTES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EInterchangeGroomCacheAttributes>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_GROOM_CACHE_ATTRIBUTES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<EInterchangeGroomCacheAttributes>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_frame_rate(&self, attribute_value: &mut f64) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_FRAME_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f64>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_FRAME_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f64>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_custom_end_frame(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_END_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_END_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeBaseLightNode {
@@ -3702,6 +6979,275 @@ impl UInterchangeBaseLightNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_custom_use_temperature(&mut self, attribute_value: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_USE_TEMPERATURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_USE_TEMPERATURE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_temperature(&mut self, attribute_value: f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_TEMPERATURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_TEMPERATURE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_light_color(
+        &mut self,
+        attribute_value: &crate::bindings::core_u_object::FLinearColor,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_LIGHT_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_LIGHT_COLOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_custom_intensity(&mut self, attribute_value: f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_INTENSITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_INTENSITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_use_temperature(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_USE_TEMPERATURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_USE_TEMPERATURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_temperature(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_TEMPERATURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_TEMPERATURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_light_color(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FLinearColor,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_LIGHT_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_LIGHT_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FLinearColor>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_intensity(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_INTENSITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_INTENSITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3724,6 +7270,441 @@ impl UInterchangeLightNode {
             cdo
         }
     }
+    pub fn set_custom_use_ies_brightness(
+        &mut self,
+        attribute_value: &bool,
+        b_add_apply_delegate: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<3>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_USE_IES_BRIGHTNESS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_add_apply_delegate,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_USE_IES_BRIGHTNESS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(2).cast::<bool>().read() }
+    }
+    pub fn set_custom_rotation(
+        &mut self,
+        attribute_value: &crate::bindings::core_u_object::FRotator,
+        b_add_apply_delegate: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<26>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_add_apply_delegate,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(25).cast::<bool>().read() }
+    }
+    pub fn set_custom_intensity_units(
+        &mut self,
+        attribute_value: &EInterchangeLightUnits,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_INTENSITY_UNITS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EInterchangeLightUnits>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_INTENSITY_UNITS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_ies_texture(&mut self, attribute_value: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_IES_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_IES_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_custom_ies_brightness_scale(
+        &mut self,
+        attribute_value: &f32,
+        b_add_apply_delegate: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<6>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_IES_BRIGHTNESS_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_add_apply_delegate,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_IES_BRIGHTNESS_SCALE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(5).cast::<bool>().read() }
+    }
+    pub fn set_custom_attenuation_radius(&mut self, attribute_value: f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_ATTENUATION_RADIUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_ATTENUATION_RADIUS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_use_ies_brightness(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_USE_IES_BRIGHTNESS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_USE_IES_BRIGHTNESS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_rotation(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FRotator,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FRotator>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn get_custom_intensity_units(
+        &self,
+        attribute_value: &mut EInterchangeLightUnits,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_INTENSITY_UNITS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EInterchangeLightUnits>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_INTENSITY_UNITS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<EInterchangeLightUnits>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_ies_texture(&self, attribute_value: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_IES_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_IES_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_ies_brightness_scale(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_IES_BRIGHTNESS_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_IES_BRIGHTNESS_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_attenuation_radius(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_ATTENUATION_RADIUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_ATTENUATION_RADIUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangePointLightNode {
@@ -3744,6 +7725,142 @@ impl UInterchangePointLightNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_custom_use_inverse_squared_falloff(
+        &mut self,
+        attribute_value: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_SET_CUSTOM_USE_INVERSE_SQUARED_FALLOFF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_SET_CUSTOM_USE_INVERSE_SQUARED_FALLOFF,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_light_falloff_exponent(&mut self, attribute_value: f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_SET_CUSTOM_LIGHT_FALLOFF_EXPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_SET_CUSTOM_LIGHT_FALLOFF_EXPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_use_inverse_squared_falloff(
+        &self,
+        attribute_value: &mut bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_GET_CUSTOM_USE_INVERSE_SQUARED_FALLOFF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_GET_CUSTOM_USE_INVERSE_SQUARED_FALLOFF,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_light_falloff_exponent(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_GET_CUSTOM_LIGHT_FALLOFF_EXPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_GET_CUSTOM_LIGHT_FALLOFF_EXPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3766,6 +7883,136 @@ impl UInterchangeSpotLightNode {
             cdo
         }
     }
+    pub fn set_custom_outer_cone_angle(&mut self, attribute_value: f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_SET_CUSTOM_OUTER_CONE_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_SET_CUSTOM_OUTER_CONE_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_inner_cone_angle(&mut self, attribute_value: f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_SET_CUSTOM_INNER_CONE_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_SET_CUSTOM_INNER_CONE_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_outer_cone_angle(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_GET_CUSTOM_OUTER_CONE_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_GET_CUSTOM_OUTER_CONE_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_inner_cone_angle(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_GET_CUSTOM_INNER_CONE_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_GET_CUSTOM_INNER_CONE_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeRectLightNode {
@@ -3786,6 +8033,136 @@ impl UInterchangeRectLightNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_custom_source_width(&mut self, attribute_value: f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_SET_CUSTOM_SOURCE_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_SET_CUSTOM_SOURCE_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_source_height(&mut self, attribute_value: f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_SET_CUSTOM_SOURCE_HEIGHT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_SET_CUSTOM_SOURCE_HEIGHT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_source_width(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_GET_CUSTOM_SOURCE_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_GET_CUSTOM_SOURCE_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_source_height(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_GET_CUSTOM_SOURCE_HEIGHT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_GET_CUSTOM_SOURCE_HEIGHT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3829,6 +8206,148 @@ impl UInterchangeSkyLightNode {
             cdo
         }
     }
+    pub fn set_custom_source_type(
+        &mut self,
+        source_type: EInterchangeSkyLightSourceType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_SET_CUSTOM_SOURCE_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_type,
+                __buffer.add(0).cast::<EInterchangeSkyLightSourceType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_SET_CUSTOM_SOURCE_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_cubemap_dependency(
+        &mut self,
+        texture_cube_node_uid: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_SET_CUSTOM_CUBEMAP_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &texture_cube_node_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_SET_CUSTOM_CUBEMAP_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_source_type(
+        &self,
+        source_type: &mut EInterchangeSkyLightSourceType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_GET_CUSTOM_SOURCE_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                source_type,
+                __buffer.add(0).cast::<EInterchangeSkyLightSourceType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_GET_CUSTOM_SOURCE_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<EInterchangeSkyLightSourceType>().swap(source_type);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_cubemap_dependency(
+        &self,
+        texture_cube_node_uid: &mut FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_GET_CUSTOM_CUBEMAP_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                texture_cube_node_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_GET_CUSTOM_CUBEMAP_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(texture_cube_node_uid);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeMaterialInstanceNode {
@@ -3849,6 +8368,487 @@ impl UInterchangeMaterialInstanceNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_custom_parent(&self, attribute_value: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_SET_CUSTOM_PARENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_SET_CUSTOM_PARENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_custom_blend_mode(&mut self, attribute_value: i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_SET_CUSTOM_BLEND_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_SET_CUSTOM_BLEND_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_vector_parameter_value(
+        &self,
+        parameter_name: FString,
+        attribute_value: &mut crate::bindings::core_u_object::FLinearColor,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_VECTOR_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_VECTOR_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::core_u_object::FLinearColor>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn get_texture_parameter_value(
+        &self,
+        parameter_name: FString,
+        attribute_value: &mut FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_TEXTURE_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_TEXTURE_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn get_static_switch_parameter_value(
+        &self,
+        parameter_name: FString,
+        attribute_value: &mut bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_STATIC_SWITCH_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_STATIC_SWITCH_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn get_scalar_parameter_value(
+        &self,
+        parameter_name: FString,
+        attribute_value: &mut f32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_SCALAR_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_SCALAR_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn get_custom_parent(&self, attribute_value: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_CUSTOM_PARENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_CUSTOM_PARENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_blend_mode(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_CUSTOM_BLEND_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_CUSTOM_BLEND_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn add_vector_parameter_value(
+        &mut self,
+        parameter_name: FString,
+        attribute_value: &crate::bindings::core_u_object::FLinearColor,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_VECTOR_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_VECTOR_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn add_texture_parameter_value(
+        &mut self,
+        parameter_name: FString,
+        attribute_value: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_TEXTURE_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_TEXTURE_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn add_static_switch_parameter_value(
+        &mut self,
+        parameter_name: FString,
+        attribute_value: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_STATIC_SWITCH_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_STATIC_SWITCH_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn add_scalar_parameter_value(
+        &mut self,
+        parameter_name: FString,
+        attribute_value: f32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_SCALAR_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_SCALAR_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3871,6 +8871,71 @@ impl UInterchangeMaterialReferenceNode {
             cdo
         }
     }
+    pub fn set_custom_content_path(&self, attribute_value: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_REFERENCE_NODE_SET_CUSTOM_CONTENT_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_REFERENCE_NODE_SET_CUSTOM_CONTENT_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_content_path(&self, attribute_value: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_REFERENCE_NODE_GET_CUSTOM_CONTENT_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_REFERENCE_NODE_GET_CUSTOM_CONTENT_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeMeshLODContainerNode {
@@ -3891,6 +8956,125 @@ impl UInterchangeMeshLODContainerNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn reset_mesh_lod_node_uids(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_RESET_MESH_LOD_NODE_UIDS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_RESET_MESH_LOD_NODE_UIDS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn remove_mesh_lod_node_uid(&mut self, mesh_lod_node_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_REMOVE_MESH_LOD_NODE_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh_lod_node_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_REMOVE_MESH_LOD_NODE_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_mesh_lod_node_uids(&self, out_mesh_lod_node_uid: &mut TArray<FString>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_GET_MESH_LOD_NODE_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_mesh_lod_node_uid,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_GET_MESH_LOD_NODE_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(out_mesh_lod_node_uid);
+        }
+    }
+    pub fn add_mesh_lod_node_uid(&mut self, mesh_lod_node_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_ADD_MESH_LOD_NODE_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh_lod_node_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_ADD_MESH_LOD_NODE_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3913,6 +9097,1677 @@ impl UInterchangeMeshNode {
             cdo
         }
     }
+    pub fn set_slot_material_dependency_uid(
+        &mut self,
+        slot_name: FString,
+        material_dependency_uid: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SLOT_MATERIAL_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &slot_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &material_dependency_uid,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SLOT_MATERIAL_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_skinned_mesh(&mut self, b_is_skinned_mesh: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SKINNED_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_skinned_mesh,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SKINNED_MESH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_skeleton_dependency_uid(&mut self, dependency_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SKELETON_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dependency_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SKELETON_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_scene_instance_uid(&mut self, dependency_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SCENE_INSTANCE_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dependency_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SCENE_INSTANCE_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_pay_load_key(
+        &mut self,
+        pay_load_key: FString,
+        pay_load_type: &EInterchangeMeshPayLoadType,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_PAY_LOAD_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &pay_load_key,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                pay_load_type,
+                __buffer.add(16).cast::<EInterchangeMeshPayLoadType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_PAY_LOAD_KEY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_morph_target_name(&mut self, morph_target_name: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &morph_target_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_morph_target_dependency_uid(&mut self, dependency_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dependency_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_morph_target(&mut self, b_is_morph_target: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_morph_target,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_vertex_count(&mut self, attribute_value: &i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_VERTEX_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_VERTEX_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_uv_count(&mut self, attribute_value: &i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_UV_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_UV_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_polygon_count(&mut self, attribute_value: &i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_POLYGON_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_POLYGON_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_has_vertex_tangent(&mut self, attribute_value: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_TANGENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_TANGENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_has_vertex_normal(&mut self, attribute_value: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_NORMAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_NORMAL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_has_vertex_color(&mut self, attribute_value: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_COLOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_has_vertex_binormal(&mut self, attribute_value: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_BINORMAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_BINORMAL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_has_smooth_group(&mut self, attribute_value: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_SMOOTH_GROUP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_SMOOTH_GROUP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_collision_type(
+        &mut self,
+        attribute_value: EInterchangeMeshCollision,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_COLLISION_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<EInterchangeMeshCollision>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_COLLISION_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_bounding_box(
+        &mut self,
+        attribute_value: &crate::bindings::core_u_object::FBox,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_BOUNDING_BOX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FBox>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_BOUNDING_BOX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<bool>().read() }
+    }
+    pub fn remove_slot_material_dependency_uid(&mut self, slot_name: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_SLOT_MATERIAL_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &slot_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_SLOT_MATERIAL_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn remove_skeleton_dependency_uid(&mut self, dependency_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_SKELETON_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dependency_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_SKELETON_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn remove_scene_instance_uid(&mut self, dependency_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_SCENE_INSTANCE_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dependency_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_SCENE_INSTANCE_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn remove_morph_target_dependency_uid(
+        &mut self,
+        dependency_uid: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_MORPH_TARGET_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dependency_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_MORPH_TARGET_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn remove_assembly_part_dependency_uid(
+        &mut self,
+        dependency_uid: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_ASSEMBLY_PART_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dependency_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_ASSEMBLY_PART_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn is_skinned_mesh(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_IS_SKINNED_MESH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_IS_SKINNED_MESH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_morph_target(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_IS_MORPH_TARGET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_IS_MORPH_TARGET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_slot_material_dependency_uid(
+        &self,
+        slot_name: FString,
+        out_material_dependency: &mut FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SLOT_MATERIAL_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &slot_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_material_dependency,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SLOT_MATERIAL_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FString>().swap(out_material_dependency);
+        }
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn get_slot_material_dependencies(
+        &self,
+        out_material_dependencies: &mut TMap<FString, FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SLOT_MATERIAL_DEPENDENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_material_dependencies,
+                __buffer.add(0).cast::<TMap<FString, FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SLOT_MATERIAL_DEPENDENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TMap<FString, FString>>()
+                .swap(out_material_dependencies);
+        }
+    }
+    pub fn get_skeleton_dependency(&self, index: i32, out_dependency: &mut FString) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_dependency,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<FString>().swap(out_dependency);
+        }
+    }
+    pub fn get_skeleton_dependencies(&self, out_dependencies: &mut TArray<FString>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_dependencies,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(out_dependencies);
+        }
+    }
+    pub fn get_skeleton_dependecies_count(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDECIES_COUNT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDECIES_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_scene_instance_uids_count(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UIDS_COUNT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UIDS_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_scene_instance_uids(&self, out_dependencies: &mut TArray<FString>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_dependencies,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(out_dependencies);
+        }
+    }
+    pub fn get_scene_instance_uid(&self, index: i32, out_dependency: &mut FString) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_dependency,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<FString>().swap(out_dependency);
+        }
+    }
+    pub fn get_morph_target_name(&self, out_morph_target_name: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_morph_target_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(out_morph_target_name);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_morph_target_dependency(&self, index: i32, out_dependency: &mut FString) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_dependency,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<FString>().swap(out_dependency);
+        }
+    }
+    pub fn get_morph_target_dependencies(&self, out_dependencies: &mut TArray<FString>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_dependencies,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(out_dependencies);
+        }
+    }
+    pub fn get_morph_target_dependecies_count(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDECIES_COUNT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDECIES_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_custom_vertex_count(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_VERTEX_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_VERTEX_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_uv_count(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_UV_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_UV_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_polygon_count(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_POLYGON_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_POLYGON_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_has_vertex_tangent(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_TANGENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_TANGENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_has_vertex_normal(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_NORMAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_NORMAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_has_vertex_color(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_has_vertex_binormal(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_BINORMAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_BINORMAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_has_smooth_group(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_SMOOTH_GROUP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_SMOOTH_GROUP,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_collision_type(
+        &self,
+        attribute_value: &mut EInterchangeMeshCollision,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_COLLISION_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EInterchangeMeshCollision>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_COLLISION_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<EInterchangeMeshCollision>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_bounding_box(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FBox,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_BOUNDING_BOX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FBox>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_BOUNDING_BOX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FBox>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(56).cast::<bool>().read() }
+    }
+    pub fn get_assembly_part_dependency(
+        &self,
+        index: i32,
+        out_dependency: &mut FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_dependency,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<FString>().swap(out_dependency);
+        }
+    }
+    pub fn get_assembly_part_dependencies_count(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCIES_COUNT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCIES_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_assembly_part_dependencies(
+        &self,
+        out_dependencies: &mut TArray<FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_dependencies,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(out_dependencies);
+        }
+    }
+    pub fn add_assembly_part_dependency_uid(&mut self, dependency_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_ADD_ASSEMBLY_PART_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dependency_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_ADD_ASSEMBLY_PART_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeGeometryCacheNode {
@@ -3933,6 +10788,266 @@ impl UInterchangeGeometryCacheNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_custom_start_frame(&mut self, attribute_value: &i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_START_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_START_FRAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_has_constant_topology(&mut self, attribute_value: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_HAS_CONSTANT_TOPOLOGY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_HAS_CONSTANT_TOPOLOGY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_frame_rate(&mut self, attribute_value: &f64) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_FRAME_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f64>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_FRAME_RATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_custom_end_frame(&mut self, attribute_value: &i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_END_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_END_FRAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_start_frame(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_START_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_START_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_has_constant_topology(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_HAS_CONSTANT_TOPOLOGY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_HAS_CONSTANT_TOPOLOGY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_frame_rate(&self, attribute_value: &mut f64) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_FRAME_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f64>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_FRAME_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f64>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_custom_end_frame(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_END_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_END_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -3955,6 +11070,273 @@ impl UInterchangeSceneComponentNode {
             cdo
         }
     }
+    pub fn set_custom_local_transform(
+        &mut self,
+        attribute_value: &crate::bindings::core_u_object::FTransform,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_SET_CUSTOM_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_SET_CUSTOM_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn set_custom_component_visibility(&mut self, attribute_value: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_SET_CUSTOM_COMPONENT_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_SET_CUSTOM_COMPONENT_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_parent_scene_node_and_transform(
+        &self,
+        base_node_container: UPtr<
+            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+        >,
+        scene_node_transform: &mut crate::bindings::core_u_object::FTransform,
+        b_force_recache: bool,
+    ) -> UPtr<UInterchangeSceneNode> {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_PARENT_SCENE_NODE_AND_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_node_container,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<
+                            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                scene_node_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_force_recache,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_PARENT_SCENE_NODE_AND_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::core_u_object::FTransform>()
+                .swap(scene_node_transform);
+        }
+        unsafe { __buffer.add(120).cast::<UPtr<UInterchangeSceneNode>>().read() }
+    }
+    pub fn get_custom_local_transform(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FTransform,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_CUSTOM_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_CUSTOM_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FTransform>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn get_custom_component_visibility(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_CUSTOM_COMPONENT_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_CUSTOM_COMPONENT_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_component_uids(&self, out_component_uids: &mut TArray<FString>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_COMPONENT_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_component_uids,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_COMPONENT_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(out_component_uids);
+        }
+    }
+    pub fn add_component_uid(&mut self, component_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_ADD_COMPONENT_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_ADD_COMPONENT_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UInterchangeInstancedStaticMeshComponentNode {
@@ -3975,6 +11357,180 @@ impl UInterchangeInstancedStaticMeshComponentNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_custom_instanced_asset_uid(&mut self, attribute_value: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_SET_CUSTOM_INSTANCED_ASSET_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_SET_CUSTOM_INSTANCED_ASSET_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_instance_transforms(
+        &self,
+        out_instance_transforms: &mut TArray<crate::bindings::core_u_object::FTransform>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_GET_INSTANCE_TRANSFORMS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_instance_transforms,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FTransform>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_GET_INSTANCE_TRANSFORMS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::core_u_object::FTransform>>()
+                .swap(out_instance_transforms);
+        }
+    }
+    pub fn get_custom_instanced_asset_uid(&self, attribute_value: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_GET_CUSTOM_INSTANCED_ASSET_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_GET_CUSTOM_INSTANCED_ASSET_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn add_instance_transforms(
+        &mut self,
+        in_instance_transforms: &TArray<crate::bindings::core_u_object::FTransform>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_ADD_INSTANCE_TRANSFORMS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_instance_transforms,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FTransform>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_ADD_INSTANCE_TRANSFORMS,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_instance_transform(
+        &mut self,
+        instance_transform: &crate::bindings::core_u_object::FTransform,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_ADD_INSTANCE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                instance_transform,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_ADD_INSTANCE_TRANSFORM,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(16))]
@@ -3997,6 +11553,1794 @@ impl UInterchangeSceneNode {
             cdo
         }
     }
+    pub fn set_slot_material_dependency_uid(
+        &mut self,
+        slot_name: FString,
+        material_dependency_uid: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_SLOT_MATERIAL_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &slot_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &material_dependency_uid,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_SLOT_MATERIAL_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_morph_target_curve_weight(
+        &mut self,
+        morph_target_name: FString,
+        weight: &f32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_MORPH_TARGET_CURVE_WEIGHT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &morph_target_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(weight, __buffer.add(16).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_MORPH_TARGET_CURVE_WEIGHT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn set_global_bind_pose_reference_for_mesh_ui_ds(
+        &mut self,
+        global_bind_pose_reference_for_mesh_ui_ds: &TMap<
+            FString,
+            crate::bindings::core_u_object::FMatrix,
+        >,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_GLOBAL_BIND_POSE_REFERENCE_FOR_MESH_UI_DS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                global_bind_pose_reference_for_mesh_ui_ds,
+                __buffer
+                    .add(0)
+                    .cast::<TMap<FString, crate::bindings::core_u_object::FMatrix>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_GLOBAL_BIND_POSE_REFERENCE_FOR_MESH_UI_DS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_custom_time_zero_local_transform(
+        &mut self,
+        base_node_container: UPtr<
+            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+        >,
+        attribute_value: &crate::bindings::core_u_object::FTransform,
+        b_reset_cache: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<114>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_TIME_ZERO_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_node_container,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<
+                            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_reset_cache,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_TIME_ZERO_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(113).cast::<bool>().read() }
+    }
+    pub fn set_custom_pivot_node_transform(
+        &mut self,
+        attribute_value: &crate::bindings::core_u_object::FTransform,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_PIVOT_NODE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_PIVOT_NODE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn set_custom_local_transform(
+        &mut self,
+        base_node_container: UPtr<
+            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+        >,
+        attribute_value: &crate::bindings::core_u_object::FTransform,
+        b_reset_cache: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<114>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_node_container,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<
+                            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_reset_cache,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(113).cast::<bool>().read() }
+    }
+    pub fn set_custom_is_scene_root(&mut self, is_scene_root: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_IS_SCENE_ROOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                is_scene_root,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_IS_SCENE_ROOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_has_bind_pose(&mut self, b_has_bind_pose: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_HAS_BIND_POSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_has_bind_pose,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_HAS_BIND_POSE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_global_matrix_for_t0_rebinding(
+        &mut self,
+        attribute_value: &crate::bindings::core_u_object::FMatrix,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<129>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_GLOBAL_MATRIX_FOR_T0_REBINDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FMatrix>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_GLOBAL_MATRIX_FOR_T0_REBINDING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(128).cast::<bool>().read() }
+    }
+    pub fn set_custom_geometric_transform(
+        &mut self,
+        attribute_value: &crate::bindings::core_u_object::FTransform,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_GEOMETRIC_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_GEOMETRIC_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn set_custom_component_visibility(&mut self, b_in_is_visible: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_COMPONENT_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_is_visible,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_COMPONENT_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_bind_pose_local_transform(
+        &mut self,
+        base_node_container: UPtr<
+            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+        >,
+        attribute_value: &crate::bindings::core_u_object::FTransform,
+        b_reset_cache: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<114>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_BIND_POSE_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_node_container,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<
+                            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_reset_cache,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_BIND_POSE_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(113).cast::<bool>().read() }
+    }
+    pub fn set_custom_asset_instance_uid(&mut self, attribute_value: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ASSET_INSTANCE_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ASSET_INSTANCE_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_custom_animation_asset_uid_to_play(
+        &mut self,
+        attribute_value: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ANIMATION_ASSET_UID_TO_PLAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ANIMATION_ASSET_UID_TO_PLAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_custom_actor_visibility(&mut self, b_in_is_visible: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ACTOR_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_is_visible,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ACTOR_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_animation_curve_type_for_curve_name(
+        &mut self,
+        curve_name: FString,
+        animation_curve_type: &EInterchangeAnimationPayLoadType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_ANIMATION_CURVE_TYPE_FOR_CURVE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &curve_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                animation_curve_type,
+                __buffer.add(16).cast::<EInterchangeAnimationPayLoadType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_ANIMATION_CURVE_TYPE_FOR_CURVE_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn remove_specialized_type(&mut self, specialized_type: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_REMOVE_SPECIALIZED_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &specialized_type,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_REMOVE_SPECIALIZED_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn remove_slot_material_dependency_uid(&mut self, slot_name: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_REMOVE_SLOT_MATERIAL_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &slot_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_REMOVE_SLOT_MATERIAL_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn is_specialized_type_contains(&self, specialized_type: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_IS_SPECIALIZED_TYPE_CONTAINS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &specialized_type,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_IS_SPECIALIZED_TYPE_CONTAINS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_specialized_types(&self, out_specialized_types: &mut TArray<FString>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_specialized_types,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(out_specialized_types);
+        }
+    }
+    pub fn get_specialized_type_count(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPE_COUNT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPE_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_specialized_type(&self, index: i32, out_specialized_type: &mut FString) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_specialized_type,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<FString>().swap(out_specialized_type);
+        }
+    }
+    pub fn get_slot_material_dependency_uid(
+        &self,
+        slot_name: FString,
+        out_material_dependency: &mut FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SLOT_MATERIAL_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &slot_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_material_dependency,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SLOT_MATERIAL_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FString>().swap(out_material_dependency);
+        }
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn get_slot_material_dependencies(
+        &self,
+        out_material_dependencies: &mut TMap<FString, FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SLOT_MATERIAL_DEPENDENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_material_dependencies,
+                __buffer.add(0).cast::<TMap<FString, FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SLOT_MATERIAL_DEPENDENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TMap<FString, FString>>()
+                .swap(out_material_dependencies);
+        }
+    }
+    pub fn get_morph_target_curve_weights(
+        &self,
+        out_morph_target_curve_weights: &mut TMap<FString, f32>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_MORPH_TARGET_CURVE_WEIGHTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_morph_target_curve_weights,
+                __buffer.add(0).cast::<TMap<FString, f32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_MORPH_TARGET_CURVE_WEIGHTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TMap<FString, f32>>()
+                .swap(out_morph_target_curve_weights);
+        }
+    }
+    pub fn get_global_bind_pose_reference_for_mesh_uid(
+        &self,
+        mesh_uid: FString,
+        global_bind_pose_reference: &mut crate::bindings::core_u_object::FMatrix,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<145>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_GLOBAL_BIND_POSE_REFERENCE_FOR_MESH_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                global_bind_pose_reference,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FMatrix>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_GLOBAL_BIND_POSE_REFERENCE_FOR_MESH_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::core_u_object::FMatrix>()
+                .swap(global_bind_pose_reference);
+        }
+        unsafe { __buffer.add(144).cast::<bool>().read() }
+    }
+    pub fn get_custom_time_zero_local_transform(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FTransform,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_TIME_ZERO_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_TIME_ZERO_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FTransform>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn get_custom_time_zero_global_transform(
+        &self,
+        base_node_container: UPtr<
+            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+        >,
+        global_offset_transform: &crate::bindings::core_u_object::FTransform,
+        attribute_value: &mut crate::bindings::core_u_object::FTransform,
+        b_force_recache: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<210>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_TIME_ZERO_GLOBAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_node_container,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<
+                            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                global_offset_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(112).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_force_recache,
+                __buffer.add(208).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_TIME_ZERO_GLOBAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(112)
+                .cast::<crate::bindings::core_u_object::FTransform>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(209).cast::<bool>().read() }
+    }
+    pub fn get_custom_pivot_node_transform(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FTransform,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_PIVOT_NODE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_PIVOT_NODE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FTransform>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn get_custom_local_transform(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FTransform,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FTransform>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn get_custom_is_scene_root(&self, is_scene_root: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_IS_SCENE_ROOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                is_scene_root,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_IS_SCENE_ROOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(is_scene_root);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_has_bind_pose(&self, b_has_bind_pose: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_HAS_BIND_POSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_has_bind_pose,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_HAS_BIND_POSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(b_has_bind_pose);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_global_transform(
+        &self,
+        base_node_container: UPtr<
+            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+        >,
+        global_offset_transform: &crate::bindings::core_u_object::FTransform,
+        attribute_value: &mut crate::bindings::core_u_object::FTransform,
+        b_force_recache: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<210>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GLOBAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_node_container,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<
+                            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                global_offset_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(112).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_force_recache,
+                __buffer.add(208).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GLOBAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(112)
+                .cast::<crate::bindings::core_u_object::FTransform>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(209).cast::<bool>().read() }
+    }
+    pub fn get_custom_global_matrix_for_t0_rebinding(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FMatrix,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<129>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GLOBAL_MATRIX_FOR_T0_REBINDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FMatrix>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GLOBAL_MATRIX_FOR_T0_REBINDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FMatrix>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(128).cast::<bool>().read() }
+    }
+    pub fn get_custom_geometric_transform(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FTransform,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GEOMETRIC_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GEOMETRIC_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FTransform>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn get_custom_component_visibility(&self, b_out_is_visible: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_COMPONENT_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_is_visible,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_COMPONENT_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(b_out_is_visible);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_bind_pose_local_transform(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FTransform,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_BIND_POSE_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_BIND_POSE_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FTransform>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn get_custom_bind_pose_global_transform(
+        &self,
+        base_node_container: UPtr<
+            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+        >,
+        global_offset_transform: &crate::bindings::core_u_object::FTransform,
+        attribute_value: &mut crate::bindings::core_u_object::FTransform,
+        b_force_recache: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<210>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_BIND_POSE_GLOBAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_node_container,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<
+                            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                global_offset_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(112).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_force_recache,
+                __buffer.add(208).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_BIND_POSE_GLOBAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(112)
+                .cast::<crate::bindings::core_u_object::FTransform>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(209).cast::<bool>().read() }
+    }
+    pub fn get_custom_asset_instance_uid(&self, attribute_value: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ASSET_INSTANCE_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ASSET_INSTANCE_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_animation_asset_uid_to_play(
+        &self,
+        attribute_value: &mut FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ANIMATION_ASSET_UID_TO_PLAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ANIMATION_ASSET_UID_TO_PLAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_actor_visibility(&self, b_out_is_visible: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ACTOR_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_is_visible,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ACTOR_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(b_out_is_visible);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_component_uids(&self, out_component_uids: &mut TArray<FString>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_COMPONENT_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_component_uids,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_COMPONENT_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(out_component_uids);
+        }
+    }
+    pub fn get_animation_curve_type_for_curve_name(
+        &self,
+        curve_name: FString,
+        out_curve_animation_type: &mut EInterchangeAnimationPayLoadType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_ANIMATION_CURVE_TYPE_FOR_CURVE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &curve_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_curve_animation_type,
+                __buffer.add(16).cast::<EInterchangeAnimationPayLoadType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_ANIMATION_CURVE_TYPE_FOR_CURVE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<EInterchangeAnimationPayLoadType>()
+                .swap(out_curve_animation_type);
+        }
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn add_specialized_type(&mut self, specialized_type: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_ADD_SPECIALIZED_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &specialized_type,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_ADD_SPECIALIZED_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn add_component_uid(&mut self, component_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_ADD_COMPONENT_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_ADD_COMPONENT_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeShaderPortsAPI {
@@ -4017,6 +13361,683 @@ impl UInterchangeShaderPortsAPI {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn make_input_value_key(input_name: FString) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_VALUE_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_nodes::UInterchangeShaderPortsAPI::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_VALUE_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn make_input_parameter_key(input_name: FString) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_nodes::UInterchangeShaderPortsAPI::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn make_input_name(input_key: FString) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_key,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_nodes::UInterchangeShaderPortsAPI::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn make_input_connection_key(input_name: FString) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_CONNECTION_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_nodes::UInterchangeShaderPortsAPI::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_CONNECTION_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn is_a_parameter(attribute_key: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_IS_A_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_key,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_nodes::UInterchangeShaderPortsAPI::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_IS_A_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn is_an_input(attribute_key: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_IS_AN_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_key,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_nodes::UInterchangeShaderPortsAPI::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_IS_AN_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn has_parameter(
+        interchange_node: UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+        in_input_name: &FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_HAS_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interchange_node,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_nodes::UInterchangeShaderPortsAPI::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_HAS_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn has_input(
+        interchange_node: UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+        in_input_name: &FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_HAS_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interchange_node,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_nodes::UInterchangeShaderPortsAPI::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_HAS_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn get_input_connection(
+        interchange_node: UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+        input_name: FString,
+        out_expression_uid: &mut FString,
+        output_name: &mut FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_GET_INPUT_CONNECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interchange_node,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_expression_uid,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                output_name,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_nodes::UInterchangeShaderPortsAPI::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_GET_INPUT_CONNECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<FString>().swap(out_expression_uid);
+        }
+        unsafe {
+            __buffer.add(40).cast::<FString>().swap(output_name);
+        }
+        unsafe { __buffer.add(56).cast::<bool>().read() }
+    }
+    pub fn gather_inputs(
+        interchange_node: UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+        out_input_names: &mut TArray<FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_GATHER_INPUTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interchange_node,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_input_names,
+                __buffer.add(8).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_nodes::UInterchangeShaderPortsAPI::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_GATHER_INPUTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<TArray<FString>>().swap(out_input_names);
+        }
+    }
+    pub fn disconnect_input_from_output_node(
+        interchange_node: UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+        input_name: FString,
+        out_expression_uid: &mut FString,
+        output_name: &mut FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_DISCONNECT_INPUT_FROM_OUTPUT_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interchange_node,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_expression_uid,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                output_name,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_nodes::UInterchangeShaderPortsAPI::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_DISCONNECT_INPUT_FROM_OUTPUT_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<FString>().swap(out_expression_uid);
+        }
+        unsafe {
+            __buffer.add(40).cast::<FString>().swap(output_name);
+        }
+        unsafe { __buffer.add(56).cast::<bool>().read() }
+    }
+    pub fn disconnect_input(
+        interchange_node: UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+        input_name: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_DISCONNECT_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interchange_node,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_nodes::UInterchangeShaderPortsAPI::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_DISCONNECT_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn connect_ouput_to_input_by_name(
+        interchange_node: UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+        input_name: FString,
+        expression_uid: FString,
+        output_name: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_CONNECT_OUPUT_TO_INPUT_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interchange_node,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &expression_uid,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &output_name,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_nodes::UInterchangeShaderPortsAPI::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_CONNECT_OUPUT_TO_INPUT_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<bool>().read() }
+    }
+    pub fn connect_ouput_to_input_by_index(
+        interchange_node: UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+        input_name: FString,
+        expression_uid: FString,
+        output_index: i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<45>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_CONNECT_OUPUT_TO_INPUT_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interchange_node,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &expression_uid,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &output_index,
+                __buffer.add(40).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_nodes::UInterchangeShaderPortsAPI::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_CONNECT_OUPUT_TO_INPUT_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(44).cast::<bool>().read() }
+    }
+    pub fn connect_default_ouput_to_input(
+        interchange_node: UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+        input_name: FString,
+        expression_uid: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_CONNECT_DEFAULT_OUPUT_TO_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interchange_node,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &expression_uid,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_nodes::UInterchangeShaderPortsAPI::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_CONNECT_DEFAULT_OUPUT_TO_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -4039,6 +14060,71 @@ impl UInterchangeFunctionCallShaderNode {
             cdo
         }
     }
+    pub fn set_custom_material_function(&mut self, attribute_value: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_FUNCTION_CALL_SHADER_NODE_SET_CUSTOM_MATERIAL_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_FUNCTION_CALL_SHADER_NODE_SET_CUSTOM_MATERIAL_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_material_function(&self, attribute_value: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_FUNCTION_CALL_SHADER_NODE_GET_CUSTOM_MATERIAL_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_FUNCTION_CALL_SHADER_NODE_GET_CUSTOM_MATERIAL_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeShaderGraphNode {
@@ -4059,6 +14145,481 @@ impl UInterchangeShaderGraphNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_custom_two_sided_transmission(&mut self, attribute_value: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_TWO_SIDED_TRANSMISSION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_TWO_SIDED_TRANSMISSION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_two_sided(&mut self, attribute_value: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_TWO_SIDED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_TWO_SIDED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_screen_space_reflections(
+        &mut self,
+        attribute_value: &bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_SCREEN_SPACE_REFLECTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_SCREEN_SPACE_REFLECTIONS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_opacity_mask_clip_value(
+        &mut self,
+        attribute_value: &f32,
+        b_add_apply_delegate: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<6>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_OPACITY_MASK_CLIP_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_add_apply_delegate,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_OPACITY_MASK_CLIP_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(5).cast::<bool>().read() }
+    }
+    pub fn set_custom_is_a_shader_function(&mut self, attribute_value: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_IS_A_SHADER_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_IS_A_SHADER_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_displacement_center_mode(&mut self, attribute_value: f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_DISPLACEMENT_CENTER_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_DISPLACEMENT_CENTER_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_blend_mode(&mut self, attribute_value: i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_BLEND_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_BLEND_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_two_sided_transmission(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_TWO_SIDED_TRANSMISSION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_TWO_SIDED_TRANSMISSION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_two_sided(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_TWO_SIDED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_TWO_SIDED,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_screen_space_reflections(
+        &self,
+        attribute_value: &mut bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_SCREEN_SPACE_REFLECTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_SCREEN_SPACE_REFLECTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_opacity_mask_clip_value(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_OPACITY_MASK_CLIP_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_OPACITY_MASK_CLIP_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_is_a_shader_function(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_IS_A_SHADER_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_IS_A_SHADER_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_displacement_center_mode(
+        &self,
+        attribute_value: &mut f32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_DISPLACEMENT_CENTER_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_DISPLACEMENT_CENTER_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_blend_mode(&self, attribute_value: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_BLEND_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_BLEND_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -4081,6 +14642,128 @@ impl UInterchangeSpecularProfileNode {
             cdo
         }
     }
+    pub fn set_custom_texture(&mut self, texture_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_SET_CUSTOM_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &texture_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_SET_CUSTOM_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_custom_format(&mut self, format: u8) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_SET_CUSTOM_FORMAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&format, __buffer.add(0).cast::<u8>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_SET_CUSTOM_FORMAT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_texture(&self, texture_uid: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_GET_CUSTOM_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                texture_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_GET_CUSTOM_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(texture_uid);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_format(&self, format: &mut u8) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_GET_CUSTOM_FORMAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(format, __buffer.add(0).cast::<u8>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_GET_CUSTOM_FORMAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<u8>().swap(format);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeTexture2DNode {
@@ -4101,6 +14784,237 @@ impl UInterchangeTexture2DNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_force_long_lat_cubemap(&mut self, attribute_value: &bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_SET_FORCE_LONG_LAT_CUBEMAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_SET_FORCE_LONG_LAT_CUBEMAP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_wrap_v(
+        &mut self,
+        attribute_value: &EInterchangeTextureWrapMode,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_SET_CUSTOM_WRAP_V,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EInterchangeTextureWrapMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_SET_CUSTOM_WRAP_V,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_custom_wrap_u(
+        &mut self,
+        attribute_value: &EInterchangeTextureWrapMode,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_SET_CUSTOM_WRAP_U,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EInterchangeTextureWrapMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_SET_CUSTOM_WRAP_U,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_source_blocks(&self) -> TMap<i32, FString> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_SOURCE_BLOCKS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_SOURCE_BLOCKS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TMap<i32, FString>>().read() }
+    }
+    pub fn get_force_long_lat_cubemap(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_FORCE_LONG_LAT_CUBEMAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_FORCE_LONG_LAT_CUBEMAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_wrap_v(
+        &self,
+        attribute_value: &mut EInterchangeTextureWrapMode,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_CUSTOM_WRAP_V,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EInterchangeTextureWrapMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_CUSTOM_WRAP_V,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<EInterchangeTextureWrapMode>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_wrap_u(
+        &self,
+        attribute_value: &mut EInterchangeTextureWrapMode,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_CUSTOM_WRAP_U,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EInterchangeTextureWrapMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_CUSTOM_WRAP_U,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<EInterchangeTextureWrapMode>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -4144,6 +15058,295 @@ impl UInterchangeVariantSetNode {
             cdo
         }
     }
+    pub fn set_custom_variants_payload_key(&mut self, payload_key: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_SET_CUSTOM_VARIANTS_PAYLOAD_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &payload_key,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_SET_CUSTOM_VARIANTS_PAYLOAD_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_custom_display_text(&mut self, attribute_value: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_SET_CUSTOM_DISPLAY_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_SET_CUSTOM_DISPLAY_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn remove_custom_dependency_uid(&mut self, dependency_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_REMOVE_CUSTOM_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dependency_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_REMOVE_CUSTOM_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_variants_payload_key(&self, payload_key: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_VARIANTS_PAYLOAD_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                payload_key,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_VARIANTS_PAYLOAD_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(payload_key);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_display_text(&self, attribute_value: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DISPLAY_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DISPLAY_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_dependency_uids(&self, out_dependency_uids: &mut TArray<FString>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_dependency_uids,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(out_dependency_uids);
+        }
+    }
+    pub fn get_custom_dependency_uid_count(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UID_COUNT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UID_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_custom_dependency_uid(
+        &self,
+        index: i32,
+        out_dependency_uid: &mut FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_dependency_uid,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<FString>().swap(out_dependency_uid);
+        }
+    }
+    pub fn add_custom_dependency_uid(&mut self, dependency_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_ADD_CUSTOM_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dependency_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_ADD_CUSTOM_DEPENDENCY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeSceneVariantSetsNode {
@@ -4164,6 +15367,161 @@ impl UInterchangeSceneVariantSetsNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn remove_custom_variant_set_uid(&mut self, variant_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_REMOVE_CUSTOM_VARIANT_SET_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variant_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_REMOVE_CUSTOM_VARIANT_SET_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_variant_set_uids(&self, out_variant_uids: &mut TArray<FString>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_variant_uids,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(out_variant_uids);
+        }
+    }
+    pub fn get_custom_variant_set_uid_count(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UID_COUNT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UID_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_custom_variant_set_uid(&self, index: i32, out_variant_uid: &mut FString) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_variant_uid,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<FString>().swap(out_variant_uid);
+        }
+    }
+    pub fn add_custom_variant_set_uid(&mut self, variant_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_ADD_CUSTOM_VARIANT_SET_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variant_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_ADD_CUSTOM_VARIANT_SET_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -4186,6 +15544,421 @@ impl UInterchangeVolumeNode {
             cdo
         }
     }
+    pub fn set_custom_file_name(&mut self, attribute_value: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_SET_CUSTOM_FILE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_SET_CUSTOM_FILE_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_custom_animation_id(&mut self, attribute_value: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_SET_CUSTOM_ANIMATION_ID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_SET_CUSTOM_ANIMATION_ID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn remove_custom_grid_dependency(&mut self, dependency_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_REMOVE_CUSTOM_GRID_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dependency_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_REMOVE_CUSTOM_GRID_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn remove_custom_frame_index_in_animation(&mut self, index: i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_REMOVE_CUSTOM_FRAME_INDEX_IN_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_REMOVE_CUSTOM_FRAME_INDEX_IN_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_grid_dependency(&self, index: i32, out_dependency: &mut FString) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_dependency,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<FString>().swap(out_dependency);
+        }
+    }
+    pub fn get_custom_grid_dependecies_count(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDECIES_COUNT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDECIES_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_custom_grid_dependecies(&self, out_dependencies: &mut TArray<FString>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDECIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_dependencies,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDECIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(out_dependencies);
+        }
+    }
+    pub fn get_custom_frame_indices_in_animation(
+        &self,
+        out_animation_indices: &mut TArray<i32>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FRAME_INDICES_IN_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_animation_indices,
+                __buffer.add(0).cast::<TArray<i32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FRAME_INDICES_IN_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<i32>>().swap(out_animation_indices);
+        }
+    }
+    pub fn get_custom_frame_index_in_animation(
+        &self,
+        index_index: i32,
+        out_index: &mut i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FRAME_INDEX_IN_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &index_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(out_index, __buffer.add(4).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FRAME_INDEX_IN_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(4).cast::<i32>().swap(out_index);
+        }
+    }
+    pub fn get_custom_file_name(&self, attribute_value: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FILE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FILE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_animation_id(&self, attribute_value: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_ANIMATION_ID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_ANIMATION_ID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn add_custom_grid_dependency(&mut self, dependency_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_ADD_CUSTOM_GRID_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dependency_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_ADD_CUSTOM_GRID_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn add_custom_frame_index_in_animation(&mut self, index: i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_ADD_CUSTOM_FRAME_INDEX_IN_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_ADD_CUSTOM_FRAME_INDEX_IN_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeVolumeGridNode {
@@ -4206,6 +15979,438 @@ impl UInterchangeVolumeGridNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_custom_num_components(&mut self, num_components: &i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_NUM_COMPONENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                num_components,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_NUM_COMPONENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn set_custom_grid_transform(
+        &mut self,
+        attribute_value: &crate::bindings::core_u_object::FTransform,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn set_custom_grid_active_dimensions(
+        &mut self,
+        attribute_value: &crate::bindings::core_u_object::FIntVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_DIMENSIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FIntVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_DIMENSIONS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn set_custom_grid_active_aabb_min(
+        &mut self,
+        attribute_value: &crate::bindings::core_u_object::FIntVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_AABB_MIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FIntVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_AABB_MIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn set_custom_grid_active_aabb_max(
+        &mut self,
+        attribute_value: &crate::bindings::core_u_object::FIntVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_AABB_MAX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FIntVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_AABB_MAX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn set_custom_element_type(
+        &mut self,
+        attribute_value: &EVolumeGridElementType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_ELEMENT_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EVolumeGridElementType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_ELEMENT_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_num_components(&self, num_components: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_NUM_COMPONENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                num_components,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_NUM_COMPONENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(num_components);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_grid_transform(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FTransform,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FTransform>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn get_custom_grid_active_dimensions(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FIntVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_DIMENSIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FIntVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_DIMENSIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FIntVector>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn get_custom_grid_active_aabb_min(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FIntVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_AABB_MIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FIntVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_AABB_MIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FIntVector>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn get_custom_grid_active_aabb_max(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FIntVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_AABB_MAX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FIntVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_AABB_MAX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FIntVector>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn get_custom_element_type(
+        &self,
+        attribute_value: &mut EVolumeGridElementType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_ELEMENT_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<EVolumeGridElementType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_ELEMENT_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<EVolumeGridElementType>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
     }
 }
 #[repr(transparent)]

@@ -72,7 +72,6 @@ pub struct FAssetThumbnailWidgetSettings {
     pub padding: crate::bindings::slate_core::FMargin,
     pub generic_thumbnail_size: i32,
     pub color_strip_orientation: EThumbnailColorStripOrientation_BlueprintType,
-    __padding_end: [u8; 7],
 }
 impl FAssetThumbnailWidgetSettings {}
 #[repr(C, align(8))]
@@ -244,6 +243,164 @@ impl UAssetThumbnailWidget {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_thumbnail_settings(
+        &mut self,
+        in_thumbnail_settings: &FAssetThumbnailWidgetSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_THUMBNAIL_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_thumbnail_settings,
+                __buffer.add(0).cast::<FAssetThumbnailWidgetSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_THUMBNAIL_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_resolution(
+        &mut self,
+        in_resolution: &crate::bindings::core_u_object::FIntPoint,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_RESOLUTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_resolution,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FIntPoint>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_RESOLUTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_asset_by_object(
+        &mut self,
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_ASSET_BY_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_ASSET_BY_OBJECT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_asset(
+        &mut self,
+        asset_data: &crate::bindings::core_u_object::FAssetData,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<152>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_data,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_ASSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_resolution(&self) -> crate::bindings::core_u_object::FIntPoint {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_GET_RESOLUTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_GET_RESOLUTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FIntPoint>().read()
         }
     }
 }

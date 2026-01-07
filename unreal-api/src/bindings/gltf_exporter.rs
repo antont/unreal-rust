@@ -60,7 +60,6 @@ pub struct FGLTFMaterialBakeSize {
     pub x: i32,
     pub y: i32,
     pub b_auto_detect: bool,
-    __padding_end: [u8; 3],
 }
 impl FGLTFMaterialBakeSize {}
 #[repr(C, align(4))]
@@ -92,6 +91,74 @@ impl UGLTFExporter {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn export_to_gltf(
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+        file_path: FString,
+        options: UPtr<UGLTFExportOptions>,
+        selected_actors: &TSet<UPtr<crate::bindings::engine::AActor>>,
+        out_messages: &mut FGLTFExportMessages,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<161>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gltf_exporter::UGLTF_EXPORTER_EXPORT_TO_GLTF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &file_path,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &options,
+                __buffer.add(24).cast::<UPtr<UGLTFExportOptions>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                selected_actors,
+                __buffer.add(32).cast::<TSet<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_messages,
+                __buffer.add(112).cast::<FGLTFExportMessages>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gltf_exporter::UGLTFExporter::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gltf_exporter::UGLTF_EXPORTER_EXPORT_TO_GLTF,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(112).cast::<FGLTFExportMessages>().swap(out_messages);
+        }
+        unsafe { __buffer.add(160).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -283,7 +350,6 @@ pub struct UGLTFExportOptions {
     pub b_export_lights: bool,
     pub b_export_cameras: bool,
     pub export_material_variants: EGLTFMaterialVariantMode,
-    __padding_end: [u8; 5],
 }
 impl UGLTFExportOptions {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -300,6 +366,29 @@ impl UGLTFExportOptions {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn reset_to_default(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gltf_exporter::UGLTF_EXPORT_OPTIONS_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gltf_exporter::UGLTF_EXPORT_OPTIONS_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -331,6 +420,29 @@ impl UGLTFProxyOptions {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn reset_to_default(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gltf_exporter::UGLTF_PROXY_OPTIONS_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gltf_exporter::UGLTF_PROXY_OPTIONS_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]

@@ -26,7 +26,6 @@ pub struct FAbcSamplingSettings {
     pub frame_start: i32,
     pub frame_end: i32,
     pub b_skip_empty: bool,
-    __padding_end: [u8; 3],
 }
 impl FAbcSamplingSettings {}
 #[repr(C, align(4))]
@@ -36,7 +35,6 @@ pub struct FAbcNormalGenerationSettings {
     pub b_recompute_normals: bool,
     pub b_ignore_degenerate_triangles: bool,
     pub b_skip_computing_tangents: bool,
-    __padding_end: [u8; 1],
 }
 impl FAbcNormalGenerationSettings {}
 #[repr(C, align(1))]

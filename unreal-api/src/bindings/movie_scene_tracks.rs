@@ -704,7 +704,6 @@ pub struct FComponentMaterialInfo {
     pub material_slot_name: FName,
     pub material_slot_index: i32,
     pub material_type: EComponentMaterialType,
-    __padding_end: [u8; 3],
 }
 impl FComponentMaterialInfo {}
 #[repr(C, align(8))]
@@ -789,6 +788,32 @@ impl UMovieSceneTransformOrigin {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn bp_get_transform_origin(&self) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_TRANSFORM_ORIGIN_BP_GET_TRANSFORM_ORIGIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_TRANSFORM_ORIGIN_BP_GET_TRANSFORM_ORIGIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
     }
 }
@@ -1121,6 +1146,72 @@ impl UMovieScene3DConstraintSection {
             cdo
         }
     }
+    pub fn set_constraint_binding_id(
+        &mut self,
+        in_constraint_binding_id: &crate::bindings::movie_scene::FMovieSceneObjectBindingID,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_SET_CONSTRAINT_BINDING_ID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_constraint_binding_id,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::movie_scene::FMovieSceneObjectBindingID>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_SET_CONSTRAINT_BINDING_ID,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_constraint_binding_id(
+        &self,
+    ) -> crate::bindings::movie_scene::FMovieSceneObjectBindingID {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_GET_CONSTRAINT_BINDING_ID,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_GET_CONSTRAINT_BINDING_ID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::movie_scene::FMovieSceneObjectBindingID>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UMovieScene3DAttachSection {
@@ -1136,7 +1227,6 @@ pub struct UMovieScene3DAttachSection {
     pub detachment_location_rule: crate::bindings::engine::EDetachmentRule,
     pub detachment_rotation_rule: crate::bindings::engine::EDetachmentRule,
     pub detachment_scale_rule: crate::bindings::engine::EDetachmentRule,
-    __padding_end: [u8; 2],
 }
 impl UMovieScene3DAttachSection {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -1164,7 +1254,6 @@ pub struct UMovieScene3DPathSection {
     #[doc(hidden)]
     __padding_716: [u8; 2],
     pub flags_716: u8,
-    __padding_end: [u8; 3],
 }
 impl UMovieScene3DPathSection {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -1269,6 +1358,375 @@ impl UMovieSceneAudioSection {
             cdo
         }
     }
+    pub fn set_suppress_subtitles(&mut self, b_in_suppress_subtitles: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_SUPPRESS_SUBTITLES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_suppress_subtitles,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_SUPPRESS_SUBTITLES,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_start_offset(
+        &mut self,
+        in_start_offset: crate::bindings::core_u_object::FFrameNumber,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_START_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_start_offset,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FFrameNumber>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_START_OFFSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_sound(&mut self, in_sound: UPtr<crate::bindings::engine::USoundBase>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_SOUND,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_sound,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USoundBase>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_SOUND,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_override_attenuation(&mut self, b_in_override_attenuation: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_OVERRIDE_ATTENUATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_override_attenuation,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_OVERRIDE_ATTENUATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_looping(&mut self, b_in_looping: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_LOOPING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_looping,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_LOOPING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_attenuation_settings(
+        &mut self,
+        in_attenuation_settings: UPtr<crate::bindings::engine::USoundAttenuation>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_ATTENUATION_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_attenuation_settings,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::USoundAttenuation>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_ATTENUATION_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_suppress_subtitles(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_SUPPRESS_SUBTITLES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_SUPPRESS_SUBTITLES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_start_offset(&self) -> crate::bindings::core_u_object::FFrameNumber {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_START_OFFSET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_START_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FFrameNumber>().read()
+        }
+    }
+    pub fn get_sound(&self) -> UPtr<crate::bindings::engine::USoundBase> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_SOUND,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_SOUND,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::USoundBase>>().read()
+        }
+    }
+    pub fn get_playback_sound(&self) -> UPtr<crate::bindings::engine::USoundBase> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_PLAYBACK_SOUND,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_PLAYBACK_SOUND,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::USoundBase>>().read()
+        }
+    }
+    pub fn get_override_attenuation(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_OVERRIDE_ATTENUATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_OVERRIDE_ATTENUATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_looping(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_LOOPING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_LOOPING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_attenuation_settings(
+        &self,
+    ) -> UPtr<crate::bindings::engine::USoundAttenuation> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_ATTENUATION_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_ATTENUATION_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::USoundAttenuation>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UMovieSceneBaseCacheSection {
@@ -1330,6 +1788,72 @@ impl UMovieSceneCameraCutSection {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_camera_binding_id(
+        &mut self,
+        in_camera_binding_id: &crate::bindings::movie_scene::FMovieSceneObjectBindingID,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CAMERA_CUT_SECTION_SET_CAMERA_BINDING_ID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_camera_binding_id,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::movie_scene::FMovieSceneObjectBindingID>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CAMERA_CUT_SECTION_SET_CAMERA_BINDING_ID,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_camera_binding_id(
+        &self,
+    ) -> crate::bindings::movie_scene::FMovieSceneObjectBindingID {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CAMERA_CUT_SECTION_GET_CAMERA_BINDING_ID,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CAMERA_CUT_SECTION_GET_CAMERA_BINDING_ID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::movie_scene::FMovieSceneObjectBindingID>()
+                .read()
         }
     }
 }
@@ -1416,6 +1940,60 @@ impl UMovieSceneCinematicShotSection {
             cdo
         }
     }
+    pub fn set_shot_display_name(&mut self, in_shot_display_name: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_SET_SHOT_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_shot_display_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_SET_SHOT_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_shot_display_name(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_GET_SHOT_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_GET_SHOT_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UMovieSceneColorSection {
@@ -1457,6 +2035,238 @@ impl UMovieSceneComponentMaterialParameterSection {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn remove_scalar_parameter(
+        &mut self,
+        in_parameter_info: &crate::bindings::engine::FMaterialParameterInfo,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_info,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::engine::FMaterialParameterInfo>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn remove_color_parameter(
+        &mut self,
+        in_parameter_info: &crate::bindings::engine::FMaterialParameterInfo,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_info,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::engine::FMaterialParameterInfo>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn add_scalar_parameter_key(
+        &mut self,
+        in_parameter_info: &crate::bindings::engine::FMaterialParameterInfo,
+        in_time: crate::bindings::core_u_object::FFrameNumber,
+        in_value: f32,
+        in_layer_name: FString,
+        in_asset_name: FString,
+        default_interpolation: crate::bindings::movie_scene::EMovieSceneKeyInterpolation,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<65>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_info,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::engine::FMaterialParameterInfo>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_time,
+                __buffer.add(20).cast::<crate::bindings::core_u_object::FFrameNumber>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(24).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_layer_name,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_asset_name,
+                __buffer.add(48).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_interpolation,
+                __buffer
+                    .add(64)
+                    .cast::<crate::bindings::movie_scene::EMovieSceneKeyInterpolation>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_color_parameter_key(
+        &mut self,
+        in_parameter_info: &crate::bindings::engine::FMaterialParameterInfo,
+        in_time: crate::bindings::core_u_object::FFrameNumber,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+        in_layer_name: FString,
+        in_asset_name: FString,
+        in_channel_names: &crate::bindings::engine::FParameterChannelNames,
+        default_interpolation: crate::bindings::movie_scene::EMovieSceneKeyInterpolation,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<137>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_info,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::engine::FMaterialParameterInfo>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_time,
+                __buffer.add(20).cast::<crate::bindings::core_u_object::FFrameNumber>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_layer_name,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_asset_name,
+                __buffer.add(56).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_channel_names,
+                __buffer
+                    .add(72)
+                    .cast::<crate::bindings::engine::FParameterChannelNames>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_interpolation,
+                __buffer
+                    .add(136)
+                    .cast::<crate::bindings::movie_scene::EMovieSceneKeyInterpolation>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY,
+                __buffer,
+            )
+        };
     }
 }
 pub struct IMovieSceneConstrainedSection {}
@@ -1501,6 +2311,561 @@ impl UMovieSceneParameterSection {
             cdo
         }
     }
+    pub fn remove_vector_parameter(&mut self, in_parameter_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn remove_vector2_d_parameter(&mut self, in_parameter_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR2_D_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR2_D_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn remove_transform_parameter(&mut self, in_parameter_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_TRANSFORM_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_TRANSFORM_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn remove_scalar_parameter(&mut self, in_parameter_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn remove_color_parameter(&mut self, in_parameter_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn remove_bool_parameter(&mut self, in_parameter_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_BOOL_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_BOOL_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn get_parameter_names(&self, parameter_names: &mut TSet<FName>) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_GET_PARAMETER_NAMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                parameter_names,
+                __buffer.add(0).cast::<TSet<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_GET_PARAMETER_NAMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TSet<FName>>().swap(parameter_names);
+        }
+    }
+    pub fn add_vector_parameter_key(
+        &mut self,
+        in_parameter_name: FName,
+        in_time: crate::bindings::core_u_object::FFrameNumber,
+        in_value: crate::bindings::core_u_object::FVector,
+        default_interpolation: crate::bindings::movie_scene::EMovieSceneKeyInterpolation,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_time,
+                __buffer.add(12).cast::<crate::bindings::core_u_object::FFrameNumber>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_interpolation,
+                __buffer
+                    .add(40)
+                    .cast::<crate::bindings::movie_scene::EMovieSceneKeyInterpolation>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_vector2_d_parameter_key(
+        &mut self,
+        in_parameter_name: FName,
+        in_time: crate::bindings::core_u_object::FFrameNumber,
+        in_value: crate::bindings::core_u_object::FVector2D,
+        default_interpolation: crate::bindings::movie_scene::EMovieSceneKeyInterpolation,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR2_D_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_time,
+                __buffer.add(12).cast::<crate::bindings::core_u_object::FFrameNumber>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_interpolation,
+                __buffer
+                    .add(32)
+                    .cast::<crate::bindings::movie_scene::EMovieSceneKeyInterpolation>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR2_D_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_transform_parameter_key(
+        &mut self,
+        in_parameter_name: FName,
+        in_time: crate::bindings::core_u_object::FFrameNumber,
+        in_value: &crate::bindings::core_u_object::FTransform,
+        default_interpolation: crate::bindings::movie_scene::EMovieSceneKeyInterpolation,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<113>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_TRANSFORM_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_time,
+                __buffer.add(12).cast::<crate::bindings::core_u_object::FFrameNumber>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_interpolation,
+                __buffer
+                    .add(112)
+                    .cast::<crate::bindings::movie_scene::EMovieSceneKeyInterpolation>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_TRANSFORM_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_scalar_parameter_key(
+        &mut self,
+        in_parameter_name: FName,
+        in_time: crate::bindings::core_u_object::FFrameNumber,
+        in_value: f32,
+        default_interpolation: crate::bindings::movie_scene::EMovieSceneKeyInterpolation,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_time,
+                __buffer.add(12).cast::<crate::bindings::core_u_object::FFrameNumber>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(16).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_interpolation,
+                __buffer
+                    .add(20)
+                    .cast::<crate::bindings::movie_scene::EMovieSceneKeyInterpolation>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_color_parameter_key(
+        &mut self,
+        in_parameter_name: FName,
+        in_time: crate::bindings::core_u_object::FFrameNumber,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+        default_interpolation: crate::bindings::movie_scene::EMovieSceneKeyInterpolation,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_time,
+                __buffer.add(12).cast::<crate::bindings::core_u_object::FFrameNumber>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_interpolation,
+                __buffer
+                    .add(32)
+                    .cast::<crate::bindings::movie_scene::EMovieSceneKeyInterpolation>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_bool_parameter_key(
+        &mut self,
+        in_parameter_name: FName,
+        in_time: crate::bindings::core_u_object::FFrameNumber,
+        in_value: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_BOOL_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_time,
+                __buffer.add(12).cast::<crate::bindings::core_u_object::FFrameNumber>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_BOOL_PARAMETER_KEY,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UMovieSceneCustomPrimitiveDataSection {
@@ -1543,6 +2908,60 @@ impl UMovieSceneCVarSection {
             cdo
         }
     }
+    pub fn set_from_string(&mut self, in_string: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_C_VAR_SECTION_SET_FROM_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_string,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_C_VAR_SECTION_SET_FROM_STRING,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_string(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_C_VAR_SECTION_GET_STRING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_C_VAR_SECTION_GET_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UMovieSceneDataLayerSection {
@@ -1562,6 +2981,308 @@ impl UMovieSceneDataLayerSection {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_preroll_state(
+        &mut self,
+        in_preroll_state: crate::bindings::engine::EDataLayerRuntimeState,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_PREROLL_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_preroll_state,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::engine::EDataLayerRuntimeState>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_PREROLL_STATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_flush_on_unload(&mut self, b_flush_on_unload: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_UNLOAD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_flush_on_unload,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_UNLOAD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_flush_on_activated(&mut self, b_flush_on_activated: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_ACTIVATED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_flush_on_activated,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_ACTIVATED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_desired_state(
+        &mut self,
+        in_desired_state: crate::bindings::engine::EDataLayerRuntimeState,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DESIRED_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_desired_state,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::engine::EDataLayerRuntimeState>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DESIRED_STATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_data_layer_assets(
+        &mut self,
+        in_data_layer_assets: &TArray<UPtr<crate::bindings::engine::UDataLayerAsset>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DATA_LAYER_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_data_layer_assets,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::engine::UDataLayerAsset>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DATA_LAYER_ASSETS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_preroll_state(&self) -> crate::bindings::engine::EDataLayerRuntimeState {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_PREROLL_STATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_PREROLL_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::engine::EDataLayerRuntimeState>()
+                .read()
+        }
+    }
+    pub fn get_flush_on_unload(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_UNLOAD,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_UNLOAD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_flush_on_activated(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_ACTIVATED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_ACTIVATED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_desired_state(&self) -> crate::bindings::engine::EDataLayerRuntimeState {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DESIRED_STATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DESIRED_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::engine::EDataLayerRuntimeState>()
+                .read()
+        }
+    }
+    pub fn get_data_layer_assets(
+        &self,
+    ) -> TArray<UPtr<crate::bindings::engine::UDataLayerAsset>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DATA_LAYER_ASSETS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DATA_LAYER_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::engine::UDataLayerAsset>>>()
+                .read()
         }
     }
 }
@@ -1773,6 +3494,114 @@ impl UMovieSceneLevelVisibilitySection {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_visibility(&mut self, in_visibility: ELevelVisibility) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_visibility,
+                __buffer.add(0).cast::<ELevelVisibility>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_level_names(&mut self, in_level_names: &TArray<FName>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_LEVEL_NAMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_level_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_LEVEL_NAMES,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_visibility(&self) -> ELevelVisibility {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_VISIBILITY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<ELevelVisibility>().read() }
+    }
+    pub fn get_level_names(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_LEVEL_NAMES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_LEVEL_NAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3026,6 +4855,238 @@ impl UMovieSceneAsyncAction_SequencePrediction {
             cdo
         }
     }
+    pub fn predict_world_transform_at_time(
+        player: UPtr<crate::bindings::movie_scene::UMovieSceneSequencePlayer>,
+        target_component: UPtr<crate::bindings::engine::USceneComponent>,
+        time_in_seconds: f32,
+    ) -> UPtr<UMovieSceneAsyncAction_SequencePrediction> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::movie_scene::UMovieSceneSequencePlayer>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_component,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::USceneComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &time_in_seconds,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::movie_scene_tracks::UMovieSceneAsyncAction_SequencePrediction::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<UPtr<UMovieSceneAsyncAction_SequencePrediction>>()
+                .read()
+        }
+    }
+    pub fn predict_world_transform_at_frame(
+        player: UPtr<crate::bindings::movie_scene::UMovieSceneSequencePlayer>,
+        target_component: UPtr<crate::bindings::engine::USceneComponent>,
+        frame_time: crate::bindings::core_u_object::FFrameTime,
+    ) -> UPtr<UMovieSceneAsyncAction_SequencePrediction> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::movie_scene::UMovieSceneSequencePlayer>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_component,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::USceneComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_time,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FFrameTime>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::movie_scene_tracks::UMovieSceneAsyncAction_SequencePrediction::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<UPtr<UMovieSceneAsyncAction_SequencePrediction>>()
+                .read()
+        }
+    }
+    pub fn predict_local_transform_at_time(
+        player: UPtr<crate::bindings::movie_scene::UMovieSceneSequencePlayer>,
+        target_component: UPtr<crate::bindings::engine::USceneComponent>,
+        time_in_seconds: f32,
+    ) -> UPtr<UMovieSceneAsyncAction_SequencePrediction> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::movie_scene::UMovieSceneSequencePlayer>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_component,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::USceneComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &time_in_seconds,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::movie_scene_tracks::UMovieSceneAsyncAction_SequencePrediction::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<UPtr<UMovieSceneAsyncAction_SequencePrediction>>()
+                .read()
+        }
+    }
+    pub fn predict_local_transform_at_frame(
+        player: UPtr<crate::bindings::movie_scene::UMovieSceneSequencePlayer>,
+        target_component: UPtr<crate::bindings::engine::USceneComponent>,
+        frame_time: crate::bindings::core_u_object::FFrameTime,
+    ) -> UPtr<UMovieSceneAsyncAction_SequencePrediction> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::movie_scene::UMovieSceneSequencePlayer>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_component,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::USceneComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_time,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FFrameTime>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::movie_scene_tracks::UMovieSceneAsyncAction_SequencePrediction::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<UPtr<UMovieSceneAsyncAction_SequencePrediction>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UMovieScenePredictionSystem {
@@ -3508,6 +5569,41 @@ impl UMovieSceneFadeTrackTestLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_manual_fade_amount(
+        player_camera_manager: UPtr<crate::bindings::engine::APlayerCameraManager>,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_FADE_TRACK_TEST_LIBRARY_GET_MANUAL_FADE_AMOUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_camera_manager,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerCameraManager>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::movie_scene_tracks::UMovieSceneFadeTrackTestLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_FADE_TRACK_TEST_LIBRARY_GET_MANUAL_FADE_AMOUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<f32>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -4314,7 +6410,6 @@ pub struct UMovieSceneSkeletalAnimationTrack {
     #[doc(hidden)]
     __padding_569: [u8; 569],
     pub swap_root_bone: crate::bindings::anim_graph_runtime::ESwapRootBone,
-    __padding_end: [u8; 6],
 }
 impl UMovieSceneSkeletalAnimationTrack {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

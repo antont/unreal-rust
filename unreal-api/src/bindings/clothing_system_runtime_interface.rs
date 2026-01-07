@@ -273,6 +273,406 @@ impl UClothingSimulationInteractor {
             cdo
         }
     }
+    pub fn set_num_substeps(&mut self, num_substeps: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_NUM_SUBSTEPS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &num_substeps,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_NUM_SUBSTEPS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_num_iterations(&mut self, num_iterations: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_NUM_ITERATIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &num_iterations,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_NUM_ITERATIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_max_num_iterations(&mut self, max_num_iterations: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_MAX_NUM_ITERATIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &max_num_iterations,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_MAX_NUM_ITERATIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_anim_drive_spring_stiffness(&mut self, in_stiffness: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_ANIM_DRIVE_SPRING_STIFFNESS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_stiffness,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_ANIM_DRIVE_SPRING_STIFFNESS,
+                __buffer,
+            )
+        };
+    }
+    pub fn physics_asset_updated(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_PHYSICS_ASSET_UPDATED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_PHYSICS_ASSET_UPDATED,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_simulation_time(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_SIMULATION_TIME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_SIMULATION_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_num_substeps(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_SUBSTEPS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_SUBSTEPS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_num_kinematic_particles(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_KINEMATIC_PARTICLES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_KINEMATIC_PARTICLES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_num_iterations(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_ITERATIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_ITERATIONS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_num_dynamic_particles(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_DYNAMIC_PARTICLES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_DYNAMIC_PARTICLES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_num_cloths(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_CLOTHS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_CLOTHS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_clothing_interactor(
+        &self,
+        clothing_asset_name: FName,
+    ) -> UPtr<UClothingInteractor> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_CLOTHING_INTERACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &clothing_asset_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_CLOTHING_INTERACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UClothingInteractor>>().read() }
+    }
+    pub fn enable_gravity_override(
+        &mut self,
+        in_vector: &crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_ENABLE_GRAVITY_OVERRIDE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_vector,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_ENABLE_GRAVITY_OVERRIDE,
+                __buffer,
+            )
+        };
+    }
+    pub fn disable_gravity_override(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_DISABLE_GRAVITY_OVERRIDE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_DISABLE_GRAVITY_OVERRIDE,
+                __buffer,
+            )
+        };
+    }
+    pub fn cloth_config_updated(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_CLOTH_CONFIG_UPDATED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_CLOTH_CONFIG_UPDATED,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UClothPhysicalMeshDataBase_Legacy {

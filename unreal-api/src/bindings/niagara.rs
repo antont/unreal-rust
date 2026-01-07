@@ -2909,7 +2909,6 @@ pub struct FNiagaraDataChannelUpdateContext {
     pub first_new_data_index: i32,
     pub last_new_data_index: i32,
     pub new_element_count: i32,
-    __padding_end: [u8; 4],
 }
 impl FNiagaraDataChannelUpdateContext {}
 #[repr(C, align(4))]
@@ -2943,7 +2942,6 @@ pub struct FNiagaraMeshRendererMeshPropertiesBase {
     pub rotation: crate::bindings::core_u_object::FRotator,
     pub pivot_offset: crate::bindings::core_u_object::FVector,
     pub pivot_offset_space: ENiagaraMeshPivotOffsetSpace,
-    __padding_end: [u8; 7],
 }
 impl FNiagaraMeshRendererMeshPropertiesBase {}
 #[repr(C, align(8))]
@@ -2966,7 +2964,6 @@ pub struct FNiagaraDataChannelSearchParameters {
     pub owning_component: UPtr<crate::bindings::engine::USceneComponent>,
     pub location: crate::bindings::core_u_object::FVector,
     pub flags_32: u8,
-    __padding_end: [u8; 7],
 }
 impl FNiagaraDataChannelSearchParameters {}
 #[repr(C, align(8))]
@@ -2996,7 +2993,6 @@ pub struct FNDCAccessContextLegacy {
     __padding_16: [u8; 16],
     pub location: crate::bindings::core_u_object::FVector,
     pub flags_40: u8,
-    __padding_end: [u8; 7],
 }
 impl FNDCAccessContextLegacy {}
 #[repr(C, align(8))]
@@ -3009,7 +3005,6 @@ pub struct FNiagaraDataChannelReference {
     pub data_channel: UPtr<UNiagaraDataChannelAsset>,
     pub access_context: FNDCAccessContextInst,
     pub b_custom_access_context: bool,
-    __padding_end: [u8; 7],
 }
 impl FNiagaraDataChannelReference {}
 #[repr(C, align(8))]
@@ -3030,7 +3025,6 @@ pub struct FNDCAccessContext_GameplayBurst {
     pub cell_size_override: crate::bindings::core_u_object::FVector,
     pub system_bounds_padding: crate::bindings::core_u_object::FVector,
     pub gameplay_tag: crate::bindings::gameplay_tags::FGameplayTag,
-    __padding_end: [u8; 4],
 }
 impl FNDCAccessContext_GameplayBurst {}
 #[repr(C, align(8))]
@@ -3408,6 +3402,54 @@ impl UNiagaraDataInterfaceArrayDistributionInt {
             cdo
         }
     }
+    pub fn set_niagara_array_distribution_int(
+        niagara_component: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        array_data: &TArray<FNDIDistributionIntArrayEntry>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_DISTRIBUTION_INT_SET_NIAGARA_ARRAY_DISTRIBUTION_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_component,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                array_data,
+                __buffer.add(24).cast::<TArray<FNDIDistributionIntArrayEntry>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayDistributionInt::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_DISTRIBUTION_INT_SET_NIAGARA_ARRAY_DISTRIBUTION_INT,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceRWBase {
@@ -3473,6 +3515,106 @@ impl UNiagaraDataInterfaceArrayMesh {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_niagara_array_mesh_sm(
+        niagara_component: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        array_data: &TArray<UPtr<crate::bindings::engine::UStaticMesh>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_MESH_SET_NIAGARA_ARRAY_MESH_SM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_component,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                array_data,
+                __buffer
+                    .add(24)
+                    .cast::<TArray<UPtr<crate::bindings::engine::UStaticMesh>>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayMesh::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_MESH_SET_NIAGARA_ARRAY_MESH_SM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_mesh(
+        niagara_component: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        array_data: &TArray<FNiagaraMeshRendererMeshPropertiesBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_MESH_SET_NIAGARA_ARRAY_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_component,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                array_data,
+                __buffer
+                    .add(24)
+                    .cast::<TArray<FNiagaraMeshRendererMeshPropertiesBase>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayMesh::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_MESH_SET_NIAGARA_ARRAY_MESH,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -3790,6 +3932,54 @@ impl UNiagaraDataInterfaceSceneCapture2D {
             cdo
         }
     }
+    pub fn set_scene_capture2_d_managed_show_only_actors(
+        niagara_system: UPtr<UNiagaraComponent>,
+        parameter_name: FName,
+        show_only_actors: TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_SCENE_CAPTURE2_D_SET_SCENE_CAPTURE2_D_MANAGED_SHOW_ONLY_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &show_only_actors,
+                __buffer.add(24).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceSceneCapture2D::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_SCENE_CAPTURE2_D_SET_SCENE_CAPTURE2_D_MANAGED_SHOW_ONLY_ACTORS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceSimCacheReader {
@@ -3895,6 +4085,54 @@ impl UNiagaraDataInterfaceStaticMesh {
             cdo
         }
     }
+    pub fn set_niagara_static_mesh_di_instance_index(
+        niagara_system: UPtr<UNiagaraComponent>,
+        user_parameter_name: FName,
+        new_instance_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_STATIC_MESH_SET_NIAGARA_STATIC_MESH_DI_INSTANCE_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &user_parameter_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_instance_index,
+                __buffer.add(20).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceStaticMesh::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_STATIC_MESH_SET_NIAGARA_STATIC_MESH_DI_INSTANCE_INDEX,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceUObjectPropertyReader {
@@ -3915,6 +4153,62 @@ impl UNiagaraDataInterfaceUObjectPropertyReader {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_u_object_reader_property_remap(
+        niagara_component: UPtr<UNiagaraComponent>,
+        user_parameter_name: FName,
+        graph_name: FName,
+        remap_name: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_U_OBJECT_PROPERTY_READER_SET_U_OBJECT_READER_PROPERTY_REMAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_component,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &user_parameter_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &graph_name,
+                __buffer.add(20).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &remap_name,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceUObjectPropertyReader::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_U_OBJECT_PROPERTY_READER_SET_U_OBJECT_READER_PROPERTY_REMAP,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -3957,6 +4251,291 @@ impl UMovieSceneNiagaraSystemSpawnSection {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_section_start_behavior(
+        &mut self,
+        in_behavior: ENiagaraSystemSpawnSectionStartBehavior,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_START_BEHAVIOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_behavior,
+                __buffer.add(0).cast::<ENiagaraSystemSpawnSectionStartBehavior>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_START_BEHAVIOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_section_evaluate_behavior(
+        &mut self,
+        in_behavior: ENiagaraSystemSpawnSectionEvaluateBehavior,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_EVALUATE_BEHAVIOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_behavior,
+                __buffer.add(0).cast::<ENiagaraSystemSpawnSectionEvaluateBehavior>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_EVALUATE_BEHAVIOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_section_end_behavior(
+        &mut self,
+        in_behavior: ENiagaraSystemSpawnSectionEndBehavior,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_END_BEHAVIOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_behavior,
+                __buffer.add(0).cast::<ENiagaraSystemSpawnSectionEndBehavior>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_END_BEHAVIOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_allow_scalability(&mut self, b_in_allow_scalability: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_ALLOW_SCALABILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_allow_scalability,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_ALLOW_SCALABILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_age_update_mode(&mut self, in_mode: ENiagaraAgeUpdateMode) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_AGE_UPDATE_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_mode,
+                __buffer.add(0).cast::<ENiagaraAgeUpdateMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_AGE_UPDATE_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_section_start_behavior(&self) -> ENiagaraSystemSpawnSectionStartBehavior {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_START_BEHAVIOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_START_BEHAVIOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<ENiagaraSystemSpawnSectionStartBehavior>().read()
+        }
+    }
+    pub fn get_section_evaluate_behavior(
+        &self,
+    ) -> ENiagaraSystemSpawnSectionEvaluateBehavior {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_EVALUATE_BEHAVIOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_EVALUATE_BEHAVIOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<ENiagaraSystemSpawnSectionEvaluateBehavior>().read()
+        }
+    }
+    pub fn get_section_end_behavior(&self) -> ENiagaraSystemSpawnSectionEndBehavior {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_END_BEHAVIOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_END_BEHAVIOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<ENiagaraSystemSpawnSectionEndBehavior>().read() }
+    }
+    pub fn get_allow_scalability(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_ALLOW_SCALABILITY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_ALLOW_SCALABILITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_age_update_mode(&self) -> ENiagaraAgeUpdateMode {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_AGE_UPDATE_MODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_AGE_UPDATE_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<ENiagaraAgeUpdateMode>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -4149,6 +4728,63 @@ impl ANiagaraActor {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_destroy_on_system_finish(
+        &mut self,
+        b_should_destroy_on_system_finish: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::A_NIAGARA_ACTOR_SET_DESTROY_ON_SYSTEM_FINISH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_should_destroy_on_system_finish,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::A_NIAGARA_ACTOR_SET_DESTROY_ON_SYSTEM_FINISH,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_destroy_on_system_finish(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::A_NIAGARA_ACTOR_GET_DESTROY_ON_SYSTEM_FINISH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::A_NIAGARA_ACTOR_GET_DESTROY_ON_SYSTEM_FINISH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -4355,6 +4991,3041 @@ impl UNiagaraComponent {
             cdo
         }
     }
+    pub fn set_variable_vec4(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &crate::bindings::core_u_object::FVector4,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_VEC4,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector4>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_VEC4,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_variable_vec3(
+        &mut self,
+        in_variable_name: FName,
+        in_value: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_VEC3,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_VEC3,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_variable_vec2(
+        &mut self,
+        in_variable_name: FName,
+        in_value: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_VEC2,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_VEC2,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_variable_texture_render_target(
+        &mut self,
+        in_variable_name: FName,
+        texture_render_target: UPtr<crate::bindings::engine::UTextureRenderTarget>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_TEXTURE_RENDER_TARGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &texture_render_target,
+                __buffer
+                    .add(16)
+                    .cast::<UPtr<crate::bindings::engine::UTextureRenderTarget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_TEXTURE_RENDER_TARGET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_variable_texture(
+        &mut self,
+        in_variable_name: FName,
+        texture: UPtr<crate::bindings::engine::UTexture>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &texture,
+                __buffer.add(16).cast::<UPtr<crate::bindings::engine::UTexture>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_TEXTURE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_variable_static_mesh(
+        &mut self,
+        in_variable_name: FName,
+        in_value: UPtr<crate::bindings::engine::UStaticMesh>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_STATIC_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<UPtr<crate::bindings::engine::UStaticMesh>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_STATIC_MESH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_variable_quat(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &crate::bindings::core_u_object::FQuat,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_QUAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_QUAT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_variable_position(
+        &mut self,
+        in_variable_name: FName,
+        in_value: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_POSITION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_variable_object(
+        &mut self,
+        in_variable_name: FName,
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(16).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_OBJECT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_variable_matrix(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &crate::bindings::core_u_object::FMatrix,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<144>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_MATRIX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FMatrix>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_MATRIX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_variable_material(
+        &mut self,
+        in_variable_name: FName,
+        object: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer
+                    .add(16)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_variable_linear_color(
+        &mut self,
+        in_variable_name: FName,
+        in_value: &crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_LINEAR_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(12).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_LINEAR_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_variable_int(&mut self, in_variable_name: FName, in_value: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(12).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_INT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_variable_float(&mut self, in_variable_name: FName, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(12).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_FLOAT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_variable_bool(&mut self, in_variable_name: FName, in_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(12).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_BOOL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_variable_actor(
+        &mut self,
+        in_variable_name: FName,
+        actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_ACTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_tick_behavior(&mut self, new_tick_behavior: ENiagaraTickBehavior) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_TICK_BEHAVIOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_tick_behavior,
+                __buffer.add(0).cast::<ENiagaraTickBehavior>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_TICK_BEHAVIOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_system_fixed_bounds(
+        &mut self,
+        local_bounds: crate::bindings::core_u_object::FBox,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_SYSTEM_FIXED_BOUNDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &local_bounds,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FBox>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_SYSTEM_FIXED_BOUNDS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_sim_cache(
+        &mut self,
+        sim_cache: UPtr<UNiagaraSimCache>,
+        b_reset_system: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_SIM_CACHE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sim_cache,
+                __buffer.add(0).cast::<UPtr<UNiagaraSimCache>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_reset_system,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_SIM_CACHE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_seek_delta(&mut self, in_seek_delta: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_SEEK_DELTA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_seek_delta,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_SEEK_DELTA,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_rendering_enabled(&mut self, b_in_rendering_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_RENDERING_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_rendering_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_RENDERING_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_random_seed_offset(&mut self, new_random_seed_offset: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_RANDOM_SEED_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_random_seed_offset,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_RANDOM_SEED_OFFSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_preview_lod_distance(
+        &mut self,
+        b_enable_preview_lod_distance: bool,
+        preview_lod_distance: f32,
+        preview_max_distance: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_PREVIEW_LOD_DISTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_enable_preview_lod_distance,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &preview_lod_distance,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &preview_max_distance,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_PREVIEW_LOD_DISTANCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_paused(&mut self, b_in_paused: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_PAUSED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_paused,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_PAUSED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_occlusion_query_mode(&mut self, mode: ENiagaraOcclusionQueryMode) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_OCCLUSION_QUERY_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mode,
+                __buffer.add(0).cast::<ENiagaraOcclusionQueryMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_OCCLUSION_QUERY_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_variable_vec4(
+        &mut self,
+        in_variable_name: FString,
+        in_value: &crate::bindings::core_u_object::FVector4,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC4,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector4>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC4,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_variable_vec3(
+        &mut self,
+        in_variable_name: FString,
+        in_value: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC3,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC3,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_variable_vec2(
+        &mut self,
+        in_variable_name: FString,
+        in_value: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC2,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC2,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_variable_quat(
+        &mut self,
+        in_variable_name: FString,
+        in_value: &crate::bindings::core_u_object::FQuat,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_QUAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_QUAT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_variable_position(
+        &mut self,
+        in_variable_name: FString,
+        in_value: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_POSITION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_variable_object(
+        &mut self,
+        in_variable_name: FString,
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(16).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_OBJECT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_variable_matrix(
+        &mut self,
+        in_variable_name: FString,
+        in_value: &crate::bindings::core_u_object::FMatrix,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<144>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_MATRIX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FMatrix>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_MATRIX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_variable_linear_color(
+        &mut self,
+        in_variable_name: FString,
+        in_value: &crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_LINEAR_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_LINEAR_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_variable_int(
+        &mut self,
+        in_variable_name: FString,
+        in_value: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_INT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_variable_float(
+        &mut self,
+        in_variable_name: FString,
+        in_value: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(16).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_FLOAT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_variable_bool(
+        &mut self,
+        in_variable_name: FString,
+        in_value: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_BOOL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_variable_actor(
+        &mut self,
+        in_variable_name: FString,
+        actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_ACTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_max_sim_time(&mut self, in_max_time: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_MAX_SIM_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_max_time,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_MAX_SIM_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_lock_desired_age_delta_time_to_seek_delta(&mut self, b_lock: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_LOCK_DESIRED_AGE_DELTA_TIME_TO_SEEK_DELTA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_lock, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_LOCK_DESIRED_AGE_DELTA_TIME_TO_SEEK_DELTA,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_gpu_compute_debug(&mut self, b_enable_debug: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_GPU_COMPUTE_DEBUG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_enable_debug,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_GPU_COMPUTE_DEBUG,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_force_solo(&mut self, b_in_force_solo: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_FORCE_SOLO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_force_solo,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_FORCE_SOLO,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_force_local_player_effect(&mut self, b_is_player_effect: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_FORCE_LOCAL_PLAYER_EFFECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_player_effect,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_FORCE_LOCAL_PLAYER_EFFECT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_emitter_fixed_bounds(
+        &mut self,
+        emitter_name: FName,
+        local_bounds: crate::bindings::core_u_object::FBox,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_EMITTER_FIXED_BOUNDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &emitter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &local_bounds,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FBox>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_EMITTER_FIXED_BOUNDS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_desired_age(&mut self, in_desired_age: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_DESIRED_AGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_desired_age,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_DESIRED_AGE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_custom_time_dilation(&mut self, dilation: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_CUSTOM_TIME_DILATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&dilation, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_CUSTOM_TIME_DILATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_can_render_while_seeking(&mut self, b_in_can_render_while_seeking: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_CAN_RENDER_WHILE_SEEKING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_can_render_while_seeking,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_CAN_RENDER_WHILE_SEEKING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_auto_destroy(&mut self, b_in_auto_destroy: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_AUTO_DESTROY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_auto_destroy,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_AUTO_DESTROY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_asset(
+        &mut self,
+        in_asset: UPtr<UNiagaraSystem>,
+        b_reset_existing_override_parameters: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_asset,
+                __buffer.add(0).cast::<UPtr<UNiagaraSystem>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_reset_existing_override_parameters,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_ASSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_allow_scalability(&mut self, b_allow: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_ALLOW_SCALABILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_allow, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_ALLOW_SCALABILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_age_update_mode(&mut self, in_age_update_mode: ENiagaraAgeUpdateMode) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_AGE_UPDATE_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_age_update_mode,
+                __buffer.add(0).cast::<ENiagaraAgeUpdateMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_AGE_UPDATE_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn seek_to_desired_age(&mut self, in_desired_age: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SEEK_TO_DESIRED_AGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_desired_age,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_SEEK_TO_DESIRED_AGE,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_system(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_RESET_SYSTEM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_RESET_SYSTEM,
+                __buffer,
+            )
+        };
+    }
+    pub fn reinitialize_system(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_REINITIALIZE_SYSTEM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_REINITIALIZE_SYSTEM,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_paused(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_IS_PAUSED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_IS_PAUSED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn init_for_performance_baseline(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_INIT_FOR_PERFORMANCE_BASELINE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_INIT_FOR_PERFORMANCE_BASELINE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_variable_vec4(
+        &self,
+        in_variable_name: FName,
+        b_is_valid: &mut bool,
+    ) -> crate::bindings::core_u_object::FVector4 {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_VEC4,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_is_valid,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_VEC4,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<bool>().swap(b_is_valid);
+        }
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector4>().read()
+        }
+    }
+    pub fn get_variable_vec3(
+        &self,
+        in_variable_name: FName,
+        b_is_valid: &mut bool,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_VEC3,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_is_valid,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_VEC3,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<bool>().swap(b_is_valid);
+        }
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_variable_vec2(
+        &self,
+        in_variable_name: FName,
+        b_is_valid: &mut bool,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_VEC2,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_is_valid,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_VEC2,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<bool>().swap(b_is_valid);
+        }
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_variable_quat(
+        &self,
+        in_variable_name: FName,
+        b_is_valid: &mut bool,
+    ) -> crate::bindings::core_u_object::FQuat {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_QUAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_is_valid,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_QUAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<bool>().swap(b_is_valid);
+        }
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>().read()
+        }
+    }
+    pub fn get_variable_position(
+        &self,
+        in_variable_name: FName,
+        b_is_valid: &mut bool,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_is_valid,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<bool>().swap(b_is_valid);
+        }
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_variable_matrix(
+        &self,
+        in_variable_name: FName,
+        b_is_valid: &mut bool,
+    ) -> crate::bindings::core_u_object::FMatrix {
+        let mut __stack = crate::core_data::StackAlloc::<144>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_MATRIX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_is_valid,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_MATRIX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<bool>().swap(b_is_valid);
+        }
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FMatrix>().read()
+        }
+    }
+    pub fn get_variable_int(
+        &self,
+        in_variable_name: FName,
+        b_is_valid: &mut bool,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_is_valid,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<bool>().swap(b_is_valid);
+        }
+        unsafe { __buffer.add(16).cast::<i32>().read() }
+    }
+    pub fn get_variable_float(
+        &self,
+        in_variable_name: FName,
+        b_is_valid: &mut bool,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_is_valid,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<bool>().swap(b_is_valid);
+        }
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn get_variable_color(
+        &self,
+        in_variable_name: FName,
+        b_is_valid: &mut bool,
+    ) -> crate::bindings::core_u_object::FLinearColor {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_is_valid,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<bool>().swap(b_is_valid);
+        }
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::core_u_object::FLinearColor>()
+                .read()
+        }
+    }
+    pub fn get_variable_bool(
+        &self,
+        in_variable_name: FName,
+        b_is_valid: &mut bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<14>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_is_valid,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<bool>().swap(b_is_valid);
+        }
+        unsafe { __buffer.add(13).cast::<bool>().read() }
+    }
+    pub fn get_tick_behavior(&self) -> ENiagaraTickBehavior {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_TICK_BEHAVIOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_TICK_BEHAVIOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<ENiagaraTickBehavior>().read() }
+    }
+    pub fn get_system_fixed_bounds(&self) -> crate::bindings::core_u_object::FBox {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_SYSTEM_FIXED_BOUNDS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_SYSTEM_FIXED_BOUNDS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<crate::bindings::core_u_object::FBox>().read() }
+    }
+    pub fn get_sim_cache(&self) -> UPtr<UNiagaraSimCache> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_SIM_CACHE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_SIM_CACHE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UNiagaraSimCache>>().read() }
+    }
+    pub fn get_seek_delta(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_SEEK_DELTA,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_SEEK_DELTA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_random_seed_offset(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_RANDOM_SEED_OFFSET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_RANDOM_SEED_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_preview_lod_distance_enabled(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_PREVIEW_LOD_DISTANCE_ENABLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_PREVIEW_LOD_DISTANCE_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_preview_lod_distance(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_PREVIEW_LOD_DISTANCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_PREVIEW_LOD_DISTANCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_occlusion_query_mode(&self) -> ENiagaraOcclusionQueryMode {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_OCCLUSION_QUERY_MODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_OCCLUSION_QUERY_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<ENiagaraOcclusionQueryMode>().read() }
+    }
+    pub fn get_max_sim_time(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_MAX_SIM_TIME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_MAX_SIM_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_lock_desired_age_delta_time_to_seek_delta(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_LOCK_DESIRED_AGE_DELTA_TIME_TO_SEEK_DELTA,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_LOCK_DESIRED_AGE_DELTA_TIME_TO_SEEK_DELTA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_force_solo(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_FORCE_SOLO,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_FORCE_SOLO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_force_local_player_effect(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_FORCE_LOCAL_PLAYER_EFFECT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_FORCE_LOCAL_PLAYER_EFFECT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_emitter_fixed_bounds(
+        &self,
+        emitter_name: FName,
+    ) -> crate::bindings::core_u_object::FBox {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_EMITTER_FIXED_BOUNDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &emitter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_EMITTER_FIXED_BOUNDS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<crate::bindings::core_u_object::FBox>().read() }
+    }
+    pub fn get_desired_age(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_DESIRED_AGE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_DESIRED_AGE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_data_interface(&mut self, name: FString) -> UPtr<UNiagaraDataInterface> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_DATA_INTERFACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&name, __buffer.add(0).cast::<FString>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_DATA_INTERFACE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UNiagaraDataInterface>>().read() }
+    }
+    pub fn get_custom_time_dilation(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_CUSTOM_TIME_DILATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_CUSTOM_TIME_DILATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_asset(&self) -> UPtr<UNiagaraSystem> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_ASSET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UNiagaraSystem>>().read() }
+    }
+    pub fn get_allow_scalability(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_ALLOW_SCALABILITY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_ALLOW_SCALABILITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_age_update_mode(&self) -> ENiagaraAgeUpdateMode {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_AGE_UPDATE_MODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_AGE_UPDATE_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<ENiagaraAgeUpdateMode>().read() }
+    }
+    pub fn clear_system_fixed_bounds(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_CLEAR_SYSTEM_FIXED_BOUNDS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_CLEAR_SYSTEM_FIXED_BOUNDS,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_sim_cache(&mut self, b_reset_system: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_CLEAR_SIM_CACHE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_reset_system,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_CLEAR_SIM_CACHE,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_emitter_fixed_bounds(&mut self, emitter_name: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_CLEAR_EMITTER_FIXED_BOUNDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &emitter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_CLEAR_EMITTER_FIXED_BOUNDS,
+                __buffer,
+            )
+        };
+    }
+    pub fn advance_simulation_by_time(
+        &mut self,
+        simulate_time: f32,
+        tick_delta_seconds: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_ADVANCE_SIMULATION_BY_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &simulate_time,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tick_delta_seconds,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_ADVANCE_SIMULATION_BY_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn advance_simulation(&mut self, tick_count: i32, tick_delta_seconds: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_ADVANCE_SIMULATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tick_count, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tick_delta_seconds,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_COMPONENT_ADVANCE_SIMULATION,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraComponentPool {
@@ -4481,6 +8152,517 @@ impl UNiagaraDataChannelReader {
             cdo
         }
     }
+    pub fn read_vector4(
+        &self,
+        var_name: FName,
+        index: i32,
+        is_valid: &mut bool,
+    ) -> crate::bindings::core_u_object::FVector4 {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR4,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(is_valid, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR4,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(is_valid);
+        }
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FVector4>().read()
+        }
+    }
+    pub fn read_vector2_d(
+        &self,
+        var_name: FName,
+        index: i32,
+        is_valid: &mut bool,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(is_valid, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(is_valid);
+        }
+        unsafe {
+            __buffer.add(24).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn read_vector(
+        &self,
+        var_name: FName,
+        index: i32,
+        is_valid: &mut bool,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(is_valid, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(is_valid);
+        }
+        unsafe {
+            __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn read_spawn_info(
+        &self,
+        var_name: FName,
+        index: i32,
+        is_valid: &mut bool,
+    ) -> FNiagaraSpawnInfo {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_SPAWN_INFO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(is_valid, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_SPAWN_INFO,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(is_valid);
+        }
+        unsafe { __buffer.add(20).cast::<FNiagaraSpawnInfo>().read() }
+    }
+    pub fn read_quat(
+        &self,
+        var_name: FName,
+        index: i32,
+        is_valid: &mut bool,
+    ) -> crate::bindings::core_u_object::FQuat {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_QUAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(is_valid, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_QUAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(is_valid);
+        }
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FQuat>().read()
+        }
+    }
+    pub fn read_position(
+        &self,
+        var_name: FName,
+        index: i32,
+        is_valid: &mut bool,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(is_valid, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(is_valid);
+        }
+        unsafe {
+            __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn read_linear_color(
+        &self,
+        var_name: FName,
+        index: i32,
+        is_valid: &mut bool,
+    ) -> crate::bindings::core_u_object::FLinearColor {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_LINEAR_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(is_valid, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_LINEAR_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(is_valid);
+        }
+        unsafe {
+            __buffer
+                .add(20)
+                .cast::<crate::bindings::core_u_object::FLinearColor>()
+                .read()
+        }
+    }
+    pub fn read_int(&self, var_name: FName, index: i32, is_valid: &mut bool) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(is_valid, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(is_valid);
+        }
+        unsafe { __buffer.add(20).cast::<i32>().read() }
+    }
+    pub fn read_id(
+        &self,
+        var_name: FName,
+        index: i32,
+        is_valid: &mut bool,
+    ) -> FNiagaraID {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_ID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(is_valid, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_ID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(is_valid);
+        }
+        unsafe { __buffer.add(20).cast::<FNiagaraID>().read() }
+    }
+    pub fn read_float(&self, var_name: FName, index: i32, is_valid: &mut bool) -> f64 {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(is_valid, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(is_valid);
+        }
+        unsafe { __buffer.add(24).cast::<f64>().read() }
+    }
+    pub fn read_enum(&self, var_name: FName, index: i32, is_valid: &mut bool) -> u8 {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_ENUM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(is_valid, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_ENUM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(is_valid);
+        }
+        unsafe { __buffer.add(17).cast::<u8>().read() }
+    }
+    pub fn read_bool(&self, var_name: FName, index: i32, is_valid: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(is_valid, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(is_valid);
+        }
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn num(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_NUM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_NUM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraDataChannelWriter {
@@ -4501,6 +8683,481 @@ impl UNiagaraDataChannelWriter {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn write_vector4(
+        &mut self,
+        var_name: FName,
+        index: i32,
+        in_data: crate::bindings::core_u_object::FVector4,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR4,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_data,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector4>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR4,
+                __buffer,
+            )
+        };
+    }
+    pub fn write_vector2_d(
+        &mut self,
+        var_name: FName,
+        index: i32,
+        in_data: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_data,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR2_D,
+                __buffer,
+            )
+        };
+    }
+    pub fn write_vector(
+        &mut self,
+        var_name: FName,
+        index: i32,
+        in_data: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_data,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn write_spawn_info(
+        &mut self,
+        var_name: FName,
+        index: i32,
+        in_data: FNiagaraSpawnInfo,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_SPAWN_INFO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_data,
+                __buffer.add(16).cast::<FNiagaraSpawnInfo>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_SPAWN_INFO,
+                __buffer,
+            )
+        };
+    }
+    pub fn write_quat(
+        &mut self,
+        var_name: FName,
+        index: i32,
+        in_data: crate::bindings::core_u_object::FQuat,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_QUAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_data,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_QUAT,
+                __buffer,
+            )
+        };
+    }
+    pub fn write_position(
+        &mut self,
+        var_name: FName,
+        index: i32,
+        in_data: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_data,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_POSITION,
+                __buffer,
+            )
+        };
+    }
+    pub fn write_linear_color(
+        &mut self,
+        var_name: FName,
+        index: i32,
+        in_data: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_LINEAR_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_data,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_LINEAR_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn write_int(&mut self, var_name: FName, index: i32, in_data: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_data, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_INT,
+                __buffer,
+            )
+        };
+    }
+    pub fn write_id(&mut self, var_name: FName, index: i32, in_data: FNiagaraID) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_ID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_data,
+                __buffer.add(16).cast::<FNiagaraID>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_ID,
+                __buffer,
+            )
+        };
+    }
+    pub fn write_float(&mut self, var_name: FName, index: i32, in_data: f64) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_data, __buffer.add(16).cast::<f64>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_FLOAT,
+                __buffer,
+            )
+        };
+    }
+    pub fn write_enum(&mut self, var_name: FName, index: i32, in_data: u8) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_ENUM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_data, __buffer.add(16).cast::<u8>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_ENUM,
+                __buffer,
+            )
+        };
+    }
+    pub fn write_bool(&mut self, var_name: FName, index: i32, in_data: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&var_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_data, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_BOOL,
+                __buffer,
+            )
+        };
+    }
+    pub fn num(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_NUM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_NUM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -4544,6 +9201,938 @@ impl UNiagaraDataChannelLibrary {
             cdo
         }
     }
+    pub fn write_to_niagara_data_channel_with_context(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        channel: UPtr<UNiagaraDataChannelAsset>,
+        access_context: &mut FNDCAccessContextInst,
+        count: i32,
+        b_visible_to_blueprint: bool,
+        b_visible_to_niagara_cpu: bool,
+        b_visible_to_niagara_gpu: bool,
+        debug_source: FString,
+    ) -> UPtr<UNiagaraDataChannelWriter> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL_WITH_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &channel,
+                __buffer.add(8).cast::<UPtr<UNiagaraDataChannelAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                access_context,
+                __buffer.add(16).cast::<FNDCAccessContextInst>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&count, __buffer.add(32).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_visible_to_blueprint,
+                __buffer.add(36).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_visible_to_niagara_cpu,
+                __buffer.add(37).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_visible_to_niagara_gpu,
+                __buffer.add(38).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &debug_source,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL_WITH_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FNDCAccessContextInst>().swap(access_context);
+        }
+        unsafe { __buffer.add(56).cast::<UPtr<UNiagaraDataChannelWriter>>().read() }
+    }
+    pub fn write_to_niagara_data_channel(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        channel: UPtr<UNiagaraDataChannelAsset>,
+        search_params: FNiagaraDataChannelSearchParameters,
+        count: i32,
+        b_visible_to_game: bool,
+        b_visible_to_cpu: bool,
+        b_visible_to_gpu: bool,
+        debug_source: FString,
+    ) -> UPtr<UNiagaraDataChannelWriter> {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &channel,
+                __buffer.add(8).cast::<UPtr<UNiagaraDataChannelAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &search_params,
+                __buffer.add(16).cast::<FNiagaraDataChannelSearchParameters>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&count, __buffer.add(56).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_visible_to_game,
+                __buffer.add(60).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_visible_to_cpu,
+                __buffer.add(61).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_visible_to_gpu,
+                __buffer.add(62).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &debug_source,
+                __buffer.add(64).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(80).cast::<UPtr<UNiagaraDataChannelWriter>>().read() }
+    }
+    pub fn unsubscribe_from_niagara_data_channel(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        channel: UPtr<UNiagaraDataChannelAsset>,
+        unsubscribe_token: &i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_UNSUBSCRIBE_FROM_NIAGARA_DATA_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &channel,
+                __buffer.add(8).cast::<UPtr<UNiagaraDataChannelAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                unsubscribe_token,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_UNSUBSCRIBE_FROM_NIAGARA_DATA_CHANNEL,
+                __buffer,
+            )
+        };
+    }
+    pub fn subscribe_to_niagara_data_channel_with_context(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        channel: UPtr<UNiagaraDataChannelAsset>,
+        access_context: &mut FNDCAccessContextInst,
+        update_delegate: &FSubscribeToNiagaraDataChannel_WithContext_UpdateDelegate,
+        unsubscribe_token: &mut i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<68>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SUBSCRIBE_TO_NIAGARA_DATA_CHANNEL_WITH_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &channel,
+                __buffer.add(8).cast::<UPtr<UNiagaraDataChannelAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                access_context,
+                __buffer.add(16).cast::<FNDCAccessContextInst>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                update_delegate,
+                __buffer
+                    .add(32)
+                    .cast::<FSubscribeToNiagaraDataChannel_WithContext_UpdateDelegate>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                unsubscribe_token,
+                __buffer.add(64).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SUBSCRIBE_TO_NIAGARA_DATA_CHANNEL_WITH_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FNDCAccessContextInst>().swap(access_context);
+        }
+        unsafe {
+            __buffer.add(64).cast::<i32>().swap(unsubscribe_token);
+        }
+    }
+    pub fn subscribe_to_niagara_data_channel(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        channel: UPtr<UNiagaraDataChannelAsset>,
+        search_params: FNiagaraDataChannelSearchParameters,
+        update_delegate: &FSubscribeToNiagaraDataChannel_UpdateDelegate,
+        unsubscribe_token: &mut i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<92>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SUBSCRIBE_TO_NIAGARA_DATA_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &channel,
+                __buffer.add(8).cast::<UPtr<UNiagaraDataChannelAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &search_params,
+                __buffer.add(16).cast::<FNiagaraDataChannelSearchParameters>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                update_delegate,
+                __buffer.add(56).cast::<FSubscribeToNiagaraDataChannel_UpdateDelegate>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                unsubscribe_token,
+                __buffer.add(88).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SUBSCRIBE_TO_NIAGARA_DATA_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(88).cast::<i32>().swap(unsubscribe_token);
+        }
+    }
+    pub fn set_single_property_in_ndc_access_context_instance(
+        access_context: &mut FNDCAccessContextInst,
+        context_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+        property_name: FName,
+        value: &i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SET_SINGLE_PROPERTY_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                access_context,
+                __buffer.add(0).cast::<FNDCAccessContextInst>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &context_struct,
+                __buffer
+                    .add(16)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &property_name,
+                __buffer.add(24).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(value, __buffer.add(36).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SET_SINGLE_PROPERTY_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FNDCAccessContextInst>().swap(access_context);
+        }
+    }
+    pub fn set_members_in_ndc_access_context_instance(
+        access_context: &mut FNDCAccessContextInst,
+        context_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SET_MEMBERS_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                access_context,
+                __buffer.add(0).cast::<FNDCAccessContextInst>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &context_struct,
+                __buffer
+                    .add(16)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SET_MEMBERS_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FNDCAccessContextInst>().swap(access_context);
+        }
+    }
+    pub fn read_from_niagara_data_channel_with_context(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        channel: UPtr<UNiagaraDataChannelAsset>,
+        access_context: &mut FNDCAccessContextInst,
+        b_read_previous_frame: bool,
+    ) -> UPtr<UNiagaraDataChannelReader> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL_WITH_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &channel,
+                __buffer.add(8).cast::<UPtr<UNiagaraDataChannelAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                access_context,
+                __buffer.add(16).cast::<FNDCAccessContextInst>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_read_previous_frame,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL_WITH_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FNDCAccessContextInst>().swap(access_context);
+        }
+        unsafe { __buffer.add(40).cast::<UPtr<UNiagaraDataChannelReader>>().read() }
+    }
+    pub fn read_from_niagara_data_channel(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        channel: UPtr<UNiagaraDataChannelAsset>,
+        search_params: FNiagaraDataChannelSearchParameters,
+        b_read_previous_frame: bool,
+    ) -> UPtr<UNiagaraDataChannelReader> {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &channel,
+                __buffer.add(8).cast::<UPtr<UNiagaraDataChannelAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &search_params,
+                __buffer.add(16).cast::<FNiagaraDataChannelSearchParameters>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_read_previous_frame,
+                __buffer.add(56).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<UPtr<UNiagaraDataChannelReader>>().read() }
+    }
+    pub fn prepare_access_context_from_ndc_ref(
+        ndc_ref: &mut FNiagaraDataChannelReference,
+    ) -> FNDCAccessContextInst {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_PREPARE_ACCESS_CONTEXT_FROM_NDC_REF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                ndc_ref,
+                __buffer.add(0).cast::<FNiagaraDataChannelReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_PREPARE_ACCESS_CONTEXT_FROM_NDC_REF,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FNiagaraDataChannelReference>().swap(ndc_ref);
+        }
+        unsafe { __buffer.add(32).cast::<FNDCAccessContextInst>().read() }
+    }
+    pub fn make_ndc_access_context_instance(
+        context_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+    ) -> FNDCAccessContextInst {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_MAKE_NDC_ACCESS_CONTEXT_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &context_struct,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_MAKE_NDC_ACCESS_CONTEXT_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FNDCAccessContextInst>().read() }
+    }
+    pub fn get_usable_access_context_from_ndc_ref(
+        ndc_ref: &FNiagaraDataChannelReference,
+    ) -> FNDCAccessContextInst {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_USABLE_ACCESS_CONTEXT_FROM_NDC_REF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                ndc_ref,
+                __buffer.add(0).cast::<FNiagaraDataChannelReference>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_USABLE_ACCESS_CONTEXT_FROM_NDC_REF,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FNDCAccessContextInst>().read() }
+    }
+    pub fn get_usable_access_context_from_ndc(
+        data_channel: UPtr<UNiagaraDataChannelAsset>,
+    ) -> FNDCAccessContextInst {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_USABLE_ACCESS_CONTEXT_FROM_NDC,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data_channel,
+                __buffer.add(0).cast::<UPtr<UNiagaraDataChannelAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_USABLE_ACCESS_CONTEXT_FROM_NDC,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FNDCAccessContextInst>().read() }
+    }
+    pub fn get_single_property_in_ndc_access_context_instance(
+        access_context: &FNDCAccessContextInst,
+        context_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+        property_name: FName,
+        value: &mut i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_SINGLE_PROPERTY_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                access_context,
+                __buffer.add(0).cast::<FNDCAccessContextInst>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &context_struct,
+                __buffer
+                    .add(16)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &property_name,
+                __buffer.add(24).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(value, __buffer.add(36).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_SINGLE_PROPERTY_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(36).cast::<i32>().swap(value);
+        }
+    }
+    pub fn get_members_in_ndc_access_context_instance(
+        access_context: &FNDCAccessContextInst,
+        context_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_MEMBERS_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                access_context,
+                __buffer.add(0).cast::<FNDCAccessContextInst>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &context_struct,
+                __buffer
+                    .add(16)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_MEMBERS_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_data_channel_element_count_with_context(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        channel: UPtr<UNiagaraDataChannelAsset>,
+        access_context: &mut FNDCAccessContextInst,
+        b_read_previous_frame: bool,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_DATA_CHANNEL_ELEMENT_COUNT_WITH_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &channel,
+                __buffer.add(8).cast::<UPtr<UNiagaraDataChannelAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                access_context,
+                __buffer.add(16).cast::<FNDCAccessContextInst>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_read_previous_frame,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_DATA_CHANNEL_ELEMENT_COUNT_WITH_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FNDCAccessContextInst>().swap(access_context);
+        }
+        unsafe { __buffer.add(36).cast::<i32>().read() }
+    }
+    pub fn get_data_channel_element_count(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        channel: UPtr<UNiagaraDataChannelAsset>,
+        search_params: FNiagaraDataChannelSearchParameters,
+        b_read_previous_frame: bool,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_DATA_CHANNEL_ELEMENT_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &channel,
+                __buffer.add(8).cast::<UPtr<UNiagaraDataChannelAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &search_params,
+                __buffer.add(16).cast::<FNiagaraDataChannelSearchParameters>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_read_previous_frame,
+                __buffer.add(56).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataChannelLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_DATA_CHANNEL_ELEMENT_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(60).cast::<i32>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraDataChannelHandler {
@@ -4564,6 +10153,193 @@ impl UNiagaraDataChannelHandler {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn unsubscribe_from_data_channel_updates(&mut self, unsubscribe_token: &i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_UNSUBSCRIBE_FROM_DATA_CHANNEL_UPDATES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                unsubscribe_token,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_UNSUBSCRIBE_FROM_DATA_CHANNEL_UPDATES,
+                __buffer,
+            )
+        };
+    }
+    pub fn subscribe_to_data_channel_updates_with_context(
+        &mut self,
+        update_delegate: FSubscribeToDataChannelUpdates_WithContext_UpdateDelegate,
+        access_context: &mut FNDCAccessContextInst,
+        unsubscribe_token: &mut i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<52>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_SUBSCRIBE_TO_DATA_CHANNEL_UPDATES_WITH_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &update_delegate,
+                __buffer
+                    .add(0)
+                    .cast::<FSubscribeToDataChannelUpdates_WithContext_UpdateDelegate>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                access_context,
+                __buffer.add(32).cast::<FNDCAccessContextInst>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                unsubscribe_token,
+                __buffer.add(48).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_SUBSCRIBE_TO_DATA_CHANNEL_UPDATES_WITH_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<FNDCAccessContextInst>().swap(access_context);
+        }
+        unsafe {
+            __buffer.add(48).cast::<i32>().swap(unsubscribe_token);
+        }
+    }
+    pub fn subscribe_to_data_channel_updates(
+        &mut self,
+        update_delegate: FSubscribeToDataChannelUpdates_UpdateDelegate,
+        search_params: FNiagaraDataChannelSearchParameters,
+        unsubscribe_token: &mut i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<76>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_SUBSCRIBE_TO_DATA_CHANNEL_UPDATES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &update_delegate,
+                __buffer.add(0).cast::<FSubscribeToDataChannelUpdates_UpdateDelegate>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &search_params,
+                __buffer.add(32).cast::<FNiagaraDataChannelSearchParameters>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                unsubscribe_token,
+                __buffer.add(72).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_SUBSCRIBE_TO_DATA_CHANNEL_UPDATES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(72).cast::<i32>().swap(unsubscribe_token);
+        }
+    }
+    pub fn get_data_channel_writer(&mut self) -> UPtr<UNiagaraDataChannelWriter> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_GET_DATA_CHANNEL_WRITER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_GET_DATA_CHANNEL_WRITER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UNiagaraDataChannelWriter>>().read() }
+    }
+    pub fn get_data_channel_reader(&mut self) -> UPtr<UNiagaraDataChannelReader> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_GET_DATA_CHANNEL_READER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_GET_DATA_CHANNEL_READER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UNiagaraDataChannelReader>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -4985,6 +10761,2220 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             cdo
         }
     }
+    pub fn set_niagara_array_vector_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+        value: &crate::bindings::core_u_object::FVector,
+        b_size_to_fit: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_size_to_fit,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_vector4_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+        value: &crate::bindings::core_u_object::FVector4,
+        b_size_to_fit: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<65>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR4_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector4>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_size_to_fit,
+                __buffer.add(64).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR4_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_vector4(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        array_data: &TArray<crate::bindings::core_u_object::FVector4>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR4,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                array_data,
+                __buffer
+                    .add(24)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector4>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR4,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_vector2_d_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+        value: &crate::bindings::core_u_object::FVector2D,
+        b_size_to_fit: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR2_D_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_size_to_fit,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR2_D_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_vector2_d(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        array_data: &TArray<crate::bindings::core_u_object::FVector2D>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                array_data,
+                __buffer
+                    .add(24)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector2D>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR2_D,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_vector(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        array_data: &TArray<crate::bindings::core_u_object::FVector>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                array_data,
+                __buffer
+                    .add(24)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_u_int8_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+        value: i32,
+        b_size_to_fit: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_U_INT8_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(24).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_size_to_fit,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_U_INT8_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_u_int8(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        array_data: &TArray<i32>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_U_INT8,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                array_data,
+                __buffer.add(24).cast::<TArray<i32>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_U_INT8,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_quat_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+        value: &crate::bindings::core_u_object::FQuat,
+        b_size_to_fit: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<65>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_QUAT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FQuat>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_size_to_fit,
+                __buffer.add(64).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_QUAT_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_quat(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        array_data: &TArray<crate::bindings::core_u_object::FQuat>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_QUAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                array_data,
+                __buffer.add(24).cast::<TArray<crate::bindings::core_u_object::FQuat>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_QUAT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_position_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+        value: &crate::bindings::core_u_object::FVector,
+        b_size_to_fit: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_POSITION_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_size_to_fit,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_POSITION_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_position(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        array_data: &TArray<crate::bindings::core_u_object::FVector>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                array_data,
+                __buffer
+                    .add(24)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_POSITION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_matrix_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+        value: &crate::bindings::core_u_object::FMatrix,
+        b_size_to_fit: bool,
+        b_apply_lwc_rebase: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<162>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_MATRIX_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FMatrix>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_size_to_fit,
+                __buffer.add(160).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_apply_lwc_rebase,
+                __buffer.add(161).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_MATRIX_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_matrix(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        array_data: &TArray<crate::bindings::core_u_object::FMatrix>,
+        b_apply_lwc_rebase: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_MATRIX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                array_data,
+                __buffer
+                    .add(24)
+                    .cast::<TArray<crate::bindings::core_u_object::FMatrix>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_apply_lwc_rebase,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_MATRIX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_int32_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+        value: i32,
+        b_size_to_fit: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_INT32_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(24).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_size_to_fit,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_INT32_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_int32(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        array_data: &TArray<i32>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_INT32,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                array_data,
+                __buffer.add(24).cast::<TArray<i32>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_INT32,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_float_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+        value: f32,
+        b_size_to_fit: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_FLOAT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(24).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_size_to_fit,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_FLOAT_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_float(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        array_data: &TArray<f32>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                array_data,
+                __buffer.add(24).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_FLOAT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_color_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+        value: &crate::bindings::core_u_object::FLinearColor,
+        b_size_to_fit: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_COLOR_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_size_to_fit,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_COLOR_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_color(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        array_data: &TArray<crate::bindings::core_u_object::FLinearColor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                array_data,
+                __buffer
+                    .add(24)
+                    .cast::<TArray<crate::bindings::core_u_object::FLinearColor>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_bool_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+        value: &bool,
+        b_size_to_fit: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<26>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_BOOL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(value, __buffer.add(24).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_size_to_fit,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_BOOL_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_niagara_array_bool(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        array_data: &TArray<bool>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                array_data,
+                __buffer.add(24).cast::<TArray<bool>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_BOOL,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_niagara_array_vector_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_niagara_array_vector4_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+    ) -> crate::bindings::core_u_object::FVector4 {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR4_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR4_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FVector4>().read()
+        }
+    }
+    pub fn get_niagara_array_vector4(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+    ) -> TArray<crate::bindings::core_u_object::FVector4> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR4,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR4,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<TArray<crate::bindings::core_u_object::FVector4>>()
+                .read()
+        }
+    }
+    pub fn get_niagara_array_vector2_d_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR2_D_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR2_D_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_niagara_array_vector2_d(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+    ) -> TArray<crate::bindings::core_u_object::FVector2D> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<TArray<crate::bindings::core_u_object::FVector2D>>()
+                .read()
+        }
+    }
+    pub fn get_niagara_array_vector(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+    ) -> TArray<crate::bindings::core_u_object::FVector> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<TArray<crate::bindings::core_u_object::FVector>>()
+                .read()
+        }
+    }
+    pub fn get_niagara_array_u_int8_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_U_INT8_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_U_INT8_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<i32>().read() }
+    }
+    pub fn get_niagara_array_u_int8(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+    ) -> TArray<i32> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_U_INT8,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_U_INT8,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<i32>>().read() }
+    }
+    pub fn get_niagara_array_quat_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+    ) -> crate::bindings::core_u_object::FQuat {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_QUAT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_QUAT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FQuat>().read()
+        }
+    }
+    pub fn get_niagara_array_quat(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+    ) -> TArray<crate::bindings::core_u_object::FQuat> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_QUAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_QUAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<TArray<crate::bindings::core_u_object::FQuat>>()
+                .read()
+        }
+    }
+    pub fn get_niagara_array_position_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_POSITION_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_POSITION_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_niagara_array_position(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+    ) -> TArray<crate::bindings::core_u_object::FVector> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<TArray<crate::bindings::core_u_object::FVector>>()
+                .read()
+        }
+    }
+    pub fn get_niagara_array_matrix_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+        b_apply_lwc_rebase: bool,
+    ) -> crate::bindings::core_u_object::FMatrix {
+        let mut __stack = crate::core_data::StackAlloc::<160>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_MATRIX_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_apply_lwc_rebase,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_MATRIX_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FMatrix>().read()
+        }
+    }
+    pub fn get_niagara_array_matrix(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        b_apply_lwc_rebase: bool,
+    ) -> TArray<crate::bindings::core_u_object::FMatrix> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_MATRIX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_apply_lwc_rebase,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_MATRIX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<TArray<crate::bindings::core_u_object::FMatrix>>()
+                .read()
+        }
+    }
+    pub fn get_niagara_array_int32_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_INT32_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_INT32_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<i32>().read() }
+    }
+    pub fn get_niagara_array_int32(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+    ) -> TArray<i32> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_INT32,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_INT32,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<i32>>().read() }
+    }
+    pub fn get_niagara_array_float_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_FLOAT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_FLOAT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<f32>().read() }
+    }
+    pub fn get_niagara_array_float(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+    ) -> TArray<f32> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<f32>>().read() }
+    }
+    pub fn get_niagara_array_color_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+    ) -> crate::bindings::core_u_object::FLinearColor {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_COLOR_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_COLOR_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<crate::bindings::core_u_object::FLinearColor>()
+                .read()
+        }
+    }
+    pub fn get_niagara_array_color(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+    ) -> TArray<crate::bindings::core_u_object::FLinearColor> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<TArray<crate::bindings::core_u_object::FLinearColor>>()
+                .read()
+        }
+    }
+    pub fn get_niagara_array_bool_value(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        index: i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_BOOL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(20).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_BOOL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn get_niagara_array_bool(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+    ) -> TArray<bool> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDataInterfaceArrayFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_BOOL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<bool>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceArrayInt32 {
@@ -5357,6 +13347,55 @@ impl UNiagaraParticleCallbackHandler {
             cdo
         }
     }
+    pub fn receive_particle_data(
+        &mut self,
+        data: &TArray<FBasicParticleData>,
+        niagara_system: UPtr<UNiagaraSystem>,
+        simulation_position_offset: &crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARTICLE_CALLBACK_HANDLER_RECEIVE_PARTICLE_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                data,
+                __buffer.add(0).cast::<TArray<FBasicParticleData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(16).cast::<UPtr<UNiagaraSystem>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                simulation_position_offset,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARTICLE_CALLBACK_HANDLER_RECEIVE_PARTICLE_DATA,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceExport {
@@ -5420,6 +13459,210 @@ impl UNiagaraDataInterfaceGrid2DCollection {
             cdo
         }
     }
+    pub fn get_texture_size(
+        &mut self,
+        component: UPtr<UNiagaraComponent>,
+        size_x: &mut i32,
+        size_y: &mut i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_GET_TEXTURE_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(size_x, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(size_y, __buffer.add(12).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_GET_TEXTURE_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<i32>().swap(size_x);
+        }
+        unsafe {
+            __buffer.add(12).cast::<i32>().swap(size_y);
+        }
+    }
+    pub fn get_raw_texture_size(
+        &mut self,
+        component: UPtr<UNiagaraComponent>,
+        size_x: &mut i32,
+        size_y: &mut i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_GET_RAW_TEXTURE_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(size_x, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(size_y, __buffer.add(12).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_GET_RAW_TEXTURE_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<i32>().swap(size_x);
+        }
+        unsafe {
+            __buffer.add(12).cast::<i32>().swap(size_y);
+        }
+    }
+    pub fn fill_texture2_d(
+        &mut self,
+        component: UPtr<UNiagaraComponent>,
+        dest: UPtr<crate::bindings::engine::UTextureRenderTarget2D>,
+        attribute_index: i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_FILL_TEXTURE2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dest,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::UTextureRenderTarget2D>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_index,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_FILL_TEXTURE2_D,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn fill_raw_texture2_d(
+        &mut self,
+        component: UPtr<UNiagaraComponent>,
+        dest: UPtr<crate::bindings::engine::UTextureRenderTarget2D>,
+        tiles_x: &mut i32,
+        tiles_y: &mut i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_FILL_RAW_TEXTURE2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dest,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::UTextureRenderTarget2D>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(tiles_x, __buffer.add(16).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(tiles_y, __buffer.add(20).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_FILL_RAW_TEXTURE2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<i32>().swap(tiles_x);
+        }
+        unsafe {
+            __buffer.add(20).cast::<i32>().swap(tiles_y);
+        }
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceGrid2DCollectionReader {
@@ -5482,6 +13725,227 @@ impl UNiagaraDataInterfaceGrid3DCollection {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_texture_size(
+        &mut self,
+        component: UPtr<UNiagaraComponent>,
+        size_x: &mut i32,
+        size_y: &mut i32,
+        size_z: &mut i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_GET_TEXTURE_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(size_x, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(size_y, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(size_z, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_GET_TEXTURE_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<i32>().swap(size_x);
+        }
+        unsafe {
+            __buffer.add(12).cast::<i32>().swap(size_y);
+        }
+        unsafe {
+            __buffer.add(16).cast::<i32>().swap(size_z);
+        }
+    }
+    pub fn get_raw_texture_size(
+        &mut self,
+        component: UPtr<UNiagaraComponent>,
+        size_x: &mut i32,
+        size_y: &mut i32,
+        size_z: &mut i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_GET_RAW_TEXTURE_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(size_x, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(size_y, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(size_z, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_GET_RAW_TEXTURE_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<i32>().swap(size_x);
+        }
+        unsafe {
+            __buffer.add(12).cast::<i32>().swap(size_y);
+        }
+        unsafe {
+            __buffer.add(16).cast::<i32>().swap(size_z);
+        }
+    }
+    pub fn fill_volume_texture(
+        &mut self,
+        component: UPtr<UNiagaraComponent>,
+        dest: UPtr<crate::bindings::engine::UVolumeTexture>,
+        attribute_index: i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_FILL_VOLUME_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dest,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::UVolumeTexture>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_index,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_FILL_VOLUME_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn fill_raw_volume_texture(
+        &mut self,
+        component: UPtr<UNiagaraComponent>,
+        dest: UPtr<crate::bindings::engine::UVolumeTexture>,
+        tiles_x: &mut i32,
+        tiles_y: &mut i32,
+        tile_z: &mut i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_FILL_RAW_VOLUME_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dest,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::UVolumeTexture>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(tiles_x, __buffer.add(16).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(tiles_y, __buffer.add(20).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(tile_z, __buffer.add(24).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_FILL_RAW_VOLUME_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<i32>().swap(tiles_x);
+        }
+        unsafe {
+            __buffer.add(20).cast::<i32>().swap(tiles_y);
+        }
+        unsafe {
+            __buffer.add(24).cast::<i32>().swap(tile_z);
+        }
+        unsafe { __buffer.add(28).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -5839,6 +14303,54 @@ impl UNiagaraDIRigidMeshCollisionFunctionLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_source_actors(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FName,
+        source_actors: &TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_DI_RIGID_MESH_COLLISION_FUNCTION_LIBRARY_SET_SOURCE_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                source_actors,
+                __buffer.add(24).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraDIRigidMeshCollisionFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_DI_RIGID_MESH_COLLISION_FUNCTION_LIBRARY_SET_SOURCE_ACTORS,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -6200,6 +14712,100 @@ impl ANiagaraEditorPreviewActor {
             cdo
         }
     }
+    pub fn calculate_rotation(
+        &mut self,
+        motion_time: f32,
+        out_rotation: &mut crate::bindings::core_u_object::FQuat,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::A_NIAGARA_EDITOR_PREVIEW_ACTOR_CALCULATE_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &motion_time,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_rotation,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::A_NIAGARA_EDITOR_PREVIEW_ACTOR_CALCULATE_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::core_u_object::FQuat>()
+                .swap(out_rotation);
+        }
+    }
+    pub fn calculate_location(
+        &mut self,
+        motion_time: f32,
+        out_location: &mut crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::A_NIAGARA_EDITOR_PREVIEW_ACTOR_CALCULATE_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &motion_time,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_location,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::A_NIAGARA_EDITOR_PREVIEW_ACTOR_CALCULATE_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(out_location);
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraSignificanceHandler {
@@ -6389,6 +14995,1042 @@ impl UNiagaraFunctionLibrary {
             cdo
         }
     }
+    pub fn spawn_system_attached_with_params(
+        spawn_params: &crate::bindings::engine::FFXSystemSpawnParameters,
+    ) -> UPtr<UNiagaraComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_ATTACHED_WITH_PARAMS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                spawn_params,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::engine::FFXSystemSpawnParameters>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_ATTACHED_WITH_PARAMS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(120).cast::<UPtr<UNiagaraComponent>>().read() }
+    }
+    pub fn spawn_system_attached(
+        system_template: UPtr<UNiagaraSystem>,
+        attach_to_component: UPtr<crate::bindings::engine::USceneComponent>,
+        attach_point_name: FName,
+        location: crate::bindings::core_u_object::FVector,
+        rotation: crate::bindings::core_u_object::FRotator,
+        location_type: crate::bindings::engine::EAttachLocation,
+        b_auto_destroy: bool,
+        b_auto_activate: bool,
+        pooling_method: ENCPoolMethod,
+        b_pre_cull_check: bool,
+    ) -> UPtr<UNiagaraComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_ATTACHED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &system_template,
+                __buffer.add(0).cast::<UPtr<UNiagaraSystem>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attach_to_component,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::USceneComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attach_point_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &location,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rotation,
+                __buffer.add(56).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &location_type,
+                __buffer.add(80).cast::<crate::bindings::engine::EAttachLocation>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_auto_destroy,
+                __buffer.add(81).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_auto_activate,
+                __buffer.add(82).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &pooling_method,
+                __buffer.add(83).cast::<ENCPoolMethod>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_pre_cull_check,
+                __buffer.add(84).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_ATTACHED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(88).cast::<UPtr<UNiagaraComponent>>().read() }
+    }
+    pub fn spawn_system_at_location_with_params(
+        spawn_params: &crate::bindings::engine::FFXSystemSpawnParameters,
+    ) -> UPtr<UNiagaraComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_AT_LOCATION_WITH_PARAMS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                spawn_params,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::engine::FFXSystemSpawnParameters>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_AT_LOCATION_WITH_PARAMS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(120).cast::<UPtr<UNiagaraComponent>>().read() }
+    }
+    pub fn spawn_system_at_location(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        system_template: UPtr<UNiagaraSystem>,
+        location: crate::bindings::core_u_object::FVector,
+        rotation: crate::bindings::core_u_object::FRotator,
+        scale: crate::bindings::core_u_object::FVector,
+        b_auto_destroy: bool,
+        b_auto_activate: bool,
+        pooling_method: ENCPoolMethod,
+        b_pre_cull_check: bool,
+    ) -> UPtr<UNiagaraComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_AT_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &system_template,
+                __buffer.add(8).cast::<UPtr<UNiagaraSystem>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &location,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rotation,
+                __buffer.add(40).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &scale,
+                __buffer.add(64).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_auto_destroy,
+                __buffer.add(88).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_auto_activate,
+                __buffer.add(89).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &pooling_method,
+                __buffer.add(90).cast::<ENCPoolMethod>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_pre_cull_check,
+                __buffer.add(91).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_AT_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(96).cast::<UPtr<UNiagaraComponent>>().read() }
+    }
+    pub fn set_volume_texture_object(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FString,
+        texture: UPtr<crate::bindings::engine::UVolumeTexture>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_VOLUME_TEXTURE_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &texture,
+                __buffer.add(24).cast::<UPtr<crate::bindings::engine::UVolumeTexture>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_VOLUME_TEXTURE_OBJECT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_texture_object(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FString,
+        texture: UPtr<crate::bindings::engine::UTexture>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_TEXTURE_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &texture,
+                __buffer.add(24).cast::<UPtr<crate::bindings::engine::UTexture>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_TEXTURE_OBJECT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_texture2_d_array_object(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FString,
+        texture: UPtr<crate::bindings::engine::UTexture2DArray>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_TEXTURE2_D_ARRAY_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &texture,
+                __buffer
+                    .add(24)
+                    .cast::<UPtr<crate::bindings::engine::UTexture2DArray>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_TEXTURE2_D_ARRAY_OBJECT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_skeletal_mesh_data_interface_sampling_regions(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FString,
+        sampling_regions: &TArray<FName>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_SAMPLING_REGIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                sampling_regions,
+                __buffer.add(24).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_SAMPLING_REGIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_skeletal_mesh_data_interface_filtered_sockets(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FString,
+        filtered_sockets: &TArray<FName>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_FILTERED_SOCKETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                filtered_sockets,
+                __buffer.add(24).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_FILTERED_SOCKETS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_skeletal_mesh_data_interface_filtered_bones(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FString,
+        filtered_bones: &TArray<FName>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_FILTERED_BONES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                filtered_bones,
+                __buffer.add(24).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_FILTERED_BONES,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_scene_capture2_d_data_interface_managed_mode(
+        niagara_system: UPtr<UNiagaraComponent>,
+        di_name: &FName,
+        managed_capture_source: crate::bindings::engine::ESceneCaptureSource,
+        managed_texture_size: crate::bindings::core_u_object::FIntPoint,
+        managed_texture_format: crate::bindings::engine::ETextureRenderTargetFormat,
+        managed_projection_type: crate::bindings::engine::ECameraProjectionMode,
+        managed_fov_angle: f32,
+        managed_ortho_width: f32,
+        b_managed_capture_every_frame: bool,
+        b_managed_capture_on_movement: bool,
+        show_only_actors: &TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SCENE_CAPTURE2_D_DATA_INTERFACE_MANAGED_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(di_name, __buffer.add(8).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &managed_capture_source,
+                __buffer.add(20).cast::<crate::bindings::engine::ESceneCaptureSource>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &managed_texture_size,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FIntPoint>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &managed_texture_format,
+                __buffer
+                    .add(32)
+                    .cast::<crate::bindings::engine::ETextureRenderTargetFormat>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &managed_projection_type,
+                __buffer
+                    .add(33)
+                    .cast::<crate::bindings::engine::ECameraProjectionMode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &managed_fov_angle,
+                __buffer.add(36).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &managed_ortho_width,
+                __buffer.add(40).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_managed_capture_every_frame,
+                __buffer.add(44).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_managed_capture_on_movement,
+                __buffer.add(45).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                show_only_actors,
+                __buffer.add(48).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SCENE_CAPTURE2_D_DATA_INTERFACE_MANAGED_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_component_niagara_gpu_ray_traced_collision_group(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        primitive: UPtr<crate::bindings::engine::UPrimitiveComponent>,
+        collision_group: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_COMPONENT_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &primitive,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::UPrimitiveComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &collision_group,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_COMPONENT_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_actor_niagara_gpu_ray_traced_collision_group(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        actor: UPtr<crate::bindings::engine::AActor>,
+        collision_group: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_ACTOR_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &collision_group,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_ACTOR_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                __buffer,
+            )
+        };
+    }
+    pub fn release_niagara_gpu_ray_traced_collision_group(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        collision_group: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_RELEASE_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &collision_group,
+                __buffer.add(8).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_RELEASE_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                __buffer,
+            )
+        };
+    }
+    pub fn override_system_user_variable_static_mesh_component(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FString,
+        static_mesh_component: UPtr<crate::bindings::engine::UStaticMeshComponent>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_STATIC_MESH_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &static_mesh_component,
+                __buffer
+                    .add(24)
+                    .cast::<UPtr<crate::bindings::engine::UStaticMeshComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_STATIC_MESH_COMPONENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn override_system_user_variable_static_mesh(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FString,
+        static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_STATIC_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &static_mesh,
+                __buffer.add(24).cast::<UPtr<crate::bindings::engine::UStaticMesh>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_STATIC_MESH,
+                __buffer,
+            )
+        };
+    }
+    pub fn override_system_user_variable_skeletal_mesh_component(
+        niagara_system: UPtr<UNiagaraComponent>,
+        override_name: FString,
+        skeletal_mesh_component: UPtr<crate::bindings::engine::USkeletalMeshComponent>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_SKELETAL_MESH_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &override_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &skeletal_mesh_component,
+                __buffer
+                    .add(24)
+                    .cast::<UPtr<crate::bindings::engine::USkeletalMeshComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_SKELETAL_MESH_COMPONENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_niagara_parameter_collection(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        collection: UPtr<UNiagaraParameterCollection>,
+    ) -> UPtr<UNiagaraParameterCollectionInstance> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_GET_NIAGARA_PARAMETER_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &collection,
+                __buffer.add(8).cast::<UPtr<UNiagaraParameterCollection>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_GET_NIAGARA_PARAMETER_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<UPtr<UNiagaraParameterCollectionInstance>>().read()
+        }
+    }
+    pub fn acquire_niagara_gpu_ray_traced_collision_group(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_ACQUIRE_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_ACQUIRE_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<i32>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct ANiagaraLensEffectBase {
@@ -6497,6 +16139,586 @@ impl UNiagaraParameterCollectionInstance {
             cdo
         }
     }
+    pub fn set_vector_parameter(
+        &mut self,
+        in_variable_name: FString,
+        in_value: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_vector4_parameter(
+        &mut self,
+        in_variable_name: FString,
+        in_value: &crate::bindings::core_u_object::FVector4,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR4_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector4>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR4_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_vector2_d_parameter(
+        &mut self,
+        in_variable_name: FString,
+        in_value: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR2_D_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR2_D_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_quat_parameter(
+        &mut self,
+        in_variable_name: FString,
+        in_value: &crate::bindings::core_u_object::FQuat,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_QUAT_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_QUAT_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_int_parameter(&mut self, in_variable_name: FString, in_value: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_INT_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_INT_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_float_parameter(&mut self, in_variable_name: FString, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_FLOAT_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(16).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_FLOAT_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_color_parameter(
+        &mut self,
+        in_variable_name: FString,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_COLOR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_COLOR_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_bool_parameter(&mut self, in_variable_name: FString, in_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_BOOL_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_BOOL_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_vector_parameter(
+        &mut self,
+        in_variable_name: FString,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_vector4_parameter(
+        &mut self,
+        in_variable_name: FString,
+    ) -> crate::bindings::core_u_object::FVector4 {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR4_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR4_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector4>().read()
+        }
+    }
+    pub fn get_vector2_d_parameter(
+        &mut self,
+        in_variable_name: FString,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR2_D_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR2_D_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_quat_parameter(
+        &mut self,
+        in_variable_name: FString,
+    ) -> crate::bindings::core_u_object::FQuat {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_QUAT_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_QUAT_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>().read()
+        }
+    }
+    pub fn get_int_parameter(&mut self, in_variable_name: FString) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_INT_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_INT_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<i32>().read() }
+    }
+    pub fn get_float_parameter(&mut self, in_variable_name: FString) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_FLOAT_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_FLOAT_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn get_color_parameter(
+        &mut self,
+        in_variable_name: FString,
+    ) -> crate::bindings::core_u_object::FLinearColor {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_COLOR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_COLOR_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::core_u_object::FLinearColor>()
+                .read()
+        }
+    }
+    pub fn get_bool_parameter(&mut self, in_variable_name: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_BOOL_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variable_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_BOOL_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraParameterCollection {
@@ -6543,6 +16765,30 @@ impl UNiagaraBaselineController {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_system(&mut self) -> UPtr<UNiagaraSystem> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_BASELINE_CONTROLLER_GET_SYSTEM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_BASELINE_CONTROLLER_GET_SYSTEM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UNiagaraSystem>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -6627,6 +16873,73 @@ impl ANiagaraPreviewBase {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_system(&mut self, in_system: UPtr<UNiagaraSystem>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::A_NIAGARA_PREVIEW_BASE_SET_SYSTEM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_system,
+                __buffer.add(0).cast::<UPtr<UNiagaraSystem>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::A_NIAGARA_PREVIEW_BASE_SET_SYSTEM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_label_text(&mut self, in_x_axis_text: &FText, in_y_axis_text: &FText) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::A_NIAGARA_PREVIEW_BASE_SET_LABEL_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_x_axis_text,
+                __buffer.add(0).cast::<FText>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_y_axis_text,
+                __buffer.add(16).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::A_NIAGARA_PREVIEW_BASE_SET_LABEL_TEXT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -6817,6 +17130,114 @@ impl ANiagaraPreviewGrid {
             cdo
         }
     }
+    pub fn set_paused(&mut self, b_paused: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_SET_PAUSED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_paused, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_SET_PAUSED,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_previews(&mut self, out_previews: &mut TArray<UPtr<UNiagaraComponent>>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_GET_PREVIEWS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_previews,
+                __buffer.add(0).cast::<TArray<UPtr<UNiagaraComponent>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_GET_PREVIEWS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<UPtr<UNiagaraComponent>>>().swap(out_previews);
+        }
+    }
+    pub fn deactivate_previews(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_DEACTIVATE_PREVIEWS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_DEACTIVATE_PREVIEWS,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_previews(&mut self, b_reset: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_ACTIVATE_PREVIEWS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_reset, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_ACTIVATE_PREVIEWS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraRibbonRendererProperties {
@@ -6926,6 +17347,990 @@ impl UNiagaraSimCache {
             cdo
         }
     }
+    pub fn read_vector_attribute(
+        &self,
+        out_values: &mut TArray<crate::bindings::core_u_object::FVector>,
+        attribute_name: FName,
+        emitter_name: FName,
+        frame_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_VECTOR_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_values,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &emitter_name,
+                __buffer.add(28).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_index,
+                __buffer.add(40).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_VECTOR_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::core_u_object::FVector>>()
+                .swap(out_values);
+        }
+    }
+    pub fn read_vector4_attribute(
+        &self,
+        out_values: &mut TArray<crate::bindings::core_u_object::FVector4>,
+        attribute_name: FName,
+        emitter_name: FName,
+        frame_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_VECTOR4_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_values,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector4>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &emitter_name,
+                __buffer.add(28).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_index,
+                __buffer.add(40).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_VECTOR4_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::core_u_object::FVector4>>()
+                .swap(out_values);
+        }
+    }
+    pub fn read_vector2_attribute(
+        &self,
+        out_values: &mut TArray<crate::bindings::core_u_object::FVector2D>,
+        attribute_name: FName,
+        emitter_name: FName,
+        frame_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_VECTOR2_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_values,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector2D>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &emitter_name,
+                __buffer.add(28).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_index,
+                __buffer.add(40).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_VECTOR2_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::core_u_object::FVector2D>>()
+                .swap(out_values);
+        }
+    }
+    pub fn read_quat_attribute_with_rebase(
+        &self,
+        out_values: &mut TArray<crate::bindings::core_u_object::FQuat>,
+        quat: crate::bindings::core_u_object::FQuat,
+        attribute_name: FName,
+        emitter_name: FName,
+        frame_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<76>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_QUAT_ATTRIBUTE_WITH_REBASE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_values,
+                __buffer.add(0).cast::<TArray<crate::bindings::core_u_object::FQuat>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &quat,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_name,
+                __buffer.add(48).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &emitter_name,
+                __buffer.add(60).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_index,
+                __buffer.add(72).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_QUAT_ATTRIBUTE_WITH_REBASE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::core_u_object::FQuat>>()
+                .swap(out_values);
+        }
+    }
+    pub fn read_quat_attribute(
+        &self,
+        out_values: &mut TArray<crate::bindings::core_u_object::FQuat>,
+        attribute_name: FName,
+        emitter_name: FName,
+        b_local_space_to_world: bool,
+        frame_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_QUAT_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_values,
+                __buffer.add(0).cast::<TArray<crate::bindings::core_u_object::FQuat>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &emitter_name,
+                __buffer.add(28).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_local_space_to_world,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_index,
+                __buffer.add(44).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_QUAT_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::core_u_object::FQuat>>()
+                .swap(out_values);
+        }
+    }
+    pub fn read_position_attribute_with_rebase(
+        &self,
+        out_values: &mut TArray<crate::bindings::core_u_object::FVector>,
+        transform: crate::bindings::core_u_object::FTransform,
+        attribute_name: FName,
+        emitter_name: FName,
+        frame_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<140>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_POSITION_ATTRIBUTE_WITH_REBASE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_values,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_name,
+                __buffer.add(112).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &emitter_name,
+                __buffer.add(124).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_index,
+                __buffer.add(136).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_POSITION_ATTRIBUTE_WITH_REBASE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::core_u_object::FVector>>()
+                .swap(out_values);
+        }
+    }
+    pub fn read_position_attribute(
+        &self,
+        out_values: &mut TArray<crate::bindings::core_u_object::FVector>,
+        attribute_name: FName,
+        emitter_name: FName,
+        b_local_space_to_world: bool,
+        frame_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_POSITION_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_values,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &emitter_name,
+                __buffer.add(28).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_local_space_to_world,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_index,
+                __buffer.add(44).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_POSITION_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::core_u_object::FVector>>()
+                .swap(out_values);
+        }
+    }
+    pub fn read_int_attribute(
+        &self,
+        out_values: &mut TArray<i32>,
+        attribute_name: FName,
+        emitter_name: FName,
+        frame_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_INT_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_values,
+                __buffer.add(0).cast::<TArray<i32>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &emitter_name,
+                __buffer.add(28).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_index,
+                __buffer.add(40).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_INT_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<i32>>().swap(out_values);
+        }
+    }
+    pub fn read_id_attribute(
+        &self,
+        out_values: &mut TArray<FNiagaraID>,
+        attribute_name: FName,
+        emitter_name: FName,
+        frame_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_ID_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_values,
+                __buffer.add(0).cast::<TArray<FNiagaraID>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &emitter_name,
+                __buffer.add(28).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_index,
+                __buffer.add(40).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_ID_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FNiagaraID>>().swap(out_values);
+        }
+    }
+    pub fn read_float_attribute(
+        &self,
+        out_values: &mut TArray<f32>,
+        attribute_name: FName,
+        emitter_name: FName,
+        frame_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_FLOAT_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_values,
+                __buffer.add(0).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &emitter_name,
+                __buffer.add(28).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_index,
+                __buffer.add(40).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_FLOAT_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<f32>>().swap(out_values);
+        }
+    }
+    pub fn read_data_interface_as(
+        &self,
+        requested_type: TSubclassOf<crate::bindings::core_u_object::UObject>,
+        attribute_name: FName,
+        frame_index: i32,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_DATA_INTERFACE_AS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &requested_type,
+                __buffer
+                    .add(0)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_index,
+                __buffer.add(20).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_DATA_INTERFACE_AS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn read_color_attribute(
+        &self,
+        out_values: &mut TArray<crate::bindings::core_u_object::FLinearColor>,
+        attribute_name: FName,
+        emitter_name: FName,
+        frame_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_COLOR_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_values,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FLinearColor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &emitter_name,
+                __buffer.add(28).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_index,
+                __buffer.add(40).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_COLOR_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::core_u_object::FLinearColor>>()
+                .swap(out_values);
+        }
+    }
+    pub fn is_empty(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_IS_EMPTY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_IS_EMPTY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_cache_valid(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_IS_CACHE_VALID,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_IS_CACHE_VALID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_start_seconds(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_START_SECONDS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_START_SECONDS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_num_frames(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_NUM_FRAMES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_NUM_FRAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_num_emitters(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_NUM_EMITTERS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_NUM_EMITTERS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_emitter_names(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_EMITTER_NAMES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_EMITTER_NAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_emitter_name(&self, emitter_index: i32) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_EMITTER_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &emitter_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_EMITTER_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<FName>().read() }
+    }
+    pub fn get_attribute_capture_mode(&self) -> ENiagaraSimCacheAttributeCaptureMode {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_ATTRIBUTE_CAPTURE_MODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_ATTRIBUTE_CAPTURE_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<ENiagaraSimCacheAttributeCaptureMode>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraSimCacheDebugData {
@@ -6968,6 +18373,250 @@ impl UAsyncNiagaraCaptureSimCache {
             cdo
         }
     }
+    pub fn capture_niagara_sim_cache_until_complete(
+        sim_cache: UPtr<UNiagaraSimCache>,
+        create_parameters: FNiagaraSimCacheCreateParameters,
+        niagara_component: UPtr<UNiagaraComponent>,
+        out_sim_cache: &mut UPtr<UNiagaraSimCache>,
+        capture_rate: i32,
+        b_advance_simulation: bool,
+        advance_delta_time: f32,
+    ) -> UPtr<UAsyncNiagaraCaptureSimCache> {
+        let mut __stack = crate::core_data::StackAlloc::<136>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE_UNTIL_COMPLETE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sim_cache,
+                __buffer.add(0).cast::<UPtr<UNiagaraSimCache>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &create_parameters,
+                __buffer.add(8).cast::<FNiagaraSimCacheCreateParameters>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_component,
+                __buffer.add(96).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_sim_cache,
+                __buffer.add(104).cast::<UPtr<UNiagaraSimCache>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &capture_rate,
+                __buffer.add(112).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_advance_simulation,
+                __buffer.add(116).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &advance_delta_time,
+                __buffer.add(120).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UAsyncNiagaraCaptureSimCache::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE_UNTIL_COMPLETE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(104).cast::<UPtr<UNiagaraSimCache>>().swap(out_sim_cache);
+        }
+        unsafe { __buffer.add(128).cast::<UPtr<UAsyncNiagaraCaptureSimCache>>().read() }
+    }
+    pub fn capture_niagara_sim_cache_multi_frame(
+        sim_cache: UPtr<UNiagaraSimCache>,
+        create_parameters: FNiagaraSimCacheCreateParameters,
+        niagara_component: UPtr<UNiagaraComponent>,
+        out_sim_cache: &mut UPtr<UNiagaraSimCache>,
+        num_frames: i32,
+        capture_rate: i32,
+        b_advance_simulation: bool,
+        advance_delta_time: f32,
+    ) -> UPtr<UAsyncNiagaraCaptureSimCache> {
+        let mut __stack = crate::core_data::StackAlloc::<136>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE_MULTI_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sim_cache,
+                __buffer.add(0).cast::<UPtr<UNiagaraSimCache>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &create_parameters,
+                __buffer.add(8).cast::<FNiagaraSimCacheCreateParameters>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_component,
+                __buffer.add(96).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_sim_cache,
+                __buffer.add(104).cast::<UPtr<UNiagaraSimCache>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &num_frames,
+                __buffer.add(112).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &capture_rate,
+                __buffer.add(116).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_advance_simulation,
+                __buffer.add(120).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &advance_delta_time,
+                __buffer.add(124).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UAsyncNiagaraCaptureSimCache::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE_MULTI_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(104).cast::<UPtr<UNiagaraSimCache>>().swap(out_sim_cache);
+        }
+        unsafe { __buffer.add(128).cast::<UPtr<UAsyncNiagaraCaptureSimCache>>().read() }
+    }
+    pub fn capture_niagara_sim_cache(
+        sim_cache: UPtr<UNiagaraSimCache>,
+        create_parameters: FNiagaraSimCacheCreateParameters,
+        niagara_component: UPtr<UNiagaraComponent>,
+        capture_parameters: FNiagaraSimCacheCaptureParameters,
+        out_sim_cache: &mut UPtr<UNiagaraSimCache>,
+    ) -> UPtr<UAsyncNiagaraCaptureSimCache> {
+        let mut __stack = crate::core_data::StackAlloc::<152>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sim_cache,
+                __buffer.add(0).cast::<UPtr<UNiagaraSimCache>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &create_parameters,
+                __buffer.add(8).cast::<FNiagaraSimCacheCreateParameters>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_component,
+                __buffer.add(96).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &capture_parameters,
+                __buffer.add(104).cast::<FNiagaraSimCacheCaptureParameters>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_sim_cache,
+                __buffer.add(136).cast::<UPtr<UNiagaraSimCache>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UAsyncNiagaraCaptureSimCache::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(136).cast::<UPtr<UNiagaraSimCache>>().swap(out_sim_cache);
+        }
+        unsafe { __buffer.add(144).cast::<UPtr<UAsyncNiagaraCaptureSimCache>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraSimCacheFunctionLibrary {
@@ -6988,6 +18637,115 @@ impl UNiagaraSimCacheFunctionLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn create_niagara_sim_cache(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> UPtr<UNiagaraSimCache> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_FUNCTION_LIBRARY_CREATE_NIAGARA_SIM_CACHE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraSimCacheFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_FUNCTION_LIBRARY_CREATE_NIAGARA_SIM_CACHE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UNiagaraSimCache>>().read() }
+    }
+    pub fn capture_niagara_sim_cache_immediate(
+        sim_cache: UPtr<UNiagaraSimCache>,
+        create_parameters: FNiagaraSimCacheCreateParameters,
+        niagara_component: UPtr<UNiagaraComponent>,
+        out_sim_cache: &mut UPtr<UNiagaraSimCache>,
+        b_advance_simulation: bool,
+        advance_delta_time: f32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<121>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_FUNCTION_LIBRARY_CAPTURE_NIAGARA_SIM_CACHE_IMMEDIATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sim_cache,
+                __buffer.add(0).cast::<UPtr<UNiagaraSimCache>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &create_parameters,
+                __buffer.add(8).cast::<FNiagaraSimCacheCreateParameters>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &niagara_component,
+                __buffer.add(96).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_sim_cache,
+                __buffer.add(104).cast::<UPtr<UNiagaraSimCache>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_advance_simulation,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &advance_delta_time,
+                __buffer.add(116).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara::UNiagaraSimCacheFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_FUNCTION_LIBRARY_CAPTURE_NIAGARA_SIM_CACHE_IMMEDIATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(104).cast::<UPtr<UNiagaraSimCache>>().swap(out_sim_cache);
+        }
+        unsafe { __buffer.add(120).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -7075,6 +18833,123 @@ impl UNiagaraSystemCollection {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn release(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_RELEASE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_RELEASE,
+                __buffer,
+            )
+        };
+    }
+    pub fn num(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_NUM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_NUM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn load_synchronous(&self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_LOAD_SYNCHRONOUS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_LOAD_SYNCHRONOUS,
+                __buffer,
+            )
+        };
+    }
+    pub fn load_async(&self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_LOAD_ASYNC,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_LOAD_ASYNC,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_systems(&self) -> TArray<UPtr<UNiagaraSystem>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_GET_SYSTEMS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_GET_SYSTEMS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<UNiagaraSystem>>>().read() }
     }
 }
 #[repr(C, align(8))]

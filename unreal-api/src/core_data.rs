@@ -69,6 +69,10 @@ pub struct FString {
     pub max: i32,
 }
 
+
+// TODO: Layout
+pub struct FField;
+
 #[repr(C, align(8))]
 pub struct FFieldPath {
     __opague: [u8; 48],

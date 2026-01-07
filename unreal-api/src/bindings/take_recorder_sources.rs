@@ -80,6 +80,160 @@ impl UTakeRecorderActorSource {
             cdo
         }
     }
+    pub fn set_source_actor(
+        &mut self,
+        in_target: TSoftObjectPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_SET_SOURCE_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_target,
+                __buffer
+                    .add(0)
+                    .cast::<TSoftObjectPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_SET_SOURCE_ACTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_actor_from_sources(
+        in_actor: UPtr<crate::bindings::engine::AActor>,
+        in_sources: UPtr<crate::bindings::takes_core::UTakeRecorderSources>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_REMOVE_ACTOR_FROM_SOURCES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_sources,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::takes_core::UTakeRecorderSources>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::take_recorder_sources::UTakeRecorderActorSource::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_REMOVE_ACTOR_FROM_SOURCES,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_source_actor(&self) -> TSoftObjectPtr<crate::bindings::engine::AActor> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_GET_SOURCE_ACTOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_GET_SOURCE_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TSoftObjectPtr<crate::bindings::engine::AActor>>()
+                .read()
+        }
+    }
+    pub fn add_source_for_actor(
+        in_actor: UPtr<crate::bindings::engine::AActor>,
+        in_sources: UPtr<crate::bindings::takes_core::UTakeRecorderSources>,
+    ) -> UPtr<crate::bindings::takes_core::UTakeRecorderSource> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_ADD_SOURCE_FOR_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_sources,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::takes_core::UTakeRecorderSources>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::take_recorder_sources::UTakeRecorderActorSource::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_ADD_SOURCE_FOR_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<UPtr<crate::bindings::takes_core::UTakeRecorderSource>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UTakeRecorderCameraCutSource {
@@ -303,7 +457,6 @@ pub struct UTakeRecorderWorldSourceSettings {
     __padding_64: [u8; 64],
     pub b_record_world_settings: bool,
     pub b_autotrack_actors: bool,
-    __padding_end: [u8; 6],
 }
 impl UTakeRecorderWorldSourceSettings {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

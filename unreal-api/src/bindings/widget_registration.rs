@@ -19,7 +19,6 @@ pub struct FToolkitWidgetStyle {
     pub active_tool_title_border_padding: crate::bindings::slate_core::FMargin,
     pub tool_context_text_block_padding: crate::bindings::slate_core::FMargin,
     pub title_font: crate::bindings::slate_core::FSlateFontInfo,
-    __padding_end: [u8; 8],
 }
 impl FToolkitWidgetStyle {}
 #[repr(C, align(8))]

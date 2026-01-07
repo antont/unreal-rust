@@ -94,13 +94,82 @@ impl UCompositeCoreSubsystem {
             cdo
         }
     }
+    pub fn unregister_primitive(
+        &mut self,
+        in_primitive_component: UPtr<crate::bindings::engine::UPrimitiveComponent>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::composite_core::U_COMPOSITE_CORE_SUBSYSTEM_UNREGISTER_PRIMITIVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_primitive_component,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UPrimitiveComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::composite_core::U_COMPOSITE_CORE_SUBSYSTEM_UNREGISTER_PRIMITIVE,
+                __buffer,
+            )
+        };
+    }
+    pub fn register_primitive(
+        &mut self,
+        in_primitive_component: UPtr<crate::bindings::engine::UPrimitiveComponent>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::composite_core::U_COMPOSITE_CORE_SUBSYSTEM_REGISTER_PRIMITIVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_primitive_component,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UPrimitiveComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::composite_core::U_COMPOSITE_CORE_SUBSYSTEM_REGISTER_PRIMITIVE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct UHoldoutCompositeComponent {
     #[doc(hidden)]
     __padding_656: [u8; 656],
     pub b_is_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl UHoldoutCompositeComponent {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -117,5 +186,59 @@ impl UHoldoutCompositeComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_enabled(&mut self, b_in_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::composite_core::U_HOLDOUT_COMPOSITE_COMPONENT_SET_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::composite_core::U_HOLDOUT_COMPOSITE_COMPONENT_SET_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_enabled(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::composite_core::U_HOLDOUT_COMPOSITE_COMPONENT_IS_ENABLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::composite_core::U_HOLDOUT_COMPOSITE_COMPONENT_IS_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
     }
 }

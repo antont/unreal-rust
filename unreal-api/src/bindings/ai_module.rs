@@ -2157,7 +2157,6 @@ pub struct FAIStimulus {
     #[doc(hidden)]
     __padding_92: [u8; 16],
     pub flags_92: u8,
-    __padding_end: [u8; 3],
 }
 impl FAIStimulus {}
 #[repr(C, align(4))]
@@ -2177,7 +2176,6 @@ pub struct FBlackboardKeySelector {
     pub selected_key_type: TSubclassOf<UBlackboardKeyType>,
     pub selected_key_id: i32,
     pub flags_44: u8,
-    __padding_end: [u8; 3],
 }
 impl FBlackboardKeySelector {}
 #[repr(C, align(8))]
@@ -2185,7 +2183,6 @@ pub struct FValueOrBlackboardKeyBase {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub key: FName,
-    __padding_end: [u8; 4],
 }
 impl FValueOrBlackboardKeyBase {}
 #[repr(C, align(8))]
@@ -2281,13 +2278,11 @@ pub struct FActorPerceptionBlueprintInfo {
     pub target: UPtr<crate::bindings::engine::AActor>,
     pub last_sensed_stimuli: TArray<FAIStimulus>,
     pub flags_24: u8,
-    __padding_end: [u8; 7],
 }
 impl FActorPerceptionBlueprintInfo {}
 #[repr(C, align(4))]
 pub struct FAISenseAffiliationFilter {
     pub flags_0: u8,
-    __padding_end: [u8; 3],
 }
 impl FAISenseAffiliationFilter {}
 #[repr(C, align(8))]
@@ -2298,7 +2293,6 @@ pub struct FAIDamageEvent {
     pub damaged_actor: UPtr<crate::bindings::engine::AActor>,
     pub instigator: UPtr<crate::bindings::engine::AActor>,
     pub tag: FName,
-    __padding_end: [u8; 4],
 }
 impl FAIDamageEvent {}
 #[repr(C, align(8))]
@@ -2310,7 +2304,6 @@ pub struct FAINoiseEvent {
     pub max_range: f32,
     pub instigator: UPtr<crate::bindings::engine::AActor>,
     pub tag: FName,
-    __padding_end: [u8; 4],
 }
 impl FAINoiseEvent {}
 #[repr(C, align(8))]
@@ -2487,7 +2480,6 @@ pub struct UAISenseConfig_Sight {
     pub auto_success_range_from_last_seen_location: f32,
     pub point_of_view_backward_offset: f32,
     pub near_clipping_radius: f32,
-    __padding_end: [u8; 4],
 }
 impl UAISenseConfig_Sight {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -2532,7 +2524,6 @@ pub struct UAISenseConfig_Touch {
     #[doc(hidden)]
     __padding_80: [u8; 80],
     pub detection_by_affiliation: FAISenseAffiliationFilter,
-    __padding_end: [u8; 4],
 }
 impl UAISenseConfig_Touch {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -2718,6 +2709,707 @@ impl AAIController {
             cdo
         }
     }
+    pub fn use_blackboard(
+        &mut self,
+        blackboard_asset: UPtr<UBlackboardData>,
+        blackboard_component: &mut UPtr<UBlackboardComponent>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_USE_BLACKBOARD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &blackboard_asset,
+                __buffer.add(0).cast::<UPtr<UBlackboardData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                blackboard_component,
+                __buffer.add(8).cast::<UPtr<UBlackboardComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_USE_BLACKBOARD,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<UBlackboardComponent>>()
+                .swap(blackboard_component);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn unclaim_task_resource(
+        &mut self,
+        resource_class: TSubclassOf<
+            crate::bindings::gameplay_tasks::UGameplayTaskResource,
+        >,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_UNCLAIM_TASK_RESOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &resource_class,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSubclassOf<
+                            crate::bindings::gameplay_tasks::UGameplayTaskResource,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_UNCLAIM_TASK_RESOURCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_path_following_component(
+        &mut self,
+        new_pf_component: UPtr<UPathFollowingComponent>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_SET_PATH_FOLLOWING_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_pf_component,
+                __buffer.add(0).cast::<UPtr<UPathFollowingComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_SET_PATH_FOLLOWING_COMPONENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_move_block_detection(&mut self, b_enable: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_SET_MOVE_BLOCK_DETECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_enable, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_SET_MOVE_BLOCK_DETECTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn run_behavior_tree(&mut self, bt_asset: UPtr<UBehaviorTree>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_RUN_BEHAVIOR_TREE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &bt_asset,
+                __buffer.add(0).cast::<UPtr<UBehaviorTree>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_RUN_BEHAVIOR_TREE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn move_to_location(
+        &mut self,
+        dest: &crate::bindings::core_u_object::FVector,
+        acceptance_radius: f32,
+        b_stop_on_overlap: bool,
+        b_use_pathfinding: bool,
+        b_project_destination_to_navigation: bool,
+        b_can_strafe: bool,
+        filter_class: TSubclassOf<
+            crate::bindings::navigation_system::UNavigationQueryFilter,
+        >,
+        b_allow_partial_path: bool,
+    ) -> EPathFollowingRequestResult {
+        let mut __stack = crate::core_data::StackAlloc::<42>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_MOVE_TO_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                dest,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &acceptance_radius,
+                __buffer.add(24).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_stop_on_overlap,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_use_pathfinding,
+                __buffer.add(29).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_project_destination_to_navigation,
+                __buffer.add(30).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_can_strafe,
+                __buffer.add(31).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_class,
+                __buffer
+                    .add(32)
+                    .cast::<
+                        TSubclassOf<
+                            crate::bindings::navigation_system::UNavigationQueryFilter,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_allow_partial_path,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_MOVE_TO_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(41).cast::<EPathFollowingRequestResult>().read() }
+    }
+    pub fn move_to_actor(
+        &mut self,
+        goal: UPtr<crate::bindings::engine::AActor>,
+        acceptance_radius: f32,
+        b_stop_on_overlap: bool,
+        b_use_pathfinding: bool,
+        b_can_strafe: bool,
+        filter_class: TSubclassOf<
+            crate::bindings::navigation_system::UNavigationQueryFilter,
+        >,
+        b_allow_partial_path: bool,
+    ) -> EPathFollowingRequestResult {
+        let mut __stack = crate::core_data::StackAlloc::<26>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_MOVE_TO_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &goal,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &acceptance_radius,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_stop_on_overlap,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_use_pathfinding,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_can_strafe,
+                __buffer.add(14).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_class,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        TSubclassOf<
+                            crate::bindings::navigation_system::UNavigationQueryFilter,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_allow_partial_path,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_MOVE_TO_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(25).cast::<EPathFollowingRequestResult>().read() }
+    }
+    pub fn set_focus(&mut self, new_focus: UPtr<crate::bindings::engine::AActor>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_K2_SET_FOCUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_focus,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_K2_SET_FOCUS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_focal_point(&mut self, fp: crate::bindings::core_u_object::FVector) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_K2_SET_FOCAL_POINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &fp,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_K2_SET_FOCAL_POINT,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_focus(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_K2_CLEAR_FOCUS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_K2_CLEAR_FOCUS,
+                __buffer,
+            )
+        };
+    }
+    pub fn has_partial_path(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_HAS_PARTIAL_PATH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_HAS_PARTIAL_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_path_following_component(&self) -> UPtr<UPathFollowingComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_GET_PATH_FOLLOWING_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_GET_PATH_FOLLOWING_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UPathFollowingComponent>>().read() }
+    }
+    pub fn get_move_status(&self) -> EPathFollowingStatus {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_GET_MOVE_STATUS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_GET_MOVE_STATUS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EPathFollowingStatus>().read() }
+    }
+    pub fn get_immediate_move_destination(
+        &self,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_GET_IMMEDIATE_MOVE_DESTINATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_GET_IMMEDIATE_MOVE_DESTINATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_focus_actor(&self) -> UPtr<crate::bindings::engine::AActor> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_GET_FOCUS_ACTOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_GET_FOCUS_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>().read() }
+    }
+    pub fn get_focal_point_on_actor(
+        &self,
+        actor: UPtr<crate::bindings::engine::AActor>,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_GET_FOCAL_POINT_ON_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_GET_FOCAL_POINT_ON_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_focal_point(&self) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_GET_FOCAL_POINT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_GET_FOCAL_POINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_ai_perception_component(&mut self) -> UPtr<UAIPerceptionComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_GET_AI_PERCEPTION_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_GET_AI_PERCEPTION_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UAIPerceptionComponent>>().read() }
+    }
+    pub fn claim_task_resource(
+        &mut self,
+        resource_class: TSubclassOf<
+            crate::bindings::gameplay_tasks::UGameplayTaskResource,
+        >,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::AAI_CONTROLLER_CLAIM_TASK_RESOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &resource_class,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSubclassOf<
+                            crate::bindings::gameplay_tasks::UGameplayTaskResource,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::AAI_CONTROLLER_CLAIM_TASK_RESOURCE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UAIResource_Movement {
@@ -2844,6 +3536,126 @@ impl UBrainComponent {
             cdo
         }
     }
+    pub fn stop_logic(&mut self, reason: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BRAIN_COMPONENT_STOP_LOGIC,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&reason, __buffer.add(0).cast::<FString>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BRAIN_COMPONENT_STOP_LOGIC,
+                __buffer,
+            )
+        };
+    }
+    pub fn start_logic(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BRAIN_COMPONENT_START_LOGIC,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BRAIN_COMPONENT_START_LOGIC,
+                __buffer,
+            )
+        };
+    }
+    pub fn restart_logic(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BRAIN_COMPONENT_RESTART_LOGIC,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BRAIN_COMPONENT_RESTART_LOGIC,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_running(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BRAIN_COMPONENT_IS_RUNNING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BRAIN_COMPONENT_IS_RUNNING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_paused(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BRAIN_COMPONENT_IS_PAUSED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BRAIN_COMPONENT_IS_PAUSED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UBehaviorTreeComponent {
@@ -2867,6 +3679,130 @@ impl UBehaviorTreeComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_dynamic_subtree(
+        &mut self,
+        inject_tag: crate::bindings::gameplay_tags::FGameplayTag,
+        behavior_asset: UPtr<UBehaviorTree>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BEHAVIOR_TREE_COMPONENT_SET_DYNAMIC_SUBTREE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &inject_tag,
+                __buffer.add(0).cast::<crate::bindings::gameplay_tags::FGameplayTag>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &behavior_asset,
+                __buffer.add(16).cast::<UPtr<UBehaviorTree>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BEHAVIOR_TREE_COMPONENT_SET_DYNAMIC_SUBTREE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_tag_cooldown_end_time(
+        &self,
+        cooldown_tag: crate::bindings::gameplay_tags::FGameplayTag,
+    ) -> f64 {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BEHAVIOR_TREE_COMPONENT_GET_TAG_COOLDOWN_END_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &cooldown_tag,
+                __buffer.add(0).cast::<crate::bindings::gameplay_tags::FGameplayTag>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BEHAVIOR_TREE_COMPONENT_GET_TAG_COOLDOWN_END_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f64>().read() }
+    }
+    pub fn add_cooldown_tag_duration(
+        &mut self,
+        cooldown_tag: crate::bindings::gameplay_tags::FGameplayTag,
+        cooldown_duration: f32,
+        b_add_to_existing_duration: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BEHAVIOR_TREE_COMPONENT_ADD_COOLDOWN_TAG_DURATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &cooldown_tag,
+                __buffer.add(0).cast::<crate::bindings::gameplay_tags::FGameplayTag>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &cooldown_duration,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_add_to_existing_duration,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BEHAVIOR_TREE_COMPONENT_ADD_COOLDOWN_TAG_DURATION,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -2932,6 +3868,30 @@ impl UBlackboardAssetProvider {
             cdo
         }
     }
+    pub fn get_blackboard_asset(&self) -> UPtr<UBlackboardData> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_ASSET_PROVIDER_GET_BLACKBOARD_ASSET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_ASSET_PROVIDER_GET_BLACKBOARD_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UBlackboardData>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UBlackboardComponent {
@@ -2952,6 +3912,783 @@ impl UBlackboardComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_value_as_vector(
+        &mut self,
+        key_name: &FName,
+        vector_value: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &vector_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_VECTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_value_as_string(&mut self, key_name: &FName, string_value: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &string_value,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_STRING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_value_as_rotator(
+        &mut self,
+        key_name: &FName,
+        vector_value: crate::bindings::core_u_object::FRotator,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &vector_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_ROTATOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_value_as_object(
+        &mut self,
+        key_name: &FName,
+        object_value: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object_value,
+                __buffer.add(16).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_OBJECT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_value_as_name(&mut self, key_name: &FName, name_value: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &name_value,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_NAME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_value_as_int(&mut self, key_name: &FName, int_value: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&int_value, __buffer.add(12).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_INT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_value_as_float(&mut self, key_name: &FName, float_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &float_value,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_FLOAT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_value_as_enum(&mut self, key_name: &FName, enum_value: u8) {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_ENUM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&enum_value, __buffer.add(12).cast::<u8>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_ENUM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_value_as_class(
+        &mut self,
+        key_name: &FName,
+        class_value: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &class_value,
+                __buffer
+                    .add(16)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_CLASS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_value_as_bool(&mut self, key_name: &FName, bool_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &bool_value,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_BOOL,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_vector_value_set(&self, key_name: &FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_IS_VECTOR_VALUE_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_IS_VECTOR_VALUE_SET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn get_value_as_vector(
+        &self,
+        key_name: &FName,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_value_as_string(&self, key_name: &FName) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_value_as_rotator(
+        &self,
+        key_name: &FName,
+    ) -> crate::bindings::core_u_object::FRotator {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FRotator>().read()
+        }
+    }
+    pub fn get_value_as_object(
+        &self,
+        key_name: &FName,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_value_as_name(&self, key_name: &FName) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<FName>().read() }
+    }
+    pub fn get_value_as_int(&self, key_name: &FName) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_INT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<i32>().read() }
+    }
+    pub fn get_value_as_float(&self, key_name: &FName) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<f32>().read() }
+    }
+    pub fn get_value_as_enum(&self, key_name: &FName) -> u8 {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_ENUM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_ENUM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<u8>().read() }
+    }
+    pub fn get_value_as_class(
+        &self,
+        key_name: &FName,
+    ) -> TSubclassOf<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_value_as_bool(&self, key_name: &FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_BOOL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn get_rotation_from_entry(
+        &self,
+        key_name: &FName,
+        result_rotation: &mut crate::bindings::core_u_object::FRotator,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_ROTATION_FROM_ENTRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result_rotation,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_ROTATION_FROM_ENTRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::core_u_object::FRotator>()
+                .swap(result_rotation);
+        }
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn get_location_from_entry(
+        &self,
+        key_name: &FName,
+        result_location: &mut crate::bindings::core_u_object::FVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_LOCATION_FROM_ENTRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result_location,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_LOCATION_FROM_ENTRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(result_location);
+        }
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn clear_value(&mut self, key_name: &FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_CLEAR_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(key_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_CLEAR_VALUE,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -3348,6 +5085,1147 @@ impl UBTFunctionLibrary {
             cdo
         }
     }
+    pub fn stop_using_external_event(node_owner: UPtr<UBTNode>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_STOP_USING_EXTERNAL_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_STOP_USING_EXTERNAL_EVENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn start_using_external_event(
+        node_owner: UPtr<UBTNode>,
+        owning_actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_START_USING_EXTERNAL_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owning_actor,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_START_USING_EXTERNAL_EVENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_blackboard_value_as_vector(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+        value: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(56).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_VECTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_blackboard_value_as_string(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+        value: FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(56).cast::<FString>(), 1);
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_STRING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_blackboard_value_as_rotator(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+        value: crate::bindings::core_u_object::FRotator,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(56).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_ROTATOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_blackboard_value_as_object(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+        value: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(56).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_OBJECT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_blackboard_value_as_name(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+        value: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<68>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(56).cast::<FName>(), 1);
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_NAME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_blackboard_value_as_int(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+        value: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<60>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(56).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_INT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_blackboard_value_as_float(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+        value: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<60>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(56).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_FLOAT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_blackboard_value_as_enum(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+        value: u8,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_ENUM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(56).cast::<u8>(), 1);
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_ENUM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_blackboard_value_as_class(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+        value: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer
+                    .add(56)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_CLASS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_blackboard_value_as_bool(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+        value: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(56).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_BOOL,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_owners_blackboard(
+        node_owner: UPtr<UBTNode>,
+    ) -> UPtr<UBlackboardComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_OWNERS_BLACKBOARD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_OWNERS_BLACKBOARD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UBlackboardComponent>>().read() }
+    }
+    pub fn get_owner_component(
+        node_owner: UPtr<UBTNode>,
+    ) -> UPtr<UBehaviorTreeComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_OWNER_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_OWNER_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UBehaviorTreeComponent>>().read() }
+    }
+    pub fn get_blackboard_value_as_vector(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(56).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_blackboard_value_as_string(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<FString>().read() }
+    }
+    pub fn get_blackboard_value_as_rotator(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+    ) -> crate::bindings::core_u_object::FRotator {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(56).cast::<crate::bindings::core_u_object::FRotator>().read()
+        }
+    }
+    pub fn get_blackboard_value_as_object(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(56)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_blackboard_value_as_name(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<68>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<FName>().read() }
+    }
+    pub fn get_blackboard_value_as_int(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<60>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_INT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<i32>().read() }
+    }
+    pub fn get_blackboard_value_as_float(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<60>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<f32>().read() }
+    }
+    pub fn get_blackboard_value_as_enum(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+    ) -> u8 {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ENUM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ENUM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<u8>().read() }
+    }
+    pub fn get_blackboard_value_as_class(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+    ) -> TSubclassOf<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(56)
+                .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_blackboard_value_as_bool(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_BOOL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<bool>().read() }
+    }
+    pub fn get_blackboard_value_as_actor(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+    ) -> UPtr<crate::bindings::engine::AActor> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(56).cast::<UPtr<crate::bindings::engine::AActor>>().read()
+        }
+    }
+    pub fn clear_blackboard_value_as_vector(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_CLEAR_BLACKBOARD_VALUE_AS_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_CLEAR_BLACKBOARD_VALUE_AS_VECTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_blackboard_value(
+        node_owner: UPtr<UBTNode>,
+        key: &FBlackboardKeySelector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_CLEAR_BLACKBOARD_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_owner,
+                __buffer.add(0).cast::<UPtr<UBTNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                key,
+                __buffer.add(8).cast::<FBlackboardKeySelector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UBTFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_CLEAR_BLACKBOARD_VALUE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UBTService {
@@ -3518,6 +6396,54 @@ impl UBTDecorator_BlueprintBase {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn is_decorator_observer_active(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_DECORATOR_BLUEPRINT_BASE_IS_DECORATOR_OBSERVER_ACTIVE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_DECORATOR_BLUEPRINT_BASE_IS_DECORATOR_OBSERVER_ACTIVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_decorator_execution_active(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_DECORATOR_BLUEPRINT_BASE_IS_DECORATOR_EXECUTION_ACTIVE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_DECORATOR_BLUEPRINT_BASE_IS_DECORATOR_EXECUTION_ACTIVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3900,6 +6826,30 @@ impl UBTService_BlueprintBase {
             cdo
         }
     }
+    pub fn is_service_active(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_SERVICE_BLUEPRINT_BASE_IS_SERVICE_ACTIVE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_SERVICE_BLUEPRINT_BASE_IS_SERVICE_ACTIVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UBTService_DefaultFocus {
@@ -3986,6 +6936,174 @@ impl UBTTask_BlueprintBase {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_finish_on_message_with_id(
+        &mut self,
+        message_name: FName,
+        request_id: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_SET_FINISH_ON_MESSAGE_WITH_ID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &message_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &request_id,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_SET_FINISH_ON_MESSAGE_WITH_ID,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_finish_on_message(&mut self, message_name: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_SET_FINISH_ON_MESSAGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &message_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_SET_FINISH_ON_MESSAGE,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_task_executing(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_IS_TASK_EXECUTING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_IS_TASK_EXECUTING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_task_aborting(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_IS_TASK_ABORTING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_IS_TASK_ABORTING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn finish_execute(&mut self, b_success: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_FINISH_EXECUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_success, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_FINISH_EXECUTE,
+                __buffer,
+            )
+        };
+    }
+    pub fn finish_abort(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_FINISH_ABORT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_FINISH_ABORT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -4533,6 +7651,476 @@ impl UValueOrBBKeyBlueprintUtility {
             cdo
         }
     }
+    pub fn get_vector(
+        value: &FValueOrBBKey_Vector,
+        behavior_tree_comp: UPtr<UBehaviorTreeComponent>,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(0).cast::<FValueOrBBKey_Vector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &behavior_tree_comp,
+                __buffer.add(48).cast::<UPtr<UBehaviorTreeComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UValueOrBBKeyBlueprintUtility::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(56).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_struct(
+        value: &FValueOrBBKey_Struct,
+        behavior_tree_comp: UPtr<UBehaviorTreeComponent>,
+    ) -> crate::bindings::core_u_object::FInstancedStruct {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(0).cast::<FValueOrBBKey_Struct>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &behavior_tree_comp,
+                __buffer.add(48).cast::<UPtr<UBehaviorTreeComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UValueOrBBKeyBlueprintUtility::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(56)
+                .cast::<crate::bindings::core_u_object::FInstancedStruct>()
+                .read()
+        }
+    }
+    pub fn get_string(
+        value: &FValueOrBBKey_String,
+        behavior_tree_comp: UPtr<UBehaviorTreeComponent>,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(0).cast::<FValueOrBBKey_String>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &behavior_tree_comp,
+                __buffer.add(40).cast::<UPtr<UBehaviorTreeComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UValueOrBBKeyBlueprintUtility::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<FString>().read() }
+    }
+    pub fn get_rotator(
+        value: &FValueOrBBKey_Rotator,
+        behavior_tree_comp: UPtr<UBehaviorTreeComponent>,
+    ) -> crate::bindings::core_u_object::FRotator {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(0).cast::<FValueOrBBKey_Rotator>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &behavior_tree_comp,
+                __buffer.add(48).cast::<UPtr<UBehaviorTreeComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UValueOrBBKeyBlueprintUtility::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(56).cast::<crate::bindings::core_u_object::FRotator>().read()
+        }
+    }
+    pub fn get_object(
+        value: &FValueOrBBKey_Object,
+        behavior_tree_comp: UPtr<UBehaviorTreeComponent>,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(0).cast::<FValueOrBBKey_Object>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &behavior_tree_comp,
+                __buffer.add(40).cast::<UPtr<UBehaviorTreeComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UValueOrBBKeyBlueprintUtility::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(48)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_name(
+        value: &FValueOrBBKey_Name,
+        behavior_tree_comp: UPtr<UBehaviorTreeComponent>,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<60>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(0).cast::<FValueOrBBKey_Name>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &behavior_tree_comp,
+                __buffer.add(40).cast::<UPtr<UBehaviorTreeComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UValueOrBBKeyBlueprintUtility::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<FName>().read() }
+    }
+    pub fn get_int32(
+        value: &FValueOrBBKey_Int32,
+        behavior_tree_comp: UPtr<UBehaviorTreeComponent>,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_INT32,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(0).cast::<FValueOrBBKey_Int32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &behavior_tree_comp,
+                __buffer.add(32).cast::<UPtr<UBehaviorTreeComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UValueOrBBKeyBlueprintUtility::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_INT32,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<i32>().read() }
+    }
+    pub fn get_float(
+        value: &FValueOrBBKey_Float,
+        behavior_tree_comp: UPtr<UBehaviorTreeComponent>,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(0).cast::<FValueOrBBKey_Float>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &behavior_tree_comp,
+                __buffer.add(32).cast::<UPtr<UBehaviorTreeComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UValueOrBBKeyBlueprintUtility::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<f32>().read() }
+    }
+    pub fn get_enum(
+        value: &FValueOrBBKey_Enum,
+        behavior_tree_comp: UPtr<UBehaviorTreeComponent>,
+    ) -> u8 {
+        let mut __stack = crate::core_data::StackAlloc::<65>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_ENUM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(0).cast::<FValueOrBBKey_Enum>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &behavior_tree_comp,
+                __buffer.add(56).cast::<UPtr<UBehaviorTreeComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UValueOrBBKeyBlueprintUtility::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_ENUM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<u8>().read() }
+    }
+    pub fn get_class(
+        value: &FValueOrBBKey_Class,
+        behavior_tree_comp: UPtr<UBehaviorTreeComponent>,
+    ) -> TSubclassOf<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(0).cast::<FValueOrBBKey_Class>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &behavior_tree_comp,
+                __buffer.add(40).cast::<UPtr<UBehaviorTreeComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UValueOrBBKeyBlueprintUtility::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(48)
+                .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_bool(
+        value: &FValueOrBBKey_Bool,
+        behavior_tree_comp: UPtr<UBehaviorTreeComponent>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value,
+                __buffer.add(0).cast::<FValueOrBBKey_Bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &behavior_tree_comp,
+                __buffer.add(32).cast::<UPtr<UBehaviorTreeComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UValueOrBBKeyBlueprintUtility::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_BOOL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UAIBlueprintHelperLibrary {
@@ -4553,6 +8141,695 @@ impl UAIBlueprintHelperLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn unlock_ai_resources_with_animation(
+        anim_instance: UPtr<crate::bindings::engine::UAnimInstance>,
+        b_unlock_movement: bool,
+        unlock_ai_logic: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<10>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_UNLOCK_AI_RESOURCES_WITH_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &anim_instance,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UAnimInstance>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_unlock_movement,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &unlock_ai_logic,
+                __buffer.add(9).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_UNLOCK_AI_RESOURCES_WITH_ANIMATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn spawn_ai_from_class(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        pawn_class: TSubclassOf<crate::bindings::engine::APawn>,
+        behavior_tree: UPtr<UBehaviorTree>,
+        location: crate::bindings::core_u_object::FVector,
+        rotation: crate::bindings::core_u_object::FRotator,
+        b_no_collision_fail: bool,
+        owner: UPtr<crate::bindings::engine::AActor>,
+    ) -> UPtr<crate::bindings::engine::APawn> {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SPAWN_AI_FROM_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &pawn_class,
+                __buffer.add(8).cast::<TSubclassOf<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &behavior_tree,
+                __buffer.add(16).cast::<UPtr<UBehaviorTree>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &location,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rotation,
+                __buffer.add(48).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_no_collision_fail,
+                __buffer.add(72).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner,
+                __buffer.add(80).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SPAWN_AI_FROM_CLASS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(88).cast::<UPtr<crate::bindings::engine::APawn>>().read() }
+    }
+    pub fn simple_move_to_location(
+        controller: UPtr<crate::bindings::engine::AController>,
+        goal: &crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SIMPLE_MOVE_TO_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controller,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                goal,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SIMPLE_MOVE_TO_LOCATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn simple_move_to_actor(
+        controller: UPtr<crate::bindings::engine::AController>,
+        goal: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SIMPLE_MOVE_TO_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controller,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &goal,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SIMPLE_MOVE_TO_ACTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn send_ai_message(
+        target: UPtr<crate::bindings::engine::APawn>,
+        message: FName,
+        message_source: UPtr<crate::bindings::core_u_object::UObject>,
+        b_success: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SEND_AI_MESSAGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&message, __buffer.add(8).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &message_source,
+                __buffer.add(24).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_success,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SEND_AI_MESSAGE,
+                __buffer,
+            )
+        };
+    }
+    pub fn lock_ai_resources_with_animation(
+        anim_instance: UPtr<crate::bindings::engine::UAnimInstance>,
+        b_lock_movement: bool,
+        lock_ai_logic: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<10>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_LOCK_AI_RESOURCES_WITH_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &anim_instance,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UAnimInstance>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_lock_movement,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &lock_ai_logic,
+                __buffer.add(9).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_LOCK_AI_RESOURCES_WITH_ANIMATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_valid_ai_rotation(
+        rotation: crate::bindings::core_u_object::FRotator,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rotation,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn is_valid_ai_location(
+        location: crate::bindings::core_u_object::FVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &location,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn is_valid_ai_direction(
+        direction_vector: crate::bindings::core_u_object::FVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_DIRECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &direction_vector,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_DIRECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn get_next_nav_link_index(
+        controller: UPtr<crate::bindings::engine::AController>,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_NEXT_NAV_LINK_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controller,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_NEXT_NAV_LINK_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<i32>().read() }
+    }
+    pub fn get_current_path_points(
+        controller: UPtr<crate::bindings::engine::AController>,
+    ) -> TArray<crate::bindings::core_u_object::FVector> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH_POINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controller,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH_POINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<TArray<crate::bindings::core_u_object::FVector>>()
+                .read()
+        }
+    }
+    pub fn get_current_path_index(
+        controller: UPtr<crate::bindings::engine::AController>,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controller,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<i32>().read() }
+    }
+    pub fn get_current_path(
+        controller: UPtr<crate::bindings::engine::AController>,
+    ) -> UPtr<crate::bindings::navigation_system::UNavigationPath> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controller,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::navigation_system::UNavigationPath>>()
+                .read()
+        }
+    }
+    pub fn get_blackboard(
+        target: UPtr<crate::bindings::engine::AActor>,
+    ) -> UPtr<UBlackboardComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_BLACKBOARD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_BLACKBOARD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UBlackboardComponent>>().read() }
+    }
+    pub fn get_ai_controller(
+        controlled_actor: UPtr<crate::bindings::engine::AActor>,
+    ) -> UPtr<AAIController> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_AI_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controlled_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_AI_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<AAIController>>().read() }
+    }
+    pub fn create_move_to_proxy_object(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        pawn: UPtr<crate::bindings::engine::APawn>,
+        destination: crate::bindings::core_u_object::FVector,
+        target_actor: UPtr<crate::bindings::engine::AActor>,
+        acceptance_radius: f32,
+        b_stop_on_overlap: bool,
+    ) -> UPtr<UAIAsyncTaskBlueprintProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_CREATE_MOVE_TO_PROXY_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &pawn,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &destination,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_actor,
+                __buffer.add(40).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &acceptance_radius,
+                __buffer.add(48).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_stop_on_overlap,
+                __buffer.add(52).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIBlueprintHelperLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_CREATE_MOVE_TO_PROXY_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<UPtr<UAIAsyncTaskBlueprintProxy>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -4855,6 +9132,210 @@ impl UEnvQueryInstanceBlueprintWrapper {
             cdo
         }
     }
+    pub fn set_named_param(&mut self, param_name: FName, value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_SET_NAMED_PARAM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &param_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(12).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_SET_NAMED_PARAM,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_results_as_locations(
+        &self,
+    ) -> TArray<crate::bindings::core_u_object::FVector> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_RESULTS_AS_LOCATIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_RESULTS_AS_LOCATIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::core_u_object::FVector>>()
+                .read()
+        }
+    }
+    pub fn get_results_as_actors(
+        &self,
+    ) -> TArray<UPtr<crate::bindings::engine::AActor>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_RESULTS_AS_ACTORS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_RESULTS_AS_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .read()
+        }
+    }
+    pub fn get_query_results_as_locations(
+        &self,
+        result_locations: &mut TArray<crate::bindings::core_u_object::FVector>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_QUERY_RESULTS_AS_LOCATIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result_locations,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_QUERY_RESULTS_AS_LOCATIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::core_u_object::FVector>>()
+                .swap(result_locations);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_query_results_as_actors(
+        &self,
+        result_actors: &mut TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_QUERY_RESULTS_AS_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result_actors,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_QUERY_RESULTS_AS_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .swap(result_actors);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_item_score(&self, item_index: i32) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_ITEM_SCORE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&item_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_ITEM_SCORE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<f32>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UEnvQueryManager {
@@ -4874,6 +9355,75 @@ impl UEnvQueryManager {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn run_eqs_query(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        query_template: UPtr<UEnvQuery>,
+        querier: UPtr<crate::bindings::core_u_object::UObject>,
+        run_mode: EEnvQueryRunMode,
+        wrapper_class: TSubclassOf<UEnvQueryInstanceBlueprintWrapper>,
+    ) -> UPtr<UEnvQueryInstanceBlueprintWrapper> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_ENV_QUERY_MANAGER_RUN_EQS_QUERY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &query_template,
+                __buffer.add(8).cast::<UPtr<UEnvQuery>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &querier,
+                __buffer.add(16).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &run_mode,
+                __buffer.add(24).cast::<EEnvQueryRunMode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &wrapper_class,
+                __buffer
+                    .add(32)
+                    .cast::<TSubclassOf<UEnvQueryInstanceBlueprintWrapper>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UEnvQueryManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_ENV_QUERY_MANAGER_RUN_EQS_QUERY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(40).cast::<UPtr<UEnvQueryInstanceBlueprintWrapper>>().read()
         }
     }
 }
@@ -5022,6 +9572,101 @@ impl UEnvQueryGenerator_BlueprintBase {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_querier(&self) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_GET_QUERIER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_GET_QUERIER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn add_generated_vector(
+        &self,
+        generated_vector: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_ADD_GENERATED_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &generated_vector,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_ADD_GENERATED_VECTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_generated_actor(
+        &self,
+        generated_actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_ADD_GENERATED_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &generated_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_ADD_GENERATED_ACTOR,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -5611,6 +10256,56 @@ impl UPathFollowingComponent {
             cdo
         }
     }
+    pub fn get_path_destination(&self) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_PATH_FOLLOWING_COMPONENT_GET_PATH_DESTINATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_PATH_FOLLOWING_COMPONENT_GET_PATH_DESTINATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_path_action_type(&self) -> EPathFollowingAction {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_PATH_FOLLOWING_COMPONENT_GET_PATH_ACTION_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_PATH_FOLLOWING_COMPONENT_GET_PATH_ACTION_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EPathFollowingAction>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UCrowdFollowingComponent {
@@ -5631,6 +10326,32 @@ impl UCrowdFollowingComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn suspend_crowd_steering(&mut self, b_suspend: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_CROWD_FOLLOWING_COMPONENT_SUSPEND_CROWD_STEERING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_suspend, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_CROWD_FOLLOWING_COMPONENT_SUSPEND_CROWD_STEERING,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -5740,6 +10461,113 @@ impl ANavLinkProxy {
             cdo
         }
     }
+    pub fn set_smart_link_enabled(&mut self, b_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::A_NAV_LINK_PROXY_SET_SMART_LINK_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::A_NAV_LINK_PROXY_SET_SMART_LINK_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn resume_path_following(
+        &mut self,
+        agent: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::A_NAV_LINK_PROXY_RESUME_PATH_FOLLOWING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &agent,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::A_NAV_LINK_PROXY_RESUME_PATH_FOLLOWING,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_smart_link_enabled(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::A_NAV_LINK_PROXY_IS_SMART_LINK_ENABLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::A_NAV_LINK_PROXY_IS_SMART_LINK_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn has_moving_agents(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::A_NAV_LINK_PROXY_HAS_MOVING_AGENTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::A_NAV_LINK_PROXY_HAS_MOVING_AGENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UNavLocalGridManager {
@@ -5760,6 +10588,414 @@ impl UNavLocalGridManager {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_local_navigation_grid_density(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        cell_size: f32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_SET_LOCAL_NAVIGATION_GRID_DENSITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&cell_size, __buffer.add(8).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::ai_module::UNavLocalGridManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_SET_LOCAL_NAVIGATION_GRID_DENSITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn remove_local_navigation_grid(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        grid_id: i32,
+        b_rebuild_grids: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_REMOVE_LOCAL_NAVIGATION_GRID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&grid_id, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_rebuild_grids,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UNavLocalGridManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_REMOVE_LOCAL_NAVIGATION_GRID,
+                __buffer,
+            )
+        };
+    }
+    pub fn find_local_navigation_grid_path(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        start: &crate::bindings::core_u_object::FVector,
+        end: &crate::bindings::core_u_object::FVector,
+        path_points: &mut TArray<crate::bindings::core_u_object::FVector>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<73>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_FIND_LOCAL_NAVIGATION_GRID_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                start,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                end,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                path_points,
+                __buffer
+                    .add(56)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UNavLocalGridManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_FIND_LOCAL_NAVIGATION_GRID_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(56)
+                .cast::<TArray<crate::bindings::core_u_object::FVector>>()
+                .swap(path_points);
+        }
+        unsafe { __buffer.add(72).cast::<bool>().read() }
+    }
+    pub fn add_local_navigation_grid_for_points(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        locations: &TArray<crate::bindings::core_u_object::FVector>,
+        radius2_d: i32,
+        height: f32,
+        b_rebuild_grids: bool,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_POINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                locations,
+                __buffer
+                    .add(8)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius2_d, __buffer.add(24).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&height, __buffer.add(28).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_rebuild_grids,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UNavLocalGridManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_POINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(36).cast::<i32>().read() }
+    }
+    pub fn add_local_navigation_grid_for_point(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        location: &crate::bindings::core_u_object::FVector,
+        radius2_d: i32,
+        height: f32,
+        b_rebuild_grids: bool,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_POINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                location,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius2_d, __buffer.add(32).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&height, __buffer.add(36).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_rebuild_grids,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UNavLocalGridManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_POINT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(44).cast::<i32>().read() }
+    }
+    pub fn add_local_navigation_grid_for_capsule(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        location: &crate::bindings::core_u_object::FVector,
+        capsule_radius: f32,
+        capsule_half_height: f32,
+        radius2_d: i32,
+        height: f32,
+        b_rebuild_grids: bool,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_CAPSULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                location,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &capsule_radius,
+                __buffer.add(32).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &capsule_half_height,
+                __buffer.add(36).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius2_d, __buffer.add(40).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&height, __buffer.add(44).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_rebuild_grids,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UNavLocalGridManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_CAPSULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(52).cast::<i32>().read() }
+    }
+    pub fn add_local_navigation_grid_for_box(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        location: &crate::bindings::core_u_object::FVector,
+        extent: crate::bindings::core_u_object::FVector,
+        rotation: crate::bindings::core_u_object::FRotator,
+        radius2_d: i32,
+        height: f32,
+        b_rebuild_grids: bool,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_BOX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                location,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &extent,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rotation,
+                __buffer.add(56).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius2_d, __buffer.add(80).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&height, __buffer.add(84).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_rebuild_grids,
+                __buffer.add(88).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UNavLocalGridManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_BOX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(92).cast::<i32>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -5802,6 +11038,345 @@ impl UAIPerceptionComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_sense_enabled(
+        &mut self,
+        sense_class: TSubclassOf<UAISense>,
+        b_enable: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_SET_SENSE_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sense_class,
+                __buffer.add(0).cast::<TSubclassOf<UAISense>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_enable, __buffer.add(8).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_SET_SENSE_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn request_stimuli_listener_update(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_REQUEST_STIMULI_LISTENER_UPDATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_REQUEST_STIMULI_LISTENER_UPDATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_sense_enabled(&self, sense_class: TSubclassOf<UAISense>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_IS_SENSE_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sense_class,
+                __buffer.add(0).cast::<TSubclassOf<UAISense>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_IS_SENSE_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_perceived_hostile_actors_by_sense(
+        &self,
+        sense_to_use: TSubclassOf<UAISense>,
+        out_actors: &mut TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_PERCEIVED_HOSTILE_ACTORS_BY_SENSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sense_to_use,
+                __buffer.add(0).cast::<TSubclassOf<UAISense>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_actors,
+                __buffer.add(8).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_PERCEIVED_HOSTILE_ACTORS_BY_SENSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .swap(out_actors);
+        }
+    }
+    pub fn get_perceived_hostile_actors(
+        &self,
+        out_actors: &mut TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_PERCEIVED_HOSTILE_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_actors,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_PERCEIVED_HOSTILE_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .swap(out_actors);
+        }
+    }
+    pub fn get_known_perceived_actors(
+        &self,
+        sense_to_use: TSubclassOf<UAISense>,
+        out_actors: &mut TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_KNOWN_PERCEIVED_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sense_to_use,
+                __buffer.add(0).cast::<TSubclassOf<UAISense>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_actors,
+                __buffer.add(8).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_KNOWN_PERCEIVED_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .swap(out_actors);
+        }
+    }
+    pub fn get_currently_perceived_actors(
+        &self,
+        sense_to_use: TSubclassOf<UAISense>,
+        out_actors: &mut TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_CURRENTLY_PERCEIVED_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sense_to_use,
+                __buffer.add(0).cast::<TSubclassOf<UAISense>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_actors,
+                __buffer.add(8).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_CURRENTLY_PERCEIVED_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .swap(out_actors);
+        }
+    }
+    pub fn get_actors_perception(
+        &mut self,
+        actor: UPtr<crate::bindings::engine::AActor>,
+        info: &mut FActorPerceptionBlueprintInfo,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_ACTORS_PERCEPTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                info,
+                __buffer.add(8).cast::<FActorPerceptionBlueprintInfo>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_ACTORS_PERCEPTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<FActorPerceptionBlueprintInfo>().swap(info);
+        }
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn forget_all(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_FORGET_ALL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_FORGET_ALL,
+                __buffer,
+            )
+        };
     }
 }
 pub struct IAIPerceptionListenerInterface {}
@@ -5849,6 +11424,112 @@ impl UAIPerceptionStimuliSourceComponent {
             cdo
         }
     }
+    pub fn unregister_from_sense(&mut self, sense_class: TSubclassOf<UAISense>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_UNREGISTER_FROM_SENSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sense_class,
+                __buffer.add(0).cast::<TSubclassOf<UAISense>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_UNREGISTER_FROM_SENSE,
+                __buffer,
+            )
+        };
+    }
+    pub fn unregister_from_perception_system(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_UNREGISTER_FROM_PERCEPTION_SYSTEM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_UNREGISTER_FROM_PERCEPTION_SYSTEM,
+                __buffer,
+            )
+        };
+    }
+    pub fn register_with_perception_system(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_REGISTER_WITH_PERCEPTION_SYSTEM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_REGISTER_WITH_PERCEPTION_SYSTEM,
+                __buffer,
+            )
+        };
+    }
+    pub fn register_for_sense(&mut self, sense_class: TSubclassOf<UAISense>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_REGISTER_FOR_SENSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sense_class,
+                __buffer.add(0).cast::<TSubclassOf<UAISense>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_REGISTER_FOR_SENSE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UAIPerceptionSystem {
@@ -5869,6 +11550,166 @@ impl UAIPerceptionSystem {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn report_perception_event(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        perception_event: UPtr<UAISenseEvent>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_REPORT_PERCEPTION_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &perception_event,
+                __buffer.add(8).cast::<UPtr<UAISenseEvent>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIPerceptionSystem::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_REPORT_PERCEPTION_EVENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn report_event(&mut self, perception_event: UPtr<UAISenseEvent>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_REPORT_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &perception_event,
+                __buffer.add(0).cast::<UPtr<UAISenseEvent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_REPORT_EVENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn register_perception_stimuli_source(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        sense: TSubclassOf<UAISense>,
+        target: UPtr<crate::bindings::engine::AActor>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_REGISTER_PERCEPTION_STIMULI_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sense,
+                __buffer.add(8).cast::<TSubclassOf<UAISense>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target,
+                __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIPerceptionSystem::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_REGISTER_PERCEPTION_STIMULI_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn get_sense_class_for_stimulus(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        stimulus: &FAIStimulus,
+    ) -> TSubclassOf<UAISense> {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_GET_SENSE_CLASS_FOR_STIMULUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                stimulus,
+                __buffer.add(8).cast::<FAIStimulus>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAIPerceptionSystem::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_GET_SENSE_CLASS_FOR_STIMULUS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(104).cast::<TSubclassOf<UAISense>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -5943,6 +11784,84 @@ impl UAISense_Blueprint {
             cdo
         }
     }
+    pub fn get_all_listener_components(
+        &self,
+        listener_components: &mut TArray<UPtr<UAIPerceptionComponent>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_SENSE_BLUEPRINT_GET_ALL_LISTENER_COMPONENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                listener_components,
+                __buffer.add(0).cast::<TArray<UPtr<UAIPerceptionComponent>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_SENSE_BLUEPRINT_GET_ALL_LISTENER_COMPONENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<UAIPerceptionComponent>>>()
+                .swap(listener_components);
+        }
+    }
+    pub fn get_all_listener_actors(
+        &self,
+        listener_actors: &mut TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_SENSE_BLUEPRINT_GET_ALL_LISTENER_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                listener_actors,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_SENSE_BLUEPRINT_GET_ALL_LISTENER_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .swap(listener_actors);
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UAISense_Damage {
@@ -5963,6 +11882,82 @@ impl UAISense_Damage {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn report_damage_event(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        damaged_actor: UPtr<crate::bindings::engine::AActor>,
+        instigator: UPtr<crate::bindings::engine::AActor>,
+        damage_amount: f32,
+        event_location: crate::bindings::core_u_object::FVector,
+        hit_location: crate::bindings::core_u_object::FVector,
+        tag: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<92>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_SENSE_DAMAGE_REPORT_DAMAGE_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &damaged_actor,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &instigator,
+                __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &damage_amount,
+                __buffer.add(24).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &event_location,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &hit_location,
+                __buffer.add(56).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tag, __buffer.add(80).cast::<FName>(), 1);
+        }
+        let __object_ptr = crate::bindings::ai_module::UAISense_Damage::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_SENSE_DAMAGE_REPORT_DAMAGE_EVENT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -5985,6 +11980,66 @@ impl UAISense_Hearing {
             cdo
         }
     }
+    pub fn report_noise_event(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        noise_location: crate::bindings::core_u_object::FVector,
+        loudness: f32,
+        instigator: UPtr<crate::bindings::engine::AActor>,
+        max_range: f32,
+        tag: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_SENSE_HEARING_REPORT_NOISE_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &noise_location,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&loudness, __buffer.add(32).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &instigator,
+                __buffer.add(40).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&max_range, __buffer.add(48).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tag, __buffer.add(52).cast::<FName>(), 1);
+        }
+        let __object_ptr = crate::bindings::ai_module::UAISense_Hearing::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_SENSE_HEARING_REPORT_NOISE_EVENT,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UAISense_Prediction {
@@ -6005,6 +12060,102 @@ impl UAISense_Prediction {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn request_pawn_prediction_event(
+        requestor: UPtr<crate::bindings::engine::APawn>,
+        predicted_actor: UPtr<crate::bindings::engine::AActor>,
+        prediction_time: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_SENSE_PREDICTION_REQUEST_PAWN_PREDICTION_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &requestor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &predicted_actor,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &prediction_time,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAISense_Prediction::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_SENSE_PREDICTION_REQUEST_PAWN_PREDICTION_EVENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn request_controller_prediction_event(
+        requestor: UPtr<AAIController>,
+        predicted_actor: UPtr<crate::bindings::engine::AActor>,
+        prediction_time: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_SENSE_PREDICTION_REQUEST_CONTROLLER_PREDICTION_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &requestor,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &predicted_actor,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &prediction_time,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAISense_Prediction::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_SENSE_PREDICTION_REQUEST_CONTROLLER_PREDICTION_EVENT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -6069,6 +12220,62 @@ impl UAISense_Touch {
             cdo
         }
     }
+    pub fn report_touch_event(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        touch_receiver: UPtr<crate::bindings::engine::AActor>,
+        other_actor: UPtr<crate::bindings::engine::AActor>,
+        location: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_SENSE_TOUCH_REPORT_TOUCH_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &touch_receiver,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &other_actor,
+                __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &location,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAISense_Touch::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_SENSE_TOUCH_REPORT_TOUCH_EVENT,
+                __buffer,
+            )
+        };
+    }
 }
 pub struct IAISightTargetInterface {}
 #[repr(C, align(8))]
@@ -6105,7 +12312,6 @@ pub struct UPawnSensingComponent {
     #[doc(hidden)]
     __padding_320: [u8; 56],
     pub peripheral_vision_angle: f32,
-    __padding_end: [u8; 4],
 }
 impl UPawnSensingComponent {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -6122,6 +12328,140 @@ impl UPawnSensingComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_sensing_updates_enabled(&mut self, b_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_SET_SENSING_UPDATES_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_SET_SENSING_UPDATES_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_sensing_interval(&mut self, new_sensing_interval: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_SET_SENSING_INTERVAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_sensing_interval,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_SET_SENSING_INTERVAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_peripheral_vision_angle(&mut self, new_peripheral_vision_angle: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_SET_PERIPHERAL_VISION_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_peripheral_vision_angle,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_SET_PERIPHERAL_VISION_ANGLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_peripheral_vision_cosine(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_GET_PERIPHERAL_VISION_COSINE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_GET_PERIPHERAL_VISION_COSINE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_peripheral_vision_angle(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_GET_PERIPHERAL_VISION_ANGLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_GET_PERIPHERAL_VISION_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -6184,6 +12524,119 @@ impl UAITask_MoveTo {
             cdo
         }
     }
+    pub fn ai_move_to(
+        controller: UPtr<AAIController>,
+        goal_location: crate::bindings::core_u_object::FVector,
+        goal_actor: UPtr<crate::bindings::engine::AActor>,
+        acceptance_radius: f32,
+        stop_on_overlap: EAIOptionFlag,
+        accept_partial_path: EAIOptionFlag,
+        b_use_pathfinding: bool,
+        b_lock_ai_logic: bool,
+        b_use_continuous_goal_tracking: bool,
+        project_goal_on_navigation: EAIOptionFlag,
+        require_navigable_end_location: EAIOptionFlag,
+    ) -> UPtr<UAITask_MoveTo> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_TASK_MOVE_TO_AI_MOVE_TO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controller,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &goal_location,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &goal_actor,
+                __buffer.add(32).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &acceptance_radius,
+                __buffer.add(40).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &stop_on_overlap,
+                __buffer.add(44).cast::<EAIOptionFlag>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &accept_partial_path,
+                __buffer.add(45).cast::<EAIOptionFlag>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_use_pathfinding,
+                __buffer.add(46).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_lock_ai_logic,
+                __buffer.add(47).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_use_continuous_goal_tracking,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &project_goal_on_navigation,
+                __buffer.add(49).cast::<EAIOptionFlag>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &require_navigable_end_location,
+                __buffer.add(50).cast::<EAIOptionFlag>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAITask_MoveTo::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_TASK_MOVE_TO_AI_MOVE_TO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<UPtr<UAITask_MoveTo>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UAITask_RunEQS {
@@ -6204,6 +12657,47 @@ impl UAITask_RunEQS {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn run_eqs(
+        controller: UPtr<AAIController>,
+        query_template: UPtr<UEnvQuery>,
+    ) -> UPtr<UAITask_RunEQS> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::UAI_TASK_RUN_EQS_RUN_EQS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controller,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &query_template,
+                __buffer.add(8).cast::<UPtr<UEnvQuery>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ai_module::UAITask_RunEQS::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::UAI_TASK_RUN_EQS_RUN_EQS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UAITask_RunEQS>>().read() }
     }
 }
 #[repr(C, align(8))]

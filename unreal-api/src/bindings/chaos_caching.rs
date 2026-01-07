@@ -214,6 +214,461 @@ impl AChaosCacheManager {
             cdo
         }
     }
+    pub fn trigger_component_by_cache(&mut self, in_cache_name: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_TRIGGER_COMPONENT_BY_CACHE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cache_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_TRIGGER_COMPONENT_BY_CACHE,
+                __buffer,
+            )
+        };
+    }
+    pub fn trigger_component(
+        &mut self,
+        in_component: UPtr<crate::bindings::engine::UPrimitiveComponent>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_TRIGGER_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_component,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UPrimitiveComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_TRIGGER_COMPONENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn trigger_all(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_TRIGGER_ALL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_TRIGGER_ALL,
+                __buffer,
+            )
+        };
+    }
+    pub fn stop(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_STOP,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_STOP,
+                __buffer,
+            )
+        };
+    }
+    pub fn start(&mut self, in_start_time: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_START,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_start_time,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_START,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_current_time(&mut self, current_time: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_SET_CURRENT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &current_time,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_SET_CURRENT_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_cache_collection(
+        &mut self,
+        in_cache_collection: UPtr<UChaosCacheCollection>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_SET_CACHE_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cache_collection,
+                __buffer.add(0).cast::<UPtr<UChaosCacheCollection>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_SET_CACHE_COLLECTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_single_transform(&mut self, in_index: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_RESET_SINGLE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_RESET_SINGLE_TRANSFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_all_component_transforms(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_RESET_ALL_COMPONENT_TRANSFORMS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_RESET_ALL_COMPONENT_TRANSFORMS,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_observed_component(
+        &mut self,
+        in_component: UPtr<crate::bindings::engine::UPrimitiveComponent>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_REMOVE_OBSERVED_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_component,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UPrimitiveComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_REMOVE_OBSERVED_COMPONENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_recording(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_IS_RECORDING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_IS_RECORDING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn find_or_add_observed_component(
+        &mut self,
+        in_component: UPtr<crate::bindings::engine::UPrimitiveComponent>,
+        cache_name: &FName,
+        b_transfer_simulation_flag: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_FIND_OR_ADD_OBSERVED_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_component,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UPrimitiveComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                cache_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_transfer_simulation_flag,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_FIND_OR_ADD_OBSERVED_COMPONENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn enable_playback_by_cache(&mut self, in_cache_name: FName, b_enable: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_ENABLE_PLAYBACK_BY_CACHE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cache_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_enable, __buffer.add(12).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_ENABLE_PLAYBACK_BY_CACHE,
+                __buffer,
+            )
+        };
+    }
+    pub fn enable_playback(&mut self, index: i32, b_enable: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_ENABLE_PLAYBACK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_enable, __buffer.add(4).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_ENABLE_PLAYBACK,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_observed_components(&mut self, b_destroy_components: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_CLEAR_OBSERVED_COMPONENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_destroy_components,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_CLEAR_OBSERVED_COMPONENTS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct AChaosCachePlayer {

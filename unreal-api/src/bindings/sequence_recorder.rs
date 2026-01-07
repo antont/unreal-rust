@@ -192,6 +192,85 @@ impl USequenceRecorderBlueprintLibrary {
             cdo
         }
     }
+    pub fn stop_recording_sequence() {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequence_recorder::U_SEQUENCE_RECORDER_BLUEPRINT_LIBRARY_STOP_RECORDING_SEQUENCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::sequence_recorder::USequenceRecorderBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequence_recorder::U_SEQUENCE_RECORDER_BLUEPRINT_LIBRARY_STOP_RECORDING_SEQUENCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn start_recording_sequence(
+        actors_to_record: &TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequence_recorder::U_SEQUENCE_RECORDER_BLUEPRINT_LIBRARY_START_RECORDING_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors_to_record,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::sequence_recorder::USequenceRecorderBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequence_recorder::U_SEQUENCE_RECORDER_BLUEPRINT_LIBRARY_START_RECORDING_SEQUENCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_recording_sequence() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequence_recorder::U_SEQUENCE_RECORDER_BLUEPRINT_LIBRARY_IS_RECORDING_SEQUENCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::sequence_recorder::USequenceRecorderBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequence_recorder::U_SEQUENCE_RECORDER_BLUEPRINT_LIBRARY_IS_RECORDING_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct USequenceRecorderSettings {

@@ -2165,7 +2165,6 @@ pub fn initialize() {
 pub struct FSynth1PatchCable {
     pub depth: f32,
     pub destination: ESynth1PatchDestination,
-    __padding_end: [u8; 3],
 }
 impl FSynth1PatchCable {}
 #[repr(C, align(4))]
@@ -2296,7 +2295,6 @@ pub struct FSourceEffectConvolutionReverbSettings {
     pub wet_volume_db: f32,
     pub dry_volume_db: f32,
     pub b_bypass: bool,
-    __padding_end: [u8; 3],
 }
 impl FSourceEffectConvolutionReverbSettings {}
 #[repr(C, align(4))]
@@ -2315,7 +2313,6 @@ pub struct FSourceEffectDynamicsProcessorSettings {
     #[doc(hidden)]
     __padding_40: [u8; 3],
     pub flags_40: u8,
-    __padding_end: [u8; 3],
 }
 impl FSourceEffectDynamicsProcessorSettings {}
 #[repr(C, align(4))]
@@ -2324,7 +2321,6 @@ pub struct FSourceEffectEnvelopeFollowerSettings {
     pub release_time: f32,
     pub peak_mode: EEnvelopeFollowerPeakMode,
     pub b_is_analog_mode: bool,
-    __padding_end: [u8; 2],
 }
 impl FSourceEffectEnvelopeFollowerSettings {}
 #[repr(C, align(4))]
@@ -2333,7 +2329,6 @@ pub struct FSourceEffectEQBand {
     pub bandwidth: f32,
     pub gain_db: f32,
     pub flags_12: u8,
-    __padding_end: [u8; 3],
 }
 impl FSourceEffectEQBand {}
 #[repr(C, align(8))]
@@ -2377,7 +2372,6 @@ pub struct FSourceEffectMidSideSpreaderSettings {
     pub input_mode: EStereoChannelMode,
     pub output_mode: EStereoChannelMode,
     pub b_equal_power: bool,
-    __padding_end: [u8; 1],
 }
 impl FSourceEffectMidSideSpreaderSettings {}
 #[repr(C, align(4))]
@@ -2395,7 +2389,6 @@ pub struct FSourceEffectMotionFilterModulationSettings {
     pub modulation_output_minimum_range: crate::bindings::core_u_object::FVector2D,
     pub modulation_output_maximum_range: crate::bindings::core_u_object::FVector2D,
     pub update_ease_ms: f32,
-    __padding_end: [u8; 4],
 }
 impl FSourceEffectMotionFilterModulationSettings {}
 #[repr(C, align(8))]
@@ -2409,7 +2402,6 @@ pub struct FSourceEffectMotionFilterSettings {
         FSourceEffectMotionFilterModulationSettings,
     >,
     pub dry_volume_db: f32,
-    __padding_end: [u8; 4],
 }
 impl FSourceEffectMotionFilterSettings {}
 #[repr(C, align(4))]
@@ -2425,7 +2417,6 @@ pub struct FSourceEffectPhaserSettings {
     pub feedback: f32,
     pub lfo_type: EPhaserLFOType,
     pub use_quadrature_phase: bool,
-    __padding_end: [u8; 2],
 }
 impl FSourceEffectPhaserSettings {}
 #[repr(C, align(8))]
@@ -2446,7 +2437,6 @@ pub struct FSourceEffectSimpleDelaySettings {
     pub wet_amount: f32,
     pub feedback: f32,
     pub flags_20: u8,
-    __padding_end: [u8; 3],
 }
 impl FSourceEffectSimpleDelaySettings {}
 #[repr(C, align(4))]
@@ -2583,7 +2573,6 @@ pub struct FSynth2DSliderStyle {
     pub disabled_bar_image: crate::bindings::slate_core::FSlateBrush,
     pub background_image: crate::bindings::slate_core::FSlateBrush,
     pub bar_thickness: f32,
-    __padding_end: [u8; 12],
 }
 impl FSynth2DSliderStyle {}
 #[repr(C, align(16))]
@@ -2597,7 +2586,6 @@ pub struct FSynthKnobStyle {
     pub min_value_angle: f32,
     pub max_value_angle: f32,
     pub knob_size: ESynthKnobSize,
-    __padding_end: [u8; 7],
 }
 impl FSynthKnobStyle {}
 #[repr(C, align(8))]
@@ -2606,7 +2594,6 @@ pub struct FSynthSlateStyle {
     __padding_8: [u8; 8],
     pub size_type: ESynthSlateSizeType,
     pub color_style: ESynthSlateColorStyle,
-    __padding_end: [u8; 6],
 }
 impl FSynthSlateStyle {}
 #[repr(C, align(8))]
@@ -2677,6 +2664,54 @@ impl UModularSynthLibrary {
             cdo
         }
     }
+    pub fn add_modular_synth_preset_to_bank_asset(
+        in_bank: UPtr<UModularSynthPresetBank>,
+        preset: &FModularSynthPreset,
+        preset_name: FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<248>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_LIBRARY_ADD_MODULAR_SYNTH_PRESET_TO_BANK_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_bank,
+                __buffer.add(0).cast::<UPtr<UModularSynthPresetBank>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                preset,
+                __buffer.add(8).cast::<FModularSynthPreset>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &preset_name,
+                __buffer.add(232).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::synthesis::UModularSynthLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_LIBRARY_ADD_MODULAR_SYNTH_PRESET_TO_BANK_ASSET,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct UModularSynthComponent {
@@ -2701,6 +2736,1782 @@ impl UModularSynthComponent {
             cdo
         }
     }
+    pub fn set_synth_preset(&mut self, synth_preset: &FModularSynthPreset) {
+        let mut __stack = crate::core_data::StackAlloc::<224>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_SYNTH_PRESET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                synth_preset,
+                __buffer.add(0).cast::<FModularSynthPreset>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_SYNTH_PRESET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_sustain_gain(&mut self, sustain_gain: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_SUSTAIN_GAIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sustain_gain,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_SUSTAIN_GAIN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_stereo_delay_wetlevel(&mut self, delay_wetlevel: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_WETLEVEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delay_wetlevel,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_WETLEVEL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_stereo_delay_time(&mut self, delay_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delay_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_stereo_delay_ratio(&mut self, delay_ratio: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_RATIO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delay_ratio,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_RATIO,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_stereo_delay_mode(&mut self, stereo_delay_mode: ESynthStereoDelayMode) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &stereo_delay_mode,
+                __buffer.add(0).cast::<ESynthStereoDelayMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_stereo_delay_is_enabled(&mut self, stereo_delay_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_IS_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &stereo_delay_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_IS_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_stereo_delay_feedback(&mut self, delay_feedback: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_FEEDBACK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delay_feedback,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_FEEDBACK,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_spread(&mut self, spread: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_SPREAD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&spread, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_SPREAD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_release_time(&mut self, release_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_RELEASE_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &release_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_RELEASE_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_portamento(&mut self, portamento: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_PORTAMENTO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&portamento, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_PORTAMENTO,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_pitch_bend(&mut self, pitch_bend: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_PITCH_BEND,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&pitch_bend, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_PITCH_BEND,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_pan(&mut self, pan: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_PAN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&pan, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_PAN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_osc_type(&mut self, osc_index: i32, osc_type: ESynth1OscType) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&osc_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &osc_type,
+                __buffer.add(4).cast::<ESynth1OscType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_TYPE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_osc_sync(&mut self, b_is_synced: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_SYNC,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_synced,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_SYNC,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_osc_semitones(&mut self, osc_index: i32, semitones: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_SEMITONES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&osc_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&semitones, __buffer.add(4).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_SEMITONES,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_osc_pulsewidth(&mut self, osc_index: i32, pulsewidth: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_PULSEWIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&osc_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&pulsewidth, __buffer.add(4).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_PULSEWIDTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_osc_octave(&mut self, osc_index: i32, octave: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_OCTAVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&osc_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&octave, __buffer.add(4).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_OCTAVE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_osc_gain_mod(&mut self, osc_index: i32, osc_gain_mod: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN_MOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&osc_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &osc_gain_mod,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN_MOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_osc_gain(&mut self, osc_index: i32, osc_gain: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&osc_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&osc_gain, __buffer.add(4).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_osc_frequency_mod(&mut self, osc_index: i32, osc_freq_mod: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_FREQUENCY_MOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&osc_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &osc_freq_mod,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_FREQUENCY_MOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_osc_cents(&mut self, osc_index: i32, cents: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_CENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&osc_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&cents, __buffer.add(4).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_CENTS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mod_env_sustain_gain(&mut self, sustain_gain: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_SUSTAIN_GAIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sustain_gain,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_SUSTAIN_GAIN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mod_env_release_time(&mut self, release: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_RELEASE_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&release, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_RELEASE_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mod_env_patch(&mut self, in_patch_type: ESynthModEnvPatch) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_PATCH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_patch_type,
+                __buffer.add(0).cast::<ESynthModEnvPatch>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_PATCH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mod_env_invert(&mut self, b_invert: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_INVERT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_invert, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_INVERT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mod_env_depth(&mut self, depth: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DEPTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&depth, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DEPTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mod_env_decay_time(&mut self, decay_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DECAY_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &decay_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DECAY_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mod_env_bias_patch(&mut self, in_patch_type: ESynthModEnvBiasPatch) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_PATCH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_patch_type,
+                __buffer.add(0).cast::<ESynthModEnvBiasPatch>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_PATCH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mod_env_bias_invert(&mut self, b_invert: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_INVERT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_invert, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_INVERT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mod_env_attack_time(&mut self, attack_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_ATTACK_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attack_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_ATTACK_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_lfo_type(&mut self, lfo_index: i32, lfo_type: ESynthLFOType) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&lfo_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &lfo_type,
+                __buffer.add(4).cast::<ESynthLFOType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_TYPE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_lfo_patch(&mut self, lfo_index: i32, lfo_patch_type: ESynthLFOPatchType) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_PATCH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&lfo_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &lfo_patch_type,
+                __buffer.add(4).cast::<ESynthLFOPatchType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_PATCH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_lfo_mode(&mut self, lfo_index: i32, lfo_mode: ESynthLFOMode) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&lfo_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &lfo_mode,
+                __buffer.add(4).cast::<ESynthLFOMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_lfo_gain_mod(&mut self, lfo_index: i32, gain_mod: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN_MOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&lfo_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&gain_mod, __buffer.add(4).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN_MOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_lfo_gain(&mut self, lfo_index: i32, gain: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&lfo_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&gain, __buffer.add(4).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_lfo_frequency_mod(&mut self, lfo_index: i32, frequency_mod_hz: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY_MOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&lfo_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frequency_mod_hz,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY_MOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_lfo_frequency(&mut self, lfo_index: i32, frequency_hz: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&lfo_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frequency_hz,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_gain_db(&mut self, gain_db: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_GAIN_DB,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&gain_db, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_GAIN_DB,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_type(&mut self, filter_type: ESynthFilterType) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_type,
+                __buffer.add(0).cast::<ESynthFilterType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_TYPE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_q_mod(&mut self, filter_q: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q_MOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&filter_q, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q_MOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_q(&mut self, filter_q: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&filter_q, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_frequency_mod(&mut self, filter_frequency_hz: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY_MOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_frequency_hz,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY_MOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_frequency(&mut self, filter_frequency_hz: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_frequency_hz,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_algorithm(&mut self, filter_algorithm: ESynthFilterAlgorithm) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_ALGORITHM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_algorithm,
+                __buffer.add(0).cast::<ESynthFilterAlgorithm>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_ALGORITHM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enable_unison(&mut self, enable_unison: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_UNISON,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &enable_unison,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_UNISON,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enable_retrigger(&mut self, retrigger_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_RETRIGGER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &retrigger_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_RETRIGGER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enable_polyphony(&mut self, b_enable_polyphony: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_POLYPHONY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_enable_polyphony,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_POLYPHONY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enable_patch(&mut self, patch_id: FPatchId, b_is_enabled: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<6>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_PATCH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &patch_id,
+                __buffer.add(0).cast::<FPatchId>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_enabled,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_PATCH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(5).cast::<bool>().read() }
+    }
+    pub fn set_enable_legato(&mut self, legato_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_LEGATO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &legato_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_LEGATO,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_decay_time(&mut self, decay_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_DECAY_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &decay_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_DECAY_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_chorus_frequency(&mut self, frequency: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FREQUENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&frequency, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FREQUENCY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_chorus_feedback(&mut self, feedback: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FEEDBACK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&feedback, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FEEDBACK,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_chorus_enabled(&mut self, enable_chorus: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &enable_chorus,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_chorus_depth(&mut self, depth: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_DEPTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&depth, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_DEPTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_attack_time(&mut self, attack_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ATTACK_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attack_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ATTACK_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn note_on(&mut self, note: f32, velocity: i32, duration: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_NOTE_ON,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&note, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&velocity, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&duration, __buffer.add(8).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_NOTE_ON,
+                __buffer,
+            )
+        };
+    }
+    pub fn note_off(
+        &mut self,
+        note: f32,
+        b_all_notes_off: bool,
+        b_kill_all_notes: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<6>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_NOTE_OFF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&note, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_all_notes_off,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_kill_all_notes,
+                __buffer.add(5).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_NOTE_OFF,
+                __buffer,
+            )
+        };
+    }
+    pub fn create_patch(
+        &mut self,
+        patch_source: ESynth1PatchSource,
+        patch_cables: &TArray<FSynth1PatchCable>,
+        b_enable_by_default: bool,
+    ) -> FPatchId {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_CREATE_PATCH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &patch_source,
+                __buffer.add(0).cast::<ESynth1PatchSource>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                patch_cables,
+                __buffer.add(8).cast::<TArray<FSynth1PatchCable>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_enable_by_default,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_CREATE_PATCH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<FPatchId>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct USourceEffectBitCrusherPreset {
@@ -2724,6 +4535,281 @@ impl USourceEffectBitCrusherPreset {
             cdo
         }
     }
+    pub fn set_settings(&mut self, settings: &FSourceEffectBitCrusherBaseSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                settings,
+                __buffer.add(0).cast::<FSourceEffectBitCrusherBaseSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_sample_rate_modulators(
+        &mut self,
+        in_modulators: &TSet<
+            UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+        >,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_modulators,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSet<
+                            UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_sample_rate_modulator(
+        &mut self,
+        modulator: UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &modulator,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_sample_rate(&mut self, sample_rate: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sample_rate,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_modulation_settings(
+        &mut self,
+        modulation_settings: &FSourceEffectBitCrusherSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<192>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_MODULATION_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modulation_settings,
+                __buffer.add(0).cast::<FSourceEffectBitCrusherSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_MODULATION_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_bits(&mut self, bits: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BITS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&bits, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BITS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_bit_modulators(
+        &mut self,
+        in_modulators: &TSet<
+            UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+        >,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_modulators,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSet<
+                            UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_bit_modulator(
+        &mut self,
+        modulator: UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &modulator,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATOR,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USourceEffectChorusPreset {
@@ -2746,6 +4832,681 @@ impl USourceEffectChorusPreset {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_wet_modulators(
+        &mut self,
+        modulators: &TSet<UPtr<crate::bindings::audio_extensions::USoundModulatorBase>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modulators,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSet<
+                            UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_wet_modulator(
+        &mut self,
+        modulator: UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &modulator,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_wet(&mut self, wet_amount: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&wet_amount, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_spread_modulators(
+        &mut self,
+        modulators: &TSet<UPtr<crate::bindings::audio_extensions::USoundModulatorBase>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modulators,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSet<
+                            UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_spread_modulator(
+        &mut self,
+        modulator: UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &modulator,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_spread(&mut self, spread: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&spread, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_settings(&mut self, settings: &FSourceEffectChorusBaseSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                settings,
+                __buffer.add(0).cast::<FSourceEffectChorusBaseSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_modulation_settings(
+        &mut self,
+        modulation_settings: &FSourceEffectChorusSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<600>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_MODULATION_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modulation_settings,
+                __buffer.add(0).cast::<FSourceEffectChorusSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_MODULATION_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_frequency_modulators(
+        &mut self,
+        modulators: &TSet<UPtr<crate::bindings::audio_extensions::USoundModulatorBase>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modulators,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSet<
+                            UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_frequency_modulator(
+        &mut self,
+        modulator: UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &modulator,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_frequency(&mut self, frequency: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&frequency, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_feedback_modulators(
+        &mut self,
+        modulators: &TSet<UPtr<crate::bindings::audio_extensions::USoundModulatorBase>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modulators,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSet<
+                            UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_feedback_modulator(
+        &mut self,
+        modulator: UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &modulator,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_feedback(&mut self, feedback: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&feedback, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_dry_modulators(
+        &mut self,
+        modulators: &TSet<UPtr<crate::bindings::audio_extensions::USoundModulatorBase>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modulators,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSet<
+                            UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_dry_modulator(
+        &mut self,
+        modulator: UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &modulator,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_dry(&mut self, dry_amount: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&dry_amount, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_depth_modulators(
+        &mut self,
+        modulators: &TSet<UPtr<crate::bindings::audio_extensions::USoundModulatorBase>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modulators,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSet<
+                            UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_depth_modulator(
+        &mut self,
+        modulator: UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &modulator,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_depth(&mut self, depth: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&depth, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -2774,6 +5535,72 @@ impl USourceEffectConvolutionReverbPreset {
             cdo
         }
     }
+    pub fn set_settings(
+        &mut self,
+        in_settings: &FSourceEffectConvolutionReverbSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSourceEffectConvolutionReverbSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_impulse_response(
+        &mut self,
+        in_impulse_response: UPtr<UAudioImpulseResponse>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_impulse_response,
+                __buffer.add(0).cast::<UPtr<UAudioImpulseResponse>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USourceEffectDynamicsProcessorPreset {
@@ -2796,6 +5623,39 @@ impl USourceEffectDynamicsProcessorPreset {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(
+        &mut self,
+        in_settings: &FSourceEffectDynamicsProcessorSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSourceEffectDynamicsProcessorSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -2841,6 +5701,102 @@ impl USourceEffectEnvelopeFollowerPreset {
             cdo
         }
     }
+    pub fn unregister_envelope_follower_listener(
+        &mut self,
+        envelope_follower_listener: UPtr<UEnvelopeFollowerListener>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_UNREGISTER_ENVELOPE_FOLLOWER_LISTENER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &envelope_follower_listener,
+                __buffer.add(0).cast::<UPtr<UEnvelopeFollowerListener>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_UNREGISTER_ENVELOPE_FOLLOWER_LISTENER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_settings(&mut self, in_settings: &FSourceEffectEnvelopeFollowerSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSourceEffectEnvelopeFollowerSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn register_envelope_follower_listener(
+        &mut self,
+        envelope_follower_listener: UPtr<UEnvelopeFollowerListener>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_REGISTER_ENVELOPE_FOLLOWER_LISTENER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &envelope_follower_listener,
+                __buffer.add(0).cast::<UPtr<UEnvelopeFollowerListener>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_REGISTER_ENVELOPE_FOLLOWER_LISTENER,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USourceEffectEQPreset {
@@ -2863,6 +5819,36 @@ impl USourceEffectEQPreset {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(&mut self, in_settings: &FSourceEffectEQSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_EQ_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSourceEffectEQSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_EQ_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -2887,6 +5873,36 @@ impl USourceEffectFilterPreset {
             cdo
         }
     }
+    pub fn set_settings(&mut self, in_settings: &FSourceEffectFilterSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_FILTER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSourceEffectFilterSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_FILTER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USourceEffectFoldbackDistortionPreset {
@@ -2909,6 +5925,39 @@ impl USourceEffectFoldbackDistortionPreset {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(
+        &mut self,
+        in_settings: &FSourceEffectFoldbackDistortionSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_FOLDBACK_DISTORTION_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSourceEffectFoldbackDistortionSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_FOLDBACK_DISTORTION_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -2933,6 +5982,36 @@ impl USourceEffectMidSideSpreaderPreset {
             cdo
         }
     }
+    pub fn set_settings(&mut self, in_settings: &FSourceEffectMidSideSpreaderSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_MID_SIDE_SPREADER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSourceEffectMidSideSpreaderSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_MID_SIDE_SPREADER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USourceEffectMotionFilterPreset {
@@ -2955,6 +6034,36 @@ impl USourceEffectMotionFilterPreset {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(&mut self, in_settings: &FSourceEffectMotionFilterSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<120>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_MOTION_FILTER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSourceEffectMotionFilterSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_MOTION_FILTER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -2979,6 +6088,36 @@ impl USourceEffectPannerPreset {
             cdo
         }
     }
+    pub fn set_settings(&mut self, in_settings: &FSourceEffectPannerSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_PANNER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSourceEffectPannerSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_PANNER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USourceEffectPhaserPreset {
@@ -3001,6 +6140,36 @@ impl USourceEffectPhaserPreset {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(&mut self, in_settings: &FSourceEffectPhaserSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_PHASER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSourceEffectPhaserSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_PHASER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -3025,6 +6194,36 @@ impl USourceEffectRingModulationPreset {
             cdo
         }
     }
+    pub fn set_settings(&mut self, in_settings: &FSourceEffectRingModulationSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_RING_MODULATION_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSourceEffectRingModulationSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_RING_MODULATION_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USourceEffectSimpleDelayPreset {
@@ -3047,6 +6246,36 @@ impl USourceEffectSimpleDelayPreset {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(&mut self, in_settings: &FSourceEffectSimpleDelaySettings) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_SIMPLE_DELAY_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSourceEffectSimpleDelaySettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_SIMPLE_DELAY_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -3071,6 +6300,36 @@ impl USourceEffectStereoDelayPreset {
             cdo
         }
     }
+    pub fn set_settings(&mut self, in_settings: &FSourceEffectStereoDelaySettings) {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSourceEffectStereoDelaySettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USourceEffectWaveShaperPreset {
@@ -3093,6 +6352,36 @@ impl USourceEffectWaveShaperPreset {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(&mut self, in_settings: &FSourceEffectWaveShaperSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SOURCE_EFFECT_WAVE_SHAPER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSourceEffectWaveShaperSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SOURCE_EFFECT_WAVE_SHAPER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -3121,6 +6410,72 @@ impl USubmixEffectConvolutionReverbPreset {
             cdo
         }
     }
+    pub fn set_settings(
+        &mut self,
+        in_settings: &FSubmixEffectConvolutionReverbSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSubmixEffectConvolutionReverbSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_impulse_response(
+        &mut self,
+        in_impulse_response: UPtr<UAudioImpulseResponse>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_impulse_response,
+                __buffer.add(0).cast::<UPtr<UAudioImpulseResponse>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USubmixEffectDelayStatics {
@@ -3141,6 +6496,138 @@ impl USubmixEffectDelayStatics {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_maximum_delay_length(
+        delay_settings: &mut FSubmixEffectDelaySettings,
+        maximum_delay_length: f32,
+    ) -> FSubmixEffectDelaySettings {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_STATICS_SET_MAXIMUM_DELAY_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                delay_settings,
+                __buffer.add(0).cast::<FSubmixEffectDelaySettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &maximum_delay_length,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::synthesis::USubmixEffectDelayStatics::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_STATICS_SET_MAXIMUM_DELAY_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FSubmixEffectDelaySettings>().swap(delay_settings);
+        }
+        unsafe { __buffer.add(16).cast::<FSubmixEffectDelaySettings>().read() }
+    }
+    pub fn set_interpolation_time(
+        delay_settings: &mut FSubmixEffectDelaySettings,
+        interpolation_time: f32,
+    ) -> FSubmixEffectDelaySettings {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_STATICS_SET_INTERPOLATION_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                delay_settings,
+                __buffer.add(0).cast::<FSubmixEffectDelaySettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interpolation_time,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::synthesis::USubmixEffectDelayStatics::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_STATICS_SET_INTERPOLATION_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FSubmixEffectDelaySettings>().swap(delay_settings);
+        }
+        unsafe { __buffer.add(16).cast::<FSubmixEffectDelaySettings>().read() }
+    }
+    pub fn set_delay_length(
+        delay_settings: &mut FSubmixEffectDelaySettings,
+        delay_length: f32,
+    ) -> FSubmixEffectDelaySettings {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_STATICS_SET_DELAY_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                delay_settings,
+                __buffer.add(0).cast::<FSubmixEffectDelaySettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delay_length,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::synthesis::USubmixEffectDelayStatics::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_STATICS_SET_DELAY_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FSubmixEffectDelaySettings>().swap(delay_settings);
+        }
+        unsafe { __buffer.add(16).cast::<FSubmixEffectDelaySettings>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3166,6 +6653,142 @@ impl USubmixEffectDelayPreset {
             cdo
         }
     }
+    pub fn set_settings(&mut self, in_settings: &FSubmixEffectDelaySettings) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSubmixEffectDelaySettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_interpolation_time(&mut self, time: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_INTERPOLATION_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&time, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_INTERPOLATION_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_delay(&mut self, length: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_DELAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&length, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_DELAY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_default_settings(&mut self, in_settings: &FSubmixEffectDelaySettings) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_DEFAULT_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSubmixEffectDelaySettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_DEFAULT_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_max_delay_in_milliseconds(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct USubmixEffectFilterPreset {
@@ -3188,6 +6811,208 @@ impl USubmixEffectFilterPreset {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(&mut self, in_settings: &FSubmixEffectFilterSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSubmixEffectFilterSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_type(&mut self, in_type: ESubmixFilterType) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_type,
+                __buffer.add(0).cast::<ESubmixFilterType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_TYPE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_q_mod(&mut self, in_q: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q_MOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_q, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q_MOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_q(&mut self, in_q: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_q, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_cutoff_frequency_mod(&mut self, in_frequency: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY_MOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_frequency,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY_MOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_cutoff_frequency(&mut self, in_frequency: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_frequency,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_algorithm(&mut self, in_algorithm: ESubmixFilterAlgorithm) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_ALGORITHM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_algorithm,
+                __buffer.add(0).cast::<ESubmixFilterAlgorithm>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_ALGORITHM,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -3212,6 +7037,36 @@ impl USubmixEffectFlexiverbPreset {
             cdo
         }
     }
+    pub fn set_settings(&mut self, in_settings: &FSubmixEffectFlexiverbSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FLEXIVERB_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSubmixEffectFlexiverbSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_FLEXIVERB_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USubmixEffectMultibandCompressorPreset {
@@ -3234,6 +7089,128 @@ impl USubmixEffectMultibandCompressorPreset {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(
+        &mut self,
+        in_settings: &FSubmixEffectMultibandCompressorSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSubmixEffectMultibandCompressorSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_external_submix(
+        &mut self,
+        submix: UPtr<crate::bindings::engine::USoundSubmix>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_EXTERNAL_SUBMIX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &submix,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USoundSubmix>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_EXTERNAL_SUBMIX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_audio_bus(
+        &mut self,
+        audio_bus: UPtr<crate::bindings::engine::UAudioBus>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_AUDIO_BUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &audio_bus,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UAudioBus>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_AUDIO_BUS,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_key(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_RESET_KEY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_RESET_KEY,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -3258,6 +7235,36 @@ impl USubmixEffectStereoDelayPreset {
             cdo
         }
     }
+    pub fn set_settings(&mut self, in_settings: &FSubmixEffectStereoDelaySettings) {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSubmixEffectStereoDelaySettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USubmixEffectStereoToQuadPreset {
@@ -3280,6 +7287,36 @@ impl USubmixEffectStereoToQuadPreset {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(&mut self, in_settings: &FSubmixEffectStereoToQuadSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_STEREO_TO_QUAD_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSubmixEffectStereoToQuadSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_STEREO_TO_QUAD_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -3305,6 +7342,243 @@ impl USubmixEffectTapDelayPreset {
             cdo
         }
     }
+    pub fn set_tap(&mut self, tap_id: i32, tap_info: &FTapDelayInfo) {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_TAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tap_id, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tap_info,
+                __buffer.add(4).cast::<FTapDelayInfo>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_TAP,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_settings(&mut self, in_settings: &FSubmixEffectTapDelaySettings) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FSubmixEffectTapDelaySettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_interpolation_time(&mut self, time: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_INTERPOLATION_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&time, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_INTERPOLATION_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_tap(&mut self, tap_id: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_REMOVE_TAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tap_id, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_REMOVE_TAP,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_tap_ids(&mut self, tap_ids: &mut TArray<i32>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP_IDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tap_ids,
+                __buffer.add(0).cast::<TArray<i32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP_IDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<i32>>().swap(tap_ids);
+        }
+    }
+    pub fn get_tap(&mut self, tap_id: i32, tap_info: &mut FTapDelayInfo) {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tap_id, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tap_info,
+                __buffer.add(4).cast::<FTapDelayInfo>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(4).cast::<FTapDelayInfo>().swap(tap_info);
+        }
+    }
+    pub fn get_max_delay_in_milliseconds(&mut self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn add_tap(&mut self, tap_id: &mut i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_ADD_TAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(tap_id, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_ADD_TAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(tap_id);
+        }
+    }
 }
 #[repr(C, align(16))]
 pub struct UGranularSynth {
@@ -3325,6 +7599,650 @@ impl UGranularSynth {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_sustain_gain(&mut self, sustain_gain: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_SUSTAIN_GAIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sustain_gain,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_SUSTAIN_GAIN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_sound_wave(
+        &mut self,
+        in_sound_wave: UPtr<crate::bindings::engine::USoundWave>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_SOUND_WAVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_sound_wave,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USoundWave>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_SOUND_WAVE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_scrub_mode(&mut self, b_scrub_mode: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_SCRUB_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_scrub_mode,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_SCRUB_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_release_time_msec(&mut self, release_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_RELEASE_TIME_MSEC,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &release_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_RELEASE_TIME_MSEC,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_playhead_time(
+        &mut self,
+        in_position_sec: f32,
+        lerp_time_sec: f32,
+        seek_type: EGranularSynthSeekType,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_PLAYHEAD_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_position_sec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &lerp_time_sec,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &seek_type,
+                __buffer.add(8).cast::<EGranularSynthSeekType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_PLAYHEAD_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_playback_speed(&mut self, in_playhead_rate: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_PLAYBACK_SPEED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_playhead_rate,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_PLAYBACK_SPEED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_grain_volume(
+        &mut self,
+        base_volume: f32,
+        volume_range: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_VOLUME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_volume,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &volume_range,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_VOLUME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_grains_per_second(&mut self, in_grains_per_second: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAINS_PER_SECOND,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_grains_per_second,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAINS_PER_SECOND,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_grain_probability(&mut self, in_grain_probability: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_PROBABILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_grain_probability,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_PROBABILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_grain_pitch(
+        &mut self,
+        base_pitch: f32,
+        pitch_range: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_PITCH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&base_pitch, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &pitch_range,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_PITCH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_grain_pan(
+        &mut self,
+        base_pan: f32,
+        pan_range: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_PAN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&base_pan, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &pan_range,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_PAN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_grain_envelope_type(
+        &mut self,
+        envelope_type: EGranularSynthEnvelopeType,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_ENVELOPE_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &envelope_type,
+                __buffer.add(0).cast::<EGranularSynthEnvelopeType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_ENVELOPE_TYPE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_grain_duration(
+        &mut self,
+        base_duration_msec: f32,
+        duration_range: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_DURATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_duration_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &duration_range,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_DURATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_decay_time(&mut self, decay_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_DECAY_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &decay_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_DECAY_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_attack_time(&mut self, attack_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_ATTACK_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attack_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_ATTACK_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn note_on(&mut self, note: f32, velocity: i32, duration: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_NOTE_ON,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&note, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&velocity, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&duration, __buffer.add(8).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_NOTE_ON,
+                __buffer,
+            )
+        };
+    }
+    pub fn note_off(&mut self, note: f32, b_kill: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_NOTE_OFF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&note, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_kill, __buffer.add(4).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_NOTE_OFF,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_loaded(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_IS_LOADED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_IS_LOADED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_sample_duration(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_GET_SAMPLE_DURATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_GET_SAMPLE_DURATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_current_playhead_time(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_GET_CURRENT_PLAYHEAD_TIME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_GRANULAR_SYNTH_GET_CURRENT_PLAYHEAD_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3376,6 +8294,1320 @@ impl USynthComponentMonoWaveTable {
             cdo
         }
     }
+    pub fn set_wave_table_position(&mut self, in_position: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_WAVE_TABLE_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_position,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_WAVE_TABLE_POSITION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_sustain_pedal_state(&mut self, in_sustain_pedal_state: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_SUSTAIN_PEDAL_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_sustain_pedal_state,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_SUSTAIN_PEDAL_STATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_pos_lfo_type(&mut self, in_lfo_type: ESynthLFOType) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_lfo_type,
+                __buffer.add(0).cast::<ESynthLFOType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_TYPE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_pos_lfo_frequency(&mut self, in_lfo_frequency: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_FREQUENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_lfo_frequency,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_FREQUENCY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_pos_lfo_depth(&mut self, in_lfo_depth: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_DEPTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_lfo_depth,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_DEPTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_position_envelope_sustain_gain(&mut self, in_sustain_gain: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_SUSTAIN_GAIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_sustain_gain,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_SUSTAIN_GAIN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_position_envelope_release_time(&mut self, in_release_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_RELEASE_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_release_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_RELEASE_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_position_envelope_invert(&mut self, b_in_invert: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_INVERT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_invert,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_INVERT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_position_envelope_depth(&mut self, in_depth: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DEPTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_depth, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DEPTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_position_envelope_decay_time(&mut self, in_decay_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DECAY_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_decay_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DECAY_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_position_envelope_bias_invert(&mut self, b_in_bias_invert: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_INVERT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_bias_invert,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_INVERT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_position_envelope_bias_depth(&mut self, in_depth: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_DEPTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_depth, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_DEPTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_position_envelope_attack_time(&mut self, in_attack_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_ATTACK_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_attack_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_ATTACK_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_low_pass_filter_resonance(&mut self, in_new_q: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_LOW_PASS_FILTER_RESONANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_new_q, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_LOW_PASS_FILTER_RESONANCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_frequency_with_midi_note(&mut self, in_midi_note: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_WITH_MIDI_NOTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_midi_note,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_WITH_MIDI_NOTE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_frequency_pitch_bend(&mut self, frequency_offset_cents: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_PITCH_BEND,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frequency_offset_cents,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_PITCH_BEND,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_frequency(&mut self, frequency_hz: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frequency_hz,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_envelope_sustain_gain(&mut self, in_sustain_gain: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_SUSTAIN_GAIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_sustain_gain,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_SUSTAIN_GAIN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_envelope_release_time(&mut self, in_release_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_RELEASE_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_release_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_RELEASE_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_envelopen_decay_time(&mut self, in_decay_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPEN_DECAY_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_decay_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPEN_DECAY_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_envelope_invert(&mut self, b_in_invert: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_INVERT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_invert,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_INVERT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_envelope_depth(&mut self, in_depth: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_DEPTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_depth, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_DEPTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_envelope_bias_invert(&mut self, b_in_bias_invert: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_INVERT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_bias_invert,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_INVERT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_envelope_bias_depth(&mut self, in_depth: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_DEPTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_depth, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_DEPTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filter_envelope_attack_time(&mut self, in_attack_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_ATTACK_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_attack_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_ATTACK_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_curve_value(
+        &mut self,
+        table_index: i32,
+        keyframe_index: i32,
+        new_value: f32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &table_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &keyframe_index,
+                __buffer.add(4).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&new_value, __buffer.add(8).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn set_curve_tangent(&mut self, table_index: i32, in_new_tangent: f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_TANGENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &table_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_new_tangent,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_TANGENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_curve_interpolation_type(
+        &mut self,
+        interpolation_type: CurveInterpolationType,
+        table_index: i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_INTERPOLATION_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interpolation_type,
+                __buffer.add(0).cast::<CurveInterpolationType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &table_index,
+                __buffer.add(4).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_INTERPOLATION_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_amp_envelope_sustain_gain(&mut self, in_sustain_gain: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_SUSTAIN_GAIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_sustain_gain,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_SUSTAIN_GAIN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_amp_envelope_release_time(&mut self, in_release_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_RELEASE_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_release_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_RELEASE_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_amp_envelope_invert(&mut self, b_in_invert: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_INVERT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_invert,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_INVERT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_amp_envelope_depth(&mut self, in_depth: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DEPTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_depth, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DEPTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_amp_envelope_decay_time(&mut self, in_decay_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DECAY_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_decay_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DECAY_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_amp_envelope_bias_invert(&mut self, b_in_bias_invert: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_INVERT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_bias_invert,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_INVERT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_amp_envelope_bias_depth(&mut self, in_depth: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_DEPTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_depth, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_DEPTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_amp_envelope_attack_time(&mut self, in_attack_time_msec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_ATTACK_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_attack_time_msec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_ATTACK_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn refresh_wave_table(&mut self, index: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_WAVE_TABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_WAVE_TABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn refresh_all_wave_tables(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_ALL_WAVE_TABLES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_ALL_WAVE_TABLES,
+                __buffer,
+            )
+        };
+    }
+    pub fn note_on(&mut self, in_midi_note: f32, in_velocity: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_ON,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_midi_note,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_velocity,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_ON,
+                __buffer,
+            )
+        };
+    }
+    pub fn note_off(&mut self, in_midi_note: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_OFF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_midi_note,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_OFF,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_num_table_entries(&mut self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_NUM_TABLE_ENTRIES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_NUM_TABLE_ENTRIES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_max_table_index(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_MAX_TABLE_INDEX,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_MAX_TABLE_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_key_frame_values_for_table(&self, table_index: f32) -> TArray<f32> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_KEY_FRAME_VALUES_FOR_TABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &table_index,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_KEY_FRAME_VALUES_FOR_TABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<f32>>().read() }
+    }
+    pub fn get_curve_tangent(&mut self, table_index: i32) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_CURVE_TANGENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &table_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_CURVE_TANGENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<f32>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct USynthComponentToneGenerator {
@@ -3404,6 +9636,62 @@ impl USynthComponentToneGenerator {
             cdo
         }
     }
+    pub fn set_volume(&mut self, in_volume: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_TONE_GENERATOR_SET_VOLUME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_volume, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_TONE_GENERATOR_SET_VOLUME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_frequency(&mut self, in_frequency: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_TONE_GENERATOR_SET_FREQUENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_frequency,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_COMPONENT_TONE_GENERATOR_SET_FREQUENCY,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct USynthSamplePlayer {
@@ -3428,6 +9716,265 @@ impl USynthSamplePlayer {
             cdo
         }
     }
+    pub fn set_sound_wave(
+        &mut self,
+        in_sound_wave: UPtr<crate::bindings::engine::USoundWave>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_SOUND_WAVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_sound_wave,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USoundWave>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_SOUND_WAVE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_scrub_time_width(&mut self, in_scrub_time_width_sec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_TIME_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_scrub_time_width_sec,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_TIME_WIDTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_scrub_mode(&mut self, b_scrub_mode: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_scrub_mode,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_pitch(&mut self, in_pitch: f32, time_sec: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_PITCH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_pitch, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&time_sec, __buffer.add(4).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_PITCH,
+                __buffer,
+            )
+        };
+    }
+    pub fn seek_to_time(
+        &mut self,
+        time_sec: f32,
+        seek_type: ESamplePlayerSeekType,
+        b_wrap: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<6>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SEEK_TO_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&time_sec, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &seek_type,
+                __buffer.add(4).cast::<ESamplePlayerSeekType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_wrap, __buffer.add(5).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SEEK_TO_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_loaded(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_IS_LOADED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_IS_LOADED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_sample_duration(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_GET_SAMPLE_DURATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_GET_SAMPLE_DURATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_current_playback_progress_time(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_TIME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_current_playback_progress_percent(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_PERCENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_PERCENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct USynthesisUtilitiesBlueprintFunctionLibrary {
@@ -3448,6 +9995,136 @@ impl USynthesisUtilitiesBlueprintFunctionLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_log_frequency(
+        in_linear_value: f32,
+        in_domain_min: f32,
+        in_domain_max: f32,
+        in_range_min: f32,
+        in_range_max: f32,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LOG_FREQUENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_linear_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_domain_min,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_domain_max,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_range_min,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_range_max,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::synthesis::USynthesisUtilitiesBlueprintFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LOG_FREQUENCY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<f32>().read() }
+    }
+    pub fn get_linear_frequency(
+        in_log_frequency_value: f32,
+        in_domain_min: f32,
+        in_domain_max: f32,
+        in_range_min: f32,
+        in_range_max: f32,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LINEAR_FREQUENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_log_frequency_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_domain_min,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_domain_max,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_range_min,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_range_max,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::synthesis::USynthesisUtilitiesBlueprintFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LINEAR_FREQUENCY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<f32>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -3476,6 +10153,173 @@ impl USynth2DSlider {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_value(&mut self, in_value: crate::bindings::core_u_object::FVector2D) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_step_size(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_STEP_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_STEP_SIZE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slider_handle_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_SLIDER_HANDLE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_SLIDER_HANDLE_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_locked(&mut self, in_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_LOCKED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_LOCKED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_indent_handle(&mut self, in_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_INDENT_HANDLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_INDENT_HANDLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_value(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_GET_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_GET_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
     }
 }
@@ -3511,6 +10355,108 @@ impl USynthKnob {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_value(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_KNOB_SET_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_KNOB_SET_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_step_size(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_KNOB_SET_STEP_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_KNOB_SET_STEP_SIZE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_locked(&mut self, in_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_KNOB_SET_LOCKED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_KNOB_SET_LOCKED,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_value(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::synthesis::U_SYNTH_KNOB_GET_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::synthesis::U_SYNTH_KNOB_GET_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
     }
 }
 #[repr(C, align(8))]

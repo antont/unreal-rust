@@ -194,7 +194,6 @@ pub struct FMetaSoundDocumentInfo {
     #[doc(hidden)]
     __padding_24: [u8; 16],
     pub flags_24: u8,
-    __padding_end: [u8; 7],
 }
 impl FMetaSoundDocumentInfo {}
 #[repr(C, align(4))]
@@ -319,6 +318,628 @@ impl UMetasoundParameterPack {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_trigger(
+        &mut self,
+        parameter_name: FName,
+        only_if_exists: bool,
+    ) -> ESetParamResult {
+        let mut __stack = crate::core_data::StackAlloc::<14>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_TRIGGER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &only_if_exists,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_TRIGGER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(13).cast::<ESetParamResult>().read() }
+    }
+    pub fn set_string(
+        &mut self,
+        parameter_name: FName,
+        in_value: FString,
+        only_if_exists: bool,
+    ) -> ESetParamResult {
+        let mut __stack = crate::core_data::StackAlloc::<34>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &only_if_exists,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(33).cast::<ESetParamResult>().read() }
+    }
+    pub fn set_int(
+        &mut self,
+        parameter_name: FName,
+        in_value: i32,
+        only_if_exists: bool,
+    ) -> ESetParamResult {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &only_if_exists,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_INT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<ESetParamResult>().read() }
+    }
+    pub fn set_float(
+        &mut self,
+        parameter_name: FName,
+        in_value: f32,
+        only_if_exists: bool,
+    ) -> ESetParamResult {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(12).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &only_if_exists,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<ESetParamResult>().read() }
+    }
+    pub fn set_bool(
+        &mut self,
+        parameter_name: FName,
+        in_value: bool,
+        only_if_exists: bool,
+    ) -> ESetParamResult {
+        let mut __stack = crate::core_data::StackAlloc::<15>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(12).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &only_if_exists,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_BOOL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(14).cast::<ESetParamResult>().read() }
+    }
+    pub fn make_metasound_parameter_pack() -> UPtr<UMetasoundParameterPack> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_MAKE_METASOUND_PARAMETER_PACK,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::metasound_frontend::UMetasoundParameterPack::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_MAKE_METASOUND_PARAMETER_PACK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UMetasoundParameterPack>>().read() }
+    }
+    pub fn has_trigger(&self, parameter_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_TRIGGER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_TRIGGER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn has_string(&self, parameter_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn has_int(&self, parameter_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_INT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn has_float(&self, parameter_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn has_bool(&self, parameter_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_BOOL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn get_trigger(
+        &self,
+        parameter_name: FName,
+        result: &mut ESetParamResult,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<14>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_TRIGGER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer.add(12).cast::<ESetParamResult>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_TRIGGER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<ESetParamResult>().swap(result);
+        }
+        unsafe { __buffer.add(13).cast::<bool>().read() }
+    }
+    pub fn get_string(
+        &self,
+        parameter_name: FName,
+        result: &mut ESetParamResult,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer.add(12).cast::<ESetParamResult>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<ESetParamResult>().swap(result);
+        }
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_int(&self, parameter_name: FName, result: &mut ESetParamResult) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer.add(12).cast::<ESetParamResult>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<ESetParamResult>().swap(result);
+        }
+        unsafe { __buffer.add(16).cast::<i32>().read() }
+    }
+    pub fn get_float(&self, parameter_name: FName, result: &mut ESetParamResult) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer.add(12).cast::<ESetParamResult>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<ESetParamResult>().swap(result);
+        }
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn get_bool(&self, parameter_name: FName, result: &mut ESetParamResult) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<14>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer.add(12).cast::<ESetParamResult>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<ESetParamResult>().swap(result);
+        }
+        unsafe { __buffer.add(13).cast::<bool>().read() }
     }
 }
 #[repr(transparent)]

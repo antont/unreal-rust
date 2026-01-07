@@ -172,6 +172,268 @@ impl UObjectMixerBlueprintObjectFilter {
             cdo
         }
     }
+    pub fn should_include_unsupported_properties(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_SHOULD_INCLUDE_UNSUPPORTED_PROPERTIES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_SHOULD_INCLUDE_UNSUPPORTED_PROPERTIES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_show_transient_objects(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_SHOW_TRANSIENT_OBJECTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_SHOW_TRANSIENT_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_properties_that_require_list_refresh(&self) -> TSet<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_PROPERTIES_THAT_REQUIRE_LIST_REFRESH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_PROPERTIES_THAT_REQUIRE_LIST_REFRESH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TSet<FName>>().read() }
+    }
+    pub fn get_object_mixer_property_inheritance_inclusion_options(
+        &self,
+    ) -> EObjectMixerInheritanceInclusionOptions {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PROPERTY_INHERITANCE_INCLUSION_OPTIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PROPERTY_INHERITANCE_INCLUSION_OPTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<EObjectMixerInheritanceInclusionOptions>().read()
+        }
+    }
+    pub fn get_object_mixer_placement_class_inclusion_options(
+        &self,
+    ) -> EObjectMixerInheritanceInclusionOptions {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PLACEMENT_CLASS_INCLUSION_OPTIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PLACEMENT_CLASS_INCLUSION_OPTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<EObjectMixerInheritanceInclusionOptions>().read()
+        }
+    }
+    pub fn get_object_classes_to_place(
+        &self,
+    ) -> TSet<TSubclassOf<crate::bindings::engine::AActor>> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_PLACE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_PLACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TSet<TSubclassOf<crate::bindings::engine::AActor>>>()
+                .read()
+        }
+    }
+    pub fn get_object_classes_to_filter(
+        &self,
+    ) -> TSet<TSubclassOf<crate::bindings::core_u_object::UObject>> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_FILTER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_FILTER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TSet<TSubclassOf<crate::bindings::core_u_object::UObject>>>()
+                .read()
+        }
+    }
+    pub fn get_force_added_columns(&self) -> TSet<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_FORCE_ADDED_COLUMNS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_FORCE_ADDED_COLUMNS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TSet<FName>>().read() }
+    }
+    pub fn get_columns_to_show_by_default(&self) -> TSet<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_SHOW_BY_DEFAULT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_SHOW_BY_DEFAULT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TSet<FName>>().read() }
+    }
+    pub fn get_columns_to_exclude(&self) -> TSet<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_EXCLUDE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_EXCLUDE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TSet<FName>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UObjectMixerEditorSerializedData {

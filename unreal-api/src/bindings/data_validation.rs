@@ -296,6 +296,152 @@ impl UEditorValidatorBase {
             cdo
         }
     }
+    pub fn get_validation_result(
+        &self,
+    ) -> crate::bindings::core_u_object::EDataValidationResult {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_GET_VALIDATION_RESULT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_GET_VALIDATION_RESULT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::EDataValidationResult>()
+                .read()
+        }
+    }
+    pub fn asset_warning(
+        &mut self,
+        in_asset: UPtr<crate::bindings::core_u_object::UObject>,
+        in_message: &FText,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_ASSET_WARNING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_message,
+                __buffer.add(8).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_ASSET_WARNING,
+                __buffer,
+            )
+        };
+    }
+    pub fn asset_passes(
+        &mut self,
+        in_asset: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_ASSET_PASSES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_ASSET_PASSES,
+                __buffer,
+            )
+        };
+    }
+    pub fn asset_fails(
+        &mut self,
+        in_asset: UPtr<crate::bindings::core_u_object::UObject>,
+        in_message: &FText,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_ASSET_FAILS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_message,
+                __buffer.add(8).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_ASSET_FAILS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UDirtyFilesChangelistValidator {
@@ -337,6 +483,379 @@ impl UEditorValidatorSubsystem {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn validate_changelists(
+        &self,
+        in_changelists: TArray<UPtr<UDataValidationChangelist>>,
+        in_settings: &FValidateAssetsSettings,
+        out_results: &mut FValidateAssetsResults,
+    ) -> crate::bindings::core_u_object::EDataValidationResult {
+        let mut __stack = crate::core_data::StackAlloc::<281>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_CHANGELISTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_changelists,
+                __buffer.add(0).cast::<TArray<UPtr<UDataValidationChangelist>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(16).cast::<FValidateAssetsSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_results,
+                __buffer.add(80).cast::<FValidateAssetsResults>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_CHANGELISTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(80).cast::<FValidateAssetsResults>().swap(out_results);
+        }
+        unsafe {
+            __buffer
+                .add(280)
+                .cast::<crate::bindings::core_u_object::EDataValidationResult>()
+                .read()
+        }
+    }
+    pub fn validate_changelist(
+        &self,
+        in_changelist: UPtr<UDataValidationChangelist>,
+        in_settings: &FValidateAssetsSettings,
+        out_results: &mut FValidateAssetsResults,
+    ) -> crate::bindings::core_u_object::EDataValidationResult {
+        let mut __stack = crate::core_data::StackAlloc::<273>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_CHANGELIST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_changelist,
+                __buffer.add(0).cast::<UPtr<UDataValidationChangelist>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(8).cast::<FValidateAssetsSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_results,
+                __buffer.add(72).cast::<FValidateAssetsResults>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_CHANGELIST,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(72).cast::<FValidateAssetsResults>().swap(out_results);
+        }
+        unsafe {
+            __buffer
+                .add(272)
+                .cast::<crate::bindings::core_u_object::EDataValidationResult>()
+                .read()
+        }
+    }
+    pub fn validate_assets_with_settings(
+        &self,
+        asset_data_list: &TArray<crate::bindings::core_u_object::FAssetData>,
+        in_settings: &FValidateAssetsSettings,
+        out_results: &mut FValidateAssetsResults,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<284>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_ASSETS_WITH_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_data_list,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FAssetData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(16).cast::<FValidateAssetsSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_results,
+                __buffer.add(80).cast::<FValidateAssetsResults>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_ASSETS_WITH_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(80).cast::<FValidateAssetsResults>().swap(out_results);
+        }
+        unsafe { __buffer.add(280).cast::<i32>().read() }
+    }
+    pub fn remove_validator(&mut self, in_validator: UPtr<UEditorValidatorBase>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_REMOVE_VALIDATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_validator,
+                __buffer.add(0).cast::<UPtr<UEditorValidatorBase>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_REMOVE_VALIDATOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_object_valid(
+        &self,
+        in_object: UPtr<crate::bindings::core_u_object::UObject>,
+        validation_errors: &mut TArray<FText>,
+        validation_warnings: &mut TArray<FText>,
+        in_validation_usecase: crate::bindings::core_u_object::EDataValidationUsecase,
+    ) -> crate::bindings::core_u_object::EDataValidationResult {
+        let mut __stack = crate::core_data::StackAlloc::<42>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_IS_OBJECT_VALID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                validation_errors,
+                __buffer.add(8).cast::<TArray<FText>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                validation_warnings,
+                __buffer.add(24).cast::<TArray<FText>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_validation_usecase,
+                __buffer
+                    .add(40)
+                    .cast::<crate::bindings::core_u_object::EDataValidationUsecase>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_IS_OBJECT_VALID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<TArray<FText>>().swap(validation_errors);
+        }
+        unsafe {
+            __buffer.add(24).cast::<TArray<FText>>().swap(validation_warnings);
+        }
+        unsafe {
+            __buffer
+                .add(41)
+                .cast::<crate::bindings::core_u_object::EDataValidationResult>()
+                .read()
+        }
+    }
+    pub fn is_asset_valid(
+        &self,
+        asset_data: &crate::bindings::core_u_object::FAssetData,
+        validation_errors: &mut TArray<FText>,
+        validation_warnings: &mut TArray<FText>,
+        in_validation_usecase: crate::bindings::core_u_object::EDataValidationUsecase,
+    ) -> crate::bindings::core_u_object::EDataValidationResult {
+        let mut __stack = crate::core_data::StackAlloc::<186>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_IS_ASSET_VALID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_data,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                validation_errors,
+                __buffer.add(152).cast::<TArray<FText>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                validation_warnings,
+                __buffer.add(168).cast::<TArray<FText>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_validation_usecase,
+                __buffer
+                    .add(184)
+                    .cast::<crate::bindings::core_u_object::EDataValidationUsecase>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_IS_ASSET_VALID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(152).cast::<TArray<FText>>().swap(validation_errors);
+        }
+        unsafe {
+            __buffer.add(168).cast::<TArray<FText>>().swap(validation_warnings);
+        }
+        unsafe {
+            __buffer
+                .add(185)
+                .cast::<crate::bindings::core_u_object::EDataValidationResult>()
+                .read()
+        }
+    }
+    pub fn add_validator(&mut self, in_validator: UPtr<UEditorValidatorBase>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_ADD_VALIDATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_validator,
+                __buffer.add(0).cast::<UPtr<UEditorValidatorBase>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_ADD_VALIDATOR,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]

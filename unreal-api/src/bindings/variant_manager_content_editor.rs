@@ -119,7 +119,6 @@ pub struct AVariantManagerTestActor {
         UPtr<crate::bindings::core_u_object::UObject>,
     >,
     pub captured_vector_array_property: TArray<crate::bindings::core_u_object::FVector>,
-    __padding_end: [u8; 8],
 }
 impl AVariantManagerTestActor {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

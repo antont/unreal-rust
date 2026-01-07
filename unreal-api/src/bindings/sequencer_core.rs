@@ -187,6 +187,470 @@ impl USequencerOutlinerScriptingObject {
             cdo
         }
     }
+    pub fn set_solo_nodes(
+        &mut self,
+        in_nodes: &TArray<FSequencerViewModelScriptingStruct>,
+        b_in_soloed: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_SOLO_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_nodes,
+                __buffer.add(0).cast::<TArray<FSequencerViewModelScriptingStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_soloed,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_SOLO_NODES,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_selection(
+        &mut self,
+        in_selection: &TArray<FSequencerViewModelScriptingStruct>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_selection,
+                __buffer.add(0).cast::<TArray<FSequencerViewModelScriptingStruct>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_SELECTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_pinned_nodes(
+        &mut self,
+        in_nodes: &TArray<FSequencerViewModelScriptingStruct>,
+        b_in_pinned: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_PINNED_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_nodes,
+                __buffer.add(0).cast::<TArray<FSequencerViewModelScriptingStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_pinned,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_PINNED_NODES,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mute_nodes(
+        &mut self,
+        in_nodes: &TArray<FSequencerViewModelScriptingStruct>,
+        b_in_muted: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_MUTE_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_nodes,
+                __buffer.add(0).cast::<TArray<FSequencerViewModelScriptingStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_muted,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_MUTE_NODES,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_locked_nodes(
+        &mut self,
+        in_nodes: &TArray<FSequencerViewModelScriptingStruct>,
+        b_in_locked: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_LOCKED_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_nodes,
+                __buffer.add(0).cast::<TArray<FSequencerViewModelScriptingStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_locked,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_LOCKED_NODES,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_deactivated_nodes(
+        &mut self,
+        in_nodes: &TArray<FSequencerViewModelScriptingStruct>,
+        b_in_deactivated: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_DEACTIVATED_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_nodes,
+                __buffer.add(0).cast::<TArray<FSequencerViewModelScriptingStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_deactivated,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_DEACTIVATED_NODES,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_solo_nodes(&mut self) -> TArray<FSequencerViewModelScriptingStruct> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_SOLO_NODES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_SOLO_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FSequencerViewModelScriptingStruct>>().read()
+        }
+    }
+    pub fn get_selection(&self) -> TArray<FSequencerViewModelScriptingStruct> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_SELECTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FSequencerViewModelScriptingStruct>>().read()
+        }
+    }
+    pub fn get_root_node(&self) -> FSequencerViewModelScriptingStruct {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_ROOT_NODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_ROOT_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FSequencerViewModelScriptingStruct>().read() }
+    }
+    pub fn get_pinned_nodes(&mut self) -> TArray<FSequencerViewModelScriptingStruct> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_PINNED_NODES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_PINNED_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FSequencerViewModelScriptingStruct>>().read()
+        }
+    }
+    pub fn get_mute_nodes(&mut self) -> TArray<FSequencerViewModelScriptingStruct> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_MUTE_NODES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_MUTE_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FSequencerViewModelScriptingStruct>>().read()
+        }
+    }
+    pub fn get_locked_nodes(&mut self) -> TArray<FSequencerViewModelScriptingStruct> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_LOCKED_NODES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_LOCKED_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FSequencerViewModelScriptingStruct>>().read()
+        }
+    }
+    pub fn get_deactivated_nodes(
+        &mut self,
+    ) -> TArray<FSequencerViewModelScriptingStruct> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_DEACTIVATED_NODES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_DEACTIVATED_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FSequencerViewModelScriptingStruct>>().read()
+        }
+    }
+    pub fn get_children(
+        &self,
+        node: FSequencerViewModelScriptingStruct,
+        type_name: FName,
+    ) -> TArray<FSequencerViewModelScriptingStruct> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_CHILDREN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node,
+                __buffer.add(0).cast::<FSequencerViewModelScriptingStruct>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &type_name,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_CHILDREN,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(48).cast::<TArray<FSequencerViewModelScriptingStruct>>().read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct USequencerScriptingLayer {
@@ -230,6 +694,68 @@ impl USequencerViewModelStructExtensions {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_path(view_model: &FSequencerViewModelScriptingStruct) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_VIEW_MODEL_STRUCT_EXTENSIONS_GET_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                view_model,
+                __buffer.add(0).cast::<FSequencerViewModelScriptingStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::sequencer_core::USequencerViewModelStructExtensions::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_VIEW_MODEL_STRUCT_EXTENSIONS_GET_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FString>().read() }
+    }
+    pub fn get_label(view_model: &FSequencerViewModelScriptingStruct) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer_core::U_SEQUENCER_VIEW_MODEL_STRUCT_EXTENSIONS_GET_LABEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                view_model,
+                __buffer.add(0).cast::<FSequencerViewModelScriptingStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::sequencer_core::USequencerViewModelStructExtensions::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer_core::U_SEQUENCER_VIEW_MODEL_STRUCT_EXTENSIONS_GET_LABEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FString>().read() }
     }
 }
 #[repr(C, align(8))]

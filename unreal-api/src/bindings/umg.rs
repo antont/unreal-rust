@@ -8293,7 +8293,6 @@ pub struct FWidgetTransform {
     pub scale: crate::bindings::core_u_object::FVector2D,
     pub shear: crate::bindings::core_u_object::FVector2D,
     pub angle: f32,
-    __padding_end: [u8; 4],
 }
 impl FWidgetTransform {}
 #[repr(C, align(1))]
@@ -8318,7 +8317,6 @@ impl FRadialBoxSettings {}
 pub struct FSlateChildSize {
     pub value: f32,
     pub size_rule: ESlateSizeRule,
-    __padding_end: [u8; 3],
 }
 impl FSlateChildSize {}
 #[repr(C, align(1))]
@@ -8345,7 +8343,6 @@ pub struct FGameViewportWidgetSlot {
     pub alignment: crate::bindings::core_u_object::FVector2D,
     pub z_order: i32,
     pub b_auto_remove_on_world_removed: bool,
-    __padding_end: [u8; 3],
 }
 impl FGameViewportWidgetSlot {}
 #[repr(C, align(8))]
@@ -8421,6 +8418,1665 @@ impl UWidget {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_visibility(&mut self, in_visibility: ESlateVisibility) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_visibility,
+                __buffer.add(0).cast::<ESlateVisibility>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_user_focus(
+        &mut self,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_USER_FOCUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_USER_FOCUS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_tool_tip_text(&mut self, in_tool_tip_text: &FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_TOOL_TIP_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_tool_tip_text,
+                __buffer.add(0).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_TOOL_TIP_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_tool_tip(&mut self, widget: UPtr<UWidget>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_TOOL_TIP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_TOOL_TIP,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_render_translation(
+        &mut self,
+        translation: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_RENDER_TRANSLATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &translation,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_RENDER_TRANSLATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_render_transform_pivot(
+        &mut self,
+        pivot: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_RENDER_TRANSFORM_PIVOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &pivot,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_RENDER_TRANSFORM_PIVOT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_render_transform_angle(&mut self, angle: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_RENDER_TRANSFORM_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&angle, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_RENDER_TRANSFORM_ANGLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_render_transform(&mut self, in_transform: FWidgetTransform) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_RENDER_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_transform,
+                __buffer.add(0).cast::<FWidgetTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_RENDER_TRANSFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_render_shear(
+        &mut self,
+        shear: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_RENDER_SHEAR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &shear,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_RENDER_SHEAR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_render_scale(
+        &mut self,
+        scale: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_RENDER_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &scale,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_RENDER_SCALE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_render_opacity(&mut self, in_opacity: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_RENDER_OPACITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_opacity, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_RENDER_OPACITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_navigation_rule_explicit(
+        &mut self,
+        direction: crate::bindings::slate_core::EUINavigation,
+        in_widget: UPtr<UWidget>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_NAVIGATION_RULE_EXPLICIT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &direction,
+                __buffer.add(0).cast::<crate::bindings::slate_core::EUINavigation>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_widget,
+                __buffer.add(8).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_NAVIGATION_RULE_EXPLICIT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_navigation_rule_custom_boundary(
+        &mut self,
+        direction: crate::bindings::slate_core::EUINavigation,
+        in_custom_delegate: FSetNavigationRuleCustomBoundary_InCustomDelegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_NAVIGATION_RULE_CUSTOM_BOUNDARY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &direction,
+                __buffer.add(0).cast::<crate::bindings::slate_core::EUINavigation>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_custom_delegate,
+                __buffer
+                    .add(8)
+                    .cast::<FSetNavigationRuleCustomBoundary_InCustomDelegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_NAVIGATION_RULE_CUSTOM_BOUNDARY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_navigation_rule_custom(
+        &mut self,
+        direction: crate::bindings::slate_core::EUINavigation,
+        in_custom_delegate: FSetNavigationRuleCustom_InCustomDelegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_NAVIGATION_RULE_CUSTOM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &direction,
+                __buffer.add(0).cast::<crate::bindings::slate_core::EUINavigation>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_custom_delegate,
+                __buffer.add(8).cast::<FSetNavigationRuleCustom_InCustomDelegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_NAVIGATION_RULE_CUSTOM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_navigation_rule_base(
+        &mut self,
+        direction: crate::bindings::slate_core::EUINavigation,
+        rule: crate::bindings::slate_core::EUINavigationRule,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_NAVIGATION_RULE_BASE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &direction,
+                __buffer.add(0).cast::<crate::bindings::slate_core::EUINavigation>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rule,
+                __buffer.add(1).cast::<crate::bindings::slate_core::EUINavigationRule>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_NAVIGATION_RULE_BASE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_navigation_rule(
+        &mut self,
+        direction: crate::bindings::slate_core::EUINavigation,
+        rule: crate::bindings::slate_core::EUINavigationRule,
+        widget_to_focus: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_NAVIGATION_RULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &direction,
+                __buffer.add(0).cast::<crate::bindings::slate_core::EUINavigation>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rule,
+                __buffer.add(1).cast::<crate::bindings::slate_core::EUINavigationRule>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget_to_focus,
+                __buffer.add(4).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_NAVIGATION_RULE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_keyboard_focus(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_KEYBOARD_FOCUS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_KEYBOARD_FOCUS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_enabled(&mut self, b_in_is_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_IS_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_is_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_IS_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_focus(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_FOCUS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_FOCUS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_cursor(
+        &mut self,
+        in_cursor: crate::bindings::core_u_object::EMouseCursor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_CURSOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cursor,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::EMouseCursor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_CURSOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_clipping(
+        &mut self,
+        in_clipping: crate::bindings::slate_core::EWidgetClipping,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_CLIPPING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_clipping,
+                __buffer.add(0).cast::<crate::bindings::slate_core::EWidgetClipping>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_CLIPPING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_all_navigation_rules(
+        &mut self,
+        rule: crate::bindings::slate_core::EUINavigationRule,
+        widget_to_focus: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SET_ALL_NAVIGATION_RULES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rule,
+                __buffer.add(0).cast::<crate::bindings::slate_core::EUINavigationRule>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget_to_focus,
+                __buffer.add(4).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SET_ALL_NAVIGATION_RULES,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_cursor(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_RESET_CURSOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_RESET_CURSOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_from_parent(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_REMOVE_FROM_PARENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_REMOVE_FROM_PARENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_field_value_changed_delegate(
+        &mut self,
+        field_id: crate::bindings::field_notification::FFieldNotificationId,
+        delegate: FK2_RemoveFieldValueChangedDelegate_Delegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_K2_REMOVE_FIELD_VALUE_CHANGED_DELEGATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &field_id,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::field_notification::FFieldNotificationId>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delegate,
+                __buffer.add(16).cast::<FK2_RemoveFieldValueChangedDelegate_Delegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_K2_REMOVE_FIELD_VALUE_CHANGED_DELEGATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn broadcast_field_value_changed(
+        &mut self,
+        field_id: crate::bindings::field_notification::FFieldNotificationId,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_K2_BROADCAST_FIELD_VALUE_CHANGED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &field_id,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::field_notification::FFieldNotificationId>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_K2_BROADCAST_FIELD_VALUE_CHANGED,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_field_value_changed_delegate(
+        &mut self,
+        field_id: crate::bindings::field_notification::FFieldNotificationId,
+        delegate: FK2_AddFieldValueChangedDelegate_Delegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_K2_ADD_FIELD_VALUE_CHANGED_DELEGATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &field_id,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::field_notification::FFieldNotificationId>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delegate,
+                __buffer.add(16).cast::<FK2_AddFieldValueChangedDelegate_Delegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_K2_ADD_FIELD_VALUE_CHANGED_DELEGATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_visible(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_IS_VISIBLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_IS_VISIBLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_rendered(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_IS_RENDERED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_IS_RENDERED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_in_viewport(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_IS_IN_VIEWPORT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_IS_IN_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_hovered(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_IS_HOVERED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_IS_HOVERED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn invalidate_layout_and_volatility(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INVALIDATE_LAYOUT_AND_VOLATILITY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INVALIDATE_LAYOUT_AND_VOLATILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn has_user_focused_descendants(
+        &self,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_HAS_USER_FOCUSED_DESCENDANTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_HAS_USER_FOCUSED_DESCENDANTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn has_user_focus(
+        &self,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_HAS_USER_FOCUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_HAS_USER_FOCUS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn has_mouse_capture_by_user(
+        &self,
+        user_index: i32,
+        pointer_index: i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_HAS_MOUSE_CAPTURE_BY_USER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&user_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &pointer_index,
+                __buffer.add(4).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_HAS_MOUSE_CAPTURE_BY_USER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn has_mouse_capture(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_HAS_MOUSE_CAPTURE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_HAS_MOUSE_CAPTURE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn has_keyboard_focus(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_HAS_KEYBOARD_FOCUS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_HAS_KEYBOARD_FOCUS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn has_focused_descendants(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_HAS_FOCUSED_DESCENDANTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_HAS_FOCUSED_DESCENDANTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn has_any_user_focus(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_HAS_ANY_USER_FOCUS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_HAS_ANY_USER_FOCUS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_visibility(&self) -> ESlateVisibility {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_GET_VISIBILITY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_GET_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<ESlateVisibility>().read() }
+    }
+    pub fn get_tick_space_geometry(&self) -> crate::bindings::slate_core::FGeometry {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_GET_TICK_SPACE_GEOMETRY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_GET_TICK_SPACE_GEOMETRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>().read()
+        }
+    }
+    pub fn get_render_transform_angle(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_GET_RENDER_TRANSFORM_ANGLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_GET_RENDER_TRANSFORM_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_render_opacity(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_GET_RENDER_OPACITY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_GET_RENDER_OPACITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_parent(&self) -> UPtr<UPanelWidget> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_GET_PARENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_GET_PARENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UPanelWidget>>().read() }
+    }
+    pub fn get_paint_space_geometry(&self) -> crate::bindings::slate_core::FGeometry {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_GET_PAINT_SPACE_GEOMETRY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_GET_PAINT_SPACE_GEOMETRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>().read()
+        }
+    }
+    pub fn get_owning_player(&self) -> UPtr<crate::bindings::engine::APlayerController> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_GET_OWNING_PLAYER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_GET_OWNING_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::APlayerController>>()
+                .read()
+        }
+    }
+    pub fn get_owning_local_player(
+        &self,
+    ) -> UPtr<crate::bindings::engine::ULocalPlayer> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_GET_OWNING_LOCAL_PLAYER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_GET_OWNING_LOCAL_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::ULocalPlayer>>().read()
+        }
+    }
+    pub fn get_is_enabled(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_GET_IS_ENABLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_GET_IS_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_game_instance(&self) -> UPtr<crate::bindings::engine::UGameInstance> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_GET_GAME_INSTANCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_GET_GAME_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::UGameInstance>>().read()
+        }
+    }
+    pub fn get_desired_size(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_GET_DESIRED_SIZE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_GET_DESIRED_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_clipping(&self) -> crate::bindings::slate_core::EWidgetClipping {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_GET_CLIPPING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_GET_CLIPPING,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::slate_core::EWidgetClipping>().read()
+        }
+    }
+    pub fn get_cached_geometry(&self) -> crate::bindings::slate_core::FGeometry {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_GET_CACHED_GEOMETRY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_GET_CACHED_GEOMETRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>().read()
+        }
+    }
+    pub fn get_accessible_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_GET_ACCESSIBLE_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_GET_ACCESSIBLE_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_accessible_summary_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_GET_ACCESSIBLE_SUMMARY_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_GET_ACCESSIBLE_SUMMARY_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn force_volatile(&mut self, b_force: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_FORCE_VOLATILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_force, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_FORCE_VOLATILE,
+                __buffer,
+            )
+        };
+    }
+    pub fn force_layout_prepass(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_FORCE_LAYOUT_PREPASS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_FORCE_LAYOUT_PREPASS,
+                __buffer,
+            )
+        };
     }
     pub fn verify_layout() {
         log::warn!(
@@ -8505,6 +10161,2302 @@ impl UUserWidget {
             cdo
         }
     }
+    pub fn unregister_input_component(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_UNREGISTER_INPUT_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_UNREGISTER_INPUT_COMPONENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn unbind_from_animation_started(
+        &mut self,
+        animation: UPtr<UWidgetAnimation>,
+        delegate: FUnbindFromAnimationStarted_Delegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_UNBIND_FROM_ANIMATION_STARTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delegate,
+                __buffer.add(8).cast::<FUnbindFromAnimationStarted_Delegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_UNBIND_FROM_ANIMATION_STARTED,
+                __buffer,
+            )
+        };
+    }
+    pub fn unbind_from_animation_finished(
+        &mut self,
+        animation: UPtr<UWidgetAnimation>,
+        delegate: FUnbindFromAnimationFinished_Delegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_UNBIND_FROM_ANIMATION_FINISHED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delegate,
+                __buffer.add(8).cast::<FUnbindFromAnimationFinished_Delegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_UNBIND_FROM_ANIMATION_FINISHED,
+                __buffer,
+            )
+        };
+    }
+    pub fn unbind_all_from_animation_started(
+        &mut self,
+        animation: UPtr<UWidgetAnimation>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_UNBIND_ALL_FROM_ANIMATION_STARTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_UNBIND_ALL_FROM_ANIMATION_STARTED,
+                __buffer,
+            )
+        };
+    }
+    pub fn unbind_all_from_animation_finished(
+        &mut self,
+        animation: UPtr<UWidgetAnimation>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_UNBIND_ALL_FROM_ANIMATION_FINISHED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_UNBIND_ALL_FROM_ANIMATION_FINISHED,
+                __buffer,
+            )
+        };
+    }
+    pub fn stop_listening_for_input_action(
+        &mut self,
+        action_name: FName,
+        event_type: crate::bindings::engine::EInputEvent,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_STOP_LISTENING_FOR_INPUT_ACTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &event_type,
+                __buffer.add(12).cast::<crate::bindings::engine::EInputEvent>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_STOP_LISTENING_FOR_INPUT_ACTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn stop_listening_for_all_input_actions(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_STOP_LISTENING_FOR_ALL_INPUT_ACTIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_STOP_LISTENING_FOR_ALL_INPUT_ACTIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn stop_animations_and_latent_actions(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_STOP_ANIMATIONS_AND_LATENT_ACTIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_STOP_ANIMATIONS_AND_LATENT_ACTIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn stop_animation(&mut self, in_animation: UPtr<UWidgetAnimation>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_STOP_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_STOP_ANIMATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn stop_all_animations(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_STOP_ALL_ANIMATIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_STOP_ALL_ANIMATIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_position_in_viewport(
+        &mut self,
+        position: crate::bindings::core_u_object::FVector2D,
+        b_remove_dpi_scale: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_SET_POSITION_IN_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_remove_dpi_scale,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_SET_POSITION_IN_VIEWPORT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_playback_speed(
+        &mut self,
+        in_animation: UPtr<UWidgetAnimation>,
+        playback_speed: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_SET_PLAYBACK_SPEED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &playback_speed,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_SET_PLAYBACK_SPEED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_owning_player(
+        &mut self,
+        local_player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_SET_OWNING_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &local_player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_SET_OWNING_PLAYER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_num_loops_to_play(
+        &mut self,
+        in_animation: UPtr<UWidgetAnimation>,
+        num_loops_to_play: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_SET_NUM_LOOPS_TO_PLAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &num_loops_to_play,
+                __buffer.add(8).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_SET_NUM_LOOPS_TO_PLAY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_input_action_priority(&mut self, new_priority: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_SET_INPUT_ACTION_PRIORITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_priority,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_SET_INPUT_ACTION_PRIORITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_input_action_blocking(&mut self, b_should_block: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_SET_INPUT_ACTION_BLOCKING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_should_block,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_SET_INPUT_ACTION_BLOCKING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_foreground_color(
+        &mut self,
+        in_foreground_color: crate::bindings::slate_core::FSlateColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_SET_FOREGROUND_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_foreground_color,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_SET_FOREGROUND_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_desired_size_in_viewport(
+        &mut self,
+        size: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_SET_DESIRED_SIZE_IN_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &size,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_SET_DESIRED_SIZE_IN_VIEWPORT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_desired_focus_widget(&mut self, widget: UPtr<UWidget>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_SET_DESIRED_FOCUS_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_SET_DESIRED_FOCUS_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_color_and_opacity(
+        &mut self,
+        in_color_and_opacity: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_SET_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_color_and_opacity,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_SET_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_animation_current_time(
+        &mut self,
+        in_animation: UPtr<UWidgetAnimation>,
+        in_time: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_SET_ANIMATION_CURRENT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_time, __buffer.add(8).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_SET_ANIMATION_CURRENT_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_anchors_in_viewport(
+        &mut self,
+        anchors: crate::bindings::slate::FAnchors,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_SET_ANCHORS_IN_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &anchors,
+                __buffer.add(0).cast::<crate::bindings::slate::FAnchors>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_SET_ANCHORS_IN_VIEWPORT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_alignment_in_viewport(
+        &mut self,
+        alignment: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_SET_ALIGNMENT_IN_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &alignment,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_SET_ALIGNMENT_IN_VIEWPORT,
+                __buffer,
+            )
+        };
+    }
+    pub fn reverse_animation(&mut self, in_animation: UPtr<UWidgetAnimation>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_REVERSE_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_REVERSE_ANIMATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_from_viewport(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_REMOVE_FROM_VIEWPORT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_REMOVE_FROM_VIEWPORT,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_extensions(
+        &mut self,
+        in_extension_type: TSubclassOf<UUserWidgetExtension>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_REMOVE_EXTENSIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_extension_type,
+                __buffer.add(0).cast::<TSubclassOf<UUserWidgetExtension>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_REMOVE_EXTENSIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_extension(&mut self, in_extension: UPtr<UUserWidgetExtension>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_REMOVE_EXTENSION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_extension,
+                __buffer.add(0).cast::<UPtr<UUserWidgetExtension>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_REMOVE_EXTENSION,
+                __buffer,
+            )
+        };
+    }
+    pub fn register_input_component(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_REGISTER_INPUT_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_REGISTER_INPUT_COMPONENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn queue_stop_animation(&mut self, in_animation: UPtr<UWidgetAnimation>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_QUEUE_STOP_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_QUEUE_STOP_ANIMATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn queue_stop_all_animations(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_QUEUE_STOP_ALL_ANIMATIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_QUEUE_STOP_ALL_ANIMATIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn queue_play_animation_time_range(
+        &mut self,
+        in_animation: UPtr<UWidgetAnimation>,
+        start_at_time: f32,
+        end_at_time: f32,
+        num_loops_to_play: i32,
+        play_mode: EUMGSequencePlayMode,
+        playback_speed: f32,
+        b_restore_state: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_QUEUE_PLAY_ANIMATION_TIME_RANGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start_at_time,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &end_at_time,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &num_loops_to_play,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &play_mode,
+                __buffer.add(20).cast::<EUMGSequencePlayMode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &playback_speed,
+                __buffer.add(24).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_restore_state,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_QUEUE_PLAY_ANIMATION_TIME_RANGE,
+                __buffer,
+            )
+        };
+    }
+    pub fn queue_play_animation_reverse(
+        &mut self,
+        in_animation: UPtr<UWidgetAnimation>,
+        playback_speed: f32,
+        b_restore_state: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_QUEUE_PLAY_ANIMATION_REVERSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &playback_speed,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_restore_state,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_QUEUE_PLAY_ANIMATION_REVERSE,
+                __buffer,
+            )
+        };
+    }
+    pub fn queue_play_animation_forward(
+        &mut self,
+        in_animation: UPtr<UWidgetAnimation>,
+        playback_speed: f32,
+        b_restore_state: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_QUEUE_PLAY_ANIMATION_FORWARD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &playback_speed,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_restore_state,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_QUEUE_PLAY_ANIMATION_FORWARD,
+                __buffer,
+            )
+        };
+    }
+    pub fn queue_play_animation(
+        &mut self,
+        in_animation: UPtr<UWidgetAnimation>,
+        start_at_time: f32,
+        num_loops_to_play: i32,
+        play_mode: EUMGSequencePlayMode,
+        playback_speed: f32,
+        b_restore_state: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_QUEUE_PLAY_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start_at_time,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &num_loops_to_play,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &play_mode,
+                __buffer.add(16).cast::<EUMGSequencePlayMode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &playback_speed,
+                __buffer.add(20).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_restore_state,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_QUEUE_PLAY_ANIMATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn queue_pause_animation(
+        &mut self,
+        in_animation: UPtr<UWidgetAnimation>,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_QUEUE_PAUSE_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_QUEUE_PAUSE_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<f32>().read() }
+    }
+    pub fn play_sound(
+        &mut self,
+        sound_to_play: UPtr<crate::bindings::engine::USoundBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_PLAY_SOUND,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sound_to_play,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USoundBase>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_PLAY_SOUND,
+                __buffer,
+            )
+        };
+    }
+    pub fn play_animation_time_range(
+        &mut self,
+        in_animation: UPtr<UWidgetAnimation>,
+        start_at_time: f32,
+        end_at_time: f32,
+        num_loops_to_play: i32,
+        play_mode: EUMGSequencePlayMode,
+        playback_speed: f32,
+        b_restore_state: bool,
+    ) -> FWidgetAnimationHandle {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_PLAY_ANIMATION_TIME_RANGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start_at_time,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &end_at_time,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &num_loops_to_play,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &play_mode,
+                __buffer.add(20).cast::<EUMGSequencePlayMode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &playback_speed,
+                __buffer.add(24).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_restore_state,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_PLAY_ANIMATION_TIME_RANGE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FWidgetAnimationHandle>().read() }
+    }
+    pub fn play_animation_reverse(
+        &mut self,
+        in_animation: UPtr<UWidgetAnimation>,
+        playback_speed: f32,
+        b_restore_state: bool,
+    ) -> FWidgetAnimationHandle {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_PLAY_ANIMATION_REVERSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &playback_speed,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_restore_state,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_PLAY_ANIMATION_REVERSE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FWidgetAnimationHandle>().read() }
+    }
+    pub fn play_animation_forward(
+        &mut self,
+        in_animation: UPtr<UWidgetAnimation>,
+        playback_speed: f32,
+        b_restore_state: bool,
+    ) -> FWidgetAnimationHandle {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_PLAY_ANIMATION_FORWARD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &playback_speed,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_restore_state,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_PLAY_ANIMATION_FORWARD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FWidgetAnimationHandle>().read() }
+    }
+    pub fn play_animation(
+        &mut self,
+        in_animation: UPtr<UWidgetAnimation>,
+        start_at_time: f32,
+        num_loops_to_play: i32,
+        play_mode: EUMGSequencePlayMode,
+        playback_speed: f32,
+        b_restore_state: bool,
+    ) -> FWidgetAnimationHandle {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_PLAY_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start_at_time,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &num_loops_to_play,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &play_mode,
+                __buffer.add(16).cast::<EUMGSequencePlayMode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &playback_speed,
+                __buffer.add(20).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_restore_state,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_PLAY_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FWidgetAnimationHandle>().read() }
+    }
+    pub fn pause_animation(&mut self, in_animation: UPtr<UWidgetAnimation>) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_PAUSE_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_PAUSE_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<f32>().read() }
+    }
+    pub fn listen_for_input_action(
+        &mut self,
+        action_name: FName,
+        event_type: crate::bindings::engine::EInputEvent,
+        b_consume: bool,
+        callback: FListenForInputAction_Callback,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_LISTEN_FOR_INPUT_ACTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &event_type,
+                __buffer.add(12).cast::<crate::bindings::engine::EInputEvent>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_consume,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &callback,
+                __buffer.add(16).cast::<FListenForInputAction_Callback>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_LISTEN_FOR_INPUT_ACTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_playing_animation(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_IS_PLAYING_ANIMATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_IS_PLAYING_ANIMATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_listening_for_input_action(&self, action_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_IS_LISTENING_FOR_INPUT_ACTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &action_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_IS_LISTENING_FOR_INPUT_ACTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn is_any_animation_playing(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_IS_ANY_ANIMATION_PLAYING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_IS_ANY_ANIMATION_PLAYING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_animation_playing_forward(
+        &mut self,
+        in_animation: UPtr<UWidgetAnimation>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_IS_ANIMATION_PLAYING_FORWARD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_IS_ANIMATION_PLAYING_FORWARD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn is_animation_playing(&self, in_animation: UPtr<UWidgetAnimation>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_IS_ANIMATION_PLAYING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_IS_ANIMATION_PLAYING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_owning_player_pawn(&self) -> UPtr<crate::bindings::engine::APawn> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_GET_OWNING_PLAYER_PAWN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_GET_OWNING_PLAYER_PAWN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<crate::bindings::engine::APawn>>().read() }
+    }
+    pub fn get_owning_player_camera_manager(
+        &self,
+    ) -> UPtr<crate::bindings::engine::APlayerCameraManager> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_GET_OWNING_PLAYER_CAMERA_MANAGER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_GET_OWNING_PLAYER_CAMERA_MANAGER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::APlayerCameraManager>>()
+                .read()
+        }
+    }
+    pub fn get_is_visible(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_GET_IS_VISIBLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_GET_IS_VISIBLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_extensions(
+        &self,
+        extension_type: TSubclassOf<UUserWidgetExtension>,
+    ) -> TArray<UPtr<UUserWidgetExtension>> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_GET_EXTENSIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &extension_type,
+                __buffer.add(0).cast::<TSubclassOf<UUserWidgetExtension>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_GET_EXTENSIONS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<UPtr<UUserWidgetExtension>>>().read() }
+    }
+    pub fn get_extension(
+        &self,
+        extension_type: TSubclassOf<UUserWidgetExtension>,
+    ) -> UPtr<UUserWidgetExtension> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_GET_EXTENSION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &extension_type,
+                __buffer.add(0).cast::<TSubclassOf<UUserWidgetExtension>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_GET_EXTENSION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UUserWidgetExtension>>().read() }
+    }
+    pub fn get_animation_current_time(
+        &self,
+        in_animation: UPtr<UWidgetAnimation>,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_GET_ANIMATION_CURRENT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_GET_ANIMATION_CURRENT_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<f32>().read() }
+    }
+    pub fn get_anchors_in_viewport(&self) -> crate::bindings::slate::FAnchors {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_GET_ANCHORS_IN_VIEWPORT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_GET_ANCHORS_IN_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<crate::bindings::slate::FAnchors>().read() }
+    }
+    pub fn get_alignment_in_viewport(
+        &self,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_GET_ALIGNMENT_IN_VIEWPORT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_GET_ALIGNMENT_IN_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn flush_animations(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_FLUSH_ANIMATIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_FLUSH_ANIMATIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn cancel_latent_actions(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_CANCEL_LATENT_ACTIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_CANCEL_LATENT_ACTIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn bind_to_animation_started(
+        &mut self,
+        animation: UPtr<UWidgetAnimation>,
+        delegate: FBindToAnimationStarted_Delegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_BIND_TO_ANIMATION_STARTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delegate,
+                __buffer.add(8).cast::<FBindToAnimationStarted_Delegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_BIND_TO_ANIMATION_STARTED,
+                __buffer,
+            )
+        };
+    }
+    pub fn bind_to_animation_finished(
+        &mut self,
+        animation: UPtr<UWidgetAnimation>,
+        delegate: FBindToAnimationFinished_Delegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_BIND_TO_ANIMATION_FINISHED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delegate,
+                __buffer.add(8).cast::<FBindToAnimationFinished_Delegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_BIND_TO_ANIMATION_FINISHED,
+                __buffer,
+            )
+        };
+    }
+    pub fn bind_to_animation_event(
+        &mut self,
+        animation: UPtr<UWidgetAnimation>,
+        delegate: FBindToAnimationEvent_Delegate,
+        animation_event: EWidgetAnimationEvent,
+        user_tag: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_BIND_TO_ANIMATION_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &animation,
+                __buffer.add(0).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delegate,
+                __buffer.add(8).cast::<FBindToAnimationEvent_Delegate>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &animation_event,
+                __buffer.add(40).cast::<EWidgetAnimationEvent>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &user_tag,
+                __buffer.add(44).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_BIND_TO_ANIMATION_EVENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_to_viewport(&mut self, z_order: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_ADD_TO_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&z_order, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_ADD_TO_VIEWPORT,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_to_player_screen(&mut self, z_order: i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_ADD_TO_PLAYER_SCREEN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&z_order, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_ADD_TO_PLAYER_SCREEN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn add_extension(
+        &mut self,
+        in_extension_type: TSubclassOf<UUserWidgetExtension>,
+    ) -> UPtr<UUserWidgetExtension> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_ADD_EXTENSION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_extension_type,
+                __buffer.add(0).cast::<TSubclassOf<UUserWidgetExtension>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_ADD_EXTENSION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UUserWidgetExtension>>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UWidgetComponent {
@@ -8524,6 +12476,1049 @@ impl UWidgetComponent {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_window_visibility(&mut self, in_visibility: EWindowVisibility) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_WINDOW_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_visibility,
+                __buffer.add(0).cast::<EWindowVisibility>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_WINDOW_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_window_focusable(&mut self, b_in_window_focusable: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_WINDOW_FOCUSABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_window_focusable,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_WINDOW_FOCUSABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_widget_space(&mut self, new_space: EWidgetSpace) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_WIDGET_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_space,
+                __buffer.add(0).cast::<EWidgetSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_WIDGET_SPACE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_widget(&mut self, widget: UPtr<UUserWidget>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UUserWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_WIDGET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_two_sided(&mut self, b_want_two_sided: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_TWO_SIDED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_want_two_sided,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_TWO_SIDED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_tint_color_and_opacity(
+        &mut self,
+        new_tint_color_and_opacity: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_TINT_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_tint_color_and_opacity,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_TINT_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_tick_when_offscreen(&mut self, b_want_tick_when_offscreen: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_TICK_WHEN_OFFSCREEN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_want_tick_when_offscreen,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_TICK_WHEN_OFFSCREEN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_tick_mode(&mut self, in_tick_mode: ETickMode) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_TICK_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_tick_mode,
+                __buffer.add(0).cast::<ETickMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_TICK_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_redraw_time(&mut self, in_redraw_time: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_REDRAW_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_redraw_time,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_REDRAW_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_pivot(&mut self, in_pivot: &crate::bindings::core_u_object::FVector2D) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_PIVOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_pivot,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_PIVOT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_owner_player(
+        &mut self,
+        local_player: UPtr<crate::bindings::engine::ULocalPlayer>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_OWNER_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &local_player,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::ULocalPlayer>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_OWNER_PLAYER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_manually_redraw(&mut self, b_use_manual_redraw: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_MANUALLY_REDRAW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_use_manual_redraw,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_MANUALLY_REDRAW,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_geometry_mode(&mut self, in_geometry_mode: EWidgetGeometryMode) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_GEOMETRY_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_geometry_mode,
+                __buffer.add(0).cast::<EWidgetGeometryMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_GEOMETRY_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_draw_size(&mut self, size: crate::bindings::core_u_object::FVector2D) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_DRAW_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &size,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_DRAW_SIZE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_draw_at_desired_size(&mut self, b_in_draw_at_desired_size: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_DRAW_AT_DESIRED_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_draw_at_desired_size,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_DRAW_AT_DESIRED_SIZE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_cylinder_arc_angle(&mut self, in_cylinder_arc_angle: f64) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_CYLINDER_ARC_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cylinder_arc_angle,
+                __buffer.add(0).cast::<f64>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_CYLINDER_ARC_ANGLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_background_color(
+        &mut self,
+        new_background_color: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_background_color,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_SET_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn request_render_update(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_REQUEST_RENDER_UPDATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_REQUEST_RENDER_UPDATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn request_redraw(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_REQUEST_REDRAW,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_REQUEST_REDRAW,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_widget_visible(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_IS_WIDGET_VISIBLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_IS_WIDGET_VISIBLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_window_visiblility(&self) -> EWindowVisibility {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_WINDOW_VISIBLILITY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_WINDOW_VISIBLILITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EWindowVisibility>().read() }
+    }
+    pub fn get_window_focusable(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_WINDOW_FOCUSABLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_WINDOW_FOCUSABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_widget_space(&self) -> EWidgetSpace {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_WIDGET_SPACE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_WIDGET_SPACE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EWidgetSpace>().read() }
+    }
+    pub fn get_widget(&self) -> UPtr<UUserWidget> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_WIDGET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UUserWidget>>().read() }
+    }
+    pub fn get_user_widget_object(&self) -> UPtr<UUserWidget> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_USER_WIDGET_OBJECT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_USER_WIDGET_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UUserWidget>>().read() }
+    }
+    pub fn get_two_sided(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_TWO_SIDED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_TWO_SIDED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_tick_when_offscreen(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_TICK_WHEN_OFFSCREEN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_TICK_WHEN_OFFSCREEN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_render_target(
+        &self,
+    ) -> UPtr<crate::bindings::engine::UTextureRenderTarget2D> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_RENDER_TARGET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_RENDER_TARGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UTextureRenderTarget2D>>()
+                .read()
+        }
+    }
+    pub fn get_redraw_time(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_REDRAW_TIME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_REDRAW_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_pivot(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_PIVOT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_PIVOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_owner_player(&self) -> UPtr<crate::bindings::engine::ULocalPlayer> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_OWNER_PLAYER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_OWNER_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::ULocalPlayer>>().read()
+        }
+    }
+    pub fn get_material_instance(
+        &self,
+    ) -> UPtr<crate::bindings::engine::UMaterialInstanceDynamic> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_MATERIAL_INSTANCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_MATERIAL_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInstanceDynamic>>()
+                .read()
+        }
+    }
+    pub fn get_manually_redraw(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_MANUALLY_REDRAW,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_MANUALLY_REDRAW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_geometry_mode(&self) -> EWidgetGeometryMode {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_GEOMETRY_MODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_GEOMETRY_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EWidgetGeometryMode>().read() }
+    }
+    pub fn get_draw_size(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_DRAW_SIZE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_DRAW_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_draw_at_desired_size(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_DRAW_AT_DESIRED_SIZE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_DRAW_AT_DESIRED_SIZE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_cylinder_arc_angle(&self) -> f64 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_CYLINDER_ARC_ANGLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_CYLINDER_ARC_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f64>().read() }
+    }
+    pub fn get_current_draw_size(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_CURRENT_DRAW_SIZE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_COMPONENT_GET_CURRENT_DRAW_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
     }
 }
@@ -8568,6 +13563,279 @@ impl UPanelWidget {
             cdo
         }
     }
+    pub fn remove_child_at(&mut self, index: i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_PANEL_WIDGET_REMOVE_CHILD_AT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_PANEL_WIDGET_REMOVE_CHILD_AT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn remove_child(&mut self, content: UPtr<UWidget>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_PANEL_WIDGET_REMOVE_CHILD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &content,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_PANEL_WIDGET_REMOVE_CHILD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn has_child(&self, content: UPtr<UWidget>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_PANEL_WIDGET_HAS_CHILD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &content,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_PANEL_WIDGET_HAS_CHILD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn has_any_children(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_PANEL_WIDGET_HAS_ANY_CHILDREN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_PANEL_WIDGET_HAS_ANY_CHILDREN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_children_count(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_PANEL_WIDGET_GET_CHILDREN_COUNT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_PANEL_WIDGET_GET_CHILDREN_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_child_index(&self, content: UPtr<UWidget>) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_PANEL_WIDGET_GET_CHILD_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &content,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_PANEL_WIDGET_GET_CHILD_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<i32>().read() }
+    }
+    pub fn get_child_at(&self, index: i32) -> UPtr<UWidget> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_PANEL_WIDGET_GET_CHILD_AT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_PANEL_WIDGET_GET_CHILD_AT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UWidget>>().read() }
+    }
+    pub fn get_all_children(&self) -> TArray<UPtr<UWidget>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_PANEL_WIDGET_GET_ALL_CHILDREN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_PANEL_WIDGET_GET_ALL_CHILDREN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<UWidget>>>().read() }
+    }
+    pub fn clear_children(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_PANEL_WIDGET_CLEAR_CHILDREN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_PANEL_WIDGET_CLEAR_CHILDREN,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_child(&mut self, content: UPtr<UWidget>) -> UPtr<UPanelSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_PANEL_WIDGET_ADD_CHILD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &content,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_PANEL_WIDGET_ADD_CHILD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UPanelSlot>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UContentWidget {
@@ -8589,6 +13857,85 @@ impl UContentWidget {
             cdo
         }
     }
+    pub fn set_content(&mut self, content: UPtr<UWidget>) -> UPtr<UPanelSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CONTENT_WIDGET_SET_CONTENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &content,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CONTENT_WIDGET_SET_CONTENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UPanelSlot>>().read() }
+    }
+    pub fn get_content_slot(&self) -> UPtr<UPanelSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CONTENT_WIDGET_GET_CONTENT_SLOT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CONTENT_WIDGET_GET_CONTENT_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UPanelSlot>>().read() }
+    }
+    pub fn get_content(&self) -> UPtr<UWidget> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CONTENT_WIDGET_GET_CONTENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CONTENT_WIDGET_GET_CONTENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UWidget>>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UButton {
@@ -8604,7 +13951,6 @@ pub struct UButton {
     #[doc(hidden)]
     __padding_2152: [u8; 308],
     pub b_allow_drag_drop: bool,
-    __padding_end: [u8; 7],
 }
 impl UButton {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -8617,6 +13963,261 @@ impl UButton {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_touch_method(
+        &mut self,
+        in_touch_method: crate::bindings::slate_core::EButtonTouchMethod,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BUTTON_SET_TOUCH_METHOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_touch_method,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EButtonTouchMethod>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BUTTON_SET_TOUCH_METHOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_style(&mut self, in_style: &crate::bindings::slate_core::FButtonStyle) {
+        let mut __stack = crate::core_data::StackAlloc::<1088>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BUTTON_SET_STYLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_style,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FButtonStyle>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BUTTON_SET_STYLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_press_method(
+        &mut self,
+        in_press_method: crate::bindings::slate_core::EButtonPressMethod,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BUTTON_SET_PRESS_METHOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_press_method,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EButtonPressMethod>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BUTTON_SET_PRESS_METHOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_color_and_opacity(
+        &mut self,
+        in_color_and_opacity: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BUTTON_SET_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_color_and_opacity,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BUTTON_SET_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_click_method(
+        &mut self,
+        in_click_method: crate::bindings::slate_core::EButtonClickMethod,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BUTTON_SET_CLICK_METHOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_click_method,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EButtonClickMethod>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BUTTON_SET_CLICK_METHOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_background_color(
+        &mut self,
+        in_background_color: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BUTTON_SET_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_background_color,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BUTTON_SET_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_allow_drag_drop(&mut self, b_in_allow_drag_drop: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BUTTON_SET_ALLOW_DRAG_DROP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_allow_drag_drop,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BUTTON_SET_ALLOW_DRAG_DROP,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_pressed(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BUTTON_IS_PRESSED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BUTTON_IS_PRESSED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -8650,6 +14251,248 @@ impl UCheckBox {
             cdo
         }
     }
+    pub fn set_touch_method(
+        &mut self,
+        in_touch_method: crate::bindings::slate_core::EButtonTouchMethod,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CHECK_BOX_SET_TOUCH_METHOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_touch_method,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EButtonTouchMethod>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CHECK_BOX_SET_TOUCH_METHOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_press_method(
+        &mut self,
+        in_press_method: crate::bindings::slate_core::EButtonPressMethod,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CHECK_BOX_SET_PRESS_METHOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_press_method,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EButtonPressMethod>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CHECK_BOX_SET_PRESS_METHOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_checked(&mut self, in_is_checked: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CHECK_BOX_SET_IS_CHECKED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_is_checked,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CHECK_BOX_SET_IS_CHECKED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_click_method(
+        &mut self,
+        in_click_method: crate::bindings::slate_core::EButtonClickMethod,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CHECK_BOX_SET_CLICK_METHOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_click_method,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EButtonClickMethod>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CHECK_BOX_SET_CLICK_METHOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_checked_state(
+        &mut self,
+        in_checked_state: crate::bindings::slate_core::ECheckBoxState,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CHECK_BOX_SET_CHECKED_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_checked_state,
+                __buffer.add(0).cast::<crate::bindings::slate_core::ECheckBoxState>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CHECK_BOX_SET_CHECKED_STATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_pressed(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CHECK_BOX_IS_PRESSED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CHECK_BOX_IS_PRESSED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_checked(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CHECK_BOX_IS_CHECKED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CHECK_BOX_IS_CHECKED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_checked_state(&self) -> crate::bindings::slate_core::ECheckBoxState {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CHECK_BOX_GET_CHECKED_STATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CHECK_BOX_GET_CHECKED_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::slate_core::ECheckBoxState>().read()
+        }
+    }
 }
 #[repr(C, align(16))]
 pub struct UCircularThrobber {
@@ -8676,6 +14519,88 @@ impl UCircularThrobber {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_radius(&mut self, in_radius: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CIRCULAR_THROBBER_SET_RADIUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_radius, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CIRCULAR_THROBBER_SET_RADIUS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_period(&mut self, in_period: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CIRCULAR_THROBBER_SET_PERIOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_period, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CIRCULAR_THROBBER_SET_PERIOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_number_of_pieces(&mut self, in_number_of_pieces: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CIRCULAR_THROBBER_SET_NUMBER_OF_PIECES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_number_of_pieces,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CIRCULAR_THROBBER_SET_NUMBER_OF_PIECES,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(16))]
@@ -8708,6 +14633,179 @@ impl UComboBoxKey {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_selected_option(&mut self, option: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_KEY_SET_SELECTED_OPTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&option, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_KEY_SET_SELECTED_OPTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_option(&mut self, option: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_KEY_REMOVE_OPTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&option, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_KEY_REMOVE_OPTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn is_open(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_KEY_IS_OPEN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_KEY_IS_OPEN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_selected_option(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_KEY_GET_SELECTED_OPTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_KEY_GET_SELECTED_OPTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn clear_selection(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_KEY_CLEAR_SELECTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_KEY_CLEAR_SELECTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_options(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_KEY_CLEAR_OPTIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_KEY_CLEAR_OPTIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_option(&mut self, option: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_KEY_ADD_OPTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&option, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_KEY_ADD_OPTION,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(16))]
@@ -8742,6 +14840,330 @@ impl UComboBoxString {
             cdo
         }
     }
+    pub fn set_selected_option(&mut self, option: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_STRING_SET_SELECTED_OPTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&option, __buffer.add(0).cast::<FString>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_STRING_SET_SELECTED_OPTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_selected_index(&mut self, index: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_STRING_SET_SELECTED_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_STRING_SET_SELECTED_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_option(&mut self, option: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_STRING_REMOVE_OPTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&option, __buffer.add(0).cast::<FString>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_STRING_REMOVE_OPTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn refresh_options(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_STRING_REFRESH_OPTIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_STRING_REFRESH_OPTIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_open(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_STRING_IS_OPEN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_STRING_IS_OPEN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_selected_option(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_STRING_GET_SELECTED_OPTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_STRING_GET_SELECTED_OPTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_selected_index(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_STRING_GET_SELECTED_INDEX,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_STRING_GET_SELECTED_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_option_count(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_STRING_GET_OPTION_COUNT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_STRING_GET_OPTION_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_option_at_index(&self, index: i32) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_STRING_GET_OPTION_AT_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_STRING_GET_OPTION_AT_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FString>().read() }
+    }
+    pub fn find_option_index(&self, option: FString) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_STRING_FIND_OPTION_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&option, __buffer.add(0).cast::<FString>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_STRING_FIND_OPTION_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<i32>().read() }
+    }
+    pub fn clear_selection(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_STRING_CLEAR_SELECTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_STRING_CLEAR_SELECTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_options(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_STRING_CLEAR_OPTIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_STRING_CLEAR_OPTIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_option(&mut self, option: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_COMBO_BOX_STRING_ADD_OPTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&option, __buffer.add(0).cast::<FString>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_COMBO_BOX_STRING_ADD_OPTION,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct UEditableText {
@@ -8770,7 +15192,6 @@ pub struct UEditableText {
     #[doc(hidden)]
     __padding_1688: [u8; 97],
     pub enable_integrated_keyboard: bool,
-    __padding_end: [u8; 7],
 }
 impl UEditableText {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -8786,6 +15207,447 @@ impl UEditableText {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn toggle_virtual_keyboard(&mut self, b_show: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_TOGGLE_VIRTUAL_KEYBOARD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_show, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_TOGGLE_VIRTUAL_KEYBOARD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_text_overflow_policy(
+        &mut self,
+        in_overflow_policy: crate::bindings::slate_core::ETextOverflowPolicy,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_TEXT_OVERFLOW_POLICY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_overflow_policy,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::ETextOverflowPolicy>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_TEXT_OVERFLOW_POLICY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_text(&mut self, in_text: FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_text, __buffer.add(0).cast::<FText>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_minimum_desired_width(&mut self, in_min_desired_width: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_MINIMUM_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_min_desired_width,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_MINIMUM_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_justification(
+        &mut self,
+        in_justification: crate::bindings::slate::ETextJustify,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_JUSTIFICATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_justification,
+                __buffer.add(0).cast::<crate::bindings::slate::ETextJustify>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_JUSTIFICATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_read_only(&mut self, inb_is_ready_only: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_IS_READ_ONLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &inb_is_ready_only,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_IS_READ_ONLY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_password(&mut self, inb_is_password: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_IS_PASSWORD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &inb_is_password,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_IS_PASSWORD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hint_text(&mut self, in_hint_text: FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_HINT_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_hint_text,
+                __buffer.add(0).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_HINT_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_font_outline_material(
+        &mut self,
+        in_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_FONT_OUTLINE_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_FONT_OUTLINE_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_font_material(
+        &mut self,
+        in_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_FONT_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_FONT_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_font(
+        &mut self,
+        in_font_info: crate::bindings::slate_core::FSlateFontInfo,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_FONT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_font_info,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateFontInfo>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_SET_FONT,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_GET_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_GET_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_justification(&self) -> crate::bindings::slate::ETextJustify {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_GET_JUSTIFICATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_GET_JUSTIFICATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<crate::bindings::slate::ETextJustify>().read() }
+    }
+    pub fn get_hint_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_GET_HINT_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_GET_HINT_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_font(&self) -> crate::bindings::slate_core::FSlateFontInfo {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_GET_FONT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_GET_FONT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::slate_core::FSlateFontInfo>().read()
         }
     }
 }
@@ -8831,6 +15693,316 @@ impl UEditableTextBox {
             cdo
         }
     }
+    pub fn set_text_overflow_policy(
+        &mut self,
+        in_overflow_policy: crate::bindings::slate_core::ETextOverflowPolicy,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_TEXT_OVERFLOW_POLICY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_overflow_policy,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::ETextOverflowPolicy>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_TEXT_OVERFLOW_POLICY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_text(&mut self, in_text: FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_text, __buffer.add(0).cast::<FText>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_justification(
+        &mut self,
+        in_justification: crate::bindings::slate::ETextJustify,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_JUSTIFICATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_justification,
+                __buffer.add(0).cast::<crate::bindings::slate::ETextJustify>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_JUSTIFICATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_read_only(&mut self, b_read_only: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_IS_READ_ONLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_read_only,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_IS_READ_ONLY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_password(&mut self, b_is_password: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_IS_PASSWORD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_password,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_IS_PASSWORD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hint_text(&mut self, in_text: FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_HINT_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_text, __buffer.add(0).cast::<FText>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_HINT_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_foreground_color(
+        &mut self,
+        color: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_FOREGROUND_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &color,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_FOREGROUND_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_error(&mut self, in_error: FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_ERROR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_error, __buffer.add(0).cast::<FText>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_SET_ERROR,
+                __buffer,
+            )
+        };
+    }
+    pub fn has_error(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_HAS_ERROR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_HAS_ERROR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_GET_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_GET_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn clear_error(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_CLEAR_ERROR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EDITABLE_TEXT_BOX_CLEAR_ERROR,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct UExpandableArea {
@@ -8859,6 +16031,90 @@ impl UExpandableArea {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_is_expanded_animated(&mut self, is_expanded: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EXPANDABLE_AREA_SET_IS_EXPANDED_ANIMATED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &is_expanded,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EXPANDABLE_AREA_SET_IS_EXPANDED_ANIMATED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_expanded(&mut self, is_expanded: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EXPANDABLE_AREA_SET_IS_EXPANDED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &is_expanded,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EXPANDABLE_AREA_SET_IS_EXPANDED,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_is_expanded(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_EXPANDABLE_AREA_GET_IS_EXPANDED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_EXPANDABLE_AREA_GET_IS_EXPANDED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -8891,6 +16147,246 @@ impl UInputKeySelector {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_text_block_visibility(&mut self, in_visibility: ESlateVisibility) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_SET_TEXT_BLOCK_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_visibility,
+                __buffer.add(0).cast::<ESlateVisibility>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_SET_TEXT_BLOCK_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_selected_key(
+        &mut self,
+        in_selected_key: &crate::bindings::slate::FInputChord,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_SET_SELECTED_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_selected_key,
+                __buffer.add(0).cast::<crate::bindings::slate::FInputChord>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_SET_SELECTED_KEY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_no_key_specified_text(&mut self, in_no_key_specified_text: FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_SET_NO_KEY_SPECIFIED_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_no_key_specified_text,
+                __buffer.add(0).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_SET_NO_KEY_SPECIFIED_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_key_selection_text(&mut self, in_key_selection_text: FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_SET_KEY_SELECTION_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key_selection_text,
+                __buffer.add(0).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_SET_KEY_SELECTION_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_escape_keys(
+        &mut self,
+        in_keys: &TArray<crate::bindings::input_core::FKey>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_SET_ESCAPE_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_keys,
+                __buffer.add(0).cast::<TArray<crate::bindings::input_core::FKey>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_SET_ESCAPE_KEYS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_allow_modifier_keys(&mut self, b_in_allow_modifier_keys: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_SET_ALLOW_MODIFIER_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_allow_modifier_keys,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_SET_ALLOW_MODIFIER_KEYS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_allow_gamepad_keys(&mut self, b_in_allow_gamepad_keys: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_SET_ALLOW_GAMEPAD_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_allow_gamepad_keys,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_SET_ALLOW_GAMEPAD_KEYS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_is_selecting_key(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_GET_IS_SELECTING_KEY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_INPUT_KEY_SELECTOR_GET_IS_SELECTING_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -8932,6 +16428,402 @@ impl UListViewBase {
             cdo
         }
     }
+    pub fn set_wheel_scroll_multiplier(&mut self, new_wheel_scroll_multiplier: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BASE_SET_WHEEL_SCROLL_MULTIPLIER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_wheel_scroll_multiplier,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BASE_SET_WHEEL_SCROLL_MULTIPLIER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_scroll_offset(&mut self, in_scroll_offset: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BASE_SET_SCROLL_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_scroll_offset,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BASE_SET_SCROLL_OFFSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_scrollbar_visibility(&mut self, in_visibility: ESlateVisibility) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BASE_SET_SCROLLBAR_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_visibility,
+                __buffer.add(0).cast::<ESlateVisibility>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BASE_SET_SCROLLBAR_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_pointer_scrolling_enabled(
+        &mut self,
+        b_in_is_pointer_scrolling_enabled: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BASE_SET_IS_POINTER_SCROLLING_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_is_pointer_scrolling_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BASE_SET_IS_POINTER_SCROLLING_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_gamepad_scrolling_enabled(
+        &mut self,
+        b_in_is_gamepad_scrolling_enabled: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BASE_SET_IS_GAMEPAD_SCROLLING_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_is_gamepad_scrolling_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BASE_SET_IS_GAMEPAD_SCROLLING_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_allow_over_scroll(&mut self, new_allow_overscroll: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BASE_SET_ALLOW_OVER_SCROLL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_allow_overscroll,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BASE_SET_ALLOW_OVER_SCROLL,
+                __buffer,
+            )
+        };
+    }
+    pub fn scroll_to_top(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BASE_SCROLL_TO_TOP,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BASE_SCROLL_TO_TOP,
+                __buffer,
+            )
+        };
+    }
+    pub fn scroll_to_bottom(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BASE_SCROLL_TO_BOTTOM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BASE_SCROLL_TO_BOTTOM,
+                __buffer,
+            )
+        };
+    }
+    pub fn request_refresh(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BASE_REQUEST_REFRESH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BASE_REQUEST_REFRESH,
+                __buffer,
+            )
+        };
+    }
+    pub fn regenerate_all_entries(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BASE_REGENERATE_ALL_ENTRIES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BASE_REGENERATE_ALL_ENTRIES,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_scroll_offset(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BASE_GET_SCROLL_OFFSET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BASE_GET_SCROLL_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_is_dragging_list_item(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BASE_GET_IS_DRAGGING_LIST_ITEM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BASE_GET_IS_DRAGGING_LIST_ITEM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_displayed_entry_widgets(&self) -> TArray<UPtr<UUserWidget>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BASE_GET_DISPLAYED_ENTRY_WIDGETS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BASE_GET_DISPLAYED_ENTRY_WIDGETS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<UUserWidget>>>().read() }
+    }
+    pub fn end_inertial_scrolling(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BASE_END_INERTIAL_SCROLLING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BASE_END_INERTIAL_SCROLLING,
+                __buffer,
+            )
+        };
+    }
+    pub fn cancel_list_view_drag_drop(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BASE_CANCEL_LIST_VIEW_DRAG_DROP,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BASE_CANCEL_LIST_VIEW_DRAG_DROP,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct UListView {
@@ -8958,7 +16850,6 @@ pub struct UListView {
     #[doc(hidden)]
     __padding_5048: [u8; 336],
     pub bp_on_is_item_selectable_or_navigable: FListView_BP_OnIsItemSelectableOrNavigable,
-    __padding_end: [u8; 8],
 }
 impl UListView {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -8975,6 +16866,781 @@ impl UListView {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_selection_mode(
+        &mut self,
+        selection_mode: crate::bindings::slate::ESelectionMode,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_SET_SELECTION_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &selection_mode,
+                __buffer.add(0).cast::<crate::bindings::slate::ESelectionMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_SET_SELECTION_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_selected_index(&mut self, index: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_SET_SELECTED_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_SET_SELECTED_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_scroll_into_view_alignment(
+        &mut self,
+        new_scroll_into_view_alignment: crate::bindings::slate::EScrollIntoViewAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_SET_SCROLL_INTO_VIEW_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_scroll_into_view_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate::EScrollIntoViewAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_SET_SCROLL_INTO_VIEW_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn scroll_index_into_view(&mut self, index: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_SCROLL_INDEX_INTO_VIEW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_SCROLL_INDEX_INTO_VIEW,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_item(&mut self, item: UPtr<crate::bindings::core_u_object::UObject>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_REMOVE_ITEM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &item,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_REMOVE_ITEM,
+                __buffer,
+            )
+        };
+    }
+    pub fn navigate_to_index(&mut self, index: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_NAVIGATE_TO_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_NAVIGATE_TO_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_refresh_pending(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_IS_REFRESH_PENDING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_IS_REFRESH_PENDING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_vertical_entry_spacing(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_GET_VERTICAL_ENTRY_SPACING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_GET_VERTICAL_ENTRY_SPACING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_num_items(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_GET_NUM_ITEMS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_GET_NUM_ITEMS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_list_items(
+        &self,
+    ) -> TArray<UPtr<crate::bindings::core_u_object::UObject>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_GET_LIST_ITEMS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_GET_LIST_ITEMS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
+                .read()
+        }
+    }
+    pub fn get_item_at(
+        &self,
+        index: i32,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_GET_ITEM_AT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_GET_ITEM_AT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_index_for_item(
+        &self,
+        item: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_GET_INDEX_FOR_ITEM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &item,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_GET_INDEX_FOR_ITEM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<i32>().read() }
+    }
+    pub fn get_horizontal_entry_spacing(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_GET_HORIZONTAL_ENTRY_SPACING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_GET_HORIZONTAL_ENTRY_SPACING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn clear_list_items(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_CLEAR_LIST_ITEMS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_CLEAR_LIST_ITEMS,
+                __buffer,
+            )
+        };
+    }
+    pub fn bp_set_selected_item(
+        &mut self,
+        item: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BP_SET_SELECTED_ITEM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &item,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BP_SET_SELECTED_ITEM,
+                __buffer,
+            )
+        };
+    }
+    pub fn bp_set_list_items(
+        &mut self,
+        in_list_items: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BP_SET_LIST_ITEMS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_list_items,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BP_SET_LIST_ITEMS,
+                __buffer,
+            )
+        };
+    }
+    pub fn bp_set_item_selection(
+        &mut self,
+        item: UPtr<crate::bindings::core_u_object::UObject>,
+        b_selected: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BP_SET_ITEM_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &item,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_selected,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BP_SET_ITEM_SELECTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn bp_scroll_item_into_view(
+        &mut self,
+        item: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BP_SCROLL_ITEM_INTO_VIEW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &item,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BP_SCROLL_ITEM_INTO_VIEW,
+                __buffer,
+            )
+        };
+    }
+    pub fn bp_navigate_to_item(
+        &mut self,
+        item: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BP_NAVIGATE_TO_ITEM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &item,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BP_NAVIGATE_TO_ITEM,
+                __buffer,
+            )
+        };
+    }
+    pub fn bp_is_item_visible(
+        &self,
+        item: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BP_IS_ITEM_VISIBLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &item,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BP_IS_ITEM_VISIBLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn bp_get_selected_items(
+        &self,
+        items: &mut TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BP_GET_SELECTED_ITEMS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                items,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BP_GET_SELECTED_ITEMS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
+                .swap(items);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn bp_get_selected_item(&self) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BP_GET_SELECTED_ITEM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BP_GET_SELECTED_ITEM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn bp_get_num_items_selected(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BP_GET_NUM_ITEMS_SELECTED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BP_GET_NUM_ITEMS_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn bp_clear_selection(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BP_CLEAR_SELECTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BP_CLEAR_SELECTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn bp_cancel_scroll_into_view(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_BP_CANCEL_SCROLL_INTO_VIEW,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_BP_CANCEL_SCROLL_INTO_VIEW,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_item(&mut self, item: UPtr<crate::bindings::core_u_object::UObject>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_LIST_VIEW_ADD_ITEM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &item,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_LIST_VIEW_ADD_ITEM,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -9005,6 +17671,39 @@ impl UTextLayoutWidget {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_justification(
+        &mut self,
+        in_justification: crate::bindings::slate::ETextJustify,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_LAYOUT_WIDGET_SET_JUSTIFICATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_justification,
+                __buffer.add(0).cast::<crate::bindings::slate::ETextJustify>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_LAYOUT_WIDGET_SET_JUSTIFICATION,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(16))]
@@ -9040,6 +17739,302 @@ impl UMultiLineEditableText {
             cdo
         }
     }
+    pub fn set_widget_style(
+        &mut self,
+        in_widget_style: &crate::bindings::slate_core::FTextBlockStyle,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<848>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_SET_WIDGET_STYLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_widget_style,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FTextBlockStyle>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_SET_WIDGET_STYLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_text(&mut self, in_text: FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_SET_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_text, __buffer.add(0).cast::<FText>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_SET_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_read_only(&mut self, b_read_only: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_SET_IS_READ_ONLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_read_only,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_SET_IS_READ_ONLY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hint_text(&mut self, in_hint_text: FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_SET_HINT_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_hint_text,
+                __buffer.add(0).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_SET_HINT_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_font_outline_material(
+        &mut self,
+        in_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_SET_FONT_OUTLINE_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_SET_FONT_OUTLINE_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_font_material(
+        &mut self,
+        in_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_SET_FONT_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_SET_FONT_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_font(
+        &mut self,
+        in_font_info: crate::bindings::slate_core::FSlateFontInfo,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_SET_FONT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_font_info,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateFontInfo>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_SET_FONT,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_GET_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_GET_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_hint_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_GET_HINT_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_GET_HINT_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_font(&self) -> crate::bindings::slate_core::FSlateFontInfo {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_GET_FONT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_GET_FONT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::slate_core::FSlateFontInfo>().read()
+        }
+    }
 }
 #[repr(C, align(16))]
 pub struct UMultiLineEditableTextBox {
@@ -9070,6 +18065,232 @@ impl UMultiLineEditableTextBox {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_text_style(
+        &mut self,
+        in_text_style: &crate::bindings::slate_core::FTextBlockStyle,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<848>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_SET_TEXT_STYLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_text_style,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FTextBlockStyle>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_SET_TEXT_STYLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_text(&mut self, in_text: FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_SET_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_text, __buffer.add(0).cast::<FText>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_SET_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_read_only(&mut self, b_read_only: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_SET_IS_READ_ONLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_read_only,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_SET_IS_READ_ONLY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hint_text(&mut self, in_hint_text: FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_SET_HINT_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_hint_text,
+                __buffer.add(0).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_SET_HINT_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_foreground_color(
+        &mut self,
+        color: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_SET_FOREGROUND_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &color,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_SET_FOREGROUND_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_error(&mut self, in_error: FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_SET_ERROR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_error, __buffer.add(0).cast::<FText>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_SET_ERROR,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_GET_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_GET_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_hint_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_GET_HINT_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MULTI_LINE_EDITABLE_TEXT_BOX_GET_HINT_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -9103,6 +18324,95 @@ impl UProgressBar {
             cdo
         }
     }
+    pub fn set_percent(&mut self, in_percent: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_PROGRESS_BAR_SET_PERCENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_percent, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_PROGRESS_BAR_SET_PERCENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_marquee(&mut self, inb_is_marquee: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_PROGRESS_BAR_SET_IS_MARQUEE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &inb_is_marquee,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_PROGRESS_BAR_SET_IS_MARQUEE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_fill_color_and_opacity(
+        &mut self,
+        in_color: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_PROGRESS_BAR_SET_FILL_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_color,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_PROGRESS_BAR_SET_FILL_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct UScrollBar {
@@ -9131,6 +18441,43 @@ impl UScrollBar {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_state(&mut self, in_offset_fraction: f32, in_thumb_size_fraction: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BAR_SET_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_offset_fraction,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_thumb_size_fraction,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BAR_SET_STATE,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(16))]
@@ -9178,6 +18525,886 @@ impl UScrollBox {
             cdo
         }
     }
+    pub fn set_wheel_scroll_multiplier(&mut self, new_wheel_scroll_multiplier: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_WHEEL_SCROLL_MULTIPLIER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_wheel_scroll_multiplier,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_WHEEL_SCROLL_MULTIPLIER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_scroll_when_focus_changes(
+        &mut self,
+        new_scroll_when_focus_changes: crate::bindings::slate::EScrollWhenFocusChanges,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_SCROLL_WHEN_FOCUS_CHANGES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_scroll_when_focus_changes,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate::EScrollWhenFocusChanges>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_SCROLL_WHEN_FOCUS_CHANGES,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_scroll_offset(&mut self, new_scroll_offset: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_SCROLL_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_scroll_offset,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_SCROLL_OFFSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_scroll_bar_visibility(
+        &mut self,
+        new_scroll_bar_visibility: ESlateVisibility,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_SCROLL_BAR_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_scroll_bar_visibility,
+                __buffer.add(0).cast::<ESlateVisibility>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_SCROLL_BAR_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_scrollbar_thickness(
+        &mut self,
+        new_scrollbar_thickness: &crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_SCROLLBAR_THICKNESS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_scrollbar_thickness,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_SCROLLBAR_THICKNESS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_scrollbar_padding(
+        &mut self,
+        new_scrollbar_padding: &crate::bindings::slate_core::FMargin,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_SCROLLBAR_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_scrollbar_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_SCROLLBAR_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_scroll_animation_interpolation_speed(
+        &mut self,
+        new_scroll_animation_interpolation_speed: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_SCROLL_ANIMATION_INTERPOLATION_SPEED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_scroll_animation_interpolation_speed,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_SCROLL_ANIMATION_INTERPOLATION_SPEED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_orientation(
+        &mut self,
+        new_orientation: crate::bindings::slate_core::EOrientation,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_ORIENTATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_orientation,
+                __buffer.add(0).cast::<crate::bindings::slate_core::EOrientation>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_ORIENTATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_navigation_destination(
+        &mut self,
+        new_navigation_destination: crate::bindings::slate::EDescendantScrollDestination,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_NAVIGATION_DESTINATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_navigation_destination,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate::EDescendantScrollDestination>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_NAVIGATION_DESTINATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_is_focusable(&mut self, b_in_is_focusable: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_IS_FOCUSABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_is_focusable,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_IS_FOCUSABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_consume_pointer_input(&mut self, b_in_consume_pointer_input: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_CONSUME_POINTER_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_consume_pointer_input,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_CONSUME_POINTER_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_consume_mouse_wheel(
+        &mut self,
+        new_consume_mouse_wheel: crate::bindings::slate_core::EConsumeMouseWheel,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_CONSUME_MOUSE_WHEEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_consume_mouse_wheel,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EConsumeMouseWheel>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_CONSUME_MOUSE_WHEEL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_animate_wheel_scrolling(
+        &mut self,
+        b_should_animate_wheel_scrolling: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_ANIMATE_WHEEL_SCROLLING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_should_animate_wheel_scrolling,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_ANIMATE_WHEEL_SCROLLING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_analog_mouse_wheel_key(
+        &mut self,
+        in_mouse_wheel_key: crate::bindings::input_core::FKey,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_ANALOG_MOUSE_WHEEL_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_mouse_wheel_key,
+                __buffer.add(0).cast::<crate::bindings::input_core::FKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_ANALOG_MOUSE_WHEEL_KEY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_always_show_scrollbar(&mut self, new_always_show_scrollbar: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_ALWAYS_SHOW_SCROLLBAR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_always_show_scrollbar,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_ALWAYS_SHOW_SCROLLBAR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_allow_overscroll(&mut self, new_allow_overscroll: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SET_ALLOW_OVERSCROLL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_allow_overscroll,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SET_ALLOW_OVERSCROLL,
+                __buffer,
+            )
+        };
+    }
+    pub fn scroll_widget_into_view(
+        &mut self,
+        widget_to_find: UPtr<UWidget>,
+        animate_scroll: bool,
+        scroll_destination: crate::bindings::slate::EDescendantScrollDestination,
+        padding: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SCROLL_WIDGET_INTO_VIEW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget_to_find,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &animate_scroll,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &scroll_destination,
+                __buffer
+                    .add(9)
+                    .cast::<crate::bindings::slate::EDescendantScrollDestination>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&padding, __buffer.add(12).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SCROLL_WIDGET_INTO_VIEW,
+                __buffer,
+            )
+        };
+    }
+    pub fn scroll_to_start(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SCROLL_TO_START,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SCROLL_TO_START,
+                __buffer,
+            )
+        };
+    }
+    pub fn scroll_to_end(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SCROLL_TO_END,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SCROLL_TO_END,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_view_offset_fraction(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_GET_VIEW_OFFSET_FRACTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_GET_VIEW_OFFSET_FRACTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_view_fraction(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_GET_VIEW_FRACTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_GET_VIEW_FRACTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_scroll_offset_of_end(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_GET_SCROLL_OFFSET_OF_END,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_GET_SCROLL_OFFSET_OF_END,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_scroll_offset(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_GET_SCROLL_OFFSET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_GET_SCROLL_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_overscroll_percentage(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_GET_OVERSCROLL_PERCENTAGE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_GET_OVERSCROLL_PERCENTAGE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_overscroll_offset(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_GET_OVERSCROLL_OFFSET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_GET_OVERSCROLL_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_is_scrolling(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_GET_IS_SCROLLING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_GET_IS_SCROLLING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_is_focusable(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_GET_IS_FOCUSABLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_GET_IS_FOCUSABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_consume_pointer_input(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_GET_CONSUME_POINTER_INPUT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_GET_CONSUME_POINTER_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_analog_mouse_wheel_key(&self) -> crate::bindings::input_core::FKey {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_GET_ANALOG_MOUSE_WHEEL_KEY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_GET_ANALOG_MOUSE_WHEEL_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<crate::bindings::input_core::FKey>().read() }
+    }
+    pub fn end_inertial_scrolling(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_END_INERTIAL_SCROLLING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_END_INERTIAL_SCROLLING,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct USlider {
@@ -9212,6 +19439,276 @@ impl USlider {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_value(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLIDER_SET_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLIDER_SET_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_step_size(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLIDER_SET_STEP_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLIDER_SET_STEP_SIZE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slider_handle_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLIDER_SET_SLIDER_HANDLE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLIDER_SET_SLIDER_HANDLE_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slider_bar_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLIDER_SET_SLIDER_BAR_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLIDER_SET_SLIDER_BAR_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_min_value(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLIDER_SET_MIN_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLIDER_SET_MIN_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_max_value(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLIDER_SET_MAX_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLIDER_SET_MAX_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_locked(&mut self, in_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLIDER_SET_LOCKED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLIDER_SET_LOCKED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_indent_handle(&mut self, in_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLIDER_SET_INDENT_HANDLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLIDER_SET_INDENT_HANDLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_value(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLIDER_GET_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLIDER_GET_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_normalized_value(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLIDER_GET_NORMALIZED_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLIDER_GET_NORMALIZED_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -9256,6 +19753,585 @@ impl USpinBox {
             cdo
         }
     }
+    pub fn set_value(&mut self, new_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_SET_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&new_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_SET_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_min_value(&mut self, new_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_SET_MIN_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&new_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_SET_MIN_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_min_slider_value(&mut self, new_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_SET_MIN_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&new_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_SET_MIN_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_min_fractional_digits(&mut self, new_value: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_SET_MIN_FRACTIONAL_DIGITS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&new_value, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_SET_MIN_FRACTIONAL_DIGITS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_max_value(&mut self, new_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_SET_MAX_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&new_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_SET_MAX_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_max_slider_value(&mut self, new_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_SET_MAX_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&new_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_SET_MAX_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_max_fractional_digits(&mut self, new_value: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_SET_MAX_FRACTIONAL_DIGITS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&new_value, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_SET_MAX_FRACTIONAL_DIGITS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_foreground_color(
+        &mut self,
+        in_foreground_color: crate::bindings::slate_core::FSlateColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_SET_FOREGROUND_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_foreground_color,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_SET_FOREGROUND_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_delta(&mut self, new_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_SET_DELTA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&new_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_SET_DELTA,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_always_uses_delta_snap(&mut self, b_new_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_SET_ALWAYS_USES_DELTA_SNAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_new_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_SET_ALWAYS_USES_DELTA_SNAP,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_value(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_GET_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_GET_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_min_value(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_GET_MIN_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_GET_MIN_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_min_slider_value(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_GET_MIN_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_GET_MIN_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_min_fractional_digits(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_GET_MIN_FRACTIONAL_DIGITS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_GET_MIN_FRACTIONAL_DIGITS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_max_value(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_GET_MAX_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_GET_MAX_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_max_slider_value(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_GET_MAX_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_GET_MAX_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_max_fractional_digits(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_GET_MAX_FRACTIONAL_DIGITS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_GET_MAX_FRACTIONAL_DIGITS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_delta(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_GET_DELTA,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_GET_DELTA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_always_uses_delta_snap(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_GET_ALWAYS_USES_DELTA_SNAP,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_GET_ALWAYS_USES_DELTA_SNAP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn clear_min_value(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_CLEAR_MIN_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_CLEAR_MIN_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_min_slider_value(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_CLEAR_MIN_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_CLEAR_MIN_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_max_value(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_CLEAR_MAX_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_CLEAR_MAX_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_max_slider_value(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPIN_BOX_CLEAR_MAX_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPIN_BOX_CLEAR_MAX_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct UThrobber {
@@ -9284,6 +20360,126 @@ impl UThrobber {
             cdo
         }
     }
+    pub fn set_number_of_pieces(&mut self, in_number_of_pieces: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_THROBBER_SET_NUMBER_OF_PIECES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_number_of_pieces,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_THROBBER_SET_NUMBER_OF_PIECES,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_animate_vertically(&mut self, b_in_animate_vertically: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_THROBBER_SET_ANIMATE_VERTICALLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_animate_vertically,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_THROBBER_SET_ANIMATE_VERTICALLY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_animate_opacity(&mut self, b_in_animate_opacity: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_THROBBER_SET_ANIMATE_OPACITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_animate_opacity,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_THROBBER_SET_ANIMATE_OPACITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_animate_horizontally(&mut self, b_in_animate_horizontally: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_THROBBER_SET_ANIMATE_HORIZONTALLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_animate_horizontally,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_THROBBER_SET_ANIMATE_HORIZONTALLY,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct UTreeView {
@@ -9304,6 +20500,93 @@ impl UTreeView {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_item_expansion(
+        &mut self,
+        item: UPtr<crate::bindings::core_u_object::UObject>,
+        b_expand_item: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TREE_VIEW_SET_ITEM_EXPANSION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &item,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_expand_item,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TREE_VIEW_SET_ITEM_EXPANSION,
+                __buffer,
+            )
+        };
+    }
+    pub fn expand_all(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TREE_VIEW_EXPAND_ALL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TREE_VIEW_EXPAND_ALL,
+                __buffer,
+            )
+        };
+    }
+    pub fn collapse_all(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TREE_VIEW_COLLAPSE_ALL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TREE_VIEW_COLLAPSE_ALL,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -9629,6 +20912,60 @@ impl UUMGSequencePlayer {
             cdo
         }
     }
+    pub fn set_user_tag(&mut self, in_user_tag: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::UUMG_SEQUENCE_PLAYER_SET_USER_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_user_tag,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::UUMG_SEQUENCE_PLAYER_SET_USER_TAG,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_user_tag(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::UUMG_SEQUENCE_PLAYER_GET_USER_TAG,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::UUMG_SEQUENCE_PLAYER_GET_USER_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UUMGSequenceTickManager {
@@ -9670,6 +21007,278 @@ impl UWidgetAnimation {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn unbind_from_animation_started(
+        &mut self,
+        widget: UPtr<UUserWidget>,
+        delegate: FUnbindFromAnimationStarted_Delegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_ANIMATION_UNBIND_FROM_ANIMATION_STARTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UUserWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delegate,
+                __buffer.add(8).cast::<FUnbindFromAnimationStarted_Delegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_ANIMATION_UNBIND_FROM_ANIMATION_STARTED,
+                __buffer,
+            )
+        };
+    }
+    pub fn unbind_from_animation_finished(
+        &mut self,
+        widget: UPtr<UUserWidget>,
+        delegate: FUnbindFromAnimationFinished_Delegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_ANIMATION_UNBIND_FROM_ANIMATION_FINISHED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UUserWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delegate,
+                __buffer.add(8).cast::<FUnbindFromAnimationFinished_Delegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_ANIMATION_UNBIND_FROM_ANIMATION_FINISHED,
+                __buffer,
+            )
+        };
+    }
+    pub fn unbind_all_from_animation_started(&mut self, widget: UPtr<UUserWidget>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_ANIMATION_UNBIND_ALL_FROM_ANIMATION_STARTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UUserWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_ANIMATION_UNBIND_ALL_FROM_ANIMATION_STARTED,
+                __buffer,
+            )
+        };
+    }
+    pub fn unbind_all_from_animation_finished(&mut self, widget: UPtr<UUserWidget>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_ANIMATION_UNBIND_ALL_FROM_ANIMATION_FINISHED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UUserWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_ANIMATION_UNBIND_ALL_FROM_ANIMATION_FINISHED,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_start_time(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_ANIMATION_GET_START_TIME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_ANIMATION_GET_START_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_end_time(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_ANIMATION_GET_END_TIME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_ANIMATION_GET_END_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn bind_to_animation_started(
+        &mut self,
+        widget: UPtr<UUserWidget>,
+        delegate: FBindToAnimationStarted_Delegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_ANIMATION_BIND_TO_ANIMATION_STARTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UUserWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delegate,
+                __buffer.add(8).cast::<FBindToAnimationStarted_Delegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_ANIMATION_BIND_TO_ANIMATION_STARTED,
+                __buffer,
+            )
+        };
+    }
+    pub fn bind_to_animation_finished(
+        &mut self,
+        widget: UPtr<UUserWidget>,
+        delegate: FBindToAnimationFinished_Delegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_ANIMATION_BIND_TO_ANIMATION_FINISHED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UUserWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delegate,
+                __buffer.add(8).cast::<FBindToAnimationFinished_Delegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_ANIMATION_BIND_TO_ANIMATION_FINISHED,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -9713,6 +21322,77 @@ impl UWidgetAnimationHandleFunctionLibrary {
             cdo
         }
     }
+    pub fn set_user_tag(target: &mut FWidgetAnimationHandle, in_user_tag: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_ANIMATION_HANDLE_FUNCTION_LIBRARY_SET_USER_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                target,
+                __buffer.add(0).cast::<FWidgetAnimationHandle>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_user_tag,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetAnimationHandleFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_ANIMATION_HANDLE_FUNCTION_LIBRARY_SET_USER_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FWidgetAnimationHandle>().swap(target);
+        }
+    }
+    pub fn get_user_tag(target: &FWidgetAnimationHandle) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_ANIMATION_HANDLE_FUNCTION_LIBRARY_GET_USER_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                target,
+                __buffer.add(0).cast::<FWidgetAnimationHandle>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetAnimationHandleFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_ANIMATION_HANDLE_FUNCTION_LIBRARY_GET_USER_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FName>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UWidgetAnimationPlayCallbackProxy {
@@ -9732,6 +21412,366 @@ impl UWidgetAnimationPlayCallbackProxy {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn new_play_animation_time_range_proxy_object(
+        result: &mut FWidgetAnimationHandle,
+        widget: UPtr<UUserWidget>,
+        in_animation: UPtr<UWidgetAnimation>,
+        start_at_time: f32,
+        end_at_time: f32,
+        num_loops_to_play: i32,
+        play_mode: EUMGSequencePlayMode,
+        playback_speed: f32,
+    ) -> UPtr<UWidgetAnimationPlayCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_ANIMATION_PLAY_CALLBACK_PROXY_NEW_PLAY_ANIMATION_TIME_RANGE_PROXY_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer.add(0).cast::<FWidgetAnimationHandle>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(16).cast::<UPtr<UUserWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(24).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start_at_time,
+                __buffer.add(32).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &end_at_time,
+                __buffer.add(36).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &num_loops_to_play,
+                __buffer.add(40).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &play_mode,
+                __buffer.add(44).cast::<EUMGSequencePlayMode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &playback_speed,
+                __buffer.add(48).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetAnimationPlayCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_ANIMATION_PLAY_CALLBACK_PROXY_NEW_PLAY_ANIMATION_TIME_RANGE_PROXY_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FWidgetAnimationHandle>().swap(result);
+        }
+        unsafe {
+            __buffer.add(56).cast::<UPtr<UWidgetAnimationPlayCallbackProxy>>().read()
+        }
+    }
+    pub fn new_play_animation_proxy_object(
+        result: &mut FWidgetAnimationHandle,
+        widget: UPtr<UUserWidget>,
+        in_animation: UPtr<UWidgetAnimation>,
+        start_at_time: f32,
+        num_loops_to_play: i32,
+        play_mode: EUMGSequencePlayMode,
+        playback_speed: f32,
+    ) -> UPtr<UWidgetAnimationPlayCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_ANIMATION_PLAY_CALLBACK_PROXY_NEW_PLAY_ANIMATION_PROXY_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer.add(0).cast::<FWidgetAnimationHandle>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(16).cast::<UPtr<UUserWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(24).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start_at_time,
+                __buffer.add(32).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &num_loops_to_play,
+                __buffer.add(36).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &play_mode,
+                __buffer.add(40).cast::<EUMGSequencePlayMode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &playback_speed,
+                __buffer.add(44).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetAnimationPlayCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_ANIMATION_PLAY_CALLBACK_PROXY_NEW_PLAY_ANIMATION_PROXY_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FWidgetAnimationHandle>().swap(result);
+        }
+        unsafe {
+            __buffer.add(48).cast::<UPtr<UWidgetAnimationPlayCallbackProxy>>().read()
+        }
+    }
+    pub fn create_play_animation_time_range_proxy_object(
+        result: &mut UPtr<UUMGSequencePlayer>,
+        widget: UPtr<UUserWidget>,
+        in_animation: UPtr<UWidgetAnimation>,
+        start_at_time: f32,
+        end_at_time: f32,
+        num_loops_to_play: i32,
+        play_mode: EUMGSequencePlayMode,
+        playback_speed: f32,
+    ) -> UPtr<UWidgetAnimationPlayCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_ANIMATION_PLAY_CALLBACK_PROXY_CREATE_PLAY_ANIMATION_TIME_RANGE_PROXY_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer.add(0).cast::<UPtr<UUMGSequencePlayer>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(8).cast::<UPtr<UUserWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(16).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start_at_time,
+                __buffer.add(24).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &end_at_time,
+                __buffer.add(28).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &num_loops_to_play,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &play_mode,
+                __buffer.add(36).cast::<EUMGSequencePlayMode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &playback_speed,
+                __buffer.add(40).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetAnimationPlayCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_ANIMATION_PLAY_CALLBACK_PROXY_CREATE_PLAY_ANIMATION_TIME_RANGE_PROXY_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<UUMGSequencePlayer>>().swap(result);
+        }
+        unsafe {
+            __buffer.add(48).cast::<UPtr<UWidgetAnimationPlayCallbackProxy>>().read()
+        }
+    }
+    pub fn create_play_animation_proxy_object(
+        result: &mut UPtr<UUMGSequencePlayer>,
+        widget: UPtr<UUserWidget>,
+        in_animation: UPtr<UWidgetAnimation>,
+        start_at_time: f32,
+        num_loops_to_play: i32,
+        play_mode: EUMGSequencePlayMode,
+        playback_speed: f32,
+    ) -> UPtr<UWidgetAnimationPlayCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_ANIMATION_PLAY_CALLBACK_PROXY_CREATE_PLAY_ANIMATION_PROXY_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer.add(0).cast::<UPtr<UUMGSequencePlayer>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(8).cast::<UPtr<UUserWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_animation,
+                __buffer.add(16).cast::<UPtr<UWidgetAnimation>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start_at_time,
+                __buffer.add(24).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &num_loops_to_play,
+                __buffer.add(28).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &play_mode,
+                __buffer.add(32).cast::<EUMGSequencePlayMode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &playback_speed,
+                __buffer.add(36).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetAnimationPlayCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_ANIMATION_PLAY_CALLBACK_PROXY_CREATE_PLAY_ANIMATION_PROXY_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<UUMGSequencePlayer>>().swap(result);
+        }
+        unsafe {
+            __buffer.add(40).cast::<UPtr<UWidgetAnimationPlayCallbackProxy>>().read()
         }
     }
 }
@@ -10133,6 +22173,33 @@ impl UAsyncTaskDownloadImage {
             cdo
         }
     }
+    pub fn download_image(url: FString) -> UPtr<UAsyncTaskDownloadImage> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_ASYNC_TASK_DOWNLOAD_IMAGE_DOWNLOAD_IMAGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&url, __buffer.add(0).cast::<FString>(), 1);
+        }
+        let __object_ptr = crate::bindings::umg::UAsyncTaskDownloadImage::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_ASYNC_TASK_DOWNLOAD_IMAGE_DOWNLOAD_IMAGE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UAsyncTaskDownloadImage>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UGameViewportSubsystem {
@@ -10153,6 +22220,329 @@ impl UGameViewportSubsystem {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_widget_slot_position(
+        slot: FGameViewportWidgetSlot,
+        widget: UPtr<UWidget>,
+        position: crate::bindings::core_u_object::FVector2D,
+        b_remove_dpi_scale: bool,
+    ) -> FGameViewportWidgetSlot {
+        let mut __stack = crate::core_data::StackAlloc::<176>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_SET_WIDGET_SLOT_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &slot,
+                __buffer.add(0).cast::<FGameViewportWidgetSlot>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(72).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(80).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_remove_dpi_scale,
+                __buffer.add(96).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UGameViewportSubsystem::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_SET_WIDGET_SLOT_POSITION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(104).cast::<FGameViewportWidgetSlot>().read() }
+    }
+    pub fn set_widget_slot_desired_size(
+        slot: FGameViewportWidgetSlot,
+        size: crate::bindings::core_u_object::FVector2D,
+    ) -> FGameViewportWidgetSlot {
+        let mut __stack = crate::core_data::StackAlloc::<160>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_SET_WIDGET_SLOT_DESIRED_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &slot,
+                __buffer.add(0).cast::<FGameViewportWidgetSlot>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &size,
+                __buffer.add(72).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UGameViewportSubsystem::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_SET_WIDGET_SLOT_DESIRED_SIZE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(88).cast::<FGameViewportWidgetSlot>().read() }
+    }
+    pub fn set_widget_slot(
+        &mut self,
+        widget: UPtr<UWidget>,
+        slot: FGameViewportWidgetSlot,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_SET_WIDGET_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &slot,
+                __buffer.add(8).cast::<FGameViewportWidgetSlot>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_SET_WIDGET_SLOT,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_widget(&mut self, widget: UPtr<UWidget>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_REMOVE_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_REMOVE_WIDGET,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_widget_added(&self, widget: UPtr<UWidget>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_IS_WIDGET_ADDED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_IS_WIDGET_ADDED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_widget_slot(&self, widget: UPtr<UWidget>) -> FGameViewportWidgetSlot {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_GET_WIDGET_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_GET_WIDGET_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FGameViewportWidgetSlot>().read() }
+    }
+    pub fn add_widget_for_player(
+        &mut self,
+        widget: UPtr<UWidget>,
+        player: UPtr<crate::bindings::engine::ULocalPlayer>,
+        slot: FGameViewportWidgetSlot,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<89>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_ADD_WIDGET_FOR_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::ULocalPlayer>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &slot,
+                __buffer.add(16).cast::<FGameViewportWidgetSlot>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_ADD_WIDGET_FOR_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(88).cast::<bool>().read() }
+    }
+    pub fn add_widget(
+        &mut self,
+        widget: UPtr<UWidget>,
+        slot: FGameViewportWidgetSlot,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<81>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_ADD_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &slot,
+                __buffer.add(8).cast::<FGameViewportWidgetSlot>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GAME_VIEWPORT_SUBSYSTEM_ADD_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(80).cast::<bool>().read() }
     }
 }
 pub struct IserListEntry {}
@@ -10197,6 +22587,105 @@ impl UUserListEntryLibrary {
             cdo
         }
     }
+    pub fn is_list_item_selected(
+        user_list_entry: TScriptInterface<UUserListEntry>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_LIST_ENTRY_LIBRARY_IS_LIST_ITEM_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &user_list_entry,
+                __buffer.add(0).cast::<TScriptInterface<UUserListEntry>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UUserListEntryLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_LIST_ENTRY_LIBRARY_IS_LIST_ITEM_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn is_list_item_expanded(
+        user_list_entry: TScriptInterface<UUserListEntry>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_LIST_ENTRY_LIBRARY_IS_LIST_ITEM_EXPANDED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &user_list_entry,
+                __buffer.add(0).cast::<TScriptInterface<UUserListEntry>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UUserListEntryLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_LIST_ENTRY_LIBRARY_IS_LIST_ITEM_EXPANDED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_owning_list_view(
+        user_list_entry: TScriptInterface<UUserListEntry>,
+    ) -> UPtr<UListViewBase> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_LIST_ENTRY_LIBRARY_GET_OWNING_LIST_VIEW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &user_list_entry,
+                __buffer.add(0).cast::<TScriptInterface<UUserListEntry>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UUserListEntryLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_LIST_ENTRY_LIBRARY_GET_OWNING_LIST_VIEW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UListViewBase>>().read() }
+    }
 }
 pub struct IserObjectListEntry {}
 #[repr(C, align(8))]
@@ -10240,6 +22729,143 @@ impl UUserObjectListEntryLibrary {
             cdo
         }
     }
+    pub fn is_last_widget(
+        user_object_list_entry: TScriptInterface<UUserObjectListEntry>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_OBJECT_LIST_ENTRY_LIBRARY_IS_LAST_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &user_object_list_entry,
+                __buffer.add(0).cast::<TScriptInterface<UUserObjectListEntry>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UUserObjectListEntryLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_OBJECT_LIST_ENTRY_LIBRARY_IS_LAST_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn is_first_widget(
+        user_object_list_entry: TScriptInterface<UUserObjectListEntry>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_OBJECT_LIST_ENTRY_LIBRARY_IS_FIRST_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &user_object_list_entry,
+                __buffer.add(0).cast::<TScriptInterface<UUserObjectListEntry>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UUserObjectListEntryLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_OBJECT_LIST_ENTRY_LIBRARY_IS_FIRST_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_list_item_object(
+        user_object_list_entry: TScriptInterface<UUserObjectListEntry>,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_OBJECT_LIST_ENTRY_LIBRARY_GET_LIST_ITEM_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &user_object_list_entry,
+                __buffer.add(0).cast::<TScriptInterface<UUserObjectListEntry>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UUserObjectListEntryLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_OBJECT_LIST_ENTRY_LIBRARY_GET_LIST_ITEM_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_list_item_index(
+        user_object_list_entry: TScriptInterface<UUserObjectListEntry>,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_OBJECT_LIST_ENTRY_LIBRARY_GET_LIST_ITEM_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &user_object_list_entry,
+                __buffer.add(0).cast::<TScriptInterface<UUserObjectListEntry>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UUserObjectListEntryLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_OBJECT_LIST_ENTRY_LIBRARY_GET_LIST_ITEM_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<i32>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UBackgroundBlur {
@@ -10273,6 +22899,262 @@ impl UBackgroundBlur {
             cdo
         }
     }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_low_quality_fallback_brush(
+        &mut self,
+        in_brush: &crate::bindings::slate_core::FSlateBrush,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<208>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_LOW_QUALITY_FALLBACK_BRUSH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_brush,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateBrush>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_LOW_QUALITY_FALLBACK_BRUSH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_corner_radius(
+        &mut self,
+        in_corner_radius: crate::bindings::core_u_object::FVector4,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_CORNER_RADIUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_corner_radius,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector4>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_CORNER_RADIUS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_blur_strength(&mut self, in_strength: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_BLUR_STRENGTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_strength,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_BLUR_STRENGTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_blur_radius(&mut self, in_blur_radius: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_BLUR_RADIUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_blur_radius,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_BLUR_RADIUS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_apply_alpha_to_blur(&mut self, b_in_apply_alpha_to_blur: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_APPLY_ALPHA_TO_BLUR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_apply_alpha_to_blur,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BACKGROUND_BLUR_SET_APPLY_ALPHA_TO_BLUR,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UPanelSlot {
@@ -10293,6 +23175,30 @@ impl UPanelSlot {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_content(&self) -> UPtr<UWidget> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_PANEL_SLOT_GET_CONTENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_PANEL_SLOT_GET_CONTENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UWidget>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -10319,6 +23225,106 @@ impl UBackgroundBlurSlot {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BACKGROUND_BLUR_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BACKGROUND_BLUR_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BACKGROUND_BLUR_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BACKGROUND_BLUR_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BACKGROUND_BLUR_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BACKGROUND_BLUR_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(16))]
@@ -10353,6 +23359,402 @@ impl UBorder {
             cdo
         }
     }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BORDER_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BORDER_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_show_effect_when_disabled(
+        &mut self,
+        b_in_show_effect_when_disabled: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BORDER_SET_SHOW_EFFECT_WHEN_DISABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_show_effect_when_disabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BORDER_SET_SHOW_EFFECT_WHEN_DISABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BORDER_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BORDER_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BORDER_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BORDER_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_desired_size_scale(
+        &mut self,
+        in_scale: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BORDER_SET_DESIRED_SIZE_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_scale,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BORDER_SET_DESIRED_SIZE_SCALE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_content_color_and_opacity(
+        &mut self,
+        in_content_color_and_opacity: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BORDER_SET_CONTENT_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_content_color_and_opacity,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BORDER_SET_CONTENT_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush_from_texture(
+        &mut self,
+        texture: UPtr<crate::bindings::engine::UTexture2D>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BORDER_SET_BRUSH_FROM_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &texture,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UTexture2D>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BORDER_SET_BRUSH_FROM_TEXTURE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush_from_material(
+        &mut self,
+        material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BORDER_SET_BRUSH_FROM_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BORDER_SET_BRUSH_FROM_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush_from_asset(
+        &mut self,
+        asset: UPtr<crate::bindings::engine::USlateBrushAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BORDER_SET_BRUSH_FROM_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::USlateBrushAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BORDER_SET_BRUSH_FROM_ASSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush_color(
+        &mut self,
+        in_brush_color: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BORDER_SET_BRUSH_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_brush_color,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BORDER_SET_BRUSH_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush(&mut self, in_brush: &crate::bindings::slate_core::FSlateBrush) {
+        let mut __stack = crate::core_data::StackAlloc::<208>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BORDER_SET_BRUSH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_brush,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateBrush>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BORDER_SET_BRUSH,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_dynamic_material(
+        &mut self,
+    ) -> UPtr<crate::bindings::engine::UMaterialInstanceDynamic> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BORDER_GET_DYNAMIC_MATERIAL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BORDER_GET_DYNAMIC_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInstanceDynamic>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UBorderSlot {
@@ -10378,6 +23780,106 @@ impl UBorderSlot {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BORDER_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BORDER_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BORDER_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BORDER_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BORDER_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BORDER_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -10405,6 +23907,106 @@ impl UButtonSlot {
             cdo
         }
     }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BUTTON_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BUTTON_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BUTTON_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BUTTON_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_BUTTON_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_BUTTON_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UCanvasPanel {
@@ -10425,6 +24027,40 @@ impl UCanvasPanel {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn add_child_to_canvas(
+        &mut self,
+        content: UPtr<UWidget>,
+    ) -> UPtr<UCanvasPanelSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_ADD_CHILD_TO_CANVAS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &content,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_ADD_CHILD_TO_CANVAS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UCanvasPanelSlot>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -10450,6 +24086,446 @@ impl UCanvasPanelSlot {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_z_order(&mut self, in_z_order: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_Z_ORDER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_z_order, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_Z_ORDER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_size(&mut self, in_size: crate::bindings::core_u_object::FVector2D) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_size,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_SIZE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_position(
+        &mut self,
+        in_position: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_position,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_POSITION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_offsets(&mut self, in_offset: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_OFFSETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_offset,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_OFFSETS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_layout(&mut self, in_layout_data: &FAnchorData) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_LAYOUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_layout_data,
+                __buffer.add(0).cast::<FAnchorData>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_LAYOUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_auto_size(&mut self, inb_auto_size: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_AUTO_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &inb_auto_size,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_AUTO_SIZE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_anchors(&mut self, in_anchors: crate::bindings::slate::FAnchors) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_ANCHORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_anchors,
+                __buffer.add(0).cast::<crate::bindings::slate::FAnchors>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_ANCHORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_alignment(
+        &mut self,
+        in_alignment: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_alignment,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_SET_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_z_order(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_Z_ORDER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_Z_ORDER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_size(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_SIZE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_position(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_POSITION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_offsets(&self) -> crate::bindings::slate_core::FMargin {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_OFFSETS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_OFFSETS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>().read() }
+    }
+    pub fn get_layout(&self) -> FAnchorData {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_LAYOUT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_LAYOUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FAnchorData>().read() }
+    }
+    pub fn get_auto_size(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_AUTO_SIZE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_AUTO_SIZE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_anchors(&self) -> crate::bindings::slate::FAnchors {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_ANCHORS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_ANCHORS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<crate::bindings::slate::FAnchors>().read() }
+    }
+    pub fn get_alignment(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_ALIGNMENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_CANVAS_PANEL_SLOT_GET_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
     }
 }
@@ -10532,13 +24608,123 @@ impl UDynamicEntryBoxBase {
             cdo
         }
     }
+    pub fn set_radial_settings(&mut self, in_settings: &FRadialBoxSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_BASE_SET_RADIAL_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FRadialBoxSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_BASE_SET_RADIAL_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_entry_spacing(
+        &mut self,
+        in_entry_spacing: &crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_BASE_SET_ENTRY_SPACING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_entry_spacing,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_BASE_SET_ENTRY_SPACING,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_num_entries(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_BASE_GET_NUM_ENTRIES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_BASE_GET_NUM_ENTRIES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_all_entries(&self) -> TArray<UPtr<UUserWidget>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_BASE_GET_ALL_ENTRIES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_BASE_GET_ALL_ENTRIES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<UUserWidget>>>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UDynamicEntryBox {
     #[doc(hidden)]
     __padding_976: [u8; 976],
     pub entry_widget_class: TSubclassOf<UUserWidget>,
-    __padding_end: [u8; 8],
 }
 impl UDynamicEntryBox {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -10555,6 +24741,124 @@ impl UDynamicEntryBox {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn reset(&mut self, b_delete_widgets: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_RESET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_delete_widgets,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_RESET,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_entry(&mut self, entry_widget: UPtr<UUserWidget>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_REMOVE_ENTRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entry_widget,
+                __buffer.add(0).cast::<UPtr<UUserWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_REMOVE_ENTRY,
+                __buffer,
+            )
+        };
+    }
+    pub fn bp_create_entry_of_class(
+        &mut self,
+        entry_class: TSubclassOf<UUserWidget>,
+    ) -> UPtr<UUserWidget> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_BP_CREATE_ENTRY_OF_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entry_class,
+                __buffer.add(0).cast::<TSubclassOf<UUserWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_BP_CREATE_ENTRY_OF_CLASS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UUserWidget>>().read() }
+    }
+    pub fn bp_create_entry(&mut self) -> UPtr<UUserWidget> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_BP_CREATE_ENTRY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_DYNAMIC_ENTRY_BOX_BP_CREATE_ENTRY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UUserWidget>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -10580,6 +24884,141 @@ impl UGridPanel {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_row_fill(&mut self, row_index: i32, coefficient: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GRID_PANEL_SET_ROW_FILL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&row_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &coefficient,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GRID_PANEL_SET_ROW_FILL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_column_fill(&mut self, column_index: i32, coefficient: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GRID_PANEL_SET_COLUMN_FILL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &column_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &coefficient,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GRID_PANEL_SET_COLUMN_FILL,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_fill(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GRID_PANEL_CLEAR_FILL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GRID_PANEL_CLEAR_FILL,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_child_to_grid(
+        &mut self,
+        content: UPtr<UWidget>,
+        in_row: i32,
+        in_column: i32,
+    ) -> UPtr<UGridSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GRID_PANEL_ADD_CHILD_TO_GRID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &content,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_row, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_column, __buffer.add(12).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GRID_PANEL_ADD_CHILD_TO_GRID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UGridSlot>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -10613,6 +25052,274 @@ impl UGridSlot {
             cdo
         }
     }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GRID_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GRID_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_row_span(&mut self, in_row_span: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GRID_SLOT_SET_ROW_SPAN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_row_span,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GRID_SLOT_SET_ROW_SPAN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_row(&mut self, in_row: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GRID_SLOT_SET_ROW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_row, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GRID_SLOT_SET_ROW,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GRID_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GRID_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_nudge(&mut self, in_nudge: crate::bindings::core_u_object::FVector2D) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GRID_SLOT_SET_NUDGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_nudge,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GRID_SLOT_SET_NUDGE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_layer(&mut self, in_layer: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GRID_SLOT_SET_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_layer, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GRID_SLOT_SET_LAYER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GRID_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GRID_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_column_span(&mut self, in_column_span: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GRID_SLOT_SET_COLUMN_SPAN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_column_span,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GRID_SLOT_SET_COLUMN_SPAN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_column(&mut self, in_column: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_GRID_SLOT_SET_COLUMN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_column, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_GRID_SLOT_SET_COLUMN,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UHorizontalBox {
@@ -10634,6 +25341,40 @@ impl UHorizontalBox {
             cdo
         }
     }
+    pub fn add_child_to_horizontal_box(
+        &mut self,
+        content: UPtr<UWidget>,
+    ) -> UPtr<UHorizontalBoxSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_HORIZONTAL_BOX_ADD_CHILD_TO_HORIZONTAL_BOX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &content,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_HORIZONTAL_BOX_ADD_CHILD_TO_HORIZONTAL_BOX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UHorizontalBoxSlot>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UHorizontalBoxSlot {
@@ -10643,7 +25384,6 @@ pub struct UHorizontalBoxSlot {
     pub padding: crate::bindings::slate_core::FMargin,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
-    __padding_end: [u8; 6],
 }
 impl UHorizontalBoxSlot {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -10660,6 +25400,136 @@ impl UHorizontalBoxSlot {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_HORIZONTAL_BOX_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_HORIZONTAL_BOX_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_size(&mut self, in_size: FSlateChildSize) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_HORIZONTAL_BOX_SLOT_SET_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_size,
+                __buffer.add(0).cast::<FSlateChildSize>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_HORIZONTAL_BOX_SLOT_SET_SIZE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_HORIZONTAL_BOX_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_HORIZONTAL_BOX_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_HORIZONTAL_BOX_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_HORIZONTAL_BOX_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(16))]
@@ -10687,6 +25557,508 @@ impl UImage {
             cdo
         }
     }
+    pub fn set_opacity(&mut self, in_opacity: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_IMAGE_SET_OPACITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_opacity, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_IMAGE_SET_OPACITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_desired_size_override(
+        &mut self,
+        desired_size: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_IMAGE_SET_DESIRED_SIZE_OVERRIDE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &desired_size,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_IMAGE_SET_DESIRED_SIZE_OVERRIDE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_color_and_opacity(
+        &mut self,
+        in_color_and_opacity: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_IMAGE_SET_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_color_and_opacity,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_IMAGE_SET_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush_tint_color(
+        &mut self,
+        tint_color: crate::bindings::slate_core::FSlateColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_TINT_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tint_color,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_TINT_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush_resource_object(
+        &mut self,
+        resource_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_RESOURCE_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &resource_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_RESOURCE_OBJECT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush_from_texture_dynamic(
+        &mut self,
+        texture: UPtr<crate::bindings::engine::UTexture2DDynamic>,
+        b_match_size: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_FROM_TEXTURE_DYNAMIC,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &texture,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UTexture2DDynamic>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_match_size,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_FROM_TEXTURE_DYNAMIC,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush_from_texture(
+        &mut self,
+        texture: UPtr<crate::bindings::engine::UTexture2D>,
+        b_match_size: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_FROM_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &texture,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UTexture2D>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_match_size,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_FROM_TEXTURE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush_from_soft_texture(
+        &mut self,
+        soft_texture: TSoftObjectPtr<crate::bindings::engine::UTexture2D>,
+        b_match_size: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_FROM_SOFT_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &soft_texture,
+                __buffer
+                    .add(0)
+                    .cast::<TSoftObjectPtr<crate::bindings::engine::UTexture2D>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_match_size,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_FROM_SOFT_TEXTURE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush_from_soft_material(
+        &mut self,
+        soft_material: TSoftObjectPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_FROM_SOFT_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &soft_material,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSoftObjectPtr<crate::bindings::engine::UMaterialInterface>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_FROM_SOFT_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush_from_material(
+        &mut self,
+        material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_FROM_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_FROM_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush_from_atlas_interface(
+        &mut self,
+        atlas_region: TScriptInterface<
+            crate::bindings::engine::USlateTextureAtlasInterface,
+        >,
+        b_match_size: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_FROM_ATLAS_INTERFACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &atlas_region,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TScriptInterface<
+                            crate::bindings::engine::USlateTextureAtlasInterface,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_match_size,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_FROM_ATLAS_INTERFACE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush_from_asset(
+        &mut self,
+        asset: UPtr<crate::bindings::engine::USlateBrushAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_FROM_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::USlateBrushAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_IMAGE_SET_BRUSH_FROM_ASSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush(&mut self, in_brush: &crate::bindings::slate_core::FSlateBrush) {
+        let mut __stack = crate::core_data::StackAlloc::<208>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_IMAGE_SET_BRUSH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_brush,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateBrush>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_IMAGE_SET_BRUSH,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_dynamic_material(
+        &mut self,
+    ) -> UPtr<crate::bindings::engine::UMaterialInstanceDynamic> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_IMAGE_GET_DYNAMIC_MATERIAL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_IMAGE_GET_DYNAMIC_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInstanceDynamic>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInvalidationBox {
@@ -10710,6 +26082,79 @@ impl UInvalidationBox {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_can_cache(&mut self, can_cache: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_INVALIDATION_BOX_SET_CAN_CACHE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&can_cache, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_INVALIDATION_BOX_SET_CAN_CACHE,
+                __buffer,
+            )
+        };
+    }
+    pub fn invalidate_cache(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_INVALIDATION_BOX_INVALIDATE_CACHE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_INVALIDATION_BOX_INVALIDATE_CACHE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_can_cache(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_INVALIDATION_BOX_GET_CAN_CACHE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_INVALIDATION_BOX_GET_CAN_CACHE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -10742,6 +26187,246 @@ impl UMenuAnchor {
             cdo
         }
     }
+    pub fn toggle_open(&mut self, b_focus_on_open: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MENU_ANCHOR_TOGGLE_OPEN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_focus_on_open,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MENU_ANCHOR_TOGGLE_OPEN,
+                __buffer,
+            )
+        };
+    }
+    pub fn should_open_due_to_click(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MENU_ANCHOR_SHOULD_OPEN_DUE_TO_CLICK,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MENU_ANCHOR_SHOULD_OPEN_DUE_TO_CLICK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn set_placement(
+        &mut self,
+        in_placement: crate::bindings::slate_core::EMenuPlacement,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MENU_ANCHOR_SET_PLACEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_placement,
+                __buffer.add(0).cast::<crate::bindings::slate_core::EMenuPlacement>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MENU_ANCHOR_SET_PLACEMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn open(&mut self, b_focus_menu: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MENU_ANCHOR_OPEN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_focus_menu,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MENU_ANCHOR_OPEN,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_open(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MENU_ANCHOR_IS_OPEN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MENU_ANCHOR_IS_OPEN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn has_open_sub_menus(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MENU_ANCHOR_HAS_OPEN_SUB_MENUS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MENU_ANCHOR_HAS_OPEN_SUB_MENUS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_menu_position(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MENU_ANCHOR_GET_MENU_POSITION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MENU_ANCHOR_GET_MENU_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn fit_in_window(&mut self, b_fit: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MENU_ANCHOR_FIT_IN_WINDOW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_fit, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MENU_ANCHOR_FIT_IN_WINDOW,
+                __buffer,
+            )
+        };
+    }
+    pub fn close(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_MENU_ANCHOR_CLOSE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_MENU_ANCHOR_CLOSE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UUIComponent {
@@ -10769,7 +26454,6 @@ pub struct UMouseHoverComponent {
     #[doc(hidden)]
     __padding_96: [u8; 96],
     pub b_is_hovered: bool,
-    __padding_end: [u8; 7],
 }
 impl UMouseHoverComponent {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -10868,6 +26552,78 @@ impl UOverlay {
             cdo
         }
     }
+    pub fn replace_overlay_child_at(
+        &mut self,
+        index: i32,
+        content: UPtr<UWidget>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_OVERLAY_REPLACE_OVERLAY_CHILD_AT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &content,
+                __buffer.add(8).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_OVERLAY_REPLACE_OVERLAY_CHILD_AT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn add_child_to_overlay(
+        &mut self,
+        content: UPtr<UWidget>,
+    ) -> UPtr<UOverlaySlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_OVERLAY_ADD_CHILD_TO_OVERLAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &content,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_OVERLAY_ADD_CHILD_TO_OVERLAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UOverlaySlot>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UOverlaySlot {
@@ -10876,7 +26632,6 @@ pub struct UOverlaySlot {
     pub padding: crate::bindings::slate_core::FMargin,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
-    __padding_end: [u8; 6],
 }
 impl UOverlaySlot {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -10893,6 +26648,106 @@ impl UOverlaySlot {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_OVERLAY_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_OVERLAY_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_OVERLAY_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_OVERLAY_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_OVERLAY_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_OVERLAY_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -10992,6 +26847,192 @@ impl URetainerBox {
             cdo
         }
     }
+    pub fn set_texture_parameter(&mut self, texture_parameter: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RETAINER_BOX_SET_TEXTURE_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &texture_parameter,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RETAINER_BOX_SET_TEXTURE_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_retain_rendering(&mut self, b_in_retain_rendering: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RETAINER_BOX_SET_RETAIN_RENDERING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_retain_rendering,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RETAINER_BOX_SET_RETAIN_RENDERING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_rendering_phase(&mut self, render_phase: i32, total_phases: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RETAINER_BOX_SET_RENDERING_PHASE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &render_phase,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &total_phases,
+                __buffer.add(4).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RETAINER_BOX_SET_RENDERING_PHASE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_effect_material(
+        &mut self,
+        effect_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RETAINER_BOX_SET_EFFECT_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &effect_material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RETAINER_BOX_SET_EFFECT_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn request_render(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RETAINER_BOX_REQUEST_RENDER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RETAINER_BOX_REQUEST_RENDER,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_effect_material(
+        &self,
+    ) -> UPtr<crate::bindings::engine::UMaterialInstanceDynamic> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RETAINER_BOX_GET_EFFECT_MATERIAL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RETAINER_BOX_GET_EFFECT_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInstanceDynamic>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(16))]
 pub struct URichTextBlock {
@@ -11024,6 +27065,622 @@ impl URichTextBlock {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_text_transform_policy(
+        &mut self,
+        in_transform_policy: crate::bindings::slate_core::ETextTransformPolicy,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_TEXT_TRANSFORM_POLICY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_transform_policy,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::ETextTransformPolicy>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_TEXT_TRANSFORM_POLICY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_text_style_set(
+        &mut self,
+        new_text_style_set: UPtr<crate::bindings::engine::UDataTable>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_TEXT_STYLE_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_text_style_set,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UDataTable>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_TEXT_STYLE_SET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_text_overflow_policy(
+        &mut self,
+        in_overflow_policy: crate::bindings::slate_core::ETextOverflowPolicy,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_TEXT_OVERFLOW_POLICY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_overflow_policy,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::ETextOverflowPolicy>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_TEXT_OVERFLOW_POLICY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_text(&mut self, in_text: &FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(in_text, __buffer.add(0).cast::<FText>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_min_desired_width(&mut self, in_min_desired_width: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_MIN_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_min_desired_width,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_MIN_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_default_text_style(
+        &mut self,
+        in_default_text_style: &crate::bindings::slate_core::FTextBlockStyle,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<848>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DEFAULT_TEXT_STYLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_default_text_style,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FTextBlockStyle>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DEFAULT_TEXT_STYLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_default_strike_brush(
+        &mut self,
+        in_strike_brush: &crate::bindings::slate_core::FSlateBrush,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<208>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DEFAULT_STRIKE_BRUSH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_strike_brush,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateBrush>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DEFAULT_STRIKE_BRUSH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_default_shadow_offset(
+        &mut self,
+        in_shadow_offset: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DEFAULT_SHADOW_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_shadow_offset,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DEFAULT_SHADOW_OFFSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_default_shadow_color_and_opacity(
+        &mut self,
+        in_shadow_color_and_opacity: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DEFAULT_SHADOW_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_shadow_color_and_opacity,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DEFAULT_SHADOW_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_default_material(
+        &mut self,
+        in_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DEFAULT_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DEFAULT_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_default_font(
+        &mut self,
+        in_font_info: crate::bindings::slate_core::FSlateFontInfo,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DEFAULT_FONT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_font_info,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateFontInfo>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DEFAULT_FONT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_default_color_and_opacity(
+        &mut self,
+        in_color_and_opacity: crate::bindings::slate_core::FSlateColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DEFAULT_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_color_and_opacity,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DEFAULT_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_decorators(
+        &mut self,
+        in_decorator_classes: &TArray<TSubclassOf<URichTextBlockDecorator>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DECORATORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_decorator_classes,
+                __buffer.add(0).cast::<TArray<TSubclassOf<URichTextBlockDecorator>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_DECORATORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_auto_wrap_text(&mut self, in_auto_text_wrap: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_AUTO_WRAP_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_auto_text_wrap,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_SET_AUTO_WRAP_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn refresh_text_layout(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_REFRESH_TEXT_LAYOUT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_REFRESH_TEXT_LAYOUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_text_style_set(&self) -> UPtr<crate::bindings::engine::UDataTable> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_GET_TEXT_STYLE_SET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_GET_TEXT_STYLE_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::UDataTable>>().read()
+        }
+    }
+    pub fn get_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_GET_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_GET_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_default_dynamic_material(
+        &mut self,
+    ) -> UPtr<crate::bindings::engine::UMaterialInstanceDynamic> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_GET_DEFAULT_DYNAMIC_MATERIAL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_GET_DEFAULT_DYNAMIC_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInstanceDynamic>>()
+                .read()
+        }
+    }
+    pub fn get_decorator_by_class(
+        &mut self,
+        decorator_class: TSubclassOf<URichTextBlockDecorator>,
+    ) -> UPtr<URichTextBlockDecorator> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_GET_DECORATOR_BY_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &decorator_class,
+                __buffer.add(0).cast::<TSubclassOf<URichTextBlockDecorator>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_GET_DECORATOR_BY_CLASS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<URichTextBlockDecorator>>().read() }
+    }
+    pub fn clear_all_default_style_overrides(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_CLEAR_ALL_DEFAULT_STYLE_OVERRIDES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_RICH_TEXT_BLOCK_CLEAR_ALL_DEFAULT_STYLE_OVERRIDES,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -11094,6 +27751,63 @@ impl USafeZone {
             cdo
         }
     }
+    pub fn set_sides_to_pad(
+        &mut self,
+        in_pad_left: bool,
+        in_pad_right: bool,
+        in_pad_top: bool,
+        in_pad_bottom: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SAFE_ZONE_SET_SIDES_TO_PAD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pad_left,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pad_right,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pad_top,
+                __buffer.add(2).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pad_bottom,
+                __buffer.add(3).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SAFE_ZONE_SET_SIDES_TO_PAD,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USafeZoneSlot {
@@ -11149,6 +27863,129 @@ impl UScaleBox {
             cdo
         }
     }
+    pub fn set_user_specified_scale(&mut self, in_user_specified_scale: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCALE_BOX_SET_USER_SPECIFIED_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_user_specified_scale,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCALE_BOX_SET_USER_SPECIFIED_SCALE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_stretch_direction(
+        &mut self,
+        in_stretch_direction: crate::bindings::slate::EStretchDirection,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCALE_BOX_SET_STRETCH_DIRECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_stretch_direction,
+                __buffer.add(0).cast::<crate::bindings::slate::EStretchDirection>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCALE_BOX_SET_STRETCH_DIRECTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_stretch(&mut self, in_stretch: crate::bindings::slate::EStretch) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCALE_BOX_SET_STRETCH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_stretch,
+                __buffer.add(0).cast::<crate::bindings::slate::EStretch>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCALE_BOX_SET_STRETCH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_ignore_inherited_scale(&mut self, b_in_ignore_inherited_scale: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCALE_BOX_SET_IGNORE_INHERITED_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_ignore_inherited_scale,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCALE_BOX_SET_IGNORE_INHERITED_SCALE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UScaleBoxComponent {
@@ -11203,6 +28040,106 @@ impl UScaleBoxSlot {
             cdo
         }
     }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCALE_BOX_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCALE_BOX_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCALE_BOX_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCALE_BOX_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCALE_BOX_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCALE_BOX_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UScrollBoxSlot {
@@ -11230,6 +28167,106 @@ impl UScrollBoxSlot {
             cdo
         }
     }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SCROLL_BOX_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SCROLL_BOX_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USizeBox {
@@ -11256,6 +28293,430 @@ impl USizeBox {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_width_override(&mut self, in_width_override: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_SET_WIDTH_OVERRIDE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_width_override,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_SET_WIDTH_OVERRIDE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_min_desired_width(&mut self, in_min_desired_width: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_SET_MIN_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_min_desired_width,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_SET_MIN_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_min_desired_height(&mut self, in_min_desired_height: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_SET_MIN_DESIRED_HEIGHT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_min_desired_height,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_SET_MIN_DESIRED_HEIGHT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_min_aspect_ratio(&mut self, in_min_aspect_ratio: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_SET_MIN_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_min_aspect_ratio,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_SET_MIN_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_max_desired_width(&mut self, in_max_desired_width: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_SET_MAX_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_max_desired_width,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_SET_MAX_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_max_desired_height(&mut self, in_max_desired_height: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_SET_MAX_DESIRED_HEIGHT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_max_desired_height,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_SET_MAX_DESIRED_HEIGHT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_max_aspect_ratio(&mut self, in_max_aspect_ratio: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_SET_MAX_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_max_aspect_ratio,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_SET_MAX_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_height_override(&mut self, in_height_override: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_SET_HEIGHT_OVERRIDE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_height_override,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_SET_HEIGHT_OVERRIDE,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_width_override(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_WIDTH_OVERRIDE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_WIDTH_OVERRIDE,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_min_desired_width(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_MIN_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_MIN_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_min_desired_height(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_MIN_DESIRED_HEIGHT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_MIN_DESIRED_HEIGHT,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_min_aspect_ratio(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_MIN_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_MIN_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_max_desired_width(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_MAX_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_MAX_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_max_desired_height(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_MAX_DESIRED_HEIGHT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_MAX_DESIRED_HEIGHT,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_max_aspect_ratio(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_MAX_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_MAX_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_height_override(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_HEIGHT_OVERRIDE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_CLEAR_HEIGHT_OVERRIDE,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -11291,6 +28752,190 @@ impl USizeBoxComponent {
             cdo
         }
     }
+    pub fn clear_width_override(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_WIDTH_OVERRIDE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_WIDTH_OVERRIDE,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_min_desired_width(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_MIN_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_MIN_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_min_desired_height(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_MIN_DESIRED_HEIGHT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_MIN_DESIRED_HEIGHT,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_min_aspect_ratio(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_MIN_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_MIN_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_max_desired_width(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_MAX_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_MAX_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_max_desired_height(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_MAX_DESIRED_HEIGHT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_MAX_DESIRED_HEIGHT,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_max_aspect_ratio(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_MAX_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_MAX_ASPECT_RATIO,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_height_override(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_HEIGHT_OVERRIDE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_COMPONENT_CLEAR_HEIGHT_OVERRIDE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USizeBoxSlot {
@@ -11301,7 +28946,6 @@ pub struct USizeBoxSlot {
     __padding_96: [u8; 16],
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
-    __padding_end: [u8; 6],
 }
 impl USizeBoxSlot {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -11318,6 +28962,106 @@ impl USizeBoxSlot {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SIZE_BOX_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SIZE_BOX_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -11338,6 +29082,36 @@ impl USpacer {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_size(&mut self, in_size: crate::bindings::core_u_object::FVector2D) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SPACER_SET_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_size,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SPACER_SET_SIZE,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -11362,6 +29136,78 @@ impl UStackBox {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn replace_stack_box_child_at(
+        &mut self,
+        index: i32,
+        content: UPtr<UWidget>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_STACK_BOX_REPLACE_STACK_BOX_CHILD_AT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &content,
+                __buffer.add(8).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_STACK_BOX_REPLACE_STACK_BOX_CHILD_AT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn add_child_to_stack_box(
+        &mut self,
+        content: UPtr<UWidget>,
+    ) -> UPtr<UStackBoxSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_STACK_BOX_ADD_CHILD_TO_STACK_BOX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &content,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_STACK_BOX_ADD_CHILD_TO_STACK_BOX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UStackBoxSlot>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -11430,6 +29276,509 @@ impl UTextBlock {
             cdo
         }
     }
+    pub fn set_text_transform_policy(
+        &mut self,
+        in_transform_policy: crate::bindings::slate_core::ETextTransformPolicy,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_SET_TEXT_TRANSFORM_POLICY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_transform_policy,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::ETextTransformPolicy>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_SET_TEXT_TRANSFORM_POLICY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_text_overflow_policy(
+        &mut self,
+        in_overflow_policy: crate::bindings::slate_core::ETextOverflowPolicy,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_SET_TEXT_OVERFLOW_POLICY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_overflow_policy,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::ETextOverflowPolicy>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_SET_TEXT_OVERFLOW_POLICY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_text(&mut self, in_text: FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_SET_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_text, __buffer.add(0).cast::<FText>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_SET_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_strike_brush(
+        &mut self,
+        in_strike_brush: crate::bindings::slate_core::FSlateBrush,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<208>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_SET_STRIKE_BRUSH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_strike_brush,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateBrush>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_SET_STRIKE_BRUSH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_shadow_offset(
+        &mut self,
+        in_shadow_offset: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_SET_SHADOW_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_shadow_offset,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_SET_SHADOW_OFFSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_shadow_color_and_opacity(
+        &mut self,
+        in_shadow_color_and_opacity: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_SET_SHADOW_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_shadow_color_and_opacity,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_SET_SHADOW_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_opacity(&mut self, in_opacity: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_SET_OPACITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_opacity, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_SET_OPACITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_min_desired_width(&mut self, in_min_desired_width: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_SET_MIN_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_min_desired_width,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_SET_MIN_DESIRED_WIDTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_font_outline_material(
+        &mut self,
+        in_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_SET_FONT_OUTLINE_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_SET_FONT_OUTLINE_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_font_material(
+        &mut self,
+        in_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_SET_FONT_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_SET_FONT_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_font(
+        &mut self,
+        in_font_info: crate::bindings::slate_core::FSlateFontInfo,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_SET_FONT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_font_info,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateFontInfo>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_SET_FONT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_color_and_opacity(
+        &mut self,
+        in_color_and_opacity: crate::bindings::slate_core::FSlateColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_SET_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_color_and_opacity,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_SET_COLOR_AND_OPACITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_auto_wrap_text(&mut self, in_auto_text_wrap: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_SET_AUTO_WRAP_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_auto_text_wrap,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_SET_AUTO_WRAP_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_GET_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_GET_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_dynamic_outline_material(
+        &mut self,
+    ) -> UPtr<crate::bindings::engine::UMaterialInstanceDynamic> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_GET_DYNAMIC_OUTLINE_MATERIAL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_GET_DYNAMIC_OUTLINE_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInstanceDynamic>>()
+                .read()
+        }
+    }
+    pub fn get_dynamic_font_material(
+        &mut self,
+    ) -> UPtr<crate::bindings::engine::UMaterialInstanceDynamic> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TEXT_BLOCK_GET_DYNAMIC_FONT_MATERIAL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TEXT_BLOCK_GET_DYNAMIC_FONT_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInstanceDynamic>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(16))]
 pub struct UTileView {
@@ -11450,6 +29799,106 @@ impl UTileView {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_entry_width(&mut self, new_width: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TILE_VIEW_SET_ENTRY_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&new_width, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TILE_VIEW_SET_ENTRY_WIDTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_entry_height(&mut self, new_height: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TILE_VIEW_SET_ENTRY_HEIGHT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&new_height, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TILE_VIEW_SET_ENTRY_HEIGHT,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_entry_width(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TILE_VIEW_GET_ENTRY_WIDTH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TILE_VIEW_GET_ENTRY_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_entry_height(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_TILE_VIEW_GET_ENTRY_HEIGHT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_TILE_VIEW_GET_ENTRY_HEIGHT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -11476,6 +29925,141 @@ impl UUniformGridPanel {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_slot_padding(
+        &mut self,
+        in_slot_padding: crate::bindings::slate_core::FMargin,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_UNIFORM_GRID_PANEL_SET_SLOT_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_slot_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_UNIFORM_GRID_PANEL_SET_SLOT_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_min_desired_slot_width(&mut self, in_min_desired_slot_width: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_UNIFORM_GRID_PANEL_SET_MIN_DESIRED_SLOT_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_min_desired_slot_width,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_UNIFORM_GRID_PANEL_SET_MIN_DESIRED_SLOT_WIDTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_min_desired_slot_height(&mut self, in_min_desired_slot_height: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_UNIFORM_GRID_PANEL_SET_MIN_DESIRED_SLOT_HEIGHT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_min_desired_slot_height,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_UNIFORM_GRID_PANEL_SET_MIN_DESIRED_SLOT_HEIGHT,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_child_to_uniform_grid(
+        &mut self,
+        content: UPtr<UWidget>,
+        in_row: i32,
+        in_column: i32,
+    ) -> UPtr<UUniformGridSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_UNIFORM_GRID_PANEL_ADD_CHILD_TO_UNIFORM_GRID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &content,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_row, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_column, __buffer.add(12).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_UNIFORM_GRID_PANEL_ADD_CHILD_TO_UNIFORM_GRID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UUniformGridSlot>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -11504,6 +30088,128 @@ impl UUniformGridSlot {
             cdo
         }
     }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_UNIFORM_GRID_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_UNIFORM_GRID_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_row(&mut self, in_row: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_UNIFORM_GRID_SLOT_SET_ROW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_row, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_UNIFORM_GRID_SLOT_SET_ROW,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_UNIFORM_GRID_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_UNIFORM_GRID_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_column(&mut self, in_column: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_UNIFORM_GRID_SLOT_SET_COLUMN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_column, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_UNIFORM_GRID_SLOT_SET_COLUMN,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UVerticalBox {
@@ -11524,6 +30230,40 @@ impl UVerticalBox {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn add_child_to_vertical_box(
+        &mut self,
+        content: UPtr<UWidget>,
+    ) -> UPtr<UVerticalBoxSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VERTICAL_BOX_ADD_CHILD_TO_VERTICAL_BOX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &content,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VERTICAL_BOX_ADD_CHILD_TO_VERTICAL_BOX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UVerticalBoxSlot>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -11552,6 +30292,136 @@ impl UVerticalBoxSlot {
             cdo
         }
     }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VERTICAL_BOX_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VERTICAL_BOX_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_size(&mut self, in_size: FSlateChildSize) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VERTICAL_BOX_SLOT_SET_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_size,
+                __buffer.add(0).cast::<FSlateChildSize>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VERTICAL_BOX_SLOT_SET_SIZE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VERTICAL_BOX_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VERTICAL_BOX_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VERTICAL_BOX_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VERTICAL_BOX_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UViewport {
@@ -11574,6 +30444,331 @@ impl UViewport {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn spawn(
+        &mut self,
+        actor_class: TSubclassOf<crate::bindings::engine::AActor>,
+    ) -> UPtr<crate::bindings::engine::AActor> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VIEWPORT_SPAWN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor_class,
+                __buffer.add(0).cast::<TSubclassOf<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VIEWPORT_SPAWN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>().read() }
+    }
+    pub fn set_view_rotation(
+        &mut self,
+        rotation: crate::bindings::core_u_object::FRotator,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VIEWPORT_SET_VIEW_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rotation,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VIEWPORT_SET_VIEW_ROTATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_view_location(
+        &mut self,
+        location: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VIEWPORT_SET_VIEW_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &location,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VIEWPORT_SET_VIEW_LOCATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_sky_intensity(&mut self, light_intensity: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VIEWPORT_SET_SKY_INTENSITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &light_intensity,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VIEWPORT_SET_SKY_INTENSITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_show_flag(&mut self, in_show_flag_name: FString, in_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VIEWPORT_SET_SHOW_FLAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_show_flag_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VIEWPORT_SET_SHOW_FLAG,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_light_intensity(&mut self, light_intensity: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VIEWPORT_SET_LIGHT_INTENSITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &light_intensity,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VIEWPORT_SET_LIGHT_INTENSITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enable_advanced_features(&mut self, in_enable_advanced_features: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VIEWPORT_SET_ENABLE_ADVANCED_FEATURES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_enable_advanced_features,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VIEWPORT_SET_ENABLE_ADVANCED_FEATURES,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_view_rotation(&self) -> crate::bindings::core_u_object::FRotator {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VIEWPORT_GET_VIEW_ROTATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VIEWPORT_GET_VIEW_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FRotator>().read()
+        }
+    }
+    pub fn get_view_projection_matrix(&self) -> crate::bindings::core_u_object::FMatrix {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VIEWPORT_GET_VIEW_PROJECTION_MATRIX,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VIEWPORT_GET_VIEW_PROJECTION_MATRIX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FMatrix>().read()
+        }
+    }
+    pub fn get_viewport_world(&self) -> UPtr<crate::bindings::engine::UWorld> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VIEWPORT_GET_VIEWPORT_WORLD,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VIEWPORT_GET_VIEWPORT_WORLD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>().read() }
+    }
+    pub fn get_view_location(&self) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_VIEWPORT_GET_VIEW_LOCATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_VIEWPORT_GET_VIEW_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>().read()
         }
     }
 }
@@ -11609,6 +30804,442 @@ impl UWidgetInteractionComponent {
             cdo
         }
     }
+    pub fn set_focus(&mut self, focus_widget: UPtr<UWidget>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_SET_FOCUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &focus_widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_SET_FOCUS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_custom_hit_result(
+        &mut self,
+        hit_result: &crate::bindings::engine::FHitResult,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<264>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_SET_CUSTOM_HIT_RESULT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                hit_result,
+                __buffer.add(0).cast::<crate::bindings::engine::FHitResult>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_SET_CUSTOM_HIT_RESULT,
+                __buffer,
+            )
+        };
+    }
+    pub fn send_key_char(&mut self, characters: FString, b_repeat: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_SEND_KEY_CHAR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &characters,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_repeat, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_SEND_KEY_CHAR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn scroll_wheel(&mut self, scroll_delta: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_SCROLL_WHEEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &scroll_delta,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_SCROLL_WHEEL,
+                __buffer,
+            )
+        };
+    }
+    pub fn release_pointer_key(&mut self, key: crate::bindings::input_core::FKey) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_RELEASE_POINTER_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &key,
+                __buffer.add(0).cast::<crate::bindings::input_core::FKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_RELEASE_POINTER_KEY,
+                __buffer,
+            )
+        };
+    }
+    pub fn release_key(&mut self, key: crate::bindings::input_core::FKey) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_RELEASE_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &key,
+                __buffer.add(0).cast::<crate::bindings::input_core::FKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_RELEASE_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn press_pointer_key(&mut self, key: crate::bindings::input_core::FKey) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_PRESS_POINTER_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &key,
+                __buffer.add(0).cast::<crate::bindings::input_core::FKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_PRESS_POINTER_KEY,
+                __buffer,
+            )
+        };
+    }
+    pub fn press_key(
+        &mut self,
+        key: crate::bindings::input_core::FKey,
+        b_repeat: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<34>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_PRESS_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &key,
+                __buffer.add(0).cast::<crate::bindings::input_core::FKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_repeat, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_PRESS_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(33).cast::<bool>().read() }
+    }
+    pub fn press_and_release_key(
+        &mut self,
+        key: crate::bindings::input_core::FKey,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_PRESS_AND_RELEASE_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &key,
+                __buffer.add(0).cast::<crate::bindings::input_core::FKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_PRESS_AND_RELEASE_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn is_over_interactable_widget(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_IS_OVER_INTERACTABLE_WIDGET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_IS_OVER_INTERACTABLE_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_over_hit_test_visible_widget(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_IS_OVER_HIT_TEST_VISIBLE_WIDGET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_IS_OVER_HIT_TEST_VISIBLE_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_over_focusable_widget(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_IS_OVER_FOCUSABLE_WIDGET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_IS_OVER_FOCUSABLE_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_last_hit_result(&self) -> crate::bindings::engine::FHitResult {
+        let mut __stack = crate::core_data::StackAlloc::<264>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_GET_LAST_HIT_RESULT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_GET_LAST_HIT_RESULT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<crate::bindings::engine::FHitResult>().read() }
+    }
+    pub fn get_hovered_widget_component(&self) -> UPtr<UWidgetComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_GET_HOVERED_WIDGET_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_GET_HOVERED_WIDGET_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UWidgetComponent>>().read() }
+    }
+    pub fn get2_d_hit_location(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_GET2_D_HIT_LOCATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_INTERACTION_COMPONENT_GET2_D_HIT_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UWidgetSwitcher {
@@ -11633,6 +31264,161 @@ impl UWidgetSwitcher {
             cdo
         }
     }
+    pub fn set_active_widget_index(&mut self, index: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SWITCHER_SET_ACTIVE_WIDGET_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SWITCHER_SET_ACTIVE_WIDGET_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_active_widget(&mut self, widget: UPtr<UWidget>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SWITCHER_SET_ACTIVE_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SWITCHER_SET_ACTIVE_WIDGET,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_widget_at_index(&self, index: i32) -> UPtr<UWidget> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SWITCHER_GET_WIDGET_AT_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SWITCHER_GET_WIDGET_AT_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UWidget>>().read() }
+    }
+    pub fn get_num_widgets(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SWITCHER_GET_NUM_WIDGETS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SWITCHER_GET_NUM_WIDGETS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_active_widget_index(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SWITCHER_GET_ACTIVE_WIDGET_INDEX,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SWITCHER_GET_ACTIVE_WIDGET_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_active_widget(&self) -> UPtr<UWidget> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SWITCHER_GET_ACTIVE_WIDGET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SWITCHER_GET_ACTIVE_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UWidget>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UWidgetSwitcherSlot {
@@ -11641,7 +31427,6 @@ pub struct UWidgetSwitcherSlot {
     pub padding: crate::bindings::slate_core::FMargin,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
-    __padding_end: [u8; 6],
 }
 impl UWidgetSwitcherSlot {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -11658,6 +31443,106 @@ impl UWidgetSwitcherSlot {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SWITCHER_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SWITCHER_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SWITCHER_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SWITCHER_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_SWITCHER_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_SWITCHER_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -11683,6 +31568,106 @@ impl UWindowTitleBarArea {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WINDOW_TITLE_BAR_AREA_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WINDOW_TITLE_BAR_AREA_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WINDOW_TITLE_BAR_AREA_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WINDOW_TITLE_BAR_AREA_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WINDOW_TITLE_BAR_AREA_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WINDOW_TITLE_BAR_AREA_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -11710,6 +31695,106 @@ impl UWindowTitleBarAreaSlot {
             cdo
         }
     }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WINDOW_TITLE_BAR_AREA_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WINDOW_TITLE_BAR_AREA_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WINDOW_TITLE_BAR_AREA_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WINDOW_TITLE_BAR_AREA_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WINDOW_TITLE_BAR_AREA_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WINDOW_TITLE_BAR_AREA_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UWrapBox {
@@ -11733,6 +31818,108 @@ impl UWrapBox {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_inner_slot_padding(
+        &mut self,
+        in_padding: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WRAP_BOX_SET_INNER_SLOT_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WRAP_BOX_SET_INNER_SLOT_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WRAP_BOX_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WRAP_BOX_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_child_to_wrap_box(
+        &mut self,
+        content: UPtr<UWidget>,
+    ) -> UPtr<UWrapBoxSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WRAP_BOX_ADD_CHILD_TO_WRAP_BOX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &content,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WRAP_BOX_ADD_CHILD_TO_WRAP_BOX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UWrapBoxSlot>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -11762,6 +31949,196 @@ impl UWrapBoxSlot {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_vertical_alignment(
+        &mut self,
+        in_vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WRAP_BOX_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vertical_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EVerticalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WRAP_BOX_SLOT_SET_VERTICAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WRAP_BOX_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_padding,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FMargin>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WRAP_BOX_SLOT_SET_PADDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_new_line(&mut self, in_force_new_line: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WRAP_BOX_SLOT_SET_NEW_LINE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_force_new_line,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WRAP_BOX_SLOT_SET_NEW_LINE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_horizontal_alignment(
+        &mut self,
+        in_horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WRAP_BOX_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_horizontal_alignment,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EHorizontalAlignment>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WRAP_BOX_SLOT_SET_HORIZONTAL_ALIGNMENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_fill_span_when_less_than(&mut self, in_fill_span_when_less_than: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WRAP_BOX_SLOT_SET_FILL_SPAN_WHEN_LESS_THAN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_fill_span_when_less_than,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WRAP_BOX_SLOT_SET_FILL_SPAN_WHEN_LESS_THAN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_fill_empty_space(&mut self, inb_fill_empty_space: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WRAP_BOX_SLOT_SET_FILL_EMPTY_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &inb_fill_empty_space,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WRAP_BOX_SLOT_SET_FILL_EMPTY_SPACE,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -11896,6 +32273,945 @@ impl USlateBlueprintLibrary {
             cdo
         }
     }
+    pub fn vector_local_to_absolute(
+        geometry: &crate::bindings::slate_core::FGeometry,
+        local_vector: crate::bindings::core_u_object::FVector2D,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_VECTOR_LOCAL_TO_ABSOLUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &local_vector,
+                __buffer.add(56).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_VECTOR_LOCAL_TO_ABSOLUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(72).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn vector_absolute_to_local(
+        geometry: &crate::bindings::slate_core::FGeometry,
+        absolute_vector: crate::bindings::core_u_object::FVector2D,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_VECTOR_ABSOLUTE_TO_LOCAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &absolute_vector,
+                __buffer.add(56).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_VECTOR_ABSOLUTE_TO_LOCAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(72).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn transform_vector_local_to_absolute(
+        geometry: &crate::bindings::slate_core::FGeometry,
+        local_vector: crate::bindings::core_u_object::FVector2D,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_TRANSFORM_VECTOR_LOCAL_TO_ABSOLUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &local_vector,
+                __buffer.add(56).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_TRANSFORM_VECTOR_LOCAL_TO_ABSOLUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(72).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn transform_vector_absolute_to_local(
+        geometry: &crate::bindings::slate_core::FGeometry,
+        absolute_vector: crate::bindings::core_u_object::FVector2D,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_TRANSFORM_VECTOR_ABSOLUTE_TO_LOCAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &absolute_vector,
+                __buffer.add(56).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_TRANSFORM_VECTOR_ABSOLUTE_TO_LOCAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(72).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn transform_scalar_local_to_absolute(
+        geometry: &crate::bindings::slate_core::FGeometry,
+        local_scalar: f32,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_TRANSFORM_SCALAR_LOCAL_TO_ABSOLUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &local_scalar,
+                __buffer.add(56).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_TRANSFORM_SCALAR_LOCAL_TO_ABSOLUTE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(60).cast::<f32>().read() }
+    }
+    pub fn transform_scalar_absolute_to_local(
+        geometry: &crate::bindings::slate_core::FGeometry,
+        absolute_scalar: f32,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_TRANSFORM_SCALAR_ABSOLUTE_TO_LOCAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &absolute_scalar,
+                __buffer.add(56).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_TRANSFORM_SCALAR_ABSOLUTE_TO_LOCAL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(60).cast::<f32>().read() }
+    }
+    pub fn screen_to_widget_local(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        geometry: &crate::bindings::slate_core::FGeometry,
+        screen_position: crate::bindings::core_u_object::FVector2D,
+        local_coordinate: &mut crate::bindings::core_u_object::FVector2D,
+        b_include_window_position: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_SCREEN_TO_WIDGET_LOCAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(8).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &screen_position,
+                __buffer.add(64).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                local_coordinate,
+                __buffer.add(80).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_include_window_position,
+                __buffer.add(96).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_SCREEN_TO_WIDGET_LOCAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(80)
+                .cast::<crate::bindings::core_u_object::FVector2D>()
+                .swap(local_coordinate);
+        }
+    }
+    pub fn screen_to_widget_absolute(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        screen_position: crate::bindings::core_u_object::FVector2D,
+        absolute_coordinate: &mut crate::bindings::core_u_object::FVector2D,
+        b_include_window_position: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_SCREEN_TO_WIDGET_ABSOLUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &screen_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                absolute_coordinate,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_include_window_position,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_SCREEN_TO_WIDGET_ABSOLUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<crate::bindings::core_u_object::FVector2D>()
+                .swap(absolute_coordinate);
+        }
+    }
+    pub fn screen_to_viewport(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        screen_position: crate::bindings::core_u_object::FVector2D,
+        viewport_position: &mut crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_SCREEN_TO_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &screen_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                viewport_position,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_SCREEN_TO_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<crate::bindings::core_u_object::FVector2D>()
+                .swap(viewport_position);
+        }
+    }
+    pub fn scalar_local_to_absolute(
+        geometry: &crate::bindings::slate_core::FGeometry,
+        local_scalar: f32,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_SCALAR_LOCAL_TO_ABSOLUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &local_scalar,
+                __buffer.add(56).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_SCALAR_LOCAL_TO_ABSOLUTE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(60).cast::<f32>().read() }
+    }
+    pub fn scalar_absolute_to_local(
+        geometry: &crate::bindings::slate_core::FGeometry,
+        absolute_scalar: f32,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_SCALAR_ABSOLUTE_TO_LOCAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &absolute_scalar,
+                __buffer.add(56).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_SCALAR_ABSOLUTE_TO_LOCAL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(60).cast::<f32>().read() }
+    }
+    pub fn local_to_viewport(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        geometry: &crate::bindings::slate_core::FGeometry,
+        local_coordinate: crate::bindings::core_u_object::FVector2D,
+        pixel_position: &mut crate::bindings::core_u_object::FVector2D,
+        viewport_position: &mut crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_LOCAL_TO_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(8).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &local_coordinate,
+                __buffer.add(64).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                pixel_position,
+                __buffer.add(80).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                viewport_position,
+                __buffer.add(96).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_LOCAL_TO_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(80)
+                .cast::<crate::bindings::core_u_object::FVector2D>()
+                .swap(pixel_position);
+        }
+        unsafe {
+            __buffer
+                .add(96)
+                .cast::<crate::bindings::core_u_object::FVector2D>()
+                .swap(viewport_position);
+        }
+    }
+    pub fn local_to_absolute(
+        geometry: &crate::bindings::slate_core::FGeometry,
+        local_coordinate: crate::bindings::core_u_object::FVector2D,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_LOCAL_TO_ABSOLUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &local_coordinate,
+                __buffer.add(56).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_LOCAL_TO_ABSOLUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(72).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn is_under_location(
+        geometry: &crate::bindings::slate_core::FGeometry,
+        absolute_coordinate: &crate::bindings::core_u_object::FVector2D,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<73>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_IS_UNDER_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                absolute_coordinate,
+                __buffer.add(56).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_IS_UNDER_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(72).cast::<bool>().read() }
+    }
+    pub fn get_local_top_left(
+        geometry: &crate::bindings::slate_core::FGeometry,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_GET_LOCAL_TOP_LEFT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_GET_LOCAL_TOP_LEFT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(56).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_local_size(
+        geometry: &crate::bindings::slate_core::FGeometry,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_GET_LOCAL_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_GET_LOCAL_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(56).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_absolute_size(
+        geometry: &crate::bindings::slate_core::FGeometry,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_GET_ABSOLUTE_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_GET_ABSOLUTE_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(56).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn equal_equal_slate_brush(
+        a: &crate::bindings::slate_core::FSlateBrush,
+        b: &crate::bindings::slate_core::FSlateBrush,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<417>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_EQUAL_EQUAL_SLATE_BRUSH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                a,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateBrush>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b,
+                __buffer.add(208).cast::<crate::bindings::slate_core::FSlateBrush>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_EQUAL_EQUAL_SLATE_BRUSH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(416).cast::<bool>().read() }
+    }
+    pub fn absolute_to_viewport(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        absolute_desktop_coordinate: crate::bindings::core_u_object::FVector2D,
+        pixel_position: &mut crate::bindings::core_u_object::FVector2D,
+        viewport_position: &mut crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_ABSOLUTE_TO_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &absolute_desktop_coordinate,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                pixel_position,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                viewport_position,
+                __buffer.add(40).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_ABSOLUTE_TO_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<crate::bindings::core_u_object::FVector2D>()
+                .swap(pixel_position);
+        }
+        unsafe {
+            __buffer
+                .add(40)
+                .cast::<crate::bindings::core_u_object::FVector2D>()
+                .swap(viewport_position);
+        }
+    }
+    pub fn absolute_to_local(
+        geometry: &crate::bindings::slate_core::FGeometry,
+        absolute_coordinate: crate::bindings::core_u_object::FVector2D,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_ABSOLUTE_TO_LOCAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                geometry,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FGeometry>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &absolute_coordinate,
+                __buffer.add(56).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::USlateBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_SLATE_BLUEPRINT_LIBRARY_ABSOLUTE_TO_LOCAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(72).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct USlateVectorArtData {
@@ -11937,6 +33253,70 @@ impl UUserWidgetFunctionLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_outer_user_widget(widget: UPtr<UWidget>) -> UPtr<UUserWidget> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_FUNCTION_LIBRARY_GET_OUTER_USER_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UUserWidgetFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_FUNCTION_LIBRARY_GET_OUTER_USER_WIDGET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UUserWidget>>().read() }
+    }
+    pub fn conv_umg_sequence_player(
+        widget_animation_handle: &FWidgetAnimationHandle,
+    ) -> UPtr<UUMGSequencePlayer> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_USER_WIDGET_FUNCTION_LIBRARY_CONV_UMG_SEQUENCE_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                widget_animation_handle,
+                __buffer.add(0).cast::<FWidgetAnimationHandle>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UUserWidgetFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_USER_WIDGET_FUNCTION_LIBRARY_CONV_UMG_SEQUENCE_PLAYER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UUMGSequencePlayer>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -11980,6 +33360,2401 @@ impl UWidgetBlueprintLibrary {
             cdo
         }
     }
+    pub fn unlock_mouse(reply: &mut FEventReply) -> FEventReply {
+        let mut __stack = crate::core_data::StackAlloc::<384>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_UNLOCK_MOUSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                reply,
+                __buffer.add(0).cast::<FEventReply>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_UNLOCK_MOUSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FEventReply>().swap(reply);
+        }
+        unsafe { __buffer.add(192).cast::<FEventReply>().read() }
+    }
+    pub fn unhandled() -> FEventReply {
+        let mut __stack = crate::core_data::StackAlloc::<192>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_UNHANDLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_UNHANDLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FEventReply>().read() }
+    }
+    pub fn set_window_title_bar_state(
+        title_bar_content: UPtr<UWidget>,
+        mode: crate::bindings::engine::EWindowTitleBarMode,
+        b_title_bar_drag_enabled: bool,
+        b_window_buttons_visible: bool,
+        b_title_bar_visible: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_WINDOW_TITLE_BAR_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &title_bar_content,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mode,
+                __buffer.add(8).cast::<crate::bindings::engine::EWindowTitleBarMode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_title_bar_drag_enabled,
+                __buffer.add(9).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_window_buttons_visible,
+                __buffer.add(10).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_title_bar_visible,
+                __buffer.add(11).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_WINDOW_TITLE_BAR_STATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_window_title_bar_on_close_clicked_delegate(
+        delegate: FSetWindowTitleBarOnCloseClickedDelegate_Delegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_WINDOW_TITLE_BAR_ON_CLOSE_CLICKED_DELEGATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delegate,
+                __buffer
+                    .add(0)
+                    .cast::<FSetWindowTitleBarOnCloseClickedDelegate_Delegate>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_WINDOW_TITLE_BAR_ON_CLOSE_CLICKED_DELEGATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_window_title_bar_close_button_active(b_active: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_WINDOW_TITLE_BAR_CLOSE_BUTTON_ACTIVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_active, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_WINDOW_TITLE_BAR_CLOSE_BUTTON_ACTIVE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_user_focus(
+        reply: &mut FEventReply,
+        focus_widget: UPtr<UWidget>,
+        b_in_all_users: bool,
+    ) -> FEventReply {
+        let mut __stack = crate::core_data::StackAlloc::<400>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_USER_FOCUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                reply,
+                __buffer.add(0).cast::<FEventReply>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &focus_widget,
+                __buffer.add(192).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_all_users,
+                __buffer.add(200).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_USER_FOCUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FEventReply>().swap(reply);
+        }
+        unsafe { __buffer.add(208).cast::<FEventReply>().read() }
+    }
+    pub fn set_mouse_position(
+        reply: &mut FEventReply,
+        new_mouse_position: crate::bindings::core_u_object::FVector2D,
+    ) -> FEventReply {
+        let mut __stack = crate::core_data::StackAlloc::<400>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_MOUSE_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                reply,
+                __buffer.add(0).cast::<FEventReply>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_mouse_position,
+                __buffer.add(192).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_MOUSE_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FEventReply>().swap(reply);
+        }
+        unsafe { __buffer.add(208).cast::<FEventReply>().read() }
+    }
+    pub fn set_input_mode_ui_only_ex(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        in_widget_to_focus: UPtr<UWidget>,
+        in_mouse_lock_mode: crate::bindings::engine::EMouseLockMode,
+        b_flush_input: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_INPUT_MODE_UI_ONLY_EX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_widget_to_focus,
+                __buffer.add(8).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_mouse_lock_mode,
+                __buffer.add(16).cast::<crate::bindings::engine::EMouseLockMode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_flush_input,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_INPUT_MODE_UI_ONLY_EX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_input_mode_game_only(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        b_flush_input: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_INPUT_MODE_GAME_ONLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_flush_input,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_INPUT_MODE_GAME_ONLY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_input_mode_game_and_ui_ex(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        in_widget_to_focus: UPtr<UWidget>,
+        in_mouse_lock_mode: crate::bindings::engine::EMouseLockMode,
+        b_hide_cursor_during_capture: bool,
+        b_flush_input: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_INPUT_MODE_GAME_AND_UI_EX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_widget_to_focus,
+                __buffer.add(8).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_mouse_lock_mode,
+                __buffer.add(16).cast::<crate::bindings::engine::EMouseLockMode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_hide_cursor_during_capture,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_flush_input,
+                __buffer.add(18).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_INPUT_MODE_GAME_AND_UI_EX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hardware_cursor(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        cursor_shape: crate::bindings::core_u_object::EMouseCursor,
+        cursor_name: FName,
+        hot_spot: crate::bindings::core_u_object::FVector2D,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_HARDWARE_CURSOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &cursor_shape,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::EMouseCursor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &cursor_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &hot_spot,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_HARDWARE_CURSOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn set_focus_to_game_viewport() {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_FOCUS_TO_GAME_VIEWPORT,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_FOCUS_TO_GAME_VIEWPORT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_color_vision_deficiency_type(
+        ty: crate::bindings::slate_core::EColorVisionDeficiency,
+        severity: f32,
+        correct_deficiency: bool,
+        show_correction_with_deficiency: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<10>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_COLOR_VISION_DEFICIENCY_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &ty,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::slate_core::EColorVisionDeficiency>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&severity, __buffer.add(4).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &correct_deficiency,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &show_correction_with_deficiency,
+                __buffer.add(9).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_COLOR_VISION_DEFICIENCY_TYPE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_brush_resource_to_texture(
+        brush: &mut crate::bindings::slate_core::FSlateBrush,
+        texture: UPtr<crate::bindings::engine::UTexture2D>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<216>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_BRUSH_RESOURCE_TO_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                brush,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateBrush>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &texture,
+                __buffer.add(208).cast::<UPtr<crate::bindings::engine::UTexture2D>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_BRUSH_RESOURCE_TO_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::slate_core::FSlateBrush>()
+                .swap(brush);
+        }
+    }
+    pub fn set_brush_resource_to_material(
+        brush: &mut crate::bindings::slate_core::FSlateBrush,
+        material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<216>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_BRUSH_RESOURCE_TO_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                brush,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateBrush>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &material,
+                __buffer
+                    .add(208)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_SET_BRUSH_RESOURCE_TO_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::slate_core::FSlateBrush>()
+                .swap(brush);
+        }
+    }
+    pub fn restore_previous_window_title_bar_state() {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_RESTORE_PREVIOUS_WINDOW_TITLE_BAR_STATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_RESTORE_PREVIOUS_WINDOW_TITLE_BAR_STATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn release_mouse_capture(reply: &mut FEventReply) -> FEventReply {
+        let mut __stack = crate::core_data::StackAlloc::<384>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_RELEASE_MOUSE_CAPTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                reply,
+                __buffer.add(0).cast::<FEventReply>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_RELEASE_MOUSE_CAPTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FEventReply>().swap(reply);
+        }
+        unsafe { __buffer.add(192).cast::<FEventReply>().read() }
+    }
+    pub fn release_joystick_capture(
+        reply: &mut FEventReply,
+        b_in_all_joysticks: bool,
+    ) -> FEventReply {
+        let mut __stack = crate::core_data::StackAlloc::<392>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_RELEASE_JOYSTICK_CAPTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                reply,
+                __buffer.add(0).cast::<FEventReply>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_all_joysticks,
+                __buffer.add(192).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_RELEASE_JOYSTICK_CAPTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FEventReply>().swap(reply);
+        }
+        unsafe { __buffer.add(200).cast::<FEventReply>().read() }
+    }
+    pub fn no_resource_brush() -> crate::bindings::slate_core::FSlateBrush {
+        let mut __stack = crate::core_data::StackAlloc::<208>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_NO_RESOURCE_BRUSH,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_NO_RESOURCE_BRUSH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::slate_core::FSlateBrush>().read()
+        }
+    }
+    pub fn make_brush_from_texture(
+        texture: UPtr<crate::bindings::engine::UTexture2D>,
+        width: i32,
+        height: i32,
+    ) -> crate::bindings::slate_core::FSlateBrush {
+        let mut __stack = crate::core_data::StackAlloc::<224>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_MAKE_BRUSH_FROM_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &texture,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UTexture2D>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&width, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&height, __buffer.add(12).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_MAKE_BRUSH_FROM_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::slate_core::FSlateBrush>().read()
+        }
+    }
+    pub fn make_brush_from_material(
+        material: UPtr<crate::bindings::engine::UMaterialInterface>,
+        width: i32,
+        height: i32,
+    ) -> crate::bindings::slate_core::FSlateBrush {
+        let mut __stack = crate::core_data::StackAlloc::<224>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_MAKE_BRUSH_FROM_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&width, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&height, __buffer.add(12).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_MAKE_BRUSH_FROM_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::slate_core::FSlateBrush>().read()
+        }
+    }
+    pub fn make_brush_from_asset(
+        brush_asset: UPtr<crate::bindings::engine::USlateBrushAsset>,
+    ) -> crate::bindings::slate_core::FSlateBrush {
+        let mut __stack = crate::core_data::StackAlloc::<224>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_MAKE_BRUSH_FROM_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &brush_asset,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::USlateBrushAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_MAKE_BRUSH_FROM_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::slate_core::FSlateBrush>().read()
+        }
+    }
+    pub fn lock_mouse(
+        reply: &mut FEventReply,
+        capturing_widget: UPtr<UWidget>,
+    ) -> FEventReply {
+        let mut __stack = crate::core_data::StackAlloc::<392>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_LOCK_MOUSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                reply,
+                __buffer.add(0).cast::<FEventReply>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &capturing_widget,
+                __buffer.add(192).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_LOCK_MOUSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FEventReply>().swap(reply);
+        }
+        unsafe { __buffer.add(200).cast::<FEventReply>().read() }
+    }
+    pub fn is_drag_dropping() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_IS_DRAG_DROPPING,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_IS_DRAG_DROPPING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn handled() -> FEventReply {
+        let mut __stack = crate::core_data::StackAlloc::<192>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_HANDLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_HANDLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FEventReply>().read() }
+    }
+    pub fn get_safe_zone_padding(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        safe_padding: &mut crate::bindings::core_u_object::FVector4,
+        safe_padding_scale: &mut crate::bindings::core_u_object::FVector2D,
+        spill_over_padding: &mut crate::bindings::core_u_object::FVector4,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_SAFE_ZONE_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                safe_padding,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector4>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                safe_padding_scale,
+                __buffer.add(48).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                spill_over_padding,
+                __buffer.add(64).cast::<crate::bindings::core_u_object::FVector4>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_SAFE_ZONE_PADDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::core_u_object::FVector4>()
+                .swap(safe_padding);
+        }
+        unsafe {
+            __buffer
+                .add(48)
+                .cast::<crate::bindings::core_u_object::FVector2D>()
+                .swap(safe_padding_scale);
+        }
+        unsafe {
+            __buffer
+                .add(64)
+                .cast::<crate::bindings::core_u_object::FVector4>()
+                .swap(spill_over_padding);
+        }
+    }
+    pub fn get_key_event_from_analog_input_event(
+        event: &crate::bindings::slate_core::FAnalogInputEvent,
+    ) -> crate::bindings::slate_core::FKeyEvent {
+        let mut __stack = crate::core_data::StackAlloc::<168>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_KEY_EVENT_FROM_ANALOG_INPUT_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                event,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FAnalogInputEvent>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_KEY_EVENT_FROM_ANALOG_INPUT_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(88).cast::<crate::bindings::slate_core::FKeyEvent>().read()
+        }
+    }
+    pub fn get_input_event_from_pointer_event(
+        event: &crate::bindings::slate_core::FPointerEvent,
+    ) -> crate::bindings::slate_core::FInputEvent {
+        let mut __stack = crate::core_data::StackAlloc::<176>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_INPUT_EVENT_FROM_POINTER_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                event,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FPointerEvent>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_INPUT_EVENT_FROM_POINTER_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(136).cast::<crate::bindings::slate_core::FInputEvent>().read()
+        }
+    }
+    pub fn get_input_event_from_navigation_event(
+        event: &crate::bindings::slate_core::FNavigationEvent,
+    ) -> crate::bindings::slate_core::FInputEvent {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_INPUT_EVENT_FROM_NAVIGATION_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                event,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FNavigationEvent>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_INPUT_EVENT_FROM_NAVIGATION_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(48).cast::<crate::bindings::slate_core::FInputEvent>().read()
+        }
+    }
+    pub fn get_input_event_from_key_event(
+        event: &crate::bindings::slate_core::FKeyEvent,
+    ) -> crate::bindings::slate_core::FInputEvent {
+        let mut __stack = crate::core_data::StackAlloc::<120>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_INPUT_EVENT_FROM_KEY_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                event,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FKeyEvent>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_INPUT_EVENT_FROM_KEY_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(80).cast::<crate::bindings::slate_core::FInputEvent>().read()
+        }
+    }
+    pub fn get_input_event_from_character_event(
+        event: &crate::bindings::slate_core::FCharacterEvent,
+    ) -> crate::bindings::slate_core::FInputEvent {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_INPUT_EVENT_FROM_CHARACTER_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                event,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FCharacterEvent>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_INPUT_EVENT_FROM_CHARACTER_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(48).cast::<crate::bindings::slate_core::FInputEvent>().read()
+        }
+    }
+    pub fn get_dynamic_material(
+        brush: &mut crate::bindings::slate_core::FSlateBrush,
+    ) -> UPtr<crate::bindings::engine::UMaterialInstanceDynamic> {
+        let mut __stack = crate::core_data::StackAlloc::<216>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_DYNAMIC_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                brush,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateBrush>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_DYNAMIC_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::slate_core::FSlateBrush>()
+                .swap(brush);
+        }
+        unsafe {
+            __buffer
+                .add(208)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInstanceDynamic>>()
+                .read()
+        }
+    }
+    pub fn get_drag_dropping_content() -> UPtr<UDragDropOperation> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_DRAG_DROPPING_CONTENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_DRAG_DROPPING_CONTENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UDragDropOperation>>().read() }
+    }
+    pub fn get_brush_resource_as_texture2_d(
+        brush: &crate::bindings::slate_core::FSlateBrush,
+    ) -> UPtr<crate::bindings::engine::UTexture2D> {
+        let mut __stack = crate::core_data::StackAlloc::<216>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_BRUSH_RESOURCE_AS_TEXTURE2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                brush,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateBrush>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_BRUSH_RESOURCE_AS_TEXTURE2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(208).cast::<UPtr<crate::bindings::engine::UTexture2D>>().read()
+        }
+    }
+    pub fn get_brush_resource_as_material(
+        brush: &crate::bindings::slate_core::FSlateBrush,
+    ) -> UPtr<crate::bindings::engine::UMaterialInterface> {
+        let mut __stack = crate::core_data::StackAlloc::<216>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_BRUSH_RESOURCE_AS_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                brush,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateBrush>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_BRUSH_RESOURCE_AS_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(208)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>()
+                .read()
+        }
+    }
+    pub fn get_brush_resource(
+        brush: &crate::bindings::slate_core::FSlateBrush,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<216>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_BRUSH_RESOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                brush,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateBrush>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_BRUSH_RESOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(208)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_all_widgets_with_interface(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        found_widgets: &mut TArray<UPtr<UUserWidget>>,
+        interface: TSubclassOf<crate::bindings::core_u_object::UInterface>,
+        top_level_only: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_ALL_WIDGETS_WITH_INTERFACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                found_widgets,
+                __buffer.add(8).cast::<TArray<UPtr<UUserWidget>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interface,
+                __buffer
+                    .add(24)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UInterface>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &top_level_only,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_ALL_WIDGETS_WITH_INTERFACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<TArray<UPtr<UUserWidget>>>().swap(found_widgets);
+        }
+    }
+    pub fn get_all_widgets_of_class(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        found_widgets: &mut TArray<UPtr<UUserWidget>>,
+        widget_class: TSubclassOf<UUserWidget>,
+        top_level_only: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_ALL_WIDGETS_OF_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                found_widgets,
+                __buffer.add(8).cast::<TArray<UPtr<UUserWidget>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget_class,
+                __buffer.add(24).cast::<TSubclassOf<UUserWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &top_level_only,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_GET_ALL_WIDGETS_OF_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<TArray<UPtr<UUserWidget>>>().swap(found_widgets);
+        }
+    }
+    pub fn end_drag_drop(reply: &mut FEventReply) -> FEventReply {
+        let mut __stack = crate::core_data::StackAlloc::<384>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_END_DRAG_DROP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                reply,
+                __buffer.add(0).cast::<FEventReply>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_END_DRAG_DROP,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FEventReply>().swap(reply);
+        }
+        unsafe { __buffer.add(192).cast::<FEventReply>().read() }
+    }
+    pub fn draw_text_formatted(
+        context: &mut FPaintContext,
+        text: &FText,
+        position: crate::bindings::core_u_object::FVector2D,
+        font: UPtr<crate::bindings::engine::UFont>,
+        font_size: f32,
+        font_type_face: FName,
+        tint: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<120>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DRAW_TEXT_FORMATTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FPaintContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(text, __buffer.add(48).cast::<FText>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(64).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &font,
+                __buffer.add(80).cast::<UPtr<crate::bindings::engine::UFont>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&font_size, __buffer.add(88).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &font_type_face,
+                __buffer.add(92).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tint,
+                __buffer.add(104).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DRAW_TEXT_FORMATTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FPaintContext>().swap(context);
+        }
+    }
+    pub fn draw_text(
+        context: &mut FPaintContext,
+        in_string: FString,
+        position: crate::bindings::core_u_object::FVector2D,
+        tint: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DRAW_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FPaintContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_string,
+                __buffer.add(48).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(64).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tint,
+                __buffer.add(80).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DRAW_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FPaintContext>().swap(context);
+        }
+    }
+    pub fn draw_spline(
+        context: &mut FPaintContext,
+        start: crate::bindings::core_u_object::FVector2D,
+        start_dir: crate::bindings::core_u_object::FVector2D,
+        end: crate::bindings::core_u_object::FVector2D,
+        end_dir: crate::bindings::core_u_object::FVector2D,
+        tint: crate::bindings::core_u_object::FLinearColor,
+        thickness: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<132>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DRAW_SPLINE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FPaintContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start,
+                __buffer.add(48).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start_dir,
+                __buffer.add(64).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &end,
+                __buffer.add(80).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &end_dir,
+                __buffer.add(96).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tint,
+                __buffer.add(112).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &thickness,
+                __buffer.add(128).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DRAW_SPLINE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FPaintContext>().swap(context);
+        }
+    }
+    pub fn draw_lines(
+        context: &mut FPaintContext,
+        points: &TArray<crate::bindings::core_u_object::FVector2D>,
+        tint: crate::bindings::core_u_object::FLinearColor,
+        b_anti_alias: bool,
+        thickness: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DRAW_LINES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FPaintContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                points,
+                __buffer
+                    .add(48)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector2D>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tint,
+                __buffer.add(64).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_anti_alias,
+                __buffer.add(80).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&thickness, __buffer.add(84).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DRAW_LINES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FPaintContext>().swap(context);
+        }
+    }
+    pub fn draw_line(
+        context: &mut FPaintContext,
+        position_a: crate::bindings::core_u_object::FVector2D,
+        position_b: crate::bindings::core_u_object::FVector2D,
+        tint: crate::bindings::core_u_object::FLinearColor,
+        b_anti_alias: bool,
+        thickness: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DRAW_LINE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FPaintContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position_a,
+                __buffer.add(48).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position_b,
+                __buffer.add(64).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tint,
+                __buffer.add(80).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_anti_alias,
+                __buffer.add(96).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &thickness,
+                __buffer.add(100).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DRAW_LINE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FPaintContext>().swap(context);
+        }
+    }
+    pub fn draw_box(
+        context: &mut FPaintContext,
+        position: crate::bindings::core_u_object::FVector2D,
+        size: crate::bindings::core_u_object::FVector2D,
+        brush: UPtr<crate::bindings::engine::USlateBrushAsset>,
+        tint: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DRAW_BOX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FPaintContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(48).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &size,
+                __buffer.add(64).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &brush,
+                __buffer
+                    .add(80)
+                    .cast::<UPtr<crate::bindings::engine::USlateBrushAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tint,
+                __buffer.add(88).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DRAW_BOX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FPaintContext>().swap(context);
+        }
+    }
+    pub fn dismiss_all_menus() {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DISMISS_ALL_MENUS,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DISMISS_ALL_MENUS,
+                __buffer,
+            )
+        };
+    }
+    pub fn detect_drag_if_pressed(
+        pointer_event: &crate::bindings::slate_core::FPointerEvent,
+        widget_detecting_drag: UPtr<UWidget>,
+        drag_key: crate::bindings::input_core::FKey,
+    ) -> FEventReply {
+        let mut __stack = crate::core_data::StackAlloc::<368>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DETECT_DRAG_IF_PRESSED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                pointer_event,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FPointerEvent>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget_detecting_drag,
+                __buffer.add(136).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &drag_key,
+                __buffer.add(144).cast::<crate::bindings::input_core::FKey>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DETECT_DRAG_IF_PRESSED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(176).cast::<FEventReply>().read() }
+    }
+    pub fn detect_drag(
+        reply: &mut FEventReply,
+        widget_detecting_drag: UPtr<UWidget>,
+        drag_key: crate::bindings::input_core::FKey,
+    ) -> FEventReply {
+        let mut __stack = crate::core_data::StackAlloc::<424>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DETECT_DRAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                reply,
+                __buffer.add(0).cast::<FEventReply>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget_detecting_drag,
+                __buffer.add(192).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &drag_key,
+                __buffer.add(200).cast::<crate::bindings::input_core::FKey>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_DETECT_DRAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FEventReply>().swap(reply);
+        }
+        unsafe { __buffer.add(232).cast::<FEventReply>().read() }
+    }
+    pub fn create_drag_drop_operation(
+        operation_class: TSubclassOf<UDragDropOperation>,
+    ) -> UPtr<UDragDropOperation> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_CREATE_DRAG_DROP_OPERATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &operation_class,
+                __buffer.add(0).cast::<TSubclassOf<UDragDropOperation>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_CREATE_DRAG_DROP_OPERATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UDragDropOperation>>().read() }
+    }
+    pub fn create(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        widget_type: TSubclassOf<UUserWidget>,
+        owning_player: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> UPtr<UUserWidget> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_CREATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget_type,
+                __buffer.add(8).cast::<TSubclassOf<UUserWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owning_player,
+                __buffer
+                    .add(16)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_CREATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UUserWidget>>().read() }
+    }
+    pub fn clear_user_focus(
+        reply: &mut FEventReply,
+        b_in_all_users: bool,
+    ) -> FEventReply {
+        let mut __stack = crate::core_data::StackAlloc::<392>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_CLEAR_USER_FOCUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                reply,
+                __buffer.add(0).cast::<FEventReply>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_all_users,
+                __buffer.add(192).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_CLEAR_USER_FOCUS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FEventReply>().swap(reply);
+        }
+        unsafe { __buffer.add(200).cast::<FEventReply>().read() }
+    }
+    pub fn capture_mouse(
+        reply: &mut FEventReply,
+        capturing_widget: UPtr<UWidget>,
+    ) -> FEventReply {
+        let mut __stack = crate::core_data::StackAlloc::<392>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_CAPTURE_MOUSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                reply,
+                __buffer.add(0).cast::<FEventReply>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &capturing_widget,
+                __buffer.add(192).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_CAPTURE_MOUSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FEventReply>().swap(reply);
+        }
+        unsafe { __buffer.add(200).cast::<FEventReply>().read() }
+    }
+    pub fn capture_joystick(
+        reply: &mut FEventReply,
+        capturing_widget: UPtr<UWidget>,
+        b_in_all_joysticks: bool,
+    ) -> FEventReply {
+        let mut __stack = crate::core_data::StackAlloc::<400>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_CAPTURE_JOYSTICK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                reply,
+                __buffer.add(0).cast::<FEventReply>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &capturing_widget,
+                __buffer.add(192).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_all_joysticks,
+                __buffer.add(200).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_CAPTURE_JOYSTICK,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FEventReply>().swap(reply);
+        }
+        unsafe { __buffer.add(208).cast::<FEventReply>().read() }
+    }
+    pub fn cancel_drag_drop() {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_CANCEL_DRAG_DROP,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::umg::UWidgetBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_BLUEPRINT_LIBRARY_CANCEL_DRAG_DROP,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UWidgetLayoutLibrary {
@@ -11999,6 +35774,791 @@ impl UWidgetLayoutLibrary {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn slot_as_wrap_box_slot(widget: UPtr<UWidget>) -> UPtr<UWrapBoxSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_WRAP_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_WRAP_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UWrapBoxSlot>>().read() }
+    }
+    pub fn slot_as_widget_switcher_slot(
+        widget: UPtr<UWidget>,
+    ) -> UPtr<UWidgetSwitcherSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_WIDGET_SWITCHER_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_WIDGET_SWITCHER_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UWidgetSwitcherSlot>>().read() }
+    }
+    pub fn slot_as_vertical_box_slot(widget: UPtr<UWidget>) -> UPtr<UVerticalBoxSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_VERTICAL_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_VERTICAL_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UVerticalBoxSlot>>().read() }
+    }
+    pub fn slot_as_uniform_grid_slot(widget: UPtr<UWidget>) -> UPtr<UUniformGridSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_UNIFORM_GRID_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_UNIFORM_GRID_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UUniformGridSlot>>().read() }
+    }
+    pub fn slot_as_stack_box_slot(widget: UPtr<UWidget>) -> UPtr<UStackBoxSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_STACK_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_STACK_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UStackBoxSlot>>().read() }
+    }
+    pub fn slot_as_size_box_slot(widget: UPtr<UWidget>) -> UPtr<USizeBoxSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_SIZE_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_SIZE_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<USizeBoxSlot>>().read() }
+    }
+    pub fn slot_as_scroll_box_slot(widget: UPtr<UWidget>) -> UPtr<UScrollBoxSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_SCROLL_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_SCROLL_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UScrollBoxSlot>>().read() }
+    }
+    pub fn slot_as_scale_box_slot(widget: UPtr<UWidget>) -> UPtr<UScaleBoxSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_SCALE_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_SCALE_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UScaleBoxSlot>>().read() }
+    }
+    pub fn slot_as_safe_box_slot(widget: UPtr<UWidget>) -> UPtr<USafeZoneSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_SAFE_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_SAFE_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<USafeZoneSlot>>().read() }
+    }
+    pub fn slot_as_overlay_slot(widget: UPtr<UWidget>) -> UPtr<UOverlaySlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_OVERLAY_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_OVERLAY_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UOverlaySlot>>().read() }
+    }
+    pub fn slot_as_horizontal_box_slot(
+        widget: UPtr<UWidget>,
+    ) -> UPtr<UHorizontalBoxSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_HORIZONTAL_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_HORIZONTAL_BOX_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UHorizontalBoxSlot>>().read() }
+    }
+    pub fn slot_as_grid_slot(widget: UPtr<UWidget>) -> UPtr<UGridSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_GRID_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_GRID_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UGridSlot>>().read() }
+    }
+    pub fn slot_as_canvas_slot(widget: UPtr<UWidget>) -> UPtr<UCanvasPanelSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_CANVAS_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_CANVAS_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UCanvasPanelSlot>>().read() }
+    }
+    pub fn slot_as_border_slot(widget: UPtr<UWidget>) -> UPtr<UBorderSlot> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_BORDER_SLOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &widget,
+                __buffer.add(0).cast::<UPtr<UWidget>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_SLOT_AS_BORDER_SLOT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UBorderSlot>>().read() }
+    }
+    pub fn remove_all_widgets(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_REMOVE_ALL_WIDGETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_REMOVE_ALL_WIDGETS,
+                __buffer,
+            )
+        };
+    }
+    pub fn project_world_location_to_widget_position(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        world_location: crate::bindings::core_u_object::FVector,
+        screen_position: &mut crate::bindings::core_u_object::FVector2D,
+        b_player_viewport_relative: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<50>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_PROJECT_WORLD_LOCATION_TO_WIDGET_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_location,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                screen_position,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_player_viewport_relative,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_PROJECT_WORLD_LOCATION_TO_WIDGET_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<crate::bindings::core_u_object::FVector2D>()
+                .swap(screen_position);
+        }
+        unsafe { __buffer.add(49).cast::<bool>().read() }
+    }
+    pub fn get_viewport_widget_geometry(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> crate::bindings::slate_core::FGeometry {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_GET_VIEWPORT_WIDGET_GEOMETRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_GET_VIEWPORT_WIDGET_GEOMETRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<crate::bindings::slate_core::FGeometry>().read()
+        }
+    }
+    pub fn get_viewport_size(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_GET_VIEWPORT_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_GET_VIEWPORT_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_viewport_scale(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_GET_VIEWPORT_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_GET_VIEWPORT_SCALE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<f32>().read() }
+    }
+    pub fn get_player_screen_widget_geometry(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> crate::bindings::slate_core::FGeometry {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_GET_PLAYER_SCREEN_WIDGET_GEOMETRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_GET_PLAYER_SCREEN_WIDGET_GEOMETRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<crate::bindings::slate_core::FGeometry>().read()
+        }
+    }
+    pub fn get_mouse_position_scaled_by_dpi(
+        player: UPtr<crate::bindings::engine::APlayerController>,
+        location_x: &mut f32,
+        location_y: &mut f32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_GET_MOUSE_POSITION_SCALED_BY_DPI,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(location_x, __buffer.add(8).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(location_y, __buffer.add(12).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_GET_MOUSE_POSITION_SCALED_BY_DPI,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<f32>().swap(location_x);
+        }
+        unsafe {
+            __buffer.add(12).cast::<f32>().swap(location_y);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_mouse_position_on_viewport(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_GET_MOUSE_POSITION_ON_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_GET_MOUSE_POSITION_ON_VIEWPORT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_mouse_position_on_platform() -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_GET_MOUSE_POSITION_ON_PLATFORM,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::umg::UWidgetLayoutLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::umg::U_WIDGET_LAYOUT_LIBRARY_GET_MOUSE_POSITION_ON_PLATFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
     }
 }

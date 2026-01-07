@@ -694,7 +694,6 @@ impl FInAppPurchaseProductInfo2 {}
 pub struct FInAppPurchaseProductRequest2 {
     pub product_identifier: FString,
     pub b_is_consumable: bool,
-    __padding_end: [u8; 7],
 }
 impl FInAppPurchaseProductRequest2 {}
 #[repr(C, align(8))]
@@ -715,6 +714,171 @@ impl UAchievementBlueprintLibrary {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn get_cached_achievement_progress(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        achievement_id: FName,
+        b_found_id: &mut bool,
+        progress: &mut f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_PROGRESS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &achievement_id,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_found_id,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(progress, __buffer.add(32).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UAchievementBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_PROGRESS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(28).cast::<bool>().swap(b_found_id);
+        }
+        unsafe {
+            __buffer.add(32).cast::<f32>().swap(progress);
+        }
+    }
+    pub fn get_cached_achievement_description(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        achievement_id: FName,
+        b_found_id: &mut bool,
+        title: &mut FText,
+        locked_description: &mut FText,
+        unlocked_description: &mut FText,
+        b_hidden: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<81>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_DESCRIPTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &achievement_id,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_found_id,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(title, __buffer.add(32).cast::<FText>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                locked_description,
+                __buffer.add(48).cast::<FText>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                unlocked_description,
+                __buffer.add(64).cast::<FText>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(b_hidden, __buffer.add(80).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UAchievementBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_DESCRIPTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(28).cast::<bool>().swap(b_found_id);
+        }
+        unsafe {
+            __buffer.add(32).cast::<FText>().swap(title);
+        }
+        unsafe {
+            __buffer.add(48).cast::<FText>().swap(locked_description);
+        }
+        unsafe {
+            __buffer.add(64).cast::<FText>().swap(unlocked_description);
+        }
+        unsafe {
+            __buffer.add(80).cast::<bool>().swap(b_hidden);
         }
     }
 }
@@ -738,6 +902,92 @@ impl UAchievementQueryCallbackProxy {
             cdo
         }
     }
+    pub fn cache_achievements(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> UPtr<UAchievementQueryCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UAchievementQueryCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UAchievementQueryCallbackProxy>>().read() }
+    }
+    pub fn cache_achievement_descriptions(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> UPtr<UAchievementQueryCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENT_DESCRIPTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UAchievementQueryCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENT_DESCRIPTIONS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UAchievementQueryCallbackProxy>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UAchievementWriteCallbackProxy {
@@ -758,6 +1008,65 @@ impl UAchievementWriteCallbackProxy {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn write_progress(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        achievement_name: FString,
+        progress: f32,
+        user_tag: i32,
+    ) -> UPtr<UAchievementWriteCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_WRITE_CALLBACK_PROXY_WRITE_PROGRESS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &achievement_name,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&progress, __buffer.add(32).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&user_tag, __buffer.add(36).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UAchievementWriteCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_WRITE_CALLBACK_PROXY_WRITE_PROGRESS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<UPtr<UAchievementWriteCallbackProxy>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -780,6 +1089,49 @@ impl UConnectionCallbackProxy {
             cdo
         }
     }
+    pub fn connect_to_service(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> UPtr<UConnectionCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_CONNECTION_CALLBACK_PROXY_CONNECT_TO_SERVICE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UConnectionCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_CONNECTION_CALLBACK_PROXY_CONNECT_TO_SERVICE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UConnectionCallbackProxy>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UCreateSessionCallbackProxy {
@@ -800,6 +1152,73 @@ impl UCreateSessionCallbackProxy {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn create_session(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        public_connections: i32,
+        b_use_lan: bool,
+        b_use_lobbies_if_available: bool,
+    ) -> UPtr<UCreateSessionCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_CREATE_SESSION_CALLBACK_PROXY_CREATE_SESSION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &public_connections,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_use_lan,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_use_lobbies_if_available,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UCreateSessionCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_CREATE_SESSION_CALLBACK_PROXY_CREATE_SESSION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UCreateSessionCallbackProxy>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -822,6 +1241,49 @@ impl UDestroySessionCallbackProxy {
             cdo
         }
     }
+    pub fn destroy_session(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> UPtr<UDestroySessionCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_DESTROY_SESSION_CALLBACK_PROXY_DESTROY_SESSION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UDestroySessionCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_DESTROY_SESSION_CALLBACK_PROXY_DESTROY_SESSION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UDestroySessionCallbackProxy>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UEndMatchCallbackProxy {
@@ -842,6 +1304,93 @@ impl UEndMatchCallbackProxy {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn end_match(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        match_actor: TScriptInterface<
+            crate::bindings::online_subsystem::UTurnBasedMatchInterface,
+        >,
+        match_id: FString,
+        local_player_outcome: crate::bindings::online_subsystem::EMPMatchOutcome,
+        other_players_outcome: crate::bindings::online_subsystem::EMPMatchOutcome,
+    ) -> UPtr<UEndMatchCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_END_MATCH_CALLBACK_PROXY_END_MATCH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &match_actor,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        TScriptInterface<
+                            crate::bindings::online_subsystem::UTurnBasedMatchInterface,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &match_id,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &local_player_outcome,
+                __buffer
+                    .add(48)
+                    .cast::<crate::bindings::online_subsystem::EMPMatchOutcome>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &other_players_outcome,
+                __buffer
+                    .add(49)
+                    .cast::<crate::bindings::online_subsystem::EMPMatchOutcome>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UEndMatchCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_END_MATCH_CALLBACK_PROXY_END_MATCH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<UPtr<UEndMatchCallbackProxy>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -864,6 +1413,73 @@ impl UEndTurnCallbackProxy {
             cdo
         }
     }
+    pub fn end_turn(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        match_id: FString,
+        turn_based_match_interface: TScriptInterface<
+            crate::bindings::online_subsystem::UTurnBasedMatchInterface,
+        >,
+    ) -> UPtr<UEndTurnCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_END_TURN_CALLBACK_PROXY_END_TURN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &match_id,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &turn_based_match_interface,
+                __buffer
+                    .add(32)
+                    .cast::<
+                        TScriptInterface<
+                            crate::bindings::online_subsystem::UTurnBasedMatchInterface,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UEndTurnCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_END_TURN_CALLBACK_PROXY_END_TURN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<UPtr<UEndTurnCallbackProxy>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UFindSessionsCallbackProxy {
@@ -885,6 +1501,197 @@ impl UFindSessionsCallbackProxy {
             cdo
         }
     }
+    pub fn get_server_name(result: &FBlueprintSessionResult) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<304>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_SERVER_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer.add(0).cast::<FBlueprintSessionResult>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UFindSessionsCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_SERVER_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(288).cast::<FString>().read() }
+    }
+    pub fn get_ping_in_ms(result: &FBlueprintSessionResult) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<292>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_PING_IN_MS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer.add(0).cast::<FBlueprintSessionResult>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UFindSessionsCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_PING_IN_MS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(288).cast::<i32>().read() }
+    }
+    pub fn get_max_players(result: &FBlueprintSessionResult) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<292>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_MAX_PLAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer.add(0).cast::<FBlueprintSessionResult>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UFindSessionsCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_MAX_PLAYERS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(288).cast::<i32>().read() }
+    }
+    pub fn get_current_players(result: &FBlueprintSessionResult) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<292>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_CURRENT_PLAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer.add(0).cast::<FBlueprintSessionResult>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UFindSessionsCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_CURRENT_PLAYERS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(288).cast::<i32>().read() }
+    }
+    pub fn find_sessions(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        max_results: i32,
+        b_use_lan: bool,
+        b_use_lobbies: bool,
+    ) -> UPtr<UFindSessionsCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_FIND_SESSIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &max_results,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_use_lan,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_use_lobbies,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UFindSessionsCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_FIND_SESSIONS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UFindSessionsCallbackProxy>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UFindTurnBasedMatchCallbackProxy {
@@ -904,6 +1711,99 @@ impl UFindTurnBasedMatchCallbackProxy {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn find_turn_based_match(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        match_actor: TScriptInterface<
+            crate::bindings::online_subsystem::UTurnBasedMatchInterface,
+        >,
+        min_players: i32,
+        max_players: i32,
+        player_group: i32,
+        show_existing_matches: bool,
+    ) -> UPtr<UFindTurnBasedMatchCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_FIND_TURN_BASED_MATCH_CALLBACK_PROXY_FIND_TURN_BASED_MATCH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &match_actor,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        TScriptInterface<
+                            crate::bindings::online_subsystem::UTurnBasedMatchInterface,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &min_players,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &max_players,
+                __buffer.add(36).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_group,
+                __buffer.add(40).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &show_existing_matches,
+                __buffer.add(44).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UFindTurnBasedMatchCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_FIND_TURN_BASED_MATCH_CALLBACK_PROXY_FIND_TURN_BASED_MATCH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(48).cast::<UPtr<UFindTurnBasedMatchCallbackProxy>>().read()
         }
     }
 }
@@ -927,6 +1827,119 @@ impl UInAppPurchaseCallbackProxy2 {
             cdo
         }
     }
+    pub fn create_proxy_object_for_in_app_purchase_unprocessed_purchases(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> UPtr<UInAppPurchaseCallbackProxy2> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_UNPROCESSED_PURCHASES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UInAppPurchaseCallbackProxy2::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_UNPROCESSED_PURCHASES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UInAppPurchaseCallbackProxy2>>().read() }
+    }
+    pub fn create_proxy_object_for_in_app_purchase_query_owned(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> UPtr<UInAppPurchaseCallbackProxy2> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UInAppPurchaseCallbackProxy2::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UInAppPurchaseCallbackProxy2>>().read() }
+    }
+    pub fn create_proxy_object_for_in_app_purchase(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        product_request: &FInAppPurchaseProductRequest2,
+    ) -> UPtr<UInAppPurchaseCallbackProxy2> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                product_request,
+                __buffer.add(8).cast::<FInAppPurchaseProductRequest2>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UInAppPurchaseCallbackProxy2::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<UPtr<UInAppPurchaseCallbackProxy2>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInAppPurchaseCheckoutCallbackProxy {
@@ -946,6 +1959,51 @@ impl UInAppPurchaseCheckoutCallbackProxy {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn create_proxy_object_for_in_app_purchase_checkout(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        product_request: &FInAppPurchaseProductRequest2,
+    ) -> UPtr<UInAppPurchaseCheckoutCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CHECKOUT_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_CHECKOUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                product_request,
+                __buffer.add(8).cast::<FInAppPurchaseProductRequest2>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UInAppPurchaseCheckoutCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CHECKOUT_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_CHECKOUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<UPtr<UInAppPurchaseCheckoutCallbackProxy>>().read()
         }
     }
 }
@@ -969,6 +2027,49 @@ impl UInAppPurchaseFinalizeProxy {
             cdo
         }
     }
+    pub fn create_proxy_object_for_in_app_purchase_finalize(
+        in_app_purchase_receipt: &FInAppPurchaseReceiptInfo2,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> UPtr<UInAppPurchaseFinalizeProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_FINALIZE_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_FINALIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_app_purchase_receipt,
+                __buffer.add(0).cast::<FInAppPurchaseReceiptInfo2>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(64)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UInAppPurchaseFinalizeProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_FINALIZE_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_FINALIZE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(72).cast::<UPtr<UInAppPurchaseFinalizeProxy>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInAppPurchaseQueryCallbackProxy2 {
@@ -988,6 +2089,51 @@ impl UInAppPurchaseQueryCallbackProxy2 {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn create_proxy_object_for_in_app_purchase_query(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        product_identifiers: &TArray<FString>,
+    ) -> UPtr<UInAppPurchaseQueryCallbackProxy2> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_QUERY_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                product_identifiers,
+                __buffer.add(8).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UInAppPurchaseQueryCallbackProxy2::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_QUERY_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<UPtr<UInAppPurchaseQueryCallbackProxy2>>().read()
         }
     }
 }
@@ -1011,6 +2157,117 @@ impl UInAppPurchaseReceiptsCallbackProxy {
             cdo
         }
     }
+    pub fn create_proxy_object_for_in_app_purchase_restore_owned_products(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> UPtr<UInAppPurchaseReceiptsCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE_OWNED_PRODUCTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UInAppPurchaseReceiptsCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE_OWNED_PRODUCTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<UPtr<UInAppPurchaseReceiptsCallbackProxy>>().read()
+        }
+    }
+    pub fn create_proxy_object_for_in_app_purchase_query_owned_products(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> UPtr<UInAppPurchaseReceiptsCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED_PRODUCTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UInAppPurchaseReceiptsCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED_PRODUCTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<UPtr<UInAppPurchaseReceiptsCallbackProxy>>().read()
+        }
+    }
+    pub fn create_proxy_object_for_in_app_purchase_get_known_receipts(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> UPtr<UInAppPurchaseReceiptsCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_GET_KNOWN_RECEIPTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UInAppPurchaseReceiptsCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_GET_KNOWN_RECEIPTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<UPtr<UInAppPurchaseReceiptsCallbackProxy>>().read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInAppPurchaseRestoreCallbackProxy2 {
@@ -1030,6 +2287,51 @@ impl UInAppPurchaseRestoreCallbackProxy2 {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn create_proxy_object_for_in_app_purchase_restore(
+        consumable_product_flags: &TArray<FInAppPurchaseProductRequest2>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> UPtr<UInAppPurchaseRestoreCallbackProxy2> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RESTORE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                consumable_product_flags,
+                __buffer.add(0).cast::<TArray<FInAppPurchaseProductRequest2>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(16)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UInAppPurchaseRestoreCallbackProxy2::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RESTORE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<UPtr<UInAppPurchaseRestoreCallbackProxy2>>().read()
         }
     }
 }
@@ -1095,6 +2397,57 @@ impl UJoinSessionCallbackProxy {
             cdo
         }
     }
+    pub fn join_session(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        search_result: &FBlueprintSessionResult,
+    ) -> UPtr<UJoinSessionCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<312>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_JOIN_SESSION_CALLBACK_PROXY_JOIN_SESSION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                search_result,
+                __buffer.add(16).cast::<FBlueprintSessionResult>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UJoinSessionCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_JOIN_SESSION_CALLBACK_PROXY_JOIN_SESSION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(304).cast::<UPtr<UJoinSessionCallbackProxy>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct ULeaderboardBlueprintLibrary {
@@ -1115,6 +2468,57 @@ impl ULeaderboardBlueprintLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn write_leaderboard_integer(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        stat_name: FName,
+        stat_value: i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_LEADERBOARD_BLUEPRINT_LIBRARY_WRITE_LEADERBOARD_INTEGER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &stat_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &stat_value,
+                __buffer.add(20).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::ULeaderboardBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_LEADERBOARD_BLUEPRINT_LIBRARY_WRITE_LEADERBOARD_INTEGER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -1137,6 +2541,49 @@ impl ULeaderboardFlushCallbackProxy {
             cdo
         }
     }
+    pub fn create_proxy_object_for_flush(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        session_name: FName,
+    ) -> UPtr<ULeaderboardFlushCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_LEADERBOARD_FLUSH_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_FLUSH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &session_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::ULeaderboardFlushCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_LEADERBOARD_FLUSH_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_FLUSH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<ULeaderboardFlushCallbackProxy>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct ULeaderboardQueryCallbackProxy {
@@ -1158,6 +2605,49 @@ impl ULeaderboardQueryCallbackProxy {
             cdo
         }
     }
+    pub fn create_proxy_object_for_int_query(
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        stat_name: FString,
+    ) -> UPtr<ULeaderboardQueryCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_LEADERBOARD_QUERY_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_INT_QUERY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &stat_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::ULeaderboardQueryCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_LEADERBOARD_QUERY_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_INT_QUERY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<ULeaderboardQueryCallbackProxy>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct ULogoutCallbackProxy {
@@ -1178,6 +2668,49 @@ impl ULogoutCallbackProxy {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn logout(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> UPtr<ULogoutCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_LOGOUT_CALLBACK_PROXY_LOGOUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::ULogoutCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_LOGOUT_CALLBACK_PROXY_LOGOUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<ULogoutCallbackProxy>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -1452,6 +2985,75 @@ impl UQuitMatchCallbackProxy {
             cdo
         }
     }
+    pub fn quit_match(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        match_id: FString,
+        outcome: crate::bindings::online_subsystem::EMPMatchOutcome,
+        turn_timeout_in_seconds: i32,
+    ) -> UPtr<UQuitMatchCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_QUIT_MATCH_CALLBACK_PROXY_QUIT_MATCH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &match_id,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &outcome,
+                __buffer
+                    .add(32)
+                    .cast::<crate::bindings::online_subsystem::EMPMatchOutcome>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &turn_timeout_in_seconds,
+                __buffer.add(36).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UQuitMatchCallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_QUIT_MATCH_CALLBACK_PROXY_QUIT_MATCH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<UPtr<UQuitMatchCallbackProxy>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UShowLoginUICallbackProxy {
@@ -1472,6 +3074,49 @@ impl UShowLoginUICallbackProxy {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn show_external_login_ui(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        in_player_controller: UPtr<crate::bindings::engine::APlayerController>,
+    ) -> UPtr<UShowLoginUICallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_SHOW_LOGIN_UI_CALLBACK_PROXY_SHOW_EXTERNAL_LOGIN_UI,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UShowLoginUICallbackProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_SHOW_LOGIN_UI_CALLBACK_PROXY_SHOW_EXTERNAL_LOGIN_UI,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UShowLoginUICallbackProxy>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -1704,6 +3349,247 @@ impl UTurnBasedBlueprintLibrary {
             cdo
         }
     }
+    pub fn register_turn_based_match_interface_object(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_REGISTER_TURN_BASED_MATCH_INTERFACE_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(16).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UTurnBasedBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_REGISTER_TURN_BASED_MATCH_INTERFACE_OBJECT,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_player_display_name(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        match_id: FString,
+        player_index: i32,
+        player_display_name: &mut FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_GET_PLAYER_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &match_id,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_index,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                player_display_name,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UTurnBasedBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_GET_PLAYER_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(40).cast::<FString>().swap(player_display_name);
+        }
+    }
+    pub fn get_my_player_index(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        match_id: FString,
+        player_index: &mut i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_GET_MY_PLAYER_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &match_id,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                player_index,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UTurnBasedBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_GET_MY_PLAYER_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<i32>().swap(player_index);
+        }
+    }
+    pub fn get_is_my_turn(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        player_controller: UPtr<crate::bindings::engine::APlayerController>,
+        match_id: FString,
+        b_is_my_turn: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_GET_IS_MY_TURN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player_controller,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::APlayerController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &match_id,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_is_my_turn,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::online_subsystem_utils::UTurnBasedBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_GET_IS_MY_TURN,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<bool>().swap(b_is_my_turn);
+        }
+    }
 }
 #[repr(C, align(16))]
 pub struct UVoipListenerSynthComponent {
@@ -1724,6 +3610,30 @@ impl UVoipListenerSynthComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn is_idling(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::online_subsystem_utils::U_VOIP_LISTENER_SYNTH_COMPONENT_IS_IDLING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::online_subsystem_utils::U_VOIP_LISTENER_SYNTH_COMPONENT_IS_IDLING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]

@@ -210,6 +210,40 @@ impl UStateTreeEditorData {
             cdo
         }
     }
+    pub fn k2_get_extension(
+        &mut self,
+        extension_type: TSubclassOf<UStateTreeEditorDataExtension>,
+    ) -> UPtr<UStateTreeEditorDataExtension> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_editor_module::U_STATE_TREE_EDITOR_DATA_K2_GET_EXTENSION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &extension_type,
+                __buffer.add(0).cast::<TSubclassOf<UStateTreeEditorDataExtension>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_editor_module::U_STATE_TREE_EDITOR_DATA_K2_GET_EXTENSION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UStateTreeEditorDataExtension>>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UQAStateTreeEditorData {

@@ -92,4 +92,243 @@ impl USharedImageConstRefBlueprintFns {
             cdo
         }
     }
+    pub fn is_valid(image: &FSharedImageConstRefBlueprint) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_IS_VALID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                image,
+                __buffer.add(0).cast::<FSharedImageConstRefBlueprint>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::image_core::USharedImageConstRefBlueprintFns::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_IS_VALID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_width(image: &FSharedImageConstRefBlueprint) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                image,
+                __buffer.add(0).cast::<FSharedImageConstRefBlueprint>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::image_core::USharedImageConstRefBlueprintFns::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_WIDTH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<i32>().read() }
+    }
+    pub fn get_size(
+        image: &FSharedImageConstRefBlueprint,
+    ) -> crate::bindings::core_u_object::FVector2f {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                image,
+                __buffer.add(0).cast::<FSharedImageConstRefBlueprint>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::image_core::USharedImageConstRefBlueprintFns::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2f>().read()
+        }
+    }
+    pub fn get_pixel_value(
+        image: &FSharedImageConstRefBlueprint,
+        x: i32,
+        y: i32,
+        b_valid: &mut bool,
+    ) -> crate::bindings::core_u_object::FVector4f {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_PIXEL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                image,
+                __buffer.add(0).cast::<FSharedImageConstRefBlueprint>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&x, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&y, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(b_valid, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::image_core::USharedImageConstRefBlueprintFns::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_PIXEL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(b_valid);
+        }
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FVector4f>().read()
+        }
+    }
+    pub fn get_pixel_linear_color(
+        image: &FSharedImageConstRefBlueprint,
+        x: i32,
+        y: i32,
+        b_valid: &mut bool,
+        failure_color: crate::bindings::core_u_object::FLinearColor,
+    ) -> crate::bindings::core_u_object::FLinearColor {
+        let mut __stack = crate::core_data::StackAlloc::<52>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_PIXEL_LINEAR_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                image,
+                __buffer.add(0).cast::<FSharedImageConstRefBlueprint>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&x, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&y, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(b_valid, __buffer.add(16).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &failure_color,
+                __buffer.add(20).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::image_core::USharedImageConstRefBlueprintFns::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_PIXEL_LINEAR_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(b_valid);
+        }
+        unsafe {
+            __buffer
+                .add(36)
+                .cast::<crate::bindings::core_u_object::FLinearColor>()
+                .read()
+        }
+    }
+    pub fn get_height(image: &FSharedImageConstRefBlueprint) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_HEIGHT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                image,
+                __buffer.add(0).cast::<FSharedImageConstRefBlueprint>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::image_core::USharedImageConstRefBlueprintFns::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_HEIGHT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<i32>().read() }
+    }
 }

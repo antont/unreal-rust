@@ -4269,7 +4269,6 @@ pub struct FRigVMGraphVariableDescription {
     pub b_expose_to_cinematics: bool,
     pub b_public: bool,
     pub b_private: bool,
-    __padding_end: [u8; 4],
 }
 impl FRigVMGraphVariableDescription {}
 #[repr(C, align(8))]
@@ -4291,7 +4290,6 @@ pub struct FRigVMCompileSettings {
     __padding_66: [u8; 2],
     pub b_warn_about_deprecated_nodes: bool,
     pub b_warn_about_duplicate_events: bool,
-    __padding_end: [u8; 4],
 }
 impl FRigVMCompileSettings {}
 #[repr(C, align(8))]
@@ -4421,6 +4419,1086 @@ impl URigVMBlueprint {
             cdo
         }
     }
+    pub fn suspend_notifications(&mut self, b_suspend_notifs: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_SUSPEND_NOTIFICATIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_suspend_notifs,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_SUSPEND_NOTIFICATIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn split_asset_variant(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_SPLIT_ASSET_VARIANT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_SPLIT_ASSET_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn set_auto_vm_recompile(&mut self, b_auto_recompile: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_SET_AUTO_VM_RECOMPILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_auto_recompile,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_SET_AUTO_VM_RECOMPILE,
+                __buffer,
+            )
+        };
+    }
+    pub fn request_rig_vm_init(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REQUEST_RIG_VM_INIT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REQUEST_RIG_VM_INIT,
+                __buffer,
+            )
+        };
+    }
+    pub fn request_auto_vm_recompilation(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REQUEST_AUTO_VM_RECOMPILATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REQUEST_AUTO_VM_RECOMPILATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn rename_member_variable(
+        &mut self,
+        in_old_name: &FName,
+        in_new_name: &FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_RENAME_MEMBER_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_old_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_new_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_RENAME_MEMBER_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn remove_model(
+        &mut self,
+        in_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REMOVE_MODEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REMOVE_MODEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn remove_member_variable(&mut self, in_name: &FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REMOVE_MEMBER_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REMOVE_MEMBER_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn recompile_vm_if_required(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_RECOMPILE_VM_IF_REQUIRED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_RECOMPILE_VM_IF_REQUIRED,
+                __buffer,
+            )
+        };
+    }
+    pub fn recompile_vm(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_RECOMPILE_VM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_RECOMPILE_VM,
+                __buffer,
+            )
+        };
+    }
+    pub fn join_asset_variant(
+        &mut self,
+        in_guid: &crate::bindings::core_u_object::FGuid,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_JOIN_ASSET_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_guid,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FGuid>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_JOIN_ASSET_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_rig_vm_host_class(
+        &self,
+    ) -> TSubclassOf<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_RIG_VM_HOST_CLASS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_RIG_VM_HOST_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_or_create_local_function_library(
+        &mut self,
+        b_setup_undo_redo: bool,
+    ) -> UPtr<URigVMFunctionLibrary> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_OR_CREATE_LOCAL_FUNCTION_LIBRARY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_OR_CREATE_LOCAL_FUNCTION_LIBRARY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<URigVMFunctionLibrary>>().read() }
+    }
+    pub fn get_or_create_controller(
+        &mut self,
+        in_graph: UPtr<URigVMGraph>,
+    ) -> UPtr<URigVMController> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_OR_CREATE_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_graph,
+                __buffer.add(0).cast::<UPtr<URigVMGraph>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_OR_CREATE_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<URigVMController>>().read() }
+    }
+    pub fn get_model(
+        &self,
+        in_ed_graph: UPtr<crate::bindings::engine::UEdGraph>,
+    ) -> UPtr<URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_MODEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_ed_graph,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UEdGraph>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_MODEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<URigVMGraph>>().read() }
+    }
+    pub fn get_member_variables(&self) -> TArray<FRigVMGraphVariableDescription> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_MEMBER_VARIABLES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_MEMBER_VARIABLES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FRigVMGraphVariableDescription>>().read()
+        }
+    }
+    pub fn get_matching_variants(
+        &self,
+    ) -> TArray<crate::bindings::rig_vm::FRigVMVariantRef> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_MATCHING_VARIANTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_MATCHING_VARIANTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::rig_vm::FRigVMVariantRef>>()
+                .read()
+        }
+    }
+    pub fn get_local_function_library(&self) -> UPtr<URigVMFunctionLibrary> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_LOCAL_FUNCTION_LIBRARY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_LOCAL_FUNCTION_LIBRARY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMFunctionLibrary>>().read() }
+    }
+    pub fn get_focused_model(&self) -> UPtr<URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_FOCUSED_MODEL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_FOCUSED_MODEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMGraph>>().read() }
+    }
+    pub fn get_default_model(&self) -> UPtr<URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_DEFAULT_MODEL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_DEFAULT_MODEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMGraph>>().read() }
+    }
+    pub fn get_debugged_rig_vm_host(
+        &mut self,
+    ) -> UPtr<crate::bindings::rig_vm::URigVMHost> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_DEBUGGED_RIG_VM_HOST,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_DEBUGGED_RIG_VM_HOST,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::rig_vm::URigVMHost>>().read()
+        }
+    }
+    pub fn get_controller_by_name(
+        &self,
+        in_graph_name: FString,
+    ) -> UPtr<URigVMController> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_CONTROLLER_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_graph_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_CONTROLLER_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<URigVMController>>().read() }
+    }
+    pub fn get_controller(&self, in_graph: UPtr<URigVMGraph>) -> UPtr<URigVMController> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_graph,
+                __buffer.add(0).cast::<UPtr<URigVMGraph>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<URigVMController>>().read() }
+    }
+    pub fn get_available_rig_vm_structs(
+        &self,
+    ) -> TArray<UPtr<crate::bindings::core_u_object::UStruct>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_AVAILABLE_RIG_VM_STRUCTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_AVAILABLE_RIG_VM_STRUCTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UStruct>>>()
+                .read()
+        }
+    }
+    pub fn get_auto_vm_recompile(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_AUTO_VM_RECOMPILE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_AUTO_VM_RECOMPILE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_asset_variant_ref(&self) -> crate::bindings::rig_vm::FRigVMVariantRef {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_ASSET_VARIANT_REF,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_ASSET_VARIANT_REF,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::rig_vm::FRigVMVariantRef>().read()
+        }
+    }
+    pub fn get_asset_variant(&self) -> crate::bindings::rig_vm::FRigVMVariant {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_ASSET_VARIANT_BP,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_ASSET_VARIANT_BP,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::rig_vm::FRigVMVariant>().read()
+        }
+    }
+    pub fn get_all_models(&self) -> TArray<UPtr<URigVMGraph>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_ALL_MODELS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_ALL_MODELS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMGraph>>>().read() }
+    }
+    pub fn generate_python_commands(
+        &mut self,
+        in_new_blueprint_name: FString,
+    ) -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GENERATE_PYTHON_COMMANDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_new_blueprint_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GENERATE_PYTHON_COMMANDS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<FString>>().read() }
+    }
+    pub fn create_rig_vm_host(&mut self) -> UPtr<crate::bindings::rig_vm::URigVMHost> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_CREATE_RIG_VM_HOST,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_CREATE_RIG_VM_HOST,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::rig_vm::URigVMHost>>().read()
+        }
+    }
+    pub fn change_member_variable_type(
+        &mut self,
+        in_name: &FName,
+        in_cpp_type: FString,
+        b_is_public: bool,
+        b_is_read_only: bool,
+        in_default_value: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_CHANGE_MEMBER_VARIABLE_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_public,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_read_only,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_CHANGE_MEMBER_VARIABLE_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<bool>().read() }
+    }
+    pub fn bulk_remove_member_variables(&mut self, in_names: &TArray<FName>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_BULK_REMOVE_MEMBER_VARIABLES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_BULK_REMOVE_MEMBER_VARIABLES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn add_model(
+        &mut self,
+        in_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_ADD_MODEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_ADD_MODEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<URigVMGraph>>().read() }
+    }
+    pub fn add_member_variable(
+        &mut self,
+        in_name: &FName,
+        in_cpp_type: FString,
+        b_is_public: bool,
+        b_is_read_only: bool,
+        in_default_value: FString,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<68>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_ADD_MEMBER_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_public,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_read_only,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_ADD_MEMBER_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<FName>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URigVMCompiler {
@@ -4441,6 +5519,122 @@ impl URigVMCompiler {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn compile_vm(
+        &mut self,
+        in_graphs: TArray<UPtr<URigVMGraph>>,
+        in_controller: UPtr<URigVMController>,
+        out_vm: UPtr<crate::bindings::rig_vm::URigVM>,
+        context: &mut crate::bindings::rig_vm::FRigVMExtendedExecuteContext,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<801>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_COMPILER_COMPILE_VM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_graphs,
+                __buffer.add(0).cast::<TArray<UPtr<URigVMGraph>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_controller,
+                __buffer.add(16).cast::<UPtr<URigVMController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &out_vm,
+                __buffer.add(24).cast::<UPtr<crate::bindings::rig_vm::URigVM>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer
+                    .add(32)
+                    .cast::<crate::bindings::rig_vm::FRigVMExtendedExecuteContext>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_COMPILER_COMPILE_VM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<crate::bindings::rig_vm::FRigVMExtendedExecuteContext>()
+                .swap(context);
+        }
+        unsafe { __buffer.add(800).cast::<bool>().read() }
+    }
+    pub fn compile(
+        &mut self,
+        in_graphs: TArray<UPtr<URigVMGraph>>,
+        in_controller: UPtr<URigVMController>,
+        out_vm: UPtr<crate::bindings::rig_vm::URigVM>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_COMPILER_COMPILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_graphs,
+                __buffer.add(0).cast::<TArray<UPtr<URigVMGraph>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_controller,
+                __buffer.add(16).cast::<UPtr<URigVMController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &out_vm,
+                __buffer.add(24).cast::<UPtr<crate::bindings::rig_vm::URigVM>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_COMPILER_COMPILE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -4463,6 +5657,1928 @@ impl URigVMNode {
             cdo
         }
     }
+    pub fn set_is_excluded_by_early_exit(&mut self, b_is_excluded: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_IS_EXCLUDED_BY_EARLY_EXIT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_excluded,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_IS_EXCLUDED_BY_EARLY_EXIT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_has_early_exit_marker(&mut self, b_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_HAS_EARLY_EXIT_MARKER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_HAS_EARLY_EXIT_MARKER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_has_breakpoint(&mut self, b_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_HAS_BREAKPOINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_HAS_BREAKPOINT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_execution_is_halted_at_this_node(&mut self, b_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_EXECUTION_IS_HALTED_AT_THIS_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_EXECUTION_IS_HALTED_AT_THIS_NODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_visible_in_ui(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_VISIBLE_IN_UI,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_VISIBLE_IN_UI,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_trait_pin(&self, in_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_TRAIT_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_TRAIT_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn is_selected(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_SELECTED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_pure(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_PURE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_PURE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_pin_category_expanded(&self, in_category: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_PIN_CATEGORY_EXPANDED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_category,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_PIN_CATEGORY_EXPANDED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn is_mutable(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_MUTABLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_MUTABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_loop_node(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_LOOP_NODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_LOOP_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_linked_to(&self, in_node: UPtr<URigVMNode>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_LINKED_TO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<URigVMNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_LINKED_TO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn is_input_aggregate(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_INPUT_AGGREGATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_INPUT_AGGREGATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_injected(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_INJECTED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_INJECTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_highlighted(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_HIGHLIGHTED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_HIGHLIGHTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_excluded_by_early_exit(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_EXCLUDED_BY_EARLY_EXIT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_EXCLUDED_BY_EARLY_EXIT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_event(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_EVENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_EVENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_defined_as_varying(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_DEFINED_AS_VARYING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_DEFINED_AS_VARYING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_defined_as_constant(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_DEFINED_AS_CONSTANT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_DEFINED_AS_CONSTANT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_control_flow_node(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_CONTROL_FLOW_NODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_CONTROL_FLOW_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_aggregate(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_AGGREGATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_AGGREGATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn has_pin_of_direction(
+        &self,
+        in_direction: crate::bindings::rig_vm::ERigVMPinDirection,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_PIN_OF_DIRECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_direction,
+                __buffer.add(0).cast::<crate::bindings::rig_vm::ERigVMPinDirection>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_PIN_OF_DIRECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn has_output_pin(&self, b_include_io: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_OUTPUT_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_include_io,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_OUTPUT_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn has_orphaned_pins(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_ORPHANED_PINS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_ORPHANED_PINS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn has_lazy_pin(&self, b_only_consider_pins_with_links: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_LAZY_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_only_consider_pins_with_links,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_LAZY_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn has_io_pin(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_IO_PIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_IO_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn has_input_pin(&self, b_include_io: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_INPUT_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_include_io,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_INPUT_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn has_early_exit_marker(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_EARLY_EXIT_MARKER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_EARLY_EXIT_MARKER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn has_breakpoint(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_BREAKPOINT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_BREAKPOINT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_trait_pins(&self) -> TArray<UPtr<URigVMPin>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_TRAIT_PINS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_TRAIT_PINS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMPin>>>().read() }
+    }
+    pub fn get_tool_tip_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_TOOL_TIP_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_TOOL_TIP_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_supported_workflows(
+        &self,
+        in_type: crate::bindings::rig_vm::ERigVMUserWorkflowType,
+        in_subject: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> TArray<crate::bindings::rig_vm::FRigVMUserWorkflow> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SUPPORTED_WORKFLOWS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_type,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::rig_vm::ERigVMUserWorkflowType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_subject,
+                __buffer.add(8).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SUPPORTED_WORKFLOWS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<crate::bindings::rig_vm::FRigVMUserWorkflow>>()
+                .read()
+        }
+    }
+    pub fn get_sub_pin_categories(
+        &self,
+        in_category: FString,
+        b_only_existing: bool,
+        b_recursive: bool,
+    ) -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SUB_PIN_CATEGORIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_category,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_only_existing,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recursive,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SUB_PIN_CATEGORIES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FString>>().read() }
+    }
+    pub fn get_size(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SIZE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_second_aggregate_pin(&self) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SECOND_AGGREGATE_PIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SECOND_AGGREGATE_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn get_root_graph(&self) -> UPtr<URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_ROOT_GRAPH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_ROOT_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMGraph>>().read() }
+    }
+    pub fn get_previous_f_name(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PREVIOUS_F_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PREVIOUS_F_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_position(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_POSITION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_pins_for_category(
+        &self,
+        in_category: FString,
+    ) -> TArray<UPtr<URigVMPin>> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PINS_FOR_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_category,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PINS_FOR_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<UPtr<URigVMPin>>>().read() }
+    }
+    pub fn get_pins(&self) -> TArray<UPtr<URigVMPin>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PINS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PINS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMPin>>>().read() }
+    }
+    pub fn get_pin_category_name(&self, in_category: FString) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PIN_CATEGORY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_category,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PIN_CATEGORY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_pin_categories(&self) -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PIN_CATEGORIES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PIN_CATEGORIES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FString>>().read() }
+    }
+    pub fn get_parent_pin_category(
+        &self,
+        in_category: FString,
+        b_only_existing: bool,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PARENT_PIN_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_category,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_only_existing,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PARENT_PIN_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FString>().read() }
+    }
+    pub fn get_parent_pin_categories(
+        &self,
+        in_category: FString,
+        b_only_existing: bool,
+        b_include_self: bool,
+    ) -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PARENT_PIN_CATEGORIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_category,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_only_existing,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_include_self,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PARENT_PIN_CATEGORIES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FString>>().read() }
+    }
+    pub fn get_orphaned_pins(&self) -> TArray<UPtr<URigVMPin>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_ORPHANED_PINS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_ORPHANED_PINS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMPin>>>().read() }
+    }
+    pub fn get_opposite_aggregate_pin(&self) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_OPPOSITE_AGGREGATE_PIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_OPPOSITE_AGGREGATE_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn get_node_title(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_TITLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_TITLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_node_sub_title(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_SUB_TITLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_SUB_TITLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_node_path(&self, b_recursive: bool) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recursive,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FString>().read() }
+    }
+    pub fn get_node_layout(
+        &self,
+        b_include_empty_categories: bool,
+    ) -> crate::bindings::rig_vm::FRigVMNodeLayout {
+        let mut __stack = crate::core_data::StackAlloc::<184>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_LAYOUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_include_empty_categories,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_LAYOUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<crate::bindings::rig_vm::FRigVMNodeLayout>().read()
+        }
+    }
+    pub fn get_node_index(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_INDEX,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_node_color(&self) -> crate::bindings::core_u_object::FLinearColor {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_COLOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>().read()
+        }
+    }
+    pub fn get_next_aggregate_name(&self, in_last_aggregate_pin_name: &FName) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NEXT_AGGREGATE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_last_aggregate_pin_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NEXT_AGGREGATE_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<FName>().read() }
+    }
+    pub fn get_links(&self) -> TArray<UPtr<URigVMLink>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_LINKS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_LINKS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMLink>>>().read() }
+    }
+    pub fn get_linked_target_nodes(&self) -> TArray<UPtr<URigVMNode>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_LINKED_TARGET_NODES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_LINKED_TARGET_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMNode>>>().read() }
+    }
+    pub fn get_linked_source_nodes(&self) -> TArray<UPtr<URigVMNode>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_LINKED_SOURCE_NODES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_LINKED_SOURCE_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMNode>>>().read() }
+    }
+    pub fn get_injection_info(&self) -> UPtr<URigVMInjectionInfo> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_INJECTION_INFO,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_INJECTION_INFO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMInjectionInfo>>().read() }
+    }
+    pub fn get_graph_depth(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_GRAPH_DEPTH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_GRAPH_DEPTH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_graph(&self) -> UPtr<URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_GRAPH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMGraph>>().read() }
+    }
+    pub fn get_first_aggregate_pin(&self) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_FIRST_AGGREGATE_PIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_FIRST_AGGREGATE_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn get_event_name(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_EVENT_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_EVENT_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_all_pins_recursively(&self) -> TArray<UPtr<URigVMPin>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_ALL_PINS_RECURSIVELY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_ALL_PINS_RECURSIVELY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMPin>>>().read() }
+    }
+    pub fn get_aggregate_outputs(&self) -> TArray<UPtr<URigVMPin>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_AGGREGATE_OUTPUTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_AGGREGATE_OUTPUTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMPin>>>().read() }
+    }
+    pub fn get_aggregate_inputs(&self) -> TArray<UPtr<URigVMPin>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_AGGREGATE_INPUTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_AGGREGATE_INPUTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMPin>>>().read() }
+    }
+    pub fn find_root_pin_by_name(&self, in_pin_name: &FName) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_ROOT_PIN_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_pin_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_ROOT_PIN_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn find_pin(&self, in_pin_path: FString) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn find_function_for_node(&self) -> UPtr<URigVMLibraryNode> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_FUNCTION_FOR_NODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_FUNCTION_FOR_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMLibraryNode>>().read() }
+    }
+    pub fn find_execute_pin(&self) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_EXECUTE_PIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_EXECUTE_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn execution_is_halted_at_this_node(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_EXECUTION_IS_HALTED_AT_THIS_NODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_EXECUTION_IS_HALTED_AT_THIS_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn can_only_exist_once(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_CAN_ONLY_EXIST_ONCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_CAN_ONLY_EXIST_ONCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn can_be_upgraded(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_CAN_BE_UPGRADED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_CAN_BE_UPGRADED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URigVMTemplateNode {
@@ -4484,6 +7600,133 @@ impl URigVMTemplateNode {
             cdo
         }
     }
+    pub fn is_singleton(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_IS_SINGLETON,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_IS_SINGLETON,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_resolved(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_IS_RESOLVED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_IS_RESOLVED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_fully_unresolved(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_IS_FULLY_UNRESOLVED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_IS_FULLY_UNRESOLVED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_script_struct(
+        &self,
+    ) -> UPtr<crate::bindings::core_u_object::UScriptStruct> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_GET_SCRIPT_STRUCT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_GET_SCRIPT_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>()
+                .read()
+        }
+    }
+    pub fn get_notation(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_GET_NOTATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_GET_NOTATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URigVMLibraryNode {
@@ -4504,6 +7747,137 @@ impl URigVMLibraryNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_matching_variants(
+        &self,
+    ) -> TArray<crate::bindings::rig_vm::FRigVMVariantRef> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_MATCHING_VARIANTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_MATCHING_VARIANTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::rig_vm::FRigVMVariantRef>>()
+                .read()
+        }
+    }
+    pub fn get_library(&self) -> UPtr<URigVMFunctionLibrary> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_LIBRARY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_LIBRARY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMFunctionLibrary>>().read() }
+    }
+    pub fn get_function_variant_ref(&self) -> crate::bindings::rig_vm::FRigVMVariantRef {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_FUNCTION_VARIANT_REF,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_FUNCTION_VARIANT_REF,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::rig_vm::FRigVMVariantRef>().read()
+        }
+    }
+    pub fn get_function_variant(&self) -> crate::bindings::rig_vm::FRigVMVariant {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::rig_vm::FRigVMVariant>().read()
+        }
+    }
+    pub fn get_contained_graph(&self) -> UPtr<URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_CONTAINED_GRAPH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_CONTAINED_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMGraph>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -4568,6 +7942,83 @@ impl UDEPRECATED_RigVMArrayNode {
             cdo
         }
     }
+    pub fn get_op_code(&self) -> crate::bindings::rig_vm::ERigVMOpCode {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::UDEPRECATED_RIG_VM_ARRAY_NODE_GET_OP_CODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::UDEPRECATED_RIG_VM_ARRAY_NODE_GET_OP_CODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<crate::bindings::rig_vm::ERigVMOpCode>().read() }
+    }
+    pub fn get_cpp_type_object(&self) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::UDEPRECATED_RIG_VM_ARRAY_NODE_GET_CPP_TYPE_OBJECT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::UDEPRECATED_RIG_VM_ARRAY_NODE_GET_CPP_TYPE_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_cpp_type(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::UDEPRECATED_RIG_VM_ARRAY_NODE_GET_CPP_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::UDEPRECATED_RIG_VM_ARRAY_NODE_GET_CPP_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UDEPRECATED_RigVMBranchNode {
@@ -4610,6 +8061,102 @@ impl URigVMCommentNode {
             cdo
         }
     }
+    pub fn get_comment_text(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_comment_font_size(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_FONT_SIZE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_FONT_SIZE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_comment_color_bubble(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_COLOR_BUBBLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_COLOR_BUBBLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_comment_bubble_visible(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_BUBBLE_VISIBLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_BUBBLE_VISIBLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URigVMDispatchNode {
@@ -4651,6 +8198,85 @@ impl URigVMEnumNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_enum(&self) -> UPtr<crate::bindings::core_u_object::UEnum> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_ENUM_NODE_GET_ENUM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_ENUM_NODE_GET_ENUM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UEnum>>().read()
+        }
+    }
+    pub fn get_cpp_type_object(&self) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_ENUM_NODE_GET_CPP_TYPE_OBJECT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_ENUM_NODE_GET_CPP_TYPE_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_cpp_type(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_ENUM_NODE_GET_CPP_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_ENUM_NODE_GET_CPP_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -4713,6 +8339,37 @@ impl URigVMFunctionReferenceNode {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn get_referenced_function_header(
+        &self,
+    ) -> crate::bindings::rig_vm::FRigVMGraphFunctionHeader {
+        let mut __stack = crate::core_data::StackAlloc::<528>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_REFERENCE_NODE_GET_REFERENCED_FUNCTION_HEADER_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_REFERENCE_NODE_GET_REFERENCED_FUNCTION_HEADER_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::rig_vm::FRigVMGraphFunctionHeader>()
+                .read()
         }
     }
 }
@@ -4778,6 +8435,30 @@ impl URigVMInvokeEntryNode {
             cdo
         }
     }
+    pub fn get_entry_name(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_INVOKE_ENTRY_NODE_GET_ENTRY_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_INVOKE_ENTRY_NODE_GET_ENTRY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URigVMParameterNode {
@@ -4798,6 +8479,155 @@ impl URigVMParameterNode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn is_input(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_IS_INPUT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_IS_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_parameter_name(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_PARAMETER_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_PARAMETER_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_parameter_description(&self) -> FRigVMGraphParameterDescription {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_PARAMETER_DESCRIPTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_PARAMETER_DESCRIPTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FRigVMGraphParameterDescription>().read() }
+    }
+    pub fn get_default_value(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_cpp_type_object(&self) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_CPP_TYPE_OBJECT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_CPP_TYPE_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_cpp_type(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_CPP_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_CPP_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -4862,6 +8692,54 @@ impl URigVMUnitNode {
             cdo
         }
     }
+    pub fn get_struct_default_value(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_UNIT_NODE_GET_STRUCT_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_UNIT_NODE_GET_STRUCT_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_method_name(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_UNIT_NODE_GET_METHOD_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_UNIT_NODE_GET_METHOD_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URigVMVariableNode {
@@ -4883,6 +8761,227 @@ impl URigVMVariableNode {
             cdo
         }
     }
+    pub fn is_local_variable(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_LOCAL_VARIABLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_LOCAL_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_input_argument(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_INPUT_ARGUMENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_INPUT_ARGUMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_getter(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_GETTER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_GETTER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_external_variable(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_EXTERNAL_VARIABLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_EXTERNAL_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_variable_name(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_VARIABLE_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_VARIABLE_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_variable_description(&self) -> FRigVMGraphVariableDescription {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_VARIABLE_DESCRIPTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_VARIABLE_DESCRIPTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FRigVMGraphVariableDescription>().read() }
+    }
+    pub fn get_default_value(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_cpp_type_object(&self) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_CPP_TYPE_OBJECT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_CPP_TYPE_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_cpp_type(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_CPP_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_CPP_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URigVMBuildData {
@@ -4902,6 +9001,602 @@ impl URigVMBuildData {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn split_variant_from_set(
+        &mut self,
+        in_variant_ref: &crate::bindings::rig_vm::FRigVMVariantRef,
+    ) -> crate::bindings::rig_vm::FRigVMVariantRef {
+        let mut __stack = crate::core_data::StackAlloc::<144>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_SPLIT_VARIANT_FROM_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variant_ref,
+                __buffer.add(0).cast::<crate::bindings::rig_vm::FRigVMVariantRef>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_SPLIT_VARIANT_FROM_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(72).cast::<crate::bindings::rig_vm::FRigVMVariantRef>().read()
+        }
+    }
+    pub fn join_variant_set(
+        &mut self,
+        in_variant_ref: &crate::bindings::rig_vm::FRigVMVariantRef,
+        in_guid: &crate::bindings::core_u_object::FGuid,
+    ) -> crate::bindings::rig_vm::FRigVMVariantRef {
+        let mut __stack = crate::core_data::StackAlloc::<160>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_JOIN_VARIANT_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variant_ref,
+                __buffer.add(0).cast::<crate::bindings::rig_vm::FRigVMVariantRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_guid,
+                __buffer.add(72).cast::<crate::bindings::core_u_object::FGuid>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_JOIN_VARIANT_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(88).cast::<crate::bindings::rig_vm::FRigVMVariantRef>().read()
+        }
+    }
+    pub fn get_variant_ref_for_asset(
+        &self,
+        in_asset_data: &crate::bindings::core_u_object::FAssetData,
+    ) -> crate::bindings::rig_vm::FRigVMVariantRef {
+        let mut __stack = crate::core_data::StackAlloc::<224>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_VARIANT_REF_FOR_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_asset_data,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_VARIANT_REF_FOR_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(152).cast::<crate::bindings::rig_vm::FRigVMVariantRef>().read()
+        }
+    }
+    pub fn get_used_function_identifiers(
+        &self,
+        b_only_public: bool,
+    ) -> TArray<crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_USED_FUNCTION_IDENTIFIERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_only_public,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_USED_FUNCTION_IDENTIFIERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<TArray<crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier>>()
+                .read()
+        }
+    }
+    pub fn get_function_identifier_for_variant(
+        &self,
+        in_variant_ref: &crate::bindings::rig_vm::FRigVMVariantRef,
+    ) -> crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier {
+        let mut __stack = crate::core_data::StackAlloc::<168>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_FUNCTION_IDENTIFIER_FOR_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variant_ref,
+                __buffer.add(0).cast::<crate::bindings::rig_vm::FRigVMVariantRef>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_FUNCTION_IDENTIFIER_FOR_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(72)
+                .cast::<crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier>()
+                .read()
+        }
+    }
+    pub fn get_asset_data_for_variant(
+        &self,
+        in_variant_ref: &crate::bindings::rig_vm::FRigVMVariantRef,
+    ) -> crate::bindings::core_u_object::FAssetData {
+        let mut __stack = crate::core_data::StackAlloc::<224>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_ASSET_DATA_FOR_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variant_ref,
+                __buffer.add(0).cast::<crate::bindings::rig_vm::FRigVMVariantRef>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_ASSET_DATA_FOR_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(72).cast::<crate::bindings::core_u_object::FAssetData>().read()
+        }
+    }
+    pub fn get_asset_data_for_path(
+        &self,
+        in_object_path: &crate::bindings::core_u_object::FSoftObjectPath,
+    ) -> crate::bindings::core_u_object::FAssetData {
+        let mut __stack = crate::core_data::StackAlloc::<192>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_ASSET_DATA_FOR_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_object_path,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::core_u_object::FSoftObjectPath>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_ASSET_DATA_FOR_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(40).cast::<crate::bindings::core_u_object::FAssetData>().read()
+        }
+    }
+    pub fn get_all_function_identifiers(
+        &self,
+        b_only_public: bool,
+    ) -> TArray<crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_ALL_FUNCTION_IDENTIFIERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_only_public,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_ALL_FUNCTION_IDENTIFIERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<TArray<crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier>>()
+                .read()
+        }
+    }
+    pub fn get() -> UPtr<URigVMBuildData> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::rig_vm_developer::URigVMBuildData::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMBuildData>>().read() }
+    }
+    pub fn gather_function_variant_refs_for_asset(
+        &self,
+        in_asset_data: &crate::bindings::core_u_object::FAssetData,
+    ) -> TArray<crate::bindings::rig_vm::FRigVMVariantRef> {
+        let mut __stack = crate::core_data::StackAlloc::<168>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GATHER_FUNCTION_VARIANT_REFS_FOR_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_asset_data,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GATHER_FUNCTION_VARIANT_REFS_FOR_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(152)
+                .cast::<TArray<crate::bindings::rig_vm::FRigVMVariantRef>>()
+                .read()
+        }
+    }
+    pub fn gather_all_function_variant_refs(
+        &self,
+    ) -> TArray<crate::bindings::rig_vm::FRigVMVariantRef> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GATHER_ALL_FUNCTION_VARIANT_REFS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GATHER_ALL_FUNCTION_VARIANT_REFS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::rig_vm::FRigVMVariantRef>>()
+                .read()
+        }
+    }
+    pub fn gather_all_asset_variant_refs(
+        &self,
+    ) -> TArray<crate::bindings::rig_vm::FRigVMVariantRef> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GATHER_ALL_ASSET_VARIANT_REFS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GATHER_ALL_ASSET_VARIANT_REFS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::rig_vm::FRigVMVariantRef>>()
+                .read()
+        }
+    }
+    pub fn find_function_variant_refs(
+        &self,
+        in_guid: &crate::bindings::core_u_object::FGuid,
+    ) -> TArray<crate::bindings::rig_vm::FRigVMVariantRef> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_FIND_FUNCTION_VARIANT_REFS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_guid,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FGuid>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_FIND_FUNCTION_VARIANT_REFS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<crate::bindings::rig_vm::FRigVMVariantRef>>()
+                .read()
+        }
+    }
+    pub fn find_asset_variant_refs(
+        &self,
+        in_guid: &crate::bindings::core_u_object::FGuid,
+    ) -> TArray<crate::bindings::rig_vm::FRigVMVariantRef> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_FIND_ASSET_VARIANT_REFS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_guid,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FGuid>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_FIND_ASSET_VARIANT_REFS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<crate::bindings::rig_vm::FRigVMVariantRef>>()
+                .read()
+        }
+    }
+    pub fn create_function_variant(
+        &mut self,
+        in_function_identifier: &crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier,
+        in_name: FName,
+    ) -> crate::bindings::rig_vm::FRigVMVariantRef {
+        let mut __stack = crate::core_data::StackAlloc::<184>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_CREATE_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_identifier,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(96).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_CREATE_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(112).cast::<crate::bindings::rig_vm::FRigVMVariantRef>().read()
+        }
+    }
+    pub fn create_asset_variant(
+        &mut self,
+        in_asset_data: &crate::bindings::core_u_object::FAssetData,
+        in_name: FName,
+    ) -> crate::bindings::rig_vm::FRigVMVariantRef {
+        let mut __stack = crate::core_data::StackAlloc::<240>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_CREATE_ASSET_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_asset_data,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_name,
+                __buffer.add(152).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_CREATE_ASSET_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(168).cast::<crate::bindings::rig_vm::FRigVMVariantRef>().read()
         }
     }
 }
@@ -5034,6 +9729,818 @@ impl URigVMGraph {
             cdo
         }
     }
+    pub fn set_schema_class(&mut self, in_schema_class: TSubclassOf<URigVMSchema>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_SET_SCHEMA_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_schema_class,
+                __buffer.add(0).cast::<TSubclassOf<URigVMSchema>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_SET_SCHEMA_CLASS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_default_function_library(
+        &mut self,
+        in_function_library: UPtr<URigVMFunctionLibrary>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_SET_DEFAULT_FUNCTION_LIBRARY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_function_library,
+                __buffer.add(0).cast::<UPtr<URigVMFunctionLibrary>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_SET_DEFAULT_FUNCTION_LIBRARY,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_top_level_graph(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_TOP_LEVEL_GRAPH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_TOP_LEVEL_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_root_graph(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_ROOT_GRAPH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_ROOT_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_node_selected(&self, in_node_name: &FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_NODE_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_NODE_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn is_node_highlighted(&self, in_node_name: &FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_NODE_HIGHLIGHTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_NODE_HIGHLIGHTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn get_variable_descriptions(&self) -> TArray<FRigVMGraphVariableDescription> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_VARIABLE_DESCRIPTIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_VARIABLE_DESCRIPTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FRigVMGraphVariableDescription>>().read()
+        }
+    }
+    pub fn get_select_nodes(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_SELECT_NODES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_SELECT_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_schema_class(&self) -> TSubclassOf<URigVMSchema> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_SCHEMA_CLASS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_SCHEMA_CLASS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TSubclassOf<URigVMSchema>>().read() }
+    }
+    pub fn get_schema(&self) -> UPtr<URigVMSchema> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_SCHEMA,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_SCHEMA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMSchema>>().read() }
+    }
+    pub fn get_root_graph(&self) -> UPtr<URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_ROOT_GRAPH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_ROOT_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMGraph>>().read() }
+    }
+    pub fn get_return_node(&self) -> UPtr<URigVMFunctionReturnNode> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_RETURN_NODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_RETURN_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMFunctionReturnNode>>().read() }
+    }
+    pub fn get_parent_graph(&self) -> UPtr<URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_PARENT_GRAPH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_PARENT_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMGraph>>().read() }
+    }
+    pub fn get_output_arguments(&self) -> TArray<FRigVMGraphVariableDescription> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_OUTPUT_ARGUMENTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_OUTPUT_ARGUMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FRigVMGraphVariableDescription>>().read()
+        }
+    }
+    pub fn get_nodes(&self) -> TArray<UPtr<URigVMNode>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_NODES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMNode>>>().read() }
+    }
+    pub fn get_node_path(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_NODE_PATH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_NODE_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_local_variables(
+        &self,
+        b_include_input_arguments: bool,
+    ) -> TArray<FRigVMGraphVariableDescription> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_LOCAL_VARIABLES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_include_input_arguments,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_LOCAL_VARIABLES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<TArray<FRigVMGraphVariableDescription>>().read()
+        }
+    }
+    pub fn get_links(&self) -> TArray<UPtr<URigVMLink>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_LINKS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_LINKS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMLink>>>().read() }
+    }
+    pub fn get_input_arguments(&self) -> TArray<FRigVMGraphVariableDescription> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_INPUT_ARGUMENTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_INPUT_ARGUMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FRigVMGraphVariableDescription>>().read()
+        }
+    }
+    pub fn get_graph_name(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_GRAPH_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_GRAPH_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_graph_depth(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_GRAPH_DEPTH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_GRAPH_DEPTH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_event_names(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_EVENT_NAMES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_EVENT_NAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_entry_node(&self) -> UPtr<URigVMFunctionEntryNode> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_ENTRY_NODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_ENTRY_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMFunctionEntryNode>>().read() }
+    }
+    pub fn get_default_function_library(&self) -> UPtr<URigVMFunctionLibrary> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_DEFAULT_FUNCTION_LIBRARY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_DEFAULT_FUNCTION_LIBRARY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMFunctionLibrary>>().read() }
+    }
+    pub fn get_contained_graphs(&self, b_recursive: bool) -> TArray<UPtr<URigVMGraph>> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_CONTAINED_GRAPHS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recursive,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_CONTAINED_GRAPHS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<UPtr<URigVMGraph>>>().read() }
+    }
+    pub fn find_pin(&self, in_pin_path: FString) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn find_node_by_name(&self, in_node_name: &FName) -> UPtr<URigVMNode> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_NODE_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_NODE_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<URigVMNode>>().read() }
+    }
+    pub fn find_node(&self, in_node_path: FString) -> UPtr<URigVMNode> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<URigVMNode>>().read() }
+    }
+    pub fn find_link(
+        &self,
+        in_link_pin_path_representation: FString,
+    ) -> UPtr<URigVMLink> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_LINK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_link_pin_path_representation,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_LINK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<URigVMLink>>().read() }
+    }
+    pub fn contains_link(&self, in_pin_path_representation: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_CONTAINS_LINK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path_representation,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_CONTAINS_LINK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URigVMFunctionLibrary {
@@ -5054,6 +10561,168 @@ impl URigVMFunctionLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_references_for_function(
+        &mut self,
+        in_function_name: &FName,
+    ) -> TArray<TSoftObjectPtr<URigVMFunctionReferenceNode>> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_GET_REFERENCES_FOR_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_GET_REFERENCES_FOR_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<TSoftObjectPtr<URigVMFunctionReferenceNode>>>()
+                .read()
+        }
+    }
+    pub fn get_reference_paths_for_function(
+        &mut self,
+        in_function_name: &FName,
+    ) -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_GET_REFERENCE_PATHS_FOR_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_GET_REFERENCE_PATHS_FOR_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<FString>>().read() }
+    }
+    pub fn get_functions(&self) -> TArray<UPtr<URigVMLibraryNode>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_GET_FUNCTIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_GET_FUNCTIONS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMLibraryNode>>>().read() }
+    }
+    pub fn find_function_for_node(
+        &self,
+        in_node: UPtr<URigVMNode>,
+    ) -> UPtr<URigVMLibraryNode> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_FIND_FUNCTION_FOR_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<URigVMNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_FIND_FUNCTION_FOR_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<URigVMLibraryNode>>().read() }
+    }
+    pub fn find_function(&self, in_function_name: &FName) -> UPtr<URigVMLibraryNode> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_FIND_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_FIND_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<URigVMLibraryNode>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -5076,6 +10745,229 @@ impl URigVMLink {
             cdo
         }
     }
+    pub fn get_target_pin(&self) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_TARGET_PIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_TARGET_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn get_target_node(&self) -> UPtr<URigVMNode> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_TARGET_NODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_TARGET_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMNode>>().read() }
+    }
+    pub fn get_source_pin(&self) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_SOURCE_PIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_SOURCE_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn get_source_node(&self) -> UPtr<URigVMNode> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_SOURCE_NODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_SOURCE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMNode>>().read() }
+    }
+    pub fn get_pin_path_representation(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_PIN_PATH_REPRESENTATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_PIN_PATH_REPRESENTATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_opposite_pin(&self, in_pin: UPtr<URigVMPin>) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_OPPOSITE_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin,
+                __buffer.add(0).cast::<UPtr<URigVMPin>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_OPPOSITE_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn get_link_index(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_LINK_INDEX,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_LINK_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_graph_depth(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_GRAPH_DEPTH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_GRAPH_DEPTH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_graph(&self) -> UPtr<URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_GRAPH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMGraph>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URigVMInjectionInfo {
@@ -5097,6 +10989,54 @@ impl URigVMInjectionInfo {
             cdo
         }
     }
+    pub fn get_pin(&self) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_INJECTION_INFO_GET_PIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_INJECTION_INFO_GET_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn get_graph(&self) -> UPtr<URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_INJECTION_INFO_GET_GRAPH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_INJECTION_INFO_GET_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMGraph>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URigVMPin {
@@ -5117,6 +11057,1722 @@ impl URigVMPin {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn should_only_show_sub_pins(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_SHOULD_ONLY_SHOW_SUB_PINS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_SHOULD_ONLY_SHOW_SUB_PINS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn should_hide_sub_pins(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_SHOULD_HIDE_SUB_PINS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_SHOULD_HIDE_SUB_PINS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn requires_watch(&self, b_check_exposed_pin_chain: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_REQUIRES_WATCH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_check_exposed_pin_chain,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_REQUIRES_WATCH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn is_wild_card(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_WILD_CARD,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_WILD_CARD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_valid_default_value(&self, in_default_value: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_VALID_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_VALID_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn is_u_object(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_U_OBJECT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_U_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_trait_pin(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_TRAIT_PIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_TRAIT_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_struct_member(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_STRUCT_MEMBER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_STRUCT_MEMBER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_struct(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_STRUCT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_string_type(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_STRING_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_STRING_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_root_pin(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ROOT_PIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ROOT_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_reference_counted_container(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_REFERENCE_COUNTED_CONTAINER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_REFERENCE_COUNTED_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_linked_to(&self, in_pin: UPtr<URigVMPin>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_LINKED_TO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin,
+                __buffer.add(0).cast::<UPtr<URigVMPin>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_LINKED_TO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn is_lazy(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_LAZY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_LAZY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_interface(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_INTERFACE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_INTERFACE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_fixed_size_array(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_FIXED_SIZE_ARRAY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_FIXED_SIZE_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_expanded(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_EXPANDED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_EXPANDED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_execute_context(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_EXECUTE_CONTEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_EXECUTE_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_enum(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ENUM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ENUM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_dynamic_array(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_DYNAMIC_ARRAY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_DYNAMIC_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_defined_as_constant(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_DEFINED_AS_CONSTANT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_DEFINED_AS_CONSTANT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_array_element(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ARRAY_ELEMENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ARRAY_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_array(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ARRAY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn has_user_provided_default_value(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_USER_PROVIDED_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_USER_PROVIDED_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn has_original_default_value(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_ORIGINAL_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_ORIGINAL_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn has_meta_data(&self, in_key: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_META_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_key, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_META_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn has_default_value_override(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_DEFAULT_VALUE_OVERRIDE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_DEFAULT_VALUE_OVERRIDE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_tool_tip_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_TOOL_TIP_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_TOOL_TIP_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_target_links(&self, b_recursive: bool) -> TArray<UPtr<URigVMLink>> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_TARGET_LINKS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recursive,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_TARGET_LINKS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<UPtr<URigVMLink>>>().read() }
+    }
+    pub fn get_sub_pins(&self) -> TArray<UPtr<URigVMPin>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SUB_PINS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SUB_PINS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMPin>>>().read() }
+    }
+    pub fn get_sub_pin_path(
+        &self,
+        in_parent_pin: UPtr<URigVMPin>,
+        b_include_parent_pin_name: bool,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SUB_PIN_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parent_pin,
+                __buffer.add(0).cast::<UPtr<URigVMPin>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_include_parent_pin_name,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SUB_PIN_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_source_links(&self, b_recursive: bool) -> TArray<UPtr<URigVMLink>> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SOURCE_LINKS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recursive,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SOURCE_LINKS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<UPtr<URigVMLink>>>().read() }
+    }
+    pub fn get_segment_path(&self, b_include_root_pin: bool) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SEGMENT_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_include_root_pin,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SEGMENT_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FString>().read() }
+    }
+    pub fn get_script_struct(
+        &self,
+    ) -> UPtr<crate::bindings::core_u_object::UScriptStruct> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SCRIPT_STRUCT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SCRIPT_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>()
+                .read()
+        }
+    }
+    pub fn get_root_pin(&self) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ROOT_PIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ROOT_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn get_pin_path(&self, b_use_node_path: bool) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PIN_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_use_node_path,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PIN_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FString>().read() }
+    }
+    pub fn get_pin_index(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PIN_INDEX,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PIN_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_pin_for_link(&self) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PIN_FOR_LINK,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PIN_FOR_LINK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn get_parent_script_struct(
+        &self,
+        fallback_node: UPtr<URigVMUnitNode>,
+    ) -> UPtr<crate::bindings::core_u_object::UScriptStruct> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PARENT_SCRIPT_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &fallback_node,
+                __buffer.add(0).cast::<UPtr<URigVMUnitNode>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PARENT_SCRIPT_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>()
+                .read()
+        }
+    }
+    pub fn get_parent_pin(&self) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PARENT_PIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PARENT_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn get_original_pin_from_injected_node(&self) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ORIGINAL_PIN_FROM_INJECTED_NODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ORIGINAL_PIN_FROM_INJECTED_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn get_original_default_value(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ORIGINAL_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ORIGINAL_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_node(&self) -> UPtr<URigVMNode> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_NODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMNode>>().read() }
+    }
+    pub fn get_meta_data(&self, in_key: FName) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_META_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_key, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_META_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_links(&self) -> TArray<UPtr<URigVMLink>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_LINKS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_LINKS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMLink>>>().read() }
+    }
+    pub fn get_linked_target_pins(&self, b_recursive: bool) -> TArray<UPtr<URigVMPin>> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_LINKED_TARGET_PINS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recursive,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_LINKED_TARGET_PINS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<UPtr<URigVMPin>>>().read() }
+    }
+    pub fn get_linked_source_pins(&self, b_recursive: bool) -> TArray<UPtr<URigVMPin>> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_LINKED_SOURCE_PINS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recursive,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_LINKED_SOURCE_PINS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<UPtr<URigVMPin>>>().read() }
+    }
+    pub fn get_index_in_category(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_INDEX_IN_CATEGORY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_INDEX_IN_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_graph(&self) -> UPtr<URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_GRAPH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMGraph>>().read() }
+    }
+    pub fn get_enum(&self) -> UPtr<crate::bindings::core_u_object::UEnum> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ENUM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ENUM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UEnum>>().read()
+        }
+    }
+    pub fn get_display_name(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_direction(&self) -> crate::bindings::rig_vm::ERigVMPinDirection {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DIRECTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DIRECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::rig_vm::ERigVMPinDirection>().read()
+        }
+    }
+    pub fn get_default_value_type(&self) -> ERigVMPinDefaultValueType {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DEFAULT_VALUE_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DEFAULT_VALUE_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<ERigVMPinDefaultValueType>().read() }
+    }
+    pub fn get_default_value(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_custom_widget_name(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CUSTOM_WIDGET_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CUSTOM_WIDGET_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_cpp_type_object(&self) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CPP_TYPE_OBJECT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CPP_TYPE_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_cpp_type(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CPP_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CPP_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_category(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CATEGORY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_array_size(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ARRAY_SIZE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ARRAY_SIZE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_array_element_cpp_type(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ARRAY_ELEMENT_CPP_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ARRAY_ELEMENT_CPP_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_all_sub_pins_recursively(&self) -> TArray<UPtr<URigVMPin>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ALL_SUB_PINS_RECURSIVELY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ALL_SUB_PINS_RECURSIVELY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<URigVMPin>>>().read() }
+    }
+    pub fn get_absolute_pin_index(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ABSOLUTE_PIN_INDEX,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ABSOLUTE_PIN_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn find_sub_pin(&self, in_pin_path: FString) -> UPtr<URigVMPin> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_FIND_SUB_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_FIND_SUB_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<URigVMPin>>().read() }
+    }
+    pub fn find_link_for_pin(&self, in_other_pin: UPtr<URigVMPin>) -> UPtr<URigVMLink> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_FIND_LINK_FOR_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_other_pin,
+                __buffer.add(0).cast::<UPtr<URigVMPin>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_FIND_LINK_FOR_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<URigVMLink>>().read() }
+    }
+    pub fn contains_wild_card_sub_pin(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_CONTAINS_WILD_CARD_SUB_PIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_CONTAINS_WILD_CARD_SUB_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn can_provide_default_value(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_CAN_PROVIDE_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_CAN_PROVIDE_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -5160,6 +12816,159 @@ impl URigVMUserWorkflowRegistry {
             cdo
         }
     }
+    pub fn unregister_provider(&mut self, in_handle: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_UNREGISTER_PROVIDER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_handle, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_UNREGISTER_PROVIDER,
+                __buffer,
+            )
+        };
+    }
+    pub fn register_provider(
+        &mut self,
+        in_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+        in_provider: FRegisterProvider_InProvider,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_REGISTER_PROVIDER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_struct,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_provider,
+                __buffer.add(8).cast::<FRegisterProvider_InProvider>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_REGISTER_PROVIDER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<i32>().read() }
+    }
+    pub fn get_workflows(
+        &self,
+        in_type: crate::bindings::rig_vm::ERigVMUserWorkflowType,
+        in_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+        in_subject: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> TArray<crate::bindings::rig_vm::FRigVMUserWorkflow> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_GET_WORKFLOWS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_type,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::rig_vm::ERigVMUserWorkflowType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_struct,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_subject,
+                __buffer.add(16).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_GET_WORKFLOWS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<TArray<crate::bindings::rig_vm::FRigVMUserWorkflow>>()
+                .read()
+        }
+    }
+    pub fn get() -> UPtr<URigVMUserWorkflowRegistry> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_GET,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::rig_vm_developer::URigVMUserWorkflowRegistry::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_GET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMUserWorkflowRegistry>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URigVMController {
@@ -5183,6 +12992,10091 @@ impl URigVMController {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn upgrade_nodes(
+        &mut self,
+        in_node_names: &TArray<FName>,
+        b_recursive: bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> TArray<UPtr<URigVMNode>> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UPGRADE_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recursive,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(18).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UPGRADE_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<UPtr<URigVMNode>>>().read() }
+    }
+    pub fn unresolve_template_nodes(
+        &mut self,
+        in_node_names: &TArray<FName>,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UNRESOLVE_TEMPLATE_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UNRESOLVE_TEMPLATE_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn undo(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UNDO,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UNDO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn unbind_pin_from_variable(
+        &mut self,
+        in_pin_path: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UNBIND_PIN_FROM_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UNBIND_PIN_FROM_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn swap_function_reference_by_name(
+        &mut self,
+        in_function_reference_node_name: &FName,
+        in_new_function_identifier: &crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier,
+        b_setup_orphan_pins: bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<116>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SWAP_FUNCTION_REFERENCE_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_reference_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_new_function_identifier,
+                __buffer
+                    .add(16)
+                    .cast::<crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_orphan_pins,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(113).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(114).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SWAP_FUNCTION_REFERENCE_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(115).cast::<bool>().read() }
+    }
+    pub fn swap_function_reference(
+        &mut self,
+        in_function_reference_node: UPtr<URigVMFunctionReferenceNode>,
+        in_new_function_identifier: &crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier,
+        b_setup_orphan_pins: bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<108>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SWAP_FUNCTION_REFERENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_function_reference_node,
+                __buffer.add(0).cast::<UPtr<URigVMFunctionReferenceNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_new_function_identifier,
+                __buffer
+                    .add(8)
+                    .cast::<crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_orphan_pins,
+                __buffer.add(104).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(105).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(106).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SWAP_FUNCTION_REFERENCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(107).cast::<bool>().read() }
+    }
+    pub fn swap_all_function_references(
+        &mut self,
+        in_old_function_identifier: &crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier,
+        in_new_function_identifier: &crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier,
+        b_setup_orphan_pins: bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<196>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SWAP_ALL_FUNCTION_REFERENCES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_old_function_identifier,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_new_function_identifier,
+                __buffer
+                    .add(96)
+                    .cast::<crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_orphan_pins,
+                __buffer.add(192).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(193).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(194).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SWAP_ALL_FUNCTION_REFERENCES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(195).cast::<bool>().read() }
+    }
+    pub fn split_function_variant(
+        &mut self,
+        in_function_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<15>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SPLIT_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SPLIT_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(14).cast::<bool>().read() }
+    }
+    pub fn set_unit_node_defaults(
+        &mut self,
+        in_node: UPtr<URigVMUnitNode>,
+        in_defaults: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<27>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_UNIT_NODE_DEFAULTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<URigVMUnitNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_defaults,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_UNIT_NODE_DEFAULTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(26).cast::<bool>().read() }
+    }
+    pub fn set_schema_class(&mut self, in_schema_class: TSubclassOf<URigVMSchema>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_SCHEMA_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_schema_class,
+                __buffer.add(0).cast::<TSubclassOf<URigVMSchema>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_SCHEMA_CLASS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_schema(&mut self, in_schema: UPtr<URigVMSchema>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_SCHEMA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_schema,
+                __buffer.add(0).cast::<UPtr<URigVMSchema>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_SCHEMA,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_remapped_variable(
+        &mut self,
+        in_function_ref_node: UPtr<URigVMFunctionReferenceNode>,
+        in_inner_variable_name: &FName,
+        in_outer_variable_name: &FName,
+        b_setup_undo_redo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<34>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_REMAPPED_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_function_ref_node,
+                __buffer.add(0).cast::<UPtr<URigVMFunctionReferenceNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_inner_variable_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_outer_variable_name,
+                __buffer.add(20).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_REMAPPED_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(33).cast::<bool>().read() }
+    }
+    pub fn set_pin_is_watched(
+        &mut self,
+        in_pin_path: FString,
+        b_is_watched: bool,
+        b_setup_undo_redo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_IS_WATCHED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_watched,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_IS_WATCHED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn set_pin_index_in_category(
+        &mut self,
+        in_pin_path: FString,
+        in_index_in_category: i32,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<23>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_INDEX_IN_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_index_in_category,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_INDEX_IN_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(22).cast::<bool>().read() }
+    }
+    pub fn set_pin_expansion(
+        &mut self,
+        in_pin_path: FString,
+        b_is_expanded: bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_EXPANSION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_expanded,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(18).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_EXPANSION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(19).cast::<bool>().read() }
+    }
+    pub fn set_pin_display_name(
+        &mut self,
+        in_pin_path: FString,
+        in_display_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_display_name,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn set_pin_default_value(
+        &mut self,
+        in_pin_path: FString,
+        in_default_value: FString,
+        b_resize_arrays: bool,
+        b_setup_undo_redo: bool,
+        b_merge_undo_action: bool,
+        b_print_python_command: bool,
+        b_set_value_on_linked_pins: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<38>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_resize_arrays,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_merge_undo_action,
+                __buffer.add(34).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(35).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_set_value_on_linked_pins,
+                __buffer.add(36).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(37).cast::<bool>().read() }
+    }
+    pub fn set_pin_category_index(
+        &mut self,
+        in_node_name: &FName,
+        in_pin_category: FString,
+        in_new_index: i32,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<39>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_category,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_new_index,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(36).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(37).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(38).cast::<bool>().read() }
+    }
+    pub fn set_pin_category_expansion(
+        &mut self,
+        in_node_name: &FName,
+        in_pin_category: FString,
+        b_is_expanded: bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY_EXPANSION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_category,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_expanded,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(34).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY_EXPANSION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(35).cast::<bool>().read() }
+    }
+    pub fn set_pin_category(
+        &mut self,
+        in_pin_path: FString,
+        in_category: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_category,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn set_node_title_by_name(
+        &mut self,
+        in_node_name: &FName,
+        in_node_title: FString,
+        b_setup_undo_redo: bool,
+        b_merge_undo_action: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_TITLE_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_title,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_merge_undo_action,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_TITLE_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn set_node_title(
+        &mut self,
+        in_node: UPtr<URigVMNode>,
+        in_node_title: FString,
+        b_setup_undo_redo: bool,
+        b_merge_undo_action: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_TITLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<URigVMNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_title,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_merge_undo_action,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(26).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_TITLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(27).cast::<bool>().read() }
+    }
+    pub fn set_node_size_by_name(
+        &mut self,
+        in_node_name: &FName,
+        in_size: &crate::bindings::core_u_object::FVector2D,
+        b_setup_undo_redo: bool,
+        b_merge_undo_action: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_SIZE_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_size,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_merge_undo_action,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(34).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_SIZE_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(35).cast::<bool>().read() }
+    }
+    pub fn set_node_size(
+        &mut self,
+        in_node: UPtr<URigVMNode>,
+        in_size: &crate::bindings::core_u_object::FVector2D,
+        b_setup_undo_redo: bool,
+        b_merge_undo_action: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<URigVMNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_size,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_merge_undo_action,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(26).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_SIZE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(27).cast::<bool>().read() }
+    }
+    pub fn set_node_selection(
+        &mut self,
+        in_node_names: &TArray<FName>,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn set_node_position_by_name(
+        &mut self,
+        in_node_name: &FName,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        b_setup_undo_redo: bool,
+        b_merge_undo_action: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_POSITION_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_merge_undo_action,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(34).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_POSITION_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(35).cast::<bool>().read() }
+    }
+    pub fn set_node_position(
+        &mut self,
+        in_node: UPtr<URigVMNode>,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        b_setup_undo_redo: bool,
+        b_merge_undo_action: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<URigVMNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_merge_undo_action,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(26).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_POSITION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(27).cast::<bool>().read() }
+    }
+    pub fn set_node_layout(
+        &mut self,
+        in_node_name: &FName,
+        in_layout: crate::bindings::rig_vm::FRigVMNodeLayout,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<195>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_LAYOUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_layout,
+                __buffer.add(16).cast::<crate::bindings::rig_vm::FRigVMNodeLayout>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(192).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(193).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_LAYOUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(194).cast::<bool>().read() }
+    }
+    pub fn set_node_keywords_by_name(
+        &mut self,
+        in_node_name: &FName,
+        in_keywords: FString,
+        b_setup_undo_redo: bool,
+        b_merge_undo_action: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_KEYWORDS_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_keywords,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_merge_undo_action,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_KEYWORDS_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn set_node_keywords(
+        &mut self,
+        in_node: UPtr<URigVMCollapseNode>,
+        in_keywords: FString,
+        b_setup_undo_redo: bool,
+        b_merge_undo_action: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_KEYWORDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<URigVMCollapseNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_keywords,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_merge_undo_action,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(26).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_KEYWORDS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(27).cast::<bool>().read() }
+    }
+    pub fn set_node_description_by_name(
+        &mut self,
+        in_node_name: &FName,
+        in_description: FString,
+        b_setup_undo_redo: bool,
+        b_merge_undo_action: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_DESCRIPTION_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_description,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_merge_undo_action,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_DESCRIPTION_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn set_node_description(
+        &mut self,
+        in_node: UPtr<URigVMCollapseNode>,
+        in_description: FString,
+        b_setup_undo_redo: bool,
+        b_merge_undo_action: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_DESCRIPTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<URigVMCollapseNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_description,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_merge_undo_action,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(26).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_DESCRIPTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(27).cast::<bool>().read() }
+    }
+    pub fn set_node_color_by_name(
+        &mut self,
+        in_node_name: &FName,
+        in_color: &crate::bindings::core_u_object::FLinearColor,
+        b_setup_undo_redo: bool,
+        b_merge_undo_action: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<31>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_COLOR_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_color,
+                __buffer.add(12).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_merge_undo_action,
+                __buffer.add(29).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_COLOR_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(30).cast::<bool>().read() }
+    }
+    pub fn set_node_color(
+        &mut self,
+        in_node: UPtr<URigVMNode>,
+        in_color: &crate::bindings::core_u_object::FLinearColor,
+        b_setup_undo_redo: bool,
+        b_merge_undo_action: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<URigVMNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_color,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_merge_undo_action,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(26).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(27).cast::<bool>().read() }
+    }
+    pub fn set_node_category_by_name(
+        &mut self,
+        in_node_name: &FName,
+        in_category: FString,
+        b_setup_undo_redo: bool,
+        b_merge_undo_action: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_CATEGORY_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_category,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_merge_undo_action,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_CATEGORY_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn set_node_category(
+        &mut self,
+        in_node: UPtr<URigVMCollapseNode>,
+        in_category: FString,
+        b_setup_undo_redo: bool,
+        b_merge_undo_action: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<URigVMCollapseNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_category,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_merge_undo_action,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(26).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(27).cast::<bool>().read() }
+    }
+    pub fn set_local_variable_type_from_object_path(
+        &mut self,
+        in_variable_name: &FName,
+        in_cpp_type: FString,
+        in_cpp_type_object_path: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<51>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_TYPE_FROM_OBJECT_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type_object_path,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(49).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_TYPE_FROM_OBJECT_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(50).cast::<bool>().read() }
+    }
+    pub fn set_local_variable_type(
+        &mut self,
+        in_variable_name: &FName,
+        in_cpp_type: FString,
+        in_cpp_type_object: UPtr<crate::bindings::core_u_object::UObject>,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<43>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type_object,
+                __buffer.add(32).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(41).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(42).cast::<bool>().read() }
+    }
+    pub fn set_local_variable_default_value(
+        &mut self,
+        in_variable_name: &FName,
+        in_default_value: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn set_is_running_unit_test(&mut self, b_is_running: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_IS_RUNNING_UNIT_TEST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_running,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_IS_RUNNING_UNIT_TEST,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_graph(&mut self, in_graph: UPtr<URigVMGraph>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_graph,
+                __buffer.add(0).cast::<UPtr<URigVMGraph>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_GRAPH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_exposed_pin_index(
+        &mut self,
+        in_pin_name: &FName,
+        in_new_index: i32,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_EXPOSED_PIN_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_pin_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_new_index,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_EXPOSED_PIN_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn set_comment_text_by_name(
+        &mut self,
+        in_node_name: &FName,
+        in_comment_text: FString,
+        in_comment_font_size: &i32,
+        b_in_comment_bubble_visible: &bool,
+        b_in_comment_color_bubble: &bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_COMMENT_TEXT_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_comment_text,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_comment_font_size,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_in_comment_bubble_visible,
+                __buffer.add(36).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_in_comment_color_bubble,
+                __buffer.add(37).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(38).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(39).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_COMMENT_TEXT_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn set_comment_text(
+        &mut self,
+        in_node: UPtr<URigVMNode>,
+        in_comment_text: FString,
+        in_comment_font_size: &i32,
+        b_in_comment_bubble_visible: &bool,
+        b_in_comment_color_bubble: &bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_COMMENT_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<URigVMNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_comment_text,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_comment_font_size,
+                __buffer.add(24).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_in_comment_bubble_visible,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_in_comment_color_bubble,
+                __buffer.add(29).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(30).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(31).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_COMMENT_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_array_pin_size(
+        &mut self,
+        in_array_pin_path: FString,
+        in_size: i32,
+        in_default_value: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<43>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_ARRAY_PIN_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_size, __buffer.add(16).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(41).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_ARRAY_PIN_SIZE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(42).cast::<bool>().read() }
+    }
+    pub fn set_action_stack(&mut self, in_action_stack: UPtr<URigVMActionStack>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_ACTION_STACK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_action_stack,
+                __buffer.add(0).cast::<UPtr<URigVMActionStack>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_ACTION_STACK,
+                __buffer,
+            )
+        };
+    }
+    pub fn select_node_islands(
+        &mut self,
+        in_node_names: &TArray<FName>,
+        b_clear_selection: bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_NODE_ISLANDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_clear_selection,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(18).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_NODE_ISLANDS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(19).cast::<bool>().read() }
+    }
+    pub fn select_node_by_name(
+        &mut self,
+        in_node_name: &FName,
+        b_select: bool,
+        b_setup_undo_redo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<15>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_NODE_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_select, __buffer.add(12).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_NODE_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(14).cast::<bool>().read() }
+    }
+    pub fn select_node(
+        &mut self,
+        in_node: UPtr<URigVMNode>,
+        b_select: bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<URigVMNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_select, __buffer.add(8).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(9).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(10).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(11).cast::<bool>().read() }
+    }
+    pub fn select_linked_nodes(
+        &mut self,
+        in_node_names: &TArray<FName>,
+        b_select_source_nodes: bool,
+        b_clear_selection: bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_LINKED_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_select_source_nodes,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_clear_selection,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(18).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(19).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_LINKED_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn resolve_wild_card_pin(
+        &mut self,
+        in_pin_path: FString,
+        in_cpp_type: FString,
+        in_cpp_type_object_path: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<47>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESOLVE_WILD_CARD_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_cpp_type_object_path,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(44).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(45).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESOLVE_WILD_CARD_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(46).cast::<bool>().read() }
+    }
+    pub fn reset_pin_default_value(
+        &mut self,
+        in_pin_path: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_PIN_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_PIN_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn reset_default_value_for_pins(
+        &mut self,
+        in_pin_paths: &TArray<FString>,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_PINS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_pin_paths,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_PINS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn reset_default_value_for_all_pins_on_nodes(
+        &mut self,
+        in_node_names: &TArray<FName>,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_ALL_PINS_ON_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_ALL_PINS_ON_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn reset_default_value_for_all_pins_on_node(
+        &mut self,
+        in_node_name: &FName,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<15>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_ALL_PINS_ON_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_ALL_PINS_ON_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(14).cast::<bool>().read() }
+    }
+    pub fn replace_parameter_node_with_variable(
+        &mut self,
+        in_node_name: &FName,
+        in_variable_name: &FName,
+        in_cpp_type: FString,
+        in_cpp_type_object: UPtr<crate::bindings::core_u_object::UObject>,
+        b_setup_undo_redo: bool,
+    ) -> UPtr<URigVMVariableNode> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REPLACE_PARAMETER_NODE_WITH_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type_object,
+                __buffer.add(40).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REPLACE_PARAMETER_NODE_WITH_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<UPtr<URigVMVariableNode>>().read() }
+    }
+    pub fn rename_variable(
+        &mut self,
+        in_old_name: &FName,
+        in_new_name: &FName,
+        b_setup_undo_redo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<26>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_old_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_new_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(25).cast::<bool>().read() }
+    }
+    pub fn rename_pin_category(
+        &mut self,
+        in_node_name: &FName,
+        in_old_pin_category: FString,
+        in_new_pin_category: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<51>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_PIN_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_old_pin_category,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_new_pin_category,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(49).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_PIN_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(50).cast::<bool>().read() }
+    }
+    pub fn rename_parameter(
+        &mut self,
+        in_old_name: &FName,
+        in_new_name: &FName,
+        b_setup_undo_redo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<26>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_old_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_new_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(25).cast::<bool>().read() }
+    }
+    pub fn rename_node(
+        &mut self,
+        in_node: UPtr<URigVMNode>,
+        in_new_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<23>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<URigVMNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_new_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(22).cast::<bool>().read() }
+    }
+    pub fn rename_local_variable(
+        &mut self,
+        in_variable_name: &FName,
+        in_new_variable_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<27>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_LOCAL_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_new_variable_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_LOCAL_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(26).cast::<bool>().read() }
+    }
+    pub fn rename_function(
+        &mut self,
+        in_old_function_name: &FName,
+        in_new_function_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<27>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_old_function_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_new_function_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(26).cast::<bool>().read() }
+    }
+    pub fn rename_exposed_pin(
+        &mut self,
+        in_old_pin_name: &FName,
+        in_new_pin_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<27>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_EXPOSED_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_old_pin_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_new_pin_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_EXPOSED_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(26).cast::<bool>().read() }
+    }
+    pub fn remove_trait(
+        &mut self,
+        in_node_name: &FName,
+        in_trait_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<27>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_TRAIT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_trait_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_TRAIT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(26).cast::<bool>().read() }
+    }
+    pub fn remove_tag_from_function_variant(
+        &mut self,
+        in_function_name: &FName,
+        in_tag_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<27>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_TAG_FROM_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_tag_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_TAG_FROM_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(26).cast::<bool>().read() }
+    }
+    pub fn remove_pin_category(
+        &mut self,
+        in_node_name: &FName,
+        in_pin_category: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_PIN_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_category,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_PIN_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn remove_nodes_by_name(
+        &mut self,
+        in_node_names: &TArray<FName>,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODES_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODES_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn remove_nodes(
+        &mut self,
+        in_nodes: TArray<UPtr<URigVMNode>>,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_nodes,
+                __buffer.add(0).cast::<TArray<UPtr<URigVMNode>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn remove_node_by_name(
+        &mut self,
+        in_node_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<15>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODE_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODE_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(14).cast::<bool>().read() }
+    }
+    pub fn remove_node(
+        &mut self,
+        in_node: UPtr<URigVMNode>,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<11>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<URigVMNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(9).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(10).cast::<bool>().read() }
+    }
+    pub fn remove_local_variable(
+        &mut self,
+        in_variable_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<15>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_LOCAL_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_LOCAL_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(14).cast::<bool>().read() }
+    }
+    pub fn remove_injected_node(
+        &mut self,
+        in_pin_path: FString,
+        b_as_input: bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_INJECTED_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_as_input,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(18).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_INJECTED_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(19).cast::<bool>().read() }
+    }
+    pub fn remove_function_from_library(
+        &mut self,
+        in_function_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<15>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_FUNCTION_FROM_LIBRARY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_FUNCTION_FROM_LIBRARY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(14).cast::<bool>().read() }
+    }
+    pub fn remove_exposed_pin(
+        &mut self,
+        in_pin_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<15>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_EXPOSED_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_pin_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_EXPOSED_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(14).cast::<bool>().read() }
+    }
+    pub fn remove_array_pin(
+        &mut self,
+        in_array_element_pin_path: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_ARRAY_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_element_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_ARRAY_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn remove_aggregate_pin(
+        &mut self,
+        in_pin_path: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_AGGREGATE_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_AGGREGATE_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn refresh_variable_node(
+        &mut self,
+        in_node_name: &FName,
+        in_variable_name: &FName,
+        in_cpp_type: FString,
+        in_cpp_type_object: UPtr<crate::bindings::core_u_object::UObject>,
+        b_setup_undo_redo: bool,
+        b_setup_orphan_pins: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<50>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REFRESH_VARIABLE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type_object,
+                __buffer.add(40).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_orphan_pins,
+                __buffer.add(49).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REFRESH_VARIABLE_NODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn redo(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REDO,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REDO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn push_graph(
+        &mut self,
+        in_graph: UPtr<URigVMGraph>,
+        b_setup_undo_redo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<10>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PUSH_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_graph,
+                __buffer.add(0).cast::<UPtr<URigVMGraph>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PUSH_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(9).cast::<bool>().read() }
+    }
+    pub fn promote_pin_to_variable(
+        &mut self,
+        in_pin_path: FString,
+        b_create_variable_node: bool,
+        in_node_position: &crate::bindings::core_u_object::FVector2D,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<43>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PROMOTE_PIN_TO_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_create_variable_node,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_position,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(41).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PROMOTE_PIN_TO_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(42).cast::<bool>().read() }
+    }
+    pub fn promote_function_reference_node_to_collapse_node(
+        &mut self,
+        in_node_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+        b_remove_function_definition: bool,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PROMOTE_FUNCTION_REFERENCE_NODE_TO_COLLAPSE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_remove_function_definition,
+                __buffer.add(14).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PROMOTE_FUNCTION_REFERENCE_NODE_TO_COLLAPSE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FName>().read() }
+    }
+    pub fn promote_collapse_node_to_function_reference_node(
+        &mut self,
+        in_node_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+        in_existing_function_definition_path: FString,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PROMOTE_COLLAPSE_NODE_TO_FUNCTION_REFERENCE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_existing_function_definition_path,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PROMOTE_COLLAPSE_NODE_TO_FUNCTION_REFERENCE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FName>().read() }
+    }
+    pub fn pop_graph(&mut self, b_setup_undo_redo: bool) -> UPtr<URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_POP_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_POP_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<URigVMGraph>>().read() }
+    }
+    pub fn perform_user_workflow(
+        &mut self,
+        in_workflow: &crate::bindings::rig_vm::FRigVMUserWorkflow,
+        in_options: UPtr<crate::bindings::rig_vm::URigVMUserWorkflowOptions>,
+        b_setup_undo_redo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<122>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PERFORM_USER_WORKFLOW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_workflow,
+                __buffer.add(0).cast::<crate::bindings::rig_vm::FRigVMUserWorkflow>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_options,
+                __buffer
+                    .add(112)
+                    .cast::<UPtr<crate::bindings::rig_vm::URigVMUserWorkflowOptions>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(120).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PERFORM_USER_WORKFLOW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(121).cast::<bool>().read() }
+    }
+    pub fn open_undo_bracket(&mut self, in_title: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_OPEN_UNDO_BRACKET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_title,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_OPEN_UNDO_BRACKET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn mark_function_as_public(
+        &mut self,
+        in_function_name: &FName,
+        b_in_is_public: bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MARK_FUNCTION_AS_PUBLIC,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_is_public,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(14).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MARK_FUNCTION_AS_PUBLIC,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(15).cast::<bool>().read() }
+    }
+    pub fn make_variable_node_from_binding(
+        &mut self,
+        in_pin_path: FString,
+        in_node_position: &crate::bindings::core_u_object::FVector2D,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MAKE_VARIABLE_NODE_FROM_BINDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_position,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MAKE_VARIABLE_NODE_FROM_BINDING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn make_options_for_workflow(
+        &mut self,
+        in_subject: UPtr<crate::bindings::core_u_object::UObject>,
+        in_workflow: &crate::bindings::rig_vm::FRigVMUserWorkflow,
+    ) -> UPtr<crate::bindings::rig_vm::URigVMUserWorkflowOptions> {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MAKE_OPTIONS_FOR_WORKFLOW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_subject,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_workflow,
+                __buffer.add(8).cast::<crate::bindings::rig_vm::FRigVMUserWorkflow>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MAKE_OPTIONS_FOR_WORKFLOW,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(120)
+                .cast::<UPtr<crate::bindings::rig_vm::URigVMUserWorkflowOptions>>()
+                .read()
+        }
+    }
+    pub fn make_bindings_from_variable_node(
+        &mut self,
+        in_node_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<15>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MAKE_BINDINGS_FROM_VARIABLE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MAKE_BINDINGS_FROM_VARIABLE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(14).cast::<bool>().read() }
+    }
+    pub fn localize_functions(
+        &mut self,
+        in_function_definitions: TArray<
+            crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier,
+        >,
+        b_localize_dependent_private_functions: bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> TMap<
+        crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier,
+        UPtr<URigVMLibraryNode>,
+    > {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_function_definitions,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TArray<crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_localize_dependent_private_functions,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(18).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<
+                    TMap<
+                        crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier,
+                        UPtr<URigVMLibraryNode>,
+                    >,
+                >()
+                .read()
+        }
+    }
+    pub fn localize_function_from_path(
+        &mut self,
+        in_host_path: FString,
+        in_function_name: &FName,
+        b_localize_dependent_private_functions: bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMLibraryNode> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTION_FROM_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_host_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_localize_dependent_private_functions,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(29).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(30).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTION_FROM_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<UPtr<URigVMLibraryNode>>().read() }
+    }
+    pub fn localize_function(
+        &mut self,
+        in_function_definition: &crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier,
+        b_localize_dependent_private_functions: bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMLibraryNode> {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_definition,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_localize_dependent_private_functions,
+                __buffer.add(96).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(97).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(98).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(104).cast::<UPtr<URigVMLibraryNode>>().read() }
+    }
+    pub fn join_function_variant(
+        &mut self,
+        in_function_name: &FName,
+        in_guid: &crate::bindings::core_u_object::FGuid,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<31>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_JOIN_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_guid,
+                __buffer.add(12).cast::<crate::bindings::core_u_object::FGuid>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(29).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_JOIN_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(30).cast::<bool>().read() }
+    }
+    pub fn is_transacting(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IS_TRANSACTING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IS_TRANSACTING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_reporting_enabled(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IS_REPORTING_ENABLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IS_REPORTING_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_function_public(&mut self, in_function_name: &FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IS_FUNCTION_PUBLIC,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IS_FUNCTION_PUBLIC,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn insert_array_pin(
+        &mut self,
+        in_array_pin_path: FString,
+        in_index: i32,
+        in_default_value: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_INSERT_ARRAY_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_index, __buffer.add(16).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(41).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_INSERT_ARRAY_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<FString>().read() }
+    }
+    pub fn import_nodes_from_text(
+        &mut self,
+        in_text: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_commands: bool,
+    ) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IMPORT_NODES_FROM_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_text,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_commands,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IMPORT_NODES_FROM_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_unit_structs_for_template(
+        in_notation: &FName,
+    ) -> TArray<UPtr<crate::bindings::core_u_object::UScriptStruct>> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_UNIT_STRUCTS_FOR_TEMPLATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_notation,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_vm_developer::URigVMController::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_UNIT_STRUCTS_FOR_TEMPLATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UScriptStruct>>>()
+                .read()
+        }
+    }
+    pub fn get_top_level_graph(&self) -> UPtr<URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_TOP_LEVEL_GRAPH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_TOP_LEVEL_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMGraph>>().read() }
+    }
+    pub fn get_template_for_unit_struct(
+        in_function: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+        in_method_name: FString,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_TEMPLATE_FOR_UNIT_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_function,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_method_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_vm_developer::URigVMController::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_TEMPLATE_FOR_UNIT_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FString>().read() }
+    }
+    pub fn get_schema(&self) -> UPtr<URigVMSchema> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_SCHEMA,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_SCHEMA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMSchema>>().read() }
+    }
+    pub fn get_registered_unit_structs() -> TArray<
+        UPtr<crate::bindings::core_u_object::UScriptStruct>,
+    > {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_REGISTERED_UNIT_STRUCTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::rig_vm_developer::URigVMController::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_REGISTERED_UNIT_STRUCTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UScriptStruct>>>()
+                .read()
+        }
+    }
+    pub fn get_registered_templates() -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_REGISTERED_TEMPLATES,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::rig_vm_developer::URigVMController::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_REGISTERED_TEMPLATES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FString>>().read() }
+    }
+    pub fn get_pin_default_value(&mut self, in_pin_path: FString) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_PIN_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_PIN_DEFAULT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_graph(&self) -> UPtr<URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_GRAPH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMGraph>>().read() }
+    }
+    pub fn get_controller_for_graph(
+        &self,
+        in_graph: UPtr<URigVMGraph>,
+    ) -> UPtr<URigVMController> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_CONTROLLER_FOR_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_graph,
+                __buffer.add(0).cast::<UPtr<URigVMGraph>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_CONTROLLER_FOR_GRAPH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<URigVMController>>().read() }
+    }
+    pub fn get_action_stack(&self) -> UPtr<URigVMActionStack> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_ACTION_STACK,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_ACTION_STACK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVMActionStack>>().read() }
+    }
+    pub fn generate_python_commands(&mut self) -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GENERATE_PYTHON_COMMANDS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GENERATE_PYTHON_COMMANDS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FString>>().read() }
+    }
+    pub fn find_variants_of_function(
+        &mut self,
+        in_function_name: &FName,
+    ) -> TArray<crate::bindings::rig_vm::FRigVMVariantRef> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_VARIANTS_OF_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_VARIANTS_OF_FUNCTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<crate::bindings::rig_vm::FRigVMVariantRef>>()
+                .read()
+        }
+    }
+    pub fn find_graph_function_identifier(
+        &self,
+        in_host_path: FString,
+        in_function_name: FName,
+    ) -> crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_IDENTIFIER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_host_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_function_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_IDENTIFIER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier>()
+                .read()
+        }
+    }
+    pub fn find_graph_function_header_by_name(
+        &self,
+        in_host_path: FString,
+        in_function_name: FName,
+    ) -> crate::bindings::rig_vm::FRigVMGraphFunctionHeader {
+        let mut __stack = crate::core_data::StackAlloc::<560>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_HEADER_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_host_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_function_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_HEADER_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<crate::bindings::rig_vm::FRigVMGraphFunctionHeader>()
+                .read()
+        }
+    }
+    pub fn find_graph_function_header(
+        &self,
+        in_function_identifier: crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier,
+    ) -> crate::bindings::rig_vm::FRigVMGraphFunctionHeader {
+        let mut __stack = crate::core_data::StackAlloc::<624>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_HEADER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_function_identifier,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_HEADER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(96)
+                .cast::<crate::bindings::rig_vm::FRigVMGraphFunctionHeader>()
+                .read()
+        }
+    }
+    pub fn export_selected_nodes_to_text(
+        &mut self,
+        b_include_exterior_links: bool,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPORT_SELECTED_NODES_TO_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_include_exterior_links,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPORT_SELECTED_NODES_TO_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FString>().read() }
+    }
+    pub fn export_node_to_text(
+        &mut self,
+        in_node: UPtr<URigVMNode>,
+        b_include_exterior_links: bool,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPORT_NODE_TO_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer.add(0).cast::<UPtr<URigVMNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_include_exterior_links,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPORT_NODE_TO_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn export_nodes_to_text(
+        &mut self,
+        in_node_names: &TArray<FName>,
+        b_include_exterior_links: bool,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPORT_NODES_TO_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_include_exterior_links,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPORT_NODES_TO_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FString>().read() }
+    }
+    pub fn expand_library_node(
+        &mut self,
+        in_node_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> TArray<UPtr<URigVMNode>> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPAND_LIBRARY_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPAND_LIBRARY_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<UPtr<URigVMNode>>>().read() }
+    }
+    pub fn enable_reporting(&mut self, b_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ENABLE_REPORTING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ENABLE_REPORTING,
+                __buffer,
+            )
+        };
+    }
+    pub fn eject_node_from_pin(
+        &mut self,
+        in_pin_path: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMNode> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EJECT_NODE_FROM_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EJECT_NODE_FROM_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<URigVMNode>>().read() }
+    }
+    pub fn duplicate_array_pin(
+        &mut self,
+        in_array_element_pin_path: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_DUPLICATE_ARRAY_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_element_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_DUPLICATE_ARRAY_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FString>().read() }
+    }
+    pub fn create_function_variant(
+        &mut self,
+        in_function_name: &FName,
+        in_variant_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMLibraryNode> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CREATE_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variant_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CREATE_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<UPtr<URigVMLibraryNode>>().read() }
+    }
+    pub fn collapse_nodes(
+        &mut self,
+        in_node_names: &TArray<FName>,
+        in_collapse_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+        b_is_aggregate: bool,
+    ) -> UPtr<URigVMCollapseNode> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_COLLAPSE_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_collapse_node_name,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_aggregate,
+                __buffer.add(34).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_COLLAPSE_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<UPtr<URigVMCollapseNode>>().read() }
+    }
+    pub fn close_undo_bracket(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLOSE_UNDO_BRACKET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLOSE_UNDO_BRACKET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn clear_pin_category(
+        &mut self,
+        in_pin_path: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_PIN_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_PIN_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn clear_override_on_pins(
+        &mut self,
+        in_pin_paths: &TArray<FString>,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_PINS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_pin_paths,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_PINS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn clear_override_on_pin(
+        &mut self,
+        in_pin_path: FString,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn clear_override_on_all_pins_on_nodes(
+        &mut self,
+        in_node_names: &TArray<FName>,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_ALL_PINS_ON_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_ALL_PINS_ON_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn clear_override_on_all_pins_on_node(
+        &mut self,
+        in_node_name: &FName,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<15>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_ALL_PINS_ON_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_ALL_PINS_ON_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(14).cast::<bool>().read() }
+    }
+    pub fn clear_node_selection(
+        &mut self,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<3>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_NODE_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_NODE_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(2).cast::<bool>().read() }
+    }
+    pub fn clear_node_layout(
+        &mut self,
+        in_node_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<15>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_NODE_LAYOUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_NODE_LAYOUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(14).cast::<bool>().read() }
+    }
+    pub fn clear_array_pin(
+        &mut self,
+        in_array_pin_path: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_ARRAY_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_ARRAY_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn change_exposed_pin_type(
+        &mut self,
+        in_pin_name: &FName,
+        in_cpp_type: FString,
+        in_cpp_type_object_path: &FName,
+        b_setup_undo_redo: &mut bool,
+        b_setup_orphan_pins: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CHANGE_EXPOSED_PIN_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_pin_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_cpp_type_object_path,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_setup_undo_redo,
+                __buffer.add(44).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_orphan_pins,
+                __buffer.add(45).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(46).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CHANGE_EXPOSED_PIN_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(44).cast::<bool>().swap(b_setup_undo_redo);
+        }
+        unsafe { __buffer.add(47).cast::<bool>().read() }
+    }
+    pub fn can_import_nodes_from_text(&mut self, in_text: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CAN_IMPORT_NODES_FROM_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_text,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CAN_IMPORT_NODES_FROM_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn cancel_undo_bracket(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CANCEL_UNDO_BRACKET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CANCEL_UNDO_BRACKET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn break_link(
+        &mut self,
+        in_output_pin_path: FString,
+        in_input_pin_path: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_BREAK_LINK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_output_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_pin_path,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_BREAK_LINK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn break_all_links(
+        &mut self,
+        in_pin_path: FString,
+        b_as_input: bool,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_BREAK_ALL_LINKS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_as_input,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(18).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_BREAK_ALL_LINKS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(19).cast::<bool>().read() }
+    }
+    pub fn bind_pin_to_variable(
+        &mut self,
+        in_pin_path: FString,
+        in_new_bound_variable_path: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_BIND_PIN_TO_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_new_bound_variable_path,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_BIND_PIN_TO_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn add_variable_node_from_object_path(
+        &mut self,
+        in_variable_name: &FName,
+        in_cpp_type: FString,
+        in_cpp_type_object_path: FString,
+        b_is_getter: bool,
+        in_default_value: FString,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMVariableNode> {
+        let mut __stack = crate::core_data::StackAlloc::<120>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_VARIABLE_NODE_FROM_OBJECT_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type_object_path,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_getter,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(56).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(72).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(88).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(104).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(105).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_VARIABLE_NODE_FROM_OBJECT_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(112).cast::<UPtr<URigVMVariableNode>>().read() }
+    }
+    pub fn add_variable_node(
+        &mut self,
+        in_variable_name: &FName,
+        in_cpp_type: FString,
+        in_cpp_type_object: UPtr<crate::bindings::core_u_object::UObject>,
+        b_is_getter: bool,
+        in_default_value: FString,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMVariableNode> {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_VARIABLE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type_object,
+                __buffer.add(32).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_getter,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(48).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(64).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(80).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(96).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(97).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_VARIABLE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(104).cast::<UPtr<URigVMVariableNode>>().read() }
+    }
+    pub fn add_unit_node_with_defaults(
+        &mut self,
+        in_script_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+        in_defaults: FString,
+        in_method_name: &FName,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMUnitNode> {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_UNIT_NODE_WITH_DEFAULTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_script_struct,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_defaults,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_method_name,
+                __buffer.add(24).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(40).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(56).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(72).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(73).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_UNIT_NODE_WITH_DEFAULTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(80).cast::<UPtr<URigVMUnitNode>>().read() }
+    }
+    pub fn add_unit_node_from_struct_path(
+        &mut self,
+        in_script_struct_path: FString,
+        in_method_name: &FName,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMUnitNode> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_UNIT_NODE_FROM_STRUCT_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_script_struct_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_method_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(48).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(64).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(65).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_UNIT_NODE_FROM_STRUCT_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(72).cast::<UPtr<URigVMUnitNode>>().read() }
+    }
+    pub fn add_unit_node(
+        &mut self,
+        in_script_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+        in_method_name: &FName,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMUnitNode> {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_UNIT_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_script_struct,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_method_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(56).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(57).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_UNIT_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<UPtr<URigVMUnitNode>>().read() }
+    }
+    pub fn add_trait(
+        &mut self,
+        in_node_name: &FName,
+        in_trait_type_object_path: &FName,
+        in_trait_name: &FName,
+        in_default_value: FString,
+        in_pin_index: i32,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<76>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_TRAIT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_trait_type_object_path,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_trait_name,
+                __buffer.add(24).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_index,
+                __buffer.add(56).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(60).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(61).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_TRAIT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<FName>().read() }
+    }
+    pub fn add_template_node(
+        &mut self,
+        in_notation: &FName,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMTemplateNode> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_TEMPLATE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_notation,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(49).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_TEMPLATE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<UPtr<URigVMTemplateNode>>().read() }
+    }
+    pub fn add_tag_to_function_variant(
+        &mut self,
+        in_function_name: &FName,
+        in_tag: &crate::bindings::rig_vm::FRigVMTag,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<91>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_TAG_TO_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_tag,
+                __buffer.add(16).cast::<crate::bindings::rig_vm::FRigVMTag>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(88).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(89).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_TAG_TO_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(90).cast::<bool>().read() }
+    }
+    pub fn add_select_node_from_struct(
+        &mut self,
+        in_script_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+    ) -> UPtr<URigVMNode> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_SELECT_NODE_FROM_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_script_struct,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_SELECT_NODE_FROM_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<UPtr<URigVMNode>>().read() }
+    }
+    pub fn add_select_node(
+        &mut self,
+        in_cpp_type: FString,
+        in_cpp_type_object_path: &FName,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMNode> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_SELECT_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_cpp_type_object_path,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(48).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(64).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(65).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_SELECT_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(72).cast::<UPtr<URigVMNode>>().read() }
+    }
+    pub fn add_reroute_node_on_pin(
+        &mut self,
+        in_pin_path: FString,
+        b_as_input: bool,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMRerouteNode> {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_as_input,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(56).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(57).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<UPtr<URigVMRerouteNode>>().read() }
+    }
+    pub fn add_reroute_node_on_link_path(
+        &mut self,
+        in_link_pin_path_representation: FString,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMRerouteNode> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_LINK_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_link_pin_path_representation,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(49).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_LINK_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<UPtr<URigVMRerouteNode>>().read() }
+    }
+    pub fn add_reroute_node_on_link(
+        &mut self,
+        in_link: UPtr<URigVMLink>,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMRerouteNode> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_LINK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_link,
+                __buffer.add(0).cast::<UPtr<URigVMLink>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(41).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_LINK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<UPtr<URigVMRerouteNode>>().read() }
+    }
+    pub fn add_parameter_node_from_object_path(
+        &mut self,
+        in_parameter_name: &FName,
+        in_cpp_type: FString,
+        in_cpp_type_object_path: FString,
+        b_is_input: bool,
+        in_default_value: FString,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMParameterNode> {
+        let mut __stack = crate::core_data::StackAlloc::<120>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_PARAMETER_NODE_FROM_OBJECT_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type_object_path,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_input,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(56).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(72).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(88).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(104).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(105).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_PARAMETER_NODE_FROM_OBJECT_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(112).cast::<UPtr<URigVMParameterNode>>().read() }
+    }
+    pub fn add_parameter_node(
+        &mut self,
+        in_parameter_name: &FName,
+        in_cpp_type: FString,
+        in_cpp_type_object: UPtr<crate::bindings::core_u_object::UObject>,
+        b_is_input: bool,
+        in_default_value: FString,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMParameterNode> {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_PARAMETER_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type_object,
+                __buffer.add(32).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_input,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(48).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(64).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(80).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(96).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(97).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_PARAMETER_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(104).cast::<UPtr<URigVMParameterNode>>().read() }
+    }
+    pub fn add_override_to_pins(
+        &mut self,
+        in_pin_paths: &TArray<FString>,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_PINS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_pin_paths,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_PINS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn add_override_to_pin(
+        &mut self,
+        in_pin_path: FString,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn add_override_to_all_pins_on_nodes(
+        &mut self,
+        in_node_names: &TArray<FName>,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_ALL_PINS_ON_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_ALL_PINS_ON_NODES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn add_override_to_all_pins_on_node(
+        &mut self,
+        in_node_name: &FName,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<15>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_ALL_PINS_ON_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_ALL_PINS_ON_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(14).cast::<bool>().read() }
+    }
+    pub fn add_local_variable_from_object_path(
+        &mut self,
+        in_variable_name: &FName,
+        in_cpp_type: FString,
+        in_cpp_type_object_path: FString,
+        in_default_value: FString,
+        b_setup_undo_redo: bool,
+    ) -> FRigVMGraphVariableDescription {
+        let mut __stack = crate::core_data::StackAlloc::<184>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_LOCAL_VARIABLE_FROM_OBJECT_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type_object_path,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(48).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(64).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_LOCAL_VARIABLE_FROM_OBJECT_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(72).cast::<FRigVMGraphVariableDescription>().read() }
+    }
+    pub fn add_local_variable(
+        &mut self,
+        in_variable_name: &FName,
+        in_cpp_type: FString,
+        in_cpp_type_object: UPtr<crate::bindings::core_u_object::UObject>,
+        in_default_value: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> FRigVMGraphVariableDescription {
+        let mut __stack = crate::core_data::StackAlloc::<176>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_LOCAL_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type_object,
+                __buffer.add(32).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(56).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(57).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_LOCAL_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<FRigVMGraphVariableDescription>().read() }
+    }
+    pub fn add_link(
+        &mut self,
+        in_output_pin_path: FString,
+        in_input_pin_path: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+        in_user_direction: crate::bindings::rig_vm::ERigVMPinDirection,
+        b_create_cast_node: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<37>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_LINK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_output_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_pin_path,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_user_direction,
+                __buffer.add(34).cast::<crate::bindings::rig_vm::ERigVMPinDirection>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_create_cast_node,
+                __buffer.add(35).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_LINK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(36).cast::<bool>().read() }
+    }
+    pub fn add_invoke_entry_node(
+        &mut self,
+        in_entry_name: &FName,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMInvokeEntryNode> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_INVOKE_ENTRY_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_entry_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(49).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_INVOKE_ENTRY_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<UPtr<URigVMInvokeEntryNode>>().read() }
+    }
+    pub fn add_injected_node_from_struct_path(
+        &mut self,
+        in_pin_path: FString,
+        b_as_input: bool,
+        in_script_struct_path: FString,
+        in_method_name: &FName,
+        in_input_pin_name: &FName,
+        in_output_pin_name: &FName,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+    ) -> UPtr<URigVMInjectionInfo> {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_INJECTED_NODE_FROM_STRUCT_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_as_input,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_script_struct_path,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_method_name,
+                __buffer.add(40).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_input_pin_name,
+                __buffer.add(52).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_output_pin_name,
+                __buffer.add(64).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(80).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(96).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_INJECTED_NODE_FROM_STRUCT_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(104).cast::<UPtr<URigVMInjectionInfo>>().read() }
+    }
+    pub fn add_injected_node(
+        &mut self,
+        in_pin_path: FString,
+        b_as_input: bool,
+        in_script_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+        in_method_name: &FName,
+        in_input_pin_name: &FName,
+        in_output_pin_name: &FName,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMInjectionInfo> {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_INJECTED_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_as_input,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_script_struct,
+                __buffer
+                    .add(24)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_method_name,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_input_pin_name,
+                __buffer.add(44).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_output_pin_name,
+                __buffer.add(56).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(72).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(88).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(89).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_INJECTED_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(96).cast::<UPtr<URigVMInjectionInfo>>().read() }
+    }
+    pub fn add_if_node_from_struct(
+        &mut self,
+        in_script_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+    ) -> UPtr<URigVMNode> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_IF_NODE_FROM_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_script_struct,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_IF_NODE_FROM_STRUCT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<UPtr<URigVMNode>>().read() }
+    }
+    pub fn add_if_node(
+        &mut self,
+        in_cpp_type: FString,
+        in_cpp_type_object_path: &FName,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMNode> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_IF_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_cpp_type_object_path,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(48).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(64).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(65).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_IF_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(72).cast::<UPtr<URigVMNode>>().read() }
+    }
+    pub fn add_function_to_library(
+        &mut self,
+        in_function_name: &FName,
+        b_mutable: bool,
+        in_node_position: &crate::bindings::core_u_object::FVector2D,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMLibraryNode> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FUNCTION_TO_LIBRARY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_mutable,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_position,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FUNCTION_TO_LIBRARY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<UPtr<URigVMLibraryNode>>().read() }
+    }
+    pub fn add_function_reference_node_from_description(
+        &mut self,
+        in_function_definition: &crate::bindings::rig_vm::FRigVMGraphFunctionHeader,
+        in_node_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMFunctionReferenceNode> {
+        let mut __stack = crate::core_data::StackAlloc::<576>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FUNCTION_REFERENCE_NODE_FROM_DESCRIPTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_definition,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::rig_vm::FRigVMGraphFunctionHeader>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_position,
+                __buffer.add(528).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(544).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(560).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(561).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FUNCTION_REFERENCE_NODE_FROM_DESCRIPTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(568).cast::<UPtr<URigVMFunctionReferenceNode>>().read() }
+    }
+    pub fn add_function_reference_node(
+        &mut self,
+        in_function_definition: UPtr<URigVMLibraryNode>,
+        in_node_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMFunctionReferenceNode> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FUNCTION_REFERENCE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_function_definition,
+                __buffer.add(0).cast::<UPtr<URigVMLibraryNode>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(41).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FUNCTION_REFERENCE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<UPtr<URigVMFunctionReferenceNode>>().read() }
+    }
+    pub fn add_free_reroute_node(
+        &mut self,
+        in_cpp_type: FString,
+        in_cpp_type_object_path: &FName,
+        b_is_constant: bool,
+        in_custom_widget_name: &FName,
+        in_default_value: FString,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+    ) -> UPtr<URigVMRerouteNode> {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FREE_REROUTE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_cpp_type_object_path,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_constant,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_custom_widget_name,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(48).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(64).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(80).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(96).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FREE_REROUTE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(104).cast::<UPtr<URigVMRerouteNode>>().read() }
+    }
+    pub fn add_external_function_reference_node(
+        &mut self,
+        in_host_path: FString,
+        in_function_name: &FName,
+        in_node_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMFunctionReferenceNode> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_EXTERNAL_FUNCTION_REFERENCE_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_host_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_position,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(48).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(64).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(65).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_EXTERNAL_FUNCTION_REFERENCE_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(72).cast::<UPtr<URigVMFunctionReferenceNode>>().read() }
+    }
+    pub fn add_exposed_pin(
+        &mut self,
+        in_pin_name: &FName,
+        in_direction: crate::bindings::rig_vm::ERigVMPinDirection,
+        in_cpp_type: FString,
+        in_cpp_type_object_path: &FName,
+        in_default_value: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_EXPOSED_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_pin_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_direction,
+                __buffer.add(12).cast::<crate::bindings::rig_vm::ERigVMPinDirection>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_cpp_type_object_path,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(48).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(64).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(65).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_EXPOSED_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(68).cast::<FName>().read() }
+    }
+    pub fn add_enum_node(
+        &mut self,
+        in_cpp_type_object_path: &FName,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMEnumNode> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ENUM_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_cpp_type_object_path,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(49).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ENUM_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<UPtr<URigVMEnumNode>>().read() }
+    }
+    pub fn add_empty_pin_category(
+        &mut self,
+        in_node_name: &FName,
+        in_category: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_EMPTY_PIN_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_category,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_EMPTY_PIN_CATEGORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn add_default_tag_to_function_variant(
+        &mut self,
+        in_function_name: &FName,
+        in_tag_name: &FName,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<27>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_DEFAULT_TAG_TO_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_function_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_tag_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_DEFAULT_TAG_TO_FUNCTION_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(26).cast::<bool>().read() }
+    }
+    pub fn add_comment_node(
+        &mut self,
+        in_comment_text: FString,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_size: &crate::bindings::core_u_object::FVector2D,
+        in_color: &crate::bindings::core_u_object::FLinearColor,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMCommentNode> {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_COMMENT_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_comment_text,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_size,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_color,
+                __buffer.add(48).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(64).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(80).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(81).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_COMMENT_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(88).cast::<UPtr<URigVMCommentNode>>().read() }
+    }
+    pub fn add_branch_node(
+        &mut self,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> UPtr<URigVMNode> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_BRANCH_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_BRANCH_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<UPtr<URigVMNode>>().read() }
+    }
+    pub fn add_array_pin(
+        &mut self,
+        in_array_pin_path: FString,
+        in_default_value: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ARRAY_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_pin_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ARRAY_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<FString>().read() }
+    }
+    pub fn add_array_node_from_object_path(
+        &mut self,
+        in_op_code: crate::bindings::rig_vm::ERigVMOpCode,
+        in_cpp_type: FString,
+        in_cpp_type_object_path: FString,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+        b_is_patching: bool,
+    ) -> UPtr<URigVMNode> {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ARRAY_NODE_FROM_OBJECT_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_op_code,
+                __buffer.add(0).cast::<crate::bindings::rig_vm::ERigVMOpCode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type_object_path,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(40).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(56).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(72).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(73).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_patching,
+                __buffer.add(74).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ARRAY_NODE_FROM_OBJECT_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(80).cast::<UPtr<URigVMNode>>().read() }
+    }
+    pub fn add_array_node(
+        &mut self,
+        in_op_code: crate::bindings::rig_vm::ERigVMOpCode,
+        in_cpp_type: FString,
+        in_cpp_type_object: UPtr<crate::bindings::core_u_object::UObject>,
+        in_position: &crate::bindings::core_u_object::FVector2D,
+        in_node_name: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+        b_is_patching: bool,
+    ) -> UPtr<URigVMNode> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ARRAY_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_op_code,
+                __buffer.add(0).cast::<crate::bindings::rig_vm::ERigVMOpCode>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_cpp_type_object,
+                __buffer.add(24).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(48).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(64).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(65).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_patching,
+                __buffer.add(66).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ARRAY_NODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(72).cast::<UPtr<URigVMNode>>().read() }
+    }
+    pub fn add_aggregate_pin(
+        &mut self,
+        in_node_name: FString,
+        in_pin_name: FString,
+        in_default_value: FString,
+        b_setup_undo_redo: bool,
+        b_print_python_command: bool,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_AGGREGATE_PIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pin_name,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_value,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(49).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_AGGREGATE_PIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<FString>().read() }
     }
 }
 #[repr(C, align(8))]

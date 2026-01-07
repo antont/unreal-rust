@@ -70,7 +70,6 @@ pub struct FBakingAnimationKeySettings {
     pub b_reduce_keys: bool,
     pub tolerance: f32,
     pub b_time_warp: bool,
-    __padding_end: [u8; 3],
 }
 impl FBakingAnimationKeySettings {}
 #[repr(C, align(1))]
@@ -500,6 +499,36 @@ impl UMovieSceneUserImportFBXControlRigSettings {
             cdo
         }
     }
+    pub fn load_control_mappings_from_preset(&mut self, b_meta_human_preset: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tools::U_MOVIE_SCENE_USER_IMPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_meta_human_preset,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tools::U_MOVIE_SCENE_USER_IMPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UMovieSceneUserExportFBXControlRigSettings {
@@ -512,7 +541,6 @@ pub struct UMovieSceneUserExportFBXControlRigSettings {
     #[doc(hidden)]
     __padding_96: [u8; 27],
     pub flags_96: u8,
-    __padding_end: [u8; 7],
 }
 impl UMovieSceneUserExportFBXControlRigSettings {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -529,6 +557,36 @@ impl UMovieSceneUserExportFBXControlRigSettings {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn load_control_mappings_from_preset(&mut self, b_meta_human_preset: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tools::U_MOVIE_SCENE_USER_EXPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_meta_human_preset,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tools::U_MOVIE_SCENE_USER_EXPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(transparent)]

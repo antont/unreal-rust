@@ -272,6 +272,96 @@ impl AInstancedFoliageActor {
             cdo
         }
     }
+    pub fn remove_all_instances(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        in_foliage_type: UPtr<UFoliageType>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::foliage::A_INSTANCED_FOLIAGE_ACTOR_REMOVE_ALL_INSTANCES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_foliage_type,
+                __buffer.add(8).cast::<UPtr<UFoliageType>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::foliage::AInstancedFoliageActor::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::foliage::A_INSTANCED_FOLIAGE_ACTOR_REMOVE_ALL_INSTANCES,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_instances(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        in_foliage_type: UPtr<UFoliageType>,
+        in_transforms: &TArray<crate::bindings::core_u_object::FTransform>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::foliage::A_INSTANCED_FOLIAGE_ACTOR_ADD_INSTANCES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_foliage_type,
+                __buffer.add(8).cast::<UPtr<UFoliageType>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_transforms,
+                __buffer
+                    .add(16)
+                    .cast::<TArray<crate::bindings::core_u_object::FTransform>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::foliage::AInstancedFoliageActor::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::foliage::A_INSTANCED_FOLIAGE_ACTOR_ADD_INSTANCES,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct UInteractiveFoliageComponent {
@@ -313,6 +403,172 @@ impl UFoliageStatistics {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn foliage_overlapping_sphere_count(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
+        center_position: crate::bindings::core_u_object::FVector,
+        radius: f32,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::foliage::U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_SPHERE_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &static_mesh,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::UStaticMesh>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &center_position,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius, __buffer.add(40).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::foliage::UFoliageStatistics::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::foliage::U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_SPHERE_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(44).cast::<i32>().read() }
+    }
+    pub fn foliage_overlapping_box_transforms(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
+        box_: crate::bindings::core_u_object::FBox,
+        out_transforms: &mut TArray<crate::bindings::core_u_object::FTransform>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::foliage::U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_TRANSFORMS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &static_mesh,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::UStaticMesh>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &box_,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FBox>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_transforms,
+                __buffer
+                    .add(72)
+                    .cast::<TArray<crate::bindings::core_u_object::FTransform>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::foliage::UFoliageStatistics::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::foliage::U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_TRANSFORMS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(72)
+                .cast::<TArray<crate::bindings::core_u_object::FTransform>>()
+                .swap(out_transforms);
+        }
+    }
+    pub fn foliage_overlapping_box_count(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
+        box_: crate::bindings::core_u_object::FBox,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<76>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::foliage::U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_COUNT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &static_mesh,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::UStaticMesh>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &box_,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FBox>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::foliage::UFoliageStatistics::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::foliage::U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(72).cast::<i32>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -444,6 +700,32 @@ impl UProceduralFoliageSpawner {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn simulate(&mut self, num_steps: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::foliage::U_PROCEDURAL_FOLIAGE_SPAWNER_SIMULATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&num_steps, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::foliage::U_PROCEDURAL_FOLIAGE_SPAWNER_SIMULATE,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]

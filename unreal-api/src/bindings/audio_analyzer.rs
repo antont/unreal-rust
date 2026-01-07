@@ -115,6 +115,80 @@ impl UAudioAnalyzer {
             cdo
         }
     }
+    pub fn stop_analyzing(
+        &mut self,
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_STOP_ANALYZING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_STOP_ANALYZING,
+                __buffer,
+            )
+        };
+    }
+    pub fn start_analyzing(
+        &mut self,
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        audio_bus_to_analyze: UPtr<crate::bindings::engine::UAudioBus>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_START_ANALYZING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &audio_bus_to_analyze,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::UAudioBus>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_START_ANALYZING,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UAudioAnalyzerNRTSettings {
@@ -160,6 +234,59 @@ impl UAudioAnalyzerNRT {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_sound(&mut self, in_sound: UPtr<crate::bindings::engine::USoundWave>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_NRT_SET_SOUND,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_sound,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USoundWave>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_NRT_SET_SOUND,
+                __buffer,
+            )
+        };
+    }
+    pub fn analyze_audio(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_NRT_ANALYZE_AUDIO,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_NRT_ANALYZE_AUDIO,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]

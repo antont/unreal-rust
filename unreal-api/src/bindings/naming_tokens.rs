@@ -167,7 +167,6 @@ pub struct FNamingTokenValueData {
     pub token_namespace: FString,
     pub token_value: FText,
     pub b_was_evaluated: bool,
-    __padding_end: [u8; 7],
 }
 impl FNamingTokenValueData {}
 #[repr(C, align(8))]
@@ -191,7 +190,6 @@ pub struct FNamingTokenFilterArgs {
     pub b_include_global: bool,
     pub b_force_case_sensitive: bool,
     pub b_native_only: bool,
-    __padding_end: [u8; 5],
 }
 impl FNamingTokenFilterArgs {}
 #[repr(C, align(8))]
@@ -222,6 +220,32 @@ impl UNamingTokens {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn get_current_date_time(&self) -> crate::bindings::core_u_object::FDateTime {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_GET_CURRENT_DATE_TIME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_GET_CURRENT_DATE_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FDateTime>().read()
         }
     }
 }
@@ -265,5 +289,422 @@ impl UNamingTokensEngineSubsystem {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn unregister_global_namespace(&mut self, in_namespace: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_UNREGISTER_GLOBAL_NAMESPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_namespace,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_UNREGISTER_GLOBAL_NAMESPACE,
+                __buffer,
+            )
+        };
+    }
+    pub fn register_global_namespace(&mut self, in_namespace: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_REGISTER_GLOBAL_NAMESPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_namespace,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_REGISTER_GLOBAL_NAMESPACE,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_global_namespace_registered(&self, in_namespace: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_IS_GLOBAL_NAMESPACE_REGISTERED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_namespace,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_IS_GLOBAL_NAMESPACE_REGISTERED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_naming_tokens_native(
+        &self,
+        in_namespace: FString,
+    ) -> UPtr<UNamingTokens> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS_NATIVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_namespace,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS_NATIVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UNamingTokens>>().read() }
+    }
+    pub fn get_naming_tokens(&self, in_namespace: FString) -> UPtr<UNamingTokens> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_namespace,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UNamingTokens>>().read() }
+    }
+    pub fn get_multiple_naming_tokens(
+        &self,
+        in_namespaces: &TArray<FString>,
+    ) -> TArray<UPtr<UNamingTokens>> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_MULTIPLE_NAMING_TOKENS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_namespaces,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_MULTIPLE_NAMING_TOKENS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<UPtr<UNamingTokens>>>().read() }
+    }
+    pub fn get_global_namespaces(&self) -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_GLOBAL_NAMESPACES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_GLOBAL_NAMESPACES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FString>>().read() }
+    }
+    pub fn get_all_namespaces(&self) -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_ALL_NAMESPACES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_ALL_NAMESPACES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FString>>().read() }
+    }
+    pub fn evaluate_token_text(
+        &mut self,
+        in_token_text: &FText,
+        in_filter: &FNamingTokenFilterArgs,
+        in_contexts: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) -> FNamingTokenResultData {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_token_text,
+                __buffer.add(0).cast::<FText>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_filter,
+                __buffer.add(16).cast::<FNamingTokenFilterArgs>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_contexts,
+                __buffer
+                    .add(40)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<FNamingTokenResultData>().read() }
+    }
+    pub fn evaluate_token_string(
+        &mut self,
+        in_token_string: FString,
+        in_filter: &FNamingTokenFilterArgs,
+        in_contexts: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) -> FNamingTokenResultData {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_token_string,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_filter,
+                __buffer.add(16).cast::<FNamingTokenFilterArgs>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_contexts,
+                __buffer
+                    .add(40)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<FNamingTokenResultData>().read() }
+    }
+    pub fn evaluate_token_list(
+        &mut self,
+        in_token_list: &TArray<FString>,
+        in_filter: &FNamingTokenFilterArgs,
+        in_contexts: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) -> TArray<FNamingTokenValueData> {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_LIST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_token_list,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_filter,
+                __buffer.add(16).cast::<FNamingTokenFilterArgs>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_contexts,
+                __buffer
+                    .add(40)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_LIST,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<TArray<FNamingTokenValueData>>().read() }
+    }
+    pub fn clear_cached_naming_tokens(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_CLEAR_CACHED_NAMING_TOKENS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_CLEAR_CACHED_NAMING_TOKENS,
+                __buffer,
+            )
+        };
     }
 }

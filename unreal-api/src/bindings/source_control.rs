@@ -302,6 +302,937 @@ impl USourceControlHelpers {
             cdo
         }
     }
+    pub fn sync_files(in_files: &TArray<FString>, b_silent: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_SYNC_FILES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_files,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_SYNC_FILES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn sync_file(in_file: FString, b_silent: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_SYNC_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_file,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_SYNC_FILE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn revert_unchanged_files(in_files: &TArray<FString>, b_silent: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_UNCHANGED_FILES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_files,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_UNCHANGED_FILES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn revert_unchanged_file(in_file: FString, b_silent: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_UNCHANGED_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_file,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_UNCHANGED_FILE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn revert_files(in_files: &TArray<FString>, b_silent: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_FILES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_files,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_FILES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn revert_file(in_file: FString, b_silent: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_file,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_FILE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn revert_and_reload_packages(
+        in_packages_to_revert: &TArray<FString>,
+        b_revert_all: bool,
+        b_reload_world: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_AND_RELOAD_PACKAGES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_packages_to_revert,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_revert_all,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_reload_world,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_AND_RELOAD_PACKAGES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn query_file_states(
+        in_files: TArray<FString>,
+        b_silent: bool,
+    ) -> TArray<FSourceControlState> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_QUERY_FILE_STATES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_files,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_QUERY_FILE_STATES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FSourceControlState>>().read() }
+    }
+    pub fn query_file_state(in_file: FString, b_silent: bool) -> FSourceControlState {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_QUERY_FILE_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_file,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_QUERY_FILE_STATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FSourceControlState>().read() }
+    }
+    pub fn mark_files_for_delete(in_files: &TArray<FString>, b_silent: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILES_FOR_DELETE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_files,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILES_FOR_DELETE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn mark_files_for_add(in_files: &TArray<FString>, b_silent: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILES_FOR_ADD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_files,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILES_FOR_ADD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn mark_file_for_delete(in_file: FString, b_silent: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILE_FOR_DELETE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_file,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILE_FOR_DELETE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn mark_file_for_add(in_file: FString, b_silent: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILE_FOR_ADD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_file,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILE_FOR_ADD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn last_error_msg() -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_LAST_ERROR_MSG,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_LAST_ERROR_MSG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn is_enabled() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_IS_ENABLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_IS_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_available() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_IS_AVAILABLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_IS_AVAILABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn current_provider() -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CURRENT_PROVIDER,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CURRENT_PROVIDER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn copy_file(
+        in_source_file: FString,
+        in_dest_file: FString,
+        b_silent: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<34>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_COPY_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_source_file,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_dest_file,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_COPY_FILE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(33).cast::<bool>().read() }
+    }
+    pub fn check_out_or_add_files(in_files: &TArray<FString>, b_silent: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_OR_ADD_FILES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_files,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_OR_ADD_FILES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn check_out_or_add_file(in_file: FString, b_silent: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_OR_ADD_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_file,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_OR_ADD_FILE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn check_out_files(in_files: &TArray<FString>, b_silent: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_FILES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_files,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_FILES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn check_out_file(in_file: FString, b_silent: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_file,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_FILE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn check_in_files(
+        in_files: &TArray<FString>,
+        in_description: FString,
+        b_silent: bool,
+        b_keep_checked_out: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_IN_FILES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_files,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_description,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(32).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_keep_checked_out,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_IN_FILES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn check_in_file(
+        in_file: FString,
+        in_description: FString,
+        b_silent: bool,
+        b_keep_checked_out: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_IN_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_file,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_description,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(32).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_keep_checked_out,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_IN_FILE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn async_query_file_states(
+        file_state_callback: FAsyncQueryFileStates_FileStateCallback,
+        in_files: TArray<FString>,
+        b_silent: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_ASYNC_QUERY_FILE_STATES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &file_state_callback,
+                __buffer.add(0).cast::<FAsyncQueryFileStates_FileStateCallback>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_files,
+                __buffer.add(32).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(48).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_ASYNC_QUERY_FILE_STATES,
+                __buffer,
+            )
+        };
+    }
+    pub fn async_query_file_state(
+        file_state_callback: FAsyncQueryFileState_FileStateCallback,
+        in_file: FString,
+        b_silent: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_ASYNC_QUERY_FILE_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &file_state_callback,
+                __buffer.add(0).cast::<FAsyncQueryFileState_FileStateCallback>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_file,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_silent, __buffer.add(48).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::source_control::USourceControlHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_ASYNC_QUERY_FILE_STATE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USourceControlPreferences {

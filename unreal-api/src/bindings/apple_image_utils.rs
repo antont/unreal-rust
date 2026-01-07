@@ -100,6 +100,270 @@ impl UAppleImageUtilsBaseAsyncTaskBlueprintProxy {
             cdo
         }
     }
+    pub fn create_proxy_object_for_convert_to_tiff(
+        source_image: UPtr<crate::bindings::engine::UTexture>,
+        b_want_color: bool,
+        b_use_gpu: bool,
+        scale: f32,
+        rotate: ETextureRotationDirection,
+    ) -> UPtr<UAppleImageUtilsBaseAsyncTaskBlueprintProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_TIFF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_image,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UTexture>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_want_color,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_use_gpu, __buffer.add(9).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&scale, __buffer.add(12).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rotate,
+                __buffer.add(16).cast::<ETextureRotationDirection>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::apple_image_utils::UAppleImageUtilsBaseAsyncTaskBlueprintProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_TIFF,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<UPtr<UAppleImageUtilsBaseAsyncTaskBlueprintProxy>>()
+                .read()
+        }
+    }
+    pub fn create_proxy_object_for_convert_to_png(
+        source_image: UPtr<crate::bindings::engine::UTexture>,
+        b_want_color: bool,
+        b_use_gpu: bool,
+        scale: f32,
+        rotate: ETextureRotationDirection,
+    ) -> UPtr<UAppleImageUtilsBaseAsyncTaskBlueprintProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_PNG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_image,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UTexture>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_want_color,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_use_gpu, __buffer.add(9).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&scale, __buffer.add(12).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rotate,
+                __buffer.add(16).cast::<ETextureRotationDirection>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::apple_image_utils::UAppleImageUtilsBaseAsyncTaskBlueprintProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_PNG,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<UPtr<UAppleImageUtilsBaseAsyncTaskBlueprintProxy>>()
+                .read()
+        }
+    }
+    pub fn create_proxy_object_for_convert_to_jpeg(
+        source_image: UPtr<crate::bindings::engine::UTexture>,
+        quality: i32,
+        b_want_color: bool,
+        b_use_gpu: bool,
+        scale: f32,
+        rotate: ETextureRotationDirection,
+    ) -> UPtr<UAppleImageUtilsBaseAsyncTaskBlueprintProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_JPEG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_image,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UTexture>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&quality, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_want_color,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_use_gpu,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&scale, __buffer.add(16).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rotate,
+                __buffer.add(20).cast::<ETextureRotationDirection>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::apple_image_utils::UAppleImageUtilsBaseAsyncTaskBlueprintProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_JPEG,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<UPtr<UAppleImageUtilsBaseAsyncTaskBlueprintProxy>>()
+                .read()
+        }
+    }
+    pub fn create_proxy_object_for_convert_to_heif(
+        source_image: UPtr<crate::bindings::engine::UTexture>,
+        quality: i32,
+        b_want_color: bool,
+        b_use_gpu: bool,
+        scale: f32,
+        rotate: ETextureRotationDirection,
+    ) -> UPtr<UAppleImageUtilsBaseAsyncTaskBlueprintProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_HEIF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_image,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UTexture>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&quality, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_want_color,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_use_gpu,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&scale, __buffer.add(16).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rotate,
+                __buffer.add(20).cast::<ETextureRotationDirection>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::apple_image_utils::UAppleImageUtilsBaseAsyncTaskBlueprintProxy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_HEIF,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<UPtr<UAppleImageUtilsBaseAsyncTaskBlueprintProxy>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct FAppleImageUtilsBaseAsyncTaskBlueprintProxy_OnSuccess {

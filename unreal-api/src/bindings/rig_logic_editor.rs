@@ -58,6 +58,29 @@ impl UDNAAssetImportUI {
             cdo
         }
     }
+    pub fn reset_to_default(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_logic_editor::UDNA_ASSET_IMPORT_UI_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_logic_editor::UDNA_ASSET_IMPORT_UI_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UDNAAssetImportFactory {
@@ -99,5 +122,45 @@ impl UDNAImporterLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn import_skeletal_mesh_dna(
+        file_name: FString,
+        mesh: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_logic_editor::UDNA_IMPORTER_LIBRARY_IMPORT_SKELETAL_MESH_DNA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &file_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh,
+                __buffer.add(16).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_logic_editor::UDNAImporterLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_logic_editor::UDNA_IMPORTER_LIBRARY_IMPORT_SKELETAL_MESH_DNA,
+                __buffer,
+            )
+        };
     }
 }

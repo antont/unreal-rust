@@ -433,6 +433,485 @@ impl UFieldSystemComponent {
             cdo
         }
     }
+    pub fn reset_field_system(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_RESET_FIELD_SYSTEM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_RESET_FIELD_SYSTEM,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_persistent_fields(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_REMOVE_PERSISTENT_FIELDS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_REMOVE_PERSISTENT_FIELDS,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_uniform_vector_falloff_force(
+        &mut self,
+        enabled: bool,
+        position: crate::bindings::core_u_object::FVector,
+        direction: crate::bindings::core_u_object::FVector,
+        radius: f32,
+        magnitude: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_UNIFORM_VECTOR_FALLOFF_FORCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &direction,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius, __buffer.add(56).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&magnitude, __buffer.add(60).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_UNIFORM_VECTOR_FALLOFF_FORCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_strain_field(
+        &mut self,
+        enabled: bool,
+        position: crate::bindings::core_u_object::FVector,
+        radius: f32,
+        magnitude: f32,
+        iterations: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_STRAIN_FIELD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius, __buffer.add(32).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&magnitude, __buffer.add(36).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &iterations,
+                __buffer.add(40).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_STRAIN_FIELD,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_stay_dynamic_field(
+        &mut self,
+        enabled: bool,
+        position: crate::bindings::core_u_object::FVector,
+        radius: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_STAY_DYNAMIC_FIELD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius, __buffer.add(32).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_STAY_DYNAMIC_FIELD,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_radial_vector_falloff_force(
+        &mut self,
+        enabled: bool,
+        position: crate::bindings::core_u_object::FVector,
+        radius: f32,
+        magnitude: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_RADIAL_VECTOR_FALLOFF_FORCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius, __buffer.add(32).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&magnitude, __buffer.add(36).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_RADIAL_VECTOR_FALLOFF_FORCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_radial_force(
+        &mut self,
+        enabled: bool,
+        position: crate::bindings::core_u_object::FVector,
+        magnitude: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_RADIAL_FORCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&magnitude, __buffer.add(32).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_RADIAL_FORCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_physics_field(
+        &mut self,
+        enabled: bool,
+        target: crate::bindings::chaos::EFieldPhysicsType,
+        meta_data: UPtr<UFieldSystemMetaData>,
+        field: UPtr<UFieldNodeBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_PHYSICS_FIELD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target,
+                __buffer.add(1).cast::<crate::bindings::chaos::EFieldPhysicsType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &meta_data,
+                __buffer.add(8).cast::<UPtr<UFieldSystemMetaData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &field,
+                __buffer.add(16).cast::<UPtr<UFieldNodeBase>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_PHYSICS_FIELD,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_linear_force(
+        &mut self,
+        enabled: bool,
+        direction: crate::bindings::core_u_object::FVector,
+        magnitude: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_LINEAR_FORCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &direction,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&magnitude, __buffer.add(32).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_LINEAR_FORCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_persistent_field(
+        &mut self,
+        enabled: bool,
+        target: crate::bindings::chaos::EFieldPhysicsType,
+        meta_data: UPtr<UFieldSystemMetaData>,
+        field: UPtr<UFieldNodeBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_ADD_PERSISTENT_FIELD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target,
+                __buffer.add(1).cast::<crate::bindings::chaos::EFieldPhysicsType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &meta_data,
+                __buffer.add(8).cast::<UPtr<UFieldSystemMetaData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &field,
+                __buffer.add(16).cast::<UPtr<UFieldNodeBase>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_ADD_PERSISTENT_FIELD,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_field_command(
+        &mut self,
+        enabled: bool,
+        target: crate::bindings::chaos::EFieldPhysicsType,
+        meta_data: UPtr<UFieldSystemMetaData>,
+        field: UPtr<UFieldNodeBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_ADD_FIELD_COMMAND,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target,
+                __buffer.add(1).cast::<crate::bindings::chaos::EFieldPhysicsType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &meta_data,
+                __buffer.add(8).cast::<UPtr<UFieldSystemMetaData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &field,
+                __buffer.add(16).cast::<UPtr<UFieldNodeBase>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_ADD_FIELD_COMMAND,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UFieldSystemMetaData {
@@ -460,7 +939,6 @@ pub struct UFieldSystemMetaDataIteration {
     #[doc(hidden)]
     __padding_240: [u8; 240],
     pub iterations: i32,
-    __padding_end: [u8; 4],
 }
 impl UFieldSystemMetaDataIteration {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -478,13 +956,42 @@ impl UFieldSystemMetaDataIteration {
             cdo
         }
     }
+    pub fn set_meta_data_iteration(
+        &mut self,
+        iterations: i32,
+    ) -> UPtr<UFieldSystemMetaDataIteration> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_META_DATA_ITERATION_SET_META_DATA_ITERATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&iterations, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_META_DATA_ITERATION_SET_META_DATA_ITERATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UFieldSystemMetaDataIteration>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UFieldSystemMetaDataProcessingResolution {
     #[doc(hidden)]
     __padding_240: [u8; 240],
     pub resolution_type: crate::bindings::chaos::EFieldResolutionType,
-    __padding_end: [u8; 7],
 }
 impl UFieldSystemMetaDataProcessingResolution {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -502,6 +1009,45 @@ impl UFieldSystemMetaDataProcessingResolution {
             cdo
         }
     }
+    pub fn set_meta_dataa_processing_resolution_type(
+        &mut self,
+        resolution_type: crate::bindings::chaos::EFieldResolutionType,
+    ) -> UPtr<UFieldSystemMetaDataProcessingResolution> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_META_DATA_PROCESSING_RESOLUTION_SET_META_DATAA_PROCESSING_RESOLUTION_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &resolution_type,
+                __buffer.add(0).cast::<crate::bindings::chaos::EFieldResolutionType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_META_DATA_PROCESSING_RESOLUTION_SET_META_DATAA_PROCESSING_RESOLUTION_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<UFieldSystemMetaDataProcessingResolution>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UFieldSystemMetaDataFilter {
@@ -510,7 +1056,6 @@ pub struct UFieldSystemMetaDataFilter {
     pub filter_type: crate::bindings::chaos::EFieldFilterType,
     pub object_type: crate::bindings::chaos::EFieldObjectType,
     pub position_type: crate::bindings::chaos::EFieldPositionType,
-    __padding_end: [u8; 5],
 }
 impl UFieldSystemMetaDataFilter {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -527,6 +1072,56 @@ impl UFieldSystemMetaDataFilter {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_meta_data_filter_type(
+        &mut self,
+        filter_type: crate::bindings::chaos::EFieldFilterType,
+        object_type: crate::bindings::chaos::EFieldObjectType,
+        position_type: crate::bindings::chaos::EFieldPositionType,
+    ) -> UPtr<UFieldSystemMetaDataFilter> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_META_DATA_FILTER_SET_META_DATA_FILTER_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filter_type,
+                __buffer.add(0).cast::<crate::bindings::chaos::EFieldFilterType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object_type,
+                __buffer.add(1).cast::<crate::bindings::chaos::EFieldObjectType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position_type,
+                __buffer.add(2).cast::<crate::bindings::chaos::EFieldPositionType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_FIELD_SYSTEM_META_DATA_FILTER_SET_META_DATA_FILTER_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UFieldSystemMetaDataFilter>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -618,7 +1213,6 @@ pub struct UUniformInteger {
     #[doc(hidden)]
     __padding_240: [u8; 240],
     pub magnitude: i32,
-    __padding_end: [u8; 4],
 }
 impl UUniformInteger {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -636,6 +1230,33 @@ impl UUniformInteger {
             cdo
         }
     }
+    pub fn set_uniform_integer(&mut self, magnitude: i32) -> UPtr<UUniformInteger> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_UNIFORM_INTEGER_SET_UNIFORM_INTEGER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&magnitude, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_UNIFORM_INTEGER_SET_UNIFORM_INTEGER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UUniformInteger>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URadialIntMask {
@@ -646,7 +1267,6 @@ pub struct URadialIntMask {
     pub interior_value: i32,
     pub exterior_value: i32,
     pub set_mask_condition: crate::bindings::chaos::ESetMaskConditionType,
-    __padding_end: [u8; 7],
 }
 impl URadialIntMask {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -664,13 +1284,74 @@ impl URadialIntMask {
             cdo
         }
     }
+    pub fn set_radial_int_mask(
+        &mut self,
+        radius: f32,
+        position: crate::bindings::core_u_object::FVector,
+        interior_value: i32,
+        exterior_value: i32,
+        set_mask_condition_in: crate::bindings::chaos::ESetMaskConditionType,
+    ) -> UPtr<URadialIntMask> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_RADIAL_INT_MASK_SET_RADIAL_INT_MASK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interior_value,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &exterior_value,
+                __buffer.add(36).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &set_mask_condition_in,
+                __buffer.add(40).cast::<crate::bindings::chaos::ESetMaskConditionType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_RADIAL_INT_MASK_SET_RADIAL_INT_MASK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<UPtr<URadialIntMask>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UUniformScalar {
     #[doc(hidden)]
     __padding_240: [u8; 240],
     pub magnitude: f32,
-    __padding_end: [u8; 4],
 }
 impl UUniformScalar {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -688,6 +1369,33 @@ impl UUniformScalar {
             cdo
         }
     }
+    pub fn set_uniform_scalar(&mut self, magnitude: f32) -> UPtr<UUniformScalar> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_UNIFORM_SCALAR_SET_UNIFORM_SCALAR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&magnitude, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_UNIFORM_SCALAR_SET_UNIFORM_SCALAR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UUniformScalar>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UWaveScalar {
@@ -699,7 +1407,6 @@ pub struct UWaveScalar {
     pub period: f32,
     pub function: crate::bindings::chaos::EWaveFunctionType,
     pub falloff: crate::bindings::chaos::EFieldFalloffType,
-    __padding_end: [u8; 6],
 }
 impl UWaveScalar {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -717,6 +1424,76 @@ impl UWaveScalar {
             cdo
         }
     }
+    pub fn set_wave_scalar(
+        &mut self,
+        magnitude: f32,
+        position: crate::bindings::core_u_object::FVector,
+        wavelength: f32,
+        period: f32,
+        time: f32,
+        function: crate::bindings::chaos::EWaveFunctionType,
+        falloff: crate::bindings::chaos::EFieldFalloffType,
+    ) -> UPtr<UWaveScalar> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_WAVE_SCALAR_SET_WAVE_SCALAR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&magnitude, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &wavelength,
+                __buffer.add(32).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&period, __buffer.add(36).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&time, __buffer.add(40).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &function,
+                __buffer.add(44).cast::<crate::bindings::chaos::EWaveFunctionType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &falloff,
+                __buffer.add(45).cast::<crate::bindings::chaos::EFieldFalloffType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_WAVE_SCALAR_SET_WAVE_SCALAR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<UPtr<UWaveScalar>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URadialFalloff {
@@ -729,7 +1506,6 @@ pub struct URadialFalloff {
     pub radius: f32,
     pub position: crate::bindings::core_u_object::FVector,
     pub falloff: crate::bindings::chaos::EFieldFalloffType,
-    __padding_end: [u8; 7],
 }
 impl URadialFalloff {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -747,6 +1523,68 @@ impl URadialFalloff {
             cdo
         }
     }
+    pub fn set_radial_falloff(
+        &mut self,
+        magnitude: f32,
+        min_range: f32,
+        max_range: f32,
+        default: f32,
+        radius: f32,
+        position: crate::bindings::core_u_object::FVector,
+        falloff: crate::bindings::chaos::EFieldFalloffType,
+    ) -> UPtr<URadialFalloff> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_RADIAL_FALLOFF_SET_RADIAL_FALLOFF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&magnitude, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&min_range, __buffer.add(4).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&max_range, __buffer.add(8).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&default, __buffer.add(12).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius, __buffer.add(16).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &falloff,
+                __buffer.add(48).cast::<crate::bindings::chaos::EFieldFalloffType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_RADIAL_FALLOFF_SET_RADIAL_FALLOFF,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<UPtr<URadialFalloff>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UPlaneFalloff {
@@ -760,7 +1598,6 @@ pub struct UPlaneFalloff {
     pub position: crate::bindings::core_u_object::FVector,
     pub normal: crate::bindings::core_u_object::FVector,
     pub falloff: crate::bindings::chaos::EFieldFalloffType,
-    __padding_end: [u8; 7],
 }
 impl UPlaneFalloff {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -778,6 +1615,76 @@ impl UPlaneFalloff {
             cdo
         }
     }
+    pub fn set_plane_falloff(
+        &mut self,
+        magnitude: f32,
+        min_range: f32,
+        max_range: f32,
+        default: f32,
+        distance: f32,
+        position: crate::bindings::core_u_object::FVector,
+        normal: crate::bindings::core_u_object::FVector,
+        falloff: crate::bindings::chaos::EFieldFalloffType,
+    ) -> UPtr<UPlaneFalloff> {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_PLANE_FALLOFF_SET_PLANE_FALLOFF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&magnitude, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&min_range, __buffer.add(4).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&max_range, __buffer.add(8).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&default, __buffer.add(12).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&distance, __buffer.add(16).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &normal,
+                __buffer.add(48).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &falloff,
+                __buffer.add(72).cast::<crate::bindings::chaos::EFieldFalloffType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_PLANE_FALLOFF_SET_PLANE_FALLOFF,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(80).cast::<UPtr<UPlaneFalloff>>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UBoxFalloff {
@@ -789,7 +1696,6 @@ pub struct UBoxFalloff {
     pub default: f32,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub falloff: crate::bindings::chaos::EFieldFalloffType,
-    __padding_end: [u8; 15],
 }
 impl UBoxFalloff {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -806,6 +1712,64 @@ impl UBoxFalloff {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_box_falloff(
+        &mut self,
+        magnitude: f32,
+        min_range: f32,
+        max_range: f32,
+        default: f32,
+        transform: crate::bindings::core_u_object::FTransform,
+        falloff: crate::bindings::chaos::EFieldFalloffType,
+    ) -> UPtr<UBoxFalloff> {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_BOX_FALLOFF_SET_BOX_FALLOFF,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&magnitude, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&min_range, __buffer.add(4).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&max_range, __buffer.add(8).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&default, __buffer.add(12).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &falloff,
+                __buffer.add(112).cast::<crate::bindings::chaos::EFieldFalloffType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_BOX_FALLOFF_SET_BOX_FALLOFF,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(120).cast::<UPtr<UBoxFalloff>>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -832,6 +1796,48 @@ impl UNoiseField {
             cdo
         }
     }
+    pub fn set_noise_field(
+        &mut self,
+        min_range: f32,
+        max_range: f32,
+        transform: crate::bindings::core_u_object::FTransform,
+    ) -> UPtr<UNoiseField> {
+        let mut __stack = crate::core_data::StackAlloc::<120>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_NOISE_FIELD_SET_NOISE_FIELD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&min_range, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&max_range, __buffer.add(4).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_NOISE_FIELD_SET_NOISE_FIELD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(112).cast::<UPtr<UNoiseField>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UUniformVector {
@@ -855,6 +1861,44 @@ impl UUniformVector {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_uniform_vector(
+        &mut self,
+        magnitude: f32,
+        direction: crate::bindings::core_u_object::FVector,
+    ) -> UPtr<UUniformVector> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_UNIFORM_VECTOR_SET_UNIFORM_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&magnitude, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &direction,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_UNIFORM_VECTOR_SET_UNIFORM_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<UPtr<UUniformVector>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -880,13 +1924,50 @@ impl URadialVector {
             cdo
         }
     }
+    pub fn set_radial_vector(
+        &mut self,
+        magnitude: f32,
+        position: crate::bindings::core_u_object::FVector,
+    ) -> UPtr<URadialVector> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_RADIAL_VECTOR_SET_RADIAL_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&magnitude, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_RADIAL_VECTOR_SET_RADIAL_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<UPtr<URadialVector>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URandomVector {
     #[doc(hidden)]
     __padding_240: [u8; 240],
     pub magnitude: f32,
-    __padding_end: [u8; 4],
 }
 impl URandomVector {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -904,6 +1985,33 @@ impl URandomVector {
             cdo
         }
     }
+    pub fn set_random_vector(&mut self, magnitude: f32) -> UPtr<URandomVector> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_RANDOM_VECTOR_SET_RANDOM_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&magnitude, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_RANDOM_VECTOR_SET_RANDOM_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<URandomVector>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UOperatorField {
@@ -913,7 +2021,6 @@ pub struct UOperatorField {
     pub right_field: UPtr<UFieldNodeBase>,
     pub left_field: UPtr<UFieldNodeBase>,
     pub operation: crate::bindings::chaos::EFieldOperationType,
-    __padding_end: [u8; 7],
 }
 impl UOperatorField {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -930,6 +2037,60 @@ impl UOperatorField {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_operator_field(
+        &mut self,
+        magnitude: f32,
+        left_field: UPtr<UFieldNodeBase>,
+        right_field: UPtr<UFieldNodeBase>,
+        operation: crate::bindings::chaos::EFieldOperationType,
+    ) -> UPtr<UOperatorField> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_OPERATOR_FIELD_SET_OPERATOR_FIELD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&magnitude, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &left_field,
+                __buffer.add(8).cast::<UPtr<UFieldNodeBase>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &right_field,
+                __buffer.add(16).cast::<UPtr<UFieldNodeBase>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &operation,
+                __buffer.add(24).cast::<crate::bindings::chaos::EFieldOperationType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_OPERATOR_FIELD_SET_OPERATOR_FIELD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<UPtr<UOperatorField>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -954,6 +2115,40 @@ impl UToIntegerField {
             cdo
         }
     }
+    pub fn set_to_integer_field(
+        &mut self,
+        float_field: UPtr<UFieldNodeFloat>,
+    ) -> UPtr<UToIntegerField> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_TO_INTEGER_FIELD_SET_TO_INTEGER_FIELD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &float_field,
+                __buffer.add(0).cast::<UPtr<UFieldNodeFloat>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_TO_INTEGER_FIELD_SET_TO_INTEGER_FIELD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UToIntegerField>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UToFloatField {
@@ -977,6 +2172,40 @@ impl UToFloatField {
             cdo
         }
     }
+    pub fn set_to_float_field(
+        &mut self,
+        integer_field: UPtr<UFieldNodeInt>,
+    ) -> UPtr<UToFloatField> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_TO_FLOAT_FIELD_SET_TO_FLOAT_FIELD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &integer_field,
+                __buffer.add(0).cast::<UPtr<UFieldNodeInt>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_TO_FLOAT_FIELD_SET_TO_FLOAT_FIELD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UToFloatField>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UCullingField {
@@ -985,7 +2214,6 @@ pub struct UCullingField {
     pub culling: UPtr<UFieldNodeBase>,
     pub field: UPtr<UFieldNodeBase>,
     pub operation: crate::bindings::chaos::EFieldCullingOperationType,
-    __padding_end: [u8; 7],
 }
 impl UCullingField {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -1002,6 +2230,58 @@ impl UCullingField {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_culling_field(
+        &mut self,
+        culling: UPtr<UFieldNodeBase>,
+        field: UPtr<UFieldNodeBase>,
+        operation: crate::bindings::chaos::EFieldCullingOperationType,
+    ) -> UPtr<UCullingField> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_CULLING_FIELD_SET_CULLING_FIELD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &culling,
+                __buffer.add(0).cast::<UPtr<UFieldNodeBase>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &field,
+                __buffer.add(8).cast::<UPtr<UFieldNodeBase>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &operation,
+                __buffer
+                    .add(16)
+                    .cast::<crate::bindings::chaos::EFieldCullingOperationType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_CULLING_FIELD_SET_CULLING_FIELD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UCullingField>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -1023,5 +2303,29 @@ impl UReturnResultsTerminal {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_return_results_terminal(&mut self) -> UPtr<UReturnResultsTerminal> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::field_system_engine::U_RETURN_RESULTS_TERMINAL_SET_RETURN_RESULTS_TERMINAL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::field_system_engine::U_RETURN_RESULTS_TERMINAL_SET_RETURN_RESULTS_TERMINAL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UReturnResultsTerminal>>().read() }
     }
 }

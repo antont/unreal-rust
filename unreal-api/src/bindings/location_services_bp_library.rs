@@ -127,6 +127,206 @@ impl ULocationServices {
             cdo
         }
     }
+    pub fn stop_location_services() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_STOP_LOCATION_SERVICES,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::location_services_bp_library::ULocationServices::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_STOP_LOCATION_SERVICES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn start_location_services() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_START_LOCATION_SERVICES,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::location_services_bp_library::ULocationServices::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_START_LOCATION_SERVICES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_location_accuracy_available(accuracy: ELocationAccuracy) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_IS_LOCATION_ACCURACY_AVAILABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &accuracy,
+                __buffer.add(0).cast::<ELocationAccuracy>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::location_services_bp_library::ULocationServices::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_IS_LOCATION_ACCURACY_AVAILABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn init_location_services(
+        accuracy: ELocationAccuracy,
+        update_frequency: f32,
+        min_distance_filter: f32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_INIT_LOCATION_SERVICES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &accuracy,
+                __buffer.add(0).cast::<ELocationAccuracy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &update_frequency,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &min_distance_filter,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::location_services_bp_library::ULocationServices::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_INIT_LOCATION_SERVICES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn get_location_services_impl() -> UPtr<ULocationServicesImpl> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_GET_LOCATION_SERVICES_IMPL,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::location_services_bp_library::ULocationServices::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_GET_LOCATION_SERVICES_IMPL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<ULocationServicesImpl>>().read() }
+    }
+    pub fn get_last_known_location() -> FLocationServicesData {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_GET_LAST_KNOWN_LOCATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::location_services_bp_library::ULocationServices::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_GET_LAST_KNOWN_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FLocationServicesData>().read() }
+    }
+    pub fn are_location_services_enabled() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_ARE_LOCATION_SERVICES_ENABLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::location_services_bp_library::ULocationServices::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_ARE_LOCATION_SERVICES_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct FLocationServicesImpl_OnLocationChanged {

@@ -646,6 +646,46 @@ impl UDynamicMeshProcessorBlueprint {
             cdo
         }
     }
+    pub fn process_dynamic_mesh(
+        &mut self,
+        target_mesh: UPtr<UDynamicMesh>,
+        b_failed: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_PROCESSOR_BLUEPRINT_PROCESS_DYNAMIC_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_mesh,
+                __buffer.add(0).cast::<UPtr<UDynamicMesh>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(b_failed, __buffer.add(8).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_PROCESSOR_BLUEPRINT_PROCESS_DYNAMIC_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<bool>().swap(b_failed);
+        }
+    }
 }
 pub struct IMeshCommandChangeTarget {}
 #[repr(C, align(8))]
@@ -748,6 +788,960 @@ impl UBaseDynamicMeshComponent {
             cdo
         }
     }
+    pub fn set_view_mode_overrides_enabled(&mut self, b_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_VIEW_MODE_OVERRIDES_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_VIEW_MODE_OVERRIDES_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_vertex_color_space_transform_mode(
+        &mut self,
+        new_mode: EDynamicMeshVertexColorTransformMode,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_VERTEX_COLOR_SPACE_TRANSFORM_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_mode,
+                __buffer.add(0).cast::<EDynamicMeshVertexColorTransformMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_VERTEX_COLOR_SPACE_TRANSFORM_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_shadows_enabled(&mut self, b_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_SHADOWS_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_SHADOWS_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_secondary_render_material(
+        &mut self,
+        material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_SECONDARY_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_SECONDARY_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_secondary_buffers_visibility(&mut self, b_set_visible: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_SECONDARY_BUFFERS_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_set_visible,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_SECONDARY_BUFFERS_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_override_wireframe_render_material(
+        &mut self,
+        material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_WIREFRAME_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_WIREFRAME_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_override_secondary_wireframe_render_material(
+        &mut self,
+        material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_override_render_material(
+        &mut self,
+        material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &material,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mesh_draw_path(&mut self, new_draw_path: EDynamicMeshDrawPath) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_MESH_DRAW_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_draw_path,
+                __buffer.add(0).cast::<EDynamicMeshDrawPath>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_MESH_DRAW_PATH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enable_wireframe_render_pass(&mut self, b_enable: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_WIREFRAME_RENDER_PASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_enable, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_WIREFRAME_RENDER_PASS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enable_raytracing(&mut self, b_set_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_RAYTRACING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_set_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_RAYTRACING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enable_flat_shading(&mut self, b_enable: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_FLAT_SHADING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_enable, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_FLAT_SHADING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_constant_override_color(
+        &mut self,
+        new_color: crate::bindings::core_u_object::FColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_CONSTANT_OVERRIDE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_color,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_CONSTANT_OVERRIDE_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_color_override_mode(
+        &mut self,
+        new_mode: EDynamicMeshComponentColorOverrideMode,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_COLOR_OVERRIDE_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_mode,
+                __buffer.add(0).cast::<EDynamicMeshComponentColorOverrideMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_COLOR_OVERRIDE_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn has_override_render_material(&self, k: i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_HAS_OVERRIDE_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&k, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_HAS_OVERRIDE_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_view_mode_overrides_enabled(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_VIEW_MODE_OVERRIDES_ENABLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_VIEW_MODE_OVERRIDES_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_vertex_color_space_transform_mode(
+        &self,
+    ) -> EDynamicMeshVertexColorTransformMode {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_VERTEX_COLOR_SPACE_TRANSFORM_MODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_VERTEX_COLOR_SPACE_TRANSFORM_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EDynamicMeshVertexColorTransformMode>().read() }
+    }
+    pub fn get_shadows_enabled(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_SHADOWS_ENABLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_SHADOWS_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_secondary_render_material(
+        &self,
+    ) -> UPtr<crate::bindings::engine::UMaterialInterface> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_SECONDARY_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_SECONDARY_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>()
+                .read()
+        }
+    }
+    pub fn get_secondary_buffers_visibility(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_SECONDARY_BUFFERS_VISIBILITY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_SECONDARY_BUFFERS_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_override_wireframe_render_material(
+        &self,
+    ) -> UPtr<crate::bindings::engine::UMaterialInterface> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_WIREFRAME_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_WIREFRAME_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>()
+                .read()
+        }
+    }
+    pub fn get_override_secondary_wireframe_render_material(
+        &self,
+    ) -> UPtr<crate::bindings::engine::UMaterialInterface> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>()
+                .read()
+        }
+    }
+    pub fn get_override_render_material(
+        &self,
+        material_index: i32,
+    ) -> UPtr<crate::bindings::engine::UMaterialInterface> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &material_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>()
+                .read()
+        }
+    }
+    pub fn get_mesh_draw_path(&self) -> EDynamicMeshDrawPath {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_MESH_DRAW_PATH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_MESH_DRAW_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EDynamicMeshDrawPath>().read() }
+    }
+    pub fn get_flat_shading_enabled(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_FLAT_SHADING_ENABLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_FLAT_SHADING_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_enable_wireframe_render_pass(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_ENABLE_WIREFRAME_RENDER_PASS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_ENABLE_WIREFRAME_RENDER_PASS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_enable_raytracing(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_ENABLE_RAYTRACING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_ENABLE_RAYTRACING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_dynamic_mesh(&mut self) -> UPtr<UDynamicMesh> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_DYNAMIC_MESH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_DYNAMIC_MESH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UDynamicMesh>>().read() }
+    }
+    pub fn get_constant_override_color(&self) -> crate::bindings::core_u_object::FColor {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_CONSTANT_OVERRIDE_COLOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_CONSTANT_OVERRIDE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FColor>().read()
+        }
+    }
+    pub fn get_color_override_mode(&self) -> EDynamicMeshComponentColorOverrideMode {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_COLOR_OVERRIDE_MODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_COLOR_OVERRIDE_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<EDynamicMeshComponentColorOverrideMode>().read()
+        }
+    }
+    pub fn clear_secondary_render_material(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_SECONDARY_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_SECONDARY_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_override_wireframe_render_material(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_WIREFRAME_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_WIREFRAME_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_override_secondary_wireframe_render_material(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_override_render_material(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_RENDER_MATERIAL,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct UDynamicMeshComponent {
@@ -779,6 +1773,454 @@ impl UDynamicMeshComponent {
             cdo
         }
     }
+    pub fn validate_material_slots(
+        &mut self,
+        b_create_if_missing: bool,
+        b_delete_extra_slots: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<3>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_VALIDATE_MATERIAL_SLOTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_create_if_missing,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_delete_extra_slots,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_VALIDATE_MATERIAL_SLOTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(2).cast::<bool>().read() }
+    }
+    pub fn update_collision(&mut self, b_only_if_pending: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_UPDATE_COLLISION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_only_if_pending,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_UPDATE_COLLISION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_tangents_type(
+        &mut self,
+        new_tangents_type: EDynamicMeshComponentTangentsMode,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_TANGENTS_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_tangents_type,
+                __buffer.add(0).cast::<EDynamicMeshComponentTangentsMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_TANGENTS_TYPE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_dynamic_mesh(&mut self, new_mesh: UPtr<UDynamicMesh>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_DYNAMIC_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_mesh,
+                __buffer.add(0).cast::<UPtr<UDynamicMesh>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_DYNAMIC_MESH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_deferred_collision_updates_enabled(
+        &mut self,
+        b_enabled: bool,
+        b_immediate_update: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_DEFERRED_COLLISION_UPDATES_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_immediate_update,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_DEFERRED_COLLISION_UPDATES_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_complex_as_simple_collision_enabled(
+        &mut self,
+        b_enabled: bool,
+        b_immediate_update: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_COMPLEX_AS_SIMPLE_COLLISION_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_immediate_update,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_COMPLEX_AS_SIMPLE_COLLISION_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_allows_geometry_selection(
+        &mut self,
+        b_in_allows_geometry_selection: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_ALLOWS_GEOMETRY_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_allows_geometry_selection,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_ALLOWS_GEOMETRY_SELECTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn notify_mesh_vertex_attributes_modified(
+        &mut self,
+        b_positions: bool,
+        b_normals: bool,
+        b_u_vs: bool,
+        b_colors: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_NOTIFY_MESH_VERTEX_ATTRIBUTES_MODIFIED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_positions,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_normals, __buffer.add(1).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_u_vs, __buffer.add(2).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_colors, __buffer.add(3).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_NOTIFY_MESH_VERTEX_ATTRIBUTES_MODIFIED,
+                __buffer,
+            )
+        };
+    }
+    pub fn notify_mesh_modified(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_NOTIFY_MESH_MODIFIED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_NOTIFY_MESH_MODIFIED,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_tangents_type_pure(&self) -> EDynamicMeshComponentTangentsMode {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_GET_TANGENTS_TYPE_PURE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_GET_TANGENTS_TYPE_PURE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EDynamicMeshComponentTangentsMode>().read() }
+    }
+    pub fn get_tangents_type(&self) -> EDynamicMeshComponentTangentsMode {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_GET_TANGENTS_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_GET_TANGENTS_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EDynamicMeshComponentTangentsMode>().read() }
+    }
+    pub fn enable_complex_as_simple_collision(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_ENABLE_COMPLEX_AS_SIMPLE_COLLISION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_ENABLE_COMPLEX_AS_SIMPLE_COLLISION,
+                __buffer,
+            )
+        };
+    }
+    pub fn configure_material_set(
+        &mut self,
+        new_material_set: &TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
+        b_delete_extra_slots: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_CONFIGURE_MATERIAL_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_material_set,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::engine::UMaterialInterface>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_delete_extra_slots,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_CONFIGURE_MATERIAL_SET,
+                __buffer,
+            )
+        };
+    }
+    pub fn allows_geometry_selection(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_ALLOWS_GEOMETRY_SELECTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_ALLOWS_GEOMETRY_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct ADynamicMeshActor {
@@ -803,6 +2245,155 @@ impl ADynamicMeshActor {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn release_compute_mesh(&mut self, mesh: UPtr<UDynamicMesh>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_RELEASE_COMPUTE_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh,
+                __buffer.add(0).cast::<UPtr<UDynamicMesh>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_RELEASE_COMPUTE_MESH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn release_all_compute_meshes(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_RELEASE_ALL_COMPUTE_MESHES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_RELEASE_ALL_COMPUTE_MESHES,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_dynamic_mesh_component(&self) -> UPtr<UDynamicMeshComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_GET_DYNAMIC_MESH_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_GET_DYNAMIC_MESH_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UDynamicMeshComponent>>().read() }
+    }
+    pub fn get_compute_mesh_pool(&mut self) -> UPtr<UDynamicMeshPool> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_GET_COMPUTE_MESH_POOL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_GET_COMPUTE_MESH_POOL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UDynamicMeshPool>>().read() }
+    }
+    pub fn free_all_compute_meshes(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_FREE_ALL_COMPUTE_MESHES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_FREE_ALL_COMPUTE_MESHES,
+                __buffer,
+            )
+        };
+    }
+    pub fn allocate_compute_mesh(&mut self) -> UPtr<UDynamicMesh> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_ALLOCATE_COMPUTE_MESH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_ALLOCATE_COMPUTE_MESH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UDynamicMesh>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -846,6 +2437,102 @@ impl UDynamicMesh {
             cdo
         }
     }
+    pub fn reset_to_cube(&mut self) -> UPtr<UDynamicMesh> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_RESET_TO_CUBE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_RESET_TO_CUBE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UDynamicMesh>>().read() }
+    }
+    pub fn reset(&mut self) -> UPtr<UDynamicMesh> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_RESET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_RESET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UDynamicMesh>>().read() }
+    }
+    pub fn is_empty(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_IS_EMPTY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_IS_EMPTY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_triangle_count(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_GET_TRIANGLE_COUNT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_GET_TRIANGLE_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UDynamicMeshPool {
@@ -866,6 +2553,106 @@ impl UDynamicMeshPool {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn return_mesh(&mut self, mesh: UPtr<UDynamicMesh>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_RETURN_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh,
+                __buffer.add(0).cast::<UPtr<UDynamicMesh>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_RETURN_MESH,
+                __buffer,
+            )
+        };
+    }
+    pub fn return_all_meshes(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_RETURN_ALL_MESHES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_RETURN_ALL_MESHES,
+                __buffer,
+            )
+        };
+    }
+    pub fn request_mesh(&mut self) -> UPtr<UDynamicMesh> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_REQUEST_MESH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_REQUEST_MESH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UDynamicMesh>>().read() }
+    }
+    pub fn free_all_meshes(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_FREE_ALL_MESHES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_FREE_ALL_MESHES,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]

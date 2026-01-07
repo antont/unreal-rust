@@ -68,7 +68,6 @@ pub struct UCopyBonesModifier {
     __padding_120: [u8; 120],
     pub bone_pairs: TArray<FBoneReferencePair>,
     pub bone_pose_space: crate::bindings::animation_blueprint_library::EAnimPoseSpaces,
-    __padding_end: [u8; 7],
 }
 impl UCopyBonesModifier {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -178,7 +177,6 @@ pub struct UMotionExtractorModifier {
     __padding_164: [u8; 7],
     pub b_use_custom_curve_name: bool,
     pub custom_curve_name: FName,
-    __padding_end: [u8; 4],
 }
 impl UMotionExtractorModifier {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -217,6 +215,228 @@ impl UMotionExtractorUtilityLibrary {
             cdo
         }
     }
+    pub fn get_stopped_ranges_from_root_motion(
+        anim_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
+        stop_speed_threshold: f32,
+        sample_rate: f32,
+    ) -> TArray<crate::bindings::core_u_object::FVector2D> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_STOPPED_RANGES_FROM_ROOT_MOTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &anim_sequence,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UAnimSequence>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &stop_speed_threshold,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sample_rate,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::animation_modifier_library::UMotionExtractorUtilityLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_STOPPED_RANGES_FROM_ROOT_MOTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<crate::bindings::core_u_object::FVector2D>>()
+                .read()
+        }
+    }
+    pub fn get_moving_ranges_from_root_motion(
+        anim_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
+        stop_speed_threshold: f32,
+        sample_rate: f32,
+    ) -> TArray<crate::bindings::core_u_object::FVector2D> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_MOVING_RANGES_FROM_ROOT_MOTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &anim_sequence,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UAnimSequence>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &stop_speed_threshold,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sample_rate,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::animation_modifier_library::UMotionExtractorUtilityLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_MOVING_RANGES_FROM_ROOT_MOTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<crate::bindings::core_u_object::FVector2D>>()
+                .read()
+        }
+    }
+    pub fn get_desired_value(
+        bone_transform: &crate::bindings::core_u_object::FTransform,
+        last_bone_transform: &crate::bindings::core_u_object::FTransform,
+        delta_time: f32,
+        motion_type: EMotionExtractor_MotionType,
+        axis: EMotionExtractor_Axis,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<204>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_DESIRED_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                bone_transform,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                last_bone_transform,
+                __buffer.add(96).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delta_time,
+                __buffer.add(192).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &motion_type,
+                __buffer.add(196).cast::<EMotionExtractor_MotionType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &axis,
+                __buffer.add(197).cast::<EMotionExtractor_Axis>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::animation_modifier_library::UMotionExtractorUtilityLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_DESIRED_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(200).cast::<f32>().read() }
+    }
+    pub fn generate_curve_name(
+        bone_name: FName,
+        motion_type: EMotionExtractor_MotionType,
+        axis: EMotionExtractor_Axis,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GENERATE_CURVE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &bone_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &motion_type,
+                __buffer.add(12).cast::<EMotionExtractor_MotionType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &axis,
+                __buffer.add(13).cast::<EMotionExtractor_Axis>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::animation_modifier_library::UMotionExtractorUtilityLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GENERATE_CURVE_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FName>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UReOrientRootBoneModifier {
@@ -247,7 +467,6 @@ pub struct UZeroOutRootBoneModifier {
     __padding_120: [u8; 120],
     pub b_clip_start_frames_with_no_motion: bool,
     pub b_clip_end_frames_with_no_motion: bool,
-    __padding_end: [u8; 6],
 }
 impl UZeroOutRootBoneModifier {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

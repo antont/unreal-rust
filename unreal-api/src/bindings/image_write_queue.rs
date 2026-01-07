@@ -52,6 +52,54 @@ impl UImageWriteBlueprintLibrary {
             cdo
         }
     }
+    pub fn export_to_disk(
+        texture: UPtr<crate::bindings::engine::UTexture>,
+        filename: FString,
+        options: &FImageWriteOptions,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::image_write_queue::U_IMAGE_WRITE_BLUEPRINT_LIBRARY_EXPORT_TO_DISK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &texture,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UTexture>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filename,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                options,
+                __buffer.add(32).cast::<FImageWriteOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::image_write_queue::UImageWriteBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::image_write_queue::U_IMAGE_WRITE_BLUEPRINT_LIBRARY_EXPORT_TO_DISK,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct FImageWriteOptions_OnComplete {

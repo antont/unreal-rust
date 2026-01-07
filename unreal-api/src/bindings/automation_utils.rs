@@ -42,4 +42,60 @@ impl UAutomationUtilsBlueprintLibrary {
             cdo
         }
     }
+    pub fn take_gameplay_automation_screenshot(
+        screenshot_name: FString,
+        max_global_error: f32,
+        max_local_error: f32,
+        map_name_override: FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::automation_utils::U_AUTOMATION_UTILS_BLUEPRINT_LIBRARY_TAKE_GAMEPLAY_AUTOMATION_SCREENSHOT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &screenshot_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &max_global_error,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &max_local_error,
+                __buffer.add(20).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &map_name_override,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::automation_utils::UAutomationUtilsBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::automation_utils::U_AUTOMATION_UTILS_BLUEPRINT_LIBRARY_TAKE_GAMEPLAY_AUTOMATION_SCREENSHOT,
+                __buffer,
+            )
+        };
+    }
 }

@@ -3794,7 +3794,6 @@ pub struct FControlRigComponentMappedComponent {
     pub element_name: FName,
     pub element_type: ERigElementType,
     pub direction: EControlRigComponentMapDirection,
-    __padding_end: [u8; 2],
 }
 impl FControlRigComponentMappedComponent {}
 #[repr(C, align(4))]
@@ -3946,7 +3945,6 @@ pub struct FRigBone {
     #[doc(hidden)]
     __padding_352: [u8; 16],
     pub ty: ERigBoneType,
-    __padding_end: [u8; 15],
 }
 impl FRigBone {}
 #[repr(C, align(8))]
@@ -3968,7 +3966,6 @@ pub struct FRigTypeConnectionRule {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub element_type: ERigElementType,
-    __padding_end: [u8; 7],
 }
 impl FRigTypeConnectionRule {}
 #[repr(C, align(8))]
@@ -3976,7 +3973,6 @@ pub struct FRigTagConnectionRule {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub tag: FName,
-    __padding_end: [u8; 4],
 }
 impl FRigTagConnectionRule {}
 #[repr(C, align(8))]
@@ -4023,7 +4019,6 @@ pub struct FRigCurve {
     #[doc(hidden)]
     __padding_24: [u8; 24],
     pub value: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigCurve {}
 #[repr(C, align(8))]
@@ -4134,7 +4129,6 @@ pub struct FRigBoneElement {
     #[doc(hidden)]
     __padding_296: [u8; 296],
     pub bone_type: ERigBoneType,
-    __padding_end: [u8; 7],
 }
 impl FRigBoneElement {}
 #[repr(C, align(16))]
@@ -4317,7 +4311,6 @@ pub struct FRigUnit_Control {
     pub init_transform: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::core_u_object::FTransform,
     pub filter: crate::bindings::animation_core::FTransformFilter,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_Control {}
 #[repr(C, align(16))]
@@ -4340,7 +4333,6 @@ pub struct FRigUnit_SetupShapeLibraryFromUserData {
     pub path: FString,
     pub library_name: FString,
     pub log_shape_libraries: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_SetupShapeLibraryFromUserData {}
 #[repr(C, align(8))]
@@ -4349,7 +4341,6 @@ pub struct FRigUnit_ShapeExists {
     __padding_8: [u8; 8],
     pub shape_name: FName,
     pub result: bool,
-    __padding_end: [u8; 3],
 }
 impl FRigUnit_ShapeExists {}
 #[repr(C, align(16))]
@@ -4365,7 +4356,6 @@ pub struct FRigUnit_DebugBezier {
     pub space: FName,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugBezier {}
 #[repr(C, align(16))]
@@ -4381,7 +4371,6 @@ pub struct FRigUnit_DebugBezierItemSpace {
     pub space: FRigElementKey,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugBezierItemSpace {}
 #[repr(C, align(16))]
@@ -4395,7 +4384,6 @@ pub struct FRigUnit_DebugHierarchy {
     pub thickness: f32,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugHierarchy {}
 #[repr(C, align(16))]
@@ -4410,7 +4398,6 @@ pub struct FRigUnit_DebugPose {
     pub thickness: f32,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugPose {}
 #[repr(C, align(16))]
@@ -4424,7 +4411,6 @@ pub struct FRigUnit_DebugLine {
     pub space: FName,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugLine {}
 #[repr(C, align(16))]
@@ -4438,7 +4424,6 @@ pub struct FRigUnit_DebugLineItemSpace {
     pub space: FRigElementKey,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugLineItemSpace {}
 #[repr(C, align(16))]
@@ -4451,7 +4436,6 @@ pub struct FRigUnit_DebugLineStrip {
     pub space: FName,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugLineStrip {}
 #[repr(C, align(16))]
@@ -4464,7 +4448,6 @@ pub struct FRigUnit_DebugLineStripItemSpace {
     pub space: FRigElementKey,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugLineStripItemSpace {}
 #[repr(C, align(16))]
@@ -4478,7 +4461,6 @@ pub struct FRigUnit_DebugRectangle {
     pub space: FName,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugRectangle {}
 #[repr(C, align(16))]
@@ -4492,7 +4474,6 @@ pub struct FRigUnit_DebugRectangleItemSpace {
     pub space: FRigElementKey,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugRectangleItemSpace {}
 #[repr(C, align(16))]
@@ -4509,7 +4490,6 @@ pub struct FRigUnit_DebugArc {
     pub space: FName,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugArc {}
 #[repr(C, align(16))]
@@ -4526,7 +4506,6 @@ pub struct FRigUnit_DebugArcItemSpace {
     pub space: FRigElementKey,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugArcItemSpace {}
 #[repr(C, align(16))]
@@ -4541,7 +4520,6 @@ pub struct FRigUnit_DebugTransform {
     pub space: FName,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugTransform {}
 #[repr(C, align(16))]
@@ -4556,7 +4534,6 @@ pub struct FRigUnit_DebugTransformMutable {
     pub space: FName,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugTransformMutable {}
 #[repr(C, align(16))]
@@ -4571,7 +4548,6 @@ pub struct FRigUnit_DebugTransformMutableItemSpace {
     pub space: FRigElementKey,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugTransformMutableItemSpace {}
 #[repr(C, align(16))]
@@ -4602,7 +4578,6 @@ pub struct FRigUnit_DebugTransformArrayMutableItemSpace {
     pub space: FRigElementKey,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_DebugTransformArrayMutableItemSpace {}
 #[repr(C, align(8))]
@@ -4643,7 +4618,6 @@ pub struct FRigUnit_VisualDebugVectorItemSpace {
     pub thickness: f32,
     pub scale: f32,
     pub space: FRigElementKey,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_VisualDebugVectorItemSpace {}
 #[repr(C, align(16))]
@@ -4655,7 +4629,6 @@ pub struct FRigUnit_VisualDebugQuat {
     pub thickness: f32,
     pub scale: f32,
     pub bone_space: FName,
-    __padding_end: [u8; 8],
 }
 impl FRigUnit_VisualDebugQuat {}
 #[repr(C, align(16))]
@@ -4667,7 +4640,6 @@ pub struct FRigUnit_VisualDebugQuatItemSpace {
     pub thickness: f32,
     pub scale: f32,
     pub space: FRigElementKey,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_VisualDebugQuatItemSpace {}
 #[repr(C, align(16))]
@@ -4679,7 +4651,6 @@ pub struct FRigUnit_VisualDebugTransform {
     pub thickness: f32,
     pub scale: f32,
     pub bone_space: FName,
-    __padding_end: [u8; 8],
 }
 impl FRigUnit_VisualDebugTransform {}
 #[repr(C, align(16))]
@@ -4691,7 +4662,6 @@ pub struct FRigUnit_VisualDebugTransformItemSpace {
     pub thickness: f32,
     pub scale: f32,
     pub space: FRigElementKey,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_VisualDebugTransformItemSpace {}
 #[repr(C, align(16))]
@@ -4700,7 +4670,6 @@ pub struct FRigUnit_ConvertTransform {
     __padding_16: [u8; 16],
     pub input: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::animation_core::FEulerTransform,
-    __padding_end: [u8; 8],
 }
 impl FRigUnit_ConvertTransform {}
 #[repr(C, align(16))]
@@ -4730,7 +4699,6 @@ pub struct FRigUnit_ConvertQuaternion {
     __padding_16: [u8; 16],
     pub input: crate::bindings::core_u_object::FQuat,
     pub result: crate::bindings::core_u_object::FRotator,
-    __padding_end: [u8; 8],
 }
 impl FRigUnit_ConvertQuaternion {}
 #[repr(C, align(8))]
@@ -4763,7 +4731,6 @@ pub struct FRigUnit_ConvertQuaternionToVector {
     __padding_16: [u8; 16],
     pub input: crate::bindings::core_u_object::FQuat,
     pub result: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 8],
 }
 impl FRigUnit_ConvertQuaternionToVector {}
 #[repr(C, align(16))]
@@ -4783,7 +4750,6 @@ pub struct FRigUnit_BinaryFloatOp {
     pub argument0: f32,
     pub argument1: f32,
     pub result: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_BinaryFloatOp {}
 #[repr(C, align(8))]
@@ -4862,7 +4828,6 @@ pub struct FRigUnit_QuaternionToAxisAndAngle {
     pub argument: crate::bindings::core_u_object::FQuat,
     pub axis: crate::bindings::core_u_object::FVector,
     pub angle: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_QuaternionToAxisAndAngle {}
 #[repr(C, align(16))]
@@ -4881,7 +4846,6 @@ pub struct FRigUnit_QuaternionToAngle {
     pub axis: crate::bindings::core_u_object::FVector,
     pub argument: crate::bindings::core_u_object::FQuat,
     pub angle: f32,
-    __padding_end: [u8; 12],
 }
 impl FRigUnit_QuaternionToAngle {}
 #[repr(C, align(16))]
@@ -4939,7 +4903,6 @@ pub struct FRigUnit_Distance_VectorVector {
     pub argument0: crate::bindings::core_u_object::FVector,
     pub argument1: crate::bindings::core_u_object::FVector,
     pub result: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_Distance_VectorVector {}
 #[repr(C, align(16))]
@@ -4972,7 +4935,6 @@ pub struct FRigUnit_ApplyFK {
     pub apply_transform_space: ETransformSpaceMode,
     pub base_transform: crate::bindings::core_u_object::FTransform,
     pub base_joint: FName,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_ApplyFK {}
 #[repr(C, align(16))]
@@ -5029,7 +4991,6 @@ pub struct FRigUnit_DrawContainerSetColor {
     __padding_16: [u8; 16],
     pub instruction_name: FName,
     pub color: crate::bindings::core_u_object::FLinearColor,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_DrawContainerSetColor {}
 #[repr(C, align(8))]
@@ -5247,7 +5208,6 @@ pub struct FRigUnit_CollectionCount {
     __padding_8: [u8; 8],
     pub collection: FRigElementKeyCollection,
     pub count: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_CollectionCount {}
 #[repr(C, align(8))]
@@ -5257,7 +5217,6 @@ pub struct FRigUnit_CollectionItemAtIndex {
     pub collection: FRigElementKeyCollection,
     pub index: i32,
     pub item: FRigElementKey,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_CollectionItemAtIndex {}
 #[repr(C, align(16))]
@@ -5303,7 +5262,6 @@ pub struct FRigUnit_AddParent {
     pub child: FRigElementKey,
     pub parent: FRigElementKey,
     pub display_label: FName,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_AddParent {}
 #[repr(C, align(8))]
@@ -5338,7 +5296,6 @@ pub struct FRigUnit_SwitchParent {
     pub child: FRigElementKey,
     pub parent: FRigElementKey,
     pub b_maintain_global: bool,
-    __padding_end: [u8; 3],
 }
 impl FRigUnit_SwitchParent {}
 #[repr(C, align(8))]
@@ -5389,7 +5346,6 @@ pub struct FRigUnit_HierarchyRemoveElement {
     __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub b_success: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_HierarchyRemoveElement {}
 #[repr(C, align(8))]
@@ -5399,7 +5355,6 @@ pub struct FRigUnit_HierarchyAddElement {
     pub parent: FRigElementKey,
     pub name: FName,
     pub item: FRigElementKey,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_HierarchyAddElement {}
 #[repr(C, align(16))]
@@ -5408,7 +5363,6 @@ pub struct FRigUnit_HierarchyAddBone {
     __padding_64: [u8; 64],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_HierarchyAddBone {}
 #[repr(C, align(16))]
@@ -5417,7 +5371,6 @@ pub struct FRigUnit_HierarchyAddNull {
     __padding_64: [u8; 64],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_HierarchyAddNull {}
 #[repr(C, align(8))]
@@ -5426,7 +5379,6 @@ pub struct FRigUnit_HierarchyAddControl_Settings {
     __padding_8: [u8; 8],
     pub display_name: FName,
     pub b_selectable: bool,
-    __padding_end: [u8; 3],
 }
 impl FRigUnit_HierarchyAddControl_Settings {}
 #[repr(C, align(16))]
@@ -5442,7 +5394,6 @@ pub struct FRigUnit_HierarchyAddControl_ProxySettings {
     pub b_is_proxy: bool,
     pub driven_controls: TArray<FRigElementKey>,
     pub shape_visibility: ERigControlVisibility,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_HierarchyAddControl_ProxySettings {}
 #[repr(C, align(4))]
@@ -5451,7 +5402,6 @@ pub struct FRigUnit_HierarchyAddControlFloat_LimitSettings {
     pub min_value: f32,
     pub max_value: f32,
     pub b_draw_limits: bool,
-    __padding_end: [u8; 3],
 }
 impl FRigUnit_HierarchyAddControlFloat_LimitSettings {}
 #[repr(C, align(16))]
@@ -5471,7 +5421,6 @@ pub struct FRigUnit_HierarchyAddControlElement {
     __padding_64: [u8; 64],
     pub offset_transform: crate::bindings::core_u_object::FTransform,
     pub offset_space: crate::bindings::rig_vm::ERigVMTransformSpace,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_HierarchyAddControlElement {}
 #[repr(C, align(16))]
@@ -5488,7 +5437,6 @@ pub struct FRigUnit_HierarchyAddControlInteger_LimitSettings {
     pub min_value: i32,
     pub max_value: i32,
     pub b_draw_limits: bool,
-    __padding_end: [u8; 3],
 }
 impl FRigUnit_HierarchyAddControlInteger_LimitSettings {}
 #[repr(C, align(16))]
@@ -5517,7 +5465,6 @@ pub struct FRigUnit_HierarchyAddControlVector2D_LimitSettings {
     pub min_value: crate::bindings::core_u_object::FVector2D,
     pub max_value: crate::bindings::core_u_object::FVector2D,
     pub b_draw_limits: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_HierarchyAddControlVector2D_LimitSettings {}
 #[repr(C, align(16))]
@@ -5547,7 +5494,6 @@ pub struct FRigUnit_HierarchyAddControlVector_LimitSettings {
     pub min_value: crate::bindings::core_u_object::FVector,
     pub max_value: crate::bindings::core_u_object::FVector,
     pub b_draw_limits: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_HierarchyAddControlVector_LimitSettings {}
 #[repr(C, align(16))]
@@ -5578,7 +5524,6 @@ pub struct FRigUnit_HierarchyAddControlRotator_LimitSettings {
     pub min_value: crate::bindings::core_u_object::FRotator,
     pub max_value: crate::bindings::core_u_object::FRotator,
     pub b_draw_limits: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_HierarchyAddControlRotator_LimitSettings {}
 #[repr(C, align(16))]
@@ -5592,7 +5537,6 @@ pub struct FRigUnit_HierarchyAddControlRotator_Settings {
     pub filtered_channels: TArray<ERigControlTransformChannel>,
     pub b_use_preferred_rotation_order: bool,
     pub preferred_rotation_order: crate::bindings::animation_core::EEulerRotationOrder,
-    __padding_end: [u8; 14],
 }
 impl FRigUnit_HierarchyAddControlRotator_Settings {}
 #[repr(C, align(16))]
@@ -5617,7 +5561,6 @@ pub struct FRigUnit_HierarchyAddControlTransform_LimitSettings {
     pub min_value: crate::bindings::animation_core::FEulerTransform,
     pub max_value: crate::bindings::animation_core::FEulerTransform,
     pub b_draw_limits: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_HierarchyAddControlTransform_LimitSettings {}
 #[repr(C, align(16))]
@@ -5654,7 +5597,6 @@ pub struct FRigUnit_HierarchyAddAnimationChannelBool {
     pub minimum_value: bool,
     pub maximum_value: bool,
     pub limits_enabled: FRigUnit_HierarchyAddAnimationChannelEmptyLimitSettings,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_HierarchyAddAnimationChannelBool {}
 #[repr(C, align(1))]
@@ -5670,7 +5612,6 @@ pub struct FRigUnit_HierarchyAddAnimationChannelFloat {
     pub minimum_value: f32,
     pub maximum_value: f32,
     pub limits_enabled: FRigUnit_HierarchyAddAnimationChannelSingleLimitSettings,
-    __padding_end: [u8; 2],
 }
 impl FRigUnit_HierarchyAddAnimationChannelFloat {}
 #[repr(C, align(8))]
@@ -5681,7 +5622,6 @@ pub struct FRigUnit_HierarchyAddAnimationChannelScaleFloat {
     pub minimum_value: f32,
     pub maximum_value: f32,
     pub limits_enabled: FRigUnit_HierarchyAddAnimationChannelSingleLimitSettings,
-    __padding_end: [u8; 2],
 }
 impl FRigUnit_HierarchyAddAnimationChannelScaleFloat {}
 #[repr(C, align(8))]
@@ -5709,7 +5649,6 @@ pub struct FRigUnit_HierarchyAddAnimationChannelVector2D {
     pub minimum_value: crate::bindings::core_u_object::FVector2D,
     pub maximum_value: crate::bindings::core_u_object::FVector2D,
     pub limits_enabled: FRigUnit_HierarchyAddAnimationChannel2DLimitSettings,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_HierarchyAddAnimationChannelVector2D {}
 #[repr(C, align(1))]
@@ -5727,7 +5666,6 @@ pub struct FRigUnit_HierarchyAddAnimationChannelVector {
     pub minimum_value: crate::bindings::core_u_object::FVector,
     pub maximum_value: crate::bindings::core_u_object::FVector,
     pub limits_enabled: FRigUnit_HierarchyAddAnimationChannelVectorLimitSettings,
-    __padding_end: [u8; 2],
 }
 impl FRigUnit_HierarchyAddAnimationChannelVector {}
 #[repr(C, align(8))]
@@ -5738,7 +5676,6 @@ pub struct FRigUnit_HierarchyAddAnimationChannelScaleVector {
     pub minimum_value: crate::bindings::core_u_object::FVector,
     pub maximum_value: crate::bindings::core_u_object::FVector,
     pub limits_enabled: FRigUnit_HierarchyAddAnimationChannelVectorLimitSettings,
-    __padding_end: [u8; 2],
 }
 impl FRigUnit_HierarchyAddAnimationChannelScaleVector {}
 #[repr(C, align(1))]
@@ -5756,7 +5693,6 @@ pub struct FRigUnit_HierarchyAddAnimationChannelRotator {
     pub minimum_value: crate::bindings::core_u_object::FRotator,
     pub maximum_value: crate::bindings::core_u_object::FRotator,
     pub limits_enabled: FRigUnit_HierarchyAddAnimationChannelRotatorLimitSettings,
-    __padding_end: [u8; 2],
 }
 impl FRigUnit_HierarchyAddAnimationChannelRotator {}
 #[repr(C, align(16))]
@@ -5783,7 +5719,6 @@ pub struct FRigUnit_HierarchyAddSocket {
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub description: FString,
-    __padding_end: [u8; 8],
 }
 impl FRigUnit_HierarchyAddSocket {}
 #[repr(C, align(8))]
@@ -5903,7 +5838,6 @@ pub struct FRigUnit_HierarchySetPose {
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub items_to_set: FRigElementKeyCollection,
     pub weight: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_HierarchySetPose {}
 #[repr(C, align(8))]
@@ -5915,7 +5849,6 @@ pub struct FRigUnit_HierarchySetPoseItemArray {
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub items_to_set: TArray<FRigElementKey>,
     pub weight: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_HierarchySetPoseItemArray {}
 #[repr(C, align(8))]
@@ -5924,7 +5857,6 @@ pub struct FRigUnit_PoseIsEmpty {
     __padding_8: [u8; 8],
     pub pose: FRigPose,
     pub is_empty: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_PoseIsEmpty {}
 #[repr(C, align(8))]
@@ -5972,7 +5904,6 @@ pub struct FRigUnit_PoseGetTransform {
     pub valid: bool,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub curve_value: f32,
-    __padding_end: [u8; 12],
 }
 impl FRigUnit_PoseGetTransform {}
 #[repr(C, align(8))]
@@ -6019,7 +5950,6 @@ pub struct FRigUnit_HierarchyCreatePoseItemArray_Entry {
     pub use_euler_angles: bool,
     pub euler_angles: crate::bindings::core_u_object::FVector,
     pub curve_value: f32,
-    __padding_end: [u8; 12],
 }
 impl FRigUnit_HierarchyCreatePoseItemArray_Entry {}
 #[repr(C, align(8))]
@@ -6091,7 +6021,6 @@ pub struct FRigUnit_ItemEquals {
     pub a: FRigElementKey,
     pub b: FRigElementKey,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_ItemEquals {}
 #[repr(C, align(8))]
@@ -6101,7 +6030,6 @@ pub struct FRigUnit_ItemNotEquals {
     pub a: FRigElementKey,
     pub b: FRigElementKey,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_ItemNotEquals {}
 #[repr(C, align(8))]
@@ -6111,7 +6039,6 @@ pub struct FRigUnit_ItemTypeEquals {
     pub a: FRigElementKey,
     pub b: FRigElementKey,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_ItemTypeEquals {}
 #[repr(C, align(8))]
@@ -6121,7 +6048,6 @@ pub struct FRigUnit_ItemTypeNotEquals {
     pub a: FRigElementKey,
     pub b: FRigElementKey,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_ItemTypeNotEquals {}
 #[repr(C, align(8))]
@@ -6130,7 +6056,6 @@ pub struct FRigUnit_ItemToName {
     __padding_8: [u8; 8],
     pub value: FRigElementKey,
     pub result: FName,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_ItemToName {}
 #[repr(C, align(8))]
@@ -6139,7 +6064,6 @@ pub struct FRigUnit_HierarchyAddPhysicsSolver {
     __padding_16: [u8; 16],
     pub name: FName,
     pub solver: FRigPhysicsSolverID,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_HierarchyAddPhysicsSolver {}
 #[repr(C, align(16))]
@@ -6182,7 +6106,6 @@ pub struct FRigUnit_ResolveConnector {
     pub skip_socket: bool,
     pub result: FRigElementKey,
     pub b_is_connected: bool,
-    __padding_end: [u8; 3],
 }
 impl FRigUnit_ResolveConnector {}
 #[repr(C, align(8))]
@@ -6193,7 +6116,6 @@ pub struct FRigUnit_ResolveArrayConnector {
     pub skip_socket: bool,
     pub result: TArray<FRigElementKey>,
     pub b_is_connected: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_ResolveArrayConnector {}
 #[repr(C, align(8))]
@@ -6209,7 +6131,6 @@ pub struct FRigUnit_GetItemShortName {
     __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub short_name: FName,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_GetItemShortName {}
 #[repr(C, align(8))]
@@ -6227,7 +6148,6 @@ pub struct FRigUnit_IsItemInCurrentNameSpace {
     __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_IsItemInCurrentNameSpace {}
 #[repr(C, align(8))]
@@ -6260,7 +6180,6 @@ pub struct FRigUnit_IsItemInCurrentModule {
     __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_IsItemInCurrentModule {}
 #[repr(C, align(8))]
@@ -6313,7 +6232,6 @@ pub struct FRigUnit_BoneName {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub bone: FName,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_BoneName {}
 #[repr(C, align(8))]
@@ -6321,7 +6239,6 @@ pub struct FRigUnit_SpaceName {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub space: FName,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_SpaceName {}
 #[repr(C, align(8))]
@@ -6329,7 +6246,6 @@ pub struct FRigUnit_ControlName {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub control: FName,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_ControlName {}
 #[repr(C, align(8))]
@@ -6367,7 +6283,6 @@ pub struct FRigUnit_GetBoolAnimationChannel {
     #[doc(hidden)]
     __padding_56: [u8; 56],
     pub value: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_GetBoolAnimationChannel {}
 #[repr(C, align(8))]
@@ -6375,7 +6290,6 @@ pub struct FRigUnit_GetFloatAnimationChannel {
     #[doc(hidden)]
     __padding_56: [u8; 56],
     pub value: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_GetFloatAnimationChannel {}
 #[repr(C, align(8))]
@@ -6383,7 +6297,6 @@ pub struct FRigUnit_GetIntAnimationChannel {
     #[doc(hidden)]
     __padding_56: [u8; 56],
     pub value: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_GetIntAnimationChannel {}
 #[repr(C, align(8))]
@@ -6426,7 +6339,6 @@ pub struct FRigUnit_SetBoolAnimationChannel {
     #[doc(hidden)]
     __padding_64: [u8; 64],
     pub value: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_SetBoolAnimationChannel {}
 #[repr(C, align(8))]
@@ -6434,7 +6346,6 @@ pub struct FRigUnit_SetFloatAnimationChannel {
     #[doc(hidden)]
     __padding_64: [u8; 64],
     pub value: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_SetFloatAnimationChannel {}
 #[repr(C, align(8))]
@@ -6442,7 +6353,6 @@ pub struct FRigUnit_SetIntAnimationChannel {
     #[doc(hidden)]
     __padding_64: [u8; 64],
     pub value: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_SetIntAnimationChannel {}
 #[repr(C, align(8))]
@@ -6479,7 +6389,6 @@ pub struct FRigUnit_GetAnimationChannelFromItemBase {
     __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub b_initial: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_GetAnimationChannelFromItemBase {}
 #[repr(C, align(8))]
@@ -6487,7 +6396,6 @@ pub struct FRigUnit_GetBoolAnimationChannelFromItem {
     #[doc(hidden)]
     __padding_32: [u8; 32],
     pub value: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_GetBoolAnimationChannelFromItem {}
 #[repr(C, align(8))]
@@ -6495,7 +6403,6 @@ pub struct FRigUnit_GetFloatAnimationChannelFromItem {
     #[doc(hidden)]
     __padding_32: [u8; 32],
     pub value: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_GetFloatAnimationChannelFromItem {}
 #[repr(C, align(8))]
@@ -6503,7 +6410,6 @@ pub struct FRigUnit_GetIntAnimationChannelFromItem {
     #[doc(hidden)]
     __padding_32: [u8; 32],
     pub value: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_GetIntAnimationChannelFromItem {}
 #[repr(C, align(8))]
@@ -6546,7 +6452,6 @@ pub struct FRigUnit_SetBoolAnimationChannelFromItem {
     #[doc(hidden)]
     __padding_40: [u8; 40],
     pub value: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_SetBoolAnimationChannelFromItem {}
 #[repr(C, align(8))]
@@ -6554,7 +6459,6 @@ pub struct FRigUnit_SetFloatAnimationChannelFromItem {
     #[doc(hidden)]
     __padding_40: [u8; 40],
     pub value: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_SetFloatAnimationChannelFromItem {}
 #[repr(C, align(8))]
@@ -6562,7 +6466,6 @@ pub struct FRigUnit_SetIntAnimationChannelFromItem {
     #[doc(hidden)]
     __padding_40: [u8; 40],
     pub value: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_SetIntAnimationChannelFromItem {}
 #[repr(C, align(8))]
@@ -7038,7 +6941,6 @@ pub struct FRigUnit_SendEvent {
     pub offset_in_seconds: f32,
     pub b_enable: bool,
     pub b_only_during_interaction: bool,
-    __padding_end: [u8; 6],
 }
 impl FRigUnit_SendEvent {}
 #[repr(C, align(16))]
@@ -7197,7 +7099,6 @@ impl FRigUnit_SetControlBool {}
 pub struct FRigUnit_SetMultiControlBool_Entry {
     pub control: FName,
     pub bool_value: bool,
-    __padding_end: [u8; 3],
 }
 impl FRigUnit_SetMultiControlBool_Entry {}
 #[repr(C, align(8))]
@@ -7310,7 +7211,6 @@ pub struct FRigUnit_SetMultiControlRotator_Entry {
     pub control: FName,
     pub rotator: crate::bindings::core_u_object::FRotator,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_SetMultiControlRotator_Entry {}
 #[repr(C, align(8))]
@@ -7623,7 +7523,6 @@ pub struct FRigUnit_ChainHarmonics_Reach {
     pub reach_minimum: f32,
     pub reach_maximum: f32,
     pub reach_ease: crate::bindings::rig_vm::ERigVMAnimEasingType,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_ChainHarmonics_Reach {}
 #[repr(C, align(8))]
@@ -7636,7 +7535,6 @@ pub struct FRigUnit_ChainHarmonics_Wave {
     pub wave_minimum: f32,
     pub wave_maximum: f32,
     pub wave_ease: crate::bindings::rig_vm::ERigVMAnimEasingType,
-    __padding_end: [u8; 7],
 }
 impl FRigUnit_ChainHarmonics_Wave {}
 #[repr(C, align(8))]
@@ -7700,7 +7598,6 @@ pub struct FRigUnit_AimItem_Target {
     pub target: crate::bindings::core_u_object::FVector,
     pub kind: EControlRigVectorKind,
     pub space: FRigElementKey,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_AimItem_Target {}
 #[repr(C, align(16))]
@@ -7753,14 +7650,12 @@ pub struct FRigUnit_AimConstraint_WorldUp {
     pub target: crate::bindings::core_u_object::FVector,
     pub kind: EControlRigVectorKind,
     pub space: FRigElementKey,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_AimConstraint_WorldUp {}
 #[repr(C, align(16))]
 pub struct FRigUnit_AimConstraint_AdvancedSettings {
     pub debug_settings: FRigUnit_AimBone_DebugSettings,
     pub rotation_order_for_filter: crate::bindings::animation_core::EEulerRotationOrder,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_AimConstraint_AdvancedSettings {}
 #[repr(C, align(16))]
@@ -7873,7 +7768,6 @@ impl FRigUnit_ChainInfo {}
 pub struct FRigUnit_DistributeRotation_Rotation {
     pub rotation: crate::bindings::core_u_object::FQuat,
     pub ratio: f32,
-    __padding_end: [u8; 12],
 }
 impl FRigUnit_DistributeRotation_Rotation {}
 #[repr(C, align(8))]
@@ -7925,7 +7819,6 @@ pub struct FRigUnit_FABRIK {
     #[doc(hidden)]
     __padding_224: [u8; 64],
     pub b_set_effector_transform: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_FABRIK {}
 #[repr(C, align(16))]
@@ -7941,7 +7834,6 @@ pub struct FRigUnit_FABRIKPerItem {
     #[doc(hidden)]
     __padding_208: [u8; 64],
     pub b_set_effector_transform: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_FABRIKPerItem {}
 #[repr(C, align(16))]
@@ -7957,14 +7849,12 @@ pub struct FRigUnit_FABRIKItemArray {
     #[doc(hidden)]
     __padding_208: [u8; 64],
     pub b_set_effector_transform: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigUnit_FABRIKItemArray {}
 #[repr(C, align(16))]
 pub struct FRigUnit_FitChainToCurve_Rotation {
     pub rotation: crate::bindings::core_u_object::FQuat,
     pub ratio: f32,
-    __padding_end: [u8; 12],
 }
 impl FRigUnit_FitChainToCurve_Rotation {}
 #[repr(C, align(16))]
@@ -8201,7 +8091,6 @@ pub struct FConstraintTarget {
     #[doc(hidden)]
     __padding_101: [u8; 101],
     pub filter: crate::bindings::animation_core::FTransformFilter,
-    __padding_end: [u8; 2],
 }
 impl FConstraintTarget {}
 #[repr(C, align(16))]
@@ -8274,7 +8163,6 @@ pub struct FRigUnit_PositionConstraint {
     pub filter: crate::bindings::animation_core::FFilterOptionPerAxis,
     pub parents: TArray<FConstraintParent>,
     pub weight: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_PositionConstraint {}
 #[repr(C, align(8))]
@@ -8329,7 +8217,6 @@ pub struct FRigUnit_ScaleConstraint {
     pub filter: crate::bindings::animation_core::FFilterOptionPerAxis,
     pub parents: TArray<FConstraintParent>,
     pub weight: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigUnit_ScaleConstraint {}
 #[repr(C, align(8))]
@@ -8627,6 +8514,148 @@ impl UAnimNodeControlRigLibrary {
             cdo
         }
     }
+    pub fn set_control_rig_class(
+        node: &FControlRigReference,
+        control_rig_class: TSubclassOf<UControlRig>,
+    ) -> FControlRigReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_ANIM_NODE_CONTROL_RIG_LIBRARY_SET_CONTROL_RIG_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<FControlRigReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_rig_class,
+                __buffer.add(16).cast::<TSubclassOf<UControlRig>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::UAnimNodeControlRigLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_ANIM_NODE_CONTROL_RIG_LIBRARY_SET_CONTROL_RIG_CLASS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FControlRigReference>().read() }
+    }
+    pub fn convert_to_control_rig_pure(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        control_rig: &mut FControlRigReference,
+        result: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                control_rig,
+                __buffer.add(16).cast::<FControlRigReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(result, __buffer.add(32).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::control_rig::UAnimNodeControlRigLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG_PURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FControlRigReference>().swap(control_rig);
+        }
+        unsafe {
+            __buffer.add(32).cast::<bool>().swap(result);
+        }
+    }
+    pub fn convert_to_control_rig(
+        node: &crate::bindings::engine::FAnimNodeReference,
+        result: &mut crate::bindings::engine::EAnimNodeReferenceConversionResult,
+    ) -> FControlRigReference {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                node,
+                __buffer.add(0).cast::<crate::bindings::engine::FAnimNodeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::engine::EAnimNodeReferenceConversionResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::UAnimNodeControlRigLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::engine::EAnimNodeReferenceConversionResult>()
+                .swap(result);
+        }
+        unsafe { __buffer.add(24).cast::<FControlRigReference>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UTransformableControlHandle {
@@ -8673,6 +8702,418 @@ impl UControlRig {
             cdo
         }
     }
+    pub fn supports_backwards_solve(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_SUPPORTS_BACKWARDS_SOLVE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_SUPPORTS_BACKWARDS_SOLVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn set_interaction_rig_class(
+        &mut self,
+        in_interaction_rig_class: TSubclassOf<UControlRig>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_SET_INTERACTION_RIG_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_interaction_rig_class,
+                __buffer.add(0).cast::<TSubclassOf<UControlRig>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_SET_INTERACTION_RIG_CLASS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_interaction_rig(&mut self, in_interaction_rig: UPtr<UControlRig>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_SET_INTERACTION_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_interaction_rig,
+                __buffer.add(0).cast::<UPtr<UControlRig>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_SET_INTERACTION_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn select_control(
+        &mut self,
+        in_control_name: &FName,
+        b_select: bool,
+        b_setup_undo: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<14>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_SELECT_CONTROL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_select, __buffer.add(12).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(13).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_SELECT_CONTROL,
+                __buffer,
+            )
+        };
+    }
+    pub fn request_construction(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_REQUEST_CONSTRUCTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_REQUEST_CONSTRUCTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_control_selected(&self, in_control_name: &FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_IS_CONTROL_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_IS_CONTROL_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn get_interaction_rig_class(&self) -> TSubclassOf<UControlRig> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_GET_INTERACTION_RIG_CLASS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_GET_INTERACTION_RIG_CLASS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TSubclassOf<UControlRig>>().read() }
+    }
+    pub fn get_interaction_rig(&self) -> UPtr<UControlRig> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_GET_INTERACTION_RIG,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_GET_INTERACTION_RIG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UControlRig>>().read() }
+    }
+    pub fn get_hosting_actor(&self) -> UPtr<crate::bindings::engine::AActor> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_GET_HOSTING_ACTOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_GET_HOSTING_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>().read() }
+    }
+    pub fn get_hierarchy(&mut self) -> UPtr<URigHierarchy> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_GET_HIERARCHY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_GET_HIERARCHY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigHierarchy>>().read() }
+    }
+    pub fn find_control_rigs(
+        outer: UPtr<crate::bindings::core_u_object::UObject>,
+        optional_class: TSubclassOf<UControlRig>,
+    ) -> TArray<UPtr<UControlRig>> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_FIND_CONTROL_RIGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &optional_class,
+                __buffer.add(8).cast::<TSubclassOf<UControlRig>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::UControlRig::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_FIND_CONTROL_RIGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<UPtr<UControlRig>>>().read() }
+    }
+    pub fn current_control_selection(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_CURRENT_CONTROL_SELECTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_CURRENT_CONTROL_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn create_transformable_control_handle(
+        &self,
+        control_name: &FName,
+    ) -> UPtr<UTransformableControlHandle> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_CREATE_TRANSFORMABLE_CONTROL_HANDLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_CREATE_TRANSFORMABLE_CONTROL_HANDLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UTransformableControlHandle>>().read() }
+    }
+    pub fn clear_control_selection(&mut self, b_setup_undo: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_CLEAR_CONTROL_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_CLEAR_CONTROL_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UControlRigAnimInstance {
@@ -8716,6 +9157,65 @@ impl UControlRigShapeLibraryLink {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_shape_library(
+        &mut self,
+        in_shape_library: TSoftObjectPtr<UControlRigShapeLibrary>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_SHAPE_LIBRARY_LINK_SET_SHAPE_LIBRARY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_shape_library,
+                __buffer.add(0).cast::<TSoftObjectPtr<UControlRigShapeLibrary>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_SHAPE_LIBRARY_LINK_SET_SHAPE_LIBRARY,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_shape_library(&self) -> TSoftObjectPtr<UControlRigShapeLibrary> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_SHAPE_LIBRARY_LINK_GET_SHAPE_LIBRARY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_SHAPE_LIBRARY_LINK_GET_SHAPE_LIBRARY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TSoftObjectPtr<UControlRigShapeLibrary>>().read()
         }
     }
 }
@@ -8763,6 +9263,1596 @@ impl UControlRigComponent {
             cdo
         }
     }
+    pub fn update(&mut self, delta_time: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_UPDATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&delta_time, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_UPDATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_object_binding(
+        &mut self,
+        in_object_to_bind: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_OBJECT_BINDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_object_to_bind,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_OBJECT_BINDING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mapped_elements(
+        &mut self,
+        new_mapped_elements: TArray<FControlRigComponentMappedElement>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_MAPPED_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_mapped_elements,
+                __buffer.add(0).cast::<TArray<FControlRigComponentMappedElement>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_MAPPED_ELEMENTS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_initial_space_transform(
+        &mut self,
+        space_name: FName,
+        initial_transform: crate::bindings::core_u_object::FTransform,
+        space: EControlRigComponentSpace,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<113>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_INITIAL_SPACE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &initial_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(112).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_INITIAL_SPACE_TRANSFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_initial_bone_transform(
+        &mut self,
+        bone_name: FName,
+        initial_transform: crate::bindings::core_u_object::FTransform,
+        space: EControlRigComponentSpace,
+        b_propagate_to_children: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<114>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_INITIAL_BONE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &bone_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &initial_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(112).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_propagate_to_children,
+                __buffer.add(113).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_INITIAL_BONE_TRANSFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_vector2_d(
+        &mut self,
+        control_name: FName,
+        value: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_VECTOR2_D,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_transform(
+        &mut self,
+        control_name: FName,
+        value: crate::bindings::core_u_object::FTransform,
+        space: EControlRigComponentSpace,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<113>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(112).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_TRANSFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_scale(
+        &mut self,
+        control_name: FName,
+        value: crate::bindings::core_u_object::FVector,
+        space: EControlRigComponentSpace,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(40).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_SCALE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_rotator(
+        &mut self,
+        control_name: FName,
+        value: crate::bindings::core_u_object::FRotator,
+        space: EControlRigComponentSpace,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(40).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_ROTATOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_rig_class(
+        &mut self,
+        in_control_rig_class: TSubclassOf<UControlRig>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_RIG_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_control_rig_class,
+                __buffer.add(0).cast::<TSubclassOf<UControlRig>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_RIG_CLASS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_position(
+        &mut self,
+        control_name: FName,
+        value: crate::bindings::core_u_object::FVector,
+        space: EControlRigComponentSpace,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(40).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_POSITION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_offset(
+        &mut self,
+        control_name: FName,
+        offset_transform: crate::bindings::core_u_object::FTransform,
+        space: EControlRigComponentSpace,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<113>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &offset_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(112).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_OFFSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_int(&mut self, control_name: FName, value: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(12).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_INT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_float(&mut self, control_name: FName, value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(12).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_FLOAT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_bool(&mut self, control_name: FName, value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(12).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_BOOL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_bone_transform(
+        &mut self,
+        bone_name: FName,
+        transform: crate::bindings::core_u_object::FTransform,
+        space: EControlRigComponentSpace,
+        weight: f32,
+        b_propagate_to_children: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<121>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_BONE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &bone_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(112).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&weight, __buffer.add(116).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_propagate_to_children,
+                __buffer.add(120).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_BONE_TRANSFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_bone_initial_transforms_from_skeletal_mesh(
+        &mut self,
+        in_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_BONE_INITIAL_TRANSFORMS_FROM_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_skeletal_mesh,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_BONE_INITIAL_TRANSFORMS_FROM_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+    }
+    pub fn initialize(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_INITIALIZE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_INITIALIZE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_space_transform(
+        &mut self,
+        space_name: FName,
+        space: EControlRigComponentSpace,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_SPACE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(12).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_SPACE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_initial_space_transform(
+        &mut self,
+        space_name: FName,
+        space: EControlRigComponentSpace,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_INITIAL_SPACE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(12).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_INITIAL_SPACE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_initial_bone_transform(
+        &mut self,
+        bone_name: FName,
+        space: EControlRigComponentSpace,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_INITIAL_BONE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &bone_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(12).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_INITIAL_BONE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_element_names(&mut self, element_type: ERigElementType) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_ELEMENT_NAMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_type,
+                __buffer.add(0).cast::<ERigElementType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_ELEMENT_NAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_control_vector2_d(
+        &mut self,
+        control_name: FName,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_control_transform(
+        &mut self,
+        control_name: FName,
+        space: EControlRigComponentSpace,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(12).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_control_scale(
+        &mut self,
+        control_name: FName,
+        space: EControlRigComponentSpace,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(12).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_control_rotator(
+        &mut self,
+        control_name: FName,
+        space: EControlRigComponentSpace,
+    ) -> crate::bindings::core_u_object::FRotator {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(12).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FRotator>().read()
+        }
+    }
+    pub fn get_control_rig(&mut self) -> UPtr<UControlRig> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_RIG,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_RIG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UControlRig>>().read() }
+    }
+    pub fn get_control_position(
+        &mut self,
+        control_name: FName,
+        space: EControlRigComponentSpace,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(12).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_control_offset(
+        &mut self,
+        control_name: FName,
+        space: EControlRigComponentSpace,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(12).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_control_int(&mut self, control_name: FName) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_INT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<i32>().read() }
+    }
+    pub fn get_control_float(&mut self, control_name: FName) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<f32>().read() }
+    }
+    pub fn get_control_bool(&mut self, control_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_BOOL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn get_bone_transform(
+        &mut self,
+        bone_name: FName,
+        space: EControlRigComponentSpace,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_BONE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &bone_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &space,
+                __buffer.add(12).cast::<EControlRigComponentSpace>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_BONE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_absolute_time(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_ABSOLUTE_TIME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_ABSOLUTE_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn does_element_exist(
+        &mut self,
+        name: FName,
+        element_type: ERigElementType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<14>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_DOES_ELEMENT_EXIST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_type,
+                __buffer.add(12).cast::<ERigElementType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_DOES_ELEMENT_EXIST,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(13).cast::<bool>().read() }
+    }
+    pub fn clear_mapped_elements(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_CLEAR_MAPPED_ELEMENTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_CLEAR_MAPPED_ELEMENTS,
+                __buffer,
+            )
+        };
+    }
+    pub fn can_execute(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_CAN_EXECUTE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_CAN_EXECUTE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn add_mapped_skeletal_mesh(
+        &mut self,
+        skeletal_mesh_component: UPtr<crate::bindings::engine::USkeletalMeshComponent>,
+        bones: TArray<FControlRigComponentMappedBone>,
+        curves: TArray<FControlRigComponentMappedCurve>,
+        in_direction: EControlRigComponentMapDirection,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &skeletal_mesh_component,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::USkeletalMeshComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &bones,
+                __buffer.add(8).cast::<TArray<FControlRigComponentMappedBone>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &curves,
+                __buffer.add(24).cast::<TArray<FControlRigComponentMappedCurve>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_direction,
+                __buffer.add(40).cast::<EControlRigComponentMapDirection>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_mapped_elements(
+        &mut self,
+        new_mapped_elements: TArray<FControlRigComponentMappedElement>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_mapped_elements,
+                __buffer.add(0).cast::<TArray<FControlRigComponentMappedElement>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_ELEMENTS,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_mapped_components(
+        &mut self,
+        components: TArray<FControlRigComponentMappedComponent>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPONENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &components,
+                __buffer.add(0).cast::<TArray<FControlRigComponentMappedComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPONENTS,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_mapped_complete_skeletal_mesh(
+        &mut self,
+        skeletal_mesh_component: UPtr<crate::bindings::engine::USkeletalMeshComponent>,
+        in_direction: EControlRigComponentMapDirection,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPLETE_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &skeletal_mesh_component,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::USkeletalMeshComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_direction,
+                __buffer.add(8).cast::<EControlRigComponentMapDirection>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPLETE_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct AControlRigControlActor {
@@ -8793,6 +10883,75 @@ impl AControlRigControlActor {
             cdo
         }
     }
+    pub fn reset_control_actor(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::A_CONTROL_RIG_CONTROL_ACTOR_RESET_CONTROL_ACTOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::A_CONTROL_RIG_CONTROL_ACTOR_RESET_CONTROL_ACTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn refresh(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::A_CONTROL_RIG_CONTROL_ACTOR_REFRESH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::A_CONTROL_RIG_CONTROL_ACTOR_REFRESH,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::A_CONTROL_RIG_CONTROL_ACTOR_CLEAR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::A_CONTROL_RIG_CONTROL_ACTOR_CLEAR,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct AControlRigShapeActor {
@@ -8818,6 +10977,257 @@ impl AControlRigShapeActor {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_selected(&mut self, b_in_selected: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_selected,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_selectable(&mut self, b_in_selectable: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_selectable,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hovered(&mut self, b_in_hovered: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_HOVERED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_hovered,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_HOVERED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_global_transform(
+        &mut self,
+        in_transform: &crate::bindings::core_u_object::FTransform,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_GLOBAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_transform,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_GLOBAL_TRANSFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enabled(&mut self, b_in_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_selected_in_editor(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_IS_SELECTED_IN_EDITOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_IS_SELECTED_IN_EDITOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_hovered(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_IS_HOVERED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_IS_HOVERED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_enabled(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_IS_ENABLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_IS_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_global_transform(&self) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_GET_GLOBAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_GET_GLOBAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
     }
 }
@@ -8897,6 +11307,354 @@ impl UControlRigReplay {
             cdo
         }
     }
+    pub fn stop_replay(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_STOP_REPLAY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_STOP_REPLAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn stop_recording(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_STOP_RECORDING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_STOP_RECORDING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn start_replay(
+        &mut self,
+        in_control_rig: UPtr<UControlRig>,
+        in_mode: EControlRigReplayPlaybackMode,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<10>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_START_REPLAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_control_rig,
+                __buffer.add(0).cast::<UPtr<UControlRig>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_mode,
+                __buffer.add(8).cast::<EControlRigReplayPlaybackMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_START_REPLAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(9).cast::<bool>().read() }
+    }
+    pub fn start_recording(&mut self, in_control_rig: UPtr<UControlRig>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_START_RECORDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_control_rig,
+                __buffer.add(0).cast::<UPtr<UControlRig>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_START_RECORDING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_playback_mode(&mut self, in_mode: EControlRigReplayPlaybackMode) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_SET_PLAYBACK_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_mode,
+                __buffer.add(0).cast::<EControlRigReplayPlaybackMode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_SET_PLAYBACK_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn pause_replay(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_PAUSE_REPLAY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_PAUSE_REPLAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_replaying(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_IS_REPLAYING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_IS_REPLAYING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_recording(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_IS_RECORDING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_IS_RECORDING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_paused(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_IS_PAUSED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_IS_PAUSED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_time_range(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_GET_TIME_RANGE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_GET_TIME_RANGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_playback_mode(&self) -> EControlRigReplayPlaybackMode {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_GET_PLAYBACK_MODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_GET_PLAYBACK_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EControlRigReplayPlaybackMode>().read() }
+    }
+    pub fn create_new_asset(
+        in_desired_package_path: FString,
+        in_blueprint_path_name: FString,
+        in_asset_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    ) -> UPtr<UControlRigReplay> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_CREATE_NEW_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_desired_package_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_blueprint_path_name,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_asset_class,
+                __buffer
+                    .add(32)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::UControlRigReplay::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_CREATE_NEW_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<UPtr<UControlRigReplay>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UControlRigTestData {
@@ -8923,6 +11681,36 @@ impl UControlRigTestData {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_frame_index_for_time(&self, in_seconds: f64, b_input: bool) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_TEST_DATA_GET_FRAME_INDEX_FOR_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_seconds, __buffer.add(0).cast::<f64>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_input, __buffer.add(8).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_TEST_DATA_GET_FRAME_INDEX_FOR_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<i32>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -8987,6 +11775,370 @@ impl UModularRig {
             cdo
         }
     }
+    pub fn get_parent_path(&self, in_module_path: FString) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_PARENT_PATH_FOR_BP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_module_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_PARENT_PATH_FOR_BP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_parent_module_name(&self, in_module_name: FName) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_PARENT_MODULE_NAME_FOR_BP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_PARENT_MODULE_NAME_FOR_BP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<FName>().read() }
+    }
+    pub fn get_module_rig_by_name(
+        &mut self,
+        in_module_name: FName,
+    ) -> UPtr<UControlRig> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_RIG_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_RIG_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UControlRig>>().read() }
+    }
+    pub fn get_module_rig(&mut self, in_module_path: FString) -> UPtr<UControlRig> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_module_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_RIG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UControlRig>>().read() }
+    }
+    pub fn get_module_paths(&self) -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_PATHS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_PATHS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FString>>().read() }
+    }
+    pub fn get_module_names(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_NAMES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_NAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_events_for_module_by_name(&self, in_module_name: FName) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_EVENTS_FOR_MODULE_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_EVENTS_FOR_MODULE_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_events_for_module(&self, in_module_path: FString) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_EVENTS_FOR_MODULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_module_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_EVENTS_FOR_MODULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_events_for_all_modules(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_EVENTS_FOR_ALL_MODULES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_GET_EVENTS_FOR_ALL_MODULES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn execute_event_on_module(
+        &mut self,
+        in_event: FName,
+        in_module_path: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_FOR_BP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_event, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_module_path,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_FOR_BP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn execute_event_on_module_by_name(
+        &mut self,
+        in_event: FName,
+        in_module_name: FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_BY_NAME_FOR_BP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_event, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_module_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_BY_NAME_FOR_BP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn execute_event_on_all_modules(&mut self, in_event: FName) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_EXECUTE_EVENT_ON_ALL_MODULES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_event, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_EXECUTE_EVENT_ON_ALL_MODULES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<FName>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UModularRigController {
@@ -9007,6 +12159,1411 @@ impl UModularRigController {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn un_bind_module_variable(
+        &mut self,
+        in_module_name: &FName,
+        in_variable_name: &FName,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<26>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_UN_BIND_MODULE_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_UN_BIND_MODULE_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(25).cast::<bool>().read() }
+    }
+    pub fn swap_modules_of_class(
+        &mut self,
+        in_old_class: TSubclassOf<UControlRig>,
+        in_new_class: TSubclassOf<UControlRig>,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SWAP_MODULES_OF_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_old_class,
+                __buffer.add(0).cast::<TSubclassOf<UControlRig>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_new_class,
+                __buffer.add(8).cast::<TSubclassOf<UControlRig>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SWAP_MODULES_OF_CLASS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn swap_module_class(
+        &mut self,
+        in_module_name: &FName,
+        in_new_class: TSubclassOf<UControlRig>,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<26>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SWAP_MODULE_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_new_class,
+                __buffer.add(16).cast::<TSubclassOf<UControlRig>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SWAP_MODULE_CLASS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(25).cast::<bool>().read() }
+    }
+    pub fn set_module_selection(&mut self, in_module_names: &TArray<FName>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SET_MODULE_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_module_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SET_MODULE_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_config_value_in_module(
+        &mut self,
+        in_module_name: &FName,
+        in_variable_name: &FName,
+        in_value: FString,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<42>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SET_CONFIG_VALUE_IN_MODULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SET_CONFIG_VALUE_IN_MODULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(41).cast::<bool>().read() }
+    }
+    pub fn select_module(&mut self, in_module_name: &FName, in_selected: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<14>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SELECT_MODULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selected,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SELECT_MODULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(13).cast::<bool>().read() }
+    }
+    pub fn reset_config_value_in_module(
+        &mut self,
+        in_module_name: &FName,
+        in_path: FString,
+        b_clear_override: bool,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_RESET_CONFIG_VALUE_IN_MODULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_path,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_clear_override,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_RESET_CONFIG_VALUE_IN_MODULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn reparent_module(
+        &mut self,
+        in_module_name: &FName,
+        in_new_parent_module_name: &FName,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<26>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_REPARENT_MODULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_new_parent_module_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_REPARENT_MODULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(25).cast::<bool>().read() }
+    }
+    pub fn reorder_module(
+        &mut self,
+        in_module_name: &FName,
+        in_module_index: i32,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_REORDER_MODULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_module_index,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_REORDER_MODULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn rename_module(
+        &mut self,
+        in_module_name: &FName,
+        in_new_name: &FName,
+        b_setup_undo: bool,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_RENAME_MODULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_new_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_RENAME_MODULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<FName>().read() }
+    }
+    pub fn mirror_module(
+        &mut self,
+        in_module_name: &FName,
+        in_settings: &crate::bindings::rig_vm::FRigVMMirrorSettings,
+        b_setup_undo: bool,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_MIRROR_MODULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(16).cast::<crate::bindings::rig_vm::FRigVMMirrorSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(56).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_MIRROR_MODULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(60).cast::<FName>().read() }
+    }
+    pub fn import_module_settings_from_string(
+        &mut self,
+        in_content: FString,
+        in_optional_module_names: TArray<FName>,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<34>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_IMPORT_MODULE_SETTINGS_FROM_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_content,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_optional_module_names,
+                __buffer.add(16).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_IMPORT_MODULE_SETTINGS_FROM_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(33).cast::<bool>().read() }
+    }
+    pub fn get_selected_modules(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_SELECTED_MODULES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_SELECTED_MODULES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_module_reference(&self, in_module_name: FName) -> FRigModuleReference {
+        let mut __stack = crate::core_data::StackAlloc::<768>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_MODULE_REFERENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_MODULE_REFERENCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FRigModuleReference>().read() }
+    }
+    pub fn get_connectors_for_module(
+        &self,
+        in_module_name: FName,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_CONNECTORS_FOR_MODULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_CONNECTORS_FOR_MODULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_all_modules(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_ALL_MODULES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_ALL_MODULES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn export_module_settings_to_string(
+        &self,
+        in_module_names: TArray<FName>,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_EXPORT_MODULE_SETTINGS_TO_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_module_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_EXPORT_MODULE_SETTINGS_TO_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn disconnect_cyclic_connectors(
+        &mut self,
+        b_setup_undo: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DISCONNECT_CYCLIC_CONNECTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DISCONNECT_CYCLIC_CONNECTORS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn disconnect_connector(
+        &mut self,
+        in_connector_key: &FRigElementKey,
+        b_disconnect_sub_modules: bool,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DISCONNECT_CONNECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_connector_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_disconnect_sub_modules,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DISCONNECT_CONNECTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn deselect_module(&mut self, in_module_name: &FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DESELECT_MODULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DESELECT_MODULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn delete_module(&mut self, in_module_name: &FName, b_setup_undo: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<14>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DELETE_MODULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DELETE_MODULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(13).cast::<bool>().read() }
+    }
+    pub fn connect_connector_to_elements(
+        &mut self,
+        in_connector_key: &FRigElementKey,
+        in_target_keys: &TArray<FRigElementKey>,
+        b_setup_undo: bool,
+        b_auto_resolve_other_connectors: bool,
+        b_check_valid_connection: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_connector_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_target_keys,
+                __buffer.add(16).cast::<TArray<FRigElementKey>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_auto_resolve_other_connectors,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_check_valid_connection,
+                __buffer.add(34).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(35).cast::<bool>().read() }
+    }
+    pub fn connect_connector_to_element(
+        &mut self,
+        in_connector_key: &FRigElementKey,
+        in_target_key: &FRigElementKey,
+        b_setup_undo: bool,
+        b_auto_resolve_other_connectors: bool,
+        b_check_valid_connection: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_connector_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_target_key,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_auto_resolve_other_connectors,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_check_valid_connection,
+                __buffer.add(34).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(35).cast::<bool>().read() }
+    }
+    pub fn can_connect_connector_to_elements(
+        &mut self,
+        in_connector_key: &FRigElementKey,
+        in_target_keys: &TArray<FRigElementKey>,
+        out_error_message: &mut FText,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_connector_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_target_keys,
+                __buffer.add(16).cast::<TArray<FRigElementKey>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_error_message,
+                __buffer.add(32).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<FText>().swap(out_error_message);
+        }
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn can_connect_connector_to_element(
+        &mut self,
+        in_connector_key: &FRigElementKey,
+        in_target_key: &FRigElementKey,
+        out_error_message: &mut FText,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_connector_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_target_key,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_error_message,
+                __buffer.add(32).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<FText>().swap(out_error_message);
+        }
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn bind_module_variable(
+        &mut self,
+        in_module_name: &FName,
+        in_variable_name: &FName,
+        in_source_path: FString,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<42>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_BIND_MODULE_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_source_path,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_BIND_MODULE_VARIABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(41).cast::<bool>().read() }
+    }
+    pub fn auto_connect_secondary_connectors(
+        &mut self,
+        in_connector_keys: &TArray<FRigElementKey>,
+        b_replace_existing_connections: bool,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_SECONDARY_CONNECTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_connector_keys,
+                __buffer.add(0).cast::<TArray<FRigElementKey>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_replace_existing_connections,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_SECONDARY_CONNECTORS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn auto_connect_modules(
+        &mut self,
+        in_module_names: &TArray<FName>,
+        b_replace_existing_connections: bool,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_MODULES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_module_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_replace_existing_connections,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_MODULES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn add_target_to_array_connector(
+        &mut self,
+        in_connector_key: &FRigElementKey,
+        in_target_key: &FRigElementKey,
+        b_setup_undo: bool,
+        b_auto_resolve_other_connectors: bool,
+        b_check_valid_connection: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_ADD_TARGET_TO_ARRAY_CONNECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_connector_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_target_key,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_auto_resolve_other_connectors,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_check_valid_connection,
+                __buffer.add(34).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_ADD_TARGET_TO_ARRAY_CONNECTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(35).cast::<bool>().read() }
+    }
+    pub fn add_module(
+        &mut self,
+        in_module_name: &FName,
+        in_class: TSubclassOf<UControlRig>,
+        in_parent_module_name: &FName,
+        b_setup_undo: bool,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<52>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_ADD_MODULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_module_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_class,
+                __buffer.add(16).cast::<TSubclassOf<UControlRig>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parent_module_name,
+                __buffer.add(24).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(36).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_ADD_MODULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<FName>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -9095,6 +13652,7773 @@ impl URigHierarchy {
             cdo
         }
     }
+    pub fn unset_curve_value_by_index(
+        &mut self,
+        in_element_index: i32,
+        b_setup_undo: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_UNSET_CURVE_VALUE_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_UNSET_CURVE_VALUE_BY_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn unset_curve_value(&mut self, in_key: FRigElementKey, b_setup_undo: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_UNSET_CURVE_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_UNSET_CURVE_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn switch_to_world_space(
+        &mut self,
+        in_child: FRigElementKey,
+        b_initial: bool,
+        b_affect_children: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SWITCH_TO_WORLD_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_child,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_affect_children,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SWITCH_TO_WORLD_SPACE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn switch_to_parent(
+        &mut self,
+        in_child: FRigElementKey,
+        in_parent: FRigElementKey,
+        b_initial: bool,
+        b_affect_children: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SWITCH_TO_PARENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_child,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parent,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_affect_children,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SWITCH_TO_PARENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn switch_to_default_parent(
+        &mut self,
+        in_child: FRigElementKey,
+        b_initial: bool,
+        b_affect_children: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SWITCH_TO_DEFAULT_PARENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_child,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_affect_children,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SWITCH_TO_DEFAULT_PARENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn sort_keys(&self, in_keys: &TArray<FRigElementKey>) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SORT_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_keys,
+                __buffer.add(0).cast::<TArray<FRigElementKey>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SORT_KEYS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn set_vector_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: crate::bindings::core_u_object::FVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_VECTOR_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_VECTOR_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<bool>().read() }
+    }
+    pub fn set_vector_array_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: TArray<crate::bindings::core_u_object::FVector>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_VECTOR_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer
+                    .add(32)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_VECTOR_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn set_transform_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: crate::bindings::core_u_object::FTransform,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<129>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_TRANSFORM_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_TRANSFORM_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(128).cast::<bool>().read() }
+    }
+    pub fn set_transform_array_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: TArray<crate::bindings::core_u_object::FTransform>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_TRANSFORM_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer
+                    .add(32)
+                    .cast::<TArray<crate::bindings::core_u_object::FTransform>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_TRANSFORM_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn set_tag(&mut self, in_item: FRigElementKey, in_tag: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_tag, __buffer.add(16).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn set_rotator_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: crate::bindings::core_u_object::FRotator,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_ROTATOR_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_ROTATOR_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<bool>().read() }
+    }
+    pub fn set_rotator_array_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: TArray<crate::bindings::core_u_object::FRotator>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_ROTATOR_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer
+                    .add(32)
+                    .cast::<TArray<crate::bindings::core_u_object::FRotator>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_ROTATOR_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn set_rig_element_key_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: FRigElementKey,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<45>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(28).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(44).cast::<bool>().read() }
+    }
+    pub fn set_rig_element_key_array_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: TArray<FRigElementKey>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(32).cast::<TArray<FRigElementKey>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn set_quat_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: crate::bindings::core_u_object::FQuat,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<65>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_QUAT_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FQuat>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_QUAT_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<bool>().read() }
+    }
+    pub fn set_quat_array_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: TArray<crate::bindings::core_u_object::FQuat>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_QUAT_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(32).cast::<TArray<crate::bindings::core_u_object::FQuat>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_QUAT_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn set_pose(&mut self, in_pose: FRigPose) {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_POSE_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pose,
+                __buffer.add(0).cast::<FRigPose>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_POSE_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_parent_weight_array(
+        &mut self,
+        in_child: FRigElementKey,
+        in_weights: TArray<FRigElementWeight>,
+        b_initial: bool,
+        b_affect_children: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_PARENT_WEIGHT_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_child,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_weights,
+                __buffer.add(16).cast::<TArray<FRigElementWeight>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_affect_children,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_PARENT_WEIGHT_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn set_parent_weight(
+        &mut self,
+        in_child: FRigElementKey,
+        in_parent: FRigElementKey,
+        in_weight: FRigElementWeight,
+        b_initial: bool,
+        b_affect_children: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<47>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_PARENT_WEIGHT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_child,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parent,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_weight,
+                __buffer.add(32).cast::<FRigElementWeight>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(44).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_affect_children,
+                __buffer.add(45).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_PARENT_WEIGHT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(46).cast::<bool>().read() }
+    }
+    pub fn set_name_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_NAME_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(28).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_NAME_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn set_name_array_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: TArray<FName>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_NAME_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(32).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_NAME_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn set_local_transform_by_index(
+        &mut self,
+        in_element_index: i32,
+        in_transform: crate::bindings::core_u_object::FTransform,
+        b_initial: bool,
+        b_affect_children: bool,
+        b_setup_undo: bool,
+        b_print_python_commands: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<116>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_affect_children,
+                __buffer.add(113).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(114).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_commands,
+                __buffer.add(115).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_local_transform(
+        &mut self,
+        in_key: FRigElementKey,
+        in_transform: crate::bindings::core_u_object::FTransform,
+        b_initial: bool,
+        b_affect_children: bool,
+        b_setup_undo: bool,
+        b_print_python_commands: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<116>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_affect_children,
+                __buffer.add(113).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(114).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_commands,
+                __buffer.add(115).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_linear_color_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<45>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LINEAR_COLOR_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(28).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LINEAR_COLOR_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(44).cast::<bool>().read() }
+    }
+    pub fn set_linear_color_array_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: TArray<crate::bindings::core_u_object::FLinearColor>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LINEAR_COLOR_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer
+                    .add(32)
+                    .cast::<TArray<crate::bindings::core_u_object::FLinearColor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LINEAR_COLOR_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn set_int32_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_INT32_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(28).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_INT32_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_int32_array_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: TArray<i32>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_INT32_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(32).cast::<TArray<i32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_INT32_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn set_global_transform_by_index(
+        &mut self,
+        in_element_index: i32,
+        in_transform: crate::bindings::core_u_object::FTransform,
+        b_initial: bool,
+        b_affect_children: bool,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<116>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_affect_children,
+                __buffer.add(113).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(114).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(115).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_global_transform(
+        &mut self,
+        in_key: FRigElementKey,
+        in_transform: crate::bindings::core_u_object::FTransform,
+        b_initial: bool,
+        b_affect_children: bool,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<116>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_affect_children,
+                __buffer.add(113).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(114).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(115).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_float_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: f32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_FLOAT_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(28).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_FLOAT_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_float_array_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: TArray<f32>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_FLOAT_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(32).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_FLOAT_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn set_curve_value_by_index(
+        &mut self,
+        in_element_index: i32,
+        in_value: f32,
+        b_setup_undo: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CURVE_VALUE_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(4).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CURVE_VALUE_BY_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_curve_value(
+        &mut self,
+        in_key: FRigElementKey,
+        in_value: f32,
+        b_setup_undo: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CURVE_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(16).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CURVE_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_visibility_by_index(
+        &mut self,
+        in_element_index: i32,
+        b_visibility: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_visibility,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY_BY_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_visibility(
+        &mut self,
+        in_key: FRigElementKey,
+        b_visibility: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_visibility,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_value_by_index(
+        &mut self,
+        in_element_index: i32,
+        in_value: FRigControlValue,
+        in_value_type: ERigControlValueType,
+        b_setup_undo: bool,
+        b_print_python_commands: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<259>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VALUE_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<FRigControlValue>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value_type,
+                __buffer.add(256).cast::<ERigControlValueType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(257).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_commands,
+                __buffer.add(258).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VALUE_BY_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_value(
+        &mut self,
+        in_key: FRigElementKey,
+        in_value: FRigControlValue,
+        in_value_type: ERigControlValueType,
+        b_setup_undo: bool,
+        b_print_python_commands: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<259>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<FRigControlValue>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value_type,
+                __buffer.add(256).cast::<ERigControlValueType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(257).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_commands,
+                __buffer.add(258).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_shape_transform_by_index(
+        &mut self,
+        in_element_index: i32,
+        in_transform: crate::bindings::core_u_object::FTransform,
+        b_initial: bool,
+        b_setup_undo: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<114>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(113).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_shape_transform(
+        &mut self,
+        in_key: FRigElementKey,
+        in_transform: crate::bindings::core_u_object::FTransform,
+        b_initial: bool,
+        b_setup_undo: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<114>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(113).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_settings_by_index(
+        &mut self,
+        in_element_index: i32,
+        in_settings: FRigControlSettings,
+        b_setup_undo: bool,
+        b_force: bool,
+        b_print_python_commands: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<787>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SETTINGS_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(16).cast::<FRigControlSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(784).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_force, __buffer.add(785).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_commands,
+                __buffer.add(786).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SETTINGS_BY_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_settings(
+        &mut self,
+        in_key: FRigElementKey,
+        in_settings: FRigControlSettings,
+        b_setup_undo: bool,
+        b_force: bool,
+        b_print_python_commands: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<787>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(16).cast::<FRigControlSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(784).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_force, __buffer.add(785).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_commands,
+                __buffer.add(786).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_preferred_rotator_by_index(
+        &mut self,
+        in_element_index: i32,
+        in_rotator: &crate::bindings::core_u_object::FRotator,
+        b_initial: bool,
+        b_fix_euler_flips: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<34>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_rotator,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_fix_euler_flips,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR_BY_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_preferred_rotator(
+        &mut self,
+        in_key: FRigElementKey,
+        in_rotator: &crate::bindings::core_u_object::FRotator,
+        b_initial: bool,
+        b_fix_euler_flips: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<42>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_rotator,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_fix_euler_flips,
+                __buffer.add(41).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_preferred_rotation_order_by_index(
+        &mut self,
+        in_element_index: i32,
+        in_rotation_order: crate::bindings::animation_core::EEulerRotationOrder,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_rotation_order,
+                __buffer
+                    .add(4)
+                    .cast::<crate::bindings::animation_core::EEulerRotationOrder>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER_BY_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_preferred_rotation_order(
+        &mut self,
+        in_key: FRigElementKey,
+        in_rotation_order: crate::bindings::animation_core::EEulerRotationOrder,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_rotation_order,
+                __buffer
+                    .add(16)
+                    .cast::<crate::bindings::animation_core::EEulerRotationOrder>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_preferred_euler_angles_by_index(
+        &mut self,
+        in_element_index: i32,
+        in_euler_angles: &crate::bindings::core_u_object::FVector,
+        in_rotation_order: crate::bindings::animation_core::EEulerRotationOrder,
+        b_initial: bool,
+        b_fix_euler_flips: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_euler_angles,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_rotation_order,
+                __buffer
+                    .add(32)
+                    .cast::<crate::bindings::animation_core::EEulerRotationOrder>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_fix_euler_flips,
+                __buffer.add(34).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_preferred_euler_angles(
+        &mut self,
+        in_key: FRigElementKey,
+        in_euler_angles: &crate::bindings::core_u_object::FVector,
+        in_rotation_order: crate::bindings::animation_core::EEulerRotationOrder,
+        b_initial: bool,
+        b_fix_euler_flips: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<43>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_euler_angles,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_rotation_order,
+                __buffer
+                    .add(40)
+                    .cast::<crate::bindings::animation_core::EEulerRotationOrder>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(41).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_fix_euler_flips,
+                __buffer.add(42).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_offset_transform_by_index(
+        &mut self,
+        in_element_index: i32,
+        in_transform: crate::bindings::core_u_object::FTransform,
+        b_initial: bool,
+        b_affect_children: bool,
+        b_setup_undo: bool,
+        b_print_python_commands: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<116>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_affect_children,
+                __buffer.add(113).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(114).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_commands,
+                __buffer.add(115).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_control_offset_transform(
+        &mut self,
+        in_key: FRigElementKey,
+        in_transform: crate::bindings::core_u_object::FTransform,
+        b_initial: bool,
+        b_affect_children: bool,
+        b_setup_undo: bool,
+        b_print_python_commands: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<116>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_affect_children,
+                __buffer.add(113).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(114).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_commands,
+                __buffer.add(115).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_connector_settings_by_index(
+        &mut self,
+        in_element_index: i32,
+        in_settings: FRigConnectorSettings,
+        b_setup_undo: bool,
+        b_force: bool,
+        b_print_python_commands: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<51>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(8).cast::<FRigConnectorSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_force, __buffer.add(49).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_commands,
+                __buffer.add(50).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS_BY_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_connector_settings(
+        &mut self,
+        in_key: FRigElementKey,
+        in_settings: FRigConnectorSettings,
+        b_setup_undo: bool,
+        b_force: bool,
+        b_print_python_commands: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<59>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(16).cast::<FRigConnectorSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(56).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_force, __buffer.add(57).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_commands,
+                __buffer.add(58).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_bool_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<30>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_BOOL_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(28).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_BOOL_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(29).cast::<bool>().read() }
+    }
+    pub fn set_bool_array_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        in_value: TArray<bool>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_BOOL_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(32).cast::<TArray<bool>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_BOOL_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn send_auto_key_event(
+        &mut self,
+        in_element: FRigElementKey,
+        in_offset_in_seconds: f32,
+        b_asynchronous: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SEND_AUTO_KEY_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_offset_in_seconds,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_asynchronous,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_SEND_AUTO_KEY_EVENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn restore_sockets_from_states(
+        &mut self,
+        in_states: TArray<FRigSocketState>,
+        b_setup_undo_redo: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_RESTORE_SOCKETS_FROM_STATES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_states,
+                __buffer.add(0).cast::<TArray<FRigSocketState>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_RESTORE_SOCKETS_FROM_STATES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn restore_connectors_from_states(
+        &mut self,
+        in_states: TArray<FRigConnectorState>,
+        b_setup_undo_redo: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_RESTORE_CONNECTORS_FROM_STATES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_states,
+                __buffer.add(0).cast::<TArray<FRigConnectorState>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo_redo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_RESTORE_CONNECTORS_FROM_STATES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn reset_to_default(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_pose_to_initial(&mut self, in_type_filter: ERigElementType) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET_POSE_TO_INITIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_type_filter,
+                __buffer.add(0).cast::<ERigElementType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET_POSE_TO_INITIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_curve_values(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET_CURVE_VALUES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET_CURVE_VALUES,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_metadata(
+        &mut self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_REMOVE_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_REMOVE_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn remove_all_metadata(&mut self, in_item: FRigElementKey) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_REMOVE_ALL_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_REMOVE_ALL_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn num_components(&self, in_element: FRigElementKey) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_NUM_COMPONENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_NUM_COMPONENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<i32>().read() }
+    }
+    pub fn num(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_NUM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_NUM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn make_control_value_from_vector2_d(
+        in_value: crate::bindings::core_u_object::FVector2D,
+    ) -> FRigControlValue {
+        let mut __stack = crate::core_data::StackAlloc::<256>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FRigControlValue>().read() }
+    }
+    pub fn make_control_value_from_vector(
+        in_value: crate::bindings::core_u_object::FVector,
+    ) -> FRigControlValue {
+        let mut __stack = crate::core_data::StackAlloc::<272>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FRigControlValue>().read() }
+    }
+    pub fn make_control_value_from_transform_no_scale(
+        in_value: crate::bindings::animation_core::FTransformNoScale,
+    ) -> FRigControlValue {
+        let mut __stack = crate::core_data::StackAlloc::<304>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM_NO_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::animation_core::FTransformNoScale>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM_NO_SCALE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<FRigControlValue>().read() }
+    }
+    pub fn make_control_value_from_transform(
+        in_value: crate::bindings::core_u_object::FTransform,
+    ) -> FRigControlValue {
+        let mut __stack = crate::core_data::StackAlloc::<336>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(96).cast::<FRigControlValue>().read() }
+    }
+    pub fn make_control_value_from_rotator(
+        in_value: crate::bindings::core_u_object::FRotator,
+    ) -> FRigControlValue {
+        let mut __stack = crate::core_data::StackAlloc::<272>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FRigControlValue>().read() }
+    }
+    pub fn make_control_value_from_int(in_value: i32) -> FRigControlValue {
+        let mut __stack = crate::core_data::StackAlloc::<256>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_INT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FRigControlValue>().read() }
+    }
+    pub fn make_control_value_from_float(in_value: f32) -> FRigControlValue {
+        let mut __stack = crate::core_data::StackAlloc::<256>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FRigControlValue>().read() }
+    }
+    pub fn make_control_value_from_euler_transform(
+        in_value: crate::bindings::animation_core::FEulerTransform,
+    ) -> FRigControlValue {
+        let mut __stack = crate::core_data::StackAlloc::<320>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_EULER_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::animation_core::FEulerTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_EULER_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(80).cast::<FRigControlValue>().read() }
+    }
+    pub fn make_control_value_from_bool(in_value: bool) -> FRigControlValue {
+        let mut __stack = crate::core_data::StackAlloc::<256>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_BOOL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FRigControlValue>().read() }
+    }
+    pub fn is_valid_index(&self, in_element_index: i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_VALID_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_VALID_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn is_selected_by_index(&self, in_index: i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_SELECTED_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_SELECTED_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn is_selected(&self, in_key: FRigElementKey) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn is_procedural(&self, in_key: &FRigElementKey) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_PROCEDURAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_PROCEDURAL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn is_parented_to(
+        &self,
+        in_child: FRigElementKey,
+        in_parent: FRigElementKey,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_PARENTED_TO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_child,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parent,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_PARENTED_TO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn is_curve_value_set_by_index(&self, in_element_index: i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_CURVE_VALUE_SET_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_CURVE_VALUE_SET_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn is_curve_value_set(&self, in_key: FRigElementKey) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_CURVE_VALUE_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_CURVE_VALUE_SET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn is_controller_available(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_CONTROLLER_AVAILABLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_CONTROLLER_AVAILABLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_component_selected(&self, in_key: FRigComponentKey) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_COMPONENT_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigComponentKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_COMPONENT_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn has_tag(&self, in_item: FRigElementKey, in_tag: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_HAS_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_tag, __buffer.add(16).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_HAS_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn get_vector_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        default_value: crate::bindings::core_u_object::FVector,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(56).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_vector_from_control_value(
+        in_value: FRigControlValue,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<264>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<FRigControlValue>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(240).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_vector_array_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+    ) -> TArray<crate::bindings::core_u_object::FVector> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<TArray<crate::bindings::core_u_object::FVector>>()
+                .read()
+        }
+    }
+    pub fn get_vector2_d_from_control_value(
+        in_value: FRigControlValue,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<256>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR2_D_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<FRigControlValue>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR2_D_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(240).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_transform_no_scale_from_control_value(
+        in_value: FRigControlValue,
+    ) -> crate::bindings::animation_core::FTransformNoScale {
+        let mut __stack = crate::core_data::StackAlloc::<304>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_NO_SCALE_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<FRigControlValue>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_NO_SCALE_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(240)
+                .cast::<crate::bindings::animation_core::FTransformNoScale>()
+                .read()
+        }
+    }
+    pub fn get_transform_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        default_value: crate::bindings::core_u_object::FTransform,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<224>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(128).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_transform_from_control_value(
+        in_value: FRigControlValue,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<336>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<FRigControlValue>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(240).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_transform_array_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+    ) -> TArray<crate::bindings::core_u_object::FTransform> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<TArray<crate::bindings::core_u_object::FTransform>>()
+                .read()
+        }
+    }
+    pub fn get_tags(&self, in_item: FRigElementKey) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TAGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_socket_states(&self) -> TArray<FRigSocketState> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SOCKET_STATES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SOCKET_STATES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FRigSocketState>>().read() }
+    }
+    pub fn get_sockets(&self, b_traverse: bool) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SOCKET_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_traverse,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SOCKET_KEYS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_selected_keys(
+        &self,
+        in_type_filter: ERigElementType,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SELECTED_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_type_filter,
+                __buffer.add(0).cast::<ERigElementType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SELECTED_KEYS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_selected_hierarchy_keys(&self) -> TArray<FRigHierarchyKey> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SELECTED_HIERARCHY_KEYS_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SELECTED_HIERARCHY_KEYS_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FRigHierarchyKey>>().read() }
+    }
+    pub fn get_rule_manager(
+        &mut self,
+        b_create_if_needed: bool,
+    ) -> UPtr<UModularRigRuleManager> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_RULE_MANAGER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_create_if_needed,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_RULE_MANAGER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UModularRigRuleManager>>().read() }
+    }
+    pub fn get_rotator_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        default_value: crate::bindings::core_u_object::FRotator,
+    ) -> crate::bindings::core_u_object::FRotator {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROTATOR_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROTATOR_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(56).cast::<crate::bindings::core_u_object::FRotator>().read()
+        }
+    }
+    pub fn get_rotator_from_control_value(
+        in_value: FRigControlValue,
+    ) -> crate::bindings::core_u_object::FRotator {
+        let mut __stack = crate::core_data::StackAlloc::<264>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROTATOR_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<FRigControlValue>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROTATOR_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(240).cast::<crate::bindings::core_u_object::FRotator>().read()
+        }
+    }
+    pub fn get_rotator_array_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+    ) -> TArray<crate::bindings::core_u_object::FRotator> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROTATOR_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROTATOR_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<TArray<crate::bindings::core_u_object::FRotator>>()
+                .read()
+        }
+    }
+    pub fn get_root_elements(&self) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROOT_ELEMENT_KEYS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROOT_ELEMENT_KEYS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_rig_element_key_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        default_value: FRigElementKey,
+    ) -> FRigElementKey {
+        let mut __stack = crate::core_data::StackAlloc::<60>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_value,
+                __buffer.add(28).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(44).cast::<FRigElementKey>().read() }
+    }
+    pub fn get_rig_element_key_array_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_references(&self, b_traverse: bool) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_REFERENCE_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_traverse,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_REFERENCE_KEYS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_quat_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        default_value: crate::bindings::core_u_object::FQuat,
+    ) -> crate::bindings::core_u_object::FQuat {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_QUAT_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FQuat>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_QUAT_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(64).cast::<crate::bindings::core_u_object::FQuat>().read()
+        }
+    }
+    pub fn get_quat_array_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+    ) -> TArray<crate::bindings::core_u_object::FQuat> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_QUAT_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_QUAT_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<TArray<crate::bindings::core_u_object::FQuat>>()
+                .read()
+        }
+    }
+    pub fn get_previous_parent(&self, in_key: &FRigElementKey) -> FRigElementKey {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_PARENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_PARENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FRigElementKey>().read() }
+    }
+    pub fn get_previous_name(&self, in_key: &FRigElementKey) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FName>().read() }
+    }
+    pub fn get_previous_hierarchy_parent(
+        &self,
+        in_key: &FRigHierarchyKey,
+    ) -> FRigHierarchyKey {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_PARENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_key,
+                __buffer.add(0).cast::<FRigHierarchyKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_PARENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(52).cast::<FRigHierarchyKey>().read() }
+    }
+    pub fn get_previous_hierarchy_name(&self, in_key: &FRigHierarchyKey) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_key,
+                __buffer.add(0).cast::<FRigHierarchyKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(52).cast::<FName>().read() }
+    }
+    pub fn get_pose(
+        &self,
+        b_initial: bool,
+        b_include_transient_controls: bool,
+    ) -> FRigPose {
+        let mut __stack = crate::core_data::StackAlloc::<120>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_POSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_initial, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_include_transient_controls,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_POSE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FRigPose>().read() }
+    }
+    pub fn get_parent_weight_array(
+        &self,
+        in_child: FRigElementKey,
+        b_initial: bool,
+    ) -> TArray<FRigElementWeight> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_WEIGHT_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_child,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_WEIGHT_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FRigElementWeight>>().read() }
+    }
+    pub fn get_parent_weight(
+        &self,
+        in_child: FRigElementKey,
+        in_parent: FRigElementKey,
+        b_initial: bool,
+    ) -> FRigElementWeight {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_WEIGHT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_child,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parent,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_WEIGHT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(36).cast::<FRigElementWeight>().read() }
+    }
+    pub fn get_parent_transform_by_index(
+        &self,
+        in_element_index: i32,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_initial, __buffer.add(4).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_parent_transform(
+        &self,
+        in_key: FRigElementKey,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_parents(
+        &self,
+        in_key: FRigElementKey,
+        b_recursive: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recursive,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_number_of_parents(&self, in_key: FRigElementKey) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NUMBER_OF_PARENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NUMBER_OF_PARENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<i32>().read() }
+    }
+    pub fn get_nulls(&self, b_traverse: bool) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NULL_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_traverse,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NULL_KEYS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_name_space_f_name(&self, in_item: FRigElementKey) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_SPACE_F_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_SPACE_F_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FName>().read() }
+    }
+    pub fn get_name_space(&self, in_item: FRigElementKey) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_SPACE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_name_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        default_value: FName,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<52>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_value,
+                __buffer.add(28).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<FName>().read() }
+    }
+    pub fn get_name_array_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+    ) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_module_prefix(&self, in_item: FRigElementKey) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_PREFIX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_PREFIX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_module_path_f_name(&self, in_item: FRigElementKey) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_PATH_F_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_PATH_F_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FName>().read() }
+    }
+    pub fn get_module_path(&self, in_item: FRigElementKey) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_module_name(&self, in_item: FRigElementKey) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_module_f_name(&self, in_item: FRigElementKey) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_F_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_F_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FName>().read() }
+    }
+    pub fn get_metadata_type(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+    ) -> ERigMetadataType {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_METADATA_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_METADATA_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<ERigMetadataType>().read() }
+    }
+    pub fn get_metadata_names(&self, in_item: FRigElementKey) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_METADATA_NAMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_METADATA_NAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_local_transform_by_index(
+        &self,
+        in_element_index: i32,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_initial, __buffer.add(4).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_local_transform(
+        &self,
+        in_key: FRigElementKey,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_local_index(&self, in_key: FRigElementKey) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_INDEX_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_INDEX_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<i32>().read() }
+    }
+    pub fn get_local_control_shape_transform_by_index(
+        &self,
+        in_element_index: i32,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_initial, __buffer.add(4).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_local_control_shape_transform(
+        &self,
+        in_key: FRigElementKey,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_linear_color_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        default_value: crate::bindings::core_u_object::FLinearColor,
+    ) -> crate::bindings::core_u_object::FLinearColor {
+        let mut __stack = crate::core_data::StackAlloc::<60>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LINEAR_COLOR_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_value,
+                __buffer.add(28).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LINEAR_COLOR_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(44)
+                .cast::<crate::bindings::core_u_object::FLinearColor>()
+                .read()
+        }
+    }
+    pub fn get_linear_color_array_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+    ) -> TArray<crate::bindings::core_u_object::FLinearColor> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LINEAR_COLOR_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LINEAR_COLOR_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<TArray<crate::bindings::core_u_object::FLinearColor>>()
+                .read()
+        }
+    }
+    pub fn get_keys(&self, in_element_indices: TArray<i32>) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_indices,
+                __buffer.add(0).cast::<TArray<i32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_KEYS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_key(&self, in_element_index: i32) -> FRigElementKey {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<FRigElementKey>().read() }
+    }
+    pub fn get_int_from_control_value(in_value: FRigControlValue) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<244>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INT_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<FRigControlValue>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INT_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(240).cast::<i32>().read() }
+    }
+    pub fn get_int32_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        default_value: i32,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INT32_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_value,
+                __buffer.add(28).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INT32_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<i32>().read() }
+    }
+    pub fn get_int32_array_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+    ) -> TArray<i32> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INT32_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INT32_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<TArray<i32>>().read() }
+    }
+    pub fn get_index(&self, in_key: FRigElementKey) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INDEX_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INDEX_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<i32>().read() }
+    }
+    pub fn get_global_transform_by_index(
+        &self,
+        in_element_index: i32,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_initial, __buffer.add(4).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_global_transform(
+        &self,
+        in_key: FRigElementKey,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_global_control_shape_transform_by_index(
+        &self,
+        in_element_index: i32,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_initial, __buffer.add(4).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_global_control_shape_transform(
+        &self,
+        in_key: FRigElementKey,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_global_control_offset_transform_by_index(
+        &self,
+        in_element_index: i32,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_initial, __buffer.add(4).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_global_control_offset_transform(
+        &self,
+        in_key: FRigElementKey,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_float_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        default_value: f32,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FLOAT_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_value,
+                __buffer.add(28).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FLOAT_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<f32>().read() }
+    }
+    pub fn get_float_from_control_value(in_value: FRigControlValue) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<244>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FLOAT_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<FRigControlValue>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FLOAT_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(240).cast::<f32>().read() }
+    }
+    pub fn get_float_array_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+    ) -> TArray<f32> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FLOAT_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FLOAT_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<TArray<f32>>().read() }
+    }
+    pub fn get_first_parent(&self, in_key: FRigElementKey) -> FRigElementKey {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FIRST_PARENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FIRST_PARENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FRigElementKey>().read() }
+    }
+    pub fn get_euler_transform_from_control_value(
+        in_value: FRigControlValue,
+    ) -> crate::bindings::animation_core::FEulerTransform {
+        let mut __stack = crate::core_data::StackAlloc::<312>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_EULER_TRANSFORM_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<FRigControlValue>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::control_rig::URigHierarchy::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_EULER_TRANSFORM_FROM_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(240)
+                .cast::<crate::bindings::animation_core::FEulerTransform>()
+                .read()
+        }
+    }
+    pub fn get_default_parent(&self, in_key: FRigElementKey) -> FRigElementKey {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_DEFAULT_PARENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_DEFAULT_PARENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FRigElementKey>().read() }
+    }
+    pub fn get_curve_value_by_index(&self, in_element_index: i32) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CURVE_VALUE_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CURVE_VALUE_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<f32>().read() }
+    }
+    pub fn get_curve_value(&self, in_key: FRigElementKey) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CURVE_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CURVE_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn get_curves(&self) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CURVE_KEYS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CURVE_KEYS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_control_value_by_index(
+        &self,
+        in_element_index: i32,
+        in_value_type: ERigControlValueType,
+    ) -> FRigControlValue {
+        let mut __stack = crate::core_data::StackAlloc::<256>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_VALUE_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value_type,
+                __buffer.add(4).cast::<ERigControlValueType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_VALUE_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FRigControlValue>().read() }
+    }
+    pub fn get_control_value(
+        &self,
+        in_key: FRigElementKey,
+        in_value_type: ERigControlValueType,
+    ) -> FRigControlValue {
+        let mut __stack = crate::core_data::StackAlloc::<272>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value_type,
+                __buffer.add(16).cast::<ERigControlValueType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FRigControlValue>().read() }
+    }
+    pub fn get_control_preferred_rotator_by_index(
+        &self,
+        in_element_index: i32,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FRotator {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_initial, __buffer.add(4).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<crate::bindings::core_u_object::FRotator>().read()
+        }
+    }
+    pub fn get_control_preferred_rotator(
+        &self,
+        in_key: FRigElementKey,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FRotator {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<crate::bindings::core_u_object::FRotator>().read()
+        }
+    }
+    pub fn get_control_preferred_euler_rotation_order_by_index(
+        &self,
+        in_element_index: i32,
+        b_from_settings: bool,
+    ) -> crate::bindings::animation_core::EEulerRotationOrder {
+        let mut __stack = crate::core_data::StackAlloc::<6>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_from_settings,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(5)
+                .cast::<crate::bindings::animation_core::EEulerRotationOrder>()
+                .read()
+        }
+    }
+    pub fn get_control_preferred_euler_rotation_order(
+        &self,
+        in_key: FRigElementKey,
+        b_from_settings: bool,
+    ) -> crate::bindings::animation_core::EEulerRotationOrder {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_from_settings,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(17)
+                .cast::<crate::bindings::animation_core::EEulerRotationOrder>()
+                .read()
+        }
+    }
+    pub fn get_control_preferred_euler_angles_by_index(
+        &self,
+        in_element_index: i32,
+        in_rotation_order: crate::bindings::animation_core::EEulerRotationOrder,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_rotation_order,
+                __buffer
+                    .add(4)
+                    .cast::<crate::bindings::animation_core::EEulerRotationOrder>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_initial, __buffer.add(5).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_control_preferred_euler_angles(
+        &self,
+        in_key: FRigElementKey,
+        in_rotation_order: crate::bindings::animation_core::EEulerRotationOrder,
+        b_initial: bool,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_rotation_order,
+                __buffer
+                    .add(16)
+                    .cast::<crate::bindings::animation_core::EEulerRotationOrder>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_controller(
+        &mut self,
+        b_create_if_needed: bool,
+    ) -> UPtr<URigHierarchyController> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_create_if_needed,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<URigHierarchyController>>().read() }
+    }
+    pub fn get_controls(&self, b_traverse: bool) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_traverse,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_KEYS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_connector_states(&self) -> TArray<FRigConnectorState> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONNECTOR_STATES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONNECTOR_STATES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FRigConnectorState>>().read() }
+    }
+    pub fn get_connectors(&self, b_traverse: bool) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONNECTOR_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_traverse,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONNECTOR_KEYS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_component_type(
+        &self,
+        in_element: FRigElementKey,
+        in_component_index: i32,
+    ) -> UPtr<crate::bindings::core_u_object::UScriptStruct> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_component_index,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>()
+                .read()
+        }
+    }
+    pub fn get_component_name(
+        &self,
+        in_element: FRigElementKey,
+        in_component_index: i32,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_component_index,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<FName>().read() }
+    }
+    pub fn get_component_keys(
+        &self,
+        in_element: FRigElementKey,
+    ) -> TArray<FRigComponentKey> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_KEYS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<FRigComponentKey>>().read() }
+    }
+    pub fn get_component_key(
+        &self,
+        in_element: FRigElementKey,
+        in_component_index: i32,
+    ) -> FRigComponentKey {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_component_index,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<FRigComponentKey>().read() }
+    }
+    pub fn get_component_content(
+        &self,
+        in_element: FRigElementKey,
+        in_component_index: i32,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_CONTENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_component_index,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_CONTENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FString>().read() }
+    }
+    pub fn get_children(
+        &self,
+        in_key: FRigElementKey,
+        b_recursive: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CHILDREN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recursive,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CHILDREN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_bool_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+        default_value: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<30>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_BOOL_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_value,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_BOOL_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(29).cast::<bool>().read() }
+    }
+    pub fn get_bool_array_metadata(
+        &self,
+        in_item: FRigElementKey,
+        in_metadata_name: FName,
+    ) -> TArray<bool> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_BOOL_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_metadata_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_BOOL_ARRAY_METADATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<TArray<bool>>().read() }
+    }
+    pub fn get_bones(&self, b_traverse: bool) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_BONE_KEYS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_traverse,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_BONE_KEYS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_all_keys(&self, b_traverse: bool) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ALL_KEYS_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_traverse,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ALL_KEYS_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_all_component_keys(&self) -> TArray<FRigComponentKey> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ALL_COMPONENT_KEYS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ALL_COMPONENT_KEYS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FRigComponentKey>>().read() }
+    }
+    pub fn find_null(&self, in_key: &FRigElementKey) -> FRigNullElement {
+        let mut __stack = crate::core_data::StackAlloc::<576>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_FIND_NULL_FOR_BLUEPRINT_ONLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_FIND_NULL_FOR_BLUEPRINT_ONLY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FRigNullElement>().read() }
+    }
+    pub fn find_control(&self, in_key: &FRigElementKey) -> FRigControlElement {
+        let mut __stack = crate::core_data::StackAlloc::<1664>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_FIND_CONTROL_FOR_BLUEPRINT_ONLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_FIND_CONTROL_FOR_BLUEPRINT_ONLY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FRigControlElement>().read() }
+    }
+    pub fn find_bone(&self, in_key: &FRigElementKey) -> FRigBoneElement {
+        let mut __stack = crate::core_data::StackAlloc::<320>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_FIND_BONE_FOR_BLUEPRINT_ONLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_FIND_BONE_FOR_BLUEPRINT_ONLY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FRigBoneElement>().read() }
+    }
+    pub fn copy_pose(
+        &mut self,
+        in_hierarchy: UPtr<URigHierarchy>,
+        b_current: bool,
+        b_initial: bool,
+        b_weights: bool,
+        b_match_pose_in_global_if_needed: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_COPY_POSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_hierarchy,
+                __buffer.add(0).cast::<UPtr<URigHierarchy>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_current, __buffer.add(8).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_initial, __buffer.add(9).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_weights,
+                __buffer.add(10).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_match_pose_in_global_if_needed,
+                __buffer.add(11).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_COPY_POSE,
+                __buffer,
+            )
+        };
+    }
+    pub fn copy_hierarchy(&mut self, in_hierarchy: UPtr<URigHierarchy>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_COPY_HIERARCHY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_hierarchy,
+                __buffer.add(0).cast::<UPtr<URigHierarchy>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_COPY_HIERARCHY,
+                __buffer,
+            )
+        };
+    }
+    pub fn contains(&self, in_key: FRigElementKey) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTAINS_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTAINS_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
 }
 pub struct IRigHierarchyProvider {}
 #[repr(C, align(8))]
@@ -9137,6 +21461,3063 @@ impl URigHierarchyController {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_selection(
+        &mut self,
+        in_keys: &TArray<FRigElementKey>,
+        b_print_python_command: bool,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_keys,
+                __buffer.add(0).cast::<TArray<FRigElementKey>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn set_parent(
+        &mut self,
+        in_child: FRigElementKey,
+        in_parent: FRigElementKey,
+        b_maintain_global_transform: bool,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_PARENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_child,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parent,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_maintain_global_transform,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(34).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_PARENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(35).cast::<bool>().read() }
+    }
+    pub fn set_hierarchy_selection(
+        &mut self,
+        in_keys: &TArray<FRigHierarchyKey>,
+        b_print_python_command: bool,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_keys,
+                __buffer.add(0).cast::<TArray<FRigHierarchyKey>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn set_hierarchy(&mut self, in_hierarchy: UPtr<URigHierarchy>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_hierarchy,
+                __buffer.add(0).cast::<UPtr<URigHierarchy>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_display_name(
+        &mut self,
+        in_control: FRigElementKey,
+        in_display_name: FName,
+        b_rename_element: bool,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_control,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_display_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_rename_element,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(29).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(30).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FName>().read() }
+    }
+    pub fn set_control_settings(
+        &self,
+        in_key: FRigElementKey,
+        in_settings: FRigControlSettings,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<786>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_CONTROL_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(16).cast::<FRigControlSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(784).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_CONTROL_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(785).cast::<bool>().read() }
+    }
+    pub fn set_component_selection(
+        &mut self,
+        in_keys: &TArray<FRigComponentKey>,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_keys,
+                __buffer.add(0).cast::<TArray<FRigComponentKey>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn set_component_content(
+        &mut self,
+        in_component: FRigComponentKey,
+        in_content: FString,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<51>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_CONTENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_component,
+                __buffer.add(0).cast::<FRigComponentKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_content,
+                __buffer.add(32).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(49).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_CONTENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(50).cast::<bool>().read() }
+    }
+    pub fn set_available_space_label(
+        &mut self,
+        in_control: FRigElementKey,
+        in_space: FRigElementKey,
+        in_display_label: FName,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<47>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_LABEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_control,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_space,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_display_label,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(44).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(45).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_LABEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(46).cast::<bool>().read() }
+    }
+    pub fn set_available_space_index(
+        &mut self,
+        in_control: FRigElementKey,
+        in_space: FRigElementKey,
+        in_index: i32,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<39>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_control,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_space,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_index, __buffer.add(32).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(36).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(37).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(38).cast::<bool>().read() }
+    }
+    pub fn select_hierarchy_key(
+        &mut self,
+        in_key: FRigHierarchyKey,
+        b_select: bool,
+        b_clear_selection: bool,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SELECT_HIERARCHY_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigHierarchyKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_select, __buffer.add(52).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_clear_selection,
+                __buffer.add(53).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(54).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SELECT_HIERARCHY_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(55).cast::<bool>().read() }
+    }
+    pub fn select_element(
+        &mut self,
+        in_key: FRigElementKey,
+        b_select: bool,
+        b_clear_selection: bool,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_select, __buffer.add(16).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_clear_selection,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(18).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(19).cast::<bool>().read() }
+    }
+    pub fn select_component(
+        &mut self,
+        in_key: FRigComponentKey,
+        b_select: bool,
+        b_clear_selection: bool,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SELECT_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigComponentKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_select, __buffer.add(28).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_clear_selection,
+                __buffer.add(29).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(30).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SELECT_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(31).cast::<bool>().read() }
+    }
+    pub fn reparent_component(
+        &mut self,
+        in_component_key: FRigComponentKey,
+        in_parent_element_key: FRigElementKey,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+        b_clear_selection: bool,
+    ) -> FRigComponentKey {
+        let mut __stack = crate::core_data::StackAlloc::<76>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REPARENT_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_component_key,
+                __buffer.add(0).cast::<FRigComponentKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parent_element_key,
+                __buffer.add(28).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(44).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(45).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_clear_selection,
+                __buffer.add(46).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REPARENT_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<FRigComponentKey>().read() }
+    }
+    pub fn reorder_element(
+        &mut self,
+        in_element: FRigElementKey,
+        in_index: i32,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<23>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REORDER_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_index, __buffer.add(16).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REORDER_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(22).cast::<bool>().read() }
+    }
+    pub fn rename_element(
+        &mut self,
+        in_element: FRigElementKey,
+        in_name: FName,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+        b_clear_selection: bool,
+    ) -> FRigElementKey {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_RENAME_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(16).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(29).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_clear_selection,
+                __buffer.add(30).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_RENAME_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FRigElementKey>().read() }
+    }
+    pub fn rename_component(
+        &mut self,
+        in_component: FRigComponentKey,
+        in_name: FName,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+        b_clear_selection: bool,
+    ) -> FRigComponentKey {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_RENAME_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_component,
+                __buffer.add(0).cast::<FRigComponentKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(28).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(40).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(41).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_clear_selection,
+                __buffer.add(42).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_RENAME_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(44).cast::<FRigComponentKey>().read() }
+    }
+    pub fn remove_parent(
+        &mut self,
+        in_child: FRigElementKey,
+        in_parent: FRigElementKey,
+        b_maintain_global_transform: bool,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_PARENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_child,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parent,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_maintain_global_transform,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(34).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_PARENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(35).cast::<bool>().read() }
+    }
+    pub fn remove_element(
+        &mut self,
+        in_element: FRigElementKey,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn remove_component(
+        &mut self,
+        in_component: FRigComponentKey,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<31>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_component,
+                __buffer.add(0).cast::<FRigComponentKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(29).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(30).cast::<bool>().read() }
+    }
+    pub fn remove_channel_host(
+        &mut self,
+        in_channel: FRigElementKey,
+        in_host: FRigElementKey,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_CHANNEL_HOST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_channel,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_host,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_CHANNEL_HOST,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn remove_available_space(
+        &mut self,
+        in_control: FRigElementKey,
+        in_space: FRigElementKey,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_AVAILABLE_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_control,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_space,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_AVAILABLE_SPACE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn remove_all_parents(
+        &mut self,
+        in_child: FRigElementKey,
+        b_maintain_global_transform: bool,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_ALL_PARENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_child,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_maintain_global_transform,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(18).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_ALL_PARENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(19).cast::<bool>().read() }
+    }
+    pub fn mirror_elements(
+        &mut self,
+        in_keys: TArray<FRigElementKey>,
+        in_settings: crate::bindings::rig_vm::FRigVMMirrorSettings,
+        b_select_new_elements: bool,
+        b_setup_undo: bool,
+        b_print_python_commands: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_MIRROR_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_keys,
+                __buffer.add(0).cast::<TArray<FRigElementKey>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(16).cast::<crate::bindings::rig_vm::FRigVMMirrorSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_select_new_elements,
+                __buffer.add(56).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(57).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_commands,
+                __buffer.add(58).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_MIRROR_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn import_sockets_from_skeletal_mesh(
+        &mut self,
+        in_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+        in_name_space: &FName,
+        b_replace_existing_sockets: bool,
+        b_remove_obsolete_sockets: bool,
+        b_select_sockets: bool,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_SOCKETS_FROM_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_skeletal_mesh,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_name_space,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_replace_existing_sockets,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_remove_obsolete_sockets,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_select_sockets,
+                __buffer.add(22).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(23).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_SOCKETS_FROM_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn import_preview_skeletal_mesh(
+        &mut self,
+        in_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+        b_replace_existing_bones: bool,
+        b_remove_obsolete_bones: bool,
+        b_select_bones: bool,
+        b_setup_undo: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_PREVIEW_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_skeletal_mesh,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_replace_existing_bones,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_remove_obsolete_bones,
+                __buffer.add(9).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_select_bones,
+                __buffer.add(10).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(11).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_PREVIEW_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn import_from_text(
+        &mut self,
+        in_content: FString,
+        b_replace_existing_elements: bool,
+        b_select_new_elements: bool,
+        b_setup_undo: bool,
+        b_print_python_commands: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_FROM_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_content,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_replace_existing_elements,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_select_new_elements,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(18).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_commands,
+                __buffer.add(19).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_FROM_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn import_curves_from_skeletal_mesh(
+        &mut self,
+        in_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+        in_name_space: FName,
+        b_select_curves: bool,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_skeletal_mesh,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_name_space,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_select_curves,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(22).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn import_curves_from_asset(
+        &mut self,
+        in_asset_path: FString,
+        in_name_space: FName,
+        b_select_curves: bool,
+        b_setup_undo: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_asset_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_name_space,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_select_curves,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(29).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn import_curves(
+        &mut self,
+        in_skeleton: UPtr<crate::bindings::engine::USkeleton>,
+        in_name_space: FName,
+        b_select_curves: bool,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_skeleton,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeleton>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_name_space,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_select_curves,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(22).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn import_bones_from_skeletal_mesh(
+        &mut self,
+        in_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+        in_name_space: &FName,
+        b_replace_existing_bones: bool,
+        b_remove_obsolete_bones: bool,
+        b_select_bones: bool,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_skeletal_mesh,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_name_space,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_replace_existing_bones,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_remove_obsolete_bones,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_select_bones,
+                __buffer.add(22).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(23).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn import_bones_from_asset(
+        &mut self,
+        in_asset_path: FString,
+        in_name_space: FName,
+        b_replace_existing_bones: bool,
+        b_remove_obsolete_bones: bool,
+        b_select_bones: bool,
+        b_setup_undo: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_asset_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_name_space,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_replace_existing_bones,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_remove_obsolete_bones,
+                __buffer.add(29).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_select_bones,
+                __buffer.add(30).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(31).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn import_bones(
+        &mut self,
+        in_skeleton: UPtr<crate::bindings::engine::USkeleton>,
+        in_name_space: FName,
+        b_replace_existing_bones: bool,
+        b_remove_obsolete_bones: bool,
+        b_select_bones: bool,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_skeleton,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeleton>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_name_space,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_replace_existing_bones,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_remove_obsolete_bones,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_select_bones,
+                __buffer.add(22).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(23).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn get_hierarchy(&self) -> UPtr<URigHierarchy> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_GET_HIERARCHY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_GET_HIERARCHY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigHierarchy>>().read() }
+    }
+    pub fn get_control_settings(&self, in_key: FRigElementKey) -> FRigControlSettings {
+        let mut __stack = crate::core_data::StackAlloc::<784>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_GET_CONTROL_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_GET_CONTROL_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FRigControlSettings>().read() }
+    }
+    pub fn generate_python_commands(&mut self) -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_GENERATE_PYTHON_COMMANDS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_GENERATE_PYTHON_COMMANDS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FString>>().read() }
+    }
+    pub fn export_to_text(&self, in_keys: TArray<FRigElementKey>) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_EXPORT_TO_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_keys,
+                __buffer.add(0).cast::<TArray<FRigElementKey>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_EXPORT_TO_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn export_selection_to_text(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_EXPORT_SELECTION_TO_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_EXPORT_SELECTION_TO_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn duplicate_elements(
+        &mut self,
+        in_keys: TArray<FRigElementKey>,
+        b_select_new_elements: bool,
+        b_setup_undo: bool,
+        b_print_python_commands: bool,
+    ) -> TArray<FRigElementKey> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DUPLICATE_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_keys,
+                __buffer.add(0).cast::<TArray<FRigElementKey>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_select_new_elements,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_commands,
+                __buffer.add(18).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DUPLICATE_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
+    }
+    pub fn deselect_hierarchy_key(
+        &mut self,
+        in_key: FRigHierarchyKey,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<54>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DESELECT_HIERARCHY_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigHierarchyKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(52).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DESELECT_HIERARCHY_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(53).cast::<bool>().read() }
+    }
+    pub fn deselect_element(&mut self, in_key: FRigElementKey) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DESELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DESELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn deselect_component(&mut self, in_key: FRigComponentKey) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DESELECT_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_key,
+                __buffer.add(0).cast::<FRigComponentKey>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DESELECT_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn clear_selection(&mut self, b_setup_undo: bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_CLEAR_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_CLEAR_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn add_socket(
+        &mut self,
+        in_name: FName,
+        in_parent: FRigElementKey,
+        in_transform: crate::bindings::core_u_object::FTransform,
+        b_transform_in_global: bool,
+        in_color: &crate::bindings::core_u_object::FLinearColor,
+        in_description: FString,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> FRigElementKey {
+        let mut __stack = crate::core_data::StackAlloc::<188>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_SOCKET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parent,
+                __buffer.add(12).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_transform,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_transform_in_global,
+                __buffer.add(128).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_color,
+                __buffer.add(132).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_description,
+                __buffer.add(152).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(168).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(169).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_SOCKET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(172).cast::<FRigElementKey>().read() }
+    }
+    pub fn add_parent(
+        &mut self,
+        in_child: FRigElementKey,
+        in_parent: FRigElementKey,
+        in_weight: f32,
+        b_maintain_global_transform: bool,
+        in_display_label: FName,
+        b_setup_undo: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<54>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_PARENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_child,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parent,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_weight, __buffer.add(32).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_maintain_global_transform,
+                __buffer.add(36).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_display_label,
+                __buffer.add(40).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(52).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_PARENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(53).cast::<bool>().read() }
+    }
+    pub fn add_null(
+        &mut self,
+        in_name: FName,
+        in_parent: FRigElementKey,
+        in_transform: crate::bindings::core_u_object::FTransform,
+        b_transform_in_global: bool,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> FRigElementKey {
+        let mut __stack = crate::core_data::StackAlloc::<148>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_NULL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parent,
+                __buffer.add(12).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_transform,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_transform_in_global,
+                __buffer.add(128).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(129).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(130).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_NULL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(132).cast::<FRigElementKey>().read() }
+    }
+    pub fn add_curve(
+        &mut self,
+        in_name: FName,
+        in_value: f32,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> FRigElementKey {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CURVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(12).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CURVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<FRigElementKey>().read() }
+    }
+    pub fn add_control(
+        &mut self,
+        in_name: FName,
+        in_parent: FRigElementKey,
+        in_settings: FRigControlSettings,
+        in_value: FRigControlValue,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> FRigElementKey {
+        let mut __stack = crate::core_data::StackAlloc::<1060>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CONTROL_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parent,
+                __buffer.add(12).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(32).cast::<FRigControlSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(800).cast::<FRigControlValue>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(1040).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(1041).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CONTROL_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1044).cast::<FRigElementKey>().read() }
+    }
+    pub fn add_connector(
+        &mut self,
+        in_name: FName,
+        in_settings: FRigConnectorSettings,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> FRigElementKey {
+        let mut __stack = crate::core_data::StackAlloc::<76>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CONNECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(16).cast::<FRigConnectorSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(56).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(57).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CONNECTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(60).cast::<FRigElementKey>().read() }
+    }
+    pub fn add_component(
+        &mut self,
+        in_component_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+        in_name: FName,
+        in_element: FRigElementKey,
+        in_content: FString,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> FRigComponentKey {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_component_struct,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(8).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_element,
+                __buffer.add(20).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_content,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(56).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(57).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(60).cast::<FRigComponentKey>().read() }
+    }
+    pub fn add_channel_host(
+        &mut self,
+        in_channel: FRigElementKey,
+        in_host: FRigElementKey,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CHANNEL_HOST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_channel,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_host,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CHANNEL_HOST,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(34).cast::<bool>().read() }
+    }
+    pub fn add_bone(
+        &mut self,
+        in_name: FName,
+        in_parent: FRigElementKey,
+        in_transform: crate::bindings::core_u_object::FTransform,
+        b_transform_in_global: bool,
+        in_bone_type: ERigBoneType,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> FRigElementKey {
+        let mut __stack = crate::core_data::StackAlloc::<148>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_BONE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parent,
+                __buffer.add(12).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_transform,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_transform_in_global,
+                __buffer.add(128).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_bone_type,
+                __buffer.add(129).cast::<ERigBoneType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(130).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(131).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_BONE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(132).cast::<FRigElementKey>().read() }
+    }
+    pub fn add_available_space(
+        &mut self,
+        in_control: FRigElementKey,
+        in_space: FRigElementKey,
+        in_display_label: FName,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<47>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_AVAILABLE_SPACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_control,
+                __buffer.add(0).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_space,
+                __buffer.add(16).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_display_label,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(44).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(45).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_AVAILABLE_SPACE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(46).cast::<bool>().read() }
+    }
+    pub fn add_animation_channel(
+        &mut self,
+        in_name: FName,
+        in_parent_control: FRigElementKey,
+        in_settings: FRigControlSettings,
+        b_setup_undo: bool,
+        b_print_python_command: bool,
+    ) -> FRigElementKey {
+        let mut __stack = crate::core_data::StackAlloc::<820>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_ANIMATION_CHANNEL_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parent_control,
+                __buffer.add(12).cast::<FRigElementKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(32).cast::<FRigControlSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_setup_undo,
+                __buffer.add(800).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_print_python_command,
+                __buffer.add(801).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_ANIMATION_CHANNEL_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(804).cast::<FRigElementKey>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -9288,6 +24669,314 @@ impl UControlRigPoseAsset {
             cdo
         }
     }
+    pub fn set_up_mirror_match_table(&mut self, in_control_rig: UPtr<UControlRig>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_SET_UP_MIRROR_MATCH_TABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_control_rig,
+                __buffer.add(0).cast::<UPtr<UControlRig>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_SET_UP_MIRROR_MATCH_TABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn select_controls(
+        &mut self,
+        in_control_rig: UPtr<UControlRig>,
+        b_do_mirror: bool,
+        b_clear_selection: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<10>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_SELECT_CONTROLS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_control_rig,
+                __buffer.add(0).cast::<UPtr<UControlRig>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_do_mirror,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_clear_selection,
+                __buffer.add(9).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_SELECT_CONTROLS,
+                __buffer,
+            )
+        };
+    }
+    pub fn save_pose(&mut self, in_control_rig: UPtr<UControlRig>, b_use_all: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_SAVE_POSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_control_rig,
+                __buffer.add(0).cast::<UPtr<UControlRig>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_use_all, __buffer.add(8).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_SAVE_POSE,
+                __buffer,
+            )
+        };
+    }
+    pub fn replace_control_name(&mut self, current_name: &FName, new_name: &FName) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_REPLACE_CONTROL_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                current_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(new_name, __buffer.add(12).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_REPLACE_CONTROL_NAME,
+                __buffer,
+            )
+        };
+    }
+    pub fn paste_pose(
+        &mut self,
+        in_control_rig: UPtr<UControlRig>,
+        b_do_key: bool,
+        b_do_mirror: bool,
+        b_do_additive: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<11>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_PASTE_POSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_control_rig,
+                __buffer.add(0).cast::<UPtr<UControlRig>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_do_key, __buffer.add(8).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_do_mirror,
+                __buffer.add(9).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_do_additive,
+                __buffer.add(10).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_PASTE_POSE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_current_pose(
+        &mut self,
+        in_control_rig: UPtr<UControlRig>,
+        out_pose: &mut FControlRigControlPose,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_GET_CURRENT_POSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_control_rig,
+                __buffer.add(0).cast::<UPtr<UControlRig>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_pose,
+                __buffer.add(8).cast::<FControlRigControlPose>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_GET_CURRENT_POSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<FControlRigControlPose>().swap(out_pose);
+        }
+    }
+    pub fn get_control_names(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_GET_CONTROL_NAMES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_GET_CONTROL_NAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn does_mirror_match(
+        &mut self,
+        control_rig: UPtr<UControlRig>,
+        control_name: &FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_DOES_MIRROR_MATCH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &control_rig,
+                __buffer.add(0).cast::<UPtr<UControlRig>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                control_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_DOES_MIRROR_MATCH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UControlRigPoseMirrorSettings {
@@ -9360,13 +25049,36 @@ impl UControlRigWorkflowOptions {
             cdo
         }
     }
+    pub fn ensure_at_least_one_rig_element_selected(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::U_CONTROL_RIG_WORKFLOW_OPTIONS_ENSURE_AT_LEAST_ONE_RIG_ELEMENT_SELECTED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::U_CONTROL_RIG_WORKFLOW_OPTIONS_ENSURE_AT_LEAST_ONE_RIG_ELEMENT_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UControlRigTransformWorkflowOptions {
     #[doc(hidden)]
     __padding_216: [u8; 216],
     pub transform_type: ERigTransformType,
-    __padding_end: [u8; 7],
 }
 impl UControlRigTransformWorkflowOptions {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

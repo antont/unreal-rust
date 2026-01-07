@@ -154,6 +154,47 @@ impl UMetaSoundPresetWidgetInterface {
             cdo
         }
     }
+    pub fn on_audition_state_changed(
+        &mut self,
+        audio_component: UPtr<crate::bindings::engine::UAudioComponent>,
+        b_is_auditioning: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_editor::U_META_SOUND_PRESET_WIDGET_INTERFACE_ON_AUDITION_STATE_CHANGED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &audio_component,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UAudioComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_auditioning,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_editor::U_META_SOUND_PRESET_WIDGET_INTERFACE_ON_AUDITION_STATE_CHANGED,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UAssetDefinition_MetaSoundPatch {
@@ -279,6 +320,29 @@ impl UMetaSoundEditorBuilderListener {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn remove_all_delegates(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_BUILDER_LISTENER_REMOVE_ALL_DELEGATES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_BUILDER_LISTENER_REMOVE_ALL_DELEGATES,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -848,6 +912,441 @@ impl UMetaSoundEditorSubsystem {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_node_location(
+        &mut self,
+        in_builder: UPtr<crate::bindings::metasound_engine::UMetaSoundBuilderBase>,
+        in_node: &crate::bindings::metasound_engine::FMetaSoundNodeHandle,
+        in_location: &crate::bindings::core_u_object::FVector2D,
+        out_result: &mut crate::bindings::metasound_engine::EMetaSoundBuilderResult,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_SET_NODE_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_builder,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::metasound_engine::UMetaSoundBuilderBase>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_node,
+                __buffer
+                    .add(8)
+                    .cast::<crate::bindings::metasound_engine::FMetaSoundNodeHandle>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_location,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_result,
+                __buffer
+                    .add(40)
+                    .cast::<
+                        crate::bindings::metasound_engine::EMetaSoundBuilderResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_SET_NODE_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(40)
+                .cast::<crate::bindings::metasound_engine::EMetaSoundBuilderResult>()
+                .swap(out_result);
+        }
+    }
+    pub fn set_focused_page(
+        &self,
+        builder: UPtr<crate::bindings::metasound_engine::UMetaSoundBuilderBase>,
+        page_name: FName,
+        b_open_editor: bool,
+        out_result: &mut crate::bindings::metasound_engine::EMetaSoundBuilderResult,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<22>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_SET_FOCUSED_PAGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &builder,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::metasound_engine::UMetaSoundBuilderBase>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &page_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_open_editor,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_result,
+                __buffer
+                    .add(21)
+                    .cast::<
+                        crate::bindings::metasound_engine::EMetaSoundBuilderResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_SET_FOCUSED_PAGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(21)
+                .cast::<crate::bindings::metasound_engine::EMetaSoundBuilderResult>()
+                .swap(out_result);
+        }
+    }
+    pub fn find_or_create_graph_input_metadata(
+        &mut self,
+        in_builder: UPtr<crate::bindings::metasound_engine::UMetaSoundBuilderBase>,
+        input_name: FName,
+        out_result: &mut crate::bindings::metasound_engine::EMetaSoundBuilderResult,
+    ) -> UPtr<crate::bindings::metasound_frontend::UMetaSoundFrontendMemberMetadata> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_FIND_OR_CREATE_GRAPH_INPUT_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_builder,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::metasound_engine::UMetaSoundBuilderBase>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_result,
+                __buffer
+                    .add(20)
+                    .cast::<
+                        crate::bindings::metasound_engine::EMetaSoundBuilderResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_FIND_OR_CREATE_GRAPH_INPUT_METADATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(20)
+                .cast::<crate::bindings::metasound_engine::EMetaSoundBuilderResult>()
+                .swap(out_result);
+        }
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<
+                    UPtr<
+                        crate::bindings::metasound_frontend::UMetaSoundFrontendMemberMetadata,
+                    >,
+                >()
+                .read()
+        }
+    }
+    pub fn find_or_begin_building(
+        &self,
+        meta_sound: TScriptInterface<
+            crate::bindings::metasound_frontend::UMetaSoundDocumentInterface,
+        >,
+        out_result: &mut crate::bindings::metasound_engine::EMetaSoundBuilderResult,
+    ) -> UPtr<crate::bindings::metasound_engine::UMetaSoundBuilderBase> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_FIND_OR_BEGIN_BUILDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &meta_sound,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TScriptInterface<
+                            crate::bindings::metasound_frontend::UMetaSoundDocumentInterface,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_result,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::metasound_engine::EMetaSoundBuilderResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_FIND_OR_BEGIN_BUILDING,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::metasound_engine::EMetaSoundBuilderResult>()
+                .swap(out_result);
+        }
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<UPtr<crate::bindings::metasound_engine::UMetaSoundBuilderBase>>()
+                .read()
+        }
+    }
+    pub fn build_to_asset(
+        &mut self,
+        in_builder: UPtr<crate::bindings::metasound_engine::UMetaSoundBuilderBase>,
+        author: FString,
+        asset_name: FString,
+        package_path: FString,
+        out_result: &mut crate::bindings::metasound_engine::EMetaSoundBuilderResult,
+        template_sound_wave: UPtr<crate::bindings::engine::USoundWave>,
+    ) -> TScriptInterface<
+        crate::bindings::metasound_frontend::UMetaSoundDocumentInterface,
+    > {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_BUILD_TO_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_builder,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::metasound_engine::UMetaSoundBuilderBase>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&author, __buffer.add(8).cast::<FString>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_name,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &package_path,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_result,
+                __buffer
+                    .add(56)
+                    .cast::<
+                        crate::bindings::metasound_engine::EMetaSoundBuilderResult,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &template_sound_wave,
+                __buffer.add(64).cast::<UPtr<crate::bindings::engine::USoundWave>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_BUILD_TO_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(56)
+                .cast::<crate::bindings::metasound_engine::EMetaSoundBuilderResult>()
+                .swap(out_result);
+        }
+        unsafe {
+            __buffer
+                .add(72)
+                .cast::<
+                    TScriptInterface<
+                        crate::bindings::metasound_frontend::UMetaSoundDocumentInterface,
+                    >,
+                >()
+                .read()
+        }
+    }
+    pub fn add_builder_delegate_listener(
+        &mut self,
+        in_builder: UPtr<crate::bindings::metasound_engine::UMetaSoundBuilderBase>,
+        out_result: &mut crate::bindings::metasound_engine::EMetaSoundBuilderResult,
+    ) -> UPtr<UMetaSoundEditorBuilderListener> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_ADD_BUILDER_DELEGATE_LISTENER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_builder,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::metasound_engine::UMetaSoundBuilderBase>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_result,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        crate::bindings::metasound_engine::EMetaSoundBuilderResult,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_ADD_BUILDER_DELEGATE_LISTENER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<crate::bindings::metasound_engine::EMetaSoundBuilderResult>()
+                .swap(out_result);
+        }
+        unsafe {
+            __buffer.add(16).cast::<UPtr<UMetaSoundEditorBuilderListener>>().read()
         }
     }
 }

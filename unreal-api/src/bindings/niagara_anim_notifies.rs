@@ -66,7 +66,6 @@ pub struct UAnimNotifyState_TimedNiagaraEffect {
     __padding_152: [u8; 24],
     pub b_apply_rate_scale_as_time_dilation: bool,
     pub b_destroy_at_end: bool,
-    __padding_end: [u8; 6],
 }
 impl UAnimNotifyState_TimedNiagaraEffect {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -82,6 +81,45 @@ impl UAnimNotifyState_TimedNiagaraEffect {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn get_spawned_effect(
+        &self,
+        mesh_comp: UPtr<crate::bindings::engine::UMeshComponent>,
+    ) -> UPtr<crate::bindings::engine::UFXSystemComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_anim_notifies::U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_GET_SPAWNED_EFFECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh_comp,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UMeshComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_anim_notifies::U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_GET_SPAWNED_EFFECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::engine::UFXSystemComponent>>()
+                .read()
         }
     }
 }
@@ -107,6 +145,40 @@ impl UAnimNotifyState_TimedNiagaraEffectAdvanced {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_notify_progress(
+        &self,
+        mesh_comp: UPtr<crate::bindings::engine::UMeshComponent>,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_anim_notifies::U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_ADVANCED_GET_NOTIFY_PROGRESS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh_comp,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UMeshComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_anim_notifies::U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_ADVANCED_GET_NOTIFY_PROGRESS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<f32>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -135,6 +207,37 @@ impl UAnimNotify_PlayNiagaraEffect {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn get_spawned_effect(
+        &self,
+    ) -> UPtr<crate::bindings::engine::UFXSystemComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_anim_notifies::U_ANIM_NOTIFY_PLAY_NIAGARA_EFFECT_GET_SPAWNED_EFFECT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_anim_notifies::U_ANIM_NOTIFY_PLAY_NIAGARA_EFFECT_GET_SPAWNED_EFFECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UFXSystemComponent>>()
+                .read()
         }
     }
 }

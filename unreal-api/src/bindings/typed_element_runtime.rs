@@ -487,6 +487,273 @@ impl UTypedElementSelectionSetLibrary {
             cdo
         }
     }
+    pub fn set_selection_from_list(
+        selection_set: UPtr<UTypedElementSelectionSet>,
+        element_list: crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+        selection_options: FTypedElementSelectionOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<45>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_SET_SELECTION_FROM_LIST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &selection_set,
+                __buffer.add(0).cast::<UPtr<UTypedElementSelectionSet>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &selection_options,
+                __buffer.add(24).cast::<FTypedElementSelectionOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_runtime::UTypedElementSelectionSetLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_SET_SELECTION_FROM_LIST,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(44).cast::<bool>().read() }
+    }
+    pub fn select_elements_from_list(
+        selection_set: UPtr<UTypedElementSelectionSet>,
+        element_list: crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+        selection_options: FTypedElementSelectionOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<45>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_SELECT_ELEMENTS_FROM_LIST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &selection_set,
+                __buffer.add(0).cast::<UPtr<UTypedElementSelectionSet>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &selection_options,
+                __buffer.add(24).cast::<FTypedElementSelectionOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_runtime::UTypedElementSelectionSetLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_SELECT_ELEMENTS_FROM_LIST,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(44).cast::<bool>().read() }
+    }
+    pub fn get_normalized_selection(
+        selection_set: UPtr<UTypedElementSelectionSet>,
+        normalization_options: FTypedElementSelectionNormalizationOptions,
+    ) -> crate::bindings::typed_element_framework::FScriptTypedElementListProxy {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_GET_NORMALIZED_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &selection_set,
+                __buffer.add(0).cast::<UPtr<UTypedElementSelectionSet>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &normalization_options,
+                __buffer.add(8).cast::<FTypedElementSelectionNormalizationOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_runtime::UTypedElementSelectionSetLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_GET_NORMALIZED_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<
+                    crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+                >()
+                .read()
+        }
+    }
+    pub fn get_normalized_element_list(
+        selection_set: UPtr<UTypedElementSelectionSet>,
+        element_list: crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+        normalization_options: FTypedElementSelectionNormalizationOptions,
+    ) -> crate::bindings::typed_element_framework::FScriptTypedElementListProxy {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_GET_NORMALIZED_ELEMENT_LIST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &selection_set,
+                __buffer.add(0).cast::<UPtr<UTypedElementSelectionSet>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &normalization_options,
+                __buffer.add(24).cast::<FTypedElementSelectionNormalizationOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_runtime::UTypedElementSelectionSetLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_GET_NORMALIZED_ELEMENT_LIST,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(40)
+                .cast::<
+                    crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+                >()
+                .read()
+        }
+    }
+    pub fn deselect_elements_from_list(
+        selection_set: UPtr<UTypedElementSelectionSet>,
+        element_list: crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+        selection_options: FTypedElementSelectionOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<45>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_DESELECT_ELEMENTS_FROM_LIST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &selection_set,
+                __buffer.add(0).cast::<UPtr<UTypedElementSelectionSet>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &selection_options,
+                __buffer.add(24).cast::<FTypedElementSelectionOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_runtime::UTypedElementSelectionSetLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_DESELECT_ELEMENTS_FROM_LIST,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(44).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UTypedElementSelectionSet {
@@ -508,6 +775,904 @@ impl UTypedElementSelectionSet {
             cdo
         }
     }
+    pub fn set_selection(
+        &mut self,
+        in_element_handles: &TArray<
+            crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        >,
+        in_selection_options: FTypedElementSelectionOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<37>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_SET_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handles,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TArray<
+                            crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selection_options,
+                __buffer.add(16).cast::<FTypedElementSelectionOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_SET_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(36).cast::<bool>().read() }
+    }
+    pub fn select_elements(
+        &mut self,
+        in_element_handles: &TArray<
+            crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        >,
+        in_selection_options: FTypedElementSelectionOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<37>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_SELECT_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handles,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TArray<
+                            crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selection_options,
+                __buffer.add(16).cast::<FTypedElementSelectionOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_SELECT_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(36).cast::<bool>().read() }
+    }
+    pub fn select_element(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        in_selection_options: FTypedElementSelectionOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_SELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selection_options,
+                __buffer.add(8).cast::<FTypedElementSelectionOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_SELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn restore_selection_state(
+        &mut self,
+        in_selection_state: &FTypedElementSelectionSetState,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_RESTORE_SELECTION_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_selection_state,
+                __buffer.add(0).cast::<FTypedElementSelectionSetState>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_RESTORE_SELECTION_STATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_selected_element_handles(
+        &self,
+        in_base_interface_type: TSubclassOf<crate::bindings::core_u_object::UInterface>,
+    ) -> TArray<crate::bindings::typed_element_framework::FScriptTypedElementHandle> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_K2_GET_SELECTED_ELEMENT_HANDLES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_base_interface_type,
+                __buffer
+                    .add(0)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_K2_GET_SELECTED_ELEMENT_HANDLES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<
+                    TArray<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >,
+                >()
+                .read()
+        }
+    }
+    pub fn is_element_selected(
+        &self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        in_selection_options: FTypedElementIsSelectedOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_IS_ELEMENT_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selection_options,
+                __buffer.add(8).cast::<FTypedElementIsSelectedOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_IS_ELEMENT_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn has_selected_objects(
+        &self,
+        in_required_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_HAS_SELECTED_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_required_class,
+                __buffer
+                    .add(0)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_HAS_SELECTED_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn has_selected_elements(
+        &self,
+        in_base_interface_type: TSubclassOf<crate::bindings::core_u_object::UInterface>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_HAS_SELECTED_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_base_interface_type,
+                __buffer
+                    .add(0)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_HAS_SELECTED_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_top_selected_object(
+        &self,
+        in_required_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_TOP_SELECTED_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_required_class,
+                __buffer
+                    .add(0)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_TOP_SELECTED_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_selection_element(
+        &self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        in_selection_method: ETypedElementSelectionMethod,
+    ) -> crate::bindings::typed_element_framework::FScriptTypedElementHandle {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_SELECTION_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selection_method,
+                __buffer.add(8).cast::<ETypedElementSelectionMethod>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_SELECTION_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<
+                    crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                >()
+                .read()
+        }
+    }
+    pub fn get_selected_objects(
+        &self,
+        in_required_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    ) -> TArray<UPtr<crate::bindings::core_u_object::UObject>> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_SELECTED_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_required_class,
+                __buffer
+                    .add(0)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_SELECTED_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
+                .read()
+        }
+    }
+    pub fn get_num_selected_elements(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_NUM_SELECTED_ELEMENTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_NUM_SELECTED_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_current_selection_state(&self) -> FTypedElementSelectionSetState {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_CURRENT_SELECTION_STATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_CURRENT_SELECTION_STATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FTypedElementSelectionSetState>().read() }
+    }
+    pub fn get_bottom_selected_object(
+        &self,
+        in_required_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_BOTTOM_SELECTED_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_required_class,
+                __buffer
+                    .add(0)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_BOTTOM_SELECTED_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn deselect_elements(
+        &mut self,
+        in_element_handles: &TArray<
+            crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        >,
+        in_selection_options: FTypedElementSelectionOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<37>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_DESELECT_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handles,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TArray<
+                            crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selection_options,
+                __buffer.add(16).cast::<FTypedElementSelectionOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_DESELECT_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(36).cast::<bool>().read() }
+    }
+    pub fn deselect_element(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        in_selection_options: FTypedElementSelectionOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_DESELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selection_options,
+                __buffer.add(8).cast::<FTypedElementSelectionOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_DESELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn count_selected_objects(
+        &self,
+        in_required_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_COUNT_SELECTED_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_required_class,
+                __buffer
+                    .add(0)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_COUNT_SELECTED_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<i32>().read() }
+    }
+    pub fn count_selected_elements(
+        &self,
+        in_base_interface_type: TSubclassOf<crate::bindings::core_u_object::UInterface>,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_COUNT_SELECTED_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_base_interface_type,
+                __buffer
+                    .add(0)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_COUNT_SELECTED_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<i32>().read() }
+    }
+    pub fn clear_selection(
+        &mut self,
+        in_selection_options: FTypedElementSelectionOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_CLEAR_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selection_options,
+                __buffer.add(0).cast::<FTypedElementSelectionOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_CLEAR_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn can_select_element(
+        &self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        in_selection_options: FTypedElementSelectionOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_CAN_SELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selection_options,
+                __buffer.add(8).cast::<FTypedElementSelectionOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_CAN_SELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn can_deselect_element(
+        &self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        in_selection_options: FTypedElementSelectionOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_CAN_DESELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selection_options,
+                __buffer.add(8).cast::<FTypedElementSelectionOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_CAN_DESELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn allow_selection_modifiers(
+        &self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_ALLOW_SELECTION_MODIFIERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_ALLOW_SELECTION_MODIFIERS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
 }
 pub struct ITypedElementAssetDataInterface {}
 #[repr(C, align(8))]
@@ -528,6 +1693,89 @@ impl UTypedElementAssetDataInterface {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn get_asset_data(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+    ) -> crate::bindings::core_u_object::FAssetData {
+        let mut __stack = crate::core_data::StackAlloc::<160>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_ASSET_DATA_INTERFACE_GET_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_ASSET_DATA_INTERFACE_GET_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<crate::bindings::core_u_object::FAssetData>().read()
+        }
+    }
+    pub fn get_all_referenced_asset_datas(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+    ) -> TArray<crate::bindings::core_u_object::FAssetData> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_ASSET_DATA_INTERFACE_GET_ALL_REFERENCED_ASSET_DATAS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_ASSET_DATA_INTERFACE_GET_ALL_REFERENCED_ASSET_DATAS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
+                .read()
         }
     }
 }
@@ -552,6 +1800,130 @@ impl UTypedElementHierarchyInterface {
             cdo
         }
     }
+    pub fn get_parent_element(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        b_allow_create: bool,
+    ) -> crate::bindings::typed_element_framework::FScriptTypedElementHandle {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_HIERARCHY_INTERFACE_GET_PARENT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_allow_create,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_HIERARCHY_INTERFACE_GET_PARENT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<
+                    crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                >()
+                .read()
+        }
+    }
+    pub fn get_child_elements(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        out_element_handles: &mut TArray<
+            crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        >,
+        b_allow_create: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_HIERARCHY_INTERFACE_GET_CHILD_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_element_handles,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        TArray<
+                            crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_allow_create,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_HIERARCHY_INTERFACE_GET_CHILD_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<
+                    TArray<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >,
+                >()
+                .swap(out_element_handles);
+        }
+    }
 }
 pub struct ITypedElementObjectInterface {}
 #[repr(C, align(8))]
@@ -572,6 +1944,92 @@ impl UTypedElementObjectInterface {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn get_object_class(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+    ) -> TSubclassOf<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_OBJECT_INTERFACE_GET_OBJECT_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_OBJECT_INTERFACE_GET_OBJECT_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_object(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_OBJECT_INTERFACE_GET_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_OBJECT_INTERFACE_GET_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
         }
     }
 }
@@ -596,6 +2054,120 @@ impl UTypedElementPrimitiveCustomDataInterface {
             cdo
         }
     }
+    pub fn set_custom_data_value(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        custom_data_index: i32,
+        custom_data_value: f32,
+        b_mark_render_state_dirty: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_PRIMITIVE_CUSTOM_DATA_INTERFACE_SET_CUSTOM_DATA_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &custom_data_index,
+                __buffer.add(8).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &custom_data_value,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_mark_render_state_dirty,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_PRIMITIVE_CUSTOM_DATA_INTERFACE_SET_CUSTOM_DATA_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_custom_data(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        custom_data_floats: &TArray<f32>,
+        b_mark_render_state_dirty: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_PRIMITIVE_CUSTOM_DATA_INTERFACE_SET_CUSTOM_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                custom_data_floats,
+                __buffer.add(8).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_mark_render_state_dirty,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_PRIMITIVE_CUSTOM_DATA_INTERFACE_SET_CUSTOM_DATA,
+                __buffer,
+            )
+        };
+    }
 }
 pub struct ITypedElementSelectionInterface {}
 #[repr(C, align(8))]
@@ -617,6 +2189,387 @@ impl UTypedElementSelectionInterface {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn select_element(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        in_selection_set: crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+        in_selection_options: &FTypedElementSelectionOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<45>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_SELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selection_set,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_selection_options,
+                __buffer.add(24).cast::<FTypedElementSelectionOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_SELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(44).cast::<bool>().read() }
+    }
+    pub fn is_element_selected(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        in_selection_set: crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+        in_selection_options: &FTypedElementIsSelectedOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_IS_ELEMENT_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selection_set,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_selection_options,
+                __buffer.add(24).cast::<FTypedElementIsSelectedOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_IS_ELEMENT_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn get_selection_element(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        in_current_selection: crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+        in_selection_method: ETypedElementSelectionMethod,
+    ) -> crate::bindings::typed_element_framework::FScriptTypedElementHandle {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_GET_SELECTION_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_current_selection,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selection_method,
+                __buffer.add(24).cast::<ETypedElementSelectionMethod>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_GET_SELECTION_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<
+                    crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                >()
+                .read()
+        }
+    }
+    pub fn deselect_element(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        in_selection_set: crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+        in_selection_options: &FTypedElementSelectionOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<45>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_DESELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selection_set,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_selection_options,
+                __buffer.add(24).cast::<FTypedElementSelectionOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_DESELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(44).cast::<bool>().read() }
+    }
+    pub fn can_select_element(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        in_selection_options: &FTypedElementSelectionOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_CAN_SELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_selection_options,
+                __buffer.add(8).cast::<FTypedElementSelectionOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_CAN_SELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn can_deselect_element(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        in_selection_options: &FTypedElementSelectionOptions,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_CAN_DESELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_selection_options,
+                __buffer.add(8).cast::<FTypedElementSelectionOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_CAN_DESELECT_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn allow_selection_modifiers(
+        &mut self,
+        in_element_handle: &crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+        in_selection_set: crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_ALLOW_SELECTION_MODIFIERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_selection_set,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        crate::bindings::typed_element_framework::FScriptTypedElementListProxy,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_ALLOW_SELECTION_MODIFIERS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]

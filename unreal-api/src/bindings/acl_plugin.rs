@@ -51,6 +51,106 @@ impl UAnimationCompressionLibraryDatabase {
             cdo
         }
     }
+    pub fn set_visual_fidelity(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        latent_info: crate::bindings::engine::FLatentActionInfo,
+        database_asset: UPtr<UAnimationCompressionLibraryDatabase>,
+        result: &mut ACLVisualFidelityChangeResult,
+        visual_fidelity: ACLVisualFidelity,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<50>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::acl_plugin::U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_SET_VISUAL_FIDELITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &latent_info,
+                __buffer.add(8).cast::<crate::bindings::engine::FLatentActionInfo>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &database_asset,
+                __buffer.add(40).cast::<UPtr<UAnimationCompressionLibraryDatabase>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                result,
+                __buffer.add(48).cast::<ACLVisualFidelityChangeResult>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &visual_fidelity,
+                __buffer.add(49).cast::<ACLVisualFidelity>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::acl_plugin::UAnimationCompressionLibraryDatabase::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::acl_plugin::U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_SET_VISUAL_FIDELITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(48).cast::<ACLVisualFidelityChangeResult>().swap(result);
+        }
+    }
+    pub fn get_visual_fidelity(
+        database_asset: UPtr<UAnimationCompressionLibraryDatabase>,
+    ) -> ACLVisualFidelity {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::acl_plugin::U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_GET_VISUAL_FIDELITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &database_asset,
+                __buffer.add(0).cast::<UPtr<UAnimationCompressionLibraryDatabase>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::acl_plugin::UAnimationCompressionLibraryDatabase::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::acl_plugin::U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_GET_VISUAL_FIDELITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<ACLVisualFidelity>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UAnimBoneCompressionCodec_ACLBase {

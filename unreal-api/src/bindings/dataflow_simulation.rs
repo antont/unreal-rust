@@ -128,6 +128,80 @@ impl UDataflowSimulationActor {
             cdo
         }
     }
+    pub fn pre_dataflow_simulation_tick(
+        &mut self,
+        simulation_time: f32,
+        delta_time: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_simulation::U_DATAFLOW_SIMULATION_ACTOR_PRE_DATAFLOW_SIMULATION_TICK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &simulation_time,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&delta_time, __buffer.add(4).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_simulation::U_DATAFLOW_SIMULATION_ACTOR_PRE_DATAFLOW_SIMULATION_TICK,
+                __buffer,
+            )
+        };
+    }
+    pub fn post_dataflow_simulation_tick(
+        &mut self,
+        simulation_time: f32,
+        delta_time: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_simulation::U_DATAFLOW_SIMULATION_ACTOR_POST_DATAFLOW_SIMULATION_TICK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &simulation_time,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&delta_time, __buffer.add(4).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_simulation::U_DATAFLOW_SIMULATION_ACTOR_POST_DATAFLOW_SIMULATION_TICK,
+                __buffer,
+            )
+        };
+    }
 }
 pub struct IDataflowCollisionObjectInterface {}
 #[repr(C, align(8))]

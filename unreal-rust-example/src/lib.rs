@@ -319,15 +319,34 @@ fn begin(query: Query<(Entity, &ActorComponent)>) {
     // }
 
     let class = ARustActor::static_class();
-    let hit_result = URustExtension_FHitResult::new();
+
+    let mut hit_result = FHitResult::new();
+
     let mut str_alloc = StrRustAlloc::empty();
     unsafe {
         (bindings().core_fns.get_class_name)(class as *const UClassOpague, &mut str_alloc);
     }
     log::info!("{}", str_alloc.into_string());
+    for (_entity, actor) in query.iter() {
+        let mut actor = unsafe { actor.actor.0.cast::<AActor>().as_mut().unwrap() };
+
+        let v = actor.get_actor_location();
+
+        actor.set_actor_location(FVector { x: 0.0, y: 0.0, z: 0.0 }, false, &mut hit_result, true);
+        log::warn!("{} {} {}", v.x, v.y, v.z);
+    }
     // log::warn!("Class: {}", ptrs.name_to_ptr.keys().count());
 }
 fn update(query: Query<(Entity, &ActorComponent)>) {
+    let mut hit_result = FHitResult::new();
+    for (_entity, actor) in query.iter() {
+        let mut actor = unsafe { actor.actor.0.cast::<AActor>().as_mut().unwrap() };
+
+        let v = actor.get_actor_location();
+
+        actor.set_actor_location(FVector { x: 0.0, y: 0.0, z: 0.0 }, true, &mut hit_result, false);
+        log::warn!("{} {} {}", v.x, v.y, v.z);
+    }
 
     // for &class in classes {
     //     let mut str_alloc = StrRustAlloc::empty();

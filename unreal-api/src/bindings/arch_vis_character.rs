@@ -20,7 +20,6 @@ pub struct AArchVisCharacter {
     pub move_right_axis_name: FString,
     pub mouse_sensitivity_scale_pitch: f32,
     pub mouse_sensitivity_scale_yaw: f32,
-    __padding_end: [u8; 8],
 }
 impl AArchVisCharacter {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

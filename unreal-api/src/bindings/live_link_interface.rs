@@ -73,7 +73,6 @@ pub struct FLiveLinkTransformStaticData {
     pub b_is_location_supported: bool,
     pub b_is_rotation_supported: bool,
     pub b_is_scale_supported: bool,
-    __padding_end: [u8; 5],
 }
 impl FLiveLinkTransformStaticData {}
 #[repr(C, align(8))]
@@ -134,7 +133,6 @@ pub struct FLiveLinkLightStaticData {
     pub b_is_source_lenght_supported: bool,
     pub b_is_source_radius_supported: bool,
     pub b_is_soft_source_radius_supported: bool,
-    __padding_end: [u8; 7],
 }
 impl FLiveLinkLightStaticData {}
 #[repr(C, align(16))]
@@ -150,7 +148,6 @@ pub struct FLiveLinkLightFrameData {
     pub source_radius: f32,
     pub soft_source_radius: f32,
     pub source_length: f32,
-    __padding_end: [u8; 12],
 }
 impl FLiveLinkLightFrameData {}
 #[repr(C, align(16))]
@@ -275,7 +272,6 @@ pub struct FLiveLinkLocatorStaticData {
     __padding_16: [u8; 16],
     pub locator_names: TArray<FName>,
     pub b_unlabelled_data: bool,
-    __padding_end: [u8; 7],
 }
 impl FLiveLinkLocatorStaticData {}
 #[repr(C, align(8))]

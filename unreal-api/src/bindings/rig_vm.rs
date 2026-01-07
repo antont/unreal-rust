@@ -637,7 +637,6 @@ pub struct FRigVMFunction_SpringDampVector {
     pub value_velocity: crate::bindings::core_u_object::FVector,
     pub target: crate::bindings::core_u_object::FVector,
     pub smoothing_time: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_SpringDampVector {}
 #[repr(C, align(16))]
@@ -648,7 +647,6 @@ pub struct FRigVMFunction_SpringDampQuat {
     pub value_velocity: crate::bindings::core_u_object::FVector,
     pub target: crate::bindings::core_u_object::FQuat,
     pub smoothing_time: f32,
-    __padding_end: [u8; 12],
 }
 impl FRigVMFunction_SpringDampQuat {}
 #[repr(C, align(4))]
@@ -743,7 +741,6 @@ pub struct FRigVMPinCategory {
     pub path: FString,
     pub elements: TArray<FString>,
     pub b_expanded_by_default: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMPinCategory {}
 #[repr(C, align(8))]
@@ -760,7 +757,6 @@ pub struct FRigVMTag {
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub b_show_in_user_interface: bool,
     pub b_marks_subject_as_invalid: bool,
-    __padding_end: [u8; 6],
 }
 impl FRigVMTag {}
 #[repr(C, align(8))]
@@ -784,7 +780,6 @@ pub struct FRigVMFunction_AnimEasingType {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub ty: ERigVMAnimEasingType,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_AnimEasingType {}
 #[repr(C, align(8))]
@@ -798,7 +793,6 @@ pub struct FRigVMFunction_AnimEasing {
     pub target_minimum: f32,
     pub target_maximum: f32,
     pub result: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_AnimEasing {}
 #[repr(C, align(8))]
@@ -812,7 +806,6 @@ pub struct FRigVMFunction_AnimEvalRichCurve {
     pub target_minimum: f32,
     pub target_maximum: f32,
     pub result: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_AnimEvalRichCurve {}
 #[repr(C, align(8))]
@@ -827,7 +820,6 @@ pub struct FRigVMFunction_GetDeltaTime {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub result: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_GetDeltaTime {}
 #[repr(C, align(8))]
@@ -870,7 +862,6 @@ pub struct FRigVMFunction_DebugLineNoSpace {
     pub thickness: f32,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigVMFunction_DebugLineNoSpace {}
 #[repr(C, align(16))]
@@ -882,7 +873,6 @@ pub struct FRigVMFunction_DebugLineStripNoSpace {
     pub thickness: f32,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigVMFunction_DebugLineStripNoSpace {}
 #[repr(C, align(16))]
@@ -897,7 +887,6 @@ pub struct FRigVMFunction_DebugPoint {
     pub space: FName,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigVMFunction_DebugPoint {}
 #[repr(C, align(16))]
@@ -912,7 +901,6 @@ pub struct FRigVMFunction_DebugPointMutable {
     pub space: FName,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigVMFunction_DebugPointMutable {}
 #[repr(C, align(16))]
@@ -926,7 +914,6 @@ pub struct FRigVMFunction_DebugRectangle {
     pub space: FName,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigVMFunction_DebugRectangle {}
 #[repr(C, align(16))]
@@ -939,7 +926,6 @@ pub struct FRigVMFunction_DebugRectangleNoSpace {
     pub thickness: f32,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigVMFunction_DebugRectangleNoSpace {}
 #[repr(C, align(16))]
@@ -956,7 +942,6 @@ pub struct FRigVMFunction_DebugArc {
     pub space: FName,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigVMFunction_DebugArc {}
 #[repr(C, align(16))]
@@ -972,7 +957,6 @@ pub struct FRigVMFunction_DebugArcNoSpace {
     pub detail: i32,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigVMFunction_DebugArcNoSpace {}
 #[repr(C, align(16))]
@@ -984,7 +968,6 @@ pub struct FRigVMFunction_DebugBoxNoSpace {
     pub thickness: f32,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigVMFunction_DebugBoxNoSpace {}
 #[repr(C, align(16))]
@@ -998,7 +981,6 @@ pub struct FRigVMFunction_DebugTransformMutableNoSpace {
     pub scale: f32,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigVMFunction_DebugTransformMutableNoSpace {}
 #[repr(C, align(16))]
@@ -1013,7 +995,6 @@ pub struct FRigVMFunction_DebugTransformArrayMutableNoSpace {
     pub scale: f32,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigVMFunction_DebugTransformArrayMutableNoSpace {}
 #[repr(C, align(8))]
@@ -1039,7 +1020,6 @@ pub struct FRigVMFunction_VisualDebugVectorNoSpace {
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub thickness: f32,
     pub scale: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_VisualDebugVectorNoSpace {}
 #[repr(C, align(16))]
@@ -1051,7 +1031,6 @@ pub struct FRigVMFunction_VisualDebugQuat {
     pub thickness: f32,
     pub scale: f32,
     pub bone_space: FName,
-    __padding_end: [u8; 8],
 }
 impl FRigVMFunction_VisualDebugQuat {}
 #[repr(C, align(16))]
@@ -1062,7 +1041,6 @@ pub struct FRigVMFunction_VisualDebugQuatNoSpace {
     pub b_enabled: bool,
     pub thickness: f32,
     pub scale: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_VisualDebugQuatNoSpace {}
 #[repr(C, align(16))]
@@ -1074,7 +1052,6 @@ pub struct FRigVMFunction_VisualDebugTransform {
     pub thickness: f32,
     pub scale: f32,
     pub bone_space: FName,
-    __padding_end: [u8; 8],
 }
 impl FRigVMFunction_VisualDebugTransform {}
 #[repr(C, align(16))]
@@ -1085,7 +1062,6 @@ pub struct FRigVMFunction_VisualDebugTransformNoSpace {
     pub b_enabled: bool,
     pub thickness: f32,
     pub scale: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_VisualDebugTransformNoSpace {}
 #[repr(C, align(8))]
@@ -1094,7 +1070,6 @@ pub struct FRigVMFunction_VisualLogBase {
     __padding_24: [u8; 24],
     pub text: FString,
     pub category: FName,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_VisualLogBase {}
 #[repr(C, align(8))]
@@ -1115,7 +1090,6 @@ pub struct FRigVMFunction_VisualLogLocation {
     __padding_72: [u8; 72],
     pub location: crate::bindings::core_u_object::FVector,
     pub radius: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_VisualLogLocation {}
 #[repr(C, align(8))]
@@ -1123,7 +1097,6 @@ pub struct FRigVMFunction_VisualLogWireframeOptional {
     #[doc(hidden)]
     __padding_72: [u8; 72],
     pub b_wireframe: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_VisualLogWireframeOptional {}
 #[repr(C, align(8))]
@@ -1132,7 +1105,6 @@ pub struct FRigVMFunction_VisualLogSphere {
     __padding_80: [u8; 80],
     pub center: crate::bindings::core_u_object::FVector,
     pub radius: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_VisualLogSphere {}
 #[repr(C, align(8))]
@@ -1152,7 +1124,6 @@ pub struct FRigVMFunction_VisualLogCylinder {
     pub start: crate::bindings::core_u_object::FVector,
     pub end: crate::bindings::core_u_object::FVector,
     pub radius: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_VisualLogCylinder {}
 #[repr(C, align(16))]
@@ -1187,7 +1158,6 @@ pub struct FRigVMFunction_VisualLogArrow {
     pub segment_start: crate::bindings::core_u_object::FVector,
     pub segment_end: crate::bindings::core_u_object::FVector,
     pub arrow_head_size: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_VisualLogArrow {}
 #[repr(C, align(8))]
@@ -1207,7 +1177,6 @@ pub struct FRigVMFunction_VisualLogSegment {
     pub segment_start: crate::bindings::core_u_object::FVector,
     pub segment_end: crate::bindings::core_u_object::FVector,
     pub thickness: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_VisualLogSegment {}
 #[repr(C, align(8))]
@@ -1215,7 +1184,6 @@ pub struct FRigVMFunction_IsHostBeingDebugged {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_IsHostBeingDebugged {}
 #[repr(C, align(16))]
@@ -1243,7 +1211,6 @@ pub struct FRigVMFunction_UserDefinedEvent {
     __padding_8: [u8; 8],
     pub execute_pin: FRigVMExecutePin,
     pub event_name: FName,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_UserDefinedEvent {}
 #[repr(C, align(8))]
@@ -1251,7 +1218,6 @@ pub struct FRigVMFunction_MathBoolConstant {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub value: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathBoolConstant {}
 #[repr(C, align(8))]
@@ -1260,7 +1226,6 @@ pub struct FRigVMFunction_MathBoolUnaryOp {
     __padding_8: [u8; 8],
     pub value: bool,
     pub result: bool,
-    __padding_end: [u8; 6],
 }
 impl FRigVMFunction_MathBoolUnaryOp {}
 #[repr(C, align(8))]
@@ -1270,7 +1235,6 @@ pub struct FRigVMFunction_MathBoolBinaryOp {
     pub a: bool,
     pub b: bool,
     pub result: bool,
-    __padding_end: [u8; 5],
 }
 impl FRigVMFunction_MathBoolBinaryOp {}
 #[repr(C, align(8))]
@@ -1280,7 +1244,6 @@ pub struct FRigVMFunction_MathBoolBinaryAggregateOp {
     pub a: bool,
     pub b: bool,
     pub result: bool,
-    __padding_end: [u8; 5],
 }
 impl FRigVMFunction_MathBoolBinaryAggregateOp {}
 #[repr(C, align(8))]
@@ -1288,7 +1251,6 @@ pub struct FRigVMFunction_MathBoolMake {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub value: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathBoolMake {}
 #[repr(C, align(8))]
@@ -1333,7 +1295,6 @@ pub struct FRigVMFunction_MathBoolEquals {
     pub a: bool,
     pub b: bool,
     pub result: bool,
-    __padding_end: [u8; 5],
 }
 impl FRigVMFunction_MathBoolEquals {}
 #[repr(C, align(8))]
@@ -1343,7 +1304,6 @@ pub struct FRigVMFunction_MathBoolNotEquals {
     pub a: bool,
     pub b: bool,
     pub result: bool,
-    __padding_end: [u8; 5],
 }
 impl FRigVMFunction_MathBoolNotEquals {}
 #[repr(C, align(8))]
@@ -1352,7 +1312,6 @@ pub struct FRigVMFunction_MathBoolToggled {
     __padding_8: [u8; 8],
     pub value: bool,
     pub toggled: bool,
-    __padding_end: [u8; 6],
 }
 impl FRigVMFunction_MathBoolToggled {}
 #[repr(C, align(8))]
@@ -1362,7 +1321,6 @@ pub struct FRigVMFunction_MathBoolFlipFlop {
     pub start_value: bool,
     pub duration: f32,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathBoolFlipFlop {}
 #[repr(C, align(8))]
@@ -1408,7 +1366,6 @@ pub struct FRigVMFunction_MathBoxIsValid {
     __padding_8: [u8; 8],
     pub box_: crate::bindings::core_u_object::FBox,
     pub valid: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathBoxIsValid {}
 #[repr(C, align(8))]
@@ -1462,7 +1419,6 @@ pub struct FRigVMFunction_MathBoxTransform {
     pub box_: crate::bindings::core_u_object::FBox,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::core_u_object::FBox,
-    __padding_end: [u8; 8],
 }
 impl FRigVMFunction_MathBoxTransform {}
 #[repr(C, align(8))]
@@ -1483,7 +1439,6 @@ pub struct FRigVMFunction_MathBoxIsInside {
     pub box_: crate::bindings::core_u_object::FBox,
     pub position: crate::bindings::core_u_object::FVector,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathBoxIsInside {}
 #[repr(C, align(8))]
@@ -1492,7 +1447,6 @@ pub struct FRigVMFunction_MathBoxGetVolume {
     __padding_8: [u8; 8],
     pub box_: crate::bindings::core_u_object::FBox,
     pub volume: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathBoxGetVolume {}
 #[repr(C, align(8))]
@@ -1530,7 +1484,6 @@ pub struct FRigVMFunction_MathColorFromFloat {
     __padding_8: [u8; 8],
     pub value: f32,
     pub result: crate::bindings::core_u_object::FLinearColor,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathColorFromFloat {}
 #[repr(C, align(8))]
@@ -1564,7 +1517,6 @@ pub struct FRigVMFunction_MathColorLerp {
     pub b: crate::bindings::core_u_object::FLinearColor,
     pub t: f32,
     pub result: crate::bindings::core_u_object::FLinearColor,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathColorLerp {}
 #[repr(C, align(8))]
@@ -1689,7 +1641,6 @@ pub struct FRigVMFunction_MathDoubleFloor {
     pub value: f64,
     pub result: f64,
     pub int: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathDoubleFloor {}
 #[repr(C, align(8))]
@@ -1699,7 +1650,6 @@ pub struct FRigVMFunction_MathDoubleCeil {
     pub value: f64,
     pub result: f64,
     pub int: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathDoubleCeil {}
 #[repr(C, align(8))]
@@ -1709,7 +1659,6 @@ pub struct FRigVMFunction_MathDoubleRound {
     pub value: f64,
     pub result: f64,
     pub int: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathDoubleRound {}
 #[repr(C, align(8))]
@@ -1718,7 +1667,6 @@ pub struct FRigVMFunction_MathDoubleToInt {
     __padding_8: [u8; 8],
     pub value: f64,
     pub result: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathDoubleToInt {}
 #[repr(C, align(8))]
@@ -1727,7 +1675,6 @@ pub struct FRigVMFunction_MathDoubleToFloat {
     __padding_8: [u8; 8],
     pub value: f64,
     pub result: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathDoubleToFloat {}
 #[repr(C, align(8))]
@@ -1775,7 +1722,6 @@ pub struct FRigVMFunction_MathDoubleEquals {
     pub a: f64,
     pub b: f64,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathDoubleEquals {}
 #[repr(C, align(8))]
@@ -1785,7 +1731,6 @@ pub struct FRigVMFunction_MathDoubleNotEquals {
     pub a: f64,
     pub b: f64,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathDoubleNotEquals {}
 #[repr(C, align(8))]
@@ -1795,7 +1740,6 @@ pub struct FRigVMFunction_MathDoubleGreater {
     pub a: f64,
     pub b: f64,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathDoubleGreater {}
 #[repr(C, align(8))]
@@ -1805,7 +1749,6 @@ pub struct FRigVMFunction_MathDoubleLess {
     pub a: f64,
     pub b: f64,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathDoubleLess {}
 #[repr(C, align(8))]
@@ -1815,7 +1758,6 @@ pub struct FRigVMFunction_MathDoubleGreaterEqual {
     pub a: f64,
     pub b: f64,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathDoubleGreaterEqual {}
 #[repr(C, align(8))]
@@ -1825,7 +1767,6 @@ pub struct FRigVMFunction_MathDoubleLessEqual {
     pub a: f64,
     pub b: f64,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathDoubleLessEqual {}
 #[repr(C, align(8))]
@@ -1835,7 +1776,6 @@ pub struct FRigVMFunction_MathDoubleIsNearlyZero {
     pub value: f64,
     pub tolerance: f64,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathDoubleIsNearlyZero {}
 #[repr(C, align(8))]
@@ -1846,7 +1786,6 @@ pub struct FRigVMFunction_MathDoubleIsNearlyEqual {
     pub b: f64,
     pub tolerance: f64,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathDoubleIsNearlyEqual {}
 #[repr(C, align(8))]
@@ -1905,7 +1844,6 @@ pub struct FRigVMFunction_MathDoubleLawOfCosine {
     pub beta_angle: f64,
     pub gamma_angle: f64,
     pub b_valid: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathDoubleLawOfCosine {}
 #[repr(C, align(8))]
@@ -1934,7 +1872,6 @@ pub struct FRigVMFunction_MathFloatConstant {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub value: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathFloatConstant {}
 #[repr(C, align(8))]
@@ -1952,7 +1889,6 @@ pub struct FRigVMFunction_MathFloatBinaryOp {
     pub a: f32,
     pub b: f32,
     pub result: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathFloatBinaryOp {}
 #[repr(C, align(8))]
@@ -1962,7 +1898,6 @@ pub struct FRigVMFunction_MathFloatBinaryAggregateOp {
     pub a: f32,
     pub b: f32,
     pub result: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathFloatBinaryAggregateOp {}
 #[repr(C, align(8))]
@@ -1970,7 +1905,6 @@ pub struct FRigVMFunction_MathFloatMake {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub value: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathFloatMake {}
 #[repr(C, align(8))]
@@ -2055,7 +1989,6 @@ pub struct FRigVMFunction_MathFloatFloor {
     pub value: f32,
     pub result: f32,
     pub int: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathFloatFloor {}
 #[repr(C, align(8))]
@@ -2065,7 +1998,6 @@ pub struct FRigVMFunction_MathFloatCeil {
     pub value: f32,
     pub result: f32,
     pub int: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathFloatCeil {}
 #[repr(C, align(8))]
@@ -2075,7 +2007,6 @@ pub struct FRigVMFunction_MathFloatRound {
     pub value: f32,
     pub result: f32,
     pub int: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathFloatRound {}
 #[repr(C, align(8))]
@@ -2130,7 +2061,6 @@ pub struct FRigVMFunction_MathFloatRemap {
     pub target_maximum: f32,
     pub b_clamp: bool,
     pub result: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathFloatRemap {}
 #[repr(C, align(8))]
@@ -2140,7 +2070,6 @@ pub struct FRigVMFunction_MathFloatEquals {
     pub a: f32,
     pub b: f32,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathFloatEquals {}
 #[repr(C, align(8))]
@@ -2150,7 +2079,6 @@ pub struct FRigVMFunction_MathFloatNotEquals {
     pub a: f32,
     pub b: f32,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathFloatNotEquals {}
 #[repr(C, align(8))]
@@ -2160,7 +2088,6 @@ pub struct FRigVMFunction_MathFloatGreater {
     pub a: f32,
     pub b: f32,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathFloatGreater {}
 #[repr(C, align(8))]
@@ -2170,7 +2097,6 @@ pub struct FRigVMFunction_MathFloatLess {
     pub a: f32,
     pub b: f32,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathFloatLess {}
 #[repr(C, align(8))]
@@ -2180,7 +2106,6 @@ pub struct FRigVMFunction_MathFloatGreaterEqual {
     pub a: f32,
     pub b: f32,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathFloatGreaterEqual {}
 #[repr(C, align(8))]
@@ -2190,7 +2115,6 @@ pub struct FRigVMFunction_MathFloatLessEqual {
     pub a: f32,
     pub b: f32,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathFloatLessEqual {}
 #[repr(C, align(8))]
@@ -2200,7 +2124,6 @@ pub struct FRigVMFunction_MathFloatIsNearlyZero {
     pub value: f32,
     pub tolerance: f32,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathFloatIsNearlyZero {}
 #[repr(C, align(8))]
@@ -2211,7 +2134,6 @@ pub struct FRigVMFunction_MathFloatIsNearlyEqual {
     pub b: f32,
     pub tolerance: f32,
     pub result: bool,
-    __padding_end: [u8; 3],
 }
 impl FRigVMFunction_MathFloatIsNearlyEqual {}
 #[repr(C, align(8))]
@@ -2280,7 +2202,6 @@ pub struct FRigVMFunction_MathFloatLawOfCosine {
     pub beta_angle: f32,
     pub gamma_angle: f32,
     pub b_valid: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathFloatLawOfCosine {}
 #[repr(C, align(8))]
@@ -2294,7 +2215,6 @@ pub struct FRigVMFunction_MathFloatArraySum {
     __padding_8: [u8; 8],
     pub array: TArray<f32>,
     pub sum: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathFloatArraySum {}
 #[repr(C, align(8))]
@@ -2303,7 +2223,6 @@ pub struct FRigVMFunction_MathFloatArrayAverage {
     __padding_8: [u8; 8],
     pub array: TArray<f32>,
     pub average: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathFloatArrayAverage {}
 #[repr(C, align(8))]
@@ -2321,7 +2240,6 @@ pub struct FRigVMFunction_MathIntBinaryOp {
     pub a: i32,
     pub b: i32,
     pub result: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathIntBinaryOp {}
 #[repr(C, align(8))]
@@ -2331,7 +2249,6 @@ pub struct FRigVMFunction_MathIntBinaryAggregateOp {
     pub a: i32,
     pub b: i32,
     pub result: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathIntBinaryAggregateOp {}
 #[repr(C, align(8))]
@@ -2339,7 +2256,6 @@ pub struct FRigVMFunction_MathIntMake {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub value: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathIntMake {}
 #[repr(C, align(8))]
@@ -2430,7 +2346,6 @@ pub struct FRigVMFunction_MathIntEquals {
     pub a: i32,
     pub b: i32,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathIntEquals {}
 #[repr(C, align(8))]
@@ -2440,7 +2355,6 @@ pub struct FRigVMFunction_MathIntNotEquals {
     pub a: i32,
     pub b: i32,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathIntNotEquals {}
 #[repr(C, align(8))]
@@ -2450,7 +2364,6 @@ pub struct FRigVMFunction_MathIntGreater {
     pub a: i32,
     pub b: i32,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathIntGreater {}
 #[repr(C, align(8))]
@@ -2460,7 +2373,6 @@ pub struct FRigVMFunction_MathIntLess {
     pub a: i32,
     pub b: i32,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathIntLess {}
 #[repr(C, align(8))]
@@ -2470,7 +2382,6 @@ pub struct FRigVMFunction_MathIntGreaterEqual {
     pub a: i32,
     pub b: i32,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathIntGreaterEqual {}
 #[repr(C, align(8))]
@@ -2480,7 +2391,6 @@ pub struct FRigVMFunction_MathIntLessEqual {
     pub a: i32,
     pub b: i32,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathIntLessEqual {}
 #[repr(C, align(8))]
@@ -2489,7 +2399,6 @@ pub struct FRigVMFunction_MathIntArraySum {
     __padding_8: [u8; 8],
     pub array: TArray<i32>,
     pub sum: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathIntArraySum {}
 #[repr(C, align(8))]
@@ -2498,7 +2407,6 @@ pub struct FRigVMFunction_MathIntArrayAverage {
     __padding_8: [u8; 8],
     pub array: TArray<i32>,
     pub average: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathIntArrayAverage {}
 #[repr(C, align(8))]
@@ -2517,7 +2425,6 @@ pub struct FRigVMFunction_MathIntToName {
     pub number: i32,
     pub padded_size: i32,
     pub result: FName,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathIntToName {}
 #[repr(C, align(16))]
@@ -2689,7 +2596,6 @@ pub struct FRigVMFunction_MathQuaternionToAxisAndAngle {
     pub value: crate::bindings::core_u_object::FQuat,
     pub axis: crate::bindings::core_u_object::FVector,
     pub angle: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathQuaternionToAxisAndAngle {}
 #[repr(C, align(16))]
@@ -2700,7 +2606,6 @@ pub struct FRigVMFunction_MathQuaternionToVectors {
     pub forward: crate::bindings::core_u_object::FVector,
     pub right: crate::bindings::core_u_object::FVector,
     pub up: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 8],
 }
 impl FRigVMFunction_MathQuaternionToVectors {}
 #[repr(C, align(16))]
@@ -2709,7 +2614,6 @@ pub struct FRigVMFunction_MathQuaternionScale {
     __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub scale: f32,
-    __padding_end: [u8; 12],
 }
 impl FRigVMFunction_MathQuaternionScale {}
 #[repr(C, align(16))]
@@ -2736,7 +2640,6 @@ pub struct FRigVMFunction_MathQuaternionToRotator {
     __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub result: crate::bindings::core_u_object::FRotator,
-    __padding_end: [u8; 8],
 }
 impl FRigVMFunction_MathQuaternionToRotator {}
 #[repr(C, align(16))]
@@ -2766,7 +2669,6 @@ pub struct FRigVMFunction_MathQuaternionEquals {
     pub a: crate::bindings::core_u_object::FQuat,
     pub b: crate::bindings::core_u_object::FQuat,
     pub result: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigVMFunction_MathQuaternionEquals {}
 #[repr(C, align(16))]
@@ -2776,7 +2678,6 @@ pub struct FRigVMFunction_MathQuaternionNotEquals {
     pub a: crate::bindings::core_u_object::FQuat,
     pub b: crate::bindings::core_u_object::FQuat,
     pub result: bool,
-    __padding_end: [u8; 15],
 }
 impl FRigVMFunction_MathQuaternionNotEquals {}
 #[repr(C, align(16))]
@@ -2796,7 +2697,6 @@ pub struct FRigVMFunction_MathQuaternionDot {
     pub a: crate::bindings::core_u_object::FQuat,
     pub b: crate::bindings::core_u_object::FQuat,
     pub result: f32,
-    __padding_end: [u8; 12],
 }
 impl FRigVMFunction_MathQuaternionDot {}
 #[repr(C, align(16))]
@@ -2837,7 +2737,6 @@ pub struct FRigVMFunction_MathQuaternionRotationOrder {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub rotation_order: crate::bindings::animation_core::EEulerRotationOrder,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathQuaternionRotationOrder {}
 #[repr(C, align(16))]
@@ -2879,7 +2778,6 @@ pub struct FRigVMFunction_MathRayIntersectRay {
     pub distance: f32,
     pub ratio_a: f32,
     pub ratio_b: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathRayIntersectRay {}
 #[repr(C, align(8))]
@@ -2941,7 +2839,6 @@ impl FRigVMFunction_MathRBFInterpolateVectorBase {}
 pub struct FMathRBFInterpolateQuatFloat_Target {
     pub target: crate::bindings::core_u_object::FQuat,
     pub value: f32,
-    __padding_end: [u8; 12],
 }
 impl FMathRBFInterpolateQuatFloat_Target {}
 #[repr(C, align(16))]
@@ -2950,14 +2847,12 @@ pub struct FRigVMFunction_MathRBFInterpolateQuatFloat {
     __padding_224: [u8; 224],
     pub targets: TArray<FMathRBFInterpolateQuatFloat_Target>,
     pub output: f32,
-    __padding_end: [u8; 12],
 }
 impl FRigVMFunction_MathRBFInterpolateQuatFloat {}
 #[repr(C, align(16))]
 pub struct FMathRBFInterpolateQuatVector_Target {
     pub target: crate::bindings::core_u_object::FQuat,
     pub value: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 8],
 }
 impl FMathRBFInterpolateQuatVector_Target {}
 #[repr(C, align(16))]
@@ -2966,7 +2861,6 @@ pub struct FRigVMFunction_MathRBFInterpolateQuatVector {
     __padding_224: [u8; 224],
     pub targets: TArray<FMathRBFInterpolateQuatVector_Target>,
     pub output: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 8],
 }
 impl FRigVMFunction_MathRBFInterpolateQuatVector {}
 #[repr(C, align(16))]
@@ -3015,7 +2909,6 @@ impl FRigVMFunction_MathRBFInterpolateQuatXform {}
 pub struct FMathRBFInterpolateVectorFloat_Target {
     pub target: crate::bindings::core_u_object::FVector,
     pub value: f32,
-    __padding_end: [u8; 4],
 }
 impl FMathRBFInterpolateVectorFloat_Target {}
 #[repr(C, align(16))]
@@ -3024,7 +2917,6 @@ pub struct FRigVMFunction_MathRBFInterpolateVectorFloat {
     __padding_176: [u8; 176],
     pub targets: TArray<FMathRBFInterpolateVectorFloat_Target>,
     pub output: f32,
-    __padding_end: [u8; 12],
 }
 impl FRigVMFunction_MathRBFInterpolateVectorFloat {}
 #[repr(C, align(8))]
@@ -3039,7 +2931,6 @@ pub struct FRigVMFunction_MathRBFInterpolateVectorVector {
     __padding_176: [u8; 176],
     pub targets: TArray<FMathRBFInterpolateVectorVector_Target>,
     pub output: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 8],
 }
 impl FRigVMFunction_MathRBFInterpolateVectorVector {}
 #[repr(C, align(8))]
@@ -3147,7 +3038,6 @@ pub struct FRigVMFunction_MathTransformToEulerTransform {
     __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::animation_core::FEulerTransform,
-    __padding_end: [u8; 8],
 }
 impl FRigVMFunction_MathTransformToEulerTransform {}
 #[repr(C, align(16))]
@@ -3158,7 +3048,6 @@ pub struct FRigVMFunction_MathTransformToVectors {
     pub forward: crate::bindings::core_u_object::FVector,
     pub right: crate::bindings::core_u_object::FVector,
     pub up: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 8],
 }
 impl FRigVMFunction_MathTransformToVectors {}
 #[repr(C, align(16))]
@@ -3247,7 +3136,6 @@ pub struct FRigVMFunction_MathTransformFromSRT {
     pub scale: crate::bindings::core_u_object::FVector,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub euler_transform: crate::bindings::animation_core::FEulerTransform,
-    __padding_end: [u8; 8],
 }
 impl FRigVMFunction_MathTransformFromSRT {}
 #[repr(C, align(8))]
@@ -3453,7 +3341,6 @@ pub struct FRigVMFunction_MathVectorEquals {
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathVectorEquals {}
 #[repr(C, align(8))]
@@ -3463,7 +3350,6 @@ pub struct FRigVMFunction_MathVectorNotEquals {
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathVectorNotEquals {}
 #[repr(C, align(8))]
@@ -3473,7 +3359,6 @@ pub struct FRigVMFunction_MathVectorIsNearlyZero {
     pub value: crate::bindings::core_u_object::FVector,
     pub tolerance: f32,
     pub result: bool,
-    __padding_end: [u8; 3],
 }
 impl FRigVMFunction_MathVectorIsNearlyZero {}
 #[repr(C, align(8))]
@@ -3484,7 +3369,6 @@ pub struct FRigVMFunction_MathVectorIsNearlyEqual {
     pub b: crate::bindings::core_u_object::FVector,
     pub tolerance: f32,
     pub result: bool,
-    __padding_end: [u8; 3],
 }
 impl FRigVMFunction_MathVectorIsNearlyEqual {}
 #[repr(C, align(8))]
@@ -3513,7 +3397,6 @@ pub struct FRigVMFunction_MathVectorLengthSquared {
     __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub result: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathVectorLengthSquared {}
 #[repr(C, align(8))]
@@ -3522,7 +3405,6 @@ pub struct FRigVMFunction_MathVectorLength {
     __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub result: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathVectorLength {}
 #[repr(C, align(8))]
@@ -3532,7 +3414,6 @@ pub struct FRigVMFunction_MathVectorDistance {
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathVectorDistance {}
 #[repr(C, align(8))]
@@ -3547,7 +3428,6 @@ pub struct FRigVMFunction_MathVectorDot {
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathVectorDot {}
 #[repr(C, align(8))]
@@ -3590,7 +3470,6 @@ pub struct FRigVMFunction_MathVectorAngle {
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathVectorAngle {}
 #[repr(C, align(8))]
@@ -3600,7 +3479,6 @@ pub struct FRigVMFunction_MathVectorParallel {
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathVectorParallel {}
 #[repr(C, align(8))]
@@ -3610,7 +3488,6 @@ pub struct FRigVMFunction_MathVectorOrthogonal {
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_MathVectorOrthogonal {}
 #[repr(C, align(8))]
@@ -3661,7 +3538,6 @@ pub struct FRigVMFunction_MathIntersectPlane {
     pub plane_normal: crate::bindings::core_u_object::FVector,
     pub result: crate::bindings::core_u_object::FVector,
     pub distance: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathIntersectPlane {}
 #[repr(C, align(8))]
@@ -3673,7 +3549,6 @@ pub struct FRigVMFunction_MathDistanceToPlane {
     pub plane_normal: crate::bindings::core_u_object::FVector,
     pub closest_point_on_plane: crate::bindings::core_u_object::FVector,
     pub signed_distance: f32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_MathDistanceToPlane {}
 #[repr(C, align(8))]
@@ -3703,7 +3578,6 @@ pub struct FRigVMFunction_MathVectorMirrorTransform {
     pub axis_to_flip: crate::bindings::core_u_object::EAxis,
     pub central_transform: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 8],
 }
 impl FRigVMFunction_MathVectorMirrorTransform {}
 #[repr(C, align(8))]
@@ -3830,7 +3704,6 @@ pub struct FRigVMFunction_NameConcat {
     pub a: FName,
     pub b: FName,
     pub result: FName,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_NameConcat {}
 #[repr(C, align(8))]
@@ -3842,7 +3715,6 @@ pub struct FRigVMFunction_NameTruncate {
     pub from_end: bool,
     pub remainder: FName,
     pub chopped: FName,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_NameTruncate {}
 #[repr(C, align(8))]
@@ -3862,7 +3734,6 @@ pub struct FRigVMFunction_EndsWith {
     pub name: FName,
     pub ending: FName,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_EndsWith {}
 #[repr(C, align(8))]
@@ -3872,7 +3743,6 @@ pub struct FRigVMFunction_StartsWith {
     pub name: FName,
     pub start: FName,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_StartsWith {}
 #[repr(C, align(8))]
@@ -3882,7 +3752,6 @@ pub struct FRigVMFunction_Contains {
     pub name: FName,
     pub search: FName,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_Contains {}
 #[repr(C, align(8))]
@@ -3891,7 +3760,6 @@ pub struct FRigVMFunction_IsNone {
     __padding_8: [u8; 8],
     pub name: FName,
     pub result: bool,
-    __padding_end: [u8; 3],
 }
 impl FRigVMFunction_IsNone {}
 #[repr(C, align(8))]
@@ -3900,7 +3768,6 @@ pub struct FRigVMFunction_IsNameValid {
     __padding_8: [u8; 8],
     pub value: FName,
     pub result: bool,
-    __padding_end: [u8; 3],
 }
 impl FRigVMFunction_IsNameValid {}
 #[repr(C, align(8))]
@@ -3910,7 +3777,6 @@ pub struct FRigVMFunction_GetNameNumericSuffix {
     pub name: FName,
     pub suffix: i32,
     pub success: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_GetNameNumericSuffix {}
 #[repr(C, align(8))]
@@ -3950,7 +3816,6 @@ pub struct FRigVMFunction_StringEndsWith {
     pub name: FString,
     pub ending: FString,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_StringEndsWith {}
 #[repr(C, align(8))]
@@ -3960,7 +3825,6 @@ pub struct FRigVMFunction_StringStartsWith {
     pub name: FString,
     pub start: FString,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_StringStartsWith {}
 #[repr(C, align(8))]
@@ -3970,7 +3834,6 @@ pub struct FRigVMFunction_StringContains {
     pub name: FString,
     pub search: FString,
     pub result: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_StringContains {}
 #[repr(C, align(8))]
@@ -3979,7 +3842,6 @@ pub struct FRigVMFunction_StringLength {
     __padding_8: [u8; 8],
     pub value: FString,
     pub length: i32,
-    __padding_end: [u8; 4],
 }
 impl FRigVMFunction_StringLength {}
 #[repr(C, align(8))]
@@ -4088,7 +3950,6 @@ pub struct FRigVMFunction_StringToInteger {
     pub chop_right: bool,
     pub result: i32,
     pub success: bool,
-    __padding_end: [u8; 7],
 }
 impl FRigVMFunction_StringToInteger {}
 #[repr(C, align(8))]
@@ -4468,6 +4329,973 @@ impl URigVM {
             cdo
         }
     }
+    pub fn set_parameter_value_vector2_d(
+        &mut self,
+        in_parameter_name: &FName,
+        in_value: &crate::bindings::core_u_object::FVector2D,
+        in_array_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_VECTOR2_D,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_parameter_value_vector(
+        &mut self,
+        in_parameter_name: &FName,
+        in_value: &crate::bindings::core_u_object::FVector,
+        in_array_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(40).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_VECTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_parameter_value_transform(
+        &mut self,
+        in_parameter_name: &FName,
+        in_value: &crate::bindings::core_u_object::FTransform,
+        in_array_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<116>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(112).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_TRANSFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_parameter_value_string(
+        &mut self,
+        in_parameter_name: &FName,
+        in_value: FString,
+        in_array_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_STRING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_parameter_value_quat(
+        &mut self,
+        in_parameter_name: &FName,
+        in_value: &crate::bindings::core_u_object::FQuat,
+        in_array_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<52>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_QUAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(48).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_QUAT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_parameter_value_name(
+        &mut self,
+        in_parameter_name: &FName,
+        in_value: &FName,
+        in_array_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(in_value, __buffer.add(12).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(24).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_NAME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_parameter_value_int(
+        &mut self,
+        in_parameter_name: &FName,
+        in_value: i32,
+        in_array_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_INT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_parameter_value_float(
+        &mut self,
+        in_parameter_name: &FName,
+        in_value: f32,
+        in_array_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(12).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_FLOAT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_parameter_value_double(
+        &mut self,
+        in_parameter_name: &FName,
+        in_value: f64,
+        in_array_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_DOUBLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(16).cast::<f64>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(24).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_DOUBLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_parameter_value_bool(
+        &mut self,
+        in_parameter_name: &FName,
+        in_value: bool,
+        in_array_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(12).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_SET_PARAMETER_VALUE_BOOL,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_statistics(&self) -> FRigVMStatistics {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_GET_STATISTICS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_GET_STATISTICS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FRigVMStatistics>().read() }
+    }
+    pub fn get_parameter_value_vector2_d(
+        &mut self,
+        in_parameter_name: &FName,
+        in_array_index: i32,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_VECTOR2_D,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_parameter_value_vector(
+        &mut self,
+        in_parameter_name: &FName,
+        in_array_index: i32,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_VECTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_parameter_value_transform(
+        &mut self,
+        in_parameter_name: &FName,
+        in_array_index: i32,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_parameter_value_string(
+        &mut self,
+        in_parameter_name: &FName,
+        in_array_index: i32,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_parameter_value_quat(
+        &mut self,
+        in_parameter_name: &FName,
+        in_array_index: i32,
+    ) -> crate::bindings::core_u_object::FQuat {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_QUAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_QUAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>().read()
+        }
+    }
+    pub fn get_parameter_value_name(
+        &mut self,
+        in_parameter_name: &FName,
+        in_array_index: i32,
+    ) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FName>().read() }
+    }
+    pub fn get_parameter_value_int(
+        &mut self,
+        in_parameter_name: &FName,
+        in_array_index: i32,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_INT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<i32>().read() }
+    }
+    pub fn get_parameter_value_float(
+        &mut self,
+        in_parameter_name: &FName,
+        in_array_index: i32,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn get_parameter_value_double(
+        &mut self,
+        in_parameter_name: &FName,
+        in_array_index: i32,
+    ) -> f64 {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_DOUBLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_DOUBLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f64>().read() }
+    }
+    pub fn get_parameter_value_bool(
+        &mut self,
+        in_parameter_name: &FName,
+        in_array_index: i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameter_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_array_index,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_GET_PARAMETER_VALUE_BOOL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn execute(
+        &mut self,
+        context: &mut FRigVMExtendedExecuteContext,
+        in_entry_name: &FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<781>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_EXECUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FRigVMExtendedExecuteContext>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_entry_name,
+                __buffer.add(768).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_EXECUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FRigVMExtendedExecuteContext>().swap(context);
+        }
+        unsafe { __buffer.add(780).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UNameSpacedUserData {
@@ -4511,6 +5339,70 @@ impl UDataAssetLink {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_data_asset(
+        &mut self,
+        in_data_asset: TSoftObjectPtr<crate::bindings::engine::UDataAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_DATA_ASSET_LINK_SET_DATA_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_data_asset,
+                __buffer
+                    .add(0)
+                    .cast::<TSoftObjectPtr<crate::bindings::engine::UDataAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_DATA_ASSET_LINK_SET_DATA_ASSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_data_asset(&self) -> TSoftObjectPtr<crate::bindings::engine::UDataAsset> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_DATA_ASSET_LINK_GET_DATA_ASSET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_DATA_ASSET_LINK_GET_DATA_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TSoftObjectPtr<crate::bindings::engine::UDataAsset>>()
+                .read()
         }
     }
 }
@@ -4623,6 +5515,144 @@ impl URigVMUserWorkflowOptions {
             cdo
         }
     }
+    pub fn requires_dialog(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_USER_WORKFLOW_OPTIONS_REQUIRES_DIALOG,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_USER_WORKFLOW_OPTIONS_REQUIRES_DIALOG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn report_warning(&mut self, in_message: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_USER_WORKFLOW_OPTIONS_REPORT_WARNING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_message,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_USER_WORKFLOW_OPTIONS_REPORT_WARNING,
+                __buffer,
+            )
+        };
+    }
+    pub fn report_info(&mut self, in_message: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_USER_WORKFLOW_OPTIONS_REPORT_INFO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_message,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_USER_WORKFLOW_OPTIONS_REPORT_INFO,
+                __buffer,
+            )
+        };
+    }
+    pub fn report_error(&mut self, in_message: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_USER_WORKFLOW_OPTIONS_REPORT_ERROR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_message,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_USER_WORKFLOW_OPTIONS_REPORT_ERROR,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_valid(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_USER_WORKFLOW_OPTIONS_IS_VALID,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_USER_WORKFLOW_OPTIONS_IS_VALID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct URigVMHost {
@@ -4643,6 +5673,697 @@ impl URigVMHost {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn supports_event(&self, in_event_name: &FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_SUPPORTS_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_event_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_SUPPORTS_EVENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn set_variable_from_string(
+        &mut self,
+        in_variable_name: &FName,
+        in_value: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_SET_VARIABLE_FROM_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_SET_VARIABLE_FROM_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn set_frames_per_second(&mut self, in_frames_per_second: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_SET_FRAMES_PER_SECOND,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_frames_per_second,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_SET_FRAMES_PER_SECOND,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_delta_time(&mut self, in_delta_time: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_SET_DELTA_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_delta_time,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_SET_DELTA_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_absolute_time(
+        &mut self,
+        in_absolute_time: f32,
+        in_set_delta_time_zero: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_SET_ABSOLUTE_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_absolute_time,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_set_delta_time_zero,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_SET_ABSOLUTE_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_absolute_and_delta_time(
+        &mut self,
+        in_absolute_time: f32,
+        in_delta_time: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_SET_ABSOLUTE_AND_DELTA_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_absolute_time,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_delta_time,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_SET_ABSOLUTE_AND_DELTA_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn request_run_once_event(
+        &mut self,
+        in_event_name: &FName,
+        in_event_index: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_REQUEST_RUN_ONCE_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_event_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_event_index,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_REQUEST_RUN_ONCE_EVENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn request_init(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_REQUEST_INIT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_REQUEST_INIT,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_run_once_event(&mut self, in_event_name: &FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_REMOVE_RUN_ONCE_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_event_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_REMOVE_RUN_ONCE_EVENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn is_init_required(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_IS_INIT_REQUIRED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_IS_INIT_REQUIRED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_vm(&mut self) -> UPtr<URigVM> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_VM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_VM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<URigVM>>().read() }
+    }
+    pub fn get_variable_type(&self, in_variable_name: &FName) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_VARIABLE_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_VARIABLE_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<FName>().read() }
+    }
+    pub fn get_variable_as_string(&self, in_variable_name: &FName) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_VARIABLE_AS_STRING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_variable_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_VARIABLE_AS_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_supported_events(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_SUPPORTED_EVENTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_SUPPORTED_EVENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_script_accessible_variables(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_SCRIPT_ACCESSIBLE_VARIABLES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_SCRIPT_ACCESSIBLE_VARIABLES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_extended_execute_context(&mut self) -> FRigVMExtendedExecuteContext {
+        let mut __stack = crate::core_data::StackAlloc::<768>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_EXTENDED_EXECUTE_CONTEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_EXTENDED_EXECUTE_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FRigVMExtendedExecuteContext>().read() }
+    }
+    pub fn get_delta_time(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_DELTA_TIME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_DELTA_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_current_frames_per_second(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_CURRENT_FRAMES_PER_SECOND,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_CURRENT_FRAMES_PER_SECOND,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_absolute_time(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_ABSOLUTE_TIME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_GET_ABSOLUTE_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn find_rig_vm_hosts(
+        outer: UPtr<crate::bindings::core_u_object::UObject>,
+        optional_class: TSubclassOf<URigVMHost>,
+    ) -> TArray<UPtr<URigVMHost>> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_FIND_RIG_VM_HOSTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &optional_class,
+                __buffer.add(8).cast::<TSubclassOf<URigVMHost>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_vm::URigVMHost::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_FIND_RIG_VM_HOSTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<UPtr<URigVMHost>>>().read() }
+    }
+    pub fn execute_event(&mut self, in_event_name: &FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_EXECUTE_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_event_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_EXECUTE_EVENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn execute(&mut self, in_event_name: &FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_EXECUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_event_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_EXECUTE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn can_execute(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_HOST_CAN_EXECUTE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_HOST_CAN_EXECUTE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -4685,6 +6406,37 @@ impl URigVMProjectSettings {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_tag(&self, in_tag_name: FName) -> FRigVMTag {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm::U_RIG_VM_PROJECT_SETTINGS_GET_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_tag_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm::U_RIG_VM_PROJECT_SETTINGS_GET_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FRigVMTag>().read() }
     }
 }
 #[repr(C, align(8))]

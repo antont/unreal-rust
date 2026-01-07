@@ -416,7 +416,6 @@ pub struct FVariantDependency {
     pub variant_set: TSoftObjectPtr<UVariantSet>,
     pub variant: TSoftObjectPtr<UVariant>,
     pub b_enabled: bool,
-    __padding_end: [u8; 7],
 }
 impl FVariantDependency {}
 #[repr(C, align(8))]
@@ -438,6 +437,95 @@ impl ULevelVariantSets {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_variant_set_by_name(
+        &mut self,
+        variant_set_name: FString,
+    ) -> UPtr<UVariantSet> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_LEVEL_VARIANT_SETS_GET_VARIANT_SET_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variant_set_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_LEVEL_VARIANT_SETS_GET_VARIANT_SET_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UVariantSet>>().read() }
+    }
+    pub fn get_variant_set(&mut self, variant_set_index: i32) -> UPtr<UVariantSet> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_LEVEL_VARIANT_SETS_GET_VARIANT_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variant_set_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_LEVEL_VARIANT_SETS_GET_VARIANT_SET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UVariantSet>>().read() }
+    }
+    pub fn get_num_variant_sets(&mut self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_LEVEL_VARIANT_SETS_GET_NUM_VARIANT_SETS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_LEVEL_VARIANT_SETS_GET_NUM_VARIANT_SETS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -462,6 +550,147 @@ impl ALevelVariantSetsActor {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn switch_on_variant_by_name(
+        &mut self,
+        variant_set_name: FString,
+        variant_name: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_SWITCH_ON_VARIANT_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variant_set_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variant_name,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_SWITCH_ON_VARIANT_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn switch_on_variant_by_index(
+        &mut self,
+        variant_set_index: i32,
+        variant_index: i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_SWITCH_ON_VARIANT_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variant_set_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variant_index,
+                __buffer.add(4).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_SWITCH_ON_VARIANT_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_level_variant_sets(&mut self, in_variant_sets: UPtr<ULevelVariantSets>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_SET_LEVEL_VARIANT_SETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_variant_sets,
+                __buffer.add(0).cast::<UPtr<ULevelVariantSets>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_SET_LEVEL_VARIANT_SETS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_level_variant_sets(&mut self, b_load: bool) -> UPtr<ULevelVariantSets> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_GET_LEVEL_VARIANT_SETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_load, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_GET_LEVEL_VARIANT_SETS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<ULevelVariantSets>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -504,6 +733,78 @@ impl UPropertyValue {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn has_recorded_data(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_PROPERTY_VALUE_HAS_RECORDED_DATA,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_PROPERTY_VALUE_HAS_RECORDED_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_property_tooltip(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_PROPERTY_VALUE_GET_PROPERTY_TOOLTIP,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_PROPERTY_VALUE_GET_PROPERTY_TOOLTIP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_full_display_string(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_PROPERTY_VALUE_GET_FULL_DISPLAY_STRING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_PROPERTY_VALUE_GET_FULL_DISPLAY_STRING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -652,6 +953,89 @@ impl ASwitchActor {
             cdo
         }
     }
+    pub fn select_option(&mut self, option_index: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::A_SWITCH_ACTOR_SELECT_OPTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &option_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::A_SWITCH_ACTOR_SELECT_OPTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_selected_option(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::A_SWITCH_ACTOR_GET_SELECTED_OPTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::A_SWITCH_ACTOR_GET_SELECTED_OPTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_options(&self) -> TArray<UPtr<crate::bindings::engine::AActor>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::A_SWITCH_ACTOR_GET_OPTIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::A_SWITCH_ACTOR_GET_OPTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UVariant {
@@ -668,6 +1052,451 @@ impl UVariant {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn switch_on(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SWITCH_ON,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SWITCH_ON,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_thumbnail_from_texture(
+        &mut self,
+        new_thumbnail: UPtr<crate::bindings::engine::UTexture2D>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_thumbnail,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UTexture2D>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_TEXTURE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_thumbnail_from_file(&mut self, file_path: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &file_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_FILE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_thumbnail_from_editor_viewport(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_EDITOR_VIEWPORT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_EDITOR_VIEWPORT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_thumbnail_from_camera(
+        &mut self,
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        camera_transform: &crate::bindings::core_u_object::FTransform,
+        fov_degrees: f32,
+        min_z: f32,
+        gamma: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<124>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_CAMERA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &fov_degrees,
+                __buffer.add(112).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&min_z, __buffer.add(116).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&gamma, __buffer.add(120).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_CAMERA,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_display_text(&mut self, new_display_text: &FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_DISPLAY_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_display_text,
+                __buffer.add(0).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_DISPLAY_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_active(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_IS_ACTIVE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_IS_ACTIVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_thumbnail(&mut self) -> UPtr<crate::bindings::engine::UTexture2D> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_GET_THUMBNAIL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_GET_THUMBNAIL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::UTexture2D>>().read()
+        }
+    }
+    pub fn get_parent(&mut self) -> UPtr<UVariantSet> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_GET_PARENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_GET_PARENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UVariantSet>>().read() }
+    }
+    pub fn get_num_dependencies(&mut self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_GET_NUM_DEPENDENCIES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_GET_NUM_DEPENDENCIES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_num_actors(&mut self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_GET_NUM_ACTORS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_GET_NUM_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_display_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_GET_DISPLAY_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_GET_DISPLAY_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_dependents(
+        &mut self,
+        level_variant_sets: UPtr<ULevelVariantSets>,
+        b_only_enabled_dependencies: bool,
+    ) -> TArray<UPtr<UVariant>> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_GET_DEPENDENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &level_variant_sets,
+                __buffer.add(0).cast::<UPtr<ULevelVariantSets>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_only_enabled_dependencies,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_GET_DEPENDENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<UPtr<UVariant>>>().read() }
+    }
+    pub fn get_dependency(&mut self, index: i32) -> FVariantDependency {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_GET_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_GET_DEPENDENCY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FVariantDependency>().read() }
+    }
+    pub fn get_actor(
+        &mut self,
+        actor_index: i32,
+    ) -> UPtr<crate::bindings::engine::AActor> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_GET_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_GET_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -710,6 +1539,339 @@ impl UVariantSet {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_thumbnail_from_texture(
+        &mut self,
+        new_thumbnail: UPtr<crate::bindings::engine::UTexture2D>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_TEXTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_thumbnail,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UTexture2D>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_TEXTURE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_thumbnail_from_file(&mut self, file_path: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &file_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_FILE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_thumbnail_from_editor_viewport(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_EDITOR_VIEWPORT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_EDITOR_VIEWPORT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_thumbnail_from_camera(
+        &mut self,
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        camera_transform: &crate::bindings::core_u_object::FTransform,
+        fov_degrees: f32,
+        min_z: f32,
+        gamma: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<124>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_CAMERA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &fov_degrees,
+                __buffer.add(112).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&min_z, __buffer.add(116).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&gamma, __buffer.add(120).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_CAMERA,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_display_text(&mut self, new_display_text: &FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_DISPLAY_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_display_text,
+                __buffer.add(0).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_DISPLAY_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_variant_by_name(&mut self, variant_name: FString) -> UPtr<UVariant> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_VARIANT_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variant_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_VARIANT_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UVariant>>().read() }
+    }
+    pub fn get_variant(&mut self, variant_index: i32) -> UPtr<UVariant> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variant_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_VARIANT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UVariant>>().read() }
+    }
+    pub fn get_thumbnail(&mut self) -> UPtr<crate::bindings::engine::UTexture2D> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_THUMBNAIL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_THUMBNAIL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::UTexture2D>>().read()
+        }
+    }
+    pub fn get_parent(&mut self) -> UPtr<ULevelVariantSets> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_PARENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_PARENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<ULevelVariantSets>>().read() }
+    }
+    pub fn get_num_variants(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_NUM_VARIANTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_NUM_VARIANTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_display_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_DISPLAY_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_DISPLAY_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
     }
 }
 #[repr(transparent)]

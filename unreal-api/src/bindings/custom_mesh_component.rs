@@ -67,4 +67,94 @@ impl UCustomMeshComponent {
             cdo
         }
     }
+    pub fn set_custom_mesh_triangles(
+        &mut self,
+        triangles: &TArray<FCustomMeshTriangle>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::custom_mesh_component::U_CUSTOM_MESH_COMPONENT_SET_CUSTOM_MESH_TRIANGLES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                triangles,
+                __buffer.add(0).cast::<TArray<FCustomMeshTriangle>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::custom_mesh_component::U_CUSTOM_MESH_COMPONENT_SET_CUSTOM_MESH_TRIANGLES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn clear_custom_mesh_triangles(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::custom_mesh_component::U_CUSTOM_MESH_COMPONENT_CLEAR_CUSTOM_MESH_TRIANGLES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::custom_mesh_component::U_CUSTOM_MESH_COMPONENT_CLEAR_CUSTOM_MESH_TRIANGLES,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_custom_mesh_triangles(
+        &mut self,
+        triangles: &TArray<FCustomMeshTriangle>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::custom_mesh_component::U_CUSTOM_MESH_COMPONENT_ADD_CUSTOM_MESH_TRIANGLES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                triangles,
+                __buffer.add(0).cast::<TArray<FCustomMeshTriangle>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::custom_mesh_component::U_CUSTOM_MESH_COMPONENT_ADD_CUSTOM_MESH_TRIANGLES,
+                __buffer,
+            )
+        };
+    }
 }

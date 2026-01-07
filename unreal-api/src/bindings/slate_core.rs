@@ -37,14 +37,12 @@ pub struct FSlateBrushOutlineSettings {
     pub width: f32,
     pub rounding_type: ESlateBrushRoundingType,
     pub b_use_brush_transparency: bool,
-    __padding_end: [u8; 6],
 }
 impl FSlateBrushOutlineSettings {}
 #[repr(C, align(4))]
 pub struct FSlateColor {
     pub specified_color: crate::bindings::core_u_object::FLinearColor,
     pub color_use_rule: ESlateColorStylingMode,
-    __padding_end: [u8; 3],
 }
 impl FSlateColor {}
 #[repr(C, align(4))]
@@ -84,7 +82,6 @@ pub struct FScrollBarStyle {
     pub hovered_thumb_image: FSlateBrush,
     pub dragged_thumb_image: FSlateBrush,
     pub thickness: f32,
-    __padding_end: [u8; 12],
 }
 impl FScrollBarStyle {}
 #[repr(C, align(16))]
@@ -143,7 +140,6 @@ pub struct FComboButtonStyle {
     pub content_padding: FMargin,
     pub down_arrow_padding: FMargin,
     pub down_arrow_align: EVerticalAlignment,
-    __padding_end: [u8; 15],
 }
 impl FComboButtonStyle {}
 #[repr(C, align(16))]
@@ -243,7 +239,6 @@ pub struct FTextBlockStyle {
     pub underline_brush: FSlateBrush,
     pub transform_policy: ETextTransformPolicy,
     pub overflow_policy: ETextOverflowPolicy,
-    __padding_end: [u8; 14],
 }
 impl FTextBlockStyle {}
 #[repr(C, align(16))]
@@ -261,7 +256,6 @@ pub struct FSpinBoxStyle {
     __padding_1492: [u8; 20],
     pub text_padding: FMargin,
     pub inset_padding: FMargin,
-    __padding_end: [u8; 12],
 }
 impl FSpinBoxStyle {}
 #[repr(C, align(8))]
@@ -372,7 +366,6 @@ pub struct FProgressBarStyle {
     pub fill_image: FSlateBrush,
     pub marquee_image: FSlateBrush,
     pub enable_fill_animation: bool,
-    __padding_end: [u8; 15],
 }
 impl FProgressBarStyle {}
 #[repr(C, align(16))]
@@ -386,7 +379,6 @@ pub struct FSliderStyle {
     pub hovered_thumb_image: FSlateBrush,
     pub disabled_thumb_image: FSlateBrush,
     pub bar_thickness: f32,
-    __padding_end: [u8; 12],
 }
 impl FSliderStyle {}
 #[repr(C, align(16))]
@@ -448,7 +440,6 @@ pub struct FWindowStyle {
     pub child_background_brush: FSlateBrush,
     pub window_corner_radius: i32,
     pub border_padding: FMargin,
-    __padding_end: [u8; 12],
 }
 impl FWindowStyle {}
 #[repr(C, align(16))]
@@ -462,7 +453,6 @@ pub struct FWrapButtonStyle {
     pub separator_brush: TOptional<FSlateBrush>,
     pub separator_thickness: TOptional<f32>,
     pub separator_padding: TOptional<FMargin>,
-    __padding_end: [u8; 4],
 }
 impl FWrapButtonStyle {}
 #[repr(C, align(16))]
@@ -513,7 +503,6 @@ pub struct FToolBarStyle {
     pub icon_padding_with_collapsed_label: FMargin,
     pub vertical_alignment_override: TOptional<EVerticalAlignment>,
     pub raised_children_right_padding: f32,
-    __padding_end: [u8; 8],
 }
 impl FToolBarStyle {}
 #[repr(C, align(8))]

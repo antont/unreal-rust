@@ -126,7 +126,6 @@ pub struct FDatasmithRetessellationOptions {
     #[doc(hidden)]
     __padding_32: [u8; 32],
     pub retessellation_rule: EDatasmithCADRetessellationRule,
-    __padding_end: [u8; 7],
 }
 impl FDatasmithRetessellationOptions {}
 #[repr(C, align(8))]
@@ -171,7 +170,6 @@ pub struct ADatasmithAreaLightActor {
     pub attenuation_radius: f32,
     pub spotlight_inner_angle: f32,
     pub spotlight_outer_angle: f32,
-    __padding_end: [u8; 4],
 }
 impl ADatasmithAreaLightActor {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -531,6 +529,304 @@ impl UDatasmithContentBlueprintLibrary {
             cdo
         }
     }
+    pub fn get_datasmith_user_data_values_for_key(
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+        key: FName,
+        b_partial_match_key: bool,
+    ) -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUES_FOR_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&key, __buffer.add(8).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_partial_match_key,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::datasmith_content::UDatasmithContentBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUES_FOR_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FString>>().read() }
+    }
+    pub fn get_datasmith_user_data_value_for_key(
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+        key: FName,
+        b_partial_match_key: bool,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUE_FOR_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&key, __buffer.add(8).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_partial_match_key,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::datasmith_content::UDatasmithContentBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUE_FOR_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FString>().read() }
+    }
+    pub fn get_datasmith_user_data_keys_and_values_for_value(
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+        string_to_match: FString,
+        out_keys: &mut TArray<FName>,
+        out_values: &mut TArray<FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_KEYS_AND_VALUES_FOR_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &string_to_match,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_keys,
+                __buffer.add(24).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_values,
+                __buffer.add(40).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::datasmith_content::UDatasmithContentBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_KEYS_AND_VALUES_FOR_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<TArray<FName>>().swap(out_keys);
+        }
+        unsafe {
+            __buffer.add(40).cast::<TArray<FString>>().swap(out_values);
+        }
+    }
+    pub fn get_datasmith_user_data(
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> UPtr<UDatasmithAssetUserData> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::datasmith_content::UDatasmithContentBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UDatasmithAssetUserData>>().read() }
+    }
+    pub fn get_all_objects_and_values_for_key(
+        key: FName,
+        object_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+        out_objects: &mut TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+        out_values: &mut TArray<FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_OBJECTS_AND_VALUES_FOR_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&key, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object_class,
+                __buffer
+                    .add(16)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_objects,
+                __buffer
+                    .add(24)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_values,
+                __buffer.add(40).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::datasmith_content::UDatasmithContentBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_OBJECTS_AND_VALUES_FOR_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
+                .swap(out_objects);
+        }
+        unsafe {
+            __buffer.add(40).cast::<TArray<FString>>().swap(out_values);
+        }
+    }
+    pub fn get_all_datasmith_user_data(
+        object_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+        out_user_data: &mut TArray<UPtr<UDatasmithAssetUserData>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_DATASMITH_USER_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object_class,
+                __buffer
+                    .add(0)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_user_data,
+                __buffer.add(8).cast::<TArray<UPtr<UDatasmithAssetUserData>>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::datasmith_content::UDatasmithContentBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_DATASMITH_USER_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<TArray<UPtr<UDatasmithAssetUserData>>>()
+                .swap(out_user_data);
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UDatasmithCustomActionBase {
@@ -576,6 +872,41 @@ impl ADatasmithImportedSequencesActor {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn play_level_sequence(
+        &mut self,
+        sequence_to_play: UPtr<crate::bindings::level_sequence::ULevelSequence>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::datasmith_content::A_DATASMITH_IMPORTED_SEQUENCES_ACTOR_PLAY_LEVEL_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sequence_to_play,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::level_sequence::ULevelSequence>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::datasmith_content::A_DATASMITH_IMPORTED_SEQUENCES_ACTOR_PLAY_LEVEL_SEQUENCE,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]

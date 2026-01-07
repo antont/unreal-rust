@@ -354,6 +354,152 @@ impl UTypedElementHandleLibrary {
             cdo
         }
     }
+    pub fn release(element_handle: &mut FScriptTypedElementHandle) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_RELEASE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                element_handle,
+                __buffer.add(0).cast::<FScriptTypedElementHandle>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementHandleLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_RELEASE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FScriptTypedElementHandle>().swap(element_handle);
+        }
+    }
+    pub fn not_equal(
+        lhs: &FScriptTypedElementHandle,
+        rhs: &FScriptTypedElementHandle,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_NOT_EQUAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                lhs,
+                __buffer.add(0).cast::<FScriptTypedElementHandle>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                rhs,
+                __buffer.add(8).cast::<FScriptTypedElementHandle>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementHandleLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_NOT_EQUAL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn is_set(element_handle: &FScriptTypedElementHandle) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_IS_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                element_handle,
+                __buffer.add(0).cast::<FScriptTypedElementHandle>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementHandleLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_IS_SET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn equal(
+        lhs: &FScriptTypedElementHandle,
+        rhs: &FScriptTypedElementHandle,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_EQUAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                lhs,
+                __buffer.add(0).cast::<FScriptTypedElementHandle>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                rhs,
+                __buffer.add(8).cast::<FScriptTypedElementHandle>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementHandleLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_EQUAL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UTypedElementListLibrary {
@@ -374,6 +520,773 @@ impl UTypedElementListLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn shrink(element_list: FScriptTypedElementListProxy) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_SHRINK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_SHRINK,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset(element_list: FScriptTypedElementListProxy) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_RESET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_RESET,
+                __buffer,
+            )
+        };
+    }
+    pub fn reserve(element_list: FScriptTypedElementListProxy, size: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_RESERVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&size, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_RESERVE,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove(
+        element_list: FScriptTypedElementListProxy,
+        element_handle: &FScriptTypedElementHandle,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_REMOVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                element_handle,
+                __buffer.add(16).cast::<FScriptTypedElementHandle>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_REMOVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn num(element_list: FScriptTypedElementListProxy) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_NUM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_NUM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<i32>().read() }
+    }
+    pub fn is_valid_index(
+        element_list: FScriptTypedElementListProxy,
+        index: i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_IS_VALID_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_IS_VALID_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn has_elements_of_type(
+        element_list: FScriptTypedElementListProxy,
+        element_type_name: FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_HAS_ELEMENTS_OF_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_type_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_HAS_ELEMENTS_OF_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn has_elements(
+        element_list: FScriptTypedElementListProxy,
+        base_interface_type: TSubclassOf<crate::bindings::core_u_object::UInterface>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_HAS_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_interface_type,
+                __buffer
+                    .add(16)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_HAS_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn get_element_interface(
+        element_list: FScriptTypedElementListProxy,
+        element_handle: &FScriptTypedElementHandle,
+        base_interface_type: TSubclassOf<crate::bindings::core_u_object::UInterface>,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_INTERFACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                element_handle,
+                __buffer.add(16).cast::<FScriptTypedElementHandle>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_interface_type,
+                __buffer
+                    .add(24)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_INTERFACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn get_element_handles(
+        element_list: FScriptTypedElementListProxy,
+        base_interface_type: TSubclassOf<crate::bindings::core_u_object::UInterface>,
+    ) -> TArray<FScriptTypedElementHandle> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_HANDLES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_interface_type,
+                __buffer
+                    .add(16)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_HANDLES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FScriptTypedElementHandle>>().read() }
+    }
+    pub fn get_element_handle_at(
+        element_list: FScriptTypedElementListProxy,
+        index: i32,
+    ) -> FScriptTypedElementHandle {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_HANDLE_AT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_HANDLE_AT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FScriptTypedElementHandle>().read() }
+    }
+    pub fn empty(element_list: FScriptTypedElementListProxy, slack: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_EMPTY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&slack, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_EMPTY,
+                __buffer,
+            )
+        };
+    }
+    pub fn create_element_list(
+        registry: UPtr<UTypedElementRegistry>,
+    ) -> FScriptTypedElementListProxy {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_CREATE_SCRIPT_ELEMENT_LIST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &registry,
+                __buffer.add(0).cast::<UPtr<UTypedElementRegistry>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_CREATE_SCRIPT_ELEMENT_LIST,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FScriptTypedElementListProxy>().read() }
+    }
+    pub fn count_elements_of_type(
+        element_list: FScriptTypedElementListProxy,
+        element_type_name: FName,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_COUNT_ELEMENTS_OF_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_type_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_COUNT_ELEMENTS_OF_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<i32>().read() }
+    }
+    pub fn count_elements(
+        element_list: FScriptTypedElementListProxy,
+        base_interface_type: TSubclassOf<crate::bindings::core_u_object::UInterface>,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_COUNT_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_interface_type,
+                __buffer
+                    .add(16)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_COUNT_ELEMENTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<i32>().read() }
+    }
+    pub fn contains(
+        element_list: FScriptTypedElementListProxy,
+        element_handle: &FScriptTypedElementHandle,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_CONTAINS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                element_handle,
+                __buffer.add(16).cast::<FScriptTypedElementHandle>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_CONTAINS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn clone(
+        element_list: FScriptTypedElementListProxy,
+    ) -> FScriptTypedElementListProxy {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_CLONE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_CLONE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FScriptTypedElementListProxy>().read() }
+    }
+    pub fn append_list(
+        element_list: FScriptTypedElementListProxy,
+        other_element_list: FScriptTypedElementListProxy,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_APPEND_LIST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &other_element_list,
+                __buffer.add(16).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_APPEND_LIST,
+                __buffer,
+            )
+        };
+    }
+    pub fn append(
+        element_list: FScriptTypedElementListProxy,
+        element_handles: &TArray<FScriptTypedElementHandle>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_APPEND,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                element_handles,
+                __buffer.add(16).cast::<TArray<FScriptTypedElementHandle>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_APPEND,
+                __buffer,
+            )
+        };
+    }
+    pub fn add(
+        element_list: FScriptTypedElementListProxy,
+        element_handle: &FScriptTypedElementHandle,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_ADD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &element_list,
+                __buffer.add(0).cast::<FScriptTypedElementListProxy>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                element_handle,
+                __buffer.add(16).cast::<FScriptTypedElementHandle>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementListLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_ADD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
     }
 }
 pub struct ITypedElementCounterInterface {}
@@ -418,6 +1331,79 @@ impl UTypedElementRegistry {
             cdo
         }
     }
+    pub fn get_default_typed_element_registry() -> UPtr<UTypedElementRegistry> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_REGISTRY_GET_INSTANCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::typed_element_framework::UTypedElementRegistry::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_REGISTRY_GET_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UTypedElementRegistry>>().read() }
+    }
+    pub fn get_element_interface(
+        &self,
+        in_element_handle: &FScriptTypedElementHandle,
+        in_base_interface_type: TSubclassOf<crate::bindings::core_u_object::UInterface>,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_REGISTRY_GET_ELEMENT_INTERFACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer.add(0).cast::<FScriptTypedElementHandle>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_base_interface_type,
+                __buffer
+                    .add(8)
+                    .cast::<TSubclassOf<crate::bindings::core_u_object::UInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_REGISTRY_GET_ELEMENT_INTERFACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
 }
 pub struct ITestTypedElementInterfaceA {}
 #[repr(C, align(8))]
@@ -439,6 +1425,86 @@ impl UTestTypedElementInterfaceA {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_display_name(
+        &mut self,
+        in_element_handle: &FScriptTypedElementHandle,
+        in_new_name: FText,
+        b_notify: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<26>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_A_SET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer.add(0).cast::<FScriptTypedElementHandle>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_new_name,
+                __buffer.add(8).cast::<FText>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_notify, __buffer.add(24).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_A_SET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(25).cast::<bool>().read() }
+    }
+    pub fn get_display_name(
+        &mut self,
+        in_element_handle: &FScriptTypedElementHandle,
+    ) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_A_GET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer.add(0).cast::<FScriptTypedElementHandle>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_A_GET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FText>().read() }
     }
 }
 pub struct ITestTypedElementInterfaceB {}
@@ -462,6 +1528,40 @@ impl UTestTypedElementInterfaceB {
             cdo
         }
     }
+    pub fn mark_as_tested(
+        &mut self,
+        in_element_handle: &FScriptTypedElementHandle,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_B_MARK_AS_TESTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer.add(0).cast::<FScriptTypedElementHandle>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_B_MARK_AS_TESTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
 }
 pub struct ITestTypedElementInterfaceC {}
 #[repr(C, align(8))]
@@ -483,6 +1583,37 @@ impl UTestTypedElementInterfaceC {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_is_tested(&self, in_element_handle: &FScriptTypedElementHandle) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_C_GET_IS_TESTED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_element_handle,
+                __buffer.add(0).cast::<FScriptTypedElementHandle>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_C_GET_IS_TESTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]

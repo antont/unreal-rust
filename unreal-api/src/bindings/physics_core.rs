@@ -14,7 +14,6 @@ pub struct FBodyInstanceCore {
     __padding_8: [u8; 8],
     pub flags_8: u8,
     pub flags_9: u8,
-    __padding_end: [u8; 2],
 }
 impl FBodyInstanceCore {}
 #[repr(C, align(4))]
@@ -82,7 +81,6 @@ pub struct UChaosPhysicalMaterial {
     pub angular_ether_drag: f32,
     pub sleeping_linear_velocity_threshold: f32,
     pub sleeping_angular_velocity_threshold: f32,
-    __padding_end: [u8; 4],
 }
 impl UChaosPhysicalMaterial {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

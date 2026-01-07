@@ -216,6 +216,162 @@ impl UProceduralFoliageEditorLibrary {
             cdo
         }
     }
+    pub fn resimulate_procedural_foliage_volumes(
+        procedural_foliage_volumes: &TArray<
+            UPtr<crate::bindings::foliage::AProceduralFoliageVolume>,
+        >,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::foliage_edit::U_PROCEDURAL_FOLIAGE_EDITOR_LIBRARY_RESIMULATE_PROCEDURAL_FOLIAGE_VOLUMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                procedural_foliage_volumes,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TArray<UPtr<crate::bindings::foliage::AProceduralFoliageVolume>>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::foliage_edit::UProceduralFoliageEditorLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::foliage_edit::U_PROCEDURAL_FOLIAGE_EDITOR_LIBRARY_RESIMULATE_PROCEDURAL_FOLIAGE_VOLUMES,
+                __buffer,
+            )
+        };
+    }
+    pub fn resimulate_procedural_foliage_components(
+        procedural_foliage_components: &TArray<
+            UPtr<crate::bindings::foliage::UProceduralFoliageComponent>,
+        >,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::foliage_edit::U_PROCEDURAL_FOLIAGE_EDITOR_LIBRARY_RESIMULATE_PROCEDURAL_FOLIAGE_COMPONENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                procedural_foliage_components,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TArray<
+                            UPtr<crate::bindings::foliage::UProceduralFoliageComponent>,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::foliage_edit::UProceduralFoliageEditorLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::foliage_edit::U_PROCEDURAL_FOLIAGE_EDITOR_LIBRARY_RESIMULATE_PROCEDURAL_FOLIAGE_COMPONENTS,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_procedural_foliage_volumes(
+        procedural_foliage_volumes: &TArray<
+            UPtr<crate::bindings::foliage::AProceduralFoliageVolume>,
+        >,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::foliage_edit::U_PROCEDURAL_FOLIAGE_EDITOR_LIBRARY_CLEAR_PROCEDURAL_FOLIAGE_VOLUMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                procedural_foliage_volumes,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TArray<UPtr<crate::bindings::foliage::AProceduralFoliageVolume>>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::foliage_edit::UProceduralFoliageEditorLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::foliage_edit::U_PROCEDURAL_FOLIAGE_EDITOR_LIBRARY_CLEAR_PROCEDURAL_FOLIAGE_VOLUMES,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_procedural_foliage_components(
+        procedural_foliage_components: &TArray<
+            UPtr<crate::bindings::foliage::UProceduralFoliageComponent>,
+        >,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::foliage_edit::U_PROCEDURAL_FOLIAGE_EDITOR_LIBRARY_CLEAR_PROCEDURAL_FOLIAGE_COMPONENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                procedural_foliage_components,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TArray<
+                            UPtr<crate::bindings::foliage::UProceduralFoliageComponent>,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::foliage_edit::UProceduralFoliageEditorLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::foliage_edit::U_PROCEDURAL_FOLIAGE_EDITOR_LIBRARY_CLEAR_PROCEDURAL_FOLIAGE_COMPONENTS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UProceduralFoliageSpawnerFactory {

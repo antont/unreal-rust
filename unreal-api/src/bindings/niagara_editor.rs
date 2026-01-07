@@ -1137,6 +1137,60 @@ impl UNiagaraBakerFunctionLibrary {
             cdo
         }
     }
+    pub fn capture_niagara_to_static_mesh(
+        component_to_capture: UPtr<crate::bindings::niagara::UNiagaraComponent>,
+        static_mesh_output: UPtr<crate::bindings::engine::UStaticMesh>,
+        readback_parameters: crate::bindings::niagara::FNiagaraRendererReadbackParameters,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_BAKER_FUNCTION_LIBRARY_CAPTURE_NIAGARA_TO_STATIC_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component_to_capture,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::niagara::UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &static_mesh_output,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::UStaticMesh>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &readback_parameters,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::niagara::FNiagaraRendererReadbackParameters,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraBakerFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_BAKER_FUNCTION_LIBRARY_CAPTURE_NIAGARA_TO_STATIC_MESH,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraBakerStaticMeshFactoryNew {
@@ -1262,6 +1316,1355 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn try_set_local_value_as_int(
+        in_input: UPtr<UNiagaraClipboardFunctionInput>,
+        b_out_succeeded: &mut bool,
+        in_value: i32,
+        b_loose_typing: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_SET_LOCAL_VALUE_AS_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input,
+                __buffer.add(0).cast::<UPtr<UNiagaraClipboardFunctionInput>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_succeeded,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(12).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_loose_typing,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_SET_LOCAL_VALUE_AS_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<bool>().swap(b_out_succeeded);
+        }
+    }
+    pub fn try_get_local_value_as_int(
+        in_input: UPtr<UNiagaraClipboardFunctionInput>,
+        b_out_succeeded: &mut bool,
+        out_value: &mut i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_LOCAL_VALUE_AS_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input,
+                __buffer.add(0).cast::<UPtr<UNiagaraClipboardFunctionInput>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_succeeded,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(out_value, __buffer.add(12).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_LOCAL_VALUE_AS_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<bool>().swap(b_out_succeeded);
+        }
+        unsafe {
+            __buffer.add(12).cast::<i32>().swap(out_value);
+        }
+    }
+    pub fn try_get_local_value_as_float(
+        in_input: UPtr<UNiagaraClipboardFunctionInput>,
+        b_out_succeeded: &mut bool,
+        out_value: &mut f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_LOCAL_VALUE_AS_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input,
+                __buffer.add(0).cast::<UPtr<UNiagaraClipboardFunctionInput>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_succeeded,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(out_value, __buffer.add(12).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_LOCAL_VALUE_AS_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<bool>().swap(b_out_succeeded);
+        }
+        unsafe {
+            __buffer.add(12).cast::<f32>().swap(out_value);
+        }
+    }
+    pub fn try_get_input_by_name(
+        in_inputs: &TArray<UPtr<UNiagaraClipboardFunctionInput>>,
+        in_input_name: FName,
+        b_out_succeeded: &mut bool,
+        out_input: &mut UPtr<UNiagaraClipboardFunctionInput>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_INPUT_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_inputs,
+                __buffer.add(0).cast::<TArray<UPtr<UNiagaraClipboardFunctionInput>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_succeeded,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_input,
+                __buffer.add(32).cast::<UPtr<UNiagaraClipboardFunctionInput>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_INPUT_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(28).cast::<bool>().swap(b_out_succeeded);
+        }
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<UPtr<UNiagaraClipboardFunctionInput>>()
+                .swap(out_input);
+        }
+    }
+    pub fn get_type_name(in_input: UPtr<UNiagaraClipboardFunctionInput>) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_GET_TYPE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input,
+                __buffer.add(0).cast::<UPtr<UNiagaraClipboardFunctionInput>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_GET_TYPE_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FName>().read() }
+    }
+    pub fn create_vec4_local_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_condition_value: bool,
+        in_vec4_value: crate::bindings::core_u_object::FVector4f,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC4_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_condition_value,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vec4_value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FVector4f>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC4_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
+    }
+    pub fn create_vec3_local_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_condition_value: bool,
+        in_vec3_value: crate::bindings::core_u_object::FVector,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC3_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_condition_value,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vec3_value,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC3_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
+    }
+    pub fn create_vec2_local_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_condition_value: bool,
+        in_vec2_value: crate::bindings::core_u_object::FVector2D,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC2_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_condition_value,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vec2_value,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC2_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
+    }
+    pub fn create_struct_local_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_condition_value: bool,
+        in_struct_value: UPtr<crate::bindings::core_u_object::UUserDefinedStruct>,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_STRUCT_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_condition_value,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_struct_value,
+                __buffer
+                    .add(24)
+                    .cast::<UPtr<crate::bindings::core_u_object::UUserDefinedStruct>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_STRUCT_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
+    }
+    pub fn create_quat_local_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_condition_value: bool,
+        in_quat_value: crate::bindings::core_u_object::FQuat4f,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_QUAT_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_condition_value,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_quat_value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FQuat4f>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_QUAT_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
+    }
+    pub fn create_matrix_local_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_condition_value: bool,
+        in_matrix_value: crate::bindings::core_u_object::FMatrix44f,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_MATRIX_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_condition_value,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_matrix_value,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FMatrix44f>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_MATRIX_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(96).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
+    }
+    pub fn create_linked_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        in_input_type_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_condition_value: bool,
+        in_linked_value: FName,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_LINKED_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_type_name,
+                __buffer.add(20).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_condition_value,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_linked_value,
+                __buffer.add(36).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_LINKED_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
+    }
+    pub fn create_int_local_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_condition_value: bool,
+        in_local_value: i32,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_INT_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_condition_value,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_local_value,
+                __buffer.add(24).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_INT_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
+    }
+    pub fn create_float_local_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_condition_value: bool,
+        in_local_value: f32,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_FLOAT_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_condition_value,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_local_value,
+                __buffer.add(24).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_FLOAT_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
+    }
+    pub fn create_expression_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        in_input_type_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_condition_value: bool,
+        in_expression_value: FString,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_EXPRESSION_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_type_name,
+                __buffer.add(20).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_condition_value,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_expression_value,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_EXPRESSION_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
+    }
+    pub fn create_enum_local_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_codition_value: bool,
+        in_enum_type: UPtr<crate::bindings::engine::UUserDefinedEnum>,
+        in_enum_value: i32,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_ENUM_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_codition_value,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_enum_type,
+                __buffer
+                    .add(24)
+                    .cast::<UPtr<crate::bindings::engine::UUserDefinedEnum>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_enum_value,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_ENUM_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
+    }
+    pub fn create_enum_linked_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_codition_value: bool,
+        in_enum_type: UPtr<crate::bindings::engine::UUserDefinedEnum>,
+        in_linked_value: FName,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_ENUM_LINKED_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_codition_value,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_enum_type,
+                __buffer
+                    .add(24)
+                    .cast::<UPtr<crate::bindings::engine::UUserDefinedEnum>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_linked_value,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_ENUM_LINKED_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
+    }
+    pub fn create_dynamic_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        in_input_type_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_condition_value: bool,
+        in_dynamic_value_name: FString,
+        in_dynamic_value: UPtr<crate::bindings::niagara::UNiagaraScript>,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_DYNAMIC_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_type_name,
+                __buffer.add(20).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_condition_value,
+                __buffer.add(33).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_dynamic_value_name,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_dynamic_value,
+                __buffer
+                    .add(56)
+                    .cast::<UPtr<crate::bindings::niagara::UNiagaraScript>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_DYNAMIC_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
+    }
+    pub fn create_data_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_condition_value: bool,
+        in_data_value: UPtr<crate::bindings::niagara::UNiagaraDataInterface>,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_DATA_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_condition_value,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_data_value,
+                __buffer
+                    .add(24)
+                    .cast::<UPtr<crate::bindings::niagara::UNiagaraDataInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_DATA_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
+    }
+    pub fn create_color_local_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_condition_value: bool,
+        in_color_value: crate::bindings::core_u_object::FLinearColor,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_COLOR_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_condition_value,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_color_value,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_COLOR_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
+    }
+    pub fn create_bool_local_value_input(
+        in_outer: UPtr<crate::bindings::core_u_object::UObject>,
+        in_input_name: FName,
+        b_in_has_edit_condition: bool,
+        b_in_edit_condition_value: bool,
+        in_bool_value: bool,
+    ) -> UPtr<UNiagaraClipboardFunctionInput> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_BOOL_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_outer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_input_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_has_edit_condition,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_edit_condition_value,
+                __buffer.add(21).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_bool_value,
+                __buffer.add(22).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::niagara_editor::UNiagaraClipboardEditorScriptingUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_BOOL_LOCAL_VALUE_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3069,6 +4472,326 @@ impl UNiagaraPythonScriptModuleInput {
             cdo
         }
     }
+    pub fn is_set(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_SET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_SET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_local_value(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_LOCAL_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_LOCAL_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_linked_value(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_LINKED_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_LINKED_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn as_vec4(&self) -> crate::bindings::core_u_object::FVector4 {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC4,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC4,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector4>().read()
+        }
+    }
+    pub fn as_vec3(&self) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC3,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC3,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn as_vec2(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC2,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC2,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn as_quat(&self) -> crate::bindings::core_u_object::FQuat {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_QUAT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_QUAT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<crate::bindings::core_u_object::FQuat>().read() }
+    }
+    pub fn as_linked_value(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_LINKED_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_LINKED_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn as_int(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_INT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_INT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn as_float(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_FLOAT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn as_enum(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_ENUM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_ENUM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn as_color(&self) -> crate::bindings::core_u_object::FLinearColor {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_COLOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>().read()
+        }
+    }
+    pub fn as_bool(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_BOOL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_BOOL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UUpgradeNiagaraScriptResults {
@@ -3095,6 +4818,516 @@ impl UUpgradeNiagaraScriptResults {
             cdo
         }
     }
+    pub fn set_vec4_input(
+        &mut self,
+        input_name: FString,
+        value: crate::bindings::core_u_object::FVector4,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC4_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector4>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC4_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_vec3_input(
+        &mut self,
+        input_name: FString,
+        value: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC3_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC3_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_vec2_input(
+        &mut self,
+        input_name: FString,
+        value: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC2_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC2_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_quat_input(
+        &mut self,
+        input_name: FString,
+        value: crate::bindings::core_u_object::FQuat,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_QUAT_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_QUAT_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_new_input(
+        &mut self,
+        input_name: FString,
+        value: UPtr<UNiagaraPythonScriptModuleInput>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_NEW_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(16).cast::<UPtr<UNiagaraPythonScriptModuleInput>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_NEW_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_linked_input(&mut self, input_name: FString, value: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_LINKED_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(16).cast::<FString>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_LINKED_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_int_input(&mut self, input_name: FString, value: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_INT_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_INT_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_float_input(&mut self, input_name: FString, value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_FLOAT_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(16).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_FLOAT_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enum_input_from_int(&mut self, input_name: FString, value: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_ENUM_INPUT_FROM_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_ENUM_INPUT_FROM_INT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enum_input(&mut self, input_name: FString, value: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_ENUM_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(16).cast::<FString>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_ENUM_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_color_input(
+        &mut self,
+        input_name: FString,
+        value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_COLOR_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_COLOR_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_bool_input(&mut self, input_name: FString, value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_BOOL_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(16).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_BOOL_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_to_default(&mut self, input_name: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_old_input(
+        &mut self,
+        input_name: FString,
+    ) -> UPtr<UNiagaraPythonScriptModuleInput> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_GET_OLD_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_GET_OLD_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<UPtr<UNiagaraPythonScriptModuleInput>>().read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraPythonModule {
@@ -3116,6 +5349,30 @@ impl UNiagaraPythonModule {
             cdo
         }
     }
+    pub fn get_object(&self) -> UPtr<UNiagaraStackModuleItem> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_MODULE_GET_OBJECT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_MODULE_GET_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UNiagaraStackModuleItem>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UNiagaraPythonEmitter {
@@ -3136,6 +5393,187 @@ impl UNiagaraPythonEmitter {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_properties(
+        &mut self,
+        data: crate::bindings::niagara::FVersionedNiagaraEmitterData,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1640>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_SET_PROPERTIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &data,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::niagara::FVersionedNiagaraEmitterData>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_SET_PROPERTIES,
+                __buffer,
+            )
+        };
+    }
+    pub fn has_module(&self, module_name: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_HAS_MODULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &module_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_HAS_MODULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_properties(
+        &self,
+    ) -> crate::bindings::niagara::FVersionedNiagaraEmitterData {
+        let mut __stack = crate::core_data::StackAlloc::<1640>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_PROPERTIES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_PROPERTIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::niagara::FVersionedNiagaraEmitterData>()
+                .read()
+        }
+    }
+    pub fn get_object(&mut self) -> UPtr<crate::bindings::niagara::UNiagaraEmitter> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_OBJECT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::niagara::UNiagaraEmitter>>()
+                .read()
+        }
+    }
+    pub fn get_modules(&self) -> TArray<UPtr<UNiagaraPythonModule>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_MODULES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_MODULES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<UNiagaraPythonModule>>>().read() }
+    }
+    pub fn get_module(&self, module_name: FString) -> UPtr<UNiagaraPythonModule> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_MODULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &module_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_MODULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UNiagaraPythonModule>>().read() }
     }
 }
 #[repr(C, align(8))]

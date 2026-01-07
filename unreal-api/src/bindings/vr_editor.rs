@@ -460,7 +460,6 @@ pub struct FVREditorFloatingUICreationContext {
     pub b_hide_window_handles: bool,
     pub b_mask_out_widget_background: bool,
     pub b_no_close_button: bool,
-    __padding_end: [u8; 1],
 }
 impl FVREditorFloatingUICreationContext {}
 #[repr(C, align(8))]
@@ -524,6 +523,250 @@ impl AVREditorTeleporter {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn stop_aiming(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_STOP_AIMING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_STOP_AIMING,
+                __buffer,
+            )
+        };
+    }
+    pub fn start_aiming(
+        &mut self,
+        interactor: UPtr<crate::bindings::viewport_interaction::UViewportInteractor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_START_AIMING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interactor,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::viewport_interaction::UViewportInteractor>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_START_AIMING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_visibility(&mut self, b_visible: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_SET_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_visible, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_SET_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_color(&mut self, color: &crate::bindings::core_u_object::FLinearColor) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_SET_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                color,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_SET_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_teleporting(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_IS_TELEPORTING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_IS_TELEPORTING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_aiming(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_IS_AIMING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_IS_AIMING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_vr_mode(&self) -> UPtr<UVREditorMode> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_GET_VR_MODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_GET_VR_MODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UVREditorMode>>().read() }
+    }
+    pub fn get_interactor_trying_teleport(
+        &self,
+    ) -> UPtr<crate::bindings::viewport_interaction::UViewportInteractor> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_GET_INTERACTOR_TRYING_TELEPORT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_GET_INTERACTOR_TRYING_TELEPORT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<
+                    UPtr<crate::bindings::viewport_interaction::UViewportInteractor>,
+                >()
+                .read()
+        }
+    }
+    pub fn do_teleport(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_DO_TELEPORT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_DO_TELEPORT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -843,6 +1086,563 @@ impl UVREditorInteractor {
             cdo
         }
     }
+    pub fn try_override_controller_type(
+        &mut self,
+        in_controller_type: EControllerType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_TRY_OVERRIDE_CONTROLLER_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_controller_type,
+                __buffer.add(0).cast::<EControllerType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_TRY_OVERRIDE_CONTROLLER_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn set_force_show_laser(&mut self, b_in_force_show: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_FORCE_SHOW_LASER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_force_show,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_FORCE_SHOW_LASER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_force_laser_color(
+        &mut self,
+        in_color: &crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_FORCE_LASER_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_color,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_FORCE_LASER_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_controller_type(&mut self, in_controller_type: EControllerType) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_CONTROLLER_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_controller_type,
+                __buffer.add(0).cast::<EControllerType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_CONTROLLER_TYPE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_controller_hand_side(&mut self, in_controller_hand_side: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_CONTROLLER_HAND_SIDE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_controller_hand_side,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_CONTROLLER_HAND_SIDE,
+                __buffer,
+            )
+        };
+    }
+    pub fn replace_hand_mesh_component(
+        &mut self,
+        new_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
+        mesh_scale: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_REPLACE_HAND_MESH_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_mesh,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UStaticMesh>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh_scale,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_REPLACE_HAND_MESH_COMPONENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_touching_trackpad(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_IS_TOUCHING_TRACKPAD,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_IS_TOUCHING_TRACKPAD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_hovering_over_ui(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_IS_HOVERING_OVER_UI,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_IS_HOVERING_OVER_UI,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_clicking_on_ui(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_IS_CLICKING_ON_UI,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_IS_CLICKING_ON_UI,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_trackpad_position(&self) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_TRACKPAD_POSITION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_TRACKPAD_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_teleport_actor(&mut self) -> UPtr<AVREditorTeleporter> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_TELEPORT_ACTOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_TELEPORT_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<AVREditorTeleporter>>().read() }
+    }
+    pub fn get_select_and_move_trigger_value(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_SELECT_AND_MOVE_TRIGGER_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_SELECT_AND_MOVE_TRIGGER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_motion_controller_component(
+        &self,
+    ) -> UPtr<crate::bindings::head_mounted_display::UMotionControllerComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_MOTION_CONTROLLER_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_MOTION_CONTROLLER_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<
+                    UPtr<
+                        crate::bindings::head_mounted_display::UMotionControllerComponent,
+                    >,
+                >()
+                .read()
+        }
+    }
+    pub fn get_last_trackpad_position(
+        &self,
+    ) -> crate::bindings::core_u_object::FVector2D {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_LAST_TRACKPAD_POSITION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_LAST_TRACKPAD_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>().read()
+        }
+    }
+    pub fn get_laser_start(&self) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_LASER_START,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_LASER_START,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_laser_end(&self) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_LASER_END,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_LASER_END,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_hmd_device_type(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_HMD_DEVICE_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_HMD_DEVICE_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_controller_type(&self) -> EControllerType {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_CONTROLLER_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_CONTROLLER_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EControllerType>().read() }
+    }
+    pub fn get_controller_side(&self) -> crate::bindings::input_core::EControllerHand {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_CONTROLLER_SIDE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_CONTROLLER_SIDE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::input_core::EControllerHand>().read()
+        }
+    }
+    pub fn get_controller_hand_side(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_CONTROLLER_HAND_SIDE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_CONTROLLER_HAND_SIDE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UVREditorModeBase {
@@ -888,6 +1688,84 @@ impl UVREditorMode {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_game_view(&mut self, b_game_view: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_MODE_SET_GAME_VIEW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_game_view,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_MODE_SET_GAME_VIEW,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_in_game_view(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_MODE_IS_IN_GAME_VIEW,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_MODE_IS_IN_GAME_VIEW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_world_scale_factor(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_EDITOR_MODE_GET_WORLD_SCALE_FACTOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_EDITOR_MODE_GET_WORLD_SCALE_FACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -940,7 +1818,6 @@ pub struct UVRScoutingInteractor {
     #[doc(hidden)]
     __padding_2592: [u8; 8],
     pub b_receives_editor_input: bool,
-    __padding_end: [u8; 15],
 }
 impl UVRScoutingInteractor {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -956,6 +1833,184 @@ impl UVRScoutingInteractor {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_receives_editor_input(&mut self, b_in_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_SET_RECEIVES_EDITOR_INPUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_SET_RECEIVES_EDITOR_INPUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_gizmo_mode(
+        &mut self,
+        in_gizmo_mode: crate::bindings::viewport_interaction::EGizmoHandleTypes,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_SET_GIZMO_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_gizmo_mode,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::viewport_interaction::EGizmoHandleTypes>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_SET_GIZMO_MODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_selected_actors() -> TArray<UPtr<crate::bindings::engine::AActor>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_SELECTED_ACTORS,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::vr_editor::UVRScoutingInteractor::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_SELECTED_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .read()
+        }
+    }
+    pub fn get_receives_editor_input(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_RECEIVES_EDITOR_INPUT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_RECEIVES_EDITOR_INPUT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_input_component(&self) -> UPtr<crate::bindings::engine::UInputComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_INPUT_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_INPUT_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UInputComponent>>()
+                .read()
+        }
+    }
+    pub fn get_gizmo_mode(
+        &self,
+    ) -> crate::bindings::viewport_interaction::EGizmoHandleTypes {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_GIZMO_MODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_GIZMO_MODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::viewport_interaction::EGizmoHandleTypes>()
+                .read()
         }
     }
 }

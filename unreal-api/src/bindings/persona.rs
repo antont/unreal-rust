@@ -112,6 +112,37 @@ impl UAnimationSequenceBrowserContextMenuContext {
             cdo
         }
     }
+    pub fn get_selected_objects(
+        &self,
+    ) -> TArray<UPtr<crate::bindings::core_u_object::UObject>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::persona::U_ANIMATION_SEQUENCE_BROWSER_CONTEXT_MENU_CONTEXT_GET_SELECTED_OBJECTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::persona::U_ANIMATION_SEQUENCE_BROWSER_CONTEXT_MENU_CONTEXT_GET_SELECTED_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UAnimNotifyPanelContextMenuContext {
@@ -828,6 +859,147 @@ impl UPersonaToolMenuContext {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn get_skeleton(&self) -> UPtr<crate::bindings::engine::USkeleton> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_SKELETON,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_SKELETON,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeleton>>().read()
+        }
+    }
+    pub fn get_preview_mesh_component(
+        &self,
+    ) -> UPtr<crate::bindings::unreal_ed::UDebugSkelMeshComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_PREVIEW_MESH_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_PREVIEW_MESH_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::unreal_ed::UDebugSkelMeshComponent>>()
+                .read()
+        }
+    }
+    pub fn get_mesh(&self) -> UPtr<crate::bindings::engine::USkeletalMesh> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_MESH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>().read()
+        }
+    }
+    pub fn get_anim_blueprint(&self) -> UPtr<crate::bindings::engine::UAnimBlueprint> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_ANIM_BLUEPRINT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_ANIM_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UAnimBlueprint>>()
+                .read()
+        }
+    }
+    pub fn get_animation_asset(&self) -> UPtr<crate::bindings::engine::UAnimationAsset> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_ANIMATION_ASSET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_ANIMATION_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::UAnimationAsset>>()
+                .read()
         }
     }
 }

@@ -342,6 +342,378 @@ impl UMetaHumanAssetReport {
             cdo
         }
     }
+    pub fn set_warnings_as_errors(&mut self, value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_WARNINGS_AS_ERRORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_WARNINGS_AS_ERRORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_verbose(&mut self, value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_VERBOSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_VERBOSE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_subject(&mut self, in_subject: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_SUBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_subject,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_SUBJECT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_silent(&mut self, value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_SILENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_SILENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn has_warnings(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_HAS_WARNINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_HAS_WARNINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_report_result(&self) -> EMetaHumanOperationResult {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GET_REPORT_RESULT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GET_REPORT_RESULT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EMetaHumanOperationResult>().read() }
+    }
+    pub fn generate_rich_text_report(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_RICH_TEXT_REPORT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_RICH_TEXT_REPORT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn generate_raw_report(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_RAW_REPORT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_RAW_REPORT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn generate_json_report(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_JSON_REPORT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_JSON_REPORT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn generate_html_report(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_HTML_REPORT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_HTML_REPORT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn add_warning(&mut self, message: &FMetaHumanAssetReportItem) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_WARNING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                message,
+                __buffer.add(0).cast::<FMetaHumanAssetReportItem>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_WARNING,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_verbose(&mut self, message: &FMetaHumanAssetReportItem) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_VERBOSE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                message,
+                __buffer.add(0).cast::<FMetaHumanAssetReportItem>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_VERBOSE,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_info(&mut self, message: &FMetaHumanAssetReportItem) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_INFO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                message,
+                __buffer.add(0).cast::<FMetaHumanAssetReportItem>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_INFO,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_error(&mut self, message: &FMetaHumanAssetReportItem) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_ERROR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                message,
+                __buffer.add(0).cast::<FMetaHumanAssetReportItem>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_ERROR,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UMetaHumanAssetManager {
@@ -362,6 +734,193 @@ impl UMetaHumanAssetManager {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn update_asset_details(
+        asset: &mut FMetaHumanAssetDescription,
+    ) -> FMetaHumanAssetDescription {
+        let mut __stack = crate::core_data::StackAlloc::<672>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DETAILS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset,
+                __buffer.add(0).cast::<FMetaHumanAssetDescription>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::meta_human_sdk_editor::UMetaHumanAssetManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DETAILS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FMetaHumanAssetDescription>().swap(asset);
+        }
+        unsafe { __buffer.add(336).cast::<FMetaHumanAssetDescription>().read() }
+    }
+    pub fn update_asset_dependencies(
+        asset: &mut FMetaHumanAssetDescription,
+    ) -> FMetaHumanAssetDescription {
+        let mut __stack = crate::core_data::StackAlloc::<672>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DEPENDENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset,
+                __buffer.add(0).cast::<FMetaHumanAssetDescription>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::meta_human_sdk_editor::UMetaHumanAssetManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DEPENDENCIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FMetaHumanAssetDescription>().swap(asset);
+        }
+        unsafe { __buffer.add(336).cast::<FMetaHumanAssetDescription>().read() }
+    }
+    pub fn is_asset_of_type(
+        root_package: &FName,
+        asset_type: EMetaHumanAssetType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<14>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_IS_ASSET_OF_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                root_package,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_type,
+                __buffer.add(12).cast::<EMetaHumanAssetType>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::meta_human_sdk_editor::UMetaHumanAssetManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_IS_ASSET_OF_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(13).cast::<bool>().read() }
+    }
+    pub fn find_assets_for_packaging(
+        asset_type: EMetaHumanAssetType,
+    ) -> TArray<FMetaHumanAssetDescription> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_FIND_ASSETS_FOR_PACKAGING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_type,
+                __buffer.add(0).cast::<EMetaHumanAssetType>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::meta_human_sdk_editor::UMetaHumanAssetManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_FIND_ASSETS_FOR_PACKAGING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<FMetaHumanAssetDescription>>().read() }
+    }
+    pub fn create_archive(
+        assets: &TArray<FMetaHumanAssetDescription>,
+        archive_path: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_CREATE_ARCHIVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                assets,
+                __buffer.add(0).cast::<TArray<FMetaHumanAssetDescription>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &archive_path,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::meta_human_sdk_editor::UMetaHumanAssetManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_CREATE_ARCHIVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -404,6 +963,86 @@ impl UMetaHumanVerificationRuleCollection {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn apply_all_rules(
+        &self,
+        target: UPtr<crate::bindings::core_u_object::UObject>,
+        report: UPtr<UMetaHumanAssetReport>,
+        options: &FMetaHumanVerificationOptions,
+    ) -> UPtr<UMetaHumanAssetReport> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_VERIFICATION_RULE_COLLECTION_APPLY_ALL_RULES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &report,
+                __buffer.add(8).cast::<UPtr<UMetaHumanAssetReport>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                options,
+                __buffer.add(16).cast::<FMetaHumanVerificationOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_VERIFICATION_RULE_COLLECTION_APPLY_ALL_RULES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UMetaHumanAssetReport>>().read() }
+    }
+    pub fn add_verification_rule(&mut self, rule: UPtr<UMetaHumanVerificationRuleBase>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_VERIFICATION_RULE_COLLECTION_ADD_VERIFICATION_RULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rule,
+                __buffer.add(0).cast::<UPtr<UMetaHumanVerificationRuleBase>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_VERIFICATION_RULE_COLLECTION_ADD_VERIFICATION_RULE,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]

@@ -225,7 +225,6 @@ pub struct FContentBrowserDataCollectionFilter {
     #[doc(hidden)]
     __padding_32: [u8; 32],
     pub b_include_child_collections: bool,
-    __padding_end: [u8; 7],
 }
 impl FContentBrowserDataCollectionFilter {}
 #[repr(C, align(8))]
@@ -388,6 +387,268 @@ impl UContentBrowserDataSubsystem {
             cdo
         }
     }
+    pub fn get_items_under_path(
+        &self,
+        in_path: FName,
+        in_filter: &FContentBrowserDataFilter,
+    ) -> TArray<FContentBrowserItem> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_UNDER_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_path, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_filter,
+                __buffer.add(16).cast::<FContentBrowserDataFilter>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_UNDER_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<TArray<FContentBrowserItem>>().read() }
+    }
+    pub fn get_items_at_path(
+        &self,
+        in_path: FName,
+        in_item_type_filter: EContentBrowserItemTypeFilter,
+    ) -> TArray<FContentBrowserItem> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_AT_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_path, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item_type_filter,
+                __buffer.add(12).cast::<EContentBrowserItemTypeFilter>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_AT_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TArray<FContentBrowserItem>>().read() }
+    }
+    pub fn get_item_at_path(
+        &self,
+        in_path: FName,
+        in_item_type_filter: EContentBrowserItemTypeFilter,
+    ) -> FContentBrowserItem {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEM_AT_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_path, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_item_type_filter,
+                __buffer.add(12).cast::<EContentBrowserItemTypeFilter>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEM_AT_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FContentBrowserItem>().read() }
+    }
+    pub fn get_available_data_sources(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_AVAILABLE_DATA_SOURCES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_AVAILABLE_DATA_SOURCES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_active_data_sources(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ACTIVE_DATA_SOURCES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ACTIVE_DATA_SOURCES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn deactivate_data_source(&mut self, name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_DATA_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_DATA_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn deactivate_all_data_sources(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_ALL_DATA_SOURCES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_ALL_DATA_SOURCES,
+                __buffer,
+            )
+        };
+    }
+    pub fn activate_data_source(&mut self, name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_DATA_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_DATA_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn activate_all_data_sources(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_ALL_DATA_SOURCES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_ALL_DATA_SOURCES,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UContentBrowserItemLibrary {
@@ -409,6 +670,130 @@ impl UContentBrowserItemLibrary {
             cdo
         }
     }
+    pub fn is_folder(item: &FContentBrowserItem) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FOLDER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                item,
+                __buffer.add(0).cast::<FContentBrowserItem>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::content_browser_data::UContentBrowserItemLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FOLDER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn is_file(item: &FContentBrowserItem) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<97>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                item,
+                __buffer.add(0).cast::<FContentBrowserItem>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::content_browser_data::UContentBrowserItemLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FILE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(96).cast::<bool>().read() }
+    }
+    pub fn get_virtual_path(item: &FContentBrowserItem) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<108>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_GET_VIRTUAL_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                item,
+                __buffer.add(0).cast::<FContentBrowserItem>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::content_browser_data::UContentBrowserItemLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_GET_VIRTUAL_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(96).cast::<FName>().read() }
+    }
+    pub fn get_display_name(item: &FContentBrowserItem) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_GET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                item,
+                __buffer.add(0).cast::<FContentBrowserItem>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::content_browser_data::UContentBrowserItemLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_GET_DISPLAY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(96).cast::<FText>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UContentBrowserItemPathExtensions {
@@ -428,6 +813,206 @@ impl UContentBrowserItemPathExtensions {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_path(
+        item_path: &mut FContentBrowserItemPath,
+        in_path: FName,
+        in_path_type: EContentBrowserPathType,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<37>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_SET_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                item_path,
+                __buffer.add(0).cast::<FContentBrowserItemPath>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_path, __buffer.add(24).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_path_type,
+                __buffer.add(36).cast::<EContentBrowserPathType>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::content_browser_data::UContentBrowserItemPathExtensions::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_SET_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FContentBrowserItemPath>().swap(item_path);
+        }
+    }
+    pub fn make_content_browser_item_path(
+        in_path: FName,
+        in_path_type: EContentBrowserPathType,
+    ) -> FContentBrowserItemPath {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_MAKE_CONTENT_BROWSER_ITEM_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_path, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_path_type,
+                __buffer.add(12).cast::<EContentBrowserPathType>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::content_browser_data::UContentBrowserItemPathExtensions::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_MAKE_CONTENT_BROWSER_ITEM_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FContentBrowserItemPath>().read() }
+    }
+    pub fn get_virtual_path(item_path: &FContentBrowserItemPath) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_VIRTUAL_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                item_path,
+                __buffer.add(0).cast::<FContentBrowserItemPath>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::content_browser_data::UContentBrowserItemPathExtensions::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_VIRTUAL_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FName>().read() }
+    }
+    pub fn get_internal_path(item_path: &FContentBrowserItemPath) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_INTERNAL_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                item_path,
+                __buffer.add(0).cast::<FContentBrowserItemPath>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::content_browser_data::UContentBrowserItemPathExtensions::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_INTERNAL_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FName>().read() }
+    }
+    pub fn break_content_browser_item_path(
+        item_path: &FContentBrowserItemPath,
+        virtual_path: &mut FName,
+        internal_path: &mut FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_BREAK_CONTENT_BROWSER_ITEM_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                item_path,
+                __buffer.add(0).cast::<FContentBrowserItemPath>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                virtual_path,
+                __buffer.add(24).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                internal_path,
+                __buffer.add(36).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::content_browser_data::UContentBrowserItemPathExtensions::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_BREAK_CONTENT_BROWSER_ITEM_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<FName>().swap(virtual_path);
+        }
+        unsafe {
+            __buffer.add(36).cast::<FName>().swap(internal_path);
         }
     }
 }

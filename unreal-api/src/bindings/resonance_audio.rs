@@ -161,7 +161,6 @@ pub struct UResonanceAudioSoundfieldSettings {
     #[doc(hidden)]
     __padding_48: [u8; 48],
     pub render_mode: EResonanceRenderMode,
-    __padding_end: [u8; 7],
 }
 impl UResonanceAudioSoundfieldSettings {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -198,6 +197,62 @@ impl UResonanceAudioBlueprintFunctionLibrary {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_global_reverb_preset(in_preset: UPtr<UResonanceAudioReverbPluginPreset>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_BLUEPRINT_FUNCTION_LIBRARY_SET_GLOBAL_REVERB_PRESET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_preset,
+                __buffer.add(0).cast::<UPtr<UResonanceAudioReverbPluginPreset>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::resonance_audio::UResonanceAudioBlueprintFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_BLUEPRINT_FUNCTION_LIBRARY_SET_GLOBAL_REVERB_PRESET,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_global_reverb_preset() -> UPtr<UResonanceAudioReverbPluginPreset> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_BLUEPRINT_FUNCTION_LIBRARY_GET_GLOBAL_REVERB_PRESET,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::resonance_audio::UResonanceAudioBlueprintFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_BLUEPRINT_FUNCTION_LIBRARY_GET_GLOBAL_REVERB_PRESET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<UResonanceAudioReverbPluginPreset>>().read()
         }
     }
 }
@@ -242,6 +297,285 @@ impl UResonanceAudioReverbPluginPreset {
             cdo
         }
     }
+    pub fn set_room_rotation(
+        &mut self,
+        in_rotation: &crate::bindings::core_u_object::FQuat,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_rotation,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FQuat>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_ROTATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_room_position(
+        &mut self,
+        in_position: &crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_position,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_POSITION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_room_materials(&mut self, in_materials: &TArray<ERaMaterialName>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_MATERIALS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_materials,
+                __buffer.add(0).cast::<TArray<ERaMaterialName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_MATERIALS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_room_dimensions(
+        &mut self,
+        in_dimensions: &crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_DIMENSIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_dimensions,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_DIMENSIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_reverb_time_modifier(&mut self, in_reverb_time_modifier: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_TIME_MODIFIER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_reverb_time_modifier,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_TIME_MODIFIER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_reverb_gain(&mut self, in_reverb_gain: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_GAIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_reverb_gain,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_GAIN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_reverb_brightness(&mut self, in_reverb_brightness: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_BRIGHTNESS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_reverb_brightness,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_BRIGHTNESS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_reflection_scalar(&mut self, in_reflection_scalar: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REFLECTION_SCALAR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_reflection_scalar,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REFLECTION_SCALAR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enable_room_effects(&mut self, b_in_enable_room_effects: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ENABLE_ROOM_EFFECTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_enable_room_effects,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ENABLE_ROOM_EFFECTS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UResonanceAudioSettings {
@@ -283,6 +617,65 @@ impl UResonanceAudioSpatializationSourceSettings {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_sound_source_spread(&mut self, in_spread: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_SPATIALIZATION_SOURCE_SETTINGS_SET_SOUND_SOURCE_SPREAD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_spread, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_SPATIALIZATION_SOURCE_SETTINGS_SET_SOUND_SOURCE_SPREAD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_sound_source_directivity(&mut self, in_pattern: f32, in_sharpness: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_SPATIALIZATION_SOURCE_SETTINGS_SET_SOUND_SOURCE_DIRECTIVITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_pattern, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_sharpness,
+                __buffer.add(4).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_SPATIALIZATION_SOURCE_SETTINGS_SET_SOUND_SOURCE_DIRECTIVITY,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(transparent)]

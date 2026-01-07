@@ -357,7 +357,7 @@ pub struct StructDefinition {
     pub documentation: Option<String>,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ClassDefinition {
     #[serde(rename = "ClassName")]
     pub class_name: String,

@@ -280,6 +280,146 @@ impl URigVMEditorMenuContext {
             cdo
         }
     }
+    pub fn is_alt_down(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_IS_ALT_DOWN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_IS_ALT_DOWN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_rig_vm_host(&self) -> UPtr<crate::bindings::rig_vm::URigVMHost> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_HOST,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_HOST,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::rig_vm::URigVMHost>>().read()
+        }
+    }
+    pub fn get_rig_vm_blueprint(
+        &self,
+    ) -> UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_BLUEPRINT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>>()
+                .read()
+        }
+    }
+    pub fn get_rig_vm_asset_interface(
+        &self,
+    ) -> TScriptInterface<crate::bindings::rig_vm_developer::URigVMAssetInterface> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_ASSET_INTERFACE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_ASSET_INTERFACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<
+                    TScriptInterface<
+                        crate::bindings::rig_vm_developer::URigVMAssetInterface,
+                    >,
+                >()
+                .read()
+        }
+    }
+    pub fn get_graph_menu_context(&mut self) -> FRigVMEditorGraphMenuContext {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_GRAPH_MENU_CONTEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_GRAPH_MENU_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FRigVMEditorGraphMenuContext>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct URigVMEditorBlueprintLibrary {
@@ -299,6 +439,619 @@ impl URigVMEditorBlueprintLibrary {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn request_auto_vm_recompilation(
+        in_blueprint: UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_REQUEST_AUTO_VM_RECOMPILATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_blueprint,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_vm_editor::URigVMEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_REQUEST_AUTO_VM_RECOMPILATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn recompile_vm_if_required(
+        in_blueprint: UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_RECOMPILE_VM_IF_REQUIRED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_blueprint,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_vm_editor::URigVMEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_RECOMPILE_VM_IF_REQUIRED,
+                __buffer,
+            )
+        };
+    }
+    pub fn recompile_vm(
+        in_blueprint: UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_RECOMPILE_VM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_blueprint,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_vm_editor::URigVMEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_RECOMPILE_VM,
+                __buffer,
+            )
+        };
+    }
+    pub fn load_assets_with_node_filter(
+        in_class: TSubclassOf<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+        in_node_filter: FLoadAssetsWithNodeFilter_ForBlueprint_InNodeFilter,
+    ) -> TArray<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_NODE_FILTER_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_class,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSubclassOf<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_filter,
+                __buffer
+                    .add(8)
+                    .cast::<FLoadAssetsWithNodeFilter_ForBlueprint_InNodeFilter>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_vm_editor::URigVMEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_NODE_FILTER_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(40)
+                .cast::<
+                    TArray<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>>,
+                >()
+                .read()
+        }
+    }
+    pub fn load_assets_with_blueprint_filter(
+        in_class: TSubclassOf<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+        in_blueprint_filter: FLoadAssetsWithBlueprintFilter_ForBlueprint_InBlueprintFilter,
+    ) -> TArray<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_BLUEPRINT_FILTER_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_class,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSubclassOf<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_blueprint_filter,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        FLoadAssetsWithBlueprintFilter_ForBlueprint_InBlueprintFilter,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_vm_editor::URigVMEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_BLUEPRINT_FILTER_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(40)
+                .cast::<
+                    TArray<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>>,
+                >()
+                .read()
+        }
+    }
+    pub fn load_assets_with_asset_data_filter(
+        in_class: TSubclassOf<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+        in_asset_data_filter: FLoadAssetsWithAssetDataFilter_ForBlueprint_InAssetDataFilter,
+    ) -> TArray<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_FILTER_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_class,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSubclassOf<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_asset_data_filter,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        FLoadAssetsWithAssetDataFilter_ForBlueprint_InAssetDataFilter,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_vm_editor::URigVMEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_FILTER_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(40)
+                .cast::<
+                    TArray<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>>,
+                >()
+                .read()
+        }
+    }
+    pub fn load_assets_with_asset_data_and_node_filters(
+        in_class: TSubclassOf<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+        in_asset_data_filter: FLoadAssetsWithAssetDataAndNodeFilters_ForBlueprint_InAssetDataFilter,
+        in_node_filter: FLoadAssetsWithAssetDataAndNodeFilters_ForBlueprint_InNodeFilter,
+    ) -> TArray<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>> {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_AND_NODE_FILTERS_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_class,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSubclassOf<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_asset_data_filter,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        FLoadAssetsWithAssetDataAndNodeFilters_ForBlueprint_InAssetDataFilter,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node_filter,
+                __buffer
+                    .add(40)
+                    .cast::<
+                        FLoadAssetsWithAssetDataAndNodeFilters_ForBlueprint_InNodeFilter,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_vm_editor::URigVMEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_AND_NODE_FILTERS_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(72)
+                .cast::<
+                    TArray<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>>,
+                >()
+                .read()
+        }
+    }
+    pub fn load_assets_with_asset_data_and_blueprint_filters(
+        in_class: TSubclassOf<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+        in_asset_data_filter: FLoadAssetsWithAssetDataAndBlueprintFilters_ForBlueprint_InAssetDataFilter,
+        in_blueprint_filter: FLoadAssetsWithAssetDataAndBlueprintFilters_ForBlueprint_InBlueprintFilter,
+    ) -> TArray<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>> {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_AND_BLUEPRINT_FILTERS_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_class,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSubclassOf<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_asset_data_filter,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        FLoadAssetsWithAssetDataAndBlueprintFilters_ForBlueprint_InAssetDataFilter,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_blueprint_filter,
+                __buffer
+                    .add(40)
+                    .cast::<
+                        FLoadAssetsWithAssetDataAndBlueprintFilters_ForBlueprint_InBlueprintFilter,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_vm_editor::URigVMEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_AND_BLUEPRINT_FILTERS_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(72)
+                .cast::<
+                    TArray<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>>,
+                >()
+                .read()
+        }
+    }
+    pub fn load_assets_by_class(
+        in_class: TSubclassOf<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+    ) -> TArray<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_BY_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_class,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSubclassOf<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_vm_editor::URigVMEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_BY_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<
+                    TArray<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>>,
+                >()
+                .read()
+        }
+    }
+    pub fn load_assets() -> TArray<
+        UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+    > {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::rig_vm_editor::URigVMEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<
+                    TArray<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>>,
+                >()
+                .read()
+        }
+    }
+    pub fn get_model(
+        in_blueprint: UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+    ) -> UPtr<crate::bindings::rig_vm_developer::URigVMGraph> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_MODEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_blueprint,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_vm_editor::URigVMEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_MODEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::rig_vm_developer::URigVMGraph>>()
+                .read()
+        }
+    }
+    pub fn get_controller(
+        in_blueprint: UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+    ) -> UPtr<crate::bindings::rig_vm_developer::URigVMController> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_blueprint,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_vm_editor::URigVMEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::rig_vm_developer::URigVMController>>()
+                .read()
+        }
+    }
+    pub fn get_assets_with_filter(
+        in_class: TSubclassOf<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+        in_asset_data_filter: FGetAssetsWithFilter_ForBlueprint_InAssetDataFilter,
+    ) -> TArray<crate::bindings::core_u_object::FAssetData> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_ASSETS_WITH_FILTER_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_class,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSubclassOf<crate::bindings::rig_vm_developer::URigVMBlueprint>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_asset_data_filter,
+                __buffer
+                    .add(8)
+                    .cast::<FGetAssetsWithFilter_ForBlueprint_InAssetDataFilter>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rig_vm_editor::URigVMEditorBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_ASSETS_WITH_FILTER_FOR_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(40)
+                .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
+                .read()
         }
     }
 }

@@ -328,7 +328,6 @@ pub struct FMovieSceneCaptureSettings {
     pub b_show_hud: bool,
     pub b_use_path_tracer: bool,
     pub path_tracer_sample_per_pixel: i32,
-    __padding_end: [u8; 4],
 }
 impl FMovieSceneCaptureSettings {}
 #[repr(C, align(8))]
@@ -373,6 +372,54 @@ impl UMovieSceneCaptureProtocolBase {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn is_capturing(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_IS_CAPTURING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_IS_CAPTURING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_state(&self) -> EMovieSceneCaptureProtocolState {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_GET_STATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_GET_STATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EMovieSceneCaptureProtocolState>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -560,7 +607,6 @@ pub struct UCompressedImageSequenceProtocol {
     #[doc(hidden)]
     __padding_224: [u8; 224],
     pub compression_quality: i32,
-    __padding_end: [u8; 4],
 }
 impl UCompressedImageSequenceProtocol {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -690,6 +736,124 @@ impl UMovieSceneCapture {
             cdo
         }
     }
+    pub fn set_image_capture_protocol_type(
+        &mut self,
+        protocol_type: TSubclassOf<UMovieSceneCaptureProtocolBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_SET_IMAGE_CAPTURE_PROTOCOL_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &protocol_type,
+                __buffer.add(0).cast::<TSubclassOf<UMovieSceneCaptureProtocolBase>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_SET_IMAGE_CAPTURE_PROTOCOL_TYPE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_audio_capture_protocol_type(
+        &mut self,
+        protocol_type: TSubclassOf<UMovieSceneCaptureProtocolBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_SET_AUDIO_CAPTURE_PROTOCOL_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &protocol_type,
+                __buffer.add(0).cast::<TSubclassOf<UMovieSceneCaptureProtocolBase>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_SET_AUDIO_CAPTURE_PROTOCOL_TYPE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_image_capture_protocol(
+        &mut self,
+    ) -> UPtr<UMovieSceneCaptureProtocolBase> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_GET_IMAGE_CAPTURE_PROTOCOL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_GET_IMAGE_CAPTURE_PROTOCOL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UMovieSceneCaptureProtocolBase>>().read() }
+    }
+    pub fn get_audio_capture_protocol(
+        &mut self,
+    ) -> UPtr<UMovieSceneCaptureProtocolBase> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_GET_AUDIO_CAPTURE_PROTOCOL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_GET_AUDIO_CAPTURE_PROTOCOL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UMovieSceneCaptureProtocolBase>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct ULevelCapture {
@@ -732,6 +896,130 @@ impl UMovieSceneCaptureEnvironment {
             cdo
         }
     }
+    pub fn is_capture_in_progress() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_IS_CAPTURE_IN_PROGRESS,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::movie_scene_capture::UMovieSceneCaptureEnvironment::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_IS_CAPTURE_IN_PROGRESS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_capture_frame_number() -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_FRAME_NUMBER,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::movie_scene_capture::UMovieSceneCaptureEnvironment::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_FRAME_NUMBER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_capture_elapsed_time() -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_ELAPSED_TIME,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::movie_scene_capture::UMovieSceneCaptureEnvironment::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_ELAPSED_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn find_image_capture_protocol() -> UPtr<UMovieSceneImageCaptureProtocolBase> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_IMAGE_CAPTURE_PROTOCOL,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::movie_scene_capture::UMovieSceneCaptureEnvironment::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_IMAGE_CAPTURE_PROTOCOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<UMovieSceneImageCaptureProtocolBase>>().read()
+        }
+    }
+    pub fn find_audio_capture_protocol() -> UPtr<UMovieSceneAudioCaptureProtocolBase> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_AUDIO_CAPTURE_PROTOCOL,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::movie_scene_capture::UMovieSceneCaptureEnvironment::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_AUDIO_CAPTURE_PROTOCOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<UMovieSceneAudioCaptureProtocolBase>>().read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UUserDefinedCaptureProtocol {
@@ -755,6 +1043,155 @@ impl UUserDefinedCaptureProtocol {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn stop_capturing_final_pixels(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_STOP_CAPTURING_FINAL_PIXELS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_STOP_CAPTURING_FINAL_PIXELS,
+                __buffer,
+            )
+        };
+    }
+    pub fn start_capturing_final_pixels(&mut self, stream_id: &FCapturedPixelsID) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_START_CAPTURING_FINAL_PIXELS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                stream_id,
+                __buffer.add(0).cast::<FCapturedPixelsID>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_START_CAPTURING_FINAL_PIXELS,
+                __buffer,
+            )
+        };
+    }
+    pub fn resolve_buffer(
+        &mut self,
+        buffer: UPtr<crate::bindings::engine::UTexture>,
+        buffer_id: &FCapturedPixelsID,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_RESOLVE_BUFFER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &buffer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UTexture>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                buffer_id,
+                __buffer.add(8).cast::<FCapturedPixelsID>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_RESOLVE_BUFFER,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_current_frame_metrics(&self) -> FFrameMetrics {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_GET_CURRENT_FRAME_METRICS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_GET_CURRENT_FRAME_METRICS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FFrameMetrics>().read() }
+    }
+    pub fn generate_filename(&self, in_frame_metrics: &FFrameMetrics) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_GENERATE_FILENAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_frame_metrics,
+                __buffer.add(0).cast::<FFrameMetrics>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_GENERATE_FILENAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -780,6 +1217,129 @@ impl UUserDefinedImageCaptureProtocol {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn write_image_to_disk(
+        &mut self,
+        pixel_data: &FCapturedPixels,
+        stream_id: &FCapturedPixelsID,
+        frame_metrics: &FFrameMetrics,
+        b_copy_image_data: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<113>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_WRITE_IMAGE_TO_DISK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                pixel_data,
+                __buffer.add(0).cast::<FCapturedPixels>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                stream_id,
+                __buffer.add(16).cast::<FCapturedPixelsID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                frame_metrics,
+                __buffer.add(96).cast::<FFrameMetrics>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_copy_image_data,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_WRITE_IMAGE_TO_DISK,
+                __buffer,
+            )
+        };
+    }
+    pub fn generate_filename_for_current_frame(&mut self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_CURRENT_FRAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_CURRENT_FRAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn generate_filename_for_buffer(
+        &mut self,
+        buffer: UPtr<crate::bindings::engine::UTexture>,
+        stream_id: &FCapturedPixelsID,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_BUFFER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &buffer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UTexture>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                stream_id,
+                __buffer.add(8).cast::<FCapturedPixelsID>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_BUFFER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(88).cast::<FString>().read() }
     }
 }
 #[repr(C, align(8))]

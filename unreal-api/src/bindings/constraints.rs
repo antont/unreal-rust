@@ -208,6 +208,323 @@ impl UConstraintsScriptingLibrary {
             cdo
         }
     }
+    pub fn remove_this_constraint(
+        in_world: UPtr<crate::bindings::engine::UWorld>,
+        in_tickable_constraint: UPtr<UTickableConstraint>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_REMOVE_THIS_CONSTRAINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_world,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_tickable_constraint,
+                __buffer.add(8).cast::<UPtr<UTickableConstraint>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::constraints::UConstraintsScriptingLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_REMOVE_THIS_CONSTRAINT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn remove_constraint(
+        in_world: UPtr<crate::bindings::engine::UWorld>,
+        in_index: i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_REMOVE_CONSTRAINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_world,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_index, __buffer.add(8).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::constraints::UConstraintsScriptingLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_REMOVE_CONSTRAINT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn get_constraints_array(
+        in_world: UPtr<crate::bindings::engine::UWorld>,
+    ) -> TArray<UPtr<UTickableConstraint>> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_GET_CONSTRAINTS_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_world,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::constraints::UConstraintsScriptingLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_GET_CONSTRAINTS_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TArray<UPtr<UTickableConstraint>>>().read() }
+    }
+    pub fn create_transformable_handle(
+        in_world: UPtr<crate::bindings::engine::UWorld>,
+        in_object: UPtr<crate::bindings::core_u_object::UObject>,
+        in_attachment_name: &FName,
+    ) -> UPtr<UTransformableHandle> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_TRANSFORMABLE_HANDLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_world,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_object,
+                __buffer.add(8).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_attachment_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::constraints::UConstraintsScriptingLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_TRANSFORMABLE_HANDLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<UPtr<UTransformableHandle>>().read() }
+    }
+    pub fn create_transformable_component_handle(
+        in_world: UPtr<crate::bindings::engine::UWorld>,
+        in_scene_component: UPtr<crate::bindings::engine::USceneComponent>,
+        in_socket_name: &FName,
+    ) -> UPtr<UTransformableComponentHandle> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_TRANSFORMABLE_COMPONENT_HANDLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_world,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_scene_component,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::USceneComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_socket_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::constraints::UConstraintsScriptingLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_TRANSFORMABLE_COMPONENT_HANDLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<UPtr<UTransformableComponentHandle>>().read() }
+    }
+    pub fn create_from_type(
+        in_world: UPtr<crate::bindings::engine::UWorld>,
+        in_type: crate::bindings::animation_core::ETransformConstraintType,
+    ) -> UPtr<UTickableTransformConstraint> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_FROM_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_world,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_type,
+                __buffer
+                    .add(8)
+                    .cast::<crate::bindings::animation_core::ETransformConstraintType>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::constraints::UConstraintsScriptingLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_FROM_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<UTickableTransformConstraint>>().read() }
+    }
+    pub fn add_constraint(
+        in_world: UPtr<crate::bindings::engine::UWorld>,
+        in_parent_handle: UPtr<UTransformableHandle>,
+        in_child_handle: UPtr<UTransformableHandle>,
+        in_constraint: UPtr<UTickableTransformConstraint>,
+        b_maintain_offset: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<34>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_ADD_CONSTRAINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_world,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_parent_handle,
+                __buffer.add(8).cast::<UPtr<UTransformableHandle>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_child_handle,
+                __buffer.add(16).cast::<UPtr<UTransformableHandle>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_constraint,
+                __buffer.add(24).cast::<UPtr<UTickableTransformConstraint>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_maintain_offset,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::constraints::UConstraintsScriptingLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_ADD_CONSTRAINT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(33).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UConstraintSubsystem {
@@ -260,7 +577,6 @@ pub struct UTransformableComponentHandle {
     __padding_112: [u8; 112],
     pub component: TWeakObjectPtr<crate::bindings::engine::USceneComponent>,
     pub socket_name: FName,
-    __padding_end: [u8; 4],
 }
 impl UTransformableComponentHandle {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -289,7 +605,6 @@ pub struct UTickableTransformConstraint {
     #[doc(hidden)]
     __padding_176: [u8; 7],
     pub b_dynamic_offset: bool,
-    __padding_end: [u8; 7],
 }
 impl UTickableTransformConstraint {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -314,7 +629,6 @@ pub struct UTickableTranslationConstraint {
     __padding_192: [u8; 192],
     pub offset_translation: crate::bindings::core_u_object::FVector,
     pub axis_filter: crate::bindings::animation_core::FFilterOptionPerAxis,
-    __padding_end: [u8; 5],
 }
 impl UTickableTranslationConstraint {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -339,7 +653,6 @@ pub struct UTickableRotationConstraint {
     __padding_192: [u8; 192],
     pub offset_rotation: crate::bindings::core_u_object::FQuat,
     pub axis_filter: crate::bindings::animation_core::FFilterOptionPerAxis,
-    __padding_end: [u8; 13],
 }
 impl UTickableRotationConstraint {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -364,7 +677,6 @@ pub struct UTickableScaleConstraint {
     __padding_192: [u8; 192],
     pub offset_scale: crate::bindings::core_u_object::FVector,
     pub axis_filter: crate::bindings::animation_core::FFilterOptionPerAxis,
-    __padding_end: [u8; 5],
 }
 impl UTickableScaleConstraint {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -390,7 +702,6 @@ pub struct UTickableParentConstraint {
     pub offset_transform: crate::bindings::core_u_object::FTransform,
     pub b_scaling: bool,
     pub transform_filter: crate::bindings::animation_core::FTransformFilter,
-    __padding_end: [u8; 6],
 }
 impl UTickableParentConstraint {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

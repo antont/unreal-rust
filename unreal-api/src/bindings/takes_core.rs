@@ -379,7 +379,6 @@ pub struct FAudioInputDeviceInfoProperty {
     pub input_channels: i32,
     pub preferred_sample_rate: i32,
     pub b_is_default_device: bool,
-    __padding_end: [u8; 7],
 }
 impl FAudioInputDeviceInfoProperty {}
 #[repr(C, align(8))]
@@ -388,7 +387,6 @@ pub struct FAudioInputDeviceProperty {
     pub device_info_array: TArray<FAudioInputDeviceInfoProperty>,
     pub device_id: FString,
     pub audio_input_buffer_size: i32,
-    __padding_end: [u8; 4],
 }
 impl FAudioInputDeviceProperty {}
 #[repr(C, align(4))]
@@ -436,6 +434,802 @@ impl UTakeMetaData {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn unlock(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_UNLOCK,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_UNLOCK,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_timestamp(
+        &mut self,
+        in_timestamp: crate::bindings::core_u_object::FDateTime,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TIMESTAMP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_timestamp,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FDateTime>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TIMESTAMP,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_timecode_out(
+        &mut self,
+        in_timecode_out: crate::bindings::core_u_object::FTimecode,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TIMECODE_OUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_timecode_out,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTimecode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TIMECODE_OUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_timecode_in(
+        &mut self,
+        in_timecode_in: crate::bindings::core_u_object::FTimecode,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TIMECODE_IN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_timecode_in,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTimecode>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TIMECODE_IN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_take_number(&mut self, in_take_number: i32, b_emit_changed: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TAKE_NUMBER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_take_number,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_emit_changed,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TAKE_NUMBER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slate(&mut self, in_slate: FString, b_emit_changed: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_SLATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_slate,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_emit_changed,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_SLATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_preset_origin(&mut self, in_preset_origin: UPtr<UTakePreset>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_PRESET_ORIGIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_preset_origin,
+                __buffer.add(0).cast::<UPtr<UTakePreset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_PRESET_ORIGIN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_level_origin(
+        &mut self,
+        in_level_origin: UPtr<crate::bindings::engine::ULevel>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_LEVEL_ORIGIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level_origin,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::ULevel>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_LEVEL_ORIGIN,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_frame_rate_from_timecode(&mut self, in_from_timecode: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_FRAME_RATE_FROM_TIMECODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_from_timecode,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_FRAME_RATE_FROM_TIMECODE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_frame_rate(
+        &mut self,
+        in_frame_rate: crate::bindings::core_u_object::FFrameRate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_FRAME_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_frame_rate,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FFrameRate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_FRAME_RATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_duration(
+        &mut self,
+        in_duration: crate::bindings::core_u_object::FFrameTime,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_DURATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_duration,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FFrameTime>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_DURATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_description(&mut self, in_description: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_DESCRIPTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_description,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_SET_DESCRIPTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn recorded(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_RECORDED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_RECORDED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn lock(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_LOCK,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_LOCK,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_locked(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_IS_LOCKED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_IS_LOCKED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_timestamp(&self) -> crate::bindings::core_u_object::FDateTime {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TIMESTAMP,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TIMESTAMP,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FDateTime>().read()
+        }
+    }
+    pub fn get_timecode_out(&self) -> crate::bindings::core_u_object::FTimecode {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TIMECODE_OUT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TIMECODE_OUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FTimecode>().read()
+        }
+    }
+    pub fn get_timecode_in(&self) -> crate::bindings::core_u_object::FTimecode {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TIMECODE_IN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TIMECODE_IN,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FTimecode>().read()
+        }
+    }
+    pub fn get_take_number(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TAKE_NUMBER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TAKE_NUMBER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_slate(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_SLATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_SLATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_preset_origin(&self) -> UPtr<UTakePreset> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_PRESET_ORIGIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_PRESET_ORIGIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UTakePreset>>().read() }
+    }
+    pub fn get_level_path(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_LEVEL_PATH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_LEVEL_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_level_origin(&self) -> UPtr<crate::bindings::engine::ULevel> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_LEVEL_ORIGIN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_LEVEL_ORIGIN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<crate::bindings::engine::ULevel>>().read() }
+    }
+    pub fn get_frame_rate_from_timecode(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_FRAME_RATE_FROM_TIMECODE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_FRAME_RATE_FROM_TIMECODE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_frame_rate(&mut self) -> crate::bindings::core_u_object::FFrameRate {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_FRAME_RATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_FRAME_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FFrameRate>().read()
+        }
+    }
+    pub fn get_duration(&self) -> crate::bindings::core_u_object::FFrameTime {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_DURATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_DURATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FFrameTime>().read()
+        }
+    }
+    pub fn get_description(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_DESCRIPTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_GET_DESCRIPTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn generate_asset_path(
+        &self,
+        path_format_string: FString,
+        in_context: UPtr<UTakeRecorderNamingTokensContext>,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_META_DATA_GENERATE_ASSET_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &path_format_string,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_context,
+                __buffer.add(16).cast::<UPtr<UTakeRecorderNamingTokensContext>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_META_DATA_GENERATE_ASSET_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FString>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -487,7 +1281,6 @@ pub struct UTakeRecorderSource {
     pub b_enabled: bool,
     pub take_number: i32,
     pub track_tint: crate::bindings::core_u_object::FColor,
-    __padding_end: [u8; 4],
 }
 impl UTakeRecorderSource {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -573,6 +1366,137 @@ impl UTakeRecorderSources {
             cdo
         }
     }
+    pub fn start_recording_source(
+        &mut self,
+        in_sources: TArray<UPtr<UTakeRecorderSource>>,
+        current_frame_time: &crate::bindings::core_u_object::FQualifiedFrameTime,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_START_RECORDING_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_sources,
+                __buffer.add(0).cast::<TArray<UPtr<UTakeRecorderSource>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                current_frame_time,
+                __buffer
+                    .add(16)
+                    .cast::<crate::bindings::core_u_object::FQualifiedFrameTime>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_START_RECORDING_SOURCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_source(&mut self, in_source: UPtr<UTakeRecorderSource>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_REMOVE_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_source,
+                __buffer.add(0).cast::<UPtr<UTakeRecorderSource>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_REMOVE_SOURCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_sources_copy(&self) -> TArray<UPtr<UTakeRecorderSource>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_GET_SOURCES_COPY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_GET_SOURCES_COPY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<UTakeRecorderSource>>>().read() }
+    }
+    pub fn add_source(
+        &mut self,
+        in_source_type: TSubclassOf<UTakeRecorderSource>,
+    ) -> UPtr<UTakeRecorderSource> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_ADD_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_source_type,
+                __buffer.add(0).cast::<TSubclassOf<UTakeRecorderSource>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_ADD_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UTakeRecorderSource>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UTakesCoreBlueprintLibrary {
@@ -593,6 +1517,145 @@ impl UTakesCoreBlueprintLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_on_take_recorder_take_number_changed(
+        on_take_recorder_take_number_changed: FSetOnTakeRecorderTakeNumberChanged_OnTakeRecorderTakeNumberChanged,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_TAKE_NUMBER_CHANGED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &on_take_recorder_take_number_changed,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        FSetOnTakeRecorderTakeNumberChanged_OnTakeRecorderTakeNumberChanged,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::takes_core::UTakesCoreBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_TAKE_NUMBER_CHANGED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_on_take_recorder_slate_changed(
+        on_take_recorder_slate_changed: FSetOnTakeRecorderSlateChanged_OnTakeRecorderSlateChanged,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_SLATE_CHANGED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &on_take_recorder_slate_changed,
+                __buffer
+                    .add(0)
+                    .cast::<FSetOnTakeRecorderSlateChanged_OnTakeRecorderSlateChanged>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::takes_core::UTakesCoreBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_SLATE_CHANGED,
+                __buffer,
+            )
+        };
+    }
+    pub fn find_takes(
+        slate: FString,
+        take_number: i32,
+    ) -> TArray<crate::bindings::core_u_object::FAssetData> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_FIND_TAKES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&slate, __buffer.add(0).cast::<FString>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &take_number,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::takes_core::UTakesCoreBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_FIND_TAKES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
+                .read()
+        }
+    }
+    pub fn compute_next_take_number(slate: FString) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_COMPUTE_NEXT_TAKE_NUMBER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&slate, __buffer.add(0).cast::<FString>(), 1);
+        }
+        let __object_ptr = crate::bindings::takes_core::UTakesCoreBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_COMPUTE_NEXT_TAKE_NUMBER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<i32>().read() }
     }
 }
 #[repr(C, align(8))]

@@ -209,6 +209,30 @@ impl UEntityComponent {
             cdo
         }
     }
+    pub fn get_entity(&mut self) -> FEntity {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rust_plugin::U_ENTITY_COMPONENT_GET_ENTITY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rust_plugin::U_ENTITY_COMPONENT_GET_ENTITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FEntity>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UK2Node_GetComponentRust {
@@ -250,6 +274,54 @@ impl ARustActor {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_entity_component(&mut self) -> UPtr<UEntityComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rust_plugin::A_RUST_ACTOR_GET_ENTITY_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rust_plugin::A_RUST_ACTOR_GET_ENTITY_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UEntityComponent>>().read() }
+    }
+    pub fn get_entity(&mut self) -> FEntity {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rust_plugin::A_RUST_ACTOR_GET_ENTITY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rust_plugin::A_RUST_ACTOR_GET_ENTITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FEntity>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -315,27 +387,28 @@ impl URustExtension_FHitResult {
         }
     }
     pub fn new() -> crate::bindings::engine::FHitResult {
-        let mut stack = crate::core_data::StackAlloc::<264>::new();
-        let buffer = stack.buffer_mut();
-        let bindings = crate::module::bindings();
+        let mut __stack = crate::core_data::StackAlloc::<264>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
         unsafe {
-            (bindings
+            (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                U_RUST_EXTENSION_F_HIT_RESULT_NEW,
-                buffer,
+                crate::bindings::rust_plugin::U_RUST_EXTENSION_F_HIT_RESULT_NEW,
+                __buffer,
             )
         };
-        let mut object_ptr = Self::cdo();
+        let __object_ptr = crate::bindings::rust_plugin::URustExtension_FHitResult::cdo();
         unsafe {
-            (bindings
+            (__bindings
                 .core_fns
-                .process_event)(object_ptr, U_RUST_EXTENSION_F_HIT_RESULT_NEW, buffer)
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rust_plugin::U_RUST_EXTENSION_F_HIT_RESULT_NEW,
+                __buffer,
+            )
         };
-        unsafe {
-            let return_ptr = buffer.add(0).cast::<crate::bindings::engine::FHitResult>();
-            return_ptr.read()
-        }
+        unsafe { __buffer.add(0).cast::<crate::bindings::engine::FHitResult>().read() }
     }
     pub fn verify_layout() {}
 }
@@ -399,6 +472,236 @@ impl URustReflectionLibrary {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn k2_has_component(id: UPtr<UUuid>, entity_id: FEntity) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_HAS_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&id, __buffer.add(0).cast::<UPtr<UUuid>>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entity_id,
+                __buffer.add(8).cast::<FEntity>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rust_plugin::URustReflectionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_HAS_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn k2_get_reflection_vector3(
+        id: UPtr<UUuid>,
+        entity_id: FEntity,
+        index: i32,
+        out: &mut crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_VECTOR3,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&id, __buffer.add(0).cast::<UPtr<UUuid>>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entity_id,
+                __buffer.add(8).cast::<FEntity>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(16).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rust_plugin::URustReflectionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_VECTOR3,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>().swap(out);
+        }
+    }
+    pub fn k2_get_reflection_quat(
+        id: UPtr<UUuid>,
+        entity_id: FEntity,
+        index: i32,
+        out: &mut crate::bindings::core_u_object::FQuat,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_QUAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&id, __buffer.add(0).cast::<UPtr<UUuid>>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entity_id,
+                __buffer.add(8).cast::<FEntity>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(16).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FQuat>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::rust_plugin::URustReflectionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_QUAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<crate::bindings::core_u_object::FQuat>().swap(out);
+        }
+    }
+    pub fn k2_get_reflection_float(
+        id: UPtr<UUuid>,
+        entity_id: FEntity,
+        index: i32,
+        out: &mut f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&id, __buffer.add(0).cast::<UPtr<UUuid>>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entity_id,
+                __buffer.add(8).cast::<FEntity>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(16).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(out, __buffer.add(20).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::rust_plugin::URustReflectionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(20).cast::<f32>().swap(out);
+        }
+    }
+    pub fn k2_get_reflection_bool(
+        id: UPtr<UUuid>,
+        entity_id: FEntity,
+        index: i32,
+        out: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&id, __buffer.add(0).cast::<UPtr<UUuid>>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entity_id,
+                __buffer.add(8).cast::<FEntity>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(16).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(out, __buffer.add(20).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::rust_plugin::URustReflectionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(20).cast::<bool>().swap(out);
         }
     }
 }

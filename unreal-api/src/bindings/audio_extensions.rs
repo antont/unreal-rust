@@ -172,7 +172,6 @@ pub struct FSoundWaveCuePoint {
     pub frame_position: i64,
     pub frame_length: i64,
     pub b_is_loop_region: bool,
-    __padding_end: [u8; 7],
 }
 impl FSoundWaveCuePoint {}
 pub struct IAudioPropertiesSheetAssetUserInterface {}
@@ -216,6 +215,40 @@ impl UAudioPropertiesSheetAssetBase {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn copy_to_object_properties(
+        &self,
+        target_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_extensions::U_AUDIO_PROPERTIES_SHEET_ASSET_BASE_COPY_TO_OBJECT_PROPERTIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_extensions::U_AUDIO_PROPERTIES_SHEET_ASSET_BASE_COPY_TO_OBJECT_PROPERTIES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -322,6 +355,417 @@ impl UAudioParameterControllerInterface {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_trigger_parameter(&mut self, in_name: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_TRIGGER_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_TRIGGER_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_string_parameter(&mut self, in_name: FName, in_value: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_STRING_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_STRING_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_string_array_parameter(
+        &mut self,
+        in_name: FName,
+        in_value: &TArray<FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_STRING_ARRAY_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_STRING_ARRAY_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_parameters_blueprint(&mut self, in_parameters: &TArray<FAudioParameter>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_PARAMETERS_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameters,
+                __buffer.add(0).cast::<TArray<FAudioParameter>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_PARAMETERS_BLUEPRINT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_object_parameter(
+        &mut self,
+        in_name: FName,
+        in_value: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_OBJECT_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(16).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_OBJECT_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_object_array_parameter(
+        &mut self,
+        in_name: FName,
+        in_value: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_OBJECT_ARRAY_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer
+                    .add(16)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_OBJECT_ARRAY_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_int_parameter(&mut self, in_name: FName, in_int: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_INT_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_int, __buffer.add(12).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_INT_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_int_array_parameter(&mut self, in_name: FName, in_value: &TArray<i32>) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_INT_ARRAY_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<TArray<i32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_INT_ARRAY_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_float_parameter(&mut self, in_name: FName, in_float: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_FLOAT_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_float, __buffer.add(12).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_FLOAT_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_float_array_parameter(&mut self, in_name: FName, in_value: &TArray<f32>) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_FLOAT_ARRAY_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_FLOAT_ARRAY_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_bool_parameter(&mut self, in_name: FName, in_bool: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_BOOL_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_bool, __buffer.add(12).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_BOOL_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_bool_array_parameter(&mut self, in_name: FName, in_value: &TArray<bool>) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_BOOL_ARRAY_PARAMETER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_value,
+                __buffer.add(16).cast::<TArray<bool>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_BOOL_ARRAY_PARAMETER,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_parameters(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_RESET_PARAMETERS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_RESET_PARAMETERS,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]

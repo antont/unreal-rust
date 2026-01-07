@@ -175,6 +175,52 @@ impl UGameplayTask {
             cdo
         }
     }
+    pub fn ready_for_activation(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_READY_FOR_ACTIVATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_READY_FOR_ACTIVATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn end_task(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_END_TASK,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_END_TASK,
+                __buffer,
+            )
+        };
+    }
 }
 pub struct IGameplayTaskOwnerInterface {}
 #[repr(C, align(8))]
@@ -245,6 +291,67 @@ impl UGameplayTasksComponent {
             cdo
         }
     }
+    pub fn run_gameplay_task(
+        task_owner: TScriptInterface<UGameplayTaskOwnerInterface>,
+        task: UPtr<UGameplayTask>,
+        priority: u8,
+        additional_required_resources: TArray<TSubclassOf<UGameplayTaskResource>>,
+        additional_claimed_resources: TArray<TSubclassOf<UGameplayTaskResource>>,
+    ) -> EGameplayTaskRunResult {
+        let mut __stack = crate::core_data::StackAlloc::<65>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASKS_COMPONENT_K2_RUN_GAMEPLAY_TASK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &task_owner,
+                __buffer.add(0).cast::<TScriptInterface<UGameplayTaskOwnerInterface>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &task,
+                __buffer.add(16).cast::<UPtr<UGameplayTask>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&priority, __buffer.add(24).cast::<u8>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &additional_required_resources,
+                __buffer.add(32).cast::<TArray<TSubclassOf<UGameplayTaskResource>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &additional_claimed_resources,
+                __buffer.add(48).cast::<TArray<TSubclassOf<UGameplayTaskResource>>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tasks::UGameplayTasksComponent::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASKS_COMPONENT_K2_RUN_GAMEPLAY_TASK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<EGameplayTaskRunResult>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UGameplayTask_ClaimResource {
@@ -266,6 +373,112 @@ impl UGameplayTask_ClaimResource {
             cdo
         }
     }
+    pub fn claim_resources(
+        in_task_owner: TScriptInterface<UGameplayTaskOwnerInterface>,
+        resource_classes: TArray<TSubclassOf<UGameplayTaskResource>>,
+        priority: u8,
+        task_instance_name: FName,
+    ) -> UPtr<UGameplayTask_ClaimResource> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_CLAIM_RESOURCE_CLAIM_RESOURCES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_task_owner,
+                __buffer.add(0).cast::<TScriptInterface<UGameplayTaskOwnerInterface>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &resource_classes,
+                __buffer.add(16).cast::<TArray<TSubclassOf<UGameplayTaskResource>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&priority, __buffer.add(32).cast::<u8>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &task_instance_name,
+                __buffer.add(36).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tasks::UGameplayTask_ClaimResource::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_CLAIM_RESOURCE_CLAIM_RESOURCES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<UPtr<UGameplayTask_ClaimResource>>().read() }
+    }
+    pub fn claim_resource(
+        in_task_owner: TScriptInterface<UGameplayTaskOwnerInterface>,
+        resource_class: TSubclassOf<UGameplayTaskResource>,
+        priority: u8,
+        task_instance_name: FName,
+    ) -> UPtr<UGameplayTask_ClaimResource> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_CLAIM_RESOURCE_CLAIM_RESOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_task_owner,
+                __buffer.add(0).cast::<TScriptInterface<UGameplayTaskOwnerInterface>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &resource_class,
+                __buffer.add(16).cast::<TSubclassOf<UGameplayTaskResource>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&priority, __buffer.add(24).cast::<u8>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &task_instance_name,
+                __buffer.add(28).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tasks::UGameplayTask_ClaimResource::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_CLAIM_RESOURCE_CLAIM_RESOURCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<UPtr<UGameplayTask_ClaimResource>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UGameplayTask_SpawnActor {
@@ -286,6 +499,160 @@ impl UGameplayTask_SpawnActor {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn spawn_actor(
+        task_owner: TScriptInterface<UGameplayTaskOwnerInterface>,
+        spawn_location: crate::bindings::core_u_object::FVector,
+        spawn_rotation: crate::bindings::core_u_object::FRotator,
+        class: TSubclassOf<crate::bindings::engine::AActor>,
+        b_spawn_only_on_authority: bool,
+    ) -> UPtr<UGameplayTask_SpawnActor> {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_SPAWN_ACTOR_SPAWN_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &task_owner,
+                __buffer.add(0).cast::<TScriptInterface<UGameplayTaskOwnerInterface>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &spawn_location,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &spawn_rotation,
+                __buffer.add(40).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &class,
+                __buffer.add(64).cast::<TSubclassOf<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_spawn_only_on_authority,
+                __buffer.add(72).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tasks::UGameplayTask_SpawnActor::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_SPAWN_ACTOR_SPAWN_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(80).cast::<UPtr<UGameplayTask_SpawnActor>>().read() }
+    }
+    pub fn finish_spawning_actor(
+        &mut self,
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        spawned_actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_SPAWN_ACTOR_FINISH_SPAWNING_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &spawned_actor,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_SPAWN_ACTOR_FINISH_SPAWNING_ACTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn begin_spawning_actor(
+        &mut self,
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        spawned_actor: &mut UPtr<crate::bindings::engine::AActor>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_SPAWN_ACTOR_BEGIN_SPAWNING_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                spawned_actor,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_SPAWN_ACTOR_BEGIN_SPAWNING_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::engine::AActor>>()
+                .swap(spawned_actor);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -328,6 +695,47 @@ impl UGameplayTask_WaitDelay {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn task_wait_delay(
+        task_owner: TScriptInterface<UGameplayTaskOwnerInterface>,
+        time: f32,
+        priority: u8,
+    ) -> UPtr<UGameplayTask_WaitDelay> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_WAIT_DELAY_TASK_WAIT_DELAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &task_owner,
+                __buffer.add(0).cast::<TScriptInterface<UGameplayTaskOwnerInterface>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&time, __buffer.add(16).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&priority, __buffer.add(20).cast::<u8>(), 1);
+        }
+        let __object_ptr = crate::bindings::gameplay_tasks::UGameplayTask_WaitDelay::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_WAIT_DELAY_TASK_WAIT_DELAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<UPtr<UGameplayTask_WaitDelay>>().read() }
     }
 }
 #[repr(C, align(8))]

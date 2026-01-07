@@ -656,7 +656,6 @@ impl FIntMargin {}
 pub struct FPaperSpriteSocket {
     pub local_transform: crate::bindings::core_u_object::FTransform,
     pub socket_name: FName,
-    __padding_end: [u8; 4],
 }
 impl FPaperSpriteSocket {}
 #[repr(C, align(8))]
@@ -680,7 +679,6 @@ pub struct APaperCharacter {
     #[doc(hidden)]
     __padding_2112: [u8; 2112],
     pub sprite: UPtr<UPaperFlipbookComponent>,
-    __padding_end: [u8; 8],
 }
 impl APaperCharacter {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -708,7 +706,6 @@ pub struct UPaperFlipbook {
     __padding_72: [u8; 16],
     pub default_material: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub collision_source: EFlipbookCollisionMode,
-    __padding_end: [u8; 7],
 }
 impl UPaperFlipbook {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -725,6 +722,208 @@ impl UPaperFlipbook {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn is_valid_key_frame_index(&self, index: i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_IS_VALID_KEY_FRAME_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_IS_VALID_KEY_FRAME_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_total_duration(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_TOTAL_DURATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_TOTAL_DURATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_sprite_at_time(
+        &self,
+        time: f32,
+        b_clamp_to_ends: bool,
+    ) -> UPtr<UPaperSprite> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_SPRITE_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&time, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_clamp_to_ends,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_SPRITE_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UPaperSprite>>().read() }
+    }
+    pub fn get_sprite_at_frame(&self, frame_index: i32) -> UPtr<UPaperSprite> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_SPRITE_AT_FRAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_SPRITE_AT_FRAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UPaperSprite>>().read() }
+    }
+    pub fn get_num_key_frames(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_NUM_KEY_FRAMES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_NUM_KEY_FRAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_num_frames(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_NUM_FRAMES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_NUM_FRAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_key_frame_index_at_time(&self, time: f32, b_clamp_to_ends: bool) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_KEY_FRAME_INDEX_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&time, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_clamp_to_ends,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_KEY_FRAME_INDEX_AT_TIME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<i32>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -773,6 +972,611 @@ impl UPaperFlipbookComponent {
             cdo
         }
     }
+    pub fn stop(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_STOP,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_STOP,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_sprite_color(
+        &mut self,
+        new_color: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_SPRITE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_color,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_SPRITE_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_play_rate(&mut self, new_rate: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_PLAY_RATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&new_rate, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_PLAY_RATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_playback_position_in_frames(
+        &mut self,
+        new_frame_position: i32,
+        b_fire_events: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION_IN_FRAMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_frame_position,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_fire_events,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION_IN_FRAMES,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_playback_position(&mut self, new_position: f32, b_fire_events: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_position,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_fire_events,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_new_time(&mut self, new_time: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_NEW_TIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&new_time, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_NEW_TIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_looping(&mut self, b_new_looping: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_LOOPING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_new_looping,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_LOOPING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_flipbook(&mut self, new_flipbook: UPtr<UPaperFlipbook>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_FLIPBOOK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_flipbook,
+                __buffer.add(0).cast::<UPtr<UPaperFlipbook>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_FLIPBOOK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn reverse_from_end(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_REVERSE_FROM_END,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_REVERSE_FROM_END,
+                __buffer,
+            )
+        };
+    }
+    pub fn reverse(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_REVERSE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_REVERSE,
+                __buffer,
+            )
+        };
+    }
+    pub fn play_from_start(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_PLAY_FROM_START,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_PLAY_FROM_START,
+                __buffer,
+            )
+        };
+    }
+    pub fn play(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_PLAY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_PLAY,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_reversing(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_IS_REVERSING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_IS_REVERSING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_playing(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_IS_PLAYING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_IS_PLAYING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_looping(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_IS_LOOPING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_IS_LOOPING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_sprite_color(&self) -> crate::bindings::core_u_object::FLinearColor {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_SPRITE_COLOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_SPRITE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>().read()
+        }
+    }
+    pub fn get_play_rate(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_PLAY_RATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_PLAY_RATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_playback_position_in_frames(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION_IN_FRAMES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION_IN_FRAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_playback_position(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_flipbook_length_in_frames(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH_IN_FRAMES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH_IN_FRAMES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_flipbook_length(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_flipbook_framerate(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_FRAMERATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_FRAMERATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_flipbook(&mut self) -> UPtr<UPaperFlipbook> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UPaperFlipbook>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct APaperGroupedSpriteActor {
@@ -816,6 +1620,347 @@ impl UPaperGroupedSpriteComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn update_instance_transform(
+        &mut self,
+        instance_index: i32,
+        new_instance_transform: &crate::bindings::core_u_object::FTransform,
+        b_world_space: bool,
+        b_mark_render_state_dirty: bool,
+        b_teleport: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<116>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &instance_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_instance_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_world_space,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_mark_render_state_dirty,
+                __buffer.add(113).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_teleport,
+                __buffer.add(114).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(115).cast::<bool>().read() }
+    }
+    pub fn update_instance_color(
+        &mut self,
+        instance_index: i32,
+        new_instance_color: crate::bindings::core_u_object::FLinearColor,
+        b_mark_render_state_dirty: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<22>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &instance_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_instance_color,
+                __buffer.add(4).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_mark_render_state_dirty,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(21).cast::<bool>().read() }
+    }
+    pub fn sort_instances_along_axis(
+        &mut self,
+        world_space_sort_axis: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_SORT_INSTANCES_ALONG_AXIS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_space_sort_axis,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_SORT_INSTANCES_ALONG_AXIS,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_instance(&mut self, instance_index: i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_REMOVE_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &instance_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_REMOVE_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_instance_transform(
+        &self,
+        instance_index: i32,
+        out_instance_transform: &mut crate::bindings::core_u_object::FTransform,
+        b_world_space: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<114>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &instance_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_instance_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_world_space,
+                __buffer.add(112).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::core_u_object::FTransform>()
+                .swap(out_instance_transform);
+        }
+        unsafe { __buffer.add(113).cast::<bool>().read() }
+    }
+    pub fn get_instance_count(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_COUNT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_COUNT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn clear_instances(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_CLEAR_INSTANCES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_CLEAR_INSTANCES,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_instance(
+        &mut self,
+        transform: &crate::bindings::core_u_object::FTransform,
+        sprite: UPtr<UPaperSprite>,
+        b_world_space: bool,
+        color: crate::bindings::core_u_object::FLinearColor,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_ADD_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                transform,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sprite,
+                __buffer.add(96).cast::<UPtr<UPaperSprite>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_world_space,
+                __buffer.add(104).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &color,
+                __buffer.add(108).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_ADD_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(124).cast::<i32>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -928,6 +2073,49 @@ impl UPaperSpriteBlueprintLibrary {
             cdo
         }
     }
+    pub fn make_brush_from_sprite(
+        sprite: UPtr<UPaperSprite>,
+        width: i32,
+        height: i32,
+    ) -> crate::bindings::slate_core::FSlateBrush {
+        let mut __stack = crate::core_data::StackAlloc::<224>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_SPRITE_BLUEPRINT_LIBRARY_MAKE_BRUSH_FROM_SPRITE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sprite,
+                __buffer.add(0).cast::<UPtr<UPaperSprite>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&width, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&height, __buffer.add(12).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::paper2_d::UPaperSpriteBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_SPRITE_BLUEPRINT_LIBRARY_MAKE_BRUSH_FROM_SPRITE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::slate_core::FSlateBrush>().read()
+        }
+    }
 }
 #[repr(C, align(16))]
 pub struct UPaperSpriteComponent {
@@ -937,7 +2125,6 @@ pub struct UPaperSpriteComponent {
     #[doc(hidden)]
     __padding_1592: [u8; 8],
     pub sprite_color: crate::bindings::core_u_object::FLinearColor,
-    __padding_end: [u8; 8],
 }
 impl UPaperSpriteComponent {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -954,6 +2141,94 @@ impl UPaperSpriteComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_sprite_color(
+        &mut self,
+        new_color: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_SPRITE_COMPONENT_SET_SPRITE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_color,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_SPRITE_COMPONENT_SET_SPRITE_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_sprite(&mut self, new_sprite: UPtr<UPaperSprite>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_SPRITE_COMPONENT_SET_SPRITE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_sprite,
+                __buffer.add(0).cast::<UPtr<UPaperSprite>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_SPRITE_COMPONENT_SET_SPRITE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_sprite(&mut self) -> UPtr<UPaperSprite> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_SPRITE_COMPONENT_GET_SPRITE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_SPRITE_COMPONENT_GET_SPRITE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UPaperSprite>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -1069,6 +2344,758 @@ impl UPaperTileMapComponent {
             cdo
         }
     }
+    pub fn set_tile_map_color(
+        &mut self,
+        new_color: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_color,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_tile_map(&mut self, new_tile_map: UPtr<UPaperTileMap>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_tile_map,
+                __buffer.add(0).cast::<UPtr<UPaperTileMap>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_tile(&mut self, x: i32, y: i32, layer: i32, new_value: FPaperTileInfo) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_TILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&x, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&y, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&layer, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_value,
+                __buffer.add(16).cast::<FPaperTileInfo>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_TILE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_layer_color(
+        &mut self,
+        new_color: crate::bindings::core_u_object::FLinearColor,
+        layer: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_color,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&layer, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_layer_collision(
+        &mut self,
+        layer: i32,
+        b_has_collision: bool,
+        b_override_thickness: bool,
+        custom_thickness: f32,
+        b_override_offset: bool,
+        custom_offset: f32,
+        b_rebuild_collision: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLLISION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&layer, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_has_collision,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_override_thickness,
+                __buffer.add(5).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &custom_thickness,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_override_offset,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &custom_offset,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_rebuild_collision,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLLISION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_default_collision_thickness(
+        &mut self,
+        thickness: f32,
+        b_rebuild_collision: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_DEFAULT_COLLISION_THICKNESS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&thickness, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_rebuild_collision,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_DEFAULT_COLLISION_THICKNESS,
+                __buffer,
+            )
+        };
+    }
+    pub fn resize_map(&mut self, new_width_in_tiles: i32, new_height_in_tiles: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_RESIZE_MAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_width_in_tiles,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_height_in_tiles,
+                __buffer.add(4).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_RESIZE_MAP,
+                __buffer,
+            )
+        };
+    }
+    pub fn rebuild_collision(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_REBUILD_COLLISION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_REBUILD_COLLISION,
+                __buffer,
+            )
+        };
+    }
+    pub fn owns_tile_map(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_OWNS_TILE_MAP,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_OWNS_TILE_MAP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn make_tile_map_editable(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_MAKE_TILE_MAP_EDITABLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_MAKE_TILE_MAP_EDITABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_tile_polygon(
+        &self,
+        tile_x: i32,
+        tile_y: i32,
+        points: &mut TArray<crate::bindings::core_u_object::FVector>,
+        layer_index: i32,
+        b_world_space: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_POLYGON,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tile_x, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tile_y, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                points,
+                __buffer
+                    .add(8)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &layer_index,
+                __buffer.add(24).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_world_space,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_POLYGON,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<TArray<crate::bindings::core_u_object::FVector>>()
+                .swap(points);
+        }
+    }
+    pub fn get_tile_map_color(&self) -> crate::bindings::core_u_object::FLinearColor {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_MAP_COLOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_MAP_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>().read()
+        }
+    }
+    pub fn get_tile_corner_position(
+        &self,
+        tile_x: i32,
+        tile_y: i32,
+        layer_index: i32,
+        b_world_space: bool,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CORNER_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tile_x, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tile_y, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &layer_index,
+                __buffer.add(8).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_world_space,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CORNER_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_tile_center_position(
+        &self,
+        tile_x: i32,
+        tile_y: i32,
+        layer_index: i32,
+        b_world_space: bool,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CENTER_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tile_x, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tile_y, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &layer_index,
+                __buffer.add(8).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_world_space,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CENTER_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_tile(&self, x: i32, y: i32, layer: i32) -> FPaperTileInfo {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&x, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&y, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&layer, __buffer.add(8).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FPaperTileInfo>().read() }
+    }
+    pub fn get_map_size(
+        &mut self,
+        map_width: &mut i32,
+        map_height: &mut i32,
+        num_layers: &mut i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_MAP_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(map_width, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(map_height, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(num_layers, __buffer.add(8).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_MAP_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(map_width);
+        }
+        unsafe {
+            __buffer.add(4).cast::<i32>().swap(map_height);
+        }
+        unsafe {
+            __buffer.add(8).cast::<i32>().swap(num_layers);
+        }
+    }
+    pub fn get_layer_color(
+        &self,
+        layer: i32,
+    ) -> crate::bindings::core_u_object::FLinearColor {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_LAYER_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&layer, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_LAYER_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(4).cast::<crate::bindings::core_u_object::FLinearColor>().read()
+        }
+    }
+    pub fn create_new_tile_map(
+        &mut self,
+        map_width: i32,
+        map_height: i32,
+        tile_width: i32,
+        tile_height: i32,
+        pixels_per_unreal_unit: f32,
+        b_create_layer: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_CREATE_NEW_TILE_MAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&map_width, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&map_height, __buffer.add(4).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tile_width, __buffer.add(8).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tile_height,
+                __buffer.add(12).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &pixels_per_unreal_unit,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_create_layer,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_CREATE_NEW_TILE_MAP,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_new_layer(&mut self) -> UPtr<UPaperTileLayer> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_ADD_NEW_LAYER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_ADD_NEW_LAYER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UPaperTileLayer>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UPaperTileSet {
@@ -1172,6 +3199,39 @@ impl UPaperTerrainComponent {
             cdo
         }
     }
+    pub fn set_terrain_color(
+        &mut self,
+        new_color: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_PAPER_TERRAIN_COMPONENT_SET_TERRAIN_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_color,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_PAPER_TERRAIN_COMPONENT_SET_TERRAIN_COLOR,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UPaperTerrainMaterial {
@@ -1233,6 +3293,192 @@ impl UTileMapBlueprintLibrary {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn make_tile(
+        tile_index: i32,
+        tile_set: UPtr<UPaperTileSet>,
+        b_flip_h: bool,
+        b_flip_v: bool,
+        b_flip_d: bool,
+    ) -> FPaperTileInfo {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_MAKE_TILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tile_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tile_set,
+                __buffer.add(8).cast::<UPtr<UPaperTileSet>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_flip_h, __buffer.add(16).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_flip_v, __buffer.add(17).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_flip_d, __buffer.add(18).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::paper2_d::UTileMapBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_MAKE_TILE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FPaperTileInfo>().read() }
+    }
+    pub fn get_tile_user_data(tile: FPaperTileInfo) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_USER_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tile,
+                __buffer.add(0).cast::<FPaperTileInfo>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::paper2_d::UTileMapBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_USER_DATA,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FName>().read() }
+    }
+    pub fn get_tile_transform(
+        tile: FPaperTileInfo,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tile,
+                __buffer.add(0).cast::<FPaperTileInfo>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::paper2_d::UTileMapBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn break_tile(
+        tile: FPaperTileInfo,
+        tile_index: &mut i32,
+        tile_set: &mut UPtr<UPaperTileSet>,
+        b_flip_h: &mut bool,
+        b_flip_v: &mut bool,
+        b_flip_d: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<35>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_BREAK_TILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tile,
+                __buffer.add(0).cast::<FPaperTileInfo>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(tile_index, __buffer.add(16).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tile_set,
+                __buffer.add(24).cast::<UPtr<UPaperTileSet>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(b_flip_h, __buffer.add(32).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(b_flip_v, __buffer.add(33).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(b_flip_d, __buffer.add(34).cast::<bool>(), 1);
+        }
+        let __object_ptr = crate::bindings::paper2_d::UTileMapBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_BREAK_TILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<i32>().swap(tile_index);
+        }
+        unsafe {
+            __buffer.add(24).cast::<UPtr<UPaperTileSet>>().swap(tile_set);
+        }
+        unsafe {
+            __buffer.add(32).cast::<bool>().swap(b_flip_h);
+        }
+        unsafe {
+            __buffer.add(33).cast::<bool>().swap(b_flip_v);
+        }
+        unsafe {
+            __buffer.add(34).cast::<bool>().swap(b_flip_d);
         }
     }
 }

@@ -85,6 +85,40 @@ impl USlateFXSubsystem {
             cdo
         }
     }
+    pub fn get_slate_post_processor(
+        &mut self,
+        in_post_buffer_bit: crate::bindings::slate_core::ESlatePostRT,
+    ) -> UPtr<USlateRHIPostBufferProcessor> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::slate_rhi_renderer::U_SLATE_FX_SUBSYSTEM_GET_SLATE_POST_PROCESSOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_post_buffer_bit,
+                __buffer.add(0).cast::<crate::bindings::slate_core::ESlatePostRT>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::slate_rhi_renderer::U_SLATE_FX_SUBSYSTEM_GET_SLATE_POST_PROCESSOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<USlateRHIPostBufferProcessor>>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct USlateRHIPostBufferProcessor {
@@ -151,6 +185,111 @@ impl USlateFontBlueprintLibrary {
             cdo
         }
     }
+    pub fn make_slate_font_info(
+        font_object: UPtr<crate::bindings::core_u_object::UObject>,
+        font_material: UPtr<crate::bindings::core_u_object::UObject>,
+        outline_settings: crate::bindings::slate_core::FFontOutlineSettings,
+        typeface_font_name: FName,
+        size: f32,
+        letter_spacing: i32,
+        skew_amount: f32,
+        b_force_monospaced: bool,
+        b_material_is_stencil: bool,
+        monospaced_width: f32,
+    ) -> crate::bindings::slate_core::FSlateFontInfo {
+        let mut __stack = crate::core_data::StackAlloc::<192>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::slate_rhi_renderer::U_SLATE_FONT_BLUEPRINT_LIBRARY_MAKE_SLATE_FONT_INFO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &font_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &font_material,
+                __buffer.add(8).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &outline_settings,
+                __buffer
+                    .add(16)
+                    .cast::<crate::bindings::slate_core::FFontOutlineSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &typeface_font_name,
+                __buffer.add(48).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&size, __buffer.add(60).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &letter_spacing,
+                __buffer.add(64).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &skew_amount,
+                __buffer.add(68).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_force_monospaced,
+                __buffer.add(72).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_material_is_stencil,
+                __buffer.add(73).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &monospaced_width,
+                __buffer.add(76).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::slate_rhi_renderer::USlateFontBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::slate_rhi_renderer::U_SLATE_FONT_BLUEPRINT_LIBRARY_MAKE_SLATE_FONT_INFO,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(80).cast::<crate::bindings::slate_core::FSlateFontInfo>().read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct USlateRHIRendererSettings {
@@ -171,6 +310,74 @@ impl USlateRHIRendererSettings {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_slate_post_setting(
+        &self,
+        in_post_buffer_bit: crate::bindings::slate_core::ESlatePostRT,
+    ) -> FSlatePostSettings {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::slate_rhi_renderer::U_SLATE_RHI_RENDERER_SETTINGS_GET_SLATE_POST_SETTING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_post_buffer_bit,
+                __buffer.add(0).cast::<crate::bindings::slate_core::ESlatePostRT>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::slate_rhi_renderer::U_SLATE_RHI_RENDERER_SETTINGS_GET_SLATE_POST_SETTING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FSlatePostSettings>().read() }
+    }
+    pub fn get_mutable_slate_post_setting(
+        &mut self,
+        in_post_buffer_bit: crate::bindings::slate_core::ESlatePostRT,
+    ) -> FSlatePostSettings {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::slate_rhi_renderer::U_SLATE_RHI_RENDERER_SETTINGS_GET_MUTABLE_SLATE_POST_SETTING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_post_buffer_bit,
+                __buffer.add(0).cast::<crate::bindings::slate_core::ESlatePostRT>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::slate_rhi_renderer::U_SLATE_RHI_RENDERER_SETTINGS_GET_MUTABLE_SLATE_POST_SETTING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FSlatePostSettings>().read() }
     }
 }
 #[repr(transparent)]

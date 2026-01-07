@@ -72,6 +72,72 @@ impl UAndroidPermissionFunctionLibrary {
             cdo
         }
     }
+    pub fn check_permission(permission: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::android_permission::U_ANDROID_PERMISSION_FUNCTION_LIBRARY_CHECK_PERMISSION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &permission,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::android_permission::UAndroidPermissionFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::android_permission::U_ANDROID_PERMISSION_FUNCTION_LIBRARY_CHECK_PERMISSION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn acquire_permissions(
+        permissions: &TArray<FString>,
+    ) -> UPtr<UAndroidPermissionCallbackProxy> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::android_permission::U_ANDROID_PERMISSION_FUNCTION_LIBRARY_ACQUIRE_PERMISSIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                permissions,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::android_permission::UAndroidPermissionFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::android_permission::U_ANDROID_PERMISSION_FUNCTION_LIBRARY_ACQUIRE_PERMISSIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<UPtr<UAndroidPermissionCallbackProxy>>().read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct FAndroidPermissionCallbackProxy_OnPermissionsGrantedDynamicDelegate {

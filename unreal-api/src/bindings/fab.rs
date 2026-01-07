@@ -596,6 +596,761 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             cdo
         }
     }
+    pub fn set_custom_world_position_offset_disable_distance(
+        &mut self,
+        attribute_value: i32,
+        b_add_apply_delegate: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<6>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_WORLD_POSITION_OFFSET_DISABLE_DISTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_add_apply_delegate,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_WORLD_POSITION_OFFSET_DISABLE_DISTANCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(5).cast::<bool>().read() }
+    }
+    pub fn set_custom_static_mesh(&mut self, attribute_value: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_STATIC_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_STATIC_MESH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn set_custom_scaling(
+        &mut self,
+        attribute_value: crate::bindings::foliage::EFoliageScaling,
+        b_add_apply_delegate: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<3>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<crate::bindings::foliage::EFoliageScaling>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_add_apply_delegate,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(2).cast::<bool>().read() }
+    }
+    pub fn set_custom_scale_z(
+        &mut self,
+        attribute_value: &crate::bindings::core_u_object::FVector2f,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_Z,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2f>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_Z,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_custom_scale_y(
+        &mut self,
+        attribute_value: &crate::bindings::core_u_object::FVector2f,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_Y,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2f>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_Y,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_custom_scale_x(
+        &mut self,
+        attribute_value: &crate::bindings::core_u_object::FVector2f,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_X,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2f>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_X,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn set_custom_random_yaw(
+        &mut self,
+        attribute_value: bool,
+        b_add_apply_delegate: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<3>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_RANDOM_YAW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_add_apply_delegate,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_RANDOM_YAW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(2).cast::<bool>().read() }
+    }
+    pub fn set_custom_random_pitch_angle(
+        &mut self,
+        attribute_value: f32,
+        b_add_apply_delegate: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<6>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_RANDOM_PITCH_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_add_apply_delegate,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_RANDOM_PITCH_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(5).cast::<bool>().read() }
+    }
+    pub fn set_custom_align_to_normal(
+        &mut self,
+        attribute_value: bool,
+        b_add_apply_delegate: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<3>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_ALIGN_TO_NORMAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_add_apply_delegate,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_ALIGN_TO_NORMAL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(2).cast::<bool>().read() }
+    }
+    pub fn set_custom_affect_distance_field_lighting(
+        &mut self,
+        attribute_value: bool,
+        b_add_apply_delegate: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<3>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_AFFECT_DISTANCE_FIELD_LIGHTING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_add_apply_delegate,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_AFFECT_DISTANCE_FIELD_LIGHTING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(2).cast::<bool>().read() }
+    }
+    pub fn get_custom_world_position_offset_disable_distance(
+        &self,
+        attribute_value: &mut i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_WORLD_POSITION_OFFSET_DISABLE_DISTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_WORLD_POSITION_OFFSET_DISABLE_DISTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_static_mesh(&self, attribute_value: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_STATIC_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_STATIC_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FString>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_custom_scaling(
+        &self,
+        attribute_value: &mut crate::bindings::foliage::EFoliageScaling,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::foliage::EFoliageScaling>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALING,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::foliage::EFoliageScaling>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_scale_z(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FVector2f,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_Z,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2f>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_Z,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FVector2f>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_custom_scale_y(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FVector2f,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_Y,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2f>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_Y,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FVector2f>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_custom_scale_x(
+        &self,
+        attribute_value: &mut crate::bindings::core_u_object::FVector2f,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_X,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2f>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_X,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FVector2f>()
+                .swap(attribute_value);
+        }
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_custom_random_yaw(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_RANDOM_YAW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_RANDOM_YAW,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_random_pitch_angle(&self, attribute_value: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_RANDOM_PITCH_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_RANDOM_PITCH_ANGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<f32>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn get_custom_align_to_normal(&self, attribute_value: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_ALIGN_TO_NORMAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_ALIGN_TO_NORMAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn get_custom_affect_distance_field_lighting(
+        &self,
+        attribute_value: &mut bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_AFFECT_DISTANCE_FIELD_LIGHTING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                attribute_value,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_AFFECT_DISTANCE_FIELD_LIGHTING,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(attribute_value);
+        }
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UFabFactory {

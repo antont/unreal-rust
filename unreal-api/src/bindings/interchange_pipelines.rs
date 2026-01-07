@@ -258,7 +258,6 @@ pub struct UInterchangeGenericCommonMeshesProperties {
     pub b_use_full_precision_u_vs: bool,
     pub b_use_backwards_compatible_f16_trunc_u_vs: bool,
     pub b_remove_degenerates: bool,
-    __padding_end: [u8; 3],
 }
 impl UInterchangeGenericCommonMeshesProperties {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -409,6 +408,59 @@ impl UInterchangeGenericAudioPipeline {
             cdo
         }
     }
+    pub fn create_sound_wave_factory_node(
+        &mut self,
+        sound_wave_node: UPtr<
+            crate::bindings::interchange_nodes::UInterchangeAudioSoundWaveNode,
+        >,
+    ) -> UPtr<
+        crate::bindings::interchange_factory_nodes::UInterchangeAudioSoundWaveFactoryNode,
+    > {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_GENERIC_AUDIO_PIPELINE_CREATE_SOUND_WAVE_FACTORY_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sound_wave_node,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<
+                            crate::bindings::interchange_nodes::UInterchangeAudioSoundWaveNode,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_GENERIC_AUDIO_PIPELINE_CREATE_SOUND_WAVE_FACTORY_NODE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<
+                    UPtr<
+                        crate::bindings::interchange_factory_nodes::UInterchangeAudioSoundWaveFactoryNode,
+                    >,
+                >()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UInterchangeGenericGroomPipeline {
@@ -424,7 +476,6 @@ pub struct UInterchangeGenericGroomPipeline {
     pub b_override_time_range: bool,
     pub frame_start: i32,
     pub frame_end: i32,
-    __padding_end: [u8; 4],
 }
 impl UInterchangeGenericGroomPipeline {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -554,6 +605,60 @@ impl UInterchangeGenericMeshPipeline {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_combine_skeletal_meshes(&mut self, inb_combine_skeletal_meshes: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_GENERIC_MESH_PIPELINE_SET_COMBINE_SKELETAL_MESHES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &inb_combine_skeletal_meshes,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_GENERIC_MESH_PIPELINE_SET_COMBINE_SKELETAL_MESHES,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_combine_skeletal_meshes(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_GENERIC_MESH_PIPELINE_GET_COMBINE_SKELETAL_MESHES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_GENERIC_MESH_PIPELINE_GET_COMBINE_SKELETAL_MESHES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -725,6 +830,639 @@ impl UInterchangePipelineMeshesUtilities {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_context(&self, context: &FInterchangePipelineMeshesUtilitiesContext) {
+        let mut __stack = crate::core_data::StackAlloc::<7>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_SET_CONTEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FInterchangePipelineMeshesUtilitiesContext>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_SET_CONTEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_valid_mesh_instance_uid(&self, mesh_instance_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_IS_VALID_MESH_INSTANCE_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh_instance_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_IS_VALID_MESH_INSTANCE_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn is_valid_mesh_geometry_uid(&self, mesh_geometry_uid: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_IS_VALID_MESH_GEOMETRY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh_geometry_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_IS_VALID_MESH_GEOMETRY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn get_mesh_instance_skeleton_root_uid(
+        &self,
+        mesh_instance_uid: FString,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_INSTANCE_SKELETON_ROOT_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh_instance_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_INSTANCE_SKELETON_ROOT_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_mesh_instance_by_uid(
+        &self,
+        mesh_instance_uid: FString,
+    ) -> FInterchangeMeshInstance {
+        let mut __stack = crate::core_data::StackAlloc::<144>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_INSTANCE_BY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh_instance_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_INSTANCE_BY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FInterchangeMeshInstance>().read() }
+    }
+    pub fn get_mesh_geometry_skeleton_root_uid(
+        &self,
+        mesh_geometry_uid: FString,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_GEOMETRY_SKELETON_ROOT_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh_geometry_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_GEOMETRY_SKELETON_ROOT_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_mesh_geometry_by_uid(
+        &self,
+        mesh_geometry_uid: FString,
+    ) -> FInterchangeMeshGeometry {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_GEOMETRY_BY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh_geometry_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_GEOMETRY_BY_UID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FInterchangeMeshGeometry>().read() }
+    }
+    pub fn get_all_static_mesh_instance(
+        &self,
+        mesh_instance_uids: &mut TArray<FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_STATIC_MESH_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mesh_instance_uids,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_STATIC_MESH_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(mesh_instance_uids);
+        }
+    }
+    pub fn get_all_static_mesh_geometry(
+        &self,
+        mesh_geometry_uids: &mut TArray<FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_STATIC_MESH_GEOMETRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mesh_geometry_uids,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_STATIC_MESH_GEOMETRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(mesh_geometry_uids);
+        }
+    }
+    pub fn get_all_skinned_mesh_instance(
+        &self,
+        mesh_instance_uids: &mut TArray<FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_SKINNED_MESH_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mesh_instance_uids,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_SKINNED_MESH_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(mesh_instance_uids);
+        }
+    }
+    pub fn get_all_skinned_mesh_geometry(
+        &self,
+        mesh_geometry_uids: &mut TArray<FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_SKINNED_MESH_GEOMETRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mesh_geometry_uids,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_SKINNED_MESH_GEOMETRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(mesh_geometry_uids);
+        }
+    }
+    pub fn get_all_mesh_instance_uids_using_mesh_geometry_uid(
+        &self,
+        mesh_geometry_uid: FString,
+        mesh_instance_uids: &mut TArray<FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_INSTANCE_UIDS_USING_MESH_GEOMETRY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &mesh_geometry_uid,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mesh_instance_uids,
+                __buffer.add(16).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_INSTANCE_UIDS_USING_MESH_GEOMETRY_UID,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<TArray<FString>>().swap(mesh_instance_uids);
+        }
+    }
+    pub fn get_all_mesh_instance_uids(&self, mesh_instance_uids: &mut TArray<FString>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_INSTANCE_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mesh_instance_uids,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_INSTANCE_UIDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(mesh_instance_uids);
+        }
+    }
+    pub fn get_all_mesh_geometry_not_instanced(
+        &self,
+        mesh_geometry_uids: &mut TArray<FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_GEOMETRY_NOT_INSTANCED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mesh_geometry_uids,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_GEOMETRY_NOT_INSTANCED,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(mesh_geometry_uids);
+        }
+    }
+    pub fn get_all_mesh_geometry(&self, mesh_geometry_uids: &mut TArray<FString>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_GEOMETRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mesh_geometry_uids,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_GEOMETRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(mesh_geometry_uids);
+        }
+    }
+    pub fn get_all_geometry_cache_instance(
+        &self,
+        mesh_instance_uids: &mut TArray<FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_GEOMETRY_CACHE_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mesh_instance_uids,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_GEOMETRY_CACHE_INSTANCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(mesh_instance_uids);
+        }
+    }
+    pub fn get_all_geometry_cache_geometry(
+        &self,
+        mesh_geometry_uids: &mut TArray<FString>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_GEOMETRY_CACHE_GEOMETRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                mesh_geometry_uids,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_GEOMETRY_CACHE_GEOMETRY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(mesh_geometry_uids);
+        }
+    }
+    pub fn create_interchange_pipeline_meshes_utilities(
+        base_node_container: UPtr<
+            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+        >,
+    ) -> UPtr<UInterchangePipelineMeshesUtilities> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_CREATE_INTERCHANGE_PIPELINE_MESHES_UTILITIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_node_container,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<
+                            crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::interchange_pipelines::UInterchangePipelineMeshesUtilities::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_CREATE_INTERCHANGE_PIPELINE_MESHES_UTILITIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<UPtr<UInterchangePipelineMeshesUtilities>>().read()
         }
     }
 }

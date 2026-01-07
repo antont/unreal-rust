@@ -42,4 +42,35 @@ impl USubobjectEditorMenuContext {
             cdo
         }
     }
+    pub fn get_selected_objects(
+        &self,
+    ) -> TArray<UPtr<crate::bindings::core_u_object::UObject>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::subobject_editor::U_SUBOBJECT_EDITOR_MENU_CONTEXT_GET_SELECTED_OBJECTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::subobject_editor::U_SUBOBJECT_EDITOR_MENU_CONTEXT_GET_SELECTED_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
+                .read()
+        }
+    }
 }

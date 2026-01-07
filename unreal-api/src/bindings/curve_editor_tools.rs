@@ -16,7 +16,6 @@ pub struct UCurveEditorFFTFilter {
     pub ty: ECurveEditorFFTFilterType,
     pub response: ECurveEditorFFTFilterClass,
     pub order: i32,
-    __padding_end: [u8; 4],
 }
 impl UCurveEditorFFTFilter {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

@@ -306,7 +306,6 @@ pub struct FStateTreeEvent {
     pub tag: crate::bindings::gameplay_tags::FGameplayTag,
     pub payload: crate::bindings::core_u_object::FInstancedStruct,
     pub origin: FName,
-    __padding_end: [u8; 4],
 }
 impl FStateTreeEvent {}
 #[repr(C, align(8))]
@@ -339,7 +338,6 @@ pub struct FStateTreeTransitionResult {
     pub source_state_tree: UPtr<UStateTree>,
     pub source_root_state: FStateTreeStateHandle,
     pub source_state: FStateTreeStateHandle,
-    __padding_end: [u8; 4],
 }
 impl FStateTreeTransitionResult {}
 #[repr(C, align(8))]
@@ -425,6 +423,111 @@ impl UStateTreeNodeBlueprintBase {
             cdo
         }
     }
+    pub fn send_event(&mut self, event: &FStateTreeEvent) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::U_STATE_TREE_NODE_BLUEPRINT_BASE_SEND_EVENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                event,
+                __buffer.add(0).cast::<FStateTreeEvent>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::U_STATE_TREE_NODE_BLUEPRINT_BASE_SEND_EVENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn request_transition(
+        &mut self,
+        target_state: &FStateTreeStateLink,
+        priority: EStateTreeTransitionPriority,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<37>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::U_STATE_TREE_NODE_BLUEPRINT_BASE_REQUEST_TRANSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                target_state,
+                __buffer.add(0).cast::<FStateTreeStateLink>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &priority,
+                __buffer.add(36).cast::<EStateTreeTransitionPriority>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::U_STATE_TREE_NODE_BLUEPRINT_BASE_REQUEST_TRANSITION,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_property_description_by_property_name(
+        &self,
+        property_name: FName,
+    ) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::U_STATE_TREE_NODE_BLUEPRINT_BASE_GET_PROPERTY_DESCRIPTION_BY_PROPERTY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &property_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::U_STATE_TREE_NODE_BLUEPRINT_BASE_GET_PROPERTY_DESCRIPTION_BY_PROPERTY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FText>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UStateTreeConditionBlueprintBase {
@@ -509,6 +612,137 @@ impl UStateTreeTaskBlueprintBase {
             cdo
         }
     }
+    pub fn unbind_delegate(&mut self, listener: &FStateTreeDelegateListener) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_UNBIND_DELEGATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                listener,
+                __buffer.add(0).cast::<FStateTreeDelegateListener>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_UNBIND_DELEGATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn finish_task(&mut self, b_succeeded: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_FINISH_TASK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_succeeded,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_FINISH_TASK,
+                __buffer,
+            )
+        };
+    }
+    pub fn broadcast_delegate(&mut self, dispatcher: FStateTreeDelegateDispatcher) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_BROADCAST_DELEGATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dispatcher,
+                __buffer.add(0).cast::<FStateTreeDelegateDispatcher>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_BROADCAST_DELEGATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn bind_delegate(
+        &mut self,
+        listener: &FStateTreeDelegateListener,
+        delegate: &FBindDelegate_Delegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_BIND_DELEGATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                listener,
+                __buffer.add(0).cast::<FStateTreeDelegateListener>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                delegate,
+                __buffer.add(24).cast::<FBindDelegate_Delegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_BIND_DELEGATE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct UStateTree {
@@ -529,6 +763,40 @@ impl UStateTree {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn k2_get_extension(
+        &self,
+        extension_type: TSubclassOf<UStateTreeExtension>,
+    ) -> UPtr<UStateTreeExtension> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::U_STATE_TREE_K2_GET_EXTENSION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &extension_type,
+                __buffer.add(0).cast::<TSubclassOf<UStateTreeExtension>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::U_STATE_TREE_K2_GET_EXTENSION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UStateTreeExtension>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -571,6 +839,178 @@ impl UStateTreeFunctionLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_state_tree(
+        reference: &mut FStateTreeReference,
+        state_tree: UPtr<UStateTree>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_SET_STATE_TREE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                reference,
+                __buffer.add(0).cast::<FStateTreeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &state_tree,
+                __buffer.add(40).cast::<UPtr<UStateTree>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::state_tree_module::UStateTreeFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_SET_STATE_TREE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FStateTreeReference>().swap(reference);
+        }
+    }
+    pub fn make_state_tree_reference(
+        state_tree: UPtr<UStateTree>,
+    ) -> FStateTreeReference {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_MAKE_STATE_TREE_REFERENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &state_tree,
+                __buffer.add(0).cast::<UPtr<UStateTree>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::state_tree_module::UStateTreeFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_MAKE_STATE_TREE_REFERENCE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FStateTreeReference>().read() }
+    }
+    pub fn k2_set_parameters_property(
+        reference: &mut FStateTreeReference,
+        property_id: crate::bindings::core_u_object::FGuid,
+        new_value: &i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<60>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_K2_SET_PARAMETERS_PROPERTY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                reference,
+                __buffer.add(0).cast::<FStateTreeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &property_id,
+                __buffer.add(40).cast::<crate::bindings::core_u_object::FGuid>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(new_value, __buffer.add(56).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::state_tree_module::UStateTreeFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_K2_SET_PARAMETERS_PROPERTY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FStateTreeReference>().swap(reference);
+        }
+    }
+    pub fn k2_get_parameters_property(
+        reference: &FStateTreeReference,
+        property_id: crate::bindings::core_u_object::FGuid,
+        return_value: &mut i32,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<60>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_K2_GET_PARAMETERS_PROPERTY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                reference,
+                __buffer.add(0).cast::<FStateTreeReference>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &property_id,
+                __buffer.add(40).cast::<crate::bindings::core_u_object::FGuid>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                return_value,
+                __buffer.add(56).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::state_tree_module::UStateTreeFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_K2_GET_PARAMETERS_PROPERTY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<i32>().read() }
     }
 }
 #[repr(C, align(8))]

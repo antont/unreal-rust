@@ -30,7 +30,7 @@ impl NameResolver {
     fn get_type_ident(&self, current_module: Option<&str>, type_name: &str) -> TokenStream {
         let ty_ident = format_ident!("{}", type_name);
         if let Some(module) = self.name_to_module.get(type_name)
-            && current_module.map_or(true, |current_module| current_module != module)
+            && current_module.map_or_else(|| true, |current_module| current_module != module)
         {
             let module_ident = format_ident!("{}", module);
             quote! {
@@ -68,35 +68,47 @@ use crate::parse_api::{
     OpagueDefinition, Property, PropertyFlag, StructDefinition, Type, TypeUsageHint,
 };
 
-pub struct Context {
-    name_resolver: NameResolver,
-    extension_fns_struct: HashMap<String, Vec<Function>>,
+pub struct ExtensionFns {
+    pub origin_class: String,
+    pub functions: Vec<Function>,
 }
 
-pub fn iter_properties(properties: &[Property]) -> impl Iterator<Item = &Property> {
-    properties
-        .iter()
-        .filter(|p| p.flags.contains(&PropertyFlag::BlueprintVisible))
+pub struct Context {
+    name_resolver: NameResolver,
+    extension_fns: HashMap<String, Vec<String>>,
+    name_to_class: HashMap<String, ClassDefinition>,
 }
 
 impl Context {
     pub fn new(api: &Api) -> Self {
-        let mut extension_fns: HashMap<String, Vec<Function>> = HashMap::new();
+        let mut extension_fns: HashMap<String, Vec<String>> = HashMap::new();
+        let name_to_class: HashMap<String, ClassDefinition> = api
+            .classes
+            .iter()
+            .map(|def| (def.class_name.clone(), def.clone()))
+            .collect();
 
         for class in &api.classes {
             let Some(name) = class.meta.get("Impl") else {
                 continue;
             };
 
-            let fns = extension_fns.entry(name.clone()).or_default();
-            fns.extend_from_slice(&class.functions);
+            let extension_fns = extension_fns.entry(name.clone()).or_default();
+            extension_fns.push(class.class_name.clone());
         }
 
         Self {
-            extension_fns_struct: extension_fns,
+            extension_fns,
+            name_to_class,
             name_resolver: NameResolver::from(api),
         }
     }
+}
+
+pub fn iter_properties(properties: &[Property]) -> impl Iterator<Item = &Property> {
+    properties
+        .iter()
+        .filter(|p| p.flags.contains(&PropertyFlag::BlueprintVisible))
 }
 pub fn generate_module_globals(api: &Api) -> HashMap<String, TokenStream> {
     let mut module_to_class = HashMap::<String, Vec<&ClassDefinition>>::new();
@@ -430,7 +442,7 @@ pub fn generate_function(
         .parameters
         .iter()
         .filter_map(|param| {
-            if param.property.name == "ReturnValue" {
+            if param.property.flags.contains(&PropertyFlag::ReturnParm) {
                 return None;
             }
 
@@ -490,20 +502,22 @@ pub fn generate_function(
 
         Some(quote! {
             unsafe {
-                buffer.add(#offset).cast::<#ty>().swap(#name);
+                __buffer.add(#offset).cast::<#ty>().swap(#name);
             }
 
         })
         .clone()
     });
 
+    let ty_name_ident = ctx.name_resolver.get_type_ident(Some(module), ty_name);
+    let module_ident = format_ident!("{}", module);
     let object_ptr_tokens = if function.flags.contains(&FunctionFlag::Static) {
         quote! {
-            let mut object_ptr = Self::cdo();
+            let __object_ptr = crate::bindings::#module_ident::#ty_name_ident::cdo();
         }
     } else {
         quote! {
-            let object_ptr = self as *const _ as *mut std::ffi::c_void;
+            let __object_ptr = self as *const _ as *mut std::ffi::c_void;
         }
     };
     let return_tokens = function.parameters.last().and_then(|param| {
@@ -517,8 +531,29 @@ pub fn generate_function(
 
         Some(quote! {
             unsafe {
-                let return_ptr = buffer.add(#return_offset).cast::<#ty>();
-                return_ptr.read()
+                __buffer.add(#return_offset).cast::<#ty>().read()
+            }
+        })
+    });
+
+    let copy_params_to_buffer_tokens = function.parameters.iter().filter_map(|param| {
+        if param.property.flags.contains(&PropertyFlag::ReturnParm) {
+            return None;
+        }
+
+        let offset = Literal::u32_unsuffixed(param.property.offset);
+        let name = format_ident!("{}", property_name(&param.property));
+        let ty = generate_type(module, ctx, &param.property.data_type).unwrap();
+
+        let borrow_token = if !param.property.flags.contains(&PropertyFlag::OutParm) {
+            Some(quote! {&})
+        } else {
+            None
+        };
+
+        Some(quote! {
+            unsafe {
+                std::ptr::copy_nonoverlapping(#borrow_token #name, __buffer.add(#offset).cast::<#ty>(), 1);
             }
         })
     });
@@ -532,15 +567,18 @@ pub fn generate_function(
     quote! {
         pub fn #fn_ident(#(#self_tokens,)* #(#param_tokens),*) #return_ty
         {
-            let mut stack = crate::core_data::StackAlloc::<#stack_size_lit>::new();
-            let buffer = stack.buffer_mut();
+            let mut __stack = crate::core_data::StackAlloc::<#stack_size_lit>::new();
+            let __buffer = __stack.buffer_mut();
 
-            let bindings = crate::module::bindings();
+            let __bindings = crate::module::bindings();
 
-            unsafe { (bindings.core_fns.initialize_values_in_param_buffer)(#fn_ptr, buffer) };
+            unsafe { (__bindings.core_fns.initialize_values_in_param_buffer)(crate::bindings::#module_ident::#fn_ptr, __buffer) };
+            #(
+                #copy_params_to_buffer_tokens
+            )*
 
             #object_ptr_tokens
-            unsafe { (bindings.core_fns.process_event)(object_ptr, #fn_ptr, buffer) };
+            unsafe { (__bindings.core_fns.process_event)(__object_ptr, crate::bindings::#module_ident::#fn_ptr, __buffer) };
 
             #(
                 #out_tokens
@@ -580,7 +618,8 @@ pub fn generate_class(
     let PropertyInfo { tokens, offset } =
         generate_properties(&module_name, ctx, &class_def.properties);
 
-    let end_padding = if offset < class_def.property_sizes as usize {
+    let end_padding = if align_up(offset as u32, class_def.min_alignment) < class_def.property_sizes
+    {
         let padding_size = Literal::usize_unsuffixed(class_def.property_sizes as usize - offset);
         Some(quote! {
             __padding_end: [u8; #padding_size]
@@ -623,12 +662,17 @@ pub fn generate_class(
         "K2_SetActorLocation",
         "GetLevelTransform",
         "New",
+        "SetTextureParameterValueByInfo",
     ];
 
     let function_tokens: Vec<_> = class_def
         .functions
         .iter()
-        .filter(|f| fn_allow_list.contains(&f.function_name.as_str()))
+        .filter(|f| {
+            f.flags.contains(&FunctionFlag::BlueprintCallable)
+                || f.flags.contains(&FunctionFlag::BlueprintPure)
+        })
+        // .filter(|f| fn_allow_list.contains(&f.function_name.as_str()))
         .map(|f| generate_function(ctx, &class_def.class_name, &module_name, f))
         .collect();
 
@@ -974,7 +1018,9 @@ pub fn generate_struct(
     let PropertyInfo { tokens, offset } =
         generate_properties(&module_name, ctx, &struct_def.properties);
 
-    let end_padding = if offset < struct_def.property_sizes as usize {
+    let end_padding = if align_up(offset as u32, struct_def.min_alignment)
+        < struct_def.property_sizes
+    {
         let padding_size = Literal::usize_unsuffixed(struct_def.property_sizes as usize - offset);
         Some(quote! {
             __padding_end: [u8; #padding_size]
@@ -1003,28 +1049,37 @@ pub fn generate_struct(
         None
     };
 
-    // let fn_tokens = ctx
-    //     .extension_fns_struct
-    //     .get(&struct_def.struct_name)
-    //     .map(|fns| {
-    //         let fn_tokens = fns
-    //             .iter()
-    //             .map(|f| generate_function(ctx, &module_name, f))
-    //             .collect::<Vec<_>>();
-    //
-    //         quote! {
-    //             #(
-    //                 #fn_tokens
-    //             )*
-    //         }
-    //     });
+    let fn_tokens = ctx
+        .extension_fns
+        .get(&struct_def.struct_name)
+        .map(|extension_class_names| {
+            let extension_tokens = extension_class_names
+                .iter()
+                .filter_map(|name| ctx.name_to_class.get(name))
+                .flat_map(|def| {
+                    def.functions.iter().map(|f| {
+                        generate_function(
+                            ctx,
+                            &def.class_name,
+                            &module_name_from_package(&def.package),
+                            f,
+                        )
+                    })
+                });
+
+            quote! {
+                #(
+                    #extension_tokens
+                )*
+            }
+        });
 
     let tokens = quote! {
         #struct_def_tokens
         impl #struct_ident
         {
             #layout_check_tokens
-            // #fn_tokens
+            #fn_tokens
         }
     };
 

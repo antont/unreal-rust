@@ -57,6 +57,49 @@ impl USvgDistanceFieldGenerator {
             cdo
         }
     }
+    pub fn generate_texture_from_svg_file(
+        svg_file_path: FString,
+        configuration: &FSvgDistanceFieldConfiguration,
+    ) -> UPtr<crate::bindings::engine::UTexture2D> {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::svg_distance_field::U_SVG_DISTANCE_FIELD_GENERATOR_GENERATE_TEXTURE_FROM_SVG_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &svg_file_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                configuration,
+                __buffer.add(16).cast::<FSvgDistanceFieldConfiguration>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::svg_distance_field::USvgDistanceFieldGenerator::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::svg_distance_field::U_SVG_DISTANCE_FIELD_GENERATOR_GENERATE_TEXTURE_FROM_SVG_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(64).cast::<UPtr<crate::bindings::engine::UTexture2D>>().read()
+        }
+    }
 }
 #[repr(transparent)]
 pub struct ESvgDistanceFieldType(pub u8);

@@ -367,7 +367,6 @@ pub struct FCameraLookatTrackingSettings {
     pub actor_to_track: TSoftObjectPtr<crate::bindings::engine::AActor>,
     pub relative_offset: crate::bindings::core_u_object::FVector,
     pub flags_112: u8,
-    __padding_end: [u8; 7],
 }
 impl FCameraLookatTrackingSettings {}
 #[repr(C, align(4))]
@@ -384,7 +383,6 @@ pub struct FNamedFilmbackPreset {
     pub name: FString,
     pub display_name: FText,
     pub filmback_settings: FCameraFilmbackSettings,
-    __padding_end: [u8; 4],
 }
 impl FNamedFilmbackPreset {}
 #[repr(C, align(4))]
@@ -402,7 +400,6 @@ impl FCameraLensSettings {}
 pub struct FNamedLensPreset {
     pub name: FString,
     pub lens_settings: FCameraLensSettings,
-    __padding_end: [u8; 4],
 }
 impl FNamedLensPreset {}
 #[repr(C, align(4))]
@@ -414,7 +411,6 @@ impl FPlateCropSettings {}
 pub struct FNamedPlateCropPreset {
     pub name: FString,
     pub crop_settings: FPlateCropSettings,
-    __padding_end: [u8; 4],
 }
 impl FNamedPlateCropPreset {}
 #[repr(C, align(8))]
@@ -422,7 +418,6 @@ pub struct FCameraTrackingFocusSettings {
     pub actor_to_track: TSoftObjectPtr<crate::bindings::engine::AActor>,
     pub relative_offset: crate::bindings::core_u_object::FVector,
     pub flags_72: u8,
-    __padding_end: [u8; 7],
 }
 impl FCameraTrackingFocusSettings {}
 #[repr(C, align(8))]
@@ -435,7 +430,6 @@ pub struct FCameraFocusSettings {
     pub flags_96: u8,
     pub focus_smoothing_interp_speed: f32,
     pub focus_offset: f32,
-    __padding_end: [u8; 4],
 }
 impl FCameraFocusSettings {}
 #[repr(C, align(8))]
@@ -490,6 +484,37 @@ impl ACameraRig_Rail {
             cdo
         }
     }
+    pub fn get_rail_spline_component(
+        &mut self,
+    ) -> UPtr<crate::bindings::engine::USplineComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::A_CAMERA_RIG_RAIL_GET_RAIL_SPLINE_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::A_CAMERA_RIG_RAIL_GET_RAIL_SPLINE_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::engine::USplineComponent>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(16))]
 pub struct ACineCameraActor {
@@ -513,6 +538,30 @@ impl ACineCameraActor {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn get_cine_camera_component(&self) -> UPtr<UCineCameraComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::A_CINE_CAMERA_ACTOR_GET_CINE_CAMERA_COMPONENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::A_CINE_CAMERA_ACTOR_GET_CINE_CAMERA_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UCineCameraComponent>>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -549,6 +598,549 @@ impl UCineCameraComponent {
             cdo
         }
     }
+    pub fn set_lens_settings(&mut self, new_lens_settings: &FCameraLensSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_LENS_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_lens_settings,
+                __buffer.add(0).cast::<FCameraLensSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_LENS_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_lens_preset_by_name(&mut self, in_preset_name: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_LENS_PRESET_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_preset_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_LENS_PRESET_BY_NAME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_focus_settings(&mut self, new_focus_settings: &FCameraFocusSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_FOCUS_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_focus_settings,
+                __buffer.add(0).cast::<FCameraFocusSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_FOCUS_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filmback_preset_by_name(&mut self, in_preset_name: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_FILMBACK_PRESET_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_preset_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_FILMBACK_PRESET_BY_NAME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filmback(&mut self, new_filmback: &FCameraFilmbackSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_FILMBACK,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_filmback,
+                __buffer.add(0).cast::<FCameraFilmbackSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_FILMBACK,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_custom_near_clipping_plane(
+        &mut self,
+        new_custom_near_clipping_plane: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CUSTOM_NEAR_CLIPPING_PLANE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_custom_near_clipping_plane,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CUSTOM_NEAR_CLIPPING_PLANE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_current_focal_length(&mut self, in_focal_length: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CURRENT_FOCAL_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_focal_length,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CURRENT_FOCAL_LENGTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_current_aperture(&mut self, new_current_aperture: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CURRENT_APERTURE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_current_aperture,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CURRENT_APERTURE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_crop_settings(&mut self, new_crop_settings: &FPlateCropSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CROP_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_crop_settings,
+                __buffer.add(0).cast::<FPlateCropSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CROP_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_crop_preset_by_name(&mut self, in_preset_name: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CROP_PRESET_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_preset_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CROP_PRESET_BY_NAME,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_vertical_projection_offset(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_VERTICAL_PROJECTION_OFFSET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_VERTICAL_PROJECTION_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_vertical_field_of_view(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_VERTICAL_FIELD_OF_VIEW,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_VERTICAL_FIELD_OF_VIEW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_lens_presets_copy() -> TArray<FNamedLensPreset> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_LENS_PRESETS_COPY,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::cinematic_camera::UCineCameraComponent::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_LENS_PRESETS_COPY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FNamedLensPreset>>().read() }
+    }
+    pub fn get_lens_preset_name(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_LENS_PRESET_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_LENS_PRESET_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_horizontal_projection_offset(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_HORIZONTAL_PROJECTION_OFFSET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_HORIZONTAL_PROJECTION_OFFSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_horizontal_field_of_view(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_HORIZONTAL_FIELD_OF_VIEW,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_HORIZONTAL_FIELD_OF_VIEW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_filmback_presets_copy() -> TArray<FNamedFilmbackPreset> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_FILMBACK_PRESETS_COPY,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::cinematic_camera::UCineCameraComponent::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_FILMBACK_PRESETS_COPY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FNamedFilmbackPreset>>().read() }
+    }
+    pub fn get_filmback_preset_name(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_FILMBACK_PRESET_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_FILMBACK_PRESET_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_default_filmback_preset_name(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_DEFAULT_FILMBACK_PRESET_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_DEFAULT_FILMBACK_PRESET_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_crop_preset_name(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_CROP_PRESET_NAME,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_CROP_PRESET_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UCineCameraSettings {
@@ -579,6 +1171,414 @@ impl UCineCameraSettings {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_lens_presets(&mut self, in_lens_presets: &TArray<FNamedLensPreset>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_LENS_PRESETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_lens_presets,
+                __buffer.add(0).cast::<TArray<FNamedLensPreset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_LENS_PRESETS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_filmback_presets(
+        &mut self,
+        in_filmback_presets: &TArray<FNamedFilmbackPreset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_FILMBACK_PRESETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_filmback_presets,
+                __buffer.add(0).cast::<TArray<FNamedFilmbackPreset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_FILMBACK_PRESETS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_default_lens_preset_name(
+        &mut self,
+        in_default_lens_preset_name: FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_PRESET_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_lens_preset_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_PRESET_NAME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_default_lens_f_stop(&mut self, in_default_lens_f_stop: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_F_STOP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_lens_f_stop,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_F_STOP,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_default_lens_focal_length(&mut self, in_default_lens_focal_length: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_FOCAL_LENGTH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_lens_focal_length,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_FOCAL_LENGTH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_default_filmback_preset(&mut self, in_default_filmback_preset: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_FILMBACK_PRESET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_filmback_preset,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_FILMBACK_PRESET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_default_crop_preset_name(
+        &mut self,
+        in_default_crop_preset_name: FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_CROP_PRESET_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_default_crop_preset_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_CROP_PRESET_NAME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_crop_presets(&mut self, in_crop_presets: &TArray<FNamedPlateCropPreset>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_CROP_PRESETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_crop_presets,
+                __buffer.add(0).cast::<TArray<FNamedPlateCropPreset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_CROP_PRESETS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_lens_preset_by_name(
+        &mut self,
+        preset_name: FString,
+        lens_settings: &mut FCameraLensSettings,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<45>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_LENS_PRESET_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &preset_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                lens_settings,
+                __buffer.add(16).cast::<FCameraLensSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_LENS_PRESET_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FCameraLensSettings>().swap(lens_settings);
+        }
+        unsafe { __buffer.add(44).cast::<bool>().read() }
+    }
+    pub fn get_filmback_preset_by_name(
+        &mut self,
+        preset_name: FString,
+        filmback_settings: &mut FCameraFilmbackSettings,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<37>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_FILMBACK_PRESET_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &preset_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                filmback_settings,
+                __buffer.add(16).cast::<FCameraFilmbackSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_FILMBACK_PRESET_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FCameraFilmbackSettings>().swap(filmback_settings);
+        }
+        unsafe { __buffer.add(36).cast::<bool>().read() }
+    }
+    pub fn get_crop_preset_by_name(
+        &mut self,
+        preset_name: FString,
+        crop_settings: &mut FPlateCropSettings,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_CROP_PRESET_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &preset_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                crop_settings,
+                __buffer.add(16).cast::<FPlateCropSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_CROP_PRESET_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FPlateCropSettings>().swap(crop_settings);
+        }
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn get_cine_camera_settings() -> UPtr<UCineCameraSettings> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_CINE_CAMERA_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::cinematic_camera::UCineCameraSettings::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_CINE_CAMERA_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UCineCameraSettings>>().read() }
     }
 }
 #[repr(transparent)]

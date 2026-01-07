@@ -233,6 +233,510 @@ impl UControlRigBlueprint {
             cdo
         }
     }
+    pub fn update_exposed_module_connectors(&self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_UPDATE_EXPOSED_MODULE_CONNECTORS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_UPDATE_EXPOSED_MODULE_CONNECTORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn turn_into_standalone_rig(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_TURN_INTO_STANDALONE_RIG_BLUEPRINT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_TURN_INTO_STANDALONE_RIG_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn turn_into_control_rig_module(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_TURN_INTO_CONTROL_RIG_MODULE_BLUEPRINT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_TURN_INTO_CONTROL_RIG_MODULE_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn set_preview_mesh(
+        &mut self,
+        preview_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+        b_mark_as_dirty: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_SET_PREVIEW_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &preview_mesh,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_mark_as_dirty,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_SET_PREVIEW_MESH,
+                __buffer,
+            )
+        };
+    }
+    pub fn recompile_modular_rig(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_RECOMPILE_MODULAR_RIG,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_RECOMPILE_MODULAR_RIG,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_control_rig_module(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_IS_CONTROL_RIG_MODULE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_IS_CONTROL_RIG_MODULE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_rig_module_icon(&self) -> UPtr<crate::bindings::engine::UTexture2D> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_RIG_MODULE_ICON,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_RIG_MODULE_ICON,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::UTexture2D>>().read()
+        }
+    }
+    pub fn get_preview_mesh(&self) -> UPtr<crate::bindings::engine::USkeletalMesh> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_PREVIEW_MESH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_PREVIEW_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>().read()
+        }
+    }
+    pub fn get_modular_rig_controller(
+        &mut self,
+    ) -> UPtr<crate::bindings::control_rig::UModularRigController> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_MODULAR_RIG_CONTROLLER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_MODULAR_RIG_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::control_rig::UModularRigController>>()
+                .read()
+        }
+    }
+    pub fn get_hierarchy_controller(
+        &mut self,
+    ) -> UPtr<crate::bindings::control_rig::URigHierarchyController> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_HIERARCHY_CONTROLLER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_HIERARCHY_CONTROLLER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::control_rig::URigHierarchyController>>()
+                .read()
+        }
+    }
+    pub fn get_debugged_control_rig(
+        &mut self,
+    ) -> UPtr<crate::bindings::control_rig::UControlRig> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_DEBUGGED_CONTROL_RIG,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_DEBUGGED_CONTROL_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::control_rig::UControlRig>>()
+                .read()
+        }
+    }
+    pub fn get_currently_open_rig_blueprints() -> TArray<UPtr<UControlRigBlueprint>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_CURRENTLY_OPEN_RIG_BLUEPRINTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::control_rig_developer::UControlRigBlueprint::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_CURRENTLY_OPEN_RIG_BLUEPRINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<UPtr<UControlRigBlueprint>>>().read() }
+    }
+    pub fn get_control_rig_class(
+        &self,
+    ) -> TSubclassOf<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_CONTROL_RIG_CLASS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_CONTROL_RIG_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn find_references_to_module(
+        &self,
+    ) -> TArray<crate::bindings::control_rig::FModuleReferenceData> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_FIND_REFERENCES_TO_MODULE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_FIND_REFERENCES_TO_MODULE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::control_rig::FModuleReferenceData>>()
+                .read()
+        }
+    }
+    pub fn create_control_rig(
+        &mut self,
+    ) -> UPtr<crate::bindings::control_rig::UControlRig> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_CREATE_CONTROL_RIG,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_CREATE_CONTROL_RIG,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::control_rig::UControlRig>>()
+                .read()
+        }
+    }
+    pub fn convert_hierarchy_elements_to_spawner_nodes(
+        &mut self,
+        in_hierarchy: UPtr<crate::bindings::control_rig::URigHierarchy>,
+        in_keys: TArray<crate::bindings::control_rig::FRigElementKey>,
+        b_remove_elements: bool,
+    ) -> TArray<UPtr<crate::bindings::rig_vm_developer::URigVMNode>> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_CONVERT_HIERARCHY_ELEMENTS_TO_SPAWNER_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_hierarchy,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::control_rig::URigHierarchy>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_keys,
+                __buffer
+                    .add(8)
+                    .cast::<TArray<crate::bindings::control_rig::FRigElementKey>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_remove_elements,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_CONVERT_HIERARCHY_ELEMENTS_TO_SPAWNER_NODES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<TArray<UPtr<crate::bindings::rig_vm_developer::URigVMNode>>>()
+                .read()
+        }
+    }
+    pub fn can_turn_into_standalone_rig(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_CAN_TURN_INTO_STANDALONE_RIG_BLUEPRINT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_CAN_TURN_INTO_STANDALONE_RIG_BLUEPRINT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UControlRigSchema {

@@ -717,7 +717,6 @@ pub struct FHairGroupDesc {
     __padding_56: [u8; 4],
     pub hair_length_scale: f32,
     pub hair_length_scale_override: bool,
-    __padding_end: [u8; 3],
 }
 impl FHairGroupDesc {}
 #[repr(C, align(4))]
@@ -870,7 +869,6 @@ pub struct FHairSimulationSetup {
     pub angular_velocity_scale: f32,
     pub local_bone: FString,
     pub teleport_distance: f32,
-    __padding_end: [u8; 4],
 }
 impl FHairSimulationSetup {}
 #[repr(C, align(8))]
@@ -896,7 +894,6 @@ pub struct FHairShadowSettings {
     pub hair_raytracing_radius_scale: f32,
     pub b_use_hair_raytracing_geometry: bool,
     pub b_voxelize: bool,
-    __padding_end: [u8; 2],
 }
 impl FHairShadowSettings {}
 #[repr(C, align(1))]
@@ -919,7 +916,6 @@ impl FGoomBindingGroupInfo {}
 pub struct FFollicleMaskOptions {
     pub groom: UPtr<UGroomAsset>,
     pub channel: EFollicleMaskChannel,
-    __padding_end: [u8; 7],
 }
 impl FFollicleMaskOptions {}
 #[repr(C, align(4))]
@@ -1045,6 +1041,689 @@ impl UGroomAsset {
             cdo
         }
     }
+    pub fn set_rigged_skeletal_mesh(
+        &mut self,
+        in_: UPtr<crate::bindings::engine::USkeletalMesh>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_RIGGED_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_RIGGED_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hair_interpolation_type(&mut self, in_: EGroomInterpolationType) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_INTERPOLATION_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_,
+                __buffer.add(0).cast::<EGroomInterpolationType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_INTERPOLATION_TYPE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hair_groups_rendering(&mut self, in_: &TArray<FHairGroupsRendering>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_RENDERING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_,
+                __buffer.add(0).cast::<TArray<FHairGroupsRendering>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_RENDERING,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hair_groups_physics(&mut self, in_: &TArray<FHairGroupsPhysics>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_PHYSICS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_,
+                __buffer.add(0).cast::<TArray<FHairGroupsPhysics>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_PHYSICS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hair_groups_meshes(
+        &mut self,
+        in_: &TArray<FHairGroupsMeshesSourceDescription>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_MESHES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_,
+                __buffer.add(0).cast::<TArray<FHairGroupsMeshesSourceDescription>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_MESHES,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hair_groups_materials(&mut self, in_: &TArray<FHairGroupsMaterial>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_MATERIALS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_,
+                __buffer.add(0).cast::<TArray<FHairGroupsMaterial>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_MATERIALS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hair_groups_lod(&mut self, in_: &TArray<FHairGroupsLOD>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_LOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_,
+                __buffer.add(0).cast::<TArray<FHairGroupsLOD>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_LOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hair_groups_interpolation(
+        &mut self,
+        in_: &TArray<FHairGroupsInterpolation>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_INTERPOLATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_,
+                __buffer.add(0).cast::<TArray<FHairGroupsInterpolation>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_INTERPOLATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hair_groups_cards(
+        &mut self,
+        in_: &TArray<FHairGroupsCardsSourceDescription>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_CARDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_,
+                __buffer.add(0).cast::<TArray<FHairGroupsCardsSourceDescription>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_CARDS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enable_simulation_cache(&mut self, in_: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_ENABLE_SIMULATION_CACHE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_ENABLE_SIMULATION_CACHE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enable_global_interpolation(&mut self, in_: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_ENABLE_GLOBAL_INTERPOLATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_ENABLE_GLOBAL_INTERPOLATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_deformed_group_sections(&mut self, in_: &TArray<i32>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_DEFORMED_GROUP_SECTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(in_, __buffer.add(0).cast::<TArray<i32>>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_DEFORMED_GROUP_SECTIONS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_rigged_skeletal_mesh(
+        &self,
+    ) -> UPtr<crate::bindings::engine::USkeletalMesh> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_RIGGED_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_RIGGED_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>().read()
+        }
+    }
+    pub fn get_hair_interpolation_type(&self) -> EGroomInterpolationType {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_INTERPOLATION_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_INTERPOLATION_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EGroomInterpolationType>().read() }
+    }
+    pub fn get_hair_groups_rendering(&mut self) -> TArray<FHairGroupsRendering> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_RENDERING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_RENDERING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FHairGroupsRendering>>().read() }
+    }
+    pub fn get_hair_groups_physics(&mut self) -> TArray<FHairGroupsPhysics> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_PHYSICS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_PHYSICS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FHairGroupsPhysics>>().read() }
+    }
+    pub fn get_hair_groups_meshes(
+        &mut self,
+    ) -> TArray<FHairGroupsMeshesSourceDescription> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_MESHES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_MESHES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FHairGroupsMeshesSourceDescription>>().read()
+        }
+    }
+    pub fn get_hair_groups_materials(&mut self) -> TArray<FHairGroupsMaterial> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_MATERIALS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_MATERIALS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FHairGroupsMaterial>>().read() }
+    }
+    pub fn get_hair_groups_lod(&mut self) -> TArray<FHairGroupsLOD> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_LOD,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_LOD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FHairGroupsLOD>>().read() }
+    }
+    pub fn get_hair_groups_interpolation(&mut self) -> TArray<FHairGroupsInterpolation> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_INTERPOLATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_INTERPOLATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FHairGroupsInterpolation>>().read() }
+    }
+    pub fn get_hair_groups_cards(
+        &mut self,
+    ) -> TArray<FHairGroupsCardsSourceDescription> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_CARDS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_CARDS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FHairGroupsCardsSourceDescription>>().read()
+        }
+    }
+    pub fn get_enable_simulation_cache(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_ENABLE_SIMULATION_CACHE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_ENABLE_SIMULATION_CACHE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_enable_global_interpolation(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_ENABLE_GLOBAL_INTERPOLATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_ENABLE_GLOBAL_INTERPOLATION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_deformed_group_sections(&mut self) -> TArray<i32> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_DEFORMED_GROUP_SECTIONS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_DEFORMED_GROUP_SECTIONS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<i32>>().read() }
+    }
+    pub fn create_groom_dataflow(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_CREATE_GROOM_DATAFLOW,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_ASSET_CREATE_GROOM_DATAFLOW,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UHairCardGenerationSettings {
@@ -1145,6 +1824,836 @@ impl UGroomBindingAsset {
             cdo
         }
     }
+    pub fn set_target_skeletal_mesh(
+        &mut self,
+        in_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_skeletal_mesh,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_target_mesh_used_min_lod(&mut self, in_target_mesh_used_min_lod: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_MESH_USED_MIN_LOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_target_mesh_used_min_lod,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_MESH_USED_MIN_LOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_target_mesh_requested_min_lod(
+        &mut self,
+        in_target_mesh_requested_min_lod: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_MESH_REQUESTED_MIN_LOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_target_mesh_requested_min_lod,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_MESH_REQUESTED_MIN_LOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_target_geometry_cache(
+        &mut self,
+        in_geometry_cache: UPtr<crate::bindings::geometry_cache::UGeometryCache>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_GEOMETRY_CACHE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_geometry_cache,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::geometry_cache::UGeometryCache>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_GEOMETRY_CACHE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_target_binding_attribute(&mut self, in_attribute_name: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_BINDING_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_attribute_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_BINDING_ATTRIBUTE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_source_skeletal_mesh(
+        &mut self,
+        in_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_skeletal_mesh,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_source_mesh_used_lod(&mut self, in_source_mesh_used_lod: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_USED_LOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_source_mesh_used_lod,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_USED_LOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_source_mesh_requested_lod(&mut self, in_source_mesh_requested_lod: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_REQUESTED_LOD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_source_mesh_requested_lod,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_REQUESTED_LOD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_source_geometry_cache(
+        &mut self,
+        in_geometry_cache: UPtr<crate::bindings::geometry_cache::UGeometryCache>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_GEOMETRY_CACHE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_geometry_cache,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::geometry_cache::UGeometryCache>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_GEOMETRY_CACHE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_num_interpolation_points(&mut self, in_num_interpolation_points: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_NUM_INTERPOLATION_POINTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_num_interpolation_points,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_NUM_INTERPOLATION_POINTS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_matching_section(&mut self, in_matching_section: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_MATCHING_SECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_matching_section,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_MATCHING_SECTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_group_infos(&mut self, in_group_infos: &TArray<FGoomBindingGroupInfo>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_GROUP_INFOS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_group_infos,
+                __buffer.add(0).cast::<TArray<FGoomBindingGroupInfo>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_GROUP_INFOS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_groom_binding_type(
+        &mut self,
+        in_groom_binding_type: EGroomBindingMeshType,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_GROOM_BINDING_TYPE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_groom_binding_type,
+                __buffer.add(0).cast::<EGroomBindingMeshType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_GROOM_BINDING_TYPE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_groom(&mut self, in_groom: UPtr<UGroomAsset>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_GROOM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_groom,
+                __buffer.add(0).cast::<UPtr<UGroomAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_GROOM,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_target_skeletal_mesh(
+        &self,
+    ) -> UPtr<crate::bindings::engine::USkeletalMesh> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>().read()
+        }
+    }
+    pub fn get_target_mesh_used_min_lod(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_MESH_USED_MIN_LOD,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_MESH_USED_MIN_LOD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_target_mesh_requested_min_lod(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_MESH_REQUESTED_MIN_LOD,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_MESH_REQUESTED_MIN_LOD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_target_geometry_cache(
+        &self,
+    ) -> UPtr<crate::bindings::geometry_cache::UGeometryCache> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_GEOMETRY_CACHE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_GEOMETRY_CACHE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::geometry_cache::UGeometryCache>>()
+                .read()
+        }
+    }
+    pub fn get_target_binding_attribute(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_BINDING_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_BINDING_ATTRIBUTE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_source_skeletal_mesh(
+        &self,
+    ) -> UPtr<crate::bindings::engine::USkeletalMesh> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_SKELETAL_MESH,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>().read()
+        }
+    }
+    pub fn get_source_mesh_used_lod(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_USED_LOD,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_USED_LOD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_source_mesh_requested_lod(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_REQUESTED_LOD,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_REQUESTED_LOD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_source_geometry_cache(
+        &self,
+    ) -> UPtr<crate::bindings::geometry_cache::UGeometryCache> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_GEOMETRY_CACHE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_GEOMETRY_CACHE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::geometry_cache::UGeometryCache>>()
+                .read()
+        }
+    }
+    pub fn get_num_interpolation_points(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_NUM_INTERPOLATION_POINTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_NUM_INTERPOLATION_POINTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_matching_section(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_MATCHING_SECTION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_MATCHING_SECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_group_infos(&self) -> TArray<FGoomBindingGroupInfo> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_GROUP_INFOS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_GROUP_INFOS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FGoomBindingGroupInfo>>().read() }
+    }
+    pub fn get_groom_binding_type(&self) -> EGroomBindingMeshType {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_GROOM_BINDING_TYPE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_GROOM_BINDING_TYPE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EGroomBindingMeshType>().read() }
+    }
+    pub fn get_groom(&self) -> UPtr<UGroomAsset> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_GROOM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_GROOM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UGroomAsset>>().read() }
+    }
+    pub fn build(&mut self, completion_delegate: FBuild_CompletionDelegate) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_BUILD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &completion_delegate,
+                __buffer.add(0).cast::<FBuild_CompletionDelegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_BUILD,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UGroomBindingAssetList {
@@ -1186,6 +2695,331 @@ impl UGroomBlueprintLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn is_hair_strands_supported_in_world(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_IS_HAIR_STRANDS_SUPPORTED_IN_WORLD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::hair_strands_core::UGroomBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_IS_HAIR_STRANDS_SUPPORTED_IN_WORLD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn create_new_groom_binding_asset_with_path(
+        in_desired_package_path: FString,
+        in_groom_asset: UPtr<UGroomAsset>,
+        in_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+        in_num_interpolation_points: i32,
+        in_source_skeletal_mesh_for_transfer: UPtr<
+            crate::bindings::engine::USkeletalMesh,
+        >,
+        in_matching_section: i32,
+    ) -> UPtr<UGroomBindingAsset> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET_WITH_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_desired_package_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_groom_asset,
+                __buffer.add(16).cast::<UPtr<UGroomAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_skeletal_mesh,
+                __buffer.add(24).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_num_interpolation_points,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_source_skeletal_mesh_for_transfer,
+                __buffer.add(40).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_matching_section,
+                __buffer.add(48).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::hair_strands_core::UGroomBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET_WITH_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<UPtr<UGroomBindingAsset>>().read() }
+    }
+    pub fn create_new_groom_binding_asset(
+        in_groom_asset: UPtr<UGroomAsset>,
+        in_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+        in_num_interpolation_points: i32,
+        in_source_skeletal_mesh_for_transfer: UPtr<
+            crate::bindings::engine::USkeletalMesh,
+        >,
+        in_matching_section: i32,
+    ) -> UPtr<UGroomBindingAsset> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_groom_asset,
+                __buffer.add(0).cast::<UPtr<UGroomAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_skeletal_mesh,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_num_interpolation_points,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_source_skeletal_mesh_for_transfer,
+                __buffer.add(24).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_matching_section,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::hair_strands_core::UGroomBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<UPtr<UGroomBindingAsset>>().read() }
+    }
+    pub fn create_new_geometry_cache_groom_binding_asset_with_path(
+        desired_package_path: FString,
+        groom_asset: UPtr<UGroomAsset>,
+        geometry_cache: UPtr<crate::bindings::geometry_cache::UGeometryCache>,
+        num_interpolation_points: i32,
+        source_geometry_cache_for_transfer: UPtr<
+            crate::bindings::geometry_cache::UGeometryCache,
+        >,
+        matching_section: i32,
+    ) -> UPtr<UGroomBindingAsset> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET_WITH_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &desired_package_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &groom_asset,
+                __buffer.add(16).cast::<UPtr<UGroomAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &geometry_cache,
+                __buffer
+                    .add(24)
+                    .cast::<UPtr<crate::bindings::geometry_cache::UGeometryCache>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &num_interpolation_points,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_geometry_cache_for_transfer,
+                __buffer
+                    .add(40)
+                    .cast::<UPtr<crate::bindings::geometry_cache::UGeometryCache>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &matching_section,
+                __buffer.add(48).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::hair_strands_core::UGroomBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET_WITH_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<UPtr<UGroomBindingAsset>>().read() }
+    }
+    pub fn create_new_geometry_cache_groom_binding_asset(
+        groom_asset: UPtr<UGroomAsset>,
+        geometry_cache: UPtr<crate::bindings::geometry_cache::UGeometryCache>,
+        num_interpolation_points: i32,
+        source_geometry_cache_for_transfer: UPtr<
+            crate::bindings::geometry_cache::UGeometryCache,
+        >,
+        matching_section: i32,
+    ) -> UPtr<UGroomBindingAsset> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &groom_asset,
+                __buffer.add(0).cast::<UPtr<UGroomAsset>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &geometry_cache,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::geometry_cache::UGeometryCache>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &num_interpolation_points,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_geometry_cache_for_transfer,
+                __buffer
+                    .add(24)
+                    .cast::<UPtr<crate::bindings::geometry_cache::UGeometryCache>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &matching_section,
+                __buffer.add(32).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::hair_strands_core::UGroomBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<UPtr<UGroomBindingAsset>>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -1252,6 +3086,388 @@ impl UGroomComponent {
             cdo
         }
     }
+    pub fn set_physics_asset(
+        &mut self,
+        in_physics_asset: UPtr<crate::bindings::engine::UPhysicsAsset>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_PHYSICS_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_physics_asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UPhysicsAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_PHYSICS_ASSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mesh_deformer(
+        &mut self,
+        in_mesh_deformer: UPtr<crate::bindings::engine::UMeshDeformer>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_MESH_DEFORMER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_mesh_deformer,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UMeshDeformer>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_MESH_DEFORMER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hair_length_scale_enable(&mut self, b_enable: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE_ENABLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_enable, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE_ENABLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hair_length_scale(&mut self, scale: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&scale, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_groom_cache(&mut self, in_groom_cache: UPtr<UGroomCache>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_GROOM_CACHE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_groom_cache,
+                __buffer.add(0).cast::<UPtr<UGroomCache>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_GROOM_CACHE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_groom_asset(&mut self, asset: UPtr<UGroomAsset>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_GROOM_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset,
+                __buffer.add(0).cast::<UPtr<UGroomAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_GROOM_ASSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enable_simulation(&mut self, b_in_enable_simulation: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_ENABLE_SIMULATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_enable_simulation,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_ENABLE_SIMULATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_binding_asset(&mut self, in_binding: UPtr<UGroomBindingAsset>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_BINDING_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_binding,
+                __buffer.add(0).cast::<UPtr<UGroomBindingAsset>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_BINDING_ASSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_simulation(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_RESET_SIMULATION,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_RESET_SIMULATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_collision_components(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_RESET_COLLISION_COMPONENTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_RESET_COLLISION_COMPONENTS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_niagara_component(
+        &mut self,
+        group_index: i32,
+    ) -> UPtr<crate::bindings::niagara::UNiagaraComponent> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_GET_NIAGARA_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &group_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_GET_NIAGARA_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::niagara::UNiagaraComponent>>()
+                .read()
+        }
+    }
+    pub fn get_is_hair_length_scale_enabled(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_GET_IS_HAIR_LENGTH_SCALE_ENABLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_GET_IS_HAIR_LENGTH_SCALE_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn add_collision_component(
+        &mut self,
+        skeletal_mesh_component: UPtr<crate::bindings::engine::USkeletalMeshComponent>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_ADD_COLLISION_COMPONENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &skeletal_mesh_component,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::USkeletalMeshComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_ADD_COLLISION_COMPONENT,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UGroomCreateBindingOptions {
@@ -1265,7 +3481,6 @@ pub struct UGroomCreateBindingOptions {
     pub num_interpolation_points: i32,
     pub matching_section: i32,
     pub target_binding_attribute: FName,
-    __padding_end: [u8; 4],
 }
 impl UGroomCreateBindingOptions {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

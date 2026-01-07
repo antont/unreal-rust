@@ -14,7 +14,6 @@ pub struct UMovieSceneMediaPlayerPropertySection {
     __padding_360: [u8; 360],
     pub media_source: UPtr<crate::bindings::media_assets::UMediaSource>,
     pub b_loop: bool,
-    __padding_end: [u8; 7],
 }
 impl UMovieSceneMediaPlayerPropertySection {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {

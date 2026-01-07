@@ -195,7 +195,6 @@ pub struct UContentBrowserAssetContextMenuContext {
     #[doc(hidden)]
     __padding_115: [u8; 11],
     pub b_contains_unsupported_assets: bool,
-    __padding_end: [u8; 4],
 }
 impl UContentBrowserAssetContextMenuContext {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -211,6 +210,107 @@ impl UContentBrowserAssetContextMenuContext {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn load_selected_objects_if_needed(
+        &self,
+    ) -> TArray<UPtr<crate::bindings::core_u_object::UObject>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser::U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_LOAD_SELECTED_OBJECTS_IF_NEEDED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser::U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_LOAD_SELECTED_OBJECTS_IF_NEEDED,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
+                .read()
+        }
+    }
+    pub fn load_selected_objects(
+        &self,
+        load_tags: TSet<FName>,
+    ) -> TArray<UPtr<crate::bindings::core_u_object::UObject>> {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser::U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_LOAD_SELECTED_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &load_tags,
+                __buffer.add(0).cast::<TSet<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser::U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_LOAD_SELECTED_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(80)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
+                .read()
+        }
+    }
+    pub fn get_selected_objects(
+        &self,
+    ) -> TArray<UPtr<crate::bindings::core_u_object::UObject>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::content_browser::U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_GET_SELECTED_OBJECTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::content_browser::U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_GET_SELECTED_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
+                .read()
         }
     }
 }

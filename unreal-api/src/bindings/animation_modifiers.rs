@@ -112,4 +112,47 @@ impl UAnimationModifiersAssetUserData {
             cdo
         }
     }
+    pub fn add_animation_modifier_of_class(
+        animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
+        in_modifier_class: TSubclassOf<UAnimationModifier>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::animation_modifiers::U_ANIMATION_MODIFIERS_ASSET_USER_DATA_ADD_ANIMATION_MODIFIER_OF_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &animation_sequence_base,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::engine::UAnimSequenceBase>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_modifier_class,
+                __buffer.add(8).cast::<TSubclassOf<UAnimationModifier>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::animation_modifiers::UAnimationModifiersAssetUserData::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::animation_modifiers::U_ANIMATION_MODIFIERS_ASSET_USER_DATA_ADD_ANIMATION_MODIFIER_OF_CLASS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
 }

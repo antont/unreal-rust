@@ -756,7 +756,6 @@ pub struct FAudioOscilloscopePanelStyle {
     pub value_grid_style: FSampledSequenceValueGridOverlayStyle,
     pub wave_viewer_style: FSampledSequenceViewerStyle,
     pub trigger_threshold_line_style: FTriggerThresholdLineStyle,
-    __padding_end: [u8; 8],
 }
 impl FAudioOscilloscopePanelStyle {}
 #[repr(C, align(8))]
@@ -781,7 +780,6 @@ pub struct FSampledSequenceViewerStyle {
     pub background_brush: crate::bindings::slate_core::FSlateBrush,
     pub desired_width: f32,
     pub desired_height: f32,
-    __padding_end: [u8; 8],
 }
 impl FSampledSequenceViewerStyle {}
 #[repr(C, align(8))]
@@ -811,7 +809,6 @@ pub struct FFixedSampleSequenceRulerStyle {
     pub background_brush: crate::bindings::slate_core::FSlateBrush,
     pub desired_width: f32,
     pub desired_height: f32,
-    __padding_end: [u8; 8],
 }
 impl FFixedSampleSequenceRulerStyle {}
 #[repr(C, align(16))]
@@ -830,7 +827,6 @@ pub struct FSampledSequenceVectorViewerStyle {
     pub background_brush: crate::bindings::slate_core::FSlateBrush,
     pub line_color: crate::bindings::core_u_object::FLinearColor,
     pub line_thickness: f32,
-    __padding_end: [u8; 12],
 }
 impl FSampledSequenceVectorViewerStyle {}
 #[repr(C, align(4))]
@@ -878,7 +874,6 @@ pub struct FAudioTextBoxStyle {
     __padding_16: [u8; 16],
     pub background_image: crate::bindings::slate_core::FSlateBrush,
     pub background_color: crate::bindings::slate_core::FSlateColor,
-    __padding_end: [u8; 12],
 }
 impl FAudioTextBoxStyle {}
 #[repr(C, align(16))]
@@ -940,7 +935,6 @@ pub struct FAudioSliderStyle {
     pub slider_bar_color: crate::bindings::slate_core::FSlateColor,
     pub slider_thumb_color: crate::bindings::slate_core::FSlateColor,
     pub widget_background_color: crate::bindings::slate_core::FSlateColor,
-    __padding_end: [u8; 8],
 }
 impl FAudioSliderStyle {}
 #[repr(C, align(16))]
@@ -953,7 +947,6 @@ pub struct FAudioRadialSliderStyle {
     pub slider_progress_color: crate::bindings::slate_core::FSlateColor,
     pub label_padding: f32,
     pub default_slider_radius: f32,
-    __padding_end: [u8; 12],
 }
 impl FAudioRadialSliderStyle {}
 #[repr(C, align(8))]
@@ -1076,6 +1069,60 @@ impl UAudioMaterialButton {
             cdo
         }
     }
+    pub fn set_is_pressed(&mut self, in_pressed: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_BUTTON_SET_IS_PRESSED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_pressed,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_BUTTON_SET_IS_PRESSED,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_is_pressed(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_BUTTON_GET_IS_PRESSED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_BUTTON_GET_IS_PRESSED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UAudioMaterialEnvelope {
@@ -1133,6 +1180,310 @@ impl UAudioMaterialKnob {
             cdo
         }
     }
+    pub fn set_value(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_tune_speed(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_TUNE_SPEED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_TUNE_SPEED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_step_size(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_STEP_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_STEP_SIZE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mouse_uses_step(&mut self, in_uses_step: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_MOUSE_USES_STEP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_uses_step,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_MOUSE_USES_STEP,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_locked(&mut self, in_locked: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_LOCKED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_locked, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_LOCKED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_fine_tune_speed(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_FINE_TUNE_SPEED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_FINE_TUNE_SPEED,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_value(&mut self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_tune_speed(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_TUNE_SPEED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_TUNE_SPEED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_step_size(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_STEP_SIZE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_STEP_SIZE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_mouse_uses_step(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_MOUSE_USES_STEP,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_MOUSE_USES_STEP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_is_locked(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_IS_LOCKED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_IS_LOCKED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_fine_tune_speed(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_FINE_TUNE_SPEED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_FINE_TUNE_SPEED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UAudioMaterialMeter {
@@ -1159,6 +1510,63 @@ impl UAudioMaterialMeter {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_meter_channel_info(
+        &mut self,
+        in_meter_channel_info: &TArray<FMeterChannelInfo>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_METER_SET_METER_CHANNEL_INFO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_meter_channel_info,
+                __buffer.add(0).cast::<TArray<FMeterChannelInfo>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_METER_SET_METER_CHANNEL_INFO,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_meter_channel_info(&self) -> TArray<FMeterChannelInfo> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_METER_GET_METER_CHANNEL_INFO,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_METER_GET_METER_CHANNEL_INFO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FMeterChannelInfo>>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -1194,6 +1602,314 @@ impl UAudioMaterialSlider {
             cdo
         }
     }
+    pub fn set_value(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_VALUE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_tune_speed(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_TUNE_SPEED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_TUNE_SPEED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_step_size(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_STEP_SIZE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_STEP_SIZE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_mouse_uses_step(&mut self, b_in_uses_step: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_MOUSE_USES_STEP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_uses_step,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_MOUSE_USES_STEP,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_locked(&mut self, b_in_locked: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_LOCKED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_locked,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_LOCKED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_fine_tune_speed(&mut self, in_value: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_FINE_TUNE_SPEED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_FINE_TUNE_SPEED,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_value(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_VALUE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_tune_speed(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_TUNE_SPEED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_TUNE_SPEED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_step_size(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_STEP_SIZE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_STEP_SIZE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
+    pub fn get_mouse_uses_step(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_MOUSE_USES_STEP,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_MOUSE_USES_STEP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_is_locked(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_IS_LOCKED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_IS_LOCKED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_fine_tune_speed(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_FINE_TUNE_SPEED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_FINE_TUNE_SPEED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UAudioMeter {
@@ -1225,6 +1941,294 @@ impl UAudioMeter {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_meter_value_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_VALUE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_VALUE_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_meter_scale_label_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_SCALE_LABEL_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_SCALE_LABEL_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_meter_scale_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_SCALE_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_SCALE_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_meter_peak_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_PEAK_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_PEAK_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_meter_clipping_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_CLIPPING_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_CLIPPING_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_meter_channel_info(
+        &mut self,
+        in_meter_channel_info: &TArray<FMeterChannelInfo>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_CHANNEL_INFO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_meter_channel_info,
+                __buffer.add(0).cast::<TArray<FMeterChannelInfo>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_CHANNEL_INFO,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_meter_background_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_background_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_METER_SET_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_meter_channel_info(&self) -> TArray<FMeterChannelInfo> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_METER_GET_METER_CHANNEL_INFO,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_METER_GET_METER_CHANNEL_INFO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FMeterChannelInfo>>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -1263,6 +2267,52 @@ impl UAudioOscilloscope {
             cdo
         }
     }
+    pub fn stop_processing(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_OSCILLOSCOPE_STOP_PROCESSING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_OSCILLOSCOPE_STOP_PROCESSING,
+                __buffer,
+            )
+        };
+    }
+    pub fn start_processing(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_OSCILLOSCOPE_START_PROCESSING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_OSCILLOSCOPE_START_PROCESSING,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(16))]
 pub struct UAudioRadialSlider {
@@ -1283,6 +2333,472 @@ impl UAudioRadialSlider {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_widget_layout(&mut self, in_layout: EAudioRadialSliderLayout) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_WIDGET_LAYOUT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_layout,
+                __buffer.add(0).cast::<EAudioRadialSliderLayout>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_WIDGET_LAYOUT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_value_text_read_only(&mut self, b_is_read_only: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_VALUE_TEXT_READ_ONLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_read_only,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_VALUE_TEXT_READ_ONLY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_units_text_read_only(&mut self, b_is_read_only: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT_READ_ONLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_read_only,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT_READ_ONLY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_units_text(&mut self, units: FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&units, __buffer.add(0).cast::<FText>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_text_label_background_color(
+        &mut self,
+        in_color: crate::bindings::slate_core::FSlateColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_TEXT_LABEL_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_color,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_TEXT_LABEL_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slider_thickness(&mut self, in_thickness: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SLIDER_THICKNESS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_thickness,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SLIDER_THICKNESS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slider_progress_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SLIDER_PROGRESS_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SLIDER_PROGRESS_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slider_bar_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SLIDER_BAR_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SLIDER_BAR_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_show_units_text(&mut self, b_show_units_text: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SHOW_UNITS_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_show_units_text,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SHOW_UNITS_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_show_label_only_on_hover(&mut self, b_show_label_only_on_hover: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SHOW_LABEL_ONLY_ON_HOVER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_show_label_only_on_hover,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SHOW_LABEL_ONLY_ON_HOVER,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_output_range(
+        &mut self,
+        in_output_range: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_OUTPUT_RANGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_output_range,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_OUTPUT_RANGE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_hand_start_end_ratio(
+        &mut self,
+        in_hand_start_end_ratio: crate::bindings::core_u_object::FVector2D,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_HAND_START_END_RATIO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_hand_start_end_ratio,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector2D>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_HAND_START_END_RATIO,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_center_background_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_CENTER_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_CENTER_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_slider_value(&mut self, output_value: f32) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_GET_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &output_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_GET_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<f32>().read() }
+    }
+    pub fn get_output_value(&mut self, in_slider_value: f32) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_GET_OUTPUT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_slider_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_GET_OUTPUT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<f32>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -1350,6 +2866,410 @@ impl UAudioSliderBase {
             cdo
         }
     }
+    pub fn set_widget_background_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_WIDGET_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_WIDGET_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_value_text_read_only(&mut self, b_is_read_only: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_VALUE_TEXT_READ_ONLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_read_only,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_VALUE_TEXT_READ_ONLY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_units_text_read_only(&mut self, b_is_read_only: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT_READ_ONLY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_read_only,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT_READ_ONLY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_units_text(&mut self, units: FText) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&units, __buffer.add(0).cast::<FText>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_text_label_background_color(
+        &mut self,
+        in_color: crate::bindings::slate_core::FSlateColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_TEXT_LABEL_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_color,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_TEXT_LABEL_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slider_thumb_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SLIDER_THUMB_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SLIDER_THUMB_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slider_bar_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SLIDER_BAR_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SLIDER_BAR_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_slider_background_color(
+        &mut self,
+        in_value: crate::bindings::core_u_object::FLinearColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SLIDER_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_value,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SLIDER_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_show_units_text(&mut self, b_show_units_text: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SHOW_UNITS_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_show_units_text,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SHOW_UNITS_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_show_label_only_on_hover(&mut self, b_show_label_only_on_hover: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SHOW_LABEL_ONLY_ON_HOVER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_show_label_only_on_hover,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SHOW_LABEL_ONLY_ON_HOVER,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_slider_value(&mut self, output_value: f32) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_GET_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &output_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_GET_SLIDER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<f32>().read() }
+    }
+    pub fn get_output_value(&mut self, in_slider_value: f32) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_GET_OUTPUT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_slider_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_GET_OUTPUT_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<f32>().read() }
+    }
+    pub fn get_lin_value(&mut self, output_value: f32) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_GET_LIN_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &output_value,
+                __buffer.add(0).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_GET_LIN_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<f32>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UAudioSlider {
@@ -1357,7 +3277,6 @@ pub struct UAudioSlider {
     __padding_3016: [u8; 3016],
     pub lin_to_output_curve: TWeakObjectPtr<crate::bindings::engine::UCurveFloat>,
     pub output_to_lin_curve: TWeakObjectPtr<crate::bindings::engine::UCurveFloat>,
-    __padding_end: [u8; 8],
 }
 impl UAudioSlider {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -1447,6 +3366,52 @@ impl UAudioVectorscope {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn stop_processing(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_VECTORSCOPE_STOP_PROCESSING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_VECTORSCOPE_STOP_PROCESSING,
+                __buffer,
+            )
+        };
+    }
+    pub fn start_processing(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::audio_widgets::U_AUDIO_VECTORSCOPE_START_PROCESSING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::audio_widgets::U_AUDIO_VECTORSCOPE_START_PROCESSING,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]

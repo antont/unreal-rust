@@ -131,6 +131,45 @@ impl UAnimSharingStateInstance {
             cdo
         }
     }
+    pub fn get_instanced_actors(
+        &mut self,
+        actors: &mut TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::animation_sharing::U_ANIM_SHARING_STATE_INSTANCE_GET_INSTANCED_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::animation_sharing::U_ANIM_SHARING_STATE_INSTANCE_GET_INSTANCED_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .swap(actors);
+        }
+    }
 }
 #[repr(C, align(16))]
 pub struct UAnimSharingTransitionInstance {
@@ -140,7 +179,6 @@ pub struct UAnimSharingTransitionInstance {
     pub to_component: TWeakObjectPtr<crate::bindings::engine::USkeletalMeshComponent>,
     pub blend_time: f32,
     pub b_blend_bool: bool,
-    __padding_end: [u8; 3],
 }
 impl UAnimSharingTransitionInstance {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -167,7 +205,6 @@ pub struct UAnimSharingAdditiveInstance {
     pub additive_animation: TWeakObjectPtr<crate::bindings::engine::UAnimSequence>,
     pub alpha: f32,
     pub b_state_bool: bool,
-    __padding_end: [u8; 3],
 }
 impl UAnimSharingAdditiveInstance {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -226,6 +263,145 @@ impl UAnimationSharingManager {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn register_actor_with_skeleton_bp(
+        &mut self,
+        in_actor: UPtr<crate::bindings::engine::AActor>,
+        sharing_skeleton: UPtr<crate::bindings::engine::USkeleton>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_REGISTER_ACTOR_WITH_SKELETON_BP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sharing_skeleton,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::USkeleton>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_REGISTER_ACTOR_WITH_SKELETON_BP,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_animation_sharing_manager(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> UPtr<UAnimationSharingManager> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_GET_ANIMATION_SHARING_MANAGER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::animation_sharing::UAnimationSharingManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_GET_ANIMATION_SHARING_MANAGER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<UAnimationSharingManager>>().read() }
+    }
+    pub fn create_animation_sharing_manager(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        setup: UPtr<UAnimationSharingSetup>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_CREATE_ANIMATION_SHARING_MANAGER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &setup,
+                __buffer.add(8).cast::<UPtr<UAnimationSharingSetup>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::animation_sharing::UAnimationSharingManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_CREATE_ANIMATION_SHARING_MANAGER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn animation_sharing_enabled() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_ANIMATION_SHARING_ENABLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::animation_sharing::UAnimationSharingManager::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_ANIMATION_SHARING_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]

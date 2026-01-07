@@ -1074,7 +1074,6 @@ pub struct FTargetChainSettings {
     pub fk: FTargetChainFKSettings,
     pub ik: FTargetChainIKSettings,
     pub speed_planting: FTargetChainSpeedPlantSettings,
-    __padding_end: [u8; 4],
 }
 impl FTargetChainSettings {}
 #[repr(C, align(4))]
@@ -1099,7 +1098,6 @@ pub struct FTargetChainIKSettings {
     pub scale_vertical: f32,
     pub extension: f32,
     pub b_affected_by_ik_warping: bool,
-    __padding_end: [u8; 7],
 }
 impl FTargetChainIKSettings {}
 #[repr(C, align(4))]
@@ -1160,7 +1158,6 @@ pub struct FRetargetPoleVectorSettings {
     pub align_alpha: f64,
     pub static_angular_offset: f64,
     pub maintain_offset: bool,
-    __padding_end: [u8; 7],
 }
 impl FRetargetPoleVectorSettings {}
 #[repr(C, align(8))]
@@ -1223,7 +1220,6 @@ pub struct FIKRetargetFilterBoneOpSettings {
     pub responsiveness: f64,
     pub velocity_cutoff_hz: f64,
     pub b_reset_playback: bool,
-    __padding_end: [u8; 7],
 }
 impl FIKRetargetFilterBoneOpSettings {}
 #[repr(C, align(8))]
@@ -1413,7 +1409,6 @@ pub struct FIKRetargetScaleSourceOpSettings {
     #[doc(hidden)]
     __padding_96: [u8; 23],
     pub b_project_scale_pivot_to_floor: bool,
-    __padding_end: [u8; 7],
 }
 impl FIKRetargetScaleSourceOpSettings {}
 #[repr(C, align(8))]
@@ -1467,7 +1462,6 @@ impl FIKRetargetStretchChainOp {}
 pub struct FRetargetStrideWarpChainSettings {
     pub target_chain_name: FName,
     pub enable_stride_warping: bool,
-    __padding_end: [u8; 3],
 }
 impl FRetargetStrideWarpChainSettings {}
 #[repr(C, align(8))]
@@ -1515,7 +1509,6 @@ pub struct FIKRigGoalSettingsBase {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub goal: FName,
-    __padding_end: [u8; 4],
 }
 impl FIKRigGoalSettingsBase {}
 #[repr(C, align(8))]
@@ -1568,7 +1561,6 @@ pub struct FIKRigFBIKGoalSettings {
     pub strength_alpha: f32,
     pub pull_chain_alpha: f32,
     pub pin_rotation: f32,
-    __padding_end: [u8; 4],
 }
 impl FIKRigFBIKGoalSettings {}
 #[repr(C, align(8))]
@@ -1576,7 +1568,6 @@ pub struct FIKRigBoneSettingsBase {
     #[doc(hidden)]
     __padding_8: [u8; 8],
     pub bone: FName,
-    __padding_end: [u8; 4],
 }
 impl FIKRigBoneSettingsBase {}
 #[repr(C, align(8))]
@@ -1631,7 +1622,6 @@ pub struct FIKRigLimbSolverSettings {
     pub start_bone: FName,
     pub goal_name: FName,
     pub end_bone: FName,
-    __padding_end: [u8; 4],
 }
 impl FIKRigLimbSolverSettings {}
 #[repr(C, align(8))]
@@ -1663,7 +1653,6 @@ pub struct FIKRigSetTransformSettings {
     pub position_alpha: f32,
     pub rotation_alpha: f32,
     pub alpha: f32,
-    __padding_end: [u8; 4],
 }
 impl FIKRigSetTransformSettings {}
 #[repr(C, align(8))]
@@ -1722,6 +1711,39 @@ impl UIKGoalCreatorInterface {
             cdo
         }
     }
+    pub fn add_ik_goals(&mut self, out_goals: &mut TMap<FName, FIKRigGoal>) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_GOAL_CREATOR_INTERFACE_ADD_IK_GOALS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_goals,
+                __buffer.add(0).cast::<TMap<FName, FIKRigGoal>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_GOAL_CREATOR_INTERFACE_ADD_IK_GOALS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TMap<FName, FIKRigGoal>>().swap(out_goals);
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UIKRigComponent {
@@ -1742,6 +1764,177 @@ impl UIKRigComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_ik_rig_goal_transform(
+        &mut self,
+        goal_name: FName,
+        transform: crate::bindings::core_u_object::FTransform,
+        position_alpha: f32,
+        rotation_alpha: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<120>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_COMPONENT_SET_IK_RIG_GOAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &goal_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position_alpha,
+                __buffer.add(112).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rotation_alpha,
+                __buffer.add(116).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_COMPONENT_SET_IK_RIG_GOAL_TRANSFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_ik_rig_goal_position_and_rotation(
+        &mut self,
+        goal_name: FName,
+        position: crate::bindings::core_u_object::FVector,
+        rotation: crate::bindings::core_u_object::FQuat,
+        position_alpha: f32,
+        rotation_alpha: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_COMPONENT_SET_IK_RIG_GOAL_POSITION_AND_ROTATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &goal_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rotation,
+                __buffer.add(48).cast::<crate::bindings::core_u_object::FQuat>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position_alpha,
+                __buffer.add(80).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rotation_alpha,
+                __buffer.add(84).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_COMPONENT_SET_IK_RIG_GOAL_POSITION_AND_ROTATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_ik_rig_goal(&mut self, goal: &FIKRigGoal) {
+        let mut __stack = crate::core_data::StackAlloc::<192>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_COMPONENT_SET_IK_RIG_GOAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(goal, __buffer.add(0).cast::<FIKRigGoal>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_COMPONENT_SET_IK_RIG_GOAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn clear_all_goals(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_COMPONENT_CLEAR_ALL_GOALS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_COMPONENT_CLEAR_ALL_GOALS,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -1799,7 +1992,6 @@ pub struct UIKRetargetGlobalSettings {
     #[doc(hidden)]
     __padding_48: [u8; 48],
     pub settings: FRetargetGlobalSettings,
-    __padding_end: [u8; 4],
 }
 impl UIKRetargetGlobalSettings {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -1837,6 +2029,652 @@ impl UIKRetargeter {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_root_settings_in_retarget_profile(
+        retarget_profile: &mut FRetargetProfile,
+        root_settings: &FTargetRootSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<416>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGETER_SET_ROOT_SETTINGS_IN_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                retarget_profile,
+                __buffer.add(0).cast::<FRetargetProfile>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                root_settings,
+                __buffer.add(312).cast::<FTargetRootSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ik_rig::UIKRetargeter::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGETER_SET_ROOT_SETTINGS_IN_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FRetargetProfile>().swap(retarget_profile);
+        }
+    }
+    pub fn set_global_settings_in_retarget_profile(
+        retarget_profile: &mut FRetargetProfile,
+        global_settings: &FRetargetGlobalSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<372>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGETER_SET_GLOBAL_SETTINGS_IN_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                retarget_profile,
+                __buffer.add(0).cast::<FRetargetProfile>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                global_settings,
+                __buffer.add(312).cast::<FRetargetGlobalSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ik_rig::UIKRetargeter::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGETER_SET_GLOBAL_SETTINGS_IN_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FRetargetProfile>().swap(retarget_profile);
+        }
+    }
+    pub fn set_chain_speed_plant_settings_in_retarget_profile(
+        retarget_profile: &mut FRetargetProfile,
+        speed_plant_settings: &FTargetChainSpeedPlantSettings,
+        target_chain_name: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<352>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_SPEED_PLANT_SETTINGS_IN_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                retarget_profile,
+                __buffer.add(0).cast::<FRetargetProfile>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                speed_plant_settings,
+                __buffer.add(312).cast::<FTargetChainSpeedPlantSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_chain_name,
+                __buffer.add(340).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ik_rig::UIKRetargeter::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_SPEED_PLANT_SETTINGS_IN_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FRetargetProfile>().swap(retarget_profile);
+        }
+    }
+    pub fn set_chain_settings_in_retarget_profile(
+        retarget_profile: &mut FRetargetProfile,
+        chain_settings: &FTargetChainSettings,
+        target_chain_name: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<516>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_SETTINGS_IN_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                retarget_profile,
+                __buffer.add(0).cast::<FRetargetProfile>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                chain_settings,
+                __buffer.add(312).cast::<FTargetChainSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_chain_name,
+                __buffer.add(504).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ik_rig::UIKRetargeter::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_SETTINGS_IN_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FRetargetProfile>().swap(retarget_profile);
+        }
+    }
+    pub fn set_chain_ik_settings_in_retarget_profile(
+        retarget_profile: &mut FRetargetProfile,
+        ik_settings: &FTargetChainIKSettings,
+        target_chain_name: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<452>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_IK_SETTINGS_IN_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                retarget_profile,
+                __buffer.add(0).cast::<FRetargetProfile>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                ik_settings,
+                __buffer.add(312).cast::<FTargetChainIKSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_chain_name,
+                __buffer.add(440).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ik_rig::UIKRetargeter::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_IK_SETTINGS_IN_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FRetargetProfile>().swap(retarget_profile);
+        }
+    }
+    pub fn set_chain_fk_settings_in_retarget_profile(
+        retarget_profile: &mut FRetargetProfile,
+        fk_settings: &FTargetChainFKSettings,
+        target_chain_name: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<352>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_FK_SETTINGS_IN_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                retarget_profile,
+                __buffer.add(0).cast::<FRetargetProfile>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                fk_settings,
+                __buffer.add(312).cast::<FTargetChainFKSettings>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_chain_name,
+                __buffer.add(340).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ik_rig::UIKRetargeter::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_FK_SETTINGS_IN_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FRetargetProfile>().swap(retarget_profile);
+        }
+    }
+    pub fn has_target_ik_rig(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGETER_HAS_TARGET_IK_RIG,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGETER_HAS_TARGET_IK_RIG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn has_source_ik_rig(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGETER_HAS_SOURCE_IK_RIG,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGETER_HAS_SOURCE_IK_RIG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_root_settings_from_retarget_profile(
+        retarget_profile: &mut FRetargetProfile,
+    ) -> FTargetRootSettings {
+        let mut __stack = crate::core_data::StackAlloc::<416>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGETER_GET_ROOT_SETTINGS_FROM_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                retarget_profile,
+                __buffer.add(0).cast::<FRetargetProfile>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ik_rig::UIKRetargeter::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGETER_GET_ROOT_SETTINGS_FROM_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FRetargetProfile>().swap(retarget_profile);
+        }
+        unsafe { __buffer.add(312).cast::<FTargetRootSettings>().read() }
+    }
+    pub fn get_root_settings_from_retarget_asset(
+        retarget_asset: UPtr<UIKRetargeter>,
+        optional_profile_name: FName,
+        out_settings: &mut FTargetRootSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGETER_GET_ROOT_SETTINGS_FROM_RETARGET_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &retarget_asset,
+                __buffer.add(0).cast::<UPtr<UIKRetargeter>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &optional_profile_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_settings,
+                __buffer.add(24).cast::<FTargetRootSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ik_rig::UIKRetargeter::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGETER_GET_ROOT_SETTINGS_FROM_RETARGET_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<FTargetRootSettings>().swap(out_settings);
+        }
+    }
+    pub fn get_global_settings_from_retarget_profile(
+        retarget_profile: &mut FRetargetProfile,
+    ) -> FRetargetGlobalSettings {
+        let mut __stack = crate::core_data::StackAlloc::<372>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGETER_GET_GLOBAL_SETTINGS_FROM_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                retarget_profile,
+                __buffer.add(0).cast::<FRetargetProfile>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ik_rig::UIKRetargeter::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGETER_GET_GLOBAL_SETTINGS_FROM_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FRetargetProfile>().swap(retarget_profile);
+        }
+        unsafe { __buffer.add(312).cast::<FRetargetGlobalSettings>().read() }
+    }
+    pub fn get_global_settings_from_retarget_asset(
+        retarget_asset: UPtr<UIKRetargeter>,
+        optional_profile_name: FName,
+        out_settings: &mut FRetargetGlobalSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGETER_GET_GLOBAL_SETTINGS_FROM_RETARGET_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &retarget_asset,
+                __buffer.add(0).cast::<UPtr<UIKRetargeter>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &optional_profile_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_settings,
+                __buffer.add(20).cast::<FRetargetGlobalSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ik_rig::UIKRetargeter::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGETER_GET_GLOBAL_SETTINGS_FROM_RETARGET_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(20).cast::<FRetargetGlobalSettings>().swap(out_settings);
+        }
+    }
+    pub fn get_chain_using_goal_from_retarget_asset(
+        retarget_asset: UPtr<UIKRetargeter>,
+        ik_goal_name: FName,
+    ) -> FTargetChainSettings {
+        let mut __stack = crate::core_data::StackAlloc::<216>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGETER_GET_CHAIN_USING_GOAL_FROM_RETARGET_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &retarget_asset,
+                __buffer.add(0).cast::<UPtr<UIKRetargeter>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &ik_goal_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ik_rig::UIKRetargeter::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGETER_GET_CHAIN_USING_GOAL_FROM_RETARGET_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FTargetChainSettings>().read() }
+    }
+    pub fn get_chain_settings_from_retarget_profile(
+        retarget_profile: &mut FRetargetProfile,
+        target_chain_name: FName,
+    ) -> FTargetChainSettings {
+        let mut __stack = crate::core_data::StackAlloc::<520>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGETER_GET_CHAIN_SETTINGS_FROM_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                retarget_profile,
+                __buffer.add(0).cast::<FRetargetProfile>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_chain_name,
+                __buffer.add(312).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ik_rig::UIKRetargeter::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGETER_GET_CHAIN_SETTINGS_FROM_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FRetargetProfile>().swap(retarget_profile);
+        }
+        unsafe { __buffer.add(328).cast::<FTargetChainSettings>().read() }
+    }
+    pub fn get_chain_settings_from_retarget_asset(
+        retarget_asset: UPtr<UIKRetargeter>,
+        target_chain_name: FName,
+        optional_profile_name: FName,
+    ) -> FTargetChainSettings {
+        let mut __stack = crate::core_data::StackAlloc::<224>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGETER_GET_CHAIN_SETTINGS_FROM_RETARGET_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &retarget_asset,
+                __buffer.add(0).cast::<UPtr<UIKRetargeter>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target_chain_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &optional_profile_name,
+                __buffer.add(20).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ik_rig::UIKRetargeter::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGETER_GET_CHAIN_SETTINGS_FROM_RETARGET_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FTargetChainSettings>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -1943,6 +2781,83 @@ impl URetargetProfileLibrary {
             cdo
         }
     }
+    pub fn get_op_controller_from_retarget_profile(
+        in_retarget_profile: &mut FRetargetProfile,
+        in_retarget_op_name: FName,
+    ) -> UPtr<UIKRetargetOpControllerBase> {
+        let mut __stack = crate::core_data::StackAlloc::<336>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::U_RETARGET_PROFILE_LIBRARY_GET_OP_CONTROLLER_FROM_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_retarget_profile,
+                __buffer.add(0).cast::<FRetargetProfile>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_retarget_op_name,
+                __buffer.add(312).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ik_rig::URetargetProfileLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::U_RETARGET_PROFILE_LIBRARY_GET_OP_CONTROLLER_FROM_RETARGET_PROFILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FRetargetProfile>().swap(in_retarget_profile);
+        }
+        unsafe { __buffer.add(328).cast::<UPtr<UIKRetargetOpControllerBase>>().read() }
+    }
+    pub fn copy_retarget_profile_from_retarget_asset(
+        in_retarget_asset: UPtr<UIKRetargeter>,
+    ) -> FRetargetProfile {
+        let mut __stack = crate::core_data::StackAlloc::<320>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::U_RETARGET_PROFILE_LIBRARY_COPY_RETARGET_PROFILE_FROM_RETARGET_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_retarget_asset,
+                __buffer.add(0).cast::<UPtr<UIKRetargeter>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::ik_rig::URetargetProfileLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::U_RETARGET_PROFILE_LIBRARY_COPY_RETARGET_PROFILE_FROM_RETARGET_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FRetargetProfile>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UIKRetargetAlignPoleVectorController {
@@ -1963,6 +2878,60 @@ impl UIKRetargetAlignPoleVectorController {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetAlignPoleVectorOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_ALIGN_POLE_VECTOR_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetAlignPoleVectorOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_ALIGN_POLE_VECTOR_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetAlignPoleVectorOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_ALIGN_POLE_VECTOR_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_ALIGN_POLE_VECTOR_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetAlignPoleVectorOpSettings>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -1985,6 +2954,191 @@ impl UIKRetargetCopyBasePoseController {
             cdo
         }
     }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetCopyBasePoseOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<120>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetCopyBasePoseOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_copy_from_start(&self, in_bone_name: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_SET_COPY_FROM_START,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_bone_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_SET_COPY_FROM_START,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_bones_to_exclude(&self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_RESET_BONES_TO_EXCLUDE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_RESET_BONES_TO_EXCLUDE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetCopyBasePoseOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<120>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetCopyBasePoseOpSettings>().read() }
+    }
+    pub fn get_copy_from_start(&self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_COPY_FROM_START,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_COPY_FROM_START,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_bones_to_exclude(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_BONES_TO_EXCLUDE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_BONES_TO_EXCLUDE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn add_bone_to_exclude(&self, in_bone_name: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_ADD_BONE_TO_EXCLUDE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_bone_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_ADD_BONE_TO_EXCLUDE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UIKRetargetCurveRemapController {
@@ -2005,6 +3159,60 @@ impl UIKRetargetCurveRemapController {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetCurveRemapOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_CURVE_REMAP_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetCurveRemapOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_CURVE_REMAP_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetCurveRemapOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_CURVE_REMAP_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_CURVE_REMAP_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetCurveRemapOpSettings>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -2048,6 +3256,137 @@ impl UIKRetargetFilterBoneController {
             cdo
         }
     }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetFilterBoneOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetFilterBoneOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetFilterBoneOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetFilterBoneOpSettings>().read() }
+    }
+    pub fn get_all_bones_to_filter(&mut self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_GET_ALL_BONES_TO_FILTER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_GET_ALL_BONES_TO_FILTER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn clear_bones_to_filter(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_CLEAR_BONES_TO_FILTER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_CLEAR_BONES_TO_FILTER,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_bone_to_filter(&mut self, in_target_bone: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_ADD_BONE_TO_FILTER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_target_bone,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_ADD_BONE_TO_FILTER,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UIKRetargetFKChainsController {
@@ -2068,6 +3407,60 @@ impl UIKRetargetFKChainsController {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetFKChainsOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<144>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_FK_CHAINS_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetFKChainsOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_FK_CHAINS_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetFKChainsOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<144>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_FK_CHAINS_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_FK_CHAINS_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetFKChainsOpSettings>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -2090,6 +3483,60 @@ impl UIKRetargetFloorGoalsController {
             cdo
         }
     }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetIKChainsOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_FLOOR_GOALS_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetIKChainsOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_FLOOR_GOALS_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetIKChainsOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_FLOOR_GOALS_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_FLOOR_GOALS_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetIKChainsOpSettings>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UIKRetargetIKChainsController {
@@ -2110,6 +3557,60 @@ impl UIKRetargetIKChainsController {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetIKChainsOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_IK_CHAINS_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetIKChainsOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_IK_CHAINS_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetIKChainsOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_IK_CHAINS_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_IK_CHAINS_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetIKChainsOpSettings>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -2132,6 +3633,168 @@ impl UIKRetargetPelvisMotionController {
             cdo
         }
     }
+    pub fn set_target_pelvis_bone(&mut self, in_target_pelvis_bone: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_TARGET_PELVIS_BONE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_target_pelvis_bone,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_TARGET_PELVIS_BONE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_source_pelvis_bone(&mut self, in_source_pelvis_bone: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_SOURCE_PELVIS_BONE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_source_pelvis_bone,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_SOURCE_PELVIS_BONE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetPelvisMotionOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<376>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetPelvisMotionOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_target_pelvis_bone(&mut self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_TARGET_PELVIS_BONE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_TARGET_PELVIS_BONE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_source_pelvis_bone(&mut self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_SOURCE_PELVIS_BONE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_SOURCE_PELVIS_BONE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetPelvisMotionOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<376>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetPelvisMotionOpSettings>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UIKRetargetPinBoneController {
@@ -2152,6 +3815,148 @@ impl UIKRetargetPinBoneController {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetPinBoneOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<288>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetPinBoneOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_bone_pair(
+        &mut self,
+        in_bone_to_copy_from: FName,
+        in_bone_to_copy_to: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_SET_BONE_PAIR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_bone_to_copy_from,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_bone_to_copy_to,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_SET_BONE_PAIR,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetPinBoneOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<288>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetPinBoneOpSettings>().read() }
+    }
+    pub fn get_all_bone_pairs(&mut self) -> TMap<FName, FName> {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_GET_ALL_BONE_PAIRS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_GET_ALL_BONE_PAIRS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TMap<FName, FName>>().read() }
+    }
+    pub fn clear_all_bone_pairs(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_CLEAR_ALL_BONE_PAIRS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_CLEAR_ALL_BONE_PAIRS,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(16))]
@@ -2195,6 +4000,60 @@ impl UIKRetargetAdditivePoseController {
             cdo
         }
     }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetAdditivePoseOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_ADDITIVE_POSE_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetAdditivePoseOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_ADDITIVE_POSE_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetAdditivePoseOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_ADDITIVE_POSE_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_ADDITIVE_POSE_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetAdditivePoseOpSettings>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UIKRetargetRootMotionController {
@@ -2215,6 +4074,222 @@ impl UIKRetargetRootMotionController {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_target_root_bone(&mut self, in_target_root_bone: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_TARGET_ROOT_BONE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_target_root_bone,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_TARGET_ROOT_BONE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_target_pelvis_bone(&mut self, in_target_pelvis_bone: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_TARGET_PELVIS_BONE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_target_pelvis_bone,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_TARGET_PELVIS_BONE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_source_root_bone(&mut self, in_source_root_bone: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_SOURCE_ROOT_BONE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_source_root_bone,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_SOURCE_ROOT_BONE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetRootMotionOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<288>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetRootMotionOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_target_root_bone(&mut self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_TARGET_ROOT_BONE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_TARGET_ROOT_BONE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_target_pelvis_bone(&mut self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_TARGET_PELVIS_BONE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_TARGET_PELVIS_BONE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_source_root_bone(&mut self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_SOURCE_ROOT_BONE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_SOURCE_ROOT_BONE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetRootMotionOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<288>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetRootMotionOpSettings>().read() }
     }
 }
 #[repr(C, align(16))]
@@ -2258,6 +4333,60 @@ impl UIKRetargetRunIKRigController {
             cdo
         }
     }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetRunIKRigOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_RUN_IK_RIG_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetRunIKRigOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_RUN_IK_RIG_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetRunIKRigOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_RUN_IK_RIG_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_RUN_IK_RIG_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetRunIKRigOpSettings>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UIKRetargetScaleSourceController {
@@ -2278,6 +4407,60 @@ impl UIKRetargetScaleSourceController {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetScaleSourceOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_SCALE_SOURCE_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetScaleSourceOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_SCALE_SOURCE_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetScaleSourceOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_SCALE_SOURCE_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_SCALE_SOURCE_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetScaleSourceOpSettings>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -2300,6 +4483,60 @@ impl UIKRetargetSpeedPlantingController {
             cdo
         }
     }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetSpeedPlantingOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_SPEED_PLANTING_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetSpeedPlantingOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_SPEED_PLANTING_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetSpeedPlantingOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_SPEED_PLANTING_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_SPEED_PLANTING_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetSpeedPlantingOpSettings>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UIKRetargetStretchChainController {
@@ -2320,6 +4557,60 @@ impl UIKRetargetStretchChainController {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetStretchChainOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_STRETCH_CHAIN_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetStretchChainOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_STRETCH_CHAIN_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetStretchChainOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_STRETCH_CHAIN_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_STRETCH_CHAIN_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetStretchChainOpSettings>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -2342,6 +4633,60 @@ impl UIKRetargetStrideWarpingController {
             cdo
         }
     }
+    pub fn set_settings(&mut self, in_settings: FIKRetargetStrideWarpingOpSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<152>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_STRIDE_WARPING_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRetargetStrideWarpingOpSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_STRIDE_WARPING_CONTROLLER_SET_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_settings(&mut self) -> FIKRetargetStrideWarpingOpSettings {
+        let mut __stack = crate::core_data::StackAlloc::<152>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RETARGET_STRIDE_WARPING_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RETARGET_STRIDE_WARPING_CONTROLLER_GET_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRetargetStrideWarpingOpSettings>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UIKRigEffectorGoal {
@@ -2358,7 +4703,6 @@ pub struct UIKRigEffectorGoal {
     pub thickness_multiplier: f32,
     pub b_expose_position: bool,
     pub b_expose_rotation: bool,
-    __padding_end: [u8; 2],
 }
 impl UIKRigEffectorGoal {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -2439,6 +4783,60 @@ impl UIKRigSolverControllerBase {
             cdo
         }
     }
+    pub fn set_enabled(&mut self, b_is_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_SOLVER_CONTROLLER_BASE_SET_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_SOLVER_CONTROLLER_BASE_SET_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_enabled(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_SOLVER_CONTROLLER_BASE_GET_ENABLED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_SOLVER_CONTROLLER_BASE_GET_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UIKRigBodyMoverController {
@@ -2459,6 +4857,135 @@ impl UIKRigBodyMoverController {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_solver_settings(&mut self, in_settings: FIKRigBodyMoverSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_SET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRigBodyMoverSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_SET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_goal_settings(
+        &mut self,
+        in_goal_name: FName,
+        in_settings: FIKRigBodyMoverGoalSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_SET_GOAL_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_goal_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(16).cast::<FIKRigBodyMoverGoalSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_SET_GOAL_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_solver_settings(&mut self) -> FIKRigBodyMoverSettings {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_GET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_GET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRigBodyMoverSettings>().read() }
+    }
+    pub fn get_goal_settings(
+        &mut self,
+        in_goal_name: FName,
+    ) -> FIKRigBodyMoverGoalSettings {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_GET_GOAL_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_goal_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_GET_GOAL_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FIKRigBodyMoverGoalSettings>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -2544,6 +5071,204 @@ impl UIKRigFBIKController {
             cdo
         }
     }
+    pub fn set_solver_settings(&mut self, in_settings: FIKRigFBIKSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_SET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRigFBIKSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_SET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_goal_settings(
+        &mut self,
+        in_goal_name: FName,
+        in_settings: FIKRigFBIKGoalSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_SET_GOAL_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_goal_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(16).cast::<FIKRigFBIKGoalSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_SET_GOAL_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_bone_settings(
+        &mut self,
+        in_bone_name: FName,
+        in_settings: FIKRigFBIKBoneSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_SET_BONE_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_bone_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(16).cast::<FIKRigFBIKBoneSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_SET_BONE_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_solver_settings(&mut self) -> FIKRigFBIKSettings {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_GET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_GET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRigFBIKSettings>().read() }
+    }
+    pub fn get_goal_settings(&mut self, in_goal_name: FName) -> FIKRigFBIKGoalSettings {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_GET_GOAL_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_goal_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_GET_GOAL_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FIKRigFBIKGoalSettings>().read() }
+    }
+    pub fn get_bone_settings(&mut self, in_bone_name: FName) -> FIKRigFBIKBoneSettings {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_GET_BONE_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_bone_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_GET_BONE_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FIKRigFBIKBoneSettings>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UIKRig_FBIKEffector {
@@ -2628,6 +5353,60 @@ impl UIKRigLimbSolverController {
             cdo
         }
     }
+    pub fn set_solver_settings(&mut self, in_settings: FIKRigLimbSolverSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_LIMB_SOLVER_CONTROLLER_SET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRigLimbSolverSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_LIMB_SOLVER_CONTROLLER_SET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_solver_settings(&mut self) -> FIKRigLimbSolverSettings {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_LIMB_SOLVER_CONTROLLER_GET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_LIMB_SOLVER_CONTROLLER_GET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRigLimbSolverSettings>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UIKRig_LimbEffector {
@@ -2691,6 +5470,60 @@ impl UIKRigPoleSolverController {
             cdo
         }
     }
+    pub fn set_solver_settings(&mut self, in_settings: FIKRigPoleSolverSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_POLE_SOLVER_CONTROLLER_SET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRigPoleSolverSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_POLE_SOLVER_CONTROLLER_SET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_solver_settings(&mut self) -> FIKRigPoleSolverSettings {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_POLE_SOLVER_CONTROLLER_GET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_POLE_SOLVER_CONTROLLER_GET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRigPoleSolverSettings>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UIKRig_PoleSolverEffector {
@@ -2753,6 +5586,60 @@ impl UIKRigSetTransformController {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_solver_settings(&mut self, in_settings: FIKRigSetTransformSettings) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_SET_TRANSFORM_CONTROLLER_SET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<FIKRigSetTransformSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_SET_TRANSFORM_CONTROLLER_SET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_solver_settings(&mut self) -> FIKRigSetTransformSettings {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ik_rig::UIK_RIG_SET_TRANSFORM_CONTROLLER_GET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ik_rig::UIK_RIG_SET_TRANSFORM_CONTROLLER_GET_SOLVER_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FIKRigSetTransformSettings>().read() }
     }
 }
 #[repr(C, align(8))]

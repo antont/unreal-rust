@@ -129,6 +129,489 @@ impl UDataflowBlueprintLibrary {
             cdo
         }
     }
+    pub fn regenerate_asset_from_dataflow(
+        asset_to_regenerate: UPtr<crate::bindings::core_u_object::UObject>,
+        b_regenerate_dependent_assets: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<10>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_REGENERATE_ASSET_FROM_DATAFLOW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_to_regenerate,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_regenerate_dependent_assets,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::dataflow_engine::UDataflowBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_REGENERATE_ASSET_FROM_DATAFLOW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(9).cast::<bool>().read() }
+    }
+    pub fn override_dataflow_variable_object_array(
+        asset: UPtr<crate::bindings::core_u_object::UObject>,
+        variable_name: FName,
+        variable_array_value: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_OBJECT_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                variable_array_value,
+                __buffer
+                    .add(24)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::dataflow_engine::UDataflowBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_OBJECT_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn override_dataflow_variable_object(
+        asset: UPtr<crate::bindings::core_u_object::UObject>,
+        variable_name: FName,
+        variable_value: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable_value,
+                __buffer.add(24).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::dataflow_engine::UDataflowBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn override_dataflow_variable_int_array(
+        asset: UPtr<crate::bindings::core_u_object::UObject>,
+        variable_name: FName,
+        variable_array_value: &TArray<i32>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_INT_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                variable_array_value,
+                __buffer.add(24).cast::<TArray<i32>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::dataflow_engine::UDataflowBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_INT_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn override_dataflow_variable_int(
+        asset: UPtr<crate::bindings::core_u_object::UObject>,
+        variable_name: FName,
+        variable_value: i64,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_INT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable_value,
+                __buffer.add(24).cast::<i64>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::dataflow_engine::UDataflowBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_INT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn override_dataflow_variable_float_array(
+        asset: UPtr<crate::bindings::core_u_object::UObject>,
+        variable_name: FName,
+        variable_array_value: &TArray<f32>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_FLOAT_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                variable_array_value,
+                __buffer.add(24).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::dataflow_engine::UDataflowBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_FLOAT_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn override_dataflow_variable_float(
+        asset: UPtr<crate::bindings::core_u_object::UObject>,
+        variable_name: FName,
+        variable_value: f32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable_value,
+                __buffer.add(20).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::dataflow_engine::UDataflowBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_FLOAT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn override_dataflow_variable_bool_array(
+        asset: UPtr<crate::bindings::core_u_object::UObject>,
+        variable_name: FName,
+        variable_array_value: &TArray<bool>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_BOOL_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                variable_array_value,
+                __buffer.add(24).cast::<TArray<bool>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::dataflow_engine::UDataflowBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_BOOL_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn override_dataflow_variable_bool(
+        asset: UPtr<crate::bindings::core_u_object::UObject>,
+        variable_name: FName,
+        variable_value: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<22>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_BOOL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &variable_value,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::dataflow_engine::UDataflowBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_BOOL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(21).cast::<bool>().read() }
+    }
+    pub fn evaluate_terminal_node_by_name(
+        dataflow: UPtr<UDataflow>,
+        terminal_node_name: FName,
+        result_asset: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_EVALUATE_TERMINAL_NODE_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dataflow,
+                __buffer.add(0).cast::<UPtr<UDataflow>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &terminal_node_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &result_asset,
+                __buffer.add(24).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::dataflow_engine::UDataflowBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_EVALUATE_TERMINAL_NODE_BY_NAME,
+                __buffer,
+            )
+        };
+    }
 }
 pub struct IDataflowContentOwner {}
 #[repr(C, align(8))]

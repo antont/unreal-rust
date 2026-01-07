@@ -126,4 +126,28 @@ impl UVersionInfoHandler {
             cdo
         }
     }
+    pub fn get() -> UPtr<UVersionInfoHandler> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::megascans_plugin::U_VERSION_INFO_HANDLER_GET,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::megascans_plugin::UVersionInfoHandler::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::megascans_plugin::U_VERSION_INFO_HANDLER_GET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UVersionInfoHandler>>().read() }
+    }
 }

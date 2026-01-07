@@ -379,6 +379,319 @@ impl USequencerModuleOutlinerScriptingObject {
             cdo
         }
     }
+    pub fn remove_binding_tags(
+        &mut self,
+        in_nodes: &TArray<
+            crate::bindings::sequencer_core::FSequencerViewModelScriptingStruct,
+        >,
+        tag_names: &TArray<FName>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_REMOVE_BINDING_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_nodes,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TArray<
+                            crate::bindings::sequencer_core::FSequencerViewModelScriptingStruct,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_names,
+                __buffer.add(16).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_REMOVE_BINDING_TAGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_sections(
+        &self,
+        in_nodes: &TArray<
+            crate::bindings::sequencer_core::FSequencerViewModelScriptingStruct,
+        >,
+    ) -> TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_SECTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_nodes,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TArray<
+                            crate::bindings::sequencer_core::FSequencerViewModelScriptingStruct,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_SECTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>>()
+                .read()
+        }
+    }
+    pub fn get_previous_key(
+        &self,
+        in_nodes: &TArray<
+            crate::bindings::sequencer_core::FSequencerViewModelScriptingStruct,
+        >,
+        frame_number: crate::bindings::core_u_object::FFrameNumber,
+        time_unit: crate::bindings::movie_scene::EMovieSceneTimeUnit,
+    ) -> crate::bindings::core_u_object::FFrameNumber {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_PREVIOUS_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_nodes,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TArray<
+                            crate::bindings::sequencer_core::FSequencerViewModelScriptingStruct,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_number,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FFrameNumber>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &time_unit,
+                __buffer
+                    .add(20)
+                    .cast::<crate::bindings::movie_scene::EMovieSceneTimeUnit>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_PREVIOUS_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<crate::bindings::core_u_object::FFrameNumber>()
+                .read()
+        }
+    }
+    pub fn get_next_key(
+        &self,
+        in_nodes: &TArray<
+            crate::bindings::sequencer_core::FSequencerViewModelScriptingStruct,
+        >,
+        frame_number: crate::bindings::core_u_object::FFrameNumber,
+        time_unit: crate::bindings::movie_scene::EMovieSceneTimeUnit,
+    ) -> crate::bindings::core_u_object::FFrameNumber {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_NEXT_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_nodes,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TArray<
+                            crate::bindings::sequencer_core::FSequencerViewModelScriptingStruct,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_number,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FFrameNumber>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &time_unit,
+                __buffer
+                    .add(20)
+                    .cast::<crate::bindings::movie_scene::EMovieSceneTimeUnit>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_NEXT_KEY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<crate::bindings::core_u_object::FFrameNumber>()
+                .read()
+        }
+    }
+    pub fn get_binding_tags(
+        &mut self,
+        in_node: crate::bindings::sequencer_core::FSequencerViewModelScriptingStruct,
+    ) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_BINDING_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_node,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::sequencer_core::FSequencerViewModelScriptingStruct,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_BINDING_TAGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<TArray<FName>>().read() }
+    }
+    pub fn add_binding_tags(
+        &mut self,
+        in_nodes: &TArray<
+            crate::bindings::sequencer_core::FSequencerViewModelScriptingStruct,
+        >,
+        tag_names: &TArray<FName>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_ADD_BINDING_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_nodes,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TArray<
+                            crate::bindings::sequencer_core::FSequencerViewModelScriptingStruct,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_names,
+                __buffer.add(16).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_ADD_BINDING_TAGS,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct USequencerModuleScriptingLayer {
@@ -398,6 +711,35 @@ impl USequencerModuleScriptingLayer {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn get_outliner(&mut self) -> UPtr<USequencerModuleOutlinerScriptingObject> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::sequencer::U_SEQUENCER_MODULE_SCRIPTING_LAYER_GET_OUTLINER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::sequencer::U_SEQUENCER_MODULE_SCRIPTING_LAYER_GET_OUTLINER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<USequencerModuleOutlinerScriptingObject>>()
+                .read()
         }
     }
 }

@@ -173,6 +173,355 @@ impl UNamingTokensEditableText {
             cdo
         }
     }
+    pub fn set_widget_argument_style(
+        &mut self,
+        in_widget_style: &crate::bindings::slate_core::FTextBlockStyle,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<848>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_WIDGET_ARGUMENT_STYLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_widget_style,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FTextBlockStyle>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_WIDGET_ARGUMENT_STYLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_display_token_icon(&mut self, b_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_TOKEN_ICON,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_TOKEN_ICON,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_display_error_message(&mut self, b_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_ERROR_MESSAGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_ERROR_MESSAGE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_display_border_image(&mut self, b_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_BORDER_IMAGE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_BORDER_IMAGE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_contexts(
+        &mut self,
+        in_contexts: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_CONTEXTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_contexts,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_CONTEXTS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_can_display_resolved_text(&mut self, b_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_CAN_DISPLAY_RESOLVED_TEXT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_CAN_DISPLAY_RESOLVED_TEXT,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_background_color(
+        &mut self,
+        in_color: &crate::bindings::slate_core::FSlateColor,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_color,
+                __buffer.add(0).cast::<crate::bindings::slate_core::FSlateColor>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_BACKGROUND_COLOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_tokenized_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_TOKENIZED_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_TOKENIZED_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_resolved_text(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_RESOLVED_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_RESOLVED_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
+    }
+    pub fn get_display_token_icon(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_TOKEN_ICON,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_TOKEN_ICON,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_display_error_message(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_ERROR_MESSAGE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_ERROR_MESSAGE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_display_border_image(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_BORDER_IMAGE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_BORDER_IMAGE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_can_display_resolved_text(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_CAN_DISPLAY_RESOLVED_TEXT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_CAN_DISPLAY_RESOLVED_TEXT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct FNamingTokensEditableText_OnPreEvaluateNamingTokens {

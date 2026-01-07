@@ -332,6 +332,39 @@ impl ULevelEditorContextMenuContext {
             cdo
         }
     }
+    pub fn get_hit_proxy_element(
+        &mut self,
+    ) -> crate::bindings::typed_element_framework::FScriptTypedElementHandle {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_CONTEXT_MENU_CONTEXT_GET_SCRIPT_HIT_PROXY_ELEMENT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_CONTEXT_MENU_CONTEXT_GET_SCRIPT_HIT_PROXY_ELEMENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<
+                    crate::bindings::typed_element_framework::FScriptTypedElementHandle,
+                >()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct ULevelViewportContext {
@@ -419,6 +452,825 @@ impl ULevelEditorSubsystem {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_exact_camera_view(
+        &mut self,
+        b_exact_camera_view: bool,
+        viewport_config_key: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SET_EXACT_CAMERA_VIEW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_exact_camera_view,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &viewport_config_key,
+                __buffer.add(4).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SET_EXACT_CAMERA_VIEW,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_current_level_by_name(&mut self, level_name: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SET_CURRENT_LEVEL_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &level_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SET_CURRENT_LEVEL_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn set_allows_cinematic_control(
+        &mut self,
+        b_allow: bool,
+        viewport_config_key: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SET_ALLOWS_CINEMATIC_CONTROL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_allow, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &viewport_config_key,
+                __buffer.add(4).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SET_ALLOWS_CINEMATIC_CONTROL,
+                __buffer,
+            )
+        };
+    }
+    pub fn save_current_level(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SAVE_CURRENT_LEVEL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SAVE_CURRENT_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn save_all_dirty_levels(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SAVE_ALL_DIRTY_LEVELS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SAVE_ALL_DIRTY_LEVELS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn pilot_level_actor(
+        &mut self,
+        actor_to_pilot: UPtr<crate::bindings::engine::AActor>,
+        viewport_config_key: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_PILOT_LEVEL_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor_to_pilot,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &viewport_config_key,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_PILOT_LEVEL_ACTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn new_level_from_template(
+        &mut self,
+        asset_path: FString,
+        template_asset_path: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_NEW_LEVEL_FROM_TEMPLATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &template_asset_path,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_NEW_LEVEL_FROM_TEMPLATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn new_level(
+        &mut self,
+        asset_path: FString,
+        b_is_partitioned_world: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_NEW_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_partitioned_world,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_NEW_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn load_level(&mut self, asset_path: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_LOAD_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_LOAD_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn is_in_play_in_editor(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_IS_IN_PLAY_IN_EDITOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_IS_IN_PLAY_IN_EDITOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_viewport_config_keys(&mut self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_VIEWPORT_CONFIG_KEYS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_VIEWPORT_CONFIG_KEYS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn get_selection_set(
+        &mut self,
+    ) -> UPtr<crate::bindings::typed_element_runtime::UTypedElementSelectionSet> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_SELECTION_SET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_SELECTION_SET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<
+                    UPtr<
+                        crate::bindings::typed_element_runtime::UTypedElementSelectionSet,
+                    >,
+                >()
+                .read()
+        }
+    }
+    pub fn get_pilot_level_actor(
+        &mut self,
+        viewport_config_key: FName,
+    ) -> UPtr<crate::bindings::engine::AActor> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_PILOT_LEVEL_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &viewport_config_key,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_PILOT_LEVEL_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>().read()
+        }
+    }
+    pub fn get_exact_camera_view(&mut self, viewport_config_key: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_EXACT_CAMERA_VIEW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &viewport_config_key,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_EXACT_CAMERA_VIEW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn get_current_level(&mut self) -> UPtr<crate::bindings::engine::ULevel> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_CURRENT_LEVEL,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_CURRENT_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<crate::bindings::engine::ULevel>>().read() }
+    }
+    pub fn get_allows_cinematic_control(&mut self, viewport_config_key: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_ALLOWS_CINEMATIC_CONTROL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &viewport_config_key,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_ALLOWS_CINEMATIC_CONTROL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn get_active_viewport_config_key(&mut self) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_ACTIVE_VIEWPORT_CONFIG_KEY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_ACTIVE_VIEWPORT_CONFIG_KEY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FName>().read() }
+    }
+    pub fn eject_pilot_level_actor(&mut self, viewport_config_key: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EJECT_PILOT_LEVEL_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &viewport_config_key,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EJECT_PILOT_LEVEL_ACTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn editor_set_viewport_realtime(
+        &mut self,
+        b_in_realtime: bool,
+        viewport_config_key: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_SET_VIEWPORT_REALTIME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_realtime,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &viewport_config_key,
+                __buffer.add(4).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_SET_VIEWPORT_REALTIME,
+                __buffer,
+            )
+        };
+    }
+    pub fn editor_set_game_view(
+        &mut self,
+        b_game_view: bool,
+        viewport_config_key: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_SET_GAME_VIEW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_game_view,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &viewport_config_key,
+                __buffer.add(4).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_SET_GAME_VIEW,
+                __buffer,
+            )
+        };
+    }
+    pub fn editor_request_end_play(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_REQUEST_END_PLAY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_REQUEST_END_PLAY,
+                __buffer,
+            )
+        };
+    }
+    pub fn editor_request_begin_play(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_REQUEST_BEGIN_PLAY,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_REQUEST_BEGIN_PLAY,
+                __buffer,
+            )
+        };
+    }
+    pub fn editor_play_simulate(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_PLAY_SIMULATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_PLAY_SIMULATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn editor_invalidate_viewports(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_INVALIDATE_VIEWPORTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_INVALIDATE_VIEWPORTS,
+                __buffer,
+            )
+        };
+    }
+    pub fn editor_get_game_view(&mut self, viewport_config_key: FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_GET_GAME_VIEW,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &viewport_config_key,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_GET_GAME_VIEW,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn build_light_maps(
+        &mut self,
+        quality: crate::bindings::engine::ELightingBuildQuality,
+        b_with_reflection_captures: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<3>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_BUILD_LIGHT_MAPS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &quality,
+                __buffer.add(0).cast::<crate::bindings::engine::ELightingBuildQuality>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_with_reflection_captures,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_BUILD_LIGHT_MAPS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(2).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]

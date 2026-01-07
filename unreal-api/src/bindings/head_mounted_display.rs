@@ -188,6 +188,37 @@ impl UHandKeypointConversion {
             cdo
         }
     }
+    pub fn conv_hand_keypoint_to_int32(input: EHandKeypoint) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::head_mounted_display::U_HAND_KEYPOINT_CONVERSION_CONV_HAND_KEYPOINT_TO_INT32,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &input,
+                __buffer.add(0).cast::<EHandKeypoint>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::head_mounted_display::UHandKeypointConversion::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::head_mounted_display::U_HAND_KEYPOINT_CONVERSION_CONV_HAND_KEYPOINT_TO_INT32,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<i32>().read() }
+    }
 }
 #[repr(C, align(16))]
 pub struct UMotionControllerComponent {
@@ -216,6 +247,353 @@ impl UMotionControllerComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_tracking_source(
+        &mut self,
+        new_source: crate::bindings::input_core::EControllerHand,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_source,
+                __buffer.add(0).cast::<crate::bindings::input_core::EControllerHand>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_SOURCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_tracking_motion_source(&mut self, new_source: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_MOTION_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_source,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_MOTION_SOURCE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_associated_player_index(&mut self, new_player: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_SET_ASSOCIATED_PLAYER_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&new_player, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_SET_ASSOCIATED_PLAYER_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_tracked(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_IS_TRACKED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_IS_TRACKED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_tracking_source(&self) -> crate::bindings::input_core::EControllerHand {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_TRACKING_SOURCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_TRACKING_SOURCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::input_core::EControllerHand>().read()
+        }
+    }
+    pub fn get_parameter_value(
+        &mut self,
+        in_name: FName,
+        b_value_found: &mut bool,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_value_found,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_PARAMETER_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(12).cast::<bool>().swap(b_value_found);
+        }
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn get_linear_velocity(
+        &self,
+        out_linear_velocity: &mut crate::bindings::core_u_object::FVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_VELOCITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_linear_velocity,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_VELOCITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(out_linear_velocity);
+        }
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn get_linear_acceleration(
+        &self,
+        out_linear_acceleration: &mut crate::bindings::core_u_object::FVector,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_ACCELERATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_linear_acceleration,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_ACCELERATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(out_linear_acceleration);
+        }
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn get_hand_joint_position(
+        &mut self,
+        joint_index: i32,
+        b_value_found: &mut bool,
+    ) -> crate::bindings::core_u_object::FVector {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_HAND_JOINT_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &joint_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_value_found,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_HAND_JOINT_POSITION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(4).cast::<bool>().swap(b_value_found);
+        }
+        unsafe {
+            __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>().read()
+        }
+    }
+    pub fn get_angular_velocity(
+        &self,
+        out_angular_velocity: &mut crate::bindings::core_u_object::FRotator,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_ANGULAR_VELOCITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_angular_velocity,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_ANGULAR_VELOCITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FRotator>()
+                .swap(out_angular_velocity);
+        }
+        unsafe { __buffer.add(24).cast::<bool>().read() }
     }
 }
 #[repr(transparent)]

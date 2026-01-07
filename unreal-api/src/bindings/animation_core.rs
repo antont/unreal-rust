@@ -40,7 +40,6 @@ pub struct FTransformConstraint {
     pub target_node: FName,
     pub weight: f32,
     pub b_maintain_offset: bool,
-    __padding_end: [u8; 3],
 }
 impl FTransformConstraint {}
 #[repr(C, align(8))]

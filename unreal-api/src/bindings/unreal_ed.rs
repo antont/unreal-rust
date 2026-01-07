@@ -1997,7 +1997,6 @@ impl FCSVImportSettings {}
 pub struct FFbxMaterialBakeSize {
     pub size: crate::bindings::core_u_object::FIntPoint,
     pub b_auto_detect: bool,
-    __padding_end: [u8; 3],
 }
 impl FFbxMaterialBakeSize {}
 #[repr(C, align(8))]
@@ -2016,7 +2015,6 @@ pub struct FCollectionScriptingRef {
     pub container: FName,
     pub name: FName,
     pub share_type: crate::bindings::engine::ECollectionScriptingShareType,
-    __padding_end: [u8; 3],
 }
 impl FCollectionScriptingRef {}
 #[repr(C, align(8))]
@@ -3397,6 +3395,37 @@ impl UAssetEditorToolkitMenuContext {
             cdo
         }
     }
+    pub fn get_editing_objects(
+        &self,
+    ) -> TArray<UPtr<crate::bindings::core_u_object::UObject>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ASSET_EDITOR_TOOLKIT_MENU_CONTEXT_GET_EDITING_OBJECTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ASSET_EDITOR_TOOLKIT_MENU_CONTEXT_GET_EDITING_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UBlueprintFactory {
@@ -4396,6 +4425,29 @@ impl UFbxImportUI {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn reset_to_default(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_FBX_IMPORT_UI_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_FBX_IMPORT_UI_RESET_TO_DEFAULT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -6973,6 +7025,77 @@ impl UUDIMTextureFunctionLibrary {
             cdo
         }
     }
+    pub fn make_udim_virtual_texture_from_texture2_ds(
+        output_path_name: FString,
+        source_textures: &TArray<UPtr<crate::bindings::engine::UTexture2D>>,
+        block_coords: &TArray<crate::bindings::core_u_object::FIntPoint>,
+        b_keep_existing_settings: bool,
+        b_check_out_and_save: bool,
+    ) -> UPtr<crate::bindings::engine::UTexture2D> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::UUDIM_TEXTURE_FUNCTION_LIBRARY_MAKE_UDIM_VIRTUAL_TEXTURE_FROM_TEXTURE2_DS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &output_path_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                source_textures,
+                __buffer
+                    .add(16)
+                    .cast::<TArray<UPtr<crate::bindings::engine::UTexture2D>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                block_coords,
+                __buffer
+                    .add(32)
+                    .cast::<TArray<crate::bindings::core_u_object::FIntPoint>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_keep_existing_settings,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_check_out_and_save,
+                __buffer.add(49).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UUDIMTextureFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::UUDIM_TEXTURE_FUNCTION_LIBRARY_MAKE_UDIM_VIRTUAL_TEXTURE_FROM_TEXTURE2_DS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(56).cast::<UPtr<crate::bindings::engine::UTexture2D>>().read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UTextureRenderTarget2DArrayFactoryNew {
@@ -7414,6 +7537,348 @@ impl UActorGroupingUtils {
             cdo
         }
     }
+    pub fn unlock_selected_groups(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_UNLOCK_SELECTED_GROUPS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_UNLOCK_SELECTED_GROUPS,
+                __buffer,
+            )
+        };
+    }
+    pub fn ungroup_selected(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_UNGROUP_SELECTED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_UNGROUP_SELECTED,
+                __buffer,
+            )
+        };
+    }
+    pub fn ungroup_actors(
+        &mut self,
+        actors_to_ungroup: &TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_UNGROUP_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors_to_ungroup,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_UNGROUP_ACTORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_grouping_active(b_in_grouping_active: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_SET_GROUPING_ACTIVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_grouping_active,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UActorGroupingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_SET_GROUPING_ACTIVE,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_selected_from_group(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_REMOVE_SELECTED_FROM_GROUP,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_REMOVE_SELECTED_FROM_GROUP,
+                __buffer,
+            )
+        };
+    }
+    pub fn lock_selected_groups(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_LOCK_SELECTED_GROUPS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_LOCK_SELECTED_GROUPS,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_grouping_active() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_IS_GROUPING_ACTIVE,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::unreal_ed::UActorGroupingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_IS_GROUPING_ACTIVE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn group_selected(&mut self) -> UPtr<AGroupActor> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_GROUP_SELECTED,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_GROUP_SELECTED,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<AGroupActor>>().read() }
+    }
+    pub fn group_actors(
+        &mut self,
+        actors_to_group: &TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) -> UPtr<AGroupActor> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_GROUP_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors_to_group,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_GROUP_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<UPtr<AGroupActor>>().read() }
+    }
+    pub fn get() -> UPtr<UActorGroupingUtils> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_GET,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::unreal_ed::UActorGroupingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_GET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<UActorGroupingUtils>>().read() }
+    }
+    pub fn can_group_selected_actors(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_CAN_GROUP_SELECTED_ACTORS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_CAN_GROUP_SELECTED_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn can_group_actors(
+        &self,
+        actors_to_group: &TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_CAN_GROUP_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors_to_group,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_CAN_GROUP_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn add_selected_to_group(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_ADD_SELECTED_TO_GROUP,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_ADD_SELECTED_TO_GROUP,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UAnalyticsPrivacySettings {
@@ -7483,7 +7948,6 @@ pub struct UAnimSeqExportOption {
     pub custom_display_rate: crate::bindings::core_u_object::FFrameRate,
     pub b_use_custom_frame_rate: bool,
     pub custom_frame_rate: crate::bindings::core_u_object::FFrameRate,
-    __padding_end: [u8; 4],
 }
 impl UAnimSeqExportOption {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -7743,6 +8207,59 @@ impl UAssetImportTask {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn is_async_import_complete(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ASSET_IMPORT_TASK_IS_ASYNC_IMPORT_COMPLETE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ASSET_IMPORT_TASK_IS_ASYNC_IMPORT_COMPLETE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_objects(&self) -> TArray<UPtr<crate::bindings::core_u_object::UObject>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ASSET_IMPORT_TASK_GET_OBJECTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ASSET_IMPORT_TASK_GET_OBJECTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
+                .read()
         }
     }
 }
@@ -9351,6 +9868,62 @@ impl UCookFunctionLibrary {
             cdo
         }
     }
+    pub fn cook_asset(
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+        for_platform: FString,
+        destination_subfolder: FString,
+        cook_commandline_args: FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COOK_FUNCTION_LIBRARY_COOK_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &for_platform,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &destination_subfolder,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &cook_commandline_args,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UCookFunctionLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COOK_FUNCTION_LIBRARY_COOK_ASSET,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UEdGraphNode_Comment {
@@ -9454,6 +10027,513 @@ impl UEditorLevelUtils {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_level_visibility(
+        level: UPtr<crate::bindings::engine::ULevel>,
+        b_should_be_visible: bool,
+        b_force_layers_visible: bool,
+        modify_mode: ELevelVisibilityDirtyMode,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<11>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_SET_LEVEL_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &level,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::ULevel>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_should_be_visible,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_force_layers_visible,
+                __buffer.add(9).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &modify_mode,
+                __buffer.add(10).cast::<ELevelVisibilityDirtyMode>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLevelUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_SET_LEVEL_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_levels_visibility(
+        levels: &TArray<UPtr<crate::bindings::engine::ULevel>>,
+        b_should_be_visible: &TArray<bool>,
+        b_force_layers_visible: bool,
+        modify_mode: ELevelVisibilityDirtyMode,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<34>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_SET_LEVELS_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                levels,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::ULevel>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_should_be_visible,
+                __buffer.add(16).cast::<TArray<bool>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_force_layers_visible,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &modify_mode,
+                __buffer.add(33).cast::<ELevelVisibilityDirtyMode>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLevelUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_SET_LEVELS_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn move_selected_actors_to_level(
+        dest_level: UPtr<crate::bindings::engine::ULevelStreaming>,
+        b_warn_about_references: bool,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_MOVE_SELECTED_ACTORS_TO_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dest_level,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::ULevelStreaming>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_warn_about_references,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLevelUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_MOVE_SELECTED_ACTORS_TO_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<i32>().read() }
+    }
+    pub fn move_actors_to_level(
+        actors_to_move: &TArray<UPtr<crate::bindings::engine::AActor>>,
+        dest_streaming_level: UPtr<crate::bindings::engine::ULevelStreaming>,
+        b_warn_about_references: bool,
+        b_warn_about_renaming: bool,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_MOVE_ACTORS_TO_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors_to_move,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &dest_streaming_level,
+                __buffer
+                    .add(16)
+                    .cast::<UPtr<crate::bindings::engine::ULevelStreaming>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_warn_about_references,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_warn_about_renaming,
+                __buffer.add(25).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLevelUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_MOVE_ACTORS_TO_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<i32>().read() }
+    }
+    pub fn make_level_current(
+        in_streaming_level: UPtr<crate::bindings::engine::ULevelStreaming>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_MAKE_LEVEL_CURRENT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_streaming_level,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::ULevelStreaming>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLevelUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_MAKE_LEVEL_CURRENT,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_level_from_world(
+        in_level: UPtr<crate::bindings::engine::ULevel>,
+        b_clear_selection: bool,
+        b_reset_transaction_buffer: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<11>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_K2_REMOVE_LEVEL_FROM_WORLD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_level,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::ULevel>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_clear_selection,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_reset_transaction_buffer,
+                __buffer.add(9).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLevelUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_K2_REMOVE_LEVEL_FROM_WORLD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(10).cast::<bool>().read() }
+    }
+    pub fn add_level_to_world_with_transform(
+        world: UPtr<crate::bindings::engine::UWorld>,
+        level_package_name: FString,
+        level_streaming_class: TSubclassOf<crate::bindings::engine::ULevelStreaming>,
+        level_transform: &crate::bindings::core_u_object::FTransform,
+    ) -> UPtr<crate::bindings::engine::ULevelStreaming> {
+        let mut __stack = crate::core_data::StackAlloc::<136>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_K2_ADD_LEVEL_TO_WORLD_WITH_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &level_package_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &level_streaming_class,
+                __buffer
+                    .add(24)
+                    .cast::<TSubclassOf<crate::bindings::engine::ULevelStreaming>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                level_transform,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLevelUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_K2_ADD_LEVEL_TO_WORLD_WITH_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(128)
+                .cast::<UPtr<crate::bindings::engine::ULevelStreaming>>()
+                .read()
+        }
+    }
+    pub fn add_level_to_world(
+        world: UPtr<crate::bindings::engine::UWorld>,
+        level_package_name: FString,
+        level_streaming_class: TSubclassOf<crate::bindings::engine::ULevelStreaming>,
+    ) -> UPtr<crate::bindings::engine::ULevelStreaming> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_K2_ADD_LEVEL_TO_WORLD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &level_package_name,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &level_streaming_class,
+                __buffer
+                    .add(24)
+                    .cast::<TSubclassOf<crate::bindings::engine::ULevelStreaming>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLevelUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_K2_ADD_LEVEL_TO_WORLD,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<UPtr<crate::bindings::engine::ULevelStreaming>>()
+                .read()
+        }
+    }
+    pub fn get_levels(
+        world: UPtr<crate::bindings::engine::UWorld>,
+    ) -> TArray<UPtr<crate::bindings::engine::ULevel>> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_GET_LEVELS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLevelUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_GET_LEVELS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<TArray<UPtr<crate::bindings::engine::ULevel>>>()
+                .read()
+        }
+    }
+    pub fn create_new_streaming_level(
+        level_streaming_class: TSubclassOf<crate::bindings::engine::ULevelStreaming>,
+        new_level_path: FString,
+        b_move_selected_actors_into_new_level: bool,
+    ) -> UPtr<crate::bindings::engine::ULevelStreaming> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_CREATE_NEW_STREAMING_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &level_streaming_class,
+                __buffer
+                    .add(0)
+                    .cast::<TSubclassOf<crate::bindings::engine::ULevelStreaming>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_level_path,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_move_selected_actors_into_new_level,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLevelUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_CREATE_NEW_STREAMING_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<UPtr<crate::bindings::engine::ULevelStreaming>>()
+                .read()
         }
     }
 }
@@ -10419,6 +11499,136 @@ impl UMaterialImportHelpers {
             cdo
         }
     }
+    pub fn find_existing_material_from_search_location(
+        material_full_name: FString,
+        base_package_path: FString,
+        search_location: EMaterialSearchLocation,
+        out_error: &mut FText,
+    ) -> UPtr<crate::bindings::engine::UMaterialInterface> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_MATERIAL_IMPORT_HELPERS_FIND_EXISTING_MATERIAL_FROM_SEARCH_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &material_full_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_package_path,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &search_location,
+                __buffer.add(32).cast::<EMaterialSearchLocation>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_error,
+                __buffer.add(40).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UMaterialImportHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_MATERIAL_IMPORT_HELPERS_FIND_EXISTING_MATERIAL_FROM_SEARCH_LOCATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(40).cast::<FText>().swap(out_error);
+        }
+        unsafe {
+            __buffer
+                .add(56)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>()
+                .read()
+        }
+    }
+    pub fn find_existing_material(
+        base_path: FString,
+        material_full_name: FString,
+        b_recursive_paths: bool,
+        out_error: &mut FText,
+    ) -> UPtr<crate::bindings::engine::UMaterialInterface> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_MATERIAL_IMPORT_HELPERS_FIND_EXISTING_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &base_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &material_full_name,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recursive_paths,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_error,
+                __buffer.add(40).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UMaterialImportHelpers::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_MATERIAL_IMPORT_HELPERS_FIND_EXISTING_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(40).cast::<FText>().swap(out_error);
+        }
+        unsafe {
+            __buffer
+                .add(56)
+                .cast::<UPtr<crate::bindings::engine::UMaterialInterface>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct UMeshDeformerCollectionFactory {
@@ -11027,7 +12237,6 @@ pub struct UFbxStaticMeshImportData {
     pub vertex_override_color: crate::bindings::core_u_object::FColor,
     pub flags_252: u8,
     pub distance_field_resolution_scale: f32,
-    __padding_end: [u8; 4],
 }
 impl UFbxStaticMeshImportData {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
@@ -11102,6 +12311,39 @@ impl UReimportFbxSceneFactory {
             cdo
         }
     }
+    pub fn script_reimport_helper(
+        &mut self,
+        obj: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_REIMPORT_FBX_SCENE_FACTORY_SCRIPT_REIMPORT_HELPER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &obj,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_REIMPORT_FBX_SCENE_FACTORY_SCRIPT_REIMPORT_HELPER,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UEditorLoadingAndSavingUtils {
@@ -11122,6 +12364,700 @@ impl UEditorLoadingAndSavingUtils {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn unload_packages(
+        packages_to_unload: &TArray<UPtr<crate::bindings::core_u_object::UPackage>>,
+        b_out_any_packages_unloaded: &mut bool,
+        out_error_message: &mut FText,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_UNLOAD_PACKAGES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                packages_to_unload,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UPackage>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_any_packages_unloaded,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_error_message,
+                __buffer.add(24).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_UNLOAD_PACKAGES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(b_out_any_packages_unloaded);
+        }
+        unsafe {
+            __buffer.add(24).cast::<FText>().swap(out_error_message);
+        }
+    }
+    pub fn save_packages_with_dialog(
+        packages_to_save: &TArray<UPtr<crate::bindings::core_u_object::UPackage>>,
+        b_only_dirty: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_PACKAGES_WITH_DIALOG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                packages_to_save,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UPackage>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_only_dirty,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_PACKAGES_WITH_DIALOG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn save_packages(
+        packages_to_save: &TArray<UPtr<crate::bindings::core_u_object::UPackage>>,
+        b_only_dirty: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_PACKAGES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                packages_to_save,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UPackage>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_only_dirty,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_PACKAGES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn save_map(
+        world: UPtr<crate::bindings::engine::UWorld>,
+        asset_path: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_MAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_path,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_MAP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn save_dirty_packages_with_dialog(
+        b_save_map_packages: bool,
+        b_save_content_packages: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<3>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_DIRTY_PACKAGES_WITH_DIALOG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_save_map_packages,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_save_content_packages,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_DIRTY_PACKAGES_WITH_DIALOG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(2).cast::<bool>().read() }
+    }
+    pub fn save_dirty_packages(
+        b_save_map_packages: bool,
+        b_save_content_packages: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<3>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_DIRTY_PACKAGES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_save_map_packages,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_save_content_packages,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_DIRTY_PACKAGES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(2).cast::<bool>().read() }
+    }
+    pub fn save_current_level() -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_CURRENT_LEVEL,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_CURRENT_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn reload_packages(
+        packages_to_reload: &TArray<UPtr<crate::bindings::core_u_object::UPackage>>,
+        b_out_any_packages_reloaded: &mut bool,
+        out_error_message: &mut FText,
+        interaction_mode: EReloadPackagesInteractionMode,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_RELOAD_PACKAGES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                packages_to_reload,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UPackage>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_any_packages_reloaded,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_error_message,
+                __buffer.add(24).cast::<FText>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interaction_mode,
+                __buffer.add(40).cast::<EReloadPackagesInteractionMode>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_RELOAD_PACKAGES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(b_out_any_packages_reloaded);
+        }
+        unsafe {
+            __buffer.add(24).cast::<FText>().swap(out_error_message);
+        }
+    }
+    pub fn new_map_from_template(
+        path_to_template_level: FString,
+        b_save_existing_map: bool,
+    ) -> UPtr<crate::bindings::engine::UWorld> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_NEW_MAP_FROM_TEMPLATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &path_to_template_level,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_save_existing_map,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_NEW_MAP_FROM_TEMPLATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(24).cast::<UPtr<crate::bindings::engine::UWorld>>().read()
+        }
+    }
+    pub fn new_blank_map(
+        b_save_existing_map: bool,
+    ) -> UPtr<crate::bindings::engine::UWorld> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_NEW_BLANK_MAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_save_existing_map,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_NEW_BLANK_MAP,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<UPtr<crate::bindings::engine::UWorld>>().read() }
+    }
+    pub fn load_map_with_dialog() -> UPtr<crate::bindings::engine::UWorld> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_LOAD_MAP_WITH_DIALOG,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_LOAD_MAP_WITH_DIALOG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>().read() }
+    }
+    pub fn load_map(filename: FString) -> UPtr<crate::bindings::engine::UWorld> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_LOAD_MAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filename,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_LOAD_MAP,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<UPtr<crate::bindings::engine::UWorld>>().read()
+        }
+    }
+    pub fn import_scene(filename: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_IMPORT_SCENE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filename,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_IMPORT_SCENE,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_dirty_map_packages(
+        out_dirty_packages: &mut TArray<UPtr<crate::bindings::core_u_object::UPackage>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_GET_DIRTY_MAP_PACKAGES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_dirty_packages,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UPackage>>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_GET_DIRTY_MAP_PACKAGES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UPackage>>>()
+                .swap(out_dirty_packages);
+        }
+    }
+    pub fn get_dirty_content_packages(
+        out_dirty_packages: &mut TArray<UPtr<crate::bindings::core_u_object::UPackage>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_GET_DIRTY_CONTENT_PACKAGES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_dirty_packages,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UPackage>>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_GET_DIRTY_CONTENT_PACKAGES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UPackage>>>()
+                .swap(out_dirty_packages);
+        }
+    }
+    pub fn fully_load_packages(
+        packages: &TArray<UPtr<crate::bindings::core_u_object::UPackage>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_FULLY_LOAD_PACKAGES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                packages,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UPackage>>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_FULLY_LOAD_PACKAGES,
+                __buffer,
+            )
+        };
+    }
+    pub fn fully_load_assets(
+        assets: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_FULLY_LOAD_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                assets,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_FULLY_LOAD_ASSETS,
+                __buffer,
+            )
+        };
+    }
+    pub fn export_scene(b_export_selected_actors_only: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_EXPORT_SCENE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_export_selected_actors_only,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorLoadingAndSavingUtils::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_EXPORT_SCENE,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -11227,6 +13163,1740 @@ impl ULayersSubsystem {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn update_all_view_visibility(&mut self, layer_that_changed: &FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ALL_VIEW_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_that_changed,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ALL_VIEW_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn update_all_actors_visibility(
+        &mut self,
+        b_notify_selection_change: bool,
+        b_redraw_viewports: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<3>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ALL_ACTORS_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_notify_selection_change,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_redraw_viewports,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ALL_ACTORS_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(2).cast::<bool>().read() }
+    }
+    pub fn update_actor_visibility(
+        &mut self,
+        actor: UPtr<crate::bindings::engine::AActor>,
+        b_out_selection_changed: &mut bool,
+        b_out_actor_modified: &mut bool,
+        b_notify_selection_change: bool,
+        b_redraw_viewports: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ACTOR_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_selection_changed,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_actor_modified,
+                __buffer.add(9).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_notify_selection_change,
+                __buffer.add(10).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_redraw_viewports,
+                __buffer.add(11).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ACTOR_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<bool>().swap(b_out_selection_changed);
+        }
+        unsafe {
+            __buffer.add(9).cast::<bool>().swap(b_out_actor_modified);
+        }
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn update_actor_all_views_visibility(
+        &mut self,
+        actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ACTOR_ALL_VIEWS_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ACTOR_ALL_VIEWS_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn try_get_layer(
+        &mut self,
+        layer_name: &FName,
+        out_layer: &mut UPtr<crate::bindings::engine::ULayer>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_TRY_GET_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_layer,
+                __buffer.add(16).cast::<UPtr<crate::bindings::engine::ULayer>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_TRY_GET_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<UPtr<crate::bindings::engine::ULayer>>()
+                .swap(out_layer);
+        }
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn toggle_layer_visibility(&mut self, layer_name: &FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_TOGGLE_LAYER_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_TOGGLE_LAYER_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn toggle_layers_visibility(&mut self, layer_names: &TArray<FName>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_TOGGLE_LAYERS_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_TOGGLE_LAYERS_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_layer_visibility(&mut self, layer_name: &FName, b_is_visible: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SET_LAYER_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_visible,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SET_LAYER_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_layers_visibility(
+        &mut self,
+        layer_names: &TArray<FName>,
+        b_is_visible: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SET_LAYERS_VISIBILITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_visible,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SET_LAYERS_VISIBILITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn select_actors_in_layers(
+        &mut self,
+        layer_names: &TArray<FName>,
+        b_select: bool,
+        b_notify: bool,
+        b_select_even_if_hidden: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SELECT_ACTORS_IN_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_select, __buffer.add(16).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_notify, __buffer.add(17).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_select_even_if_hidden,
+                __buffer.add(18).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SELECT_ACTORS_IN_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(19).cast::<bool>().read() }
+    }
+    pub fn select_actors_in_layer(
+        &mut self,
+        layer_name: &FName,
+        b_select: bool,
+        b_notify: bool,
+        b_select_even_if_hidden: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SELECT_ACTORS_IN_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_select, __buffer.add(12).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_notify, __buffer.add(13).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_select_even_if_hidden,
+                __buffer.add(14).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SELECT_ACTORS_IN_LAYER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(15).cast::<bool>().read() }
+    }
+    pub fn rename_layer(
+        &mut self,
+        original_layer_name: &FName,
+        new_layer_name: &FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_RENAME_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                original_layer_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_layer_name,
+                __buffer.add(12).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_RENAME_LAYER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn remove_selected_actors_from_layers(
+        &mut self,
+        layer_names: &TArray<FName>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_SELECTED_ACTORS_FROM_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_SELECTED_ACTORS_FROM_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn remove_selected_actors_from_layer(&mut self, layer_name: &FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_SELECTED_ACTORS_FROM_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_SELECTED_ACTORS_FROM_LAYER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn remove_level_layer_information(
+        &mut self,
+        level: UPtr<crate::bindings::engine::ULevel>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_LEVEL_LAYER_INFORMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &level,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::ULevel>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_LEVEL_LAYER_INFORMATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_actors_from_layers(
+        &mut self,
+        actors: &TArray<UPtr<crate::bindings::engine::AActor>>,
+        layer_names: &TArray<FName>,
+        b_update_stats: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<34>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTORS_FROM_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_names,
+                __buffer.add(16).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_update_stats,
+                __buffer.add(32).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTORS_FROM_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(33).cast::<bool>().read() }
+    }
+    pub fn remove_actors_from_layer(
+        &mut self,
+        actors: &TArray<UPtr<crate::bindings::engine::AActor>>,
+        layer_name: &FName,
+        b_update_stats: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<30>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTORS_FROM_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_update_stats,
+                __buffer.add(28).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTORS_FROM_LAYER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(29).cast::<bool>().read() }
+    }
+    pub fn remove_actor_from_layers(
+        &mut self,
+        actor: UPtr<crate::bindings::engine::AActor>,
+        layer_names: &TArray<FName>,
+        b_update_stats: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<26>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTOR_FROM_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_names,
+                __buffer.add(8).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_update_stats,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTOR_FROM_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(25).cast::<bool>().read() }
+    }
+    pub fn remove_actor_from_layer(
+        &mut self,
+        actor: UPtr<crate::bindings::engine::AActor>,
+        layer_to_remove: &FName,
+        b_update_stats: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<22>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTOR_FROM_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_to_remove,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_update_stats,
+                __buffer.add(20).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTOR_FROM_LAYER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(21).cast::<bool>().read() }
+    }
+    pub fn make_all_layers_visible(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_MAKE_ALL_LAYERS_VISIBLE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_MAKE_ALL_LAYERS_VISIBLE,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_layer(&mut self, layer_name: &FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_IS_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_IS_LAYER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn is_actor_valid_for_layer(
+        &mut self,
+        actor: UPtr<crate::bindings::engine::AActor>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_IS_ACTOR_VALID_FOR_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_IS_ACTOR_VALID_FOR_LAYER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn initialize_new_actor_layers(
+        &mut self,
+        actor: UPtr<crate::bindings::engine::AActor>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_INITIALIZE_NEW_ACTOR_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_INITIALIZE_NEW_ACTOR_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn get_world(&self) -> UPtr<crate::bindings::engine::UWorld> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_WORLD,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_WORLD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>().read() }
+    }
+    pub fn get_selected_actors(&self) -> TArray<UPtr<crate::bindings::engine::AActor>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_SELECTED_ACTORS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_SELECTED_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .read()
+        }
+    }
+    pub fn get_layer(
+        &self,
+        layer_name: &FName,
+    ) -> UPtr<crate::bindings::engine::ULayer> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<UPtr<crate::bindings::engine::ULayer>>().read()
+        }
+    }
+    pub fn get_actors_from_layers(
+        &self,
+        layer_names: &TArray<FName>,
+    ) -> TArray<UPtr<crate::bindings::engine::AActor>> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_ACTORS_FROM_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_ACTORS_FROM_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .read()
+        }
+    }
+    pub fn get_actors_from_layer(
+        &self,
+        layer_name: &FName,
+    ) -> TArray<UPtr<crate::bindings::engine::AActor>> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_ACTORS_FROM_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_ACTORS_FROM_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .read()
+        }
+    }
+    pub fn editor_refresh_layer_browser(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_EDITOR_REFRESH_LAYER_BROWSER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_EDITOR_REFRESH_LAYER_BROWSER,
+                __buffer,
+            )
+        };
+    }
+    pub fn editor_map_change(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_EDITOR_MAP_CHANGE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_EDITOR_MAP_CHANGE,
+                __buffer,
+            )
+        };
+    }
+    pub fn disassociate_actors_from_layers(
+        &mut self,
+        actors: &TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DISASSOCIATE_ACTORS_FROM_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DISASSOCIATE_ACTORS_FROM_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn disassociate_actor_from_layers(
+        &mut self,
+        actor: UPtr<crate::bindings::engine::AActor>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DISASSOCIATE_ACTOR_FROM_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DISASSOCIATE_ACTOR_FROM_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn delete_layers(&mut self, layers_to_delete: &TArray<FName>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DELETE_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layers_to_delete,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DELETE_LAYERS,
+                __buffer,
+            )
+        };
+    }
+    pub fn delete_layer(&mut self, layer_to_delete: &FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DELETE_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_to_delete,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DELETE_LAYER,
+                __buffer,
+            )
+        };
+    }
+    pub fn create_layer(
+        &mut self,
+        layer_name: &FName,
+    ) -> UPtr<crate::bindings::engine::ULayer> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_CREATE_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_CREATE_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<UPtr<crate::bindings::engine::ULayer>>().read()
+        }
+    }
+    pub fn append_actors_from_layers(
+        &self,
+        layer_names: &TArray<FName>,
+        in_out_actors: &mut TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_APPEND_ACTORS_FROM_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_out_actors,
+                __buffer.add(16).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_APPEND_ACTORS_FROM_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .swap(in_out_actors);
+        }
+    }
+    pub fn append_actors_from_layer(
+        &self,
+        layer_name: &FName,
+        in_out_actors: &mut TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_APPEND_ACTORS_FROM_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_out_actors,
+                __buffer.add(16).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_APPEND_ACTORS_FROM_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .swap(in_out_actors);
+        }
+    }
+    pub fn add_selected_actors_to_layers(
+        &mut self,
+        layer_names: &TArray<FName>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_SELECTED_ACTORS_TO_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_SELECTED_ACTORS_TO_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn add_selected_actors_to_layer(&mut self, layer_name: &FName) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_SELECTED_ACTORS_TO_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_SELECTED_ACTORS_TO_LAYER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn add_level_layer_information(
+        &mut self,
+        level: UPtr<crate::bindings::engine::ULevel>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_LEVEL_LAYER_INFORMATION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &level,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::ULevel>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_LEVEL_LAYER_INFORMATION,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_all_layers_to(
+        &self,
+        out_layers: &mut TArray<UPtr<crate::bindings::engine::ULayer>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ALL_LAYERS_TO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_layers,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::ULayer>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ALL_LAYERS_TO,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::engine::ULayer>>>()
+                .swap(out_layers);
+        }
+    }
+    pub fn add_all_layer_names_to(&self, out_layer_names: &mut TArray<FName>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ALL_LAYER_NAMES_TO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_layer_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ALL_LAYER_NAMES_TO,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FName>>().swap(out_layer_names);
+        }
+    }
+    pub fn add_actor_to_layers(
+        &mut self,
+        actor: UPtr<crate::bindings::engine::AActor>,
+        layer_names: &TArray<FName>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTOR_TO_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_names,
+                __buffer.add(8).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTOR_TO_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn add_actor_to_layer(
+        &mut self,
+        actor: UPtr<crate::bindings::engine::AActor>,
+        layer_name: &FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTOR_TO_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTOR_TO_LAYER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn add_actors_to_layers(
+        &mut self,
+        actors: &TArray<UPtr<crate::bindings::engine::AActor>>,
+        layer_names: &TArray<FName>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTORS_TO_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_names,
+                __buffer.add(16).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTORS_TO_LAYERS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn add_actors_to_layer(
+        &mut self,
+        actors: &TArray<UPtr<crate::bindings::engine::AActor>>,
+        layer_name: &FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTORS_TO_LAYER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                layer_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTORS_TO_LAYER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -11563,6 +15233,109 @@ impl UPackageTools {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn sanitize_package_name(in_package_name: FString) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_PACKAGE_TOOLS_SANITIZE_PACKAGE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_package_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UPackageTools::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_PACKAGE_TOOLS_SANITIZE_PACKAGE_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn package_name_to_filename(
+        package_name: FString,
+        extension: FString,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_PACKAGE_TOOLS_PACKAGE_NAME_TO_FILENAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &package_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &extension,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UPackageTools::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_PACKAGE_TOOLS_PACKAGE_NAME_TO_FILENAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FString>().read() }
+    }
+    pub fn filename_to_package_name(filename: FString) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_PACKAGE_TOOLS_FILENAME_TO_PACKAGE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filename,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UPackageTools::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_PACKAGE_TOOLS_FILENAME_TO_PACKAGE_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -12131,6 +15904,88 @@ impl UAssetEditorSubsystem {
             cdo
         }
     }
+    pub fn open_editor_for_assets(
+        &mut self,
+        assets: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+        opened_method: crate::bindings::asset_tools::EAssetTypeActivationOpenedMethod,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ASSET_EDITOR_SUBSYSTEM_OPEN_EDITOR_FOR_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                assets,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &opened_method,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        crate::bindings::asset_tools::EAssetTypeActivationOpenedMethod,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ASSET_EDITOR_SUBSYSTEM_OPEN_EDITOR_FOR_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn close_all_editors_for_asset(
+        &mut self,
+        asset: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_ASSET_EDITOR_SUBSYSTEM_CLOSE_ALL_EDITORS_FOR_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_ASSET_EDITOR_SUBSYSTEM_CLOSE_ALL_EDITORS_FOR_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<i32>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UBrowseToAssetOverrideSubsystem {
@@ -12194,6 +16049,1241 @@ impl UCollectionManagerScriptingSubsystem {
             cdo
         }
     }
+    pub fn reparent_collection(
+        &mut self,
+        collection: &FCollectionScriptingRef,
+        new_parent_collection: FCollectionScriptingRef,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REPARENT_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_parent_collection,
+                __buffer.add(28).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REPARENT_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(56).cast::<bool>().read() }
+    }
+    pub fn rename_collection(
+        &mut self,
+        collection: &FCollectionScriptingRef,
+        new_name: FName,
+        new_share_type: crate::bindings::engine::ECollectionScriptingShareType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<42>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_RENAME_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_name,
+                __buffer.add(28).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_share_type,
+                __buffer
+                    .add(40)
+                    .cast::<crate::bindings::engine::ECollectionScriptingShareType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_RENAME_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(41).cast::<bool>().read() }
+    }
+    pub fn remove_assets_from_collection(
+        &mut self,
+        collection: &FCollectionScriptingRef,
+        asset_paths: &TArray<crate::bindings::core_u_object::FSoftObjectPath>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSETS_FROM_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_paths,
+                __buffer
+                    .add(32)
+                    .cast::<TArray<crate::bindings::core_u_object::FSoftObjectPath>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSETS_FROM_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn remove_asset_ptrs_from_collection(
+        &mut self,
+        collection: &FCollectionScriptingRef,
+        asset_ptrs: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_PTRS_FROM_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_ptrs,
+                __buffer
+                    .add(32)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_PTRS_FROM_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn remove_asset_ptr_from_collection(
+        &mut self,
+        collection: &FCollectionScriptingRef,
+        asset_ptr: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_PTR_FROM_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_ptr,
+                __buffer.add(32).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_PTR_FROM_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn remove_asset_from_collection(
+        &mut self,
+        collection: &FCollectionScriptingRef,
+        asset_path: &crate::bindings::core_u_object::FSoftObjectPath,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<73>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_FROM_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_path,
+                __buffer
+                    .add(32)
+                    .cast::<crate::bindings::core_u_object::FSoftObjectPath>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_FROM_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(72).cast::<bool>().read() }
+    }
+    pub fn remove_asset_datas_from_collection(
+        &mut self,
+        collection: &FCollectionScriptingRef,
+        asset_datas: &TArray<crate::bindings::core_u_object::FAssetData>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_DATAS_FROM_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_datas,
+                __buffer
+                    .add(32)
+                    .cast::<TArray<crate::bindings::core_u_object::FAssetData>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_DATAS_FROM_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn remove_asset_data_from_collection(
+        &mut self,
+        collection: &FCollectionScriptingRef,
+        asset_data: &crate::bindings::core_u_object::FAssetData,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<185>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_DATA_FROM_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_data,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_DATA_FROM_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(184).cast::<bool>().read() }
+    }
+    pub fn get_collections_containing_asset_ptr(
+        &mut self,
+        container: FCollectionScriptingContainerSource,
+        asset_ptr: UPtr<crate::bindings::core_u_object::UObject>,
+        out_collections: &mut TArray<FCollectionScriptingRef>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_PTR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &container,
+                __buffer.add(0).cast::<FCollectionScriptingContainerSource>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_ptr,
+                __buffer.add(32).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_collections,
+                __buffer.add(40).cast::<TArray<FCollectionScriptingRef>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_PTR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(40)
+                .cast::<TArray<FCollectionScriptingRef>>()
+                .swap(out_collections);
+        }
+        unsafe { __buffer.add(56).cast::<bool>().read() }
+    }
+    pub fn get_collections_containing_asset_data(
+        &mut self,
+        container: FCollectionScriptingContainerSource,
+        asset_data: &crate::bindings::core_u_object::FAssetData,
+        out_collections: &mut TArray<FCollectionScriptingRef>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<201>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &container,
+                __buffer.add(0).cast::<FCollectionScriptingContainerSource>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_data,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_collections,
+                __buffer.add(184).cast::<TArray<FCollectionScriptingRef>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(184)
+                .cast::<TArray<FCollectionScriptingRef>>()
+                .swap(out_collections);
+        }
+        unsafe { __buffer.add(200).cast::<bool>().read() }
+    }
+    pub fn get_collections_containing_asset(
+        &mut self,
+        container: FCollectionScriptingContainerSource,
+        asset_path: &crate::bindings::core_u_object::FSoftObjectPath,
+        out_collections: &mut TArray<FCollectionScriptingRef>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<89>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &container,
+                __buffer.add(0).cast::<FCollectionScriptingContainerSource>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_path,
+                __buffer
+                    .add(32)
+                    .cast::<crate::bindings::core_u_object::FSoftObjectPath>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_collections,
+                __buffer.add(72).cast::<TArray<FCollectionScriptingRef>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(72)
+                .cast::<TArray<FCollectionScriptingRef>>()
+                .swap(out_collections);
+        }
+        unsafe { __buffer.add(88).cast::<bool>().read() }
+    }
+    pub fn get_collections_by_name(
+        &mut self,
+        container: FCollectionScriptingContainerSource,
+        collection: FName,
+        out_collections: &mut TArray<FCollectionScriptingRef>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<65>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &container,
+                __buffer.add(0).cast::<FCollectionScriptingContainerSource>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &collection,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_collections,
+                __buffer.add(48).cast::<TArray<FCollectionScriptingRef>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(48)
+                .cast::<TArray<FCollectionScriptingRef>>()
+                .swap(out_collections);
+        }
+        unsafe { __buffer.add(64).cast::<bool>().read() }
+    }
+    pub fn get_collections(
+        &mut self,
+        container: FCollectionScriptingContainerSource,
+        out_collections: &mut TArray<FCollectionScriptingRef>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &container,
+                __buffer.add(0).cast::<FCollectionScriptingContainerSource>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_collections,
+                __buffer.add(32).cast::<TArray<FCollectionScriptingRef>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<TArray<FCollectionScriptingRef>>()
+                .swap(out_collections);
+        }
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn get_collection_containers(
+        &mut self,
+    ) -> TArray<FCollectionScriptingContainerSource> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTION_CONTAINERS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTION_CONTAINERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FCollectionScriptingContainerSource>>().read()
+        }
+    }
+    pub fn get_base_game_collection_container(
+        &self,
+    ) -> FCollectionScriptingContainerSource {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_BASE_GAME_COLLECTION_CONTAINER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_BASE_GAME_COLLECTION_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FCollectionScriptingContainerSource>().read() }
+    }
+    pub fn get_assets_in_collection(
+        &mut self,
+        collection: &FCollectionScriptingRef,
+        out_assets: &mut TArray<crate::bindings::core_u_object::FAssetData>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_ASSETS_IN_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_assets,
+                __buffer
+                    .add(32)
+                    .cast::<TArray<crate::bindings::core_u_object::FAssetData>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_ASSETS_IN_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
+                .swap(out_assets);
+        }
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn empty_collection(&mut self, collection: &FCollectionScriptingRef) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_EMPTY_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_EMPTY_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn destroy_collection(&mut self, collection: &FCollectionScriptingRef) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_DESTROY_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_DESTROY_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn create_or_empty_collection(
+        &mut self,
+        container: FCollectionScriptingContainerSource,
+        collection: FName,
+        share_type: crate::bindings::engine::ECollectionScriptingShareType,
+        out_new_or_empty_collection: &mut FCollectionScriptingRef,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<77>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_CREATE_OR_EMPTY_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &container,
+                __buffer.add(0).cast::<FCollectionScriptingContainerSource>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &collection,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &share_type,
+                __buffer
+                    .add(44)
+                    .cast::<crate::bindings::engine::ECollectionScriptingShareType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_new_or_empty_collection,
+                __buffer.add(48).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_CREATE_OR_EMPTY_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(48)
+                .cast::<FCollectionScriptingRef>()
+                .swap(out_new_or_empty_collection);
+        }
+        unsafe { __buffer.add(76).cast::<bool>().read() }
+    }
+    pub fn create_collection(
+        &mut self,
+        container: FCollectionScriptingContainerSource,
+        collection: FName,
+        share_type: crate::bindings::engine::ECollectionScriptingShareType,
+        out_new_collection: &mut FCollectionScriptingRef,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<77>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_CREATE_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &container,
+                __buffer.add(0).cast::<FCollectionScriptingContainerSource>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &collection,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &share_type,
+                __buffer
+                    .add(44)
+                    .cast::<crate::bindings::engine::ECollectionScriptingShareType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_new_collection,
+                __buffer.add(48).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_CREATE_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(48).cast::<FCollectionScriptingRef>().swap(out_new_collection);
+        }
+        unsafe { __buffer.add(76).cast::<bool>().read() }
+    }
+    pub fn collection_exists(
+        &mut self,
+        container: FCollectionScriptingContainerSource,
+        collection: FName,
+        share_type: crate::bindings::engine::ECollectionScriptingShareType,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<46>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_COLLECTION_EXISTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &container,
+                __buffer.add(0).cast::<FCollectionScriptingContainerSource>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &collection,
+                __buffer.add(32).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &share_type,
+                __buffer
+                    .add(44)
+                    .cast::<crate::bindings::engine::ECollectionScriptingShareType>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_COLLECTION_EXISTS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(45).cast::<bool>().read() }
+    }
+    pub fn add_asset_to_collection(
+        &mut self,
+        collection: &FCollectionScriptingRef,
+        asset_path: &crate::bindings::core_u_object::FSoftObjectPath,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<73>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_TO_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_path,
+                __buffer
+                    .add(32)
+                    .cast::<crate::bindings::core_u_object::FSoftObjectPath>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_TO_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(72).cast::<bool>().read() }
+    }
+    pub fn add_assets_to_collection(
+        &mut self,
+        collection: &FCollectionScriptingRef,
+        asset_paths: &TArray<crate::bindings::core_u_object::FSoftObjectPath>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSETS_TO_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_paths,
+                __buffer
+                    .add(32)
+                    .cast::<TArray<crate::bindings::core_u_object::FSoftObjectPath>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSETS_TO_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn add_asset_ptr_to_collection(
+        &mut self,
+        collection: &FCollectionScriptingRef,
+        asset_ptr: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_PTR_TO_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_ptr,
+                __buffer.add(32).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_PTR_TO_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn add_asset_ptrs_to_collection(
+        &mut self,
+        collection: &FCollectionScriptingRef,
+        asset_ptrs: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_PTRS_TO_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_ptrs,
+                __buffer
+                    .add(32)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_PTRS_TO_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn add_asset_data_to_collection(
+        &mut self,
+        collection: &FCollectionScriptingRef,
+        asset_data: &crate::bindings::core_u_object::FAssetData,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<185>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_DATA_TO_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_data,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FAssetData>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_DATA_TO_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(184).cast::<bool>().read() }
+    }
+    pub fn add_asset_datas_to_collection(
+        &mut self,
+        collection: &FCollectionScriptingRef,
+        asset_datas: &TArray<crate::bindings::core_u_object::FAssetData>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_DATAS_TO_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collection,
+                __buffer.add(0).cast::<FCollectionScriptingRef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_datas,
+                __buffer
+                    .add(32)
+                    .cast::<TArray<crate::bindings::core_u_object::FAssetData>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_DATAS_TO_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UEditorActorSubsystem {
@@ -12214,6 +17304,845 @@ impl UEditorActorSubsystem {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn spawn_actor_from_object(
+        &mut self,
+        object_to_use: UPtr<crate::bindings::core_u_object::UObject>,
+        location: crate::bindings::core_u_object::FVector,
+        rotation: crate::bindings::core_u_object::FRotator,
+        b_transient: bool,
+    ) -> UPtr<crate::bindings::engine::AActor> {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SPAWN_ACTOR_FROM_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object_to_use,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &location,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rotation,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_transient,
+                __buffer.add(56).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SPAWN_ACTOR_FROM_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(64).cast::<UPtr<crate::bindings::engine::AActor>>().read()
+        }
+    }
+    pub fn spawn_actor_from_class(
+        &mut self,
+        actor_class: TSubclassOf<crate::bindings::engine::AActor>,
+        location: crate::bindings::core_u_object::FVector,
+        rotation: crate::bindings::core_u_object::FRotator,
+        b_transient: bool,
+    ) -> UPtr<crate::bindings::engine::AActor> {
+        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SPAWN_ACTOR_FROM_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor_class,
+                __buffer.add(0).cast::<TSubclassOf<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &location,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rotation,
+                __buffer.add(32).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_transient,
+                __buffer.add(56).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SPAWN_ACTOR_FROM_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(64).cast::<UPtr<crate::bindings::engine::AActor>>().read()
+        }
+    }
+    pub fn set_selected_level_actors(
+        &mut self,
+        actors_to_select: &TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_SELECTED_LEVEL_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors_to_select,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_SELECTED_LEVEL_ACTORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_component_transform(
+        &mut self,
+        in_scene_component: UPtr<crate::bindings::engine::USceneComponent>,
+        in_world_transform: &crate::bindings::core_u_object::FTransform,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<113>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_COMPONENT_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_scene_component,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::USceneComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_world_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_COMPONENT_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(112).cast::<bool>().read() }
+    }
+    pub fn set_actor_transform(
+        &mut self,
+        in_actor: UPtr<crate::bindings::engine::AActor>,
+        in_world_transform: &crate::bindings::core_u_object::FTransform,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<113>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_ACTOR_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_world_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_ACTOR_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(112).cast::<bool>().read() }
+    }
+    pub fn set_actor_selection_state(
+        &mut self,
+        actor: UPtr<crate::bindings::engine::AActor>,
+        b_should_be_selected: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_ACTOR_SELECTION_STATE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_should_be_selected,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_ACTOR_SELECTION_STATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn select_nothing(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SELECT_NOTHING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SELECT_NOTHING,
+                __buffer,
+            )
+        };
+    }
+    pub fn select_all_children(&mut self, b_recurse_children: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SELECT_ALL_CHILDREN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recurse_children,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SELECT_ALL_CHILDREN,
+                __buffer,
+            )
+        };
+    }
+    pub fn select_all(&mut self, in_world: UPtr<crate::bindings::engine::UWorld>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SELECT_ALL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_world,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SELECT_ALL,
+                __buffer,
+            )
+        };
+    }
+    pub fn invert_selection(&mut self, in_world: UPtr<crate::bindings::engine::UWorld>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_INVERT_SELECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_world,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_INVERT_SELECTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_selected_level_actors(
+        &mut self,
+    ) -> TArray<UPtr<crate::bindings::engine::AActor>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_SELECTED_LEVEL_ACTORS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_SELECTED_LEVEL_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .read()
+        }
+    }
+    pub fn get_all_level_actors_components(
+        &mut self,
+    ) -> TArray<UPtr<crate::bindings::engine::UActorComponent>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_ALL_LEVEL_ACTORS_COMPONENTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_ALL_LEVEL_ACTORS_COMPONENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::engine::UActorComponent>>>()
+                .read()
+        }
+    }
+    pub fn get_all_level_actors(
+        &mut self,
+    ) -> TArray<UPtr<crate::bindings::engine::AActor>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_ALL_LEVEL_ACTORS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_ALL_LEVEL_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .read()
+        }
+    }
+    pub fn get_actor_reference(
+        &mut self,
+        path_to_actor: FString,
+    ) -> UPtr<crate::bindings::engine::AActor> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_ACTOR_REFERENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &path_to_actor,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_ACTOR_REFERENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>().read()
+        }
+    }
+    pub fn duplicate_selected_actors(
+        &mut self,
+        in_world: UPtr<crate::bindings::engine::UWorld>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_SELECTED_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_world,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_SELECTED_ACTORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn duplicate_actors(
+        &mut self,
+        actors_to_duplicate: &TArray<UPtr<crate::bindings::engine::AActor>>,
+        to_world: UPtr<crate::bindings::engine::UWorld>,
+        offset: crate::bindings::core_u_object::FVector,
+    ) -> TArray<UPtr<crate::bindings::engine::AActor>> {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors_to_duplicate,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &to_world,
+                __buffer.add(16).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &offset,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(48)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .read()
+        }
+    }
+    pub fn duplicate_actor(
+        &mut self,
+        actor_to_duplicate: UPtr<crate::bindings::engine::AActor>,
+        to_world: UPtr<crate::bindings::engine::UWorld>,
+        offset: crate::bindings::core_u_object::FVector,
+    ) -> UPtr<crate::bindings::engine::AActor> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor_to_duplicate,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &to_world,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &offset,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(40).cast::<UPtr<crate::bindings::engine::AActor>>().read()
+        }
+    }
+    pub fn destroy_actors(
+        &mut self,
+        actors_to_destroy: &TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DESTROY_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors_to_destroy,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DESTROY_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn destroy_actor(
+        &mut self,
+        actor_to_destroy: UPtr<crate::bindings::engine::AActor>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DESTROY_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor_to_destroy,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DESTROY_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn delete_selected_actors(
+        &mut self,
+        in_world: UPtr<crate::bindings::engine::UWorld>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DELETE_SELECTED_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_world,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DELETE_SELECTED_ACTORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn convert_actors(
+        &mut self,
+        actors: &TArray<UPtr<crate::bindings::engine::AActor>>,
+        actor_class: TSubclassOf<crate::bindings::engine::AActor>,
+        static_mesh_package_path: FString,
+    ) -> TArray<UPtr<crate::bindings::engine::AActor>> {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_CONVERT_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                actors,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor_class,
+                __buffer.add(16).cast::<TSubclassOf<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &static_mesh_package_path,
+                __buffer.add(24).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_CONVERT_ACTORS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(40)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .read()
+        }
+    }
+    pub fn clear_actor_selection_set(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_CLEAR_ACTOR_SELECTION_SET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_CLEAR_ACTOR_SELECTION_SET,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -12236,6 +18165,1680 @@ impl UEditorAssetSubsystem {
             cdo
         }
     }
+    pub fn sort_by_meta_data(
+        &mut self,
+        assets: &mut TArray<crate::bindings::core_u_object::FAssetData>,
+        meta_data_tag: FName,
+        meta_data_type: EEditorAssetMetaDataSortType,
+        sort_order: EEditorAssetSortOrder,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<31>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SORT_BY_META_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                assets,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FAssetData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &meta_data_tag,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &meta_data_type,
+                __buffer.add(28).cast::<EEditorAssetMetaDataSortType>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sort_order,
+                __buffer.add(29).cast::<EEditorAssetSortOrder>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SORT_BY_META_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
+                .swap(assets);
+        }
+        unsafe { __buffer.add(30).cast::<bool>().read() }
+    }
+    pub fn set_metadata_tag(
+        &mut self,
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+        tag: FName,
+        value: FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SET_METADATA_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tag, __buffer.add(8).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(24).cast::<FString>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SET_METADATA_TAG,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_dirty_flag(
+        &mut self,
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+        b_dirty_state: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<10>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SET_DIRTY_FLAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_dirty_state,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SET_DIRTY_FLAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(9).cast::<bool>().read() }
+    }
+    pub fn save_loaded_assets(
+        &mut self,
+        assets_to_save: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+        b_only_if_is_dirty: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_LOADED_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                assets_to_save,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_only_if_is_dirty,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_LOADED_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn save_loaded_asset(
+        &mut self,
+        asset_to_save: UPtr<crate::bindings::core_u_object::UObject>,
+        b_only_if_is_dirty: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<10>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_LOADED_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_to_save,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_only_if_is_dirty,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_LOADED_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(9).cast::<bool>().read() }
+    }
+    pub fn save_directory(
+        &mut self,
+        directory_path: FString,
+        b_only_if_is_dirty: bool,
+        b_recursive: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_DIRECTORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &directory_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_only_if_is_dirty,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recursive,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_DIRECTORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(18).cast::<bool>().read() }
+    }
+    pub fn save_asset(
+        &mut self,
+        asset_to_save: FString,
+        b_only_if_is_dirty: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_to_save,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_only_if_is_dirty,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn rename_loaded_asset(
+        &mut self,
+        source_asset: UPtr<crate::bindings::core_u_object::UObject>,
+        destination_asset_path: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_RENAME_LOADED_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &destination_asset_path,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_RENAME_LOADED_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn rename_directory(
+        &mut self,
+        source_directory_path: FString,
+        destination_directory_path: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_RENAME_DIRECTORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_directory_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &destination_directory_path,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_RENAME_DIRECTORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn rename_asset(
+        &mut self,
+        source_asset_path: FString,
+        destination_asset_path: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_RENAME_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_asset_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &destination_asset_path,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_RENAME_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn remove_on_extract_asset_from_file(
+        &mut self,
+        delegate: FRemoveOnExtractAssetFromFile_Delegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_REMOVE_ON_EXTRACT_ASSET_FROM_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delegate,
+                __buffer.add(0).cast::<FRemoveOnExtractAssetFromFile_Delegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_REMOVE_ON_EXTRACT_ASSET_FROM_FILE,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_metadata_tag(
+        &mut self,
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+        tag: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_REMOVE_METADATA_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tag, __buffer.add(8).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_REMOVE_METADATA_TAG,
+                __buffer,
+            )
+        };
+    }
+    pub fn make_directory(&mut self, directory_path: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_MAKE_DIRECTORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &directory_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_MAKE_DIRECTORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn load_blueprint_class(
+        &mut self,
+        asset_path: FString,
+    ) -> TSubclassOf<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LOAD_BLUEPRINT_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LOAD_BLUEPRINT_CLASS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TSubclassOf<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn load_asset(
+        &mut self,
+        asset_path: FString,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LOAD_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LOAD_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn list_assets_by_tag_value(
+        &mut self,
+        tag_name: FName,
+        tag_value: FString,
+    ) -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LIST_ASSETS_BY_TAG_VALUE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tag_name, __buffer.add(0).cast::<FName>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tag_value,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LIST_ASSETS_BY_TAG_VALUE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<TArray<FString>>().read() }
+    }
+    pub fn list_assets(
+        &mut self,
+        directory_path: FString,
+        b_recursive: bool,
+        b_include_folder: bool,
+    ) -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LIST_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &directory_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recursive,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_include_folder,
+                __buffer.add(17).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LIST_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FString>>().read() }
+    }
+    pub fn get_tag_values(&mut self, asset_path: FString) -> TMap<FName, FString> {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_TAG_VALUES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_TAG_VALUES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<TMap<FName, FString>>().read() }
+    }
+    pub fn get_path_name_for_loaded_asset(
+        &mut self,
+        loaded_asset: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_PATH_NAME_FOR_LOADED_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &loaded_asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_PATH_NAME_FOR_LOADED_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FString>().read() }
+    }
+    pub fn get_metadata_tag_values(
+        &mut self,
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> TMap<FName, FString> {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_METADATA_TAG_VALUES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_METADATA_TAG_VALUES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<TMap<FName, FString>>().read() }
+    }
+    pub fn get_metadata_tag(
+        &mut self,
+        object: UPtr<crate::bindings::core_u_object::UObject>,
+        tag: FName,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_METADATA_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&tag, __buffer.add(8).cast::<FName>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_METADATA_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<FString>().read() }
+    }
+    pub fn get_loaded_asset_filename_length_for_cooking(
+        &mut self,
+        asset: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_LOADED_ASSET_FILENAME_LENGTH_FOR_COOKING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_LOADED_ASSET_FILENAME_LENGTH_FOR_COOKING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<i32>().read() }
+    }
+    pub fn get_asset_filename_length_for_cooking(&mut self, asset_path: FString) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_ASSET_FILENAME_LENGTH_FOR_COOKING,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_ASSET_FILENAME_LENGTH_FOR_COOKING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<i32>().read() }
+    }
+    pub fn get_all_assets_by_meta_data_tags(
+        &mut self,
+        required_tags: &TSet<FName>,
+        allowed_classes: &TSet<TSubclassOf<crate::bindings::core_u_object::UObject>>,
+    ) -> TArray<crate::bindings::core_u_object::FAssetData> {
+        let mut __stack = crate::core_data::StackAlloc::<176>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_ALL_ASSETS_BY_META_DATA_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                required_tags,
+                __buffer.add(0).cast::<TSet<FName>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                allowed_classes,
+                __buffer
+                    .add(80)
+                    .cast::<
+                        TSet<TSubclassOf<crate::bindings::core_u_object::UObject>>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_ALL_ASSETS_BY_META_DATA_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(160)
+                .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
+                .read()
+        }
+    }
+    pub fn find_package_referencers_for_asset(
+        &mut self,
+        asset_path: FString,
+        b_load_assets_to_confirm: bool,
+    ) -> TArray<FString> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_FIND_PACKAGE_REFERENCERS_FOR_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_load_assets_to_confirm,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_FIND_PACKAGE_REFERENCERS_FOR_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<TArray<FString>>().read() }
+    }
+    pub fn find_asset_data(
+        &mut self,
+        asset_path: FString,
+    ) -> crate::bindings::core_u_object::FAssetData {
+        let mut __stack = crate::core_data::StackAlloc::<168>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_FIND_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_FIND_ASSET_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<crate::bindings::core_u_object::FAssetData>().read()
+        }
+    }
+    pub fn duplicate_loaded_asset(
+        &mut self,
+        source_asset: UPtr<crate::bindings::core_u_object::UObject>,
+        destination_asset_path: FString,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_LOADED_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &destination_asset_path,
+                __buffer.add(8).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_LOADED_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn duplicate_directory(
+        &mut self,
+        source_directory_path: FString,
+        destination_directory_path: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_DIRECTORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_directory_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &destination_directory_path,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_DIRECTORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn duplicate_asset(
+        &mut self,
+        source_asset_path: FString,
+        destination_asset_path: FString,
+    ) -> UPtr<crate::bindings::core_u_object::UObject> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_asset_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &destination_asset_path,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
+                .read()
+        }
+    }
+    pub fn does_directory_exist(&mut self, directory_path: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DOES_DIRECTORY_EXIST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &directory_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DOES_DIRECTORY_EXIST,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn does_directory_contain_assets(
+        &mut self,
+        directory_path: FString,
+        b_recursive: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DOES_DIRECTORY_CONTAIN_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &directory_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recursive,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DOES_DIRECTORY_CONTAIN_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn does_asset_exist(&mut self, asset_path: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DOES_ASSET_EXIST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DOES_ASSET_EXIST,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn do_assets_exist(&mut self, asset_paths: &TArray<FString>) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DO_ASSETS_EXIST,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                asset_paths,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DO_ASSETS_EXIST,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn delete_loaded_assets(
+        &mut self,
+        assets_to_delete: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_LOADED_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                assets_to_delete,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_LOADED_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn delete_loaded_asset(
+        &mut self,
+        asset_to_delete: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_LOADED_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_to_delete,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_LOADED_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn delete_directory(&mut self, directory_path: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_DIRECTORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &directory_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_DIRECTORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn delete_asset(&mut self, asset_path_to_delete: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_path_to_delete,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn consolidate_assets(
+        &mut self,
+        asset_to_consolidate_to: UPtr<crate::bindings::core_u_object::UObject>,
+        assets_to_consolidate: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CONSOLIDATE_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_to_consolidate_to,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                assets_to_consolidate,
+                __buffer
+                    .add(8)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CONSOLIDATE_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn checkout_loaded_assets(
+        &mut self,
+        assets_to_checkout: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_LOADED_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                assets_to_checkout,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_LOADED_ASSETS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn checkout_loaded_asset(
+        &mut self,
+        asset_to_checkout: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_LOADED_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_to_checkout,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_LOADED_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn checkout_directory(
+        &mut self,
+        directory_path: FString,
+        b_recursive: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_DIRECTORY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &directory_path,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_recursive,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_DIRECTORY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn checkout_asset(&mut self, asset_to_checkout: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &asset_to_checkout,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_ASSET,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn add_on_extract_asset_from_file(
+        &mut self,
+        delegate: FAddOnExtractAssetFromFile_Delegate,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_ADD_ON_EXTRACT_ASSET_FROM_FILE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delegate,
+                __buffer.add(0).cast::<FAddOnExtractAssetFromFile_Delegate>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_ADD_ON_EXTRACT_ASSET_FROM_FILE,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UEditorSubsystemBlueprintLibrary {
@@ -12256,6 +19859,124 @@ impl UEditorSubsystemBlueprintLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn toggle_preview_platform() {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_TOGGLE_PREVIEW_PLATFORM,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::unreal_ed::UEditorSubsystemBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_TOGGLE_PREVIEW_PLATFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_preview_platform(preview_shader_platform_name: FName) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_SET_PREVIEW_PLATFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &preview_shader_platform_name,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorSubsystemBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_SET_PREVIEW_PLATFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_editor_subsystem(
+        class: TSubclassOf<crate::bindings::editor_subsystem::UEditorSubsystem>,
+    ) -> UPtr<crate::bindings::editor_subsystem::UEditorSubsystem> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_GET_EDITOR_SUBSYSTEM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &class,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        TSubclassOf<crate::bindings::editor_subsystem::UEditorSubsystem>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::unreal_ed::UEditorSubsystemBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_GET_EDITOR_SUBSYSTEM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<UPtr<crate::bindings::editor_subsystem::UEditorSubsystem>>()
+                .read()
+        }
+    }
+    pub fn disable_preview_platform() {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_DISABLE_PREVIEW_PLATFORM,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::unreal_ed::UEditorSubsystemBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_DISABLE_PREVIEW_PLATFORM,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(16))]
@@ -12340,6 +20061,149 @@ impl UUnrealEditorSubsystem {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_level_viewport_camera_info(
+        &mut self,
+        camera_location: crate::bindings::core_u_object::FVector,
+        camera_rotation: crate::bindings::core_u_object::FRotator,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_SET_LEVEL_VIEWPORT_CAMERA_INFO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_location,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &camera_rotation,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_SET_LEVEL_VIEWPORT_CAMERA_INFO,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_level_viewport_camera_info(
+        &mut self,
+        camera_location: &mut crate::bindings::core_u_object::FVector,
+        camera_rotation: &mut crate::bindings::core_u_object::FRotator,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_GET_LEVEL_VIEWPORT_CAMERA_INFO,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_location,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                camera_rotation,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FRotator>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_GET_LEVEL_VIEWPORT_CAMERA_INFO,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(camera_location);
+        }
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<crate::bindings::core_u_object::FRotator>()
+                .swap(camera_rotation);
+        }
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn get_game_world(&mut self) -> UPtr<crate::bindings::engine::UWorld> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_GET_GAME_WORLD,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_GET_GAME_WORLD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>().read() }
+    }
+    pub fn get_editor_world(&mut self) -> UPtr<crate::bindings::engine::UWorld> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_GET_EDITOR_WORLD,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_GET_EDITOR_WORLD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<UPtr<crate::bindings::engine::UWorld>>().read() }
     }
 }
 #[repr(C, align(8))]

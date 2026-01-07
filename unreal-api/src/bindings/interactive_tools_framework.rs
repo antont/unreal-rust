@@ -316,7 +316,6 @@ pub struct FDeviceButtonState {
     pub b_down: bool,
     pub b_released: bool,
     pub b_double_clicked: bool,
-    __padding_end: [u8; 4],
 }
 impl FDeviceButtonState {}
 #[repr(C, align(8))]

@@ -23,7 +23,6 @@ pub struct FNNEDenoiserBaseMappingData {
     pub tensor_index: i32,
     pub tensor_channel: i32,
     pub resource_channel: i32,
-    __padding_end: [u8; 4],
 }
 impl FNNEDenoiserBaseMappingData {}
 #[repr(C, align(8))]
@@ -31,7 +30,6 @@ pub struct FNNEDenoiserInputMappingData {
     #[doc(hidden)]
     __padding_24: [u8; 24],
     pub resource: EInputResourceName,
-    __padding_end: [u8; 7],
 }
 impl FNNEDenoiserInputMappingData {}
 #[repr(C, align(8))]
@@ -39,7 +37,6 @@ pub struct FNNEDenoiserOutputMappingData {
     #[doc(hidden)]
     __padding_24: [u8; 24],
     pub resource: EOutputResourceName,
-    __padding_end: [u8; 7],
 }
 impl FNNEDenoiserOutputMappingData {}
 #[repr(C, align(8))]
@@ -55,7 +52,6 @@ pub struct FNNEDenoiserTemporalOutputMappingData {
     #[doc(hidden)]
     __padding_24: [u8; 24],
     pub resource: ETemporalOutputResourceName,
-    __padding_end: [u8; 7],
 }
 impl FNNEDenoiserTemporalOutputMappingData {}
 #[repr(C, align(8))]

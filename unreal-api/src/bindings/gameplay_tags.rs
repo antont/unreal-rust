@@ -415,7 +415,6 @@ pub struct FRestrictedGameplayTagTableRow {
     #[doc(hidden)]
     __padding_40: [u8; 40],
     pub b_allow_non_restricted_children: bool,
-    __padding_end: [u8; 7],
 }
 impl FRestrictedGameplayTagTableRow {}
 #[repr(C, align(8))]
@@ -436,6 +435,1434 @@ impl UBlueprintGameplayTagLibrary {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn remove_gameplay_tag(
+        tag_container: &mut FGameplayTagContainer,
+        tag: FGameplayTag,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<45>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_REMOVE_GAMEPLAY_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_container,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tag,
+                __buffer.add(32).cast::<FGameplayTag>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_REMOVE_GAMEPLAY_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FGameplayTagContainer>().swap(tag_container);
+        }
+        unsafe { __buffer.add(44).cast::<bool>().read() }
+    }
+    pub fn not_equal_tag_tag(a: FGameplayTag, b: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_TAG_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&a, __buffer.add(0).cast::<FGameplayTag>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b, __buffer.add(16).cast::<FString>(), 1);
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_TAG_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn not_equal_tag_container_tag_container(
+        a: FGameplayTagContainer,
+        b: FString,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_TAG_CONTAINER_TAG_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &a,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b, __buffer.add(32).cast::<FString>(), 1);
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_TAG_CONTAINER_TAG_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn not_equal_gameplay_tag_container(
+        a: &FGameplayTagContainer,
+        b: &FGameplayTagContainer,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<65>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_GAMEPLAY_TAG_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                a,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b,
+                __buffer.add(32).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_GAMEPLAY_TAG_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<bool>().read() }
+    }
+    pub fn not_equal_gameplay_tag(a: FGameplayTag, b: FGameplayTag) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_GAMEPLAY_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&a, __buffer.add(0).cast::<FGameplayTag>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b,
+                __buffer.add(12).cast::<FGameplayTag>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_GAMEPLAY_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn matches_tag(
+        tag_one: FGameplayTag,
+        tag_two: FGameplayTag,
+        b_exact_match: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<26>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MATCHES_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tag_one,
+                __buffer.add(0).cast::<FGameplayTag>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tag_two,
+                __buffer.add(12).cast::<FGameplayTag>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_exact_match,
+                __buffer.add(24).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MATCHES_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(25).cast::<bool>().read() }
+    }
+    pub fn matches_any_tags(
+        tag_one: FGameplayTag,
+        other_container: &FGameplayTagContainer,
+        b_exact_match: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<50>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MATCHES_ANY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tag_one,
+                __buffer.add(0).cast::<FGameplayTag>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                other_container,
+                __buffer.add(16).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_exact_match,
+                __buffer.add(48).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MATCHES_ANY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(49).cast::<bool>().read() }
+    }
+    pub fn make_literal_gameplay_tag_container(
+        value: FGameplayTagContainer,
+    ) -> FGameplayTagContainer {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_LITERAL_GAMEPLAY_TAG_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_LITERAL_GAMEPLAY_TAG_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FGameplayTagContainer>().read() }
+    }
+    pub fn make_literal_gameplay_tag(value: FGameplayTag) -> FGameplayTag {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_LITERAL_GAMEPLAY_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value,
+                __buffer.add(0).cast::<FGameplayTag>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_LITERAL_GAMEPLAY_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<FGameplayTag>().read() }
+    }
+    pub fn make_gameplay_tag_query_match_no_tags(
+        in_tags: &FGameplayTagContainer,
+    ) -> FGameplayTagQuery {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_NO_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_tags,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_NO_TAGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FGameplayTagQuery>().read() }
+    }
+    pub fn make_gameplay_tag_query_match_any_tags(
+        in_tags: &FGameplayTagContainer,
+    ) -> FGameplayTagQuery {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_ANY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_tags,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_ANY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FGameplayTagQuery>().read() }
+    }
+    pub fn make_gameplay_tag_query_match_all_tags(
+        in_tags: &FGameplayTagContainer,
+    ) -> FGameplayTagQuery {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_ALL_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_tags,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_ALL_TAGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FGameplayTagQuery>().read() }
+    }
+    pub fn make_gameplay_tag_query(tag_query: FGameplayTagQuery) -> FGameplayTagQuery {
+        let mut __stack = crate::core_data::StackAlloc::<144>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tag_query,
+                __buffer.add(0).cast::<FGameplayTagQuery>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(72).cast::<FGameplayTagQuery>().read() }
+    }
+    pub fn make_gameplay_tag_container_from_tag(
+        single_tag: FGameplayTag,
+    ) -> FGameplayTagContainer {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_CONTAINER_FROM_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &single_tag,
+                __buffer.add(0).cast::<FGameplayTag>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_CONTAINER_FROM_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FGameplayTagContainer>().read() }
+    }
+    pub fn make_gameplay_tag_container_from_array(
+        gameplay_tags: &TArray<FGameplayTag>,
+    ) -> FGameplayTagContainer {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_CONTAINER_FROM_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                gameplay_tags,
+                __buffer.add(0).cast::<TArray<FGameplayTag>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_CONTAINER_FROM_ARRAY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FGameplayTagContainer>().read() }
+    }
+    pub fn is_tag_query_empty(tag_query: &FGameplayTagQuery) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<73>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_IS_TAG_QUERY_EMPTY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_query,
+                __buffer.add(0).cast::<FGameplayTagQuery>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_IS_TAG_QUERY_EMPTY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(72).cast::<bool>().read() }
+    }
+    pub fn is_gameplay_tag_valid(gameplay_tag: FGameplayTag) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_IS_GAMEPLAY_TAG_VALID,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &gameplay_tag,
+                __buffer.add(0).cast::<FGameplayTag>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_IS_GAMEPLAY_TAG_VALID,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn has_tag(
+        tag_container: &FGameplayTagContainer,
+        tag: FGameplayTag,
+        b_exact_match: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<46>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_container,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tag,
+                __buffer.add(32).cast::<FGameplayTag>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_exact_match,
+                __buffer.add(44).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(45).cast::<bool>().read() }
+    }
+    pub fn has_any_tags(
+        tag_container: &FGameplayTagContainer,
+        other_container: &FGameplayTagContainer,
+        b_exact_match: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<66>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ANY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_container,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                other_container,
+                __buffer.add(32).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_exact_match,
+                __buffer.add(64).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ANY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(65).cast::<bool>().read() }
+    }
+    pub fn has_any_matching_gameplay_tags(
+        tag_container_interface: TScriptInterface<UGameplayTagAssetInterface>,
+        other_container: &FGameplayTagContainer,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ANY_MATCHING_GAMEPLAY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tag_container_interface,
+                __buffer.add(0).cast::<TScriptInterface<UGameplayTagAssetInterface>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                other_container,
+                __buffer.add(16).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ANY_MATCHING_GAMEPLAY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn has_all_tags(
+        tag_container: &FGameplayTagContainer,
+        other_container: &FGameplayTagContainer,
+        b_exact_match: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<66>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ALL_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_container,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                other_container,
+                __buffer.add(32).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_exact_match,
+                __buffer.add(64).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ALL_TAGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(65).cast::<bool>().read() }
+    }
+    pub fn has_all_matching_gameplay_tags(
+        tag_container_interface: TScriptInterface<UGameplayTagAssetInterface>,
+        other_container: &FGameplayTagContainer,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ALL_MATCHING_GAMEPLAY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tag_container_interface,
+                __buffer.add(0).cast::<TScriptInterface<UGameplayTagAssetInterface>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                other_container,
+                __buffer.add(16).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ALL_MATCHING_GAMEPLAY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
+    pub fn get_tag_name(gameplay_tag: &FGameplayTag) -> FName {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_TAG_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                gameplay_tag,
+                __buffer.add(0).cast::<FGameplayTag>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_TAG_NAME,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<FName>().read() }
+    }
+    pub fn get_owned_gameplay_tags(
+        tag_container_interface: TScriptInterface<UGameplayTagAssetInterface>,
+    ) -> FGameplayTagContainer {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_OWNED_GAMEPLAY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tag_container_interface,
+                __buffer.add(0).cast::<TScriptInterface<UGameplayTagAssetInterface>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_OWNED_GAMEPLAY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FGameplayTagContainer>().read() }
+    }
+    pub fn get_num_gameplay_tags_in_container(
+        tag_container: &FGameplayTagContainer,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_NUM_GAMEPLAY_TAGS_IN_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_container,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_NUM_GAMEPLAY_TAGS_IN_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<i32>().read() }
+    }
+    pub fn get_debug_string_from_gameplay_tag_container(
+        tag_container: &FGameplayTagContainer,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_DEBUG_STRING_FROM_GAMEPLAY_TAG_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_container,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_DEBUG_STRING_FROM_GAMEPLAY_TAG_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<FString>().read() }
+    }
+    pub fn get_debug_string_from_gameplay_tag(gameplay_tag: FGameplayTag) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_DEBUG_STRING_FROM_GAMEPLAY_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &gameplay_tag,
+                __buffer.add(0).cast::<FGameplayTag>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_DEBUG_STRING_FROM_GAMEPLAY_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<FString>().read() }
+    }
+    pub fn get_all_actors_of_class_matching_tag_query(
+        world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
+        actor_class: TSubclassOf<crate::bindings::engine::AActor>,
+        gameplay_tag_query: &FGameplayTagQuery,
+        out_actors: &mut TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_ALL_ACTORS_OF_CLASS_MATCHING_TAG_QUERY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_context_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor_class,
+                __buffer.add(8).cast::<TSubclassOf<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                gameplay_tag_query,
+                __buffer.add(16).cast::<FGameplayTagQuery>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_actors,
+                __buffer.add(88).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_ALL_ACTORS_OF_CLASS_MATCHING_TAG_QUERY,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(88)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .swap(out_actors);
+        }
+    }
+    pub fn filter(
+        tag_container: &FGameplayTagContainer,
+        other_container: &FGameplayTagContainer,
+        b_exact_match: bool,
+    ) -> FGameplayTagContainer {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_FILTER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_container,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                other_container,
+                __buffer.add(32).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_exact_match,
+                __buffer.add(64).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_FILTER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(72).cast::<FGameplayTagContainer>().read() }
+    }
+    pub fn equal_equal_gameplay_tag_container(
+        a: &FGameplayTagContainer,
+        b: &FGameplayTagContainer,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<65>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_EQUAL_EQUAL_GAMEPLAY_TAG_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                a,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b,
+                __buffer.add(32).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_EQUAL_EQUAL_GAMEPLAY_TAG_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<bool>().read() }
+    }
+    pub fn equal_equal_gameplay_tag(a: FGameplayTag, b: FGameplayTag) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_EQUAL_EQUAL_GAMEPLAY_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&a, __buffer.add(0).cast::<FGameplayTag>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b,
+                __buffer.add(12).cast::<FGameplayTag>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_EQUAL_EQUAL_GAMEPLAY_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn does_tag_asset_interface_have_tag(
+        tag_container_interface: TScriptInterface<UGameplayTagAssetInterface>,
+        tag: FGameplayTag,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<29>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_DOES_TAG_ASSET_INTERFACE_HAVE_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tag_container_interface,
+                __buffer.add(0).cast::<TScriptInterface<UGameplayTagAssetInterface>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tag,
+                __buffer.add(16).cast::<FGameplayTag>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_DOES_TAG_ASSET_INTERFACE_HAVE_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(28).cast::<bool>().read() }
+    }
+    pub fn does_container_match_tag_query(
+        tag_container: &FGameplayTagContainer,
+        tag_query: &FGameplayTagQuery,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<105>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_DOES_CONTAINER_MATCH_TAG_QUERY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_container,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_query,
+                __buffer.add(32).cast::<FGameplayTagQuery>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_DOES_CONTAINER_MATCH_TAG_QUERY,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(104).cast::<bool>().read() }
+    }
+    pub fn conv_object_to_gameplay_tag_asset_interface(
+        in_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> TScriptInterface<UGameplayTagAssetInterface> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_CONV_OBJECT_TO_GAMEPLAY_TAG_ASSET_INTERFACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_CONV_OBJECT_TO_GAMEPLAY_TAG_ASSET_INTERFACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(8).cast::<TScriptInterface<UGameplayTagAssetInterface>>().read()
+        }
+    }
+    pub fn break_gameplay_tag_container(
+        gameplay_tag_container: &FGameplayTagContainer,
+        gameplay_tags: &mut TArray<FGameplayTag>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_BREAK_GAMEPLAY_TAG_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                gameplay_tag_container,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                gameplay_tags,
+                __buffer.add(32).cast::<TArray<FGameplayTag>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_BREAK_GAMEPLAY_TAG_CONTAINER,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(32).cast::<TArray<FGameplayTag>>().swap(gameplay_tags);
+        }
+    }
+    pub fn append_gameplay_tag_containers(
+        in_out_tag_container: &mut FGameplayTagContainer,
+        in_tag_container: &FGameplayTagContainer,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_APPEND_GAMEPLAY_TAG_CONTAINERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_out_tag_container,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_tag_container,
+                __buffer.add(32).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_APPEND_GAMEPLAY_TAG_CONTAINERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FGameplayTagContainer>().swap(in_out_tag_container);
+        }
+    }
+    pub fn add_gameplay_tag(
+        tag_container: &mut FGameplayTagContainer,
+        tag: FGameplayTag,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<44>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_ADD_GAMEPLAY_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_container,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tag,
+                __buffer.add(32).cast::<FGameplayTag>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::gameplay_tags::UBlueprintGameplayTagLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_ADD_GAMEPLAY_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FGameplayTagContainer>().swap(tag_container);
         }
     }
 }
@@ -459,6 +1886,129 @@ impl UGameplayTagAssetInterface {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn has_matching_gameplay_tag(&self, tag_to_check: FGameplayTag) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<13>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_MATCHING_GAMEPLAY_TAG,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &tag_to_check,
+                __buffer.add(0).cast::<FGameplayTag>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_MATCHING_GAMEPLAY_TAG,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<bool>().read() }
+    }
+    pub fn has_any_matching_gameplay_tags(
+        &self,
+        tag_container: &FGameplayTagContainer,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_ANY_MATCHING_GAMEPLAY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_container,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_ANY_MATCHING_GAMEPLAY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn has_all_matching_gameplay_tags(
+        &self,
+        tag_container: &FGameplayTagContainer,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_ALL_MATCHING_GAMEPLAY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                tag_container,
+                __buffer.add(0).cast::<FGameplayTagContainer>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_ALL_MATCHING_GAMEPLAY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn bp_get_owned_gameplay_tags(&self) -> FGameplayTagContainer {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_BP_GET_OWNED_GAMEPLAY_TAGS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_BP_GET_OWNED_GAMEPLAY_TAGS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FGameplayTagContainer>().read() }
     }
 }
 #[repr(C, align(8))]

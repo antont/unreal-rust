@@ -76,7 +76,6 @@ pub struct FMediaSourceColorSettings {
     pub blue_chromaticity_coordinate: crate::bindings::core_u_object::FVector2D,
     pub white_chromaticity_coordinate: crate::bindings::core_u_object::FVector2D,
     pub chromatic_adaptation_method: crate::bindings::engine::ETextureChromaticAdaptationMethod,
-    __padding_end: [u8; 7],
 }
 impl FMediaSourceColorSettings {}
 #[repr(C, align(8))]
@@ -106,6 +105,181 @@ impl UImgMediaSource {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_tokenized_sequence_path(&mut self, path: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_SET_TOKENIZED_SEQUENCE_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&path, __buffer.add(0).cast::<FString>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_SET_TOKENIZED_SEQUENCE_PATH,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_sequence_path(&mut self, path: FString) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_SET_SEQUENCE_PATH,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&path, __buffer.add(0).cast::<FString>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_SET_SEQUENCE_PATH,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_target_object(
+        &mut self,
+        in_actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_REMOVE_TARGET_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_REMOVE_TARGET_OBJECT,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_sequence_path(&self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_GET_SEQUENCE_PATH,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_GET_SEQUENCE_PATH,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_proxies(&self, out_proxies: &mut TArray<FString>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_GET_PROXIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_proxies,
+                __buffer.add(0).cast::<TArray<FString>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_GET_PROXIES,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<TArray<FString>>().swap(out_proxies);
+        }
+    }
+    pub fn add_target_object(
+        &mut self,
+        in_actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_ADD_TARGET_OBJECT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_ADD_TARGET_OBJECT,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(transparent)]

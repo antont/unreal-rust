@@ -51,6 +51,59 @@ impl UCacheTrackRecorder {
             cdo
         }
     }
+    pub fn get_state(&self) -> ECacheTrackRecorderState {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cache_track_recorder::U_CACHE_TRACK_RECORDER_GET_STATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cache_track_recorder::U_CACHE_TRACK_RECORDER_GET_STATE,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<ECacheTrackRecorderState>().read() }
+    }
+    pub fn get_sequence(&self) -> UPtr<crate::bindings::level_sequence::ULevelSequence> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::cache_track_recorder::U_CACHE_TRACK_RECORDER_GET_SEQUENCE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::cache_track_recorder::U_CACHE_TRACK_RECORDER_GET_SEQUENCE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::level_sequence::ULevelSequence>>()
+                .read()
+        }
+    }
 }
 #[repr(transparent)]
 pub struct ECacheTrackRecorderState(pub u8);

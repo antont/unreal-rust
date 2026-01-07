@@ -825,7 +825,6 @@ pub struct FChaosBreakingEventData {
     pub location: crate::bindings::core_u_object::FVector,
     pub velocity: crate::bindings::core_u_object::FVector,
     pub mass: f32,
-    __padding_end: [u8; 4],
 }
 impl FChaosBreakingEventData {}
 #[repr(C, align(8))]
@@ -870,7 +869,6 @@ pub struct FChaosBreakingEventRequestSettings {
     pub min_mass: f32,
     pub max_distance: f32,
     pub sort_method: EChaosBreakingSortMethod,
-    __padding_end: [u8; 3],
 }
 impl FChaosBreakingEventRequestSettings {}
 #[repr(C, align(4))]
@@ -881,7 +879,6 @@ pub struct FChaosCollisionEventRequestSettings {
     pub min_impulse: f32,
     pub max_distance: f32,
     pub sort_method: EChaosCollisionSortMethod,
-    __padding_end: [u8; 3],
 }
 impl FChaosCollisionEventRequestSettings {}
 #[repr(C, align(4))]
@@ -890,7 +887,6 @@ pub struct FChaosRemovalEventRequestSettings {
     pub min_mass: f32,
     pub max_distance: f32,
     pub sort_method: EChaosRemovalSortMethod,
-    __padding_end: [u8; 3],
 }
 impl FChaosRemovalEventRequestSettings {}
 #[repr(C, align(4))]
@@ -901,7 +897,6 @@ pub struct FChaosTrailingEventRequestSettings {
     pub min_angular_speed: f32,
     pub max_distance: f32,
     pub sort_method: EChaosTrailingSortMethod,
-    __padding_end: [u8; 3],
 }
 impl FChaosTrailingEventRequestSettings {}
 #[repr(C, align(16))]
@@ -913,7 +908,6 @@ pub struct FGeometryCollectionSource {
     pub b_add_internal_materials: bool,
     pub b_split_components: bool,
     pub b_set_internal_from_material_index: bool,
-    __padding_end: [u8; 13],
 }
 impl FGeometryCollectionSource {}
 #[repr(C, align(8))]
@@ -1017,6 +1011,610 @@ impl UChaosDestructionListener {
             cdo
         }
     }
+    pub fn sort_trailing_events(
+        &mut self,
+        trailing_events: &mut TArray<FChaosTrailingEventData>,
+        sort_method: EChaosTrailingSortMethod,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_TRAILING_EVENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                trailing_events,
+                __buffer.add(0).cast::<TArray<FChaosTrailingEventData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sort_method,
+                __buffer.add(16).cast::<EChaosTrailingSortMethod>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_TRAILING_EVENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<FChaosTrailingEventData>>()
+                .swap(trailing_events);
+        }
+    }
+    pub fn sort_removal_events(
+        &mut self,
+        removal_events: &mut TArray<FChaosRemovalEventData>,
+        sort_method: EChaosRemovalSortMethod,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_REMOVAL_EVENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                removal_events,
+                __buffer.add(0).cast::<TArray<FChaosRemovalEventData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sort_method,
+                __buffer.add(16).cast::<EChaosRemovalSortMethod>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_REMOVAL_EVENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<FChaosRemovalEventData>>()
+                .swap(removal_events);
+        }
+    }
+    pub fn sort_collision_events(
+        &mut self,
+        collision_events: &mut TArray<FChaosCollisionEventData>,
+        sort_method: EChaosCollisionSortMethod,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_COLLISION_EVENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collision_events,
+                __buffer.add(0).cast::<TArray<FChaosCollisionEventData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sort_method,
+                __buffer.add(16).cast::<EChaosCollisionSortMethod>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_COLLISION_EVENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<FChaosCollisionEventData>>()
+                .swap(collision_events);
+        }
+    }
+    pub fn sort_breaking_events(
+        &mut self,
+        breaking_events: &mut TArray<FChaosBreakingEventData>,
+        sort_method: EChaosBreakingSortMethod,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_BREAKING_EVENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                breaking_events,
+                __buffer.add(0).cast::<TArray<FChaosBreakingEventData>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sort_method,
+                __buffer.add(16).cast::<EChaosBreakingSortMethod>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_BREAKING_EVENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<FChaosBreakingEventData>>()
+                .swap(breaking_events);
+        }
+    }
+    pub fn set_trailing_event_request_settings(
+        &mut self,
+        in_settings: &FChaosTrailingEventRequestSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_REQUEST_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FChaosTrailingEventRequestSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_REQUEST_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_trailing_event_enabled(&mut self, b_is_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_removal_event_request_settings(
+        &mut self,
+        in_settings: &FChaosRemovalEventRequestSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_REQUEST_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FChaosRemovalEventRequestSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_REQUEST_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_removal_event_enabled(&mut self, b_is_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_collision_event_request_settings(
+        &mut self,
+        in_settings: &FChaosCollisionEventRequestSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_REQUEST_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FChaosCollisionEventRequestSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_REQUEST_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_collision_event_enabled(&mut self, b_is_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_breaking_event_request_settings(
+        &mut self,
+        in_settings: &FChaosBreakingEventRequestSettings,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_REQUEST_SETTINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_settings,
+                __buffer.add(0).cast::<FChaosBreakingEventRequestSettings>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_REQUEST_SETTINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_breaking_event_enabled(&mut self, b_is_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_ENABLED,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_ENABLED,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_geometry_collection_actor(
+        &mut self,
+        geometry_collection_actor: UPtr<AGeometryCollectionActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_REMOVE_GEOMETRY_COLLECTION_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &geometry_collection_actor,
+                __buffer.add(0).cast::<UPtr<AGeometryCollectionActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_REMOVE_GEOMETRY_COLLECTION_ACTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_chaos_solver_actor(
+        &mut self,
+        chaos_solver_actor: UPtr<crate::bindings::chaos_solver_engine::AChaosSolverActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_REMOVE_CHAOS_SOLVER_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &chaos_solver_actor,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::chaos_solver_engine::AChaosSolverActor>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_REMOVE_CHAOS_SOLVER_ACTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_event_listening(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_IS_EVENT_LISTENING,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_IS_EVENT_LISTENING,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn add_geometry_collection_actor(
+        &mut self,
+        geometry_collection_actor: UPtr<AGeometryCollectionActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_ADD_GEOMETRY_COLLECTION_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &geometry_collection_actor,
+                __buffer.add(0).cast::<UPtr<AGeometryCollectionActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_ADD_GEOMETRY_COLLECTION_ACTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn add_chaos_solver_actor(
+        &mut self,
+        chaos_solver_actor: UPtr<crate::bindings::chaos_solver_engine::AChaosSolverActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_ADD_CHAOS_SOLVER_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &chaos_solver_actor,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::chaos_solver_engine::AChaosSolverActor>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_ADD_CHAOS_SOLVER_ACTOR,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct AGeometryCollectionActor {
@@ -1041,6 +1639,59 @@ impl AGeometryCollectionActor {
             cdo
         }
     }
+    pub fn raycast_single(
+        &self,
+        start: crate::bindings::core_u_object::FVector,
+        end: crate::bindings::core_u_object::FVector,
+        out_hit: &mut crate::bindings::engine::FHitResult,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<313>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::A_GEOMETRY_COLLECTION_ACTOR_RAYCAST_SINGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &end,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_hit,
+                __buffer.add(48).cast::<crate::bindings::engine::FHitResult>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::A_GEOMETRY_COLLECTION_ACTOR_RAYCAST_SINGLE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(48).cast::<crate::bindings::engine::FHitResult>().swap(out_hit);
+        }
+        unsafe { __buffer.add(312).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UGeometryCollectionBlueprintLibrary {
@@ -1061,6 +1712,150 @@ impl UGeometryCollectionBlueprintLibrary {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_ism_pool_custom_instance_data(
+        geometry_collection_component: UPtr<UGeometryCollectionComponent>,
+        custom_data_index: i32,
+        custom_data_value: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_ISM_POOL_CUSTOM_INSTANCE_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &geometry_collection_component,
+                __buffer.add(0).cast::<UPtr<UGeometryCollectionComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &custom_data_index,
+                __buffer.add(8).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &custom_data_value,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::geometry_collection_engine::UGeometryCollectionBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_ISM_POOL_CUSTOM_INSTANCE_DATA,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_custom_instance_data_by_name(
+        geometry_collection_component: UPtr<UGeometryCollectionComponent>,
+        custom_data_name: FName,
+        custom_data_value: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &geometry_collection_component,
+                __buffer.add(0).cast::<UPtr<UGeometryCollectionComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &custom_data_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &custom_data_value,
+                __buffer.add(20).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::geometry_collection_engine::UGeometryCollectionBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_NAME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_custom_instance_data_by_index(
+        geometry_collection_component: UPtr<UGeometryCollectionComponent>,
+        custom_data_index: i32,
+        custom_data_value: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &geometry_collection_component,
+                __buffer.add(0).cast::<UPtr<UGeometryCollectionComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &custom_data_index,
+                __buffer.add(8).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &custom_data_value,
+                __buffer.add(12).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::geometry_collection_engine::UGeometryCollectionBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_INDEX,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -1185,6 +1980,1907 @@ impl UGeometryCollectionComponent {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_use_static_mesh_collision_for_traces(
+        &mut self,
+        b_in_use_static_mesh_collision_for_traces: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_STATIC_MESH_COLLISION_FOR_TRACES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_use_static_mesh_collision_for_traces,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_STATIC_MESH_COLLISION_FOR_TRACES,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_use_material_damage_modifiers(
+        &mut self,
+        b_in_use_material_damage_modifiers: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_MATERIAL_DAMAGE_MODIFIERS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_use_material_damage_modifiers,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_MATERIAL_DAMAGE_MODIFIERS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_solver_actor(
+        &mut self,
+        in_solver_actor: UPtr<crate::bindings::chaos_solver_engine::AChaosSolverActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_SOLVER_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_solver_actor,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::chaos_solver_engine::AChaosSolverActor>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_SOLVER_ACTOR,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_root_proxy_component_space_transform(
+        &mut self,
+        index: i32,
+        root_proxy_transform: &crate::bindings::core_u_object::FTransform,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ROOT_PROXY_COMPONENT_SPACE_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                root_proxy_transform,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ROOT_PROXY_COMPONENT_SPACE_TRANSFORM,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_rest_collection(
+        &mut self,
+        rest_collection_in: UPtr<UGeometryCollection>,
+        b_apply_asset_defaults: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_REST_COLLECTION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &rest_collection_in,
+                __buffer.add(0).cast::<UPtr<UGeometryCollection>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_apply_asset_defaults,
+                __buffer.add(8).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_REST_COLLECTION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_per_particle_collision_profile_name(
+        &mut self,
+        bone_ids: &TArray<i32>,
+        profile_name: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<28>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_PARTICLE_COLLISION_PROFILE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                bone_ids,
+                __buffer.add(0).cast::<TArray<i32>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &profile_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_PARTICLE_COLLISION_PROFILE_NAME,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_per_level_collision_profile_names(
+        &mut self,
+        profile_names: &TArray<FName>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_LEVEL_COLLISION_PROFILE_NAMES,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                profile_names,
+                __buffer.add(0).cast::<TArray<FName>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_LEVEL_COLLISION_PROFILE_NAMES,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_one_way_interaction_level(&mut self, in_one_way_interaction_level: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ONE_WAY_INTERACTION_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_one_way_interaction_level,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ONE_WAY_INTERACTION_LEVEL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_notify_removals(&mut self, b_new_notify_removals: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_REMOVALS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_new_notify_removals,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_REMOVALS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_notify_global_removals(&mut self, b_new_notify_global_removals: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_REMOVALS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_new_notify_global_removals,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_REMOVALS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_notify_global_crumblings(
+        &mut self,
+        b_new_notify_global_crumblings: bool,
+        b_global_new_crumbling_event_includes_children: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_CRUMBLINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_new_notify_global_crumblings,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_global_new_crumbling_event_includes_children,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_CRUMBLINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_notify_global_collision(&mut self, b_new_notify_global_collisions: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_COLLISION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_new_notify_global_collisions,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_COLLISION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_notify_global_breaks(&mut self, b_new_notify_global_breaks: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_BREAKS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_new_notify_global_breaks,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_BREAKS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_notify_crumblings(
+        &mut self,
+        b_new_notify_crumblings: bool,
+        b_new_crumbling_event_includes_children: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_CRUMBLINGS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_new_notify_crumblings,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_new_crumbling_event_includes_children,
+                __buffer.add(1).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_CRUMBLINGS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_notify_breaks(&mut self, b_new_notify_breaks: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_BREAKS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_new_notify_breaks,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_BREAKS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_local_rest_transforms(
+        &mut self,
+        transforms: &TArray<crate::bindings::core_u_object::FTransform>,
+        b_only_leaves: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_LOCAL_REST_TRANSFORMS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                transforms,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FTransform>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_only_leaves,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_LOCAL_REST_TRANSFORMS,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_gravity_group_index(&mut self, in_gravity_group_index: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_GRAVITY_GROUP_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_gravity_group_index,
+                __buffer.add(0).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_GRAVITY_GROUP_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_enable_damage_from_collision(&mut self, b_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ENABLE_DAMAGE_FROM_COLLISION,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ENABLE_DAMAGE_FROM_COLLISION,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_density_from_physics_material(
+        &mut self,
+        b_in_density_from_physics_material: bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DENSITY_FROM_PHYSICS_MATERIAL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_in_density_from_physics_material,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DENSITY_FROM_PHYSICS_MATERIAL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_damage_threshold(&mut self, in_damage_threshold: &TArray<f32>) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_THRESHOLD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_damage_threshold,
+                __buffer.add(0).cast::<TArray<f32>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_THRESHOLD,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_damage_propagation_data(
+        &mut self,
+        in_damage_propagation_data: &FGeometryCollectionDamagePropagationData,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_PROPAGATION_DATA,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_damage_propagation_data,
+                __buffer.add(0).cast::<FGeometryCollectionDamagePropagationData>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_PROPAGATION_DATA,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_damage_model(
+        &mut self,
+        in_damage_model: crate::bindings::chaos::EDamageModelTypeEnum,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_MODEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_damage_model,
+                __buffer.add(0).cast::<crate::bindings::chaos::EDamageModelTypeEnum>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_MODEL,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_anchored_by_transformed_box(
+        &mut self,
+        box_: crate::bindings::core_u_object::FBox,
+        transform: crate::bindings::core_u_object::FTransform,
+        b_anchored: bool,
+        max_level: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<168>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_TRANSFORMED_BOX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &box_,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FBox>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &transform,
+                __buffer.add(64).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_anchored,
+                __buffer.add(160).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &max_level,
+                __buffer.add(164).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_TRANSFORMED_BOX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_anchored_by_index(&mut self, index: i32, b_anchored: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_INDEX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_anchored,
+                __buffer.add(4).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_INDEX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_anchored_by_box(
+        &mut self,
+        world_space_box: crate::bindings::core_u_object::FBox,
+        b_anchored: bool,
+        max_level: i32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_BOX,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &world_space_box,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FBox>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_anchored,
+                __buffer.add(56).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&max_level, __buffer.add(60).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_BOX,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_abandoned_particle_collision_profile_name(
+        &mut self,
+        collision_profile: FName,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ABANDONED_PARTICLE_COLLISION_PROFILE_NAME,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &collision_profile,
+                __buffer.add(0).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ABANDONED_PARTICLE_COLLISION_PROFILE_NAME,
+                __buffer,
+            )
+        };
+    }
+    pub fn reset_state(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_RESET_STATE,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_RESET_STATE,
+                __buffer,
+            )
+        };
+    }
+    pub fn remove_all_anchors(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_REMOVE_ALL_ANCHORS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_REMOVE_ALL_ANCHORS,
+                __buffer,
+            )
+        };
+    }
+    pub fn is_root_broken(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_IS_ROOT_BROKEN,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_IS_ROOT_BROKEN,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_use_static_mesh_collision_for_traces(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_USE_STATIC_MESH_COLLISION_FOR_TRACES,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_USE_STATIC_MESH_COLLISION_FOR_TRACES,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn get_solver_actor(
+        &self,
+    ) -> UPtr<crate::bindings::chaos_solver_engine::AChaosSolverActor> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_SOLVER_ACTOR,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_SOLVER_ACTOR,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::chaos_solver_engine::AChaosSolverActor>>()
+                .read()
+        }
+    }
+    pub fn get_root_initial_transform(
+        &self,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INITIAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INITIAL_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_root_index(&self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INDEX,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INDEX,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn get_root_current_transform(
+        &self,
+    ) -> crate::bindings::core_u_object::FTransform {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_CURRENT_TRANSFORM,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_CURRENT_TRANSFORM,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>().read()
+        }
+    }
+    pub fn get_mass_and_extents(
+        &mut self,
+        item_index: i32,
+        out_mass: &mut f32,
+        out_extents: &mut crate::bindings::core_u_object::FBox,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_MASS_AND_EXTENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&item_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(out_mass, __buffer.add(4).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_extents,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FBox>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_MASS_AND_EXTENTS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(4).cast::<f32>().swap(out_mass);
+        }
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<crate::bindings::core_u_object::FBox>()
+                .swap(out_extents);
+        }
+    }
+    pub fn get_local_rest_transforms(
+        &self,
+        b_initial_transforms: bool,
+    ) -> TArray<crate::bindings::core_u_object::FTransform> {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_REST_TRANSFORMS,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_initial_transforms,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_REST_TRANSFORMS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<TArray<crate::bindings::core_u_object::FTransform>>()
+                .read()
+        }
+    }
+    pub fn get_local_bounds(&self) -> crate::bindings::core_u_object::FBox {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_BOUNDS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_BOUNDS,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<crate::bindings::core_u_object::FBox>().read() }
+    }
+    pub fn get_initial_local_rest_transforms(
+        &self,
+    ) -> TArray<crate::bindings::core_u_object::FTransform> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LOCAL_REST_TRANSFORMS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LOCAL_REST_TRANSFORMS,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<crate::bindings::core_u_object::FTransform>>()
+                .read()
+        }
+    }
+    pub fn get_initial_level(&mut self, item_index: i32) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&item_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LEVEL,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<i32>().read() }
+    }
+    pub fn get_debug_info(&mut self) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_DEBUG_INFO,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_DEBUG_INFO,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FString>().read() }
+    }
+    pub fn get_damage_threshold(&self) -> TArray<f32> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_DAMAGE_THRESHOLD,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_DAMAGE_THRESHOLD,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<f32>>().read() }
+    }
+    pub fn force_broken_for_custom_renderer(&mut self, b_force_broken: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_FORCE_BROKEN_FOR_CUSTOM_RENDERER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_force_broken,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_FORCE_BROKEN_FOR_CUSTOM_RENDERER,
+                __buffer,
+            )
+        };
+    }
+    pub fn find_leaf_transform_by_line_trace(
+        &self,
+        start: crate::bindings::core_u_object::FVector,
+        end: crate::bindings::core_u_object::FVector,
+        leaf_transform_index: &mut i32,
+        leaf_transform_name: &mut FName,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<65>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_FIND_LEAF_TRANSFORM_BY_LINE_TRACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &start,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &end,
+                __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                leaf_transform_index,
+                __buffer.add(48).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                leaf_transform_name,
+                __buffer.add(52).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_FIND_LEAF_TRANSFORM_BY_LINE_TRACE,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(48).cast::<i32>().swap(leaf_transform_index);
+        }
+        unsafe {
+            __buffer.add(52).cast::<FName>().swap(leaf_transform_name);
+        }
+        unsafe { __buffer.add(64).cast::<bool>().read() }
+    }
+    pub fn enable_root_proxy_for_custom_renderer(&mut self, b_enable: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_ENABLE_ROOT_PROXY_FOR_CUSTOM_RENDERER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_enable, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_ENABLE_ROOT_PROXY_FOR_CUSTOM_RENDERER,
+                __buffer,
+            )
+        };
+    }
+    pub fn crumble_cluster(&mut self, item_index: i32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_CLUSTER,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&item_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_CLUSTER,
+                __buffer,
+            )
+        };
+    }
+    pub fn crumble_active_clusters(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_ACTIVE_CLUSTERS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_ACTIVE_CLUSTERS,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_physics_field(
+        &mut self,
+        enabled: bool,
+        target: crate::bindings::chaos::EGeometryCollectionPhysicsTypeEnum,
+        meta_data: UPtr<crate::bindings::field_system_engine::UFieldSystemMetaData>,
+        field: UPtr<crate::bindings::field_system_engine::UFieldNodeBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_PHYSICS_FIELD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&enabled, __buffer.add(0).cast::<bool>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &target,
+                __buffer
+                    .add(1)
+                    .cast::<
+                        crate::bindings::chaos::EGeometryCollectionPhysicsTypeEnum,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &meta_data,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        UPtr<crate::bindings::field_system_engine::UFieldSystemMetaData>,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &field,
+                __buffer
+                    .add(16)
+                    .cast::<
+                        UPtr<crate::bindings::field_system_engine::UFieldNodeBase>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_PHYSICS_FIELD,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_linear_velocity(
+        &mut self,
+        item_index: i32,
+        linear_velocity: &crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_LINEAR_VELOCITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&item_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                linear_velocity,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_LINEAR_VELOCITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_kinematic_field(
+        &mut self,
+        radius: f32,
+        position: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_KINEMATIC_FIELD,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &position,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_KINEMATIC_FIELD,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_internal_strain(
+        &mut self,
+        item_index: i32,
+        location: &crate::bindings::core_u_object::FVector,
+        radius: f32,
+        propagation_depth: i32,
+        propagation_factor: f32,
+        strain: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_INTERNAL_STRAIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&item_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                location,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius, __buffer.add(32).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &propagation_depth,
+                __buffer.add(36).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &propagation_factor,
+                __buffer.add(40).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&strain, __buffer.add(44).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_INTERNAL_STRAIN,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_external_strain(
+        &mut self,
+        item_index: i32,
+        location: &crate::bindings::core_u_object::FVector,
+        radius: f32,
+        propagation_depth: i32,
+        propagation_factor: f32,
+        strain: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_EXTERNAL_STRAIN,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&item_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                location,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&radius, __buffer.add(32).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &propagation_depth,
+                __buffer.add(36).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &propagation_factor,
+                __buffer.add(40).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&strain, __buffer.add(44).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_EXTERNAL_STRAIN,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_breaking_linear_velocity(
+        &mut self,
+        item_index: i32,
+        linear_velocity: &crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_LINEAR_VELOCITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&item_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                linear_velocity,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_LINEAR_VELOCITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_breaking_angular_velocity(
+        &mut self,
+        item_index: i32,
+        angular_velocity: &crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_ANGULAR_VELOCITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&item_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                angular_velocity,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_ANGULAR_VELOCITY,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_asset_defaults(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ASSET_DEFAULTS,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ASSET_DEFAULTS,
+                __buffer,
+            )
+        };
+    }
+    pub fn apply_angular_velocity(
+        &mut self,
+        item_index: i32,
+        angular_velocity: &crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ANGULAR_VELOCITY,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&item_index, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                angular_velocity,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ANGULAR_VELOCITY,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -1384,6 +4080,124 @@ impl UGeometryCollection {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn set_enable_nanite(&mut self, b_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_SET_ENABLE_NANITE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_SET_ENABLE_NANITE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_dataflow_asset(
+        &mut self,
+        in_dataflow_asset: UPtr<crate::bindings::dataflow_engine::UDataflow>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_SET_DATAFLOW_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_dataflow_asset,
+                __buffer
+                    .add(0)
+                    .cast::<UPtr<crate::bindings::dataflow_engine::UDataflow>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_SET_DATAFLOW_ASSET,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_convert_vertex_colors_to_srgb(&mut self, b_value: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_SET_CONVERT_VERTEX_COLORS_TO_SRGB,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_value, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_SET_CONVERT_VERTEX_COLORS_TO_SRGB,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_dataflow_asset(
+        &self,
+    ) -> UPtr<crate::bindings::dataflow_engine::UDataflow> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_GET_DATAFLOW_ASSET,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_GET_DATAFLOW_ASSET,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<UPtr<crate::bindings::dataflow_engine::UDataflow>>()
+                .read()
         }
     }
 }

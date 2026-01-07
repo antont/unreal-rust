@@ -190,6 +190,39 @@ impl UChaosSolverEngineBlueprintLibrary {
             cdo
         }
     }
+    pub fn convert_physics_collision_to_hit_result(
+        physics_collision: &FChaosPhysicsCollisionInfo,
+    ) -> crate::bindings::engine::FHitResult {
+        let mut __stack = crate::core_data::StackAlloc::<456>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_solver_engine::U_CHAOS_SOLVER_ENGINE_BLUEPRINT_LIBRARY_CONVERT_PHYSICS_COLLISION_TO_HIT_RESULT,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                physics_collision,
+                __buffer.add(0).cast::<FChaosPhysicsCollisionInfo>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::chaos_solver_engine::UChaosSolverEngineBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_solver_engine::U_CHAOS_SOLVER_ENGINE_BLUEPRINT_LIBRARY_CONVERT_PHYSICS_COLLISION_TO_HIT_RESULT,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(192).cast::<crate::bindings::engine::FHitResult>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UChaosSolver {
@@ -231,6 +264,55 @@ impl AChaosSolverActor {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn set_solver_active(&mut self, b_active: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_solver_engine::A_CHAOS_SOLVER_ACTOR_SET_SOLVER_ACTIVE,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&b_active, __buffer.add(0).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_solver_engine::A_CHAOS_SOLVER_ACTOR_SET_SOLVER_ACTIVE,
+                __buffer,
+            )
+        };
+    }
+    pub fn set_as_current_world_solver(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::chaos_solver_engine::A_CHAOS_SOLVER_ACTOR_SET_AS_CURRENT_WORLD_SOLVER,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::chaos_solver_engine::A_CHAOS_SOLVER_ACTOR_SET_AS_CURRENT_WORLD_SOLVER,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
